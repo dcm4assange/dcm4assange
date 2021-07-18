@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elements>
+<el tag="00190000" owner="Harmony R1.0" vr="IS" vm="1"/>
+<el tag="00190001" owner="Harmony R1.0" vr="LO" vm="1"/>
+<el tag="00190002" owner="Harmony R1.0" vr="US" vm="1"/>
+<el tag="00190003" owner="Harmony R1.0" vr="IS" vm="1"/>
+<el tag="00190004" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="00190005" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="00190006" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="00190007" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="00190008" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="00190009" owner="Harmony R1.0" vr="US" vm="1"/>
+<el tag="0019000a" owner="Harmony R1.0" vr="US" vm="1"/>
+<el tag="0019000b" owner="Harmony R1.0" vr="US" vm="1"/>
+<el tag="0019000c" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="0019000d" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="0019000e" owner="Harmony R1.0" vr="US" vm="1"/>
+<el tag="0019000f" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="00190010" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="00190011" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="00190012" owner="Harmony R1.0" vr="TM" vm="1"/>
+<el tag="00190013" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="00190014" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="00190015" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="00190016" owner="Harmony R1.0" vr="IS" vm="1-n"/>
+<el tag="00190017" owner="Harmony R1.0" vr="US" vm="1"/>
+<el tag="00190018" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="00190019" owner="Harmony R1.0" vr="US" vm="1"/>
+<el tag="0019001a" owner="Harmony R1.0" vr="US" vm="1"/>
+<el tag="0019001b" owner="Harmony R1.0" vr="US" vm="1"/>
+<el tag="0019001c" owner="Harmony R1.0" vr="US" vm="1"/>
+<el tag="0019001d" owner="Harmony R1.0" vr="IS" vm="1"/>
+<el tag="0019001e" owner="Harmony R1.0" vr="US" vm="1"/>
+<el tag="0019001f" owner="Harmony R1.0" vr="US" vm="1"/>
+<el tag="00190020" owner="Harmony R1.0" vr="US" vm="1"/>
+<el tag="00190024" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="00190025" owner="Harmony R1.0" vr="IS" vm="1"/>
+<el tag="00190026" owner="Harmony R1.0" vr="IS" vm="1"/>
+<el tag="00190029" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="0019002a" owner="Harmony R1.0" vr="US" vm="1"/>
+<el tag="0019002b" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="0019002d" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="0019002e" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="0019002f" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="00190030" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="00190031" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="00190032" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="00190033" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="00190034" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="00190035" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="00190036" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="00190037" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="00190038" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="00190039" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="0019003a" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="0019003b" owner="Harmony R1.0" vr="US" vm="1"/>
+<el tag="0019003c" owner="Harmony R1.0" vr="US" vm="1"/>
+<el tag="0019003d" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="0019003e" owner="Harmony R1.0" vr="US" vm="1"/>
+<el tag="0019003f" owner="Harmony R1.0" vr="US" vm="1"/>
+<el tag="00190040" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="00190041" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="00190042" owner="Harmony R1.0" vr="LO" vm="1"/>
+<el tag="00190043" owner="Harmony R1.0" vr="US" vm="1"/>
+<el tag="00190044" owner="Harmony R1.0" vr="US" vm="1"/>
+<el tag="00190045" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="00190046" owner="Harmony R1.0" vr="US" vm="1"/>
+<el tag="00190047" owner="Harmony R1.0" vr="LO" vm="1"/>
+<el tag="00190048" owner="Harmony R1.0" vr="US" vm="1"/>
+<el tag="00190049" owner="Harmony R1.0" vr="US" vm="1"/>
+<el tag="0019004a" owner="Harmony R1.0" vr="US" vm="1"/>
+<el tag="0019004b" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="0019004c" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="0019004e" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="0019004f" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="00190050" owner="Harmony R1.0" vr="US" vm="1"/>
+<el tag="00190051" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="00190052" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="00190054" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="00190055" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="00190056" owner="Harmony R1.0" vr="US" vm="1"/>
+<el tag="00190057" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="00190058" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="00190059" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="0019005a" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="0019005b" owner="Harmony R1.0" vr="US" vm="1"/>
+<el tag="0019005c" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="0019005d" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="0019005f" owner="Harmony R1.0" vr="UI" vm="1"/>
+<el tag="00190060" owner="Harmony R1.0" vr="UI" vm="1"/>
+<el tag="00190063" owner="Harmony R1.0" vr="US" vm="1"/>
+<el tag="00190064" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="00190065" owner="Harmony R1.0" vr="UN" vm="1"/>
+<el tag="00190066" owner="Harmony R1.0" vr="DS" vm="1"/>
+<el tag="00190067" owner="Harmony R1.0" vr="IS" vm="1"/>
+<el tag="00190068" owner="Harmony R1.0" vr="IS" vm="1"/>
+<el tag="00190069" owner="Harmony R1.0" vr="IS" vm="1"/>
+<el tag="0019006a" owner="Harmony R1.0" vr="IS" vm="1"/>
+<el tag="0019006b" owner="Harmony R1.0" vr="LO" vm="1"/>
+<el tag="00190070" owner="Harmony R1.0" vr="LO" vm="1"/>
+<el tag="00190071" owner="Harmony R1.0" vr="LO" vm="1"/>
+<el tag="00190072" owner="Harmony R1.0" vr="IS" vm="1"/>
+<el tag="00190073" owner="Harmony R1.0" vr="IS" vm="1"/>
+<el tag="00190074" owner="Harmony R1.0" vr="US" vm="1"/>
+<el tag="00190075" owner="Harmony R1.0" vr="IS" vm="1"/>
+<el tag="00190078" owner="Harmony R1.0" vr="IS" vm="1"/>
+<el tag="00190079" owner="Harmony R1.0" vr="IS" vm="1"/>
+<el tag="0019007a" owner="Harmony R1.0" vr="IS" vm="1"/>
+<el tag="0019007b" owner="Harmony R1.0" vr="IS" vm="1"/>
+<el tag="0019007c" owner="Harmony R1.0" vr="US" vm="1"/>
+<el tag="0019007d" owner="Harmony R1.0" vr="US" vm="1"/>
+<el tag="0019007e" owner="Harmony R1.0" vr="US" vm="1"/>
+<el tag="0019007f" owner="Harmony R1.0" vr="US" vm="1"/>
+<el tag="00190080" owner="Harmony R1.0" vr="US" vm="1"/>
+<el tag="00190081" owner="Harmony R1.0" vr="US" vm="1"/>
+<el tag="00190082" owner="Harmony R1.0" vr="US" vm="1"/>
+<el tag="00190083" owner="Harmony R1.0" vr="US" vm="1"/>
+<el tag="00190000" owner="Harmony R1.0 C2" vr="LO" vm="1"/>
+<el tag="00190001" owner="Harmony R1.0 C2" vr="UN" vm="1"/>
+<el tag="00190002" owner="Harmony R1.0 C2" vr="UN" vm="1"/>
+<el tag="00190003" owner="Harmony R1.0 C2" vr="UN" vm="1"/>
+<el tag="00190004" owner="Harmony R1.0 C2" vr="UN" vm="1"/>
+<el tag="00190005" owner="Harmony R1.0 C2" vr="UN" vm="1"/>
+<el tag="00190006" owner="Harmony R1.0 C2" vr="LO" vm="1"/>
+<el tag="00190007" owner="Harmony R1.0 C2" vr="UN" vm="1"/>
+<el tag="00190008" owner="Harmony R1.0 C2" vr="UN" vm="1"/>
+<el tag="00190009" owner="Harmony R1.0 C2" vr="UN" vm="1"/>
+<el tag="0019000a" owner="Harmony R1.0 C2" vr="UN" vm="1"/>
+<el tag="0019006a" owner="Harmony R1.0 C2" vr="LO" vm="1"/>
+<el tag="0019006c" owner="Harmony R1.0 C2" vr="US" vm="1"/>
+<el tag="0019006d" owner="Harmony R1.0 C2" vr="US" vm="1"/>
+<el tag="0019006e" owner="Harmony R1.0 C2" vr="UN" vm="1"/>
+<el tag="00190074" owner="Harmony R1.0 C2" vr="UN" vm="1"/>
+<el tag="00190076" owner="Harmony R1.0 C2" vr="UN" vm="1"/>
+<el tag="00190078" owner="Harmony R1.0 C2" vr="US" vm="1"/>
+<el tag="00190079" owner="Harmony R1.0 C2" vr="US" vm="1"/>
+<el tag="0019007a" owner="Harmony R1.0 C2" vr="US" vm="1"/>
+<el tag="00190080" owner="Harmony R1.0 C2" vr="UN" vm="1"/>
+<el tag="00190081" owner="Harmony R1.0 C2" vr="UN" vm="1"/>
+<el tag="00190082" owner="Harmony R1.0 C2" vr="UN" vm="1"/>
+<el tag="00190083" owner="Harmony R1.0 C2" vr="UN" vm="1"/>
+<el tag="00190084" owner="Harmony R1.0 C2" vr="UN" vm="1"/>
+<el tag="00190091" owner="Harmony R1.0 C2" vr="UN" vm="1"/>
+<el tag="00190000" owner="Harmony R1.0 C3" vr="LO" vm="1"/>
+<el tag="00190003" owner="Harmony R1.0 C3" vr="LO" vm="1"/>
+<el tag="00190007" owner="Harmony R1.0 C3" vr="LO" vm="1"/>
+<el tag="0019000b" owner="Harmony R1.0 C3" vr="LO" vm="1"/>
+<el tag="00190050" owner="Harmony R1.0 C3" vr="UN" vm="1"/>
+<el tag="00190051" owner="Harmony R1.0 C3" vr="UN" vm="1"/>
+<el tag="00190052" owner="Harmony R1.0 C3" vr="LO" vm="1"/>
+<el tag="00190053" owner="Harmony R1.0 C3" vr="UN" vm="1"/>
+<el tag="0019005a" owner="Harmony R1.0 C3" vr="US" vm="1"/>
+<el tag="0019005b" owner="Harmony R1.0 C3" vr="LO" vm="1"/>
+<el tag="0019005c" owner="Harmony R1.0 C3" vr="US" vm="1"/>
+<el tag="0019005f" owner="Harmony R1.0 C3" vr="US" vm="1"/>
+<el tag="00190078" owner="Harmony R1.0 C3" vr="LO" vm="1"/>
+<el tag="00190079" owner="Harmony R1.0 C3" vr="PN" vm="1"/>
+<el tag="0019007a" owner="Harmony R1.0 C3" vr="PN" vm="1"/>
+<el tag="0019007b" owner="Harmony R1.0 C3" vr="LO" vm="1"/>
+<el tag="0019007c" owner="Harmony R1.0 C3" vr="UN" vm="1"/>
+<el tag="0019007d" owner="Harmony R1.0 C3" vr="CS" vm="1"/>
+<el tag="0019007e" owner="Harmony R1.0 C3" vr="LO" vm="1"/>
+<el tag="0019007f" owner="Harmony R1.0 C3" vr="UN" vm="1"/>
+<el tag="00190080" owner="Harmony R1.0 C3" vr="IS" vm="1"/>
+<el tag="00190083" owner="Harmony R1.0 C3" vr="IS" vm="1"/>
+<el tag="00190094" owner="Harmony R1.0 C3" vr="IS" vm="1"/>
+<el tag="00190095" owner="Harmony R1.0 C3" vr="IS" vm="1"/>
+<el tag="00190096" owner="Harmony R1.0 C3" vr="LO" vm="1"/>
+<el tag="00190097" owner="Harmony R1.0 C3" vr="UN" vm="1"/>
+<el tag="00190098" owner="Harmony R1.0 C3" vr="IS" vm="1-n"/>
+<el tag="001900e4" owner="Harmony R1.0 C3" vr="LO" vm="1"/>
+<el tag="001900e5" owner="Harmony R1.0 C3" vr="UN" vm="1"/>
+<el tag="001900e6" owner="Harmony R1.0 C3" vr="UN" vm="1"/>
+<el tag="001900e7" owner="Harmony R1.0 C3" vr="UN" vm="1"/>
+<el tag="001900e8" owner="Harmony R1.0 C3" vr="UN" vm="1"/>
+<el tag="001900e9" owner="Harmony R1.0 C3" vr="US" vm="1"/>
+<el tag="001900ea" owner="Harmony R1.0 C3" vr="UN" vm="1"/>
+<el tag="001900eb" owner="Harmony R1.0 C3" vr="US" vm="1"/>
+<el tag="001900ec" owner="Harmony R1.0 C3" vr="UN" vm="1"/>
+<el tag="001900ed" owner="Harmony R1.0 C3" vr="UN" vm="1"/>
+<el tag="001900ee" owner="Harmony R1.0 C3" vr="US" vm="1"/>
+<el tag="001900ef" owner="Harmony R1.0 C3" vr="US" vm="1"/>
+<el tag="001900f0" owner="Harmony R1.0 C3" vr="UN" vm="1"/>
+<el tag="001900f1" owner="Harmony R1.0 C3" vr="UN" vm="1"/>
+<el tag="001900f2" owner="Harmony R1.0 C3" vr="UN" vm="1"/>
+<el tag="00190079" owner="Harmony R2.0" vr="IS" vm="1"/>
+<el tag="0019007c" owner="Harmony R2.0" vr="IS" vm="1"/>
+<el tag="0019007d" owner="Harmony R2.0" vr="UN" vm="1"/>
+<el tag="00190081" owner="Harmony R2.0" vr="IS" vm="1"/>
+<el tag="00190082" owner="Harmony R2.0" vr="US" vm="1"/>
+<el tag="00190083" owner="Harmony R2.0" vr="US" vm="1"/>
+<el tag="00190084" owner="Harmony R2.0" vr="US" vm="1"/>
+<el tag="00190085" owner="Harmony R2.0" vr="UN" vm="1"/>
+<el tag="00190086" owner="Harmony R2.0" vr="IS" vm="1"/>
+<el tag="00190087" owner="Harmony R2.0" vr="UN" vm="1"/>
+<el tag="00190088" owner="Harmony R2.0" vr="IS" vm="1"/>
+<el tag="00190089" owner="Harmony R2.0" vr="US" vm="1"/>
+<el tag="0019008a" owner="Harmony R2.0" vr="US" vm="1"/>
+<el tag="0019008c" owner="Harmony R2.0" vr="IS" vm="1"/>
+<el tag="0019008d" owner="Harmony R2.0" vr="DS" vm="1"/>
+<el tag="0019008f" owner="Harmony R2.0" vr="US" vm="1"/>
+<el tag="00190090" owner="Harmony R2.0" vr="US" vm="1"/>
+<el tag="00190091" owner="Harmony R2.0" vr="US" vm="1"/>
+<el tag="00190092" owner="Harmony R2.0" vr="US" vm="1"/>
+<el tag="00190093" owner="Harmony R2.0" vr="DS" vm="2"/>
+<el tag="00190094" owner="Harmony R2.0" vr="LO" vm="1"/>
+<el tag="00190095" owner="Harmony R2.0" vr="LO" vm="1-n"/>
+<el tag="00190096" owner="Harmony R2.0" vr="DS" vm="1"/>
+<el tag="00190097" owner="Harmony R2.0" vr="IS" vm="2"/>
+<el tag="00190099" owner="Harmony R2.0" vr="LO" vm="1"/>
+</elements>

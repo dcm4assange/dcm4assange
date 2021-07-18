@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elements>
+<el tag="00080101" keyword="ExtendedCodeValue" vr="LO" vm="1">Extended Code Value</el>
+<el tag="00080108" keyword="ExtendedCodeMeaning" vr="LT" vm="1">Extended Code Meaning</el>
+<el tag="40100001" keyword="LowEnergyDetectors" vr="CS" vm="1">Low Energy Detectors</el>
+<el tag="40100002" keyword="HighEnergyDetectors" vr="CS" vm="1">High Energy Detectors</el>
+<el tag="40100004" keyword="DetectorGeometrySequence" vr="SQ" vm="1">Detector Geometry Sequence</el>
+<el tag="40101001" keyword="ThreatROIVoxelSequence" vr="SQ" vm="1">Threat ROI Voxel Sequence</el>
+<el tag="40101004" keyword="ThreatROIBase" vr="FL" vm="3">Threat ROI Base</el>
+<el tag="40101005" keyword="ThreatROIExtents" vr="FL" vm="3">Threat ROI Extents</el>
+<el tag="40101006" keyword="ThreatROIBitmap" vr="OB" vm="1">Threat ROI Bitmap</el>
+<el tag="40101007" keyword="RouteSegmentID" vr="SH" vm="1">Route Segment ID</el>
+<el tag="40101008" keyword="GantryType" vr="CS" vm="1">Gantry Type</el>
+<el tag="40101009" keyword="OOIOwnerType" vr="CS" vm="1">OOI Owner Type</el>
+<el tag="4010100A" keyword="RouteSegmentSequence" vr="SQ" vm="1">Route Segment Sequence</el>
+<el tag="40101010" keyword="PotentialThreatObjectID" vr="US" vm="1">Potential Threat Object ID</el>
+<el tag="40101011" keyword="ThreatSequence" vr="SQ" vm="1">Threat Sequence</el>
+<el tag="40101012" keyword="ThreatCategory" vr="CS" vm="1">Threat Category</el>
+<el tag="40101013" keyword="ThreatCategoryDescription" vr="LT" vm="1">Threat Category Description</el>
+<el tag="40101014" keyword="ATDAbilityAssessment" vr="CS" vm="1">ATD Ability Assessment</el>
+<el tag="40101015" keyword="ATDAssessmentFlag" vr="CS" vm="1">ATD Assessment Flag</el>
+<el tag="40101016" keyword="ATDAssessmentProbability" vr="FL" vm="1">ATD Assessment Probability</el>
+<el tag="40101017" keyword="Mass" vr="FL" vm="1">Mass</el>
+<el tag="40101018" keyword="Density" vr="FL" vm="1">Density</el>
+<el tag="40101019" keyword="ZEffective" vr="FL" vm="1">Z Effective</el>
+<el tag="4010101A" keyword="BoardingPassID" vr="SH" vm="1">Boarding Pass ID</el>
+<el tag="4010101B" keyword="CenterOfMass" vr="FL" vm="3">Center of Mass</el>
+<el tag="4010101C" keyword="CenterOfPTO" vr="FL" vm="3">Center of PTO</el>
+<el tag="4010101D" keyword="BoundingPolygon" vr="FL" vm="6-n">Bounding Polygon</el>
+<el tag="4010101E" keyword="RouteSegmentStartLocationID" vr="SH" vm="1">Route Segment Start Location ID</el>
+<el tag="4010101F" keyword="RouteSegmentEndLocationID" vr="SH" vm="1">Route Segment End Location ID</el>
+<el tag="40101020" keyword="RouteSegmentLocationIDType" vr="CS" vm="1">Route Segment Location ID Type</el>
+<el tag="40101021" keyword="AbortReason" vr="CS" vm="1-n">Abort Reason</el>
+<el tag="40101023" keyword="VolumeOfPTO" vr="FL" vm="1">Volume of PTO</el>
+<el tag="40101024" keyword="AbortFlag" vr="CS" vm="1">Abort Flag</el>
+<el tag="40101025" keyword="RouteSegmentStartTime" vr="DT" vm="1">Route Segment Start Time</el>
+<el tag="40101026" keyword="RouteSegmentEndTime" vr="DT" vm="1">Route Segment End Time</el>
+<el tag="40101027" keyword="TDRType" vr="CS" vm="1">TDR Type</el>
+<el tag="40101028" keyword="InternationalRouteSegment" vr="CS" vm="1">International Route Segment</el>
+<el tag="40101029" keyword="ThreatDetectionAlgorithmAndVersion" vr="LO" vm="1-n">Threat Detection Algorithm and Version</el>
+<el tag="4010102A" keyword="AssignedLocation" vr="SH" vm="1">Assigned Location</el>
+<el tag="4010102B" keyword="AlarmDecisionTime" vr="DT" vm="1">Alarm Decision Time</el>
+<el tag="40101031" keyword="AlarmDecision" vr="CS" vm="1">Alarm Decision</el>
+<el tag="40101033" keyword="NumberOfTotalObjects" vr="US" vm="1">Number of Total Objects</el>
+<el tag="40101034" keyword="NumberOfAlarmObjects" vr="US" vm="1">Number of Alarm Objects</el>
+<el tag="40101037" keyword="PTORepresentationSequence" vr="SQ" vm="1">PTO Representation Sequence</el>
+<el tag="40101038" keyword="ATDAssessmentSequence" vr="SQ" vm="1">ATD Assessment Sequence</el>
+<el tag="40101039" keyword="TIPType" vr="CS" vm="1">TIP Type</el>
+<el tag="4010103A" keyword="DICOSVersion" vr="CS" vm="1">DICOS Version</el>
+<el tag="40101041" keyword="OOIOwnerCreationTime" vr="DT" vm="1">OOI Owner Creation Time</el>
+<el tag="40101042" keyword="OOIType" vr="CS" vm="1">OOI Type</el>
+<el tag="40101043" keyword="OOISize" vr="FL" vm="3">OOI Size</el>
+<el tag="40101044" keyword="AcquisitionStatus" vr="CS" vm="1">Acquisition Status</el>
+<el tag="40101045" keyword="BasisMaterialsCodeSequence" vr="SQ" vm="1">Basis Materials Code Sequence</el>
+<el tag="40101046" keyword="PhantomType" vr="CS" vm="1">Phantom Type</el>
+<el tag="40101047" keyword="OOIOwnerSequence" vr="SQ" vm="1">OOI Owner Sequence</el>
+<el tag="40101048" keyword="ScanType" vr="CS" vm="1">Scan Type</el>
+<el tag="40101051" keyword="ItineraryID" vr="LO" vm="1">Itinerary ID</el>
+<el tag="40101052" keyword="ItineraryIDType" vr="SH" vm="1">Itinerary ID Type</el>
+<el tag="40101053" keyword="ItineraryIDAssigningAuthority" vr="LO" vm="1">Itinerary ID Assigning Authority</el>
+<el tag="40101054" keyword="RouteID" vr="SH" vm="1">Route ID</el>
+<el tag="40101055" keyword="RouteIDAssigningAuthority" vr="SH" vm="1">Route ID Assigning Authority</el>
+<el tag="40101056" keyword="InboundArrivalType" vr="CS" vm="1">Inbound Arrival Type</el>
+<el tag="40101058" keyword="CarrierID" vr="SH" vm="1">Carrier ID</el>
+<el tag="40101059" keyword="CarrierIDAssigningAuthority" vr="CS" vm="1">Carrier ID Assigning Authority</el>
+<el tag="40101060" keyword="SourceOrientation" vr="FL" vm="3">Source Orientation</el>
+<el tag="40101061" keyword="SourcePosition" vr="FL" vm="3">Source Position</el>
+<el tag="40101062" keyword="BeltHeight" vr="FL" vm="1">Belt Height</el>
+<el tag="40101064" keyword="AlgorithmRoutingCodeSequence" vr="SQ" vm="1">Algorithm Routing Code Sequence</el>
+<el tag="40101067" keyword="TransportClassification" vr="CS" vm="1">Transport Classification</el>
+<el tag="40101068" keyword="OOITypeDescriptor" vr="LT" vm="1">OOI Type Descriptor</el>
+<el tag="40101069" keyword="TotalProcessingTime" vr="FL" vm="1">Total Processing Time</el>
+<el tag="4010106C" keyword="DetectorCalibrationData" vr="OB" vm="1">Detector Calibration Data</el>
+<el tag="4010106D" keyword="AdditionalScreeningPerformed" vr="CS" vm="1">Additional Screening Performed</el>
+<el tag="4010106E" keyword="AdditionalInspectionSelectionCriteria" vr="CS" vm="1">Additional Inspection Selection Criteria</el>
+<el tag="4010106F" keyword="AdditionalInspectionMethodSequence" vr="SQ" vm="1">Additional Inspection Method Sequence</el>
+<el tag="40101070" keyword="AITDeviceType" vr="CS" vm="1">AIT Device Type</el>
+<el tag="40101071" keyword="QRMeasurementsSequence" vr="SQ" vm="1">QR Measurements Sequence</el>
+<el tag="40101072" keyword="TargetMaterialSequence" vr="SQ" vm="1">Target Material Sequence</el>
+<el tag="40101073" keyword="SNRThreshold" vr="FD" vm="1">SNR Threshold</el>
+<el tag="40101075" keyword="ImageScaleRepresentation" vr="DS" vm="1">Image Scale Representation</el>
+<el tag="40101076" keyword="ReferencedPTOSequence" vr="SQ" vm="1">Referenced PTO Sequence</el>
+<el tag="40101077" keyword="ReferencedTDRInstanceSequence" vr="SQ" vm="1">Referenced TDR Instance Sequence</el>
+<el tag="40101078" keyword="PTOLocationDescription" vr="ST" vm="1">PTO Location Description</el>
+<el tag="40101079" keyword="AnomalyLocatorIndicatorSequence" vr="SQ" vm="1">Anomaly Locator Indicator Sequence</el>
+<el tag="4010107A" keyword="AnomalyLocatorIndicator" vr="FL" vm="3">Anomaly Locator Indicator</el>
+<el tag="4010107B" keyword="PTORegionSequence" vr="SQ" vm="1">PTO Region Sequence</el>
+<el tag="4010107C" keyword="InspectionSelectionCriteria" vr="CS" vm="1">Inspection Selection Criteria</el>
+<el tag="4010107D" keyword="SecondaryInspectionMethodSequence" vr="SQ" vm="1">Secondary Inspection Method Sequence</el>
+<el tag="4010107E" keyword="PRCSToRCSOrientation" vr="DS" vm="6">PRCS to RCS Orientation</el>
+</elements>

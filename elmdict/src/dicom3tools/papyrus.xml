@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elements>
+<el tag="00090000" owner="PAPYRUS" keyword="OriginalFileName" vr="LT" vm="1">Original File Name</el>
+<el tag="00090010" owner="PAPYRUS" keyword="OriginalFileLocation" vr="LT" vm="1">Original File Location</el>
+<el tag="00090018" owner="PAPYRUS" keyword="DataSetIdentifier" vr="LT" vm="1">Data Set Identifier</el>
+<el tag="00410000" owner="PAPYRUS 3.0" keyword="PapyrusComments" vr="LT" vm="1">Papyrus Comments</el>
+<el tag="00410000" owner="PAPYRUS" keyword="PapyrusComments" vr="LT" vm="1-n">Papyrus Comments</el>
+<el tag="00410010" owner="PAPYRUS 3.0" keyword="PointerSequence" vr="SQ" vm="1">Pointer Sequence</el>
+<el tag="00410010" owner="PAPYRUS" keyword="FolderType" vr="US" vm="1">Folder Type</el>
+<el tag="00410011" owner="PAPYRUS 3.0" keyword="ImagePointer" vr="UL" vm="1">Image Pointer</el>
+<el tag="00410011" owner="PAPYRUS" keyword="PatientFolderDataSetID" vr="LT" vm="1">Patient Folder Data Set ID</el>
+<el tag="00410012" owner="PAPYRUS 3.0" keyword="PixelOffset" vr="UL" vm="1">Pixel Offset</el>
+<el tag="00410013" owner="PAPYRUS 3.0" keyword="ImageIdentifierSequence" vr="SQ" vm="1">Image Identifier Sequence</el>
+<el tag="00410014" owner="PAPYRUS 3.0" keyword="ExternalFileReferenceSequence" vr="SQ" vm="1">External File Reference Sequence</el>
+<el tag="00410015" owner="PAPYRUS 3.0" keyword="NumberOfImages" vr="US" vm="1">Number of Images</el>
+<el tag="00410020" owner="PAPYRUS" keyword="FolderName" vr="LT" vm="1">Folder Name</el>
+<el tag="00410021" owner="PAPYRUS 3.0" keyword="ReferencedSOPClassUID" vr="UI" vm="1">Referenced SOP Class UID</el>
+<el tag="00410022" owner="PAPYRUS 3.0" keyword="ReferencedSOPInstanceUID" vr="UI" vm="1">Referenced SOP Instance UID</el>
+<el tag="00410030" owner="PAPYRUS" keyword="CreationDate" vr="DA" vm="1">Creation Date</el>
+<el tag="00410031" owner="PAPYRUS 3.0" keyword="ReferencedFileName" vr="LT" vm="1">Referenced File Name</el>
+<el tag="00410032" owner="PAPYRUS 3.0" keyword="ReferencedFilePath" vr="LT" vm="1-n">Referenced File Path</el>
+<el tag="00410032" owner="PAPYRUS" keyword="CreationTime" vr="TM" vm="1">Creation Time</el>
+<el tag="00410034" owner="PAPYRUS" keyword="ModifiedDate" vr="DA" vm="1">Modified Date</el>
+<el tag="00410036" owner="PAPYRUS" keyword="ModifiedTime" vr="TM" vm="1">Modified Time</el>
+<el tag="00410040" owner="PAPYRUS" keyword="OwnerName" vr="LT" vm="1-n">Owner Name</el>
+<el tag="00410041" owner="PAPYRUS 3.0" keyword="ReferencedImageSOPClassUID" vr="UI" vm="1">Referenced Image SOP Class UID</el>
+<el tag="00410042" owner="PAPYRUS 3.0" keyword="ReferencedImageSOPInstanceUID" vr="UI" vm="1">Referenced Image SOP Instance UID</el>
+<el tag="00410050" owner="PAPYRUS 3.0" keyword="ImageSequence" vr="SQ" vm="1">Image Sequence</el>
+<el tag="00410050" owner="PAPYRUS" keyword="FolderStatus" vr="LT" vm="1">Folder Status</el>
+<el tag="00410060" owner="PAPYRUS" keyword="NumberOfImages" vr="UL" vm="1">Number of Images</el>
+<el tag="00410062" owner="PAPYRUS" keyword="NumberOfOther" vr="UL" vm="1">Number of Other</el>
+<el tag="004100a0" owner="PAPYRUS" keyword="ExternalFolderElementDSID" vr="LT" vm="1-n">External Folder Element DSID</el>
+<el tag="004100a1" owner="PAPYRUS" keyword="ExternalFolderElementDataSetType" vr="US" vm="1-n">External Folder Element Data Set Type</el>
+<el tag="004100a2" owner="PAPYRUS" keyword="ExternalFolderElementFileLocation" vr="LT" vm="1-n">External Folder Element File Location</el>
+<el tag="004100a3" owner="PAPYRUS" keyword="ExternalFolderElementLength" vr="UL" vm="1-n">External Folder Element Length</el>
+<el tag="004100b0" owner="PAPYRUS" keyword="InternalFolderElementDSID" vr="LT" vm="1-n">Internal Folder Element DSID</el>
+<el tag="004100b1" owner="PAPYRUS" keyword="InternalFolderElementDataSetType" vr="US" vm="1-n">Internal Folder Element Data Set Type</el>
+<el tag="004100b2" owner="PAPYRUS" keyword="InternalOffsetToDataSet" vr="UL" vm="1-n">Internal Offset To Data Set</el>
+<el tag="004100b3" owner="PAPYRUS" keyword="InternalOffsetToImage" vr="UL" vm="1-n">Internal Offset To Image</el>
+<el tag="60xx0000" owner="PAPYRUS 3.0" keyword="OverlayID" vr="IS" vm="1">Overlay ID</el>
+<el tag="60xx0001" owner="PAPYRUS 3.0" keyword="LinkedOverlays" vr="LT" vm="1-n">Linked Overlays</el>
+<el tag="60xx0010" owner="PAPYRUS 3.0" keyword="OverlayRows" vr="US" vm="1">Overlay Rows</el>
+<el tag="60xx0011" owner="PAPYRUS 3.0" keyword="OverlayColumns" vr="US" vm="1">Overlay Columns</el>
+<el tag="60xx0040" owner="PAPYRUS 3.0" keyword="OverlayType" vr="LO" vm="1">Overlay Type</el>
+<el tag="60xx0050" owner="PAPYRUS 3.0" keyword="OverlayOrigin" vr="US" vm="1-n">Overlay Origin</el>
+<el tag="60xx0060" owner="PAPYRUS 3.0" keyword="Editable" vr="LO" vm="1">Editable</el>
+<el tag="60xx0070" owner="PAPYRUS 3.0" keyword="OverlayFont" vr="LO" vm="1">Overlay Font</el>
+<el tag="60xx0072" owner="PAPYRUS 3.0" keyword="OverlayStyle" vr="LO" vm="1">Overlay Style</el>
+<el tag="60xx0074" owner="PAPYRUS 3.0" keyword="OverlayFontSize" vr="US" vm="1">Overlay Font Size</el>
+<el tag="60xx0076" owner="PAPYRUS 3.0" keyword="OverlayColor" vr="LO" vm="1">Overlay Color</el>
+<el tag="60xx0078" owner="PAPYRUS 3.0" keyword="ShadowSize" vr="US" vm="1">Shadow Size</el>
+<el tag="60xx0080" owner="PAPYRUS 3.0" keyword="FillPattern" vr="LO" vm="1">Fill Pattern</el>
+<el tag="60xx0082" owner="PAPYRUS 3.0" keyword="OverlayPenSize" vr="US" vm="1">Overlay Pen Size</el>
+<el tag="60xx00a0" owner="PAPYRUS 3.0" keyword="Label" vr="LO" vm="1">Label</el>
+<el tag="60xx00a2" owner="PAPYRUS 3.0" keyword="PostItText" vr="LT" vm="1">Post It Text</el>
+<el tag="60xx00a4" owner="PAPYRUS 3.0" keyword="AnchorPoint" vr="US" vm="2">Anchor Point</el>
+<el tag="60xx00b0" owner="PAPYRUS 3.0" keyword="ROIType" vr="LO" vm="1">ROI Type</el>
+<el tag="60xx00b2" owner="PAPYRUS 3.0" keyword="AttachedAnnotation" vr="LT" vm="1">Attached Annotation</el>
+<el tag="60xx00ba" owner="PAPYRUS 3.0" keyword="ContourPoints" vr="US" vm="1-n">Contour Points</el>
+<el tag="60xx00bc" owner="PAPYRUS 3.0" keyword="MaskData" vr="US" vm="1-n">Mask Data</el>
+<el tag="60xx00c0" owner="PAPYRUS 3.0" keyword="UINOverlaySequence" vr="SQ" vm="1">UIN Overlay Sequence</el>
+</elements>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>dcm4assange-parent</artifactId>
+    <groupId>org.dcm4assange</groupId>
+    <version>1.0.0</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>dcm4assange-standard</artifactId>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>xml-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>transform</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <transformationSets>
+            <transformationSet>
+              <dir>src/docbook</dir>
+              <includes>
+                <include>part07.xml</include>
+              </includes>
+              <stylesheet>src/xsl/commandelements.xsl</stylesheet>
+              <outputDir>${project.build.directory}/classes</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>commandelements.xml</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>src/docbook</dir>
+              <includes>
+                <include>part06.xml</include>
+              </includes>
+              <stylesheet>src/xsl/dataelements.xsl</stylesheet>
+              <outputDir>${project.build.directory}/classes</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>dataelements.xml</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>src/docbook</dir>
+              <includes>
+                <include>part06.xml</include>
+              </includes>
+              <stylesheet>src/xsl/uids.xsl</stylesheet>
+              <outputDir>${project.build.directory}/classes</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>uids.xml</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+          </transformationSets>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+</project>

@@ -1,0 +1,12 @@
+org.dcm4assange.dict.agfa.Agfa
+org.dcm4assange.dict.agfa.AgfaADC
+org.dcm4assange.dict.agfa.AgfaDisplayableImage
+org.dcm4assange.dict.agfa.AgfaHPState
+org.dcm4assange.dict.agfa.AgfaKOSD
+org.dcm4assange.dict.agfa.AgfaNX
+org.dcm4assange.dict.agfa.AgfaPACS
+org.dcm4assange.dict.agfa.AgfaXeroverse
+org.dcm4assange.dict.agfa.AgilityOverlay
+org.dcm4assange.dict.agfa.AgilityRuntime
+org.dcm4assange.dict.agfa.MitraLinkedAttributes
+org.dcm4assange.dict.agfa.MitraMarkup

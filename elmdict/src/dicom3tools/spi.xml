@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elements>
+<el tag="00090010" owner="SPI" keyword="Comments" vr="LO" vm="1">Comments</el>
+<el tag="00090010" owner="SPI RELEASE 1" keyword="Comments" vr="LO" vm="1">Comments</el>
+<el tag="00090010" owner="SPI Release 1" keyword="Comments" vr="LO" vm="1">Comments</el>
+<el tag="00090015" owner="SPI" keyword="UID" vr="LO" vm="1">UID</el>
+<el tag="00090015" owner="SPI RELEASE 1" keyword="UID" vr="LO" vm="1">UID</el>
+<el tag="00090015" owner="SPI Release 1" keyword="UID" vr="LO" vm="1">UID</el>
+<el tag="00090040" owner="SPI" keyword="DataObjectType" vr="US" vm="1">Data Object Type</el>
+<el tag="00090040" owner="SPI RELEASE 1" keyword="DataObjectType" vr="US" vm="1">Data Object Type</el>
+<el tag="00090040" owner="SPI Release 1" keyword="DataObjectType" vr="US" vm="1">Data Object Type</el>
+<el tag="00090041" owner="SPI" keyword="DataObjectSubtype" vr="SH" vm="1">Data Object Subtype</el>
+<el tag="00090041" owner="SPI RELEASE 1" keyword="DataObjectSubtype" vr="SH" vm="1">Data Object Subtype</el>
+<el tag="00090041" owner="SPI Release 1" keyword="DataObjectSubtype" vr="SH" vm="1">Data Object Subtype</el>
+<el tag="00110010" owner="SPI" keyword="Organ" vr="LO" vm="1">Organ</el>
+<el tag="00110010" owner="SPI RELEASE 1" keyword="Organ" vr="LO" vm="1">Organ</el>
+<el tag="00110010" owner="SPI Release 1" keyword="Organ" vr="LO" vm="1">Organ</el>
+<el tag="00110015" owner="SPI" keyword="AllergyIndication" vr="LO" vm="1">Allergy Indication</el>
+<el tag="00110015" owner="SPI RELEASE 1" keyword="AllergyIndication" vr="LO" vm="1">Allergy Indication</el>
+<el tag="00110015" owner="SPI Release 1" keyword="AllergyIndication" vr="LO" vm="1">Allergy Indication</el>
+<el tag="00110020" owner="SPI" keyword="Pregnancy" vr="LO" vm="1">Pregnancy</el>
+<el tag="00110020" owner="SPI RELEASE 1" keyword="Pregnancy" vr="LO" vm="1">Pregnancy</el>
+<el tag="00110020" owner="SPI Release 1" keyword="Pregnancy" vr="LO" vm="1">Pregnancy</el>
+<el tag="00290060" owner="SPI RELEASE 1" keyword="CompressionAlgorithm" vr="LO" vm="1">Compression Algorithm</el>
+<el tag="00290060" owner="SPI Release 1" keyword="CompressionAlgorithm" vr="LO" vm="1">Compression Algorithm</el>
+</elements>
+<el tag="00290060" owner="SPI" keyword="CompressionAlgorithm" vr="LO" vm="1">Compression Algorithm</el>
+<el tag="00090008" owner="SPI Release 1" vr="CS" vm="1"/>

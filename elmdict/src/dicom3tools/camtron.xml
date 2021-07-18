@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elements>
+<el tag="00090004" owner="Camtronics image level data" vr="IS" vm="1"/>
+<el tag="00090006" owner="Camtronics image level data" vr="IS" vm="1"/>
+<el tag="00090009" owner="Camtronics image level data" vr="LO" vm="1"/>
+<el tag="00090016" owner="Camtronics image level data" vr="AE" vm="1"/>
+<el tag="00090017" owner="Camtronics image level data" vr="CS" vm="1"/>
+<el tag="00090018" owner="Camtronics image level data" vr="IS" vm="1"/>
+<el tag="00090000" owner="QCA Results" keyword="AnalysisType" vr="CS" vm="1">Analysis Type</el>
+<el tag="00090004" owner="QCA Results" keyword="SegmentName" vr="LO" vm="1">Segment Name</el>
+<el tag="00090012" owner="QCA Results" keyword="PreProcedureCatheterSize" vr="DS" vm="1">Pre-procedure Catheter Size</el>
+<el tag="00090013" owner="QCA Results" keyword="PreProcedureReferenceDiameter" vr="DS" vm="1">Pre-procedure Reference Diameter</el>
+<el tag="00090014" owner="QCA Results" keyword="PreProcedureMinimumLumenDiameter" vr="DS" vm="1">Pre-procedure Minimum Lumen Diameter</el>
+<el tag="00090015" owner="QCA Results" keyword="PreProcedureAverageDiameter" vr="DS" vm="1">Pre-procedure Average Diameter</el>
+<el tag="00090016" owner="QCA Results" keyword="PreProcedureStenosisLength" vr="DS" vm="1">Pre-procedure Stenosis Length</el>
+<el tag="00090017" owner="QCA Results" keyword="PreProcedureStenosisPercentage" vr="DS" vm="1">Pre-procedure Stenosis %</el>
+<el tag="00090018" owner="QCA Results" keyword="PreProcedureGeometricAreaReductionPercentage" vr="DS" vm="1">Pre-procedure Geometric Area Reduction %</el>
+<el tag="00090022" owner="QCA Results" keyword="PostProcedureCatheterSize" vr="DS" vm="1">Post-procedure Catheter Size</el>
+<el tag="00090023" owner="QCA Results" keyword="PostProcedureReferenceDiameter" vr="DS" vm="1">Post-procedure Reference Diameter</el>
+<el tag="00090024" owner="QCA Results" keyword="PostProcedureMinimumLumenDiameter" vr="DS" vm="1">Post-procedure Minimum Lumen Diameter</el>
+<el tag="00090025" owner="QCA Results" keyword="PostProcedureAverageDiameter" vr="DS" vm="1">Post-procedure Average Diameter</el>
+<el tag="00090026" owner="QCA Results" keyword="PostProcedureStenosisLength" vr="DS" vm="1">Post-procedure Stenosis Length</el>
+<el tag="00090027" owner="QCA Results" keyword="PostProcedureStenosisPercentage" vr="DS" vm="1">Post-procedure Stenosis %</el>
+<el tag="00090028" owner="QCA Results" keyword="PostProcedureGeometricAreaReductionPercentage" vr="DS" vm="1">Post-procedure Geometric Area Reduction %</el>
+<el tag="00290010" owner="CAMTRONICS IP" vr="LT" vm="1"/>
+<el tag="00290010" owner="CAMTRONICS" keyword="Commentline" vr="LT" vm="1">Commentline</el>
+<el tag="00290020" owner="CAMTRONICS" keyword="EdgeEnhancementCoefficient" vr="DS" vm="1">Edge Enhancement Coefficient</el>
+<el tag="00290020" owner="CAMTRONICS IP" vr="UN" vm="1"/>
+<el tag="00290030" owner="CAMTRONICS IP" vr="UN" vm="1"/>
+<el tag="00290040" owner="CAMTRONICS IP" vr="UN" vm="1"/>
+<el tag="00290050" owner="CAMTRONICS" keyword="SceneText" vr="LT" vm="1">Scene Text</el>
+<el tag="00290060" owner="CAMTRONICS" keyword="ImageText" vr="LT" vm="1">Image Text</el>
+<el tag="00290070" owner="CAMTRONICS" keyword="PixelShiftHorizontal" vr="IS" vm="1">Pixel Shift Horizontal</el>
+<el tag="00290080" owner="CAMTRONICS" keyword="PixelShiftVertical" vr="IS" vm="1">Pixel Shift Vertical</el>
+<el tag="00290090" owner="CAMTRONICS" vr="IS" vm="1"/>
+</elements>

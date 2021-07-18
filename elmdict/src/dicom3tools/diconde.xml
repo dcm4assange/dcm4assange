@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elements>
+<el tag="00140023" keyword="CADFileFormat" vr="ST" vm="1">CAD File Format (Retired)</el>
+<el tag="00140024" keyword="ComponentReferenceSystem" vr="ST" vm="1">Component Reference System (Retired)</el>
+<el tag="00140025" keyword="ComponentManufacturingProcedure" vr="ST" vm="1">Component Manufacturing Procedure</el>
+<el tag="00140028" keyword="ComponentManufacturer" vr="ST" vm="1">Component Manufacturer</el>
+<el tag="00140030" keyword="MaterialThickness" vr="DS" vm="1-n">Material Thickness</el>
+<el tag="00140032" keyword="MaterialPipeDiameter" vr="DS" vm="1-n">Material Pipe Diameter</el>
+<el tag="00140034" keyword="MaterialIsolationDiameter" vr="DS" vm="1-n">Material Isolation Diameter</el>
+<el tag="00140042" keyword="MaterialGrade" vr="ST" vm="1">Material Grade</el>
+<el tag="00140044" keyword="MaterialPropertiesDescription" vr="ST" vm="1">Material Properties Description</el>
+<el tag="00140045" keyword="MaterialPropertiesFileFormatRetired" vr="ST" vm="1">Material Properties File Format (Retired)</el>
+<el tag="00140046" keyword="MaterialNotes" vr="LT" vm="1">Material Notes</el>
+<el tag="00140050" keyword="ComponentShape" vr="CS" vm="1">Component Shape</el>
+<el tag="00140052" keyword="CurvatureType" vr="CS" vm="1">Curvature Type</el>
+<el tag="00140054" keyword="OuterDiameter" vr="DS" vm="1">Outer Diameter</el>
+<el tag="00140056" keyword="InnerDiameter" vr="DS" vm="1">Inner Diameter</el>
+<el tag="00140100" keyword="ComponentWelderIDs" vr="LO" vm="1-n">Component Welder IDs</el>
+<el tag="00140101" keyword="SecondaryApprovalStatus" vr="CS" vm="1">Secondary Approval Status</el>
+<el tag="00140102" keyword="SecondaryReviewDate" vr="DA" vm="1">Secondary Review Date</el>
+<el tag="00140103" keyword="SecondaryReviewTime" vr="TM" vm="1">Secondary Review Time</el>
+<el tag="00140104" keyword="SecondaryReviewerName" vr="PN" vm="1">Secondary Reviewer Name</el>
+<el tag="00140105" keyword="RepairID" vr="ST" vm="1">Repair ID</el>
+<el tag="00140106" keyword="MultipleComponentApprovalSequence" vr="SQ" vm="1">Multiple Component Approval Sequence</el>
+<el tag="00140107" keyword="OtherApprovalStatus" vr="CS" vm="1-n">Other Approval Status</el>
+<el tag="00140108" keyword="OtherSecondaryApprovalStatus" vr="CS" vm="1-n">Other Secondary Approval Status</el>
+<el tag="00141010" keyword="ActualEnvironmentalConditions" vr="ST" vm="1">Actual Environmental Conditions</el>
+<el tag="00141020" keyword="ExpiryDate" vr="DA" vm="1">Expiry Date</el>
+<el tag="00141040" keyword="EnvironmentalConditions" vr="ST" vm="1">Environmental Conditions</el>
+<el tag="00142002" keyword="EvaluatorSequence" vr="SQ" vm="1">Evaluator Sequence</el>
+<el tag="00142004" keyword="EvaluatorNumber" vr="IS" vm="1">Evaluator Number</el>
+<el tag="00142006" keyword="EvaluatorName" vr="PN" vm="1">Evaluator Name</el>
+<el tag="00142008" keyword="EvaluationAttempt" vr="IS" vm="1">Evaluation Attempt</el>
+<el tag="00142012" keyword="IndicationSequence" vr="SQ" vm="1">Indication Sequence</el>
+<el tag="00142014" keyword="IndicationNumber" vr="IS" vm="1">Indication Number </el>
+<el tag="00142016" keyword="IndicationLabel" vr="SH" vm="1">Indication Label</el>
+<el tag="00142018" keyword="IndicationDescription" vr="ST" vm="1">Indication Description</el>
+<el tag="0014201A" keyword="IndicationType" vr="CS" vm="1-n">Indication Type</el>
+<el tag="0014201C" keyword="IndicationDisposition" vr="CS" vm="1">Indication Disposition</el>
+<el tag="0014201E" keyword="IndicationROISequence" vr="SQ" vm="1">Indication ROI Sequence</el>
+<el tag="00142030" keyword="IndicationPhysicalPropertySequence" vr="SQ" vm="1">Indication Physical Property Sequence</el>
+<el tag="00142032" keyword="PropertyLabel" vr="SH" vm="1">Property Label</el>
+<el tag="00142202" keyword="CoordinateSystemNumberOfAxes" vr="IS" vm="1">Coordinate System Number of Axes </el>
+<el tag="00142204" keyword="CoordinateSystemAxesSequence" vr="SQ" vm="1">Coordinate System Axes Sequence</el>
+<el tag="00142206" keyword="CoordinateSystemAxisDescription" vr="ST" vm="1">Coordinate System Axis Description</el>
+<el tag="00142208" keyword="CoordinateSystemDataSetMapping" vr="CS" vm="1">Coordinate System Data Set Mapping</el>
+<el tag="0014220A" keyword="CoordinateSystemAxisNumber" vr="IS" vm="1">Coordinate System Axis Number</el>
+<el tag="0014220C" keyword="CoordinateSystemAxisType" vr="CS" vm="1">Coordinate System Axis Type</el>
+<el tag="0014220E" keyword="CoordinateSystemAxisUnits" vr="CS" vm="1">Coordinate System Axis Units</el>
+<el tag="00142210" keyword="CoordinateSystemAxisValues" vr="OB" vm="1">Coordinate System Axis Values</el>
+<el tag="00142220" keyword="CoordinateSystemTransformSequence" vr="SQ" vm="1">Coordinate System Transform Sequence</el>
+<el tag="00142222" keyword="TransformDescription" vr="ST" vm="1">Transform Description</el>
+<el tag="00142224" keyword="TransformNumberOfAxes" vr="IS" vm="1">Transform Number of Axes</el>
+<el tag="00142226" keyword="TransformOrderOfAxes" vr="IS" vm="1-n">Transform Order of Axes</el>
+<el tag="00142228" keyword="TransformedAxisUnits" vr="CS" vm="1">Transformed Axis Units</el>
+<el tag="0014222A" keyword="CoordinateSystemTransformRotationAndScaleMatrix" vr="DS" vm="1-n">Coordinate System Transform Rotation and Scale Matrix</el>
+<el tag="0014222C" keyword="CoordinateSystemTransformTranslationMatrix" vr="DS" vm="1-n">Coordinate System Transform Translation Matrix</el>
+<el tag="00143011" keyword="InternalDetectorFrameTime" vr="DS" vm="1">Internal Detector Frame Time</el>
+<el tag="00143012" keyword="NumberOfFramesIntegrated" vr="DS" vm="1">Number of Frames Integrated</el>
+<el tag="00143020" keyword="DetectorTemperatureSequence" vr="SQ" vm="1">Detector Temperature Sequence</el>
+<el tag="00143022" keyword="SensorName" vr="ST" vm="1">Sensor Name</el>
+<el tag="00143024" keyword="HorizontalOffsetOfSensor" vr="DS" vm="1">Horizontal Offset of Sensor</el>
+<el tag="00143026" keyword="VerticalOffsetOfSensor" vr="DS" vm="1">Vertical Offset of Sensor</el>
+<el tag="00143028" keyword="SensorTemperature" vr="DS" vm="1">Sensor Temperature</el>
+<el tag="00143040" keyword="DarkCurrentSequence" vr="SQ" vm="1">Dark Current Sequence</el>
+<el tag="00143050" keyword="DarkCurrentCounts" vr="OB or OW" vm="1">Dark Current Counts</el>
+<el tag="00143060" keyword="GainCorrectionReferenceSequence" vr="SQ" vm="1">Gain Correction Reference Sequence</el>
+<el tag="00143070" keyword="AirCounts" vr="OB or OW" vm="1">Air Counts</el>
+<el tag="00143071" keyword="KVUsedInGainCalibration" vr="DS" vm="1">KV Used in Gain Calibration</el>
+<el tag="00143072" keyword="MAUsedInGainCalibration" vr="DS" vm="1">MA Used in Gain Calibration</el>
+<el tag="00143073" keyword="NumberOfFramesUsedForIntegration" vr="DS" vm="1">Number of Frames Used for Integration</el>
+<el tag="00143074" keyword="FilterMaterialUsedInGainCalibration" vr="LO" vm="1">Filter Material Used in Gain Calibration</el>
+<el tag="00143075" keyword="FilterThicknessUsedInGainCalibration" vr="DS" vm="1">Filter Thickness Used in Gain Calibration</el>
+<el tag="00143076" keyword="DateOfGainCalibration" vr="DA" vm="1">Date of Gain Calibration</el>
+<el tag="00143077" keyword="TimeOfGainCalibration" vr="TM" vm="1">Time of Gain Calibration</el>
+<el tag="00143080" keyword="BadPixelImage" vr="OB" vm="1">Bad Pixel Image</el>
+<el tag="00143099" keyword="CalibrationNotes" vr="LT" vm="1">Calibration Notes</el>
+<el tag="00144002" keyword="PulserEquipmentSequence" vr="SQ" vm="1">Pulser Equipment Sequence</el>
+<el tag="00144004" keyword="PulserType" vr="CS" vm="1">Pulser Type</el>
+<el tag="00144006" keyword="PulserNotes" vr="LT" vm="1">Pulser Notes</el>
+<el tag="00144008" keyword="ReceiverEquipmentSequence" vr="SQ" vm="1">Receiver Equipment Sequence</el>
+<el tag="0014400A" keyword="AmplifierType" vr="CS" vm="1">Amplifier Type</el>
+<el tag="0014400C" keyword="ReceiverNotes" vr="LT" vm="1">Receiver Notes</el>
+<el tag="0014400E" keyword="PreAmplifierEquipmentSequence" vr="SQ" vm="1">Pre-Amplifier Equipment Sequence</el>
+<el tag="0014400F" keyword="PreAmplifierNotes" vr="LT" vm="1">Pre-Amplifier Notes</el>
+<el tag="00144010" keyword="TransmitTransducerSequence" vr="SQ" vm="1">Transmit Transducer Sequence</el>
+<el tag="00144011" keyword="ReceiveTransducerSequence" vr="SQ" vm="1">Receive Transducer Sequence</el>
+<el tag="00144012" keyword="NumberOfElements" vr="US" vm="1">Number of Elements</el>
+<el tag="00144013" keyword="ElementShape" vr="CS" vm="1">Element Shape</el>
+<el tag="00144014" keyword="ElementDimensionA" vr="DS" vm="1">Element Dimension A</el>
+<el tag="00144015" keyword="ElementDimensionB" vr="DS" vm="1">Element Dimension B</el>
+<el tag="00144016" keyword="ElementPitchA" vr="DS" vm="1">Element Pitch A</el>
+<el tag="00144017" keyword="MeasuredBeamDimensionA" vr="DS" vm="1">Measured Beam Dimension A</el>
+<el tag="00144018" keyword="MeasuredBeamDimensionB" vr="DS" vm="1">Measured Beam Dimension B</el>
+<el tag="00144019" keyword="LocationOfMeasuredBeamDiameter" vr="DS" vm="1">Location of Measured Beam Diameter</el>
+<el tag="0014401A" keyword="NominalFrequency" vr="DS" vm="1">Nominal Frequency</el>
+<el tag="0014401B" keyword="MeasuredCenterFrequency" vr="DS" vm="1">Measured Center Frequency</el>
+<el tag="0014401C" keyword="MeasuredBandwidth" vr="DS" vm="1">Measured Bandwidth</el>
+<el tag="0014401D" keyword="ElementPitchB" vr="DS" vm="1">Element Pitch B</el>
+<el tag="00144020" keyword="PulserSettingsSequence" vr="SQ" vm="1">Pulser Settings Sequence</el>
+<el tag="00144022" keyword="PulseWidth" vr="DS" vm="1">Pulse Width</el>
+<el tag="00144024" keyword="ExcitationFrequency" vr="DS" vm="1">Excitation Frequency</el>
+<el tag="00144026" keyword="ModulationType" vr="CS" vm="1">Modulation Type</el>
+<el tag="00144028" keyword="Damping" vr="DS" vm="1">Damping</el>
+<el tag="00144030" keyword="ReceiverSettingsSequence" vr="SQ" vm="1">Receiver Settings Sequence</el>
+<el tag="00144031" keyword="AcquiredSoundpathLength" vr="DS" vm="1">Acquired Soundpath Length</el>
+<el tag="00144032" keyword="AcquisitionCompressionType" vr="CS" vm="1">Acquisition Compression Type</el>
+<el tag="00144033" keyword="AcquisitionSampleSize" vr="IS" vm="1">Acquisition Sample Size</el>
+<el tag="00144034" keyword="RectifierSmoothing" vr="DS" vm="1">Rectifier Smoothing</el>
+<el tag="00144035" keyword="DACSequence" vr="SQ" vm="1">DAC Sequence</el>
+<el tag="00144036" keyword="DACType" vr="CS" vm="1">DAC Type</el>
+<el tag="00144038" keyword="DACGainPoints" vr="DS" vm="1-n">DAC Gain Points</el>
+<el tag="0014403A" keyword="DACTimePoints" vr="DS" vm="1-n">DAC Time Points</el>
+<el tag="0014403C" keyword="DACAmplitude" vr="DS" vm="1-n">DAC Amplitude</el>
+<el tag="00144040" keyword="PreAmplifierSettingsSequence" vr="SQ" vm="1">Pre-Amplifier Settings Sequence</el>
+<el tag="00144050" keyword="TransmitTransducerSettingsSequence" vr="SQ" vm="1">Transmit Transducer Settings Sequence</el>
+<el tag="00144051" keyword="ReceiveTransducerSettingsSequence" vr="SQ" vm="1">Receive Transducer Settings Sequence</el>
+<el tag="00144052" keyword="IncidentAngle" vr="DS" vm="1">Incident Angle</el>
+<el tag="00144054" keyword="CouplingTechnique" vr="ST" vm="1">Coupling Technique</el>
+<el tag="00144056" keyword="CouplingMedium" vr="ST" vm="1">Coupling Medium</el>
+<el tag="00144057" keyword="CouplingVelocity" vr="DS" vm="1">Coupling Velocity</el>
+<el tag="00144058" keyword="ProbeCenterLocationX" vr="DS" vm="1">Probe Center Location X</el>
+<el tag="00144059" keyword="ProbeCenterLocationZ" vr="DS" vm="1">Probe Center Location Z</el>
+<el tag="0014405A" keyword="SoundPathLength" vr="DS" vm="1">Sound Path Length</el>
+<el tag="0014405C" keyword="DelayLawIdentifier" vr="ST" vm="1">Delay Law Identifier</el>
+<el tag="00144060" keyword="GateSettingsSequence" vr="SQ" vm="1">Gate Settings Sequence</el>
+<el tag="00144062" keyword="GateThreshold" vr="DS" vm="1">Gate Threshold</el>
+<el tag="00144064" keyword="VelocityOfSound" vr="DS" vm="1">Velocity of Sound</el>
+<el tag="00144070" keyword="CalibrationSettingsSequence" vr="SQ" vm="1">Calibration Settings Sequence</el>
+<el tag="00144072" keyword="CalibrationProcedure" vr="ST" vm="1">Calibration Procedure</el>
+<el tag="00144074" keyword="ProcedureVersion" vr="SH" vm="1">Procedure Version</el>
+<el tag="00144076" keyword="ProcedureCreationDate" vr="DA" vm="1">Procedure Creation Date</el>
+<el tag="00144078" keyword="ProcedureExpirationDate" vr="DA" vm="1">Procedure Expiration Date</el>
+<el tag="0014407A" keyword="ProcedureLastModifiedDate" vr="DA" vm="1">Procedure Last Modified Date</el>
+<el tag="0014407C" keyword="CalibrationTime" vr="TM" vm="1-n">Calibration Time</el>
+<el tag="0014407E" keyword="CalibrationDate" vr="DA" vm="1-n">Calibration Date</el>
+<el tag="00144080" keyword="ProbeDriveEquipmentSequence" vr="SQ" vm="1">Probe Drive Equipment Sequence</el>
+<el tag="00144081" keyword="DriveType" vr="CS" vm="1">Drive Type</el>
+<el tag="00144082" keyword="ProbeDriveNotes" vr="LT" vm="1">Probe Drive Notes</el>
+<el tag="00144083" keyword="DriveProbeSequence" vr="SQ" vm="1">Drive Probe Sequence</el>
+<el tag="00144084" keyword="ProbeInductance" vr="DS" vm="1">Probe Inductance</el>
+<el tag="00144085" keyword="ProbeResistance" vr="DS" vm="1">Probe Resistance</el>
+<el tag="00144086" keyword="ReceiveProbeSequence" vr="SQ" vm="1">Receive Probe Sequence</el>
+<el tag="00144087" keyword="ProbeDriveSettingsSequence" vr="SQ" vm="1">Probe Drive Settings Sequence</el>
+<el tag="00144088" keyword="BridgeResistors" vr="DS" vm="1">Bridge Resistors</el>
+<el tag="00144089" keyword="ProbeOrientationAngle" vr="DS" vm="1">Probe Orientation Angle</el>
+<el tag="0014408B" keyword="UserSelectedGainY" vr="DS" vm="1">User Selected Gain Y</el>
+<el tag="0014408C" keyword="UserSelectedPhase" vr="DS" vm="1">User Selected Phase</el>
+<el tag="0014408D" keyword="UserSelectedOffsetX" vr="DS" vm="1">User Selected Offset X</el>
+<el tag="0014408E" keyword="UserSelectedOffsetY" vr="DS" vm="1">User Selected Offset Y</el>
+<el tag="00144091" keyword="ChannelSettingsSequence" vr="SQ" vm="1">Channel Settings Sequence</el>
+<el tag="00144092" keyword="ChannelThreshold" vr="DS" vm="1">Channel Threshold</el>
+<el tag="0014409A" keyword="ScannerSettingsSequence" vr="SQ" vm="1">Scanner Settings Sequence</el>
+<el tag="0014409B" keyword="ScanProcedure" vr="ST" vm="1">Scan Procedure</el>
+<el tag="0014409C" keyword="TranslationRateX" vr="DS" vm="1">Translation Rate X</el>
+<el tag="0014409D" keyword="TranslationRateY" vr="DS" vm="1">Translation Rate Y</el>
+<el tag="0014409F" keyword="ChannelOverlap" vr="DS" vm="1">Channel Overlap</el>
+<el tag="001440A0" keyword="ImageQualityIndicatorType" vr="LO" vm="1">Image Quality Indicator Type</el>
+<el tag="001440A1" keyword="ImageQualityIndicatorMaterial" vr="LO" vm="1">Image Quality Indicator Material</el>
+<el tag="001440A2" keyword="ImageQualityIndicatorSize" vr="LO" vm="1">Image Quality Indicator Size</el>
+<el tag="00145002" keyword="LINACEnergy" vr="IS" vm="1">LINAC Energy</el>
+<el tag="00145004" keyword="LINACOutput" vr="IS" vm="1">LINAC Output</el>
+<el tag="00145100" keyword="ActiveAperture" vr="US" vm="1">Active Aperture</el>
+<el tag="00145101" keyword="TotalAperture" vr="DS" vm="1">Total Aperture</el>
+<el tag="00145102" keyword="ApertureElevation" vr="DS" vm="1">Aperture Elevation</el>
+<el tag="00145103" keyword="MainLobeAngle" vr="DS" vm="1">Main Lobe Angle</el>
+<el tag="00145104" keyword="MainRoofAngle" vr="DS" vm="1">Main Roof Angle</el>
+<el tag="00145105" keyword="ConnectorType" vr="CS" vm="1">Connector Type</el>
+<el tag="00145106" keyword="WedgeModelNumber" vr="SH" vm="1">Wedge Model Number</el>
+<el tag="00145107" keyword="WedgeAngleFloat" vr="DS" vm="1">Wedge Angle Float</el>
+<el tag="00145108" keyword="WedgeRoofAngle" vr="DS" vm="1">Wedge Roof Angle</el>
+<el tag="00145109" keyword="WedgeElement1Position" vr="CS" vm="1">Wedge Element 1 Position</el>
+<el tag="0014510A" keyword="WedgeMaterialVelocity" vr="DS" vm="1">Wedge Material Velocity</el>
+<el tag="0014510B" keyword="WedgeMaterial" vr="SH" vm="1">Wedge Material</el>
+<el tag="0014510C" keyword="WedgeOffsetZ" vr="DS" vm="1">Wedge Offset Z</el>
+<el tag="0014510D" keyword="WedgeOriginOffsetX" vr="DS" vm="1">Wedge Origin Offset X</el>
+<el tag="0014510E" keyword="WedgeTimeDelay" vr="DS" vm="1">Wedge Time Delay</el>
+<el tag="0014510F" keyword="WedgeName" vr="SH" vm="1">Wedge Name</el>
+<el tag="00145110" keyword="WedgeManufacturerName" vr="SH" vm="1">Wedge Manufacturer Name</el>
+<el tag="00145111" keyword="WedgeDescription" vr="LO" vm="1">Wedge Description</el>
+<el tag="00145112" keyword="NominalBeamAngle" vr="DS" vm="1">Nominal Beam Angle</el>
+<el tag="00145113" keyword="WedgeOffsetX" vr="DS" vm="1">Wedge Offset X</el>
+<el tag="00145114" keyword="WedgeOffsetY" vr="DS" vm="1">Wedge Offset Y</el>
+<el tag="00145115" keyword="WedgeTotalLength" vr="DS" vm="1">Wedge Total Length</el>
+<el tag="00145116" keyword="WedgeInContactLength" vr="DS" vm="1">Wedge In Contact Length</el>
+<el tag="00145117" keyword="WedgeFrontGap" vr="DS" vm="1">Wedge Front Gap</el>
+<el tag="00145118" keyword="WedgeTotalHeight" vr="DS" vm="1">Wedge Total Height</el>
+<el tag="00145119" keyword="WedgeFrontHeight" vr="DS" vm="1">Wedge Front Height</el>
+<el tag="0014511A" keyword="WedgeRearHeight" vr="DS" vm="1">Wedge Rear Height</el>
+<el tag="0014511B" keyword="WedgeTotalWidth" vr="DS" vm="1">Wedge Total Width</el>
+<el tag="0014511C" keyword="WedgeInContactWidth" vr="DS" vm="1">Wedge In Contact Width</el>
+<el tag="0014511D" keyword="WedgeChamferHeight" vr="DS" vm="1">Wedge Chamfer Height</el>
+<el tag="0014511E" keyword="WedgeCurve" vr="CS" vm="1">Wedge Curve</el>
+<el tag="0014511F" keyword="RadiusAlongWedge" vr="DS" vm="1">Radius Along the Wedge</el>
+</elements>

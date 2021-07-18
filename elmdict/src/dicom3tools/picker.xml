@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elements>
+<el tag="70010001" owner="Picker NM Private Group" vr="UI" vm="1"/>
+<el tag="70010002" owner="Picker NM Private Group" vr="OB" vm="1"/>
+<el tag="70010003" owner="Picker NM Private Group" vr="OB" vm="1"/>
+<el tag="70010004" owner="Picker NM Private Group" vr="OB" vm="1"/>
+<el tag="70010005" owner="Picker NM Private Group" vr="OB" vm="1"/>
+<el tag="70010006" owner="Picker NM Private Group" vr="OB" vm="1"/>
+<el tag="70010007" owner="Picker NM Private Group" vr="OB" vm="1"/>
+<el tag="70010008" owner="Picker NM Private Group" vr="OB" vm="1"/>
+<el tag="70010009" owner="Picker NM Private Group" vr="OB" vm="1"/>
+<el tag="70010010" owner="Picker NM Private Group" vr="SQ" vm="1"/>
+<el tag="70010011" owner="Picker NM Private Group" vr="LO" vm="1"/>
+<el tag="70010012" owner="Picker NM Private Group" vr="OB" vm="1"/>
+<el tag="70010013" owner="Picker NM Private Group" vr="US" vm="1"/>
+<el tag="70010014" owner="Picker NM Private Group" vr="OB" vm="1"/>
+<el tag="70010016" owner="Picker NM Private Group" vr="OB" vm="1"/>
+<el tag="70010017" owner="Picker NM Private Group" vr="LO" vm="1"/>
+<el tag="71010000" owner="Picker MR Private Group" vr="OB" vm="1"/>
+<el tag="71010001" owner="Picker MR Private Group" vr="SL" vm="1"/>
+<el tag="71010002" owner="Picker MR Private Group" vr="OB" vm="1"/>
+<el tag="71010003" owner="Picker MR Private Group" vr="SL" vm="1"/>
+<el tag="71010004" owner="Picker MR Private Group" vr="SH" vm="1"/>
+<el tag="71010005" owner="Picker MR Private Group" vr="SH" vm="2"/>
+<el tag="71010006" owner="Picker MR Private Group" vr="SH" vm="4"/>
+<el tag="71010010" owner="Picker MR Private Group" vr="DS" vm="1"/>
+</elements>

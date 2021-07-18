@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elements>
+<el tag="00090000" owner="TOSHIBA_MEC_OT3" keyword="HISRISStudyID" vr="LO" vm="1">HIS/RIS Study ID</el>
+<el tag="00090001" owner="TOSHIBA_MEC_1.0" vr="LT" vm="1"/>
+<el tag="00090002" owner="TOSHIBA_MEC_1.0" vr="US" vm="1-n"/>
+<el tag="00090003" owner="TOSHIBA_MEC_1.0" vr="US" vm="1-n"/>
+<el tag="00090004" owner="TOSHIBA_MEC_1.0" vr="US" vm="1-n"/>
+<el tag="00110001" owner="TOSHIBA_MEC_1.0" vr="LT" vm="1"/>
+<el tag="00110002" owner="TOSHIBA_MEC_1.0" vr="US" vm="1-n"/>
+<el tag="00190001" owner="TOSHIBA_MEC_CT_1.0" vr="IS" vm="1"/>
+<el tag="00190001" owner="TOSHIBA_MEC_1.0" vr="US" vm="1-n"/>
+<el tag="00190002" owner="TOSHIBA_MEC_CT_1.0" vr="IS" vm="1"/>
+<el tag="00190002" owner="TOSHIBA_MEC_1.0" vr="US" vm="1-n"/>
+<el tag="00190003" owner="TOSHIBA_MEC_CT_1.0" vr="US" vm="1-n"/>
+<el tag="00190004" owner="TOSHIBA_MEC_CT_1.0" vr="LT" vm="1"/>
+<el tag="00190005" owner="TOSHIBA_MEC_CT_1.0" vr="LT" vm="1"/>
+<el tag="00190006" owner="TOSHIBA_MEC_CT_1.0" vr="US" vm="1-n"/>
+<el tag="00190007" owner="TOSHIBA_MEC_CT_1.0" vr="US" vm="1-n"/>
+<el tag="00190008" owner="TOSHIBA_MEC_CT_1.0" keyword="OrientationHeadFeet" vr="LT" vm="1">Orientation Head Feet</el>
+<el tag="00190009" owner="TOSHIBA_MEC_CT_1.0" keyword="ViewDirection" vr="LT" vm="1">View Direction</el>
+<el tag="0019000a" owner="TOSHIBA_MEC_CT_1.0" keyword="OrientationSupineProne" vr="LT" vm="1">Orientation Supine Prone</el>
+<el tag="0019000b" owner="TOSHIBA_MEC_CT_1.0" keyword="Location" vr="DS" vm="1">Location</el>
+<el tag="0019000c" owner="TOSHIBA_MEC_CT_1.0" keyword="ScanViewDirection" vr="CS" vm="1">Scan View Direction</el>
+<el tag="0019000d" owner="TOSHIBA_MEC_CT_1.0" keyword="Time" vr="TM" vm="1">Time</el>
+<el tag="0019000e" owner="TOSHIBA_MEC_CT_1.0" vr="DS" vm="1"/>
+<el tag="00210001" owner="TOSHIBA_MEC_1.0" vr="US" vm="1-n"/>
+<el tag="00210002" owner="TOSHIBA_MEC_1.0" vr="US" vm="1-n"/>
+<el tag="00210003" owner="TOSHIBA_MEC_1.0" vr="US" vm="1-n"/>
+<el tag="00290008" owner="TOSHIBA MDW NON-IMAGE" keyword="NonImageHeaderType" vr="CS" vm="1">Non-Image Header Type</el>
+<el tag="00290009" owner="TOSHIBA MDW NON-IMAGE" keyword="NonImageHeaderVersion" vr="LO" vm="1">Non-Image Header Version</el>
+<el tag="00290020" owner="TOSHIBA MDW NON-IMAGE" vr="OB" vm="1"/>
+<el tag="00290008" owner="TOSHIBA MDW HEADER" keyword="ImageHeaderType" vr="CS" vm="1">Image Header Type</el>
+<el tag="00290009" owner="TOSHIBA MDW HEADER" keyword="ImageHeaderVersion" vr="LO" vm="1">Image Header Version</el>
+<el tag="00290010" owner="TOSHIBA MDW HEADER" keyword="ImageHeaderInfo" vr="OB" vm="1">Image Header Info</el>
+<el tag="00290018" owner="TOSHIBA MDW HEADER" keyword="SeriesHeaderType" vr="CS" vm="1">Series Header Type</el>
+<el tag="00290019" owner="TOSHIBA MDW HEADER" keyword="SeriesHeaderVersion" vr="LO" vm="1">Series Header Version</el>
+<el tag="00290020" owner="TOSHIBA MDW HEADER" keyword="SeriesHeaderInfo" vr="OB" vm="1">Series Header Info</el>
+<el tag="00290008" owner="TOSHIBA COMAPL HEADER" keyword="COMAPLHeaderType" vr="CS" vm="1">COMAPL Header Type</el>
+<el tag="00290009" owner="TOSHIBA COMAPL HEADER" keyword="COMAPLHeaderVersion" vr="LO" vm="1">COMAPL Header Version</el>
+<el tag="00290010" owner="TOSHIBA COMAPL HEADER" keyword="COMAPLHeaderInfo" vr="OB" vm="1">COMAPL Header Info</el>
+<el tag="00290020" owner="TOSHIBA COMAPL HEADER" keyword="COMAPLHistoryInformation" vr="OB" vm="1">COMAPL History Information</el>
+<el tag="00290031" owner="TOSHIBA COMAPL HEADER" vr="LO" vm="1"/>
+<el tag="00290034" owner="TOSHIBA COMAPL HEADER" vr="LO" vm="1"/>
+<el tag="00290008" owner="TOSHIBA COMAPL OOG" keyword="COMAPLOOGType" vr="CS" vm="1">COMAPL OOG Type</el>
+<el tag="00290009" owner="TOSHIBA COMAPL OOG" keyword="COMAPLOOGVersion" vr="LO" vm="1">COMAPL OOG Version</el>
+<el tag="00290010" owner="TOSHIBA COMAPL OOG" keyword="COMAPLOOGInfo" vr="OB" vm="1">COMAPL OOG Info</el>
+<el tag="00290001" owner="PMTF INFORMATION DATA" vr="SQ" vm="1"/>
+<el tag="00290031" owner="PMTF INFORMATION DATA" keyword="PMTFInformation1" vr="LO" vm="1">PMTF Information 1</el>
+<el tag="00290032" owner="PMTF INFORMATION DATA" keyword="PMTFInformation2" vr="UL" vm="1">PMTF Information 2</el>
+<el tag="00290033" owner="PMTF INFORMATION DATA" keyword="PMTFInformation3" vr="UL" vm="1">PMTF Information 3</el>
+<el tag="00290034" owner="PMTF INFORMATION DATA" keyword="PMTFInformation4" vr="CS" vm="1">PMTF Information 4</el>
+<el tag="00290089" owner="PMTF INFORMATION DATA" vr="LO" vm="1"/>
+<el tag="00290090" owner="PMTF INFORMATION DATA" vr="OB" vm="1"/>
+<el tag="70050000" owner="TOSHIBA_MEC_CT3" keyword="CTPrivateData1" vr="OB" vm="1">CT Private Data 1</el>
+<el tag="70050001" owner="CANON_MEC_CT3" keyword="ImageTypeRemarks" vr="SH" vm="1">Image Type Remarks</el>
+<el tag="70050002" owner="CANON_MEC_CT3" keyword="ImagePriorityNumber" vr="IS" vm="1">Image Priority Number</el>
+<el tag="70050003" owner="CANON_MEC_CT3" keyword="DecompositionMode" vr="CS" vm="1">Decomposition Mode</el>
+<el tag="70050003" owner="TOSHIBA_MEC_CT3" keyword="CardiacRRMeanTime" vr="SH" vm="1">Cardiac R-R Mean Time</el>
+<el tag="70050004" owner="CANON_MEC_CT3" keyword="MonoenergeticEnergyEquivalent" vr="FD" vm="1">Monoenergetic Energy Equivalent</el>
+<el tag="70050004" owner="TOSHIBA_MEC_CT3" keyword="CardiacReconstructionGettingPhaseInPercent" vr="SH" vm="1">Cardiac Reconstruction Getting Phase in Percent</el>
+<el tag="70050005" owner="CANON_MEC_CT3" keyword="MultiEnergySourceTechnique" vr="CS" vm="1">Multi Energy Source Technique</el>
+<el tag="70050005" owner="TOSHIBA_MEC_CT3" keyword="CardiacReconstructionGettingPhaseInMS" vr="SH" vm="1">Cardiac Reconstruction Getting Phase in ms</el>
+<el tag="70050006" owner="CANON_MEC_CT3" keyword="MultiEnergyRelevantMaterials" vr="SQ" vm="1">Multi Energy Relevant Materials</el>
+<el tag="70050006" owner="TOSHIBA_MEC_CT3" keyword="CardiacReconstructionMode" vr="SH" vm="1">Cardiac Reconstruction Mode</el>
+<el tag="70050007" owner="TOSHIBA_MEC_CT3" keyword="ReconstructionCenter" vr="DS" vm="1-n">Reconstruction Center</el>
+<el tag="70050008" owner="TOSHIBA_MEC_CT3" keyword="DetectorSliceThickness" vr="DS" vm="1">Detector Slice Thickness in mm</el>
+<el tag="70050009" owner="TOSHIBA_MEC_CT3" keyword="NumberOfDetectorRowsToReconstruct" vr="LO" vm="1">Number of Detector rows to Reconstruct</el>
+<el tag="7005000a" owner="TOSHIBA_MEC_CT3" keyword="TableSpeed" vr="DS" vm="1">Table Speed in mm/rot</el>
+<el tag="7005000b" owner="TOSHIBA_MEC_CT3" keyword="Filter" vr="SH" vm="1">Filter</el>
+<el tag="7005000c" owner="TOSHIBA_MEC_CT3" keyword="ReconstructionCorrectionType" vr="SH" vm="1">Reconstruction Correction Type</el>
+<el tag="7005000d" owner="TOSHIBA_MEC_CT3" keyword="Organ" vr="CS" vm="1">Organ</el>
+<el tag="7005000e" owner="TOSHIBA_MEC_CT3" keyword="FileTypeRemarks" vr="SH" vm="1">File Type Remarks</el>
+<el tag="7005000f" owner="TOSHIBA_MEC_CT3" keyword="Direction" vr="SH" vm="1">Direction (head or feet first)</el>
+<el tag="70050010" owner="TOSHIBA_MEC_CT3" keyword="CTPrivateData2" vr="OB" vm="1">CT Private Data 2</el>
+<el tag="70050011" owner="TOSHIBA_MEC_CT3" keyword="SeriesComment" vr="LT" vm="1">Series Comment</el>
+<el tag="70050012" owner="TOSHIBA_MEC_CT3" keyword="Position" vr="SH" vm="1">Position (supine or prone)</el>
+<el tag="70050013" owner="TOSHIBA_MEC_CT3" keyword="ExpertPlanNumber" vr="US" vm="1">Expert Plan Number</el>
+<el tag="70050014" owner="TOSHIBA_MEC_CT3" keyword="ReconstructionROINumber" vr="US" vm="1">Reconstruction ROI Number</el>
+<el tag="70050015" owner="TOSHIBA_MEC_CT3" keyword="SpecialHelicalAcquisitionNumber" vr="US" vm="1">Special Helical Acquisition Number</el>
+<el tag="70050016" owner="TOSHIBA_MEC_CT3" keyword="VolumeUID" vr="UI" vm="1">Volume UID</el>
+<el tag="70050017" owner="TOSHIBA_MEC_CT3" keyword="TotalFrameCountInTheVolume" vr="US" vm="1">Total Frame Count in the Volume</el>
+<el tag="70050018" owner="TOSHIBA_MEC_CT3" keyword="FrameNumber" vr="US" vm="1">Frame Number</el>
+<el tag="70050019" owner="TOSHIBA_MEC_CT3" keyword="FrameSortKey" vr="UL" vm="1">Frame Sort Key</el>
+<el tag="7005001a" owner="TOSHIBA_MEC_CT3" keyword="FrameSortOrder" vr="US" vm="1">Frame Sort Order</el>
+<el tag="7005001b" owner="TOSHIBA_MEC_CT3" keyword="ConvolutionKernelForSeriesRecord" vr="SH" vm="1">Convolution Kernel for Series Record</el>
+<el tag="7005001c" owner="TOSHIBA_MEC_CT3" keyword="ContrastBolusAgentForSeriesRecord" vr="LO" vm="1">Contrast/Bolus Agent for Series Record</el>
+<el tag="7005001d" owner="TOSHIBA_MEC_CT3" keyword="ReconstructionNumber" vr="UL" vm="1">Reconstruction Number</el>
+<el tag="7005001e" owner="TOSHIBA_MEC_CT3" keyword="RawDataNumber" vr="UL" vm="1">Raw Data Number</el>
+<el tag="7005001f" owner="TOSHIBA_MEC_CT3" keyword="VolumeNumber" vr="LO" vm="1">Volume Number</el>
+<el tag="70050020" owner="TOSHIBA_MEC_CT3" keyword="LocalSeriesNumber" vr="UL" vm="1">Local Series Number</el>
+<el tag="70050021" owner="TOSHIBA_MEC_CT3" keyword="DecreaseInArtifactFilter" vr="LO" vm="1">Decrease in Artifact Filter</el>
+<el tag="70050022" owner="TOSHIBA_MEC_CT3" keyword="ReconstructionInterval" vr="DS" vm="1">Reconstruction Interval</el>
+<el tag="70050023" owner="TOSHIBA_MEC_CT3" keyword="PitchFactor" vr="DS" vm="1">Pitch Factor</el>
+<el tag="70050024" owner="TOSHIBA_MEC_CT3" keyword="AcquisitionDateOfNRA" vr="DA" vm="1">AcquisitionDateOfNRA</el>
+<el tag="70050025" owner="TOSHIBA_MEC_CT3" keyword="LargeDataFileAttribute" vr="UL" vm="1">Large Data File Attribute</el>
+<el tag="70050026" owner="TOSHIBA_MEC_CT3" keyword="LargeDataFileName" vr="CS" vm="1-8">Large Data File Name</el>
+<el tag="70050028" owner="TOSHIBA_MEC_CT3" keyword="EnhancedCTPrivateSequence" vr="SQ" vm="1">Enhanced CT Private Sequence</el>
+<el tag="70050029" owner="TOSHIBA_MEC_CT3" keyword="FrameUID" vr="UI" vm="1">Frame UID</el>
+<el tag="70050030" owner="TOSHIBA_MEC_CT3" keyword="MainModalityInStudy" vr="CS" vm="1">Main Modality in Study</el>
+<el tag="70050035" owner="TOSHIBA_MEC_CT3" keyword="ScanRange" vr="DS" vm="2">Scan Range</el>
+<el tag="70050036" owner="TOSHIBA_MEC_CT3" keyword="CTPrivateData3" vr="OB" vm="1">CT Private Data 3</el>
+<el tag="70050037" owner="TOSHIBA_MEC_CT3" keyword="TotalFrames" vr="IS" vm="1">Total Frames</el>
+<el tag="70050038" owner="TOSHIBA_MEC_CT3" keyword="StartFrame" vr="IS" vm="1">Start Frame</el>
+<el tag="70050039" owner="TOSHIBA_MEC_CT3" keyword="EndFrame" vr="IS" vm="1">End Frame</el>
+<el tag="70050040" owner="TOSHIBA_MEC_CT3" keyword="DLP" vr="FD" vm="1">DLP</el>
+<el tag="70050041" owner="TOSHIBA_MEC_CT3" keyword="RowSliceInformation" vr="SH" vm="1">Row Slice Information</el>
+<el tag="70050042" owner="TOSHIBA_MEC_CT3" keyword="LocalFrameNumber" vr="US" vm="1">Local Frame Number</el>
+<el tag="70050043" owner="TOSHIBA_MEC_CT3" keyword="VolumeVector" vr="DS" vm="3">Volume Vector</el>
+<el tag="70050044" owner="TOSHIBA_MEC_CT3" keyword="VolumeType" vr="US" vm="1">Volume Type</el>
+<el tag="70050045" owner="TOSHIBA_MEC_CT3" keyword="RelativeTablePositionOf4DVolume" vr="DS" vm="1">Relative Table Position of 4D Volume</el>
+<el tag="70050046" owner="TOSHIBA_MEC_CT3" keyword="AbsoluteTablePositionOf4DVolume" vr="DS" vm="1">Absolute Table Position of 4D Volume</el>
+<el tag="70050047" owner="TOSHIBA_MEC_CT3" keyword="SlicePitchOf4DVolume" vr="DS" vm="1">Slice Pitch of 4D Volume</el>
+<el tag="70050048" owner="TOSHIBA_MEC_CT3" keyword="RespiratoryGatingInformation" vr="LO" vm="1">Respiratory Gating Information</el>
+<el tag="70050049" owner="TOSHIBA_MEC_CT3" keyword="RespiratoryPhase" vr="SH" vm="1">Respiratory Phase</el>
+<el tag="70050061" owner="TOSHIBA_MEC_CT3" keyword="SynchronizedSignalInformation" vr="LO" vm="1">Synchronized Signal Information</el>
+<el tag="70050062" owner="TOSHIBA_MEC_CT3" keyword="TotalRawDataSize" vr="DS" vm="1">Total Raw Data Size</el>
+<el tag="70050063" owner="TOSHIBA_MEC_CT3" keyword="CTDIw" vr="FD" vm="1">CTDIw</el>
+<el tag="70050064" owner="TOSHIBA_MEC_CT3" keyword="DualEnergyKVValue" vr="IS" vm="1-n">Dual Energy KV Value</el>
+<el tag="70050066" owner="TOSHIBA_MEC_CT3" keyword="ReferenceUIDOfDualEnergyImage" vr="UI" vm="1">Reference UID of Dual Energy Image</el>
+<el tag="70050067" owner="TOSHIBA_MEC_CT3" keyword="VolumeUIDOf4DVolume" vr="UI" vm="1">Volume UID of 4D-Volume</el>
+<el tag="70050068" owner="TOSHIBA_MEC_CT3" keyword="TotalFrameCountIn4DVolume" vr="US" vm="1">Total Frame Count in 4D-Volume</el>
+<el tag="70050069" owner="TOSHIBA_MEC_CT3" keyword="FrameNumberIn4DVolume" vr="US" vm="1">Frame Number in 4D-Volume</el>
+<el tag="7005006a" owner="TOSHIBA_MEC_CT3" keyword="ImagePositionOf4DVolumeTop" vr="DS" vm="3">Image Position of 4D-Volume Top</el>
+<el tag="7005006b" owner="TOSHIBA_MEC_CT3" keyword="ImagePositionOf4DVolumeTopEquipment" vr="DS" vm="3">Image Position of 4D-Volume Top (Equipment)</el>
+<el tag="7005006c" owner="TOSHIBA_MEC_CT3" keyword="SOPInstanceUIDOf4DVolume" vr="UI" vm="1">SOP Instance UID of 4D-Volume</el>
+<el tag="7005006d" owner="TOSHIBA_MEC_CT3" keyword="SeriesInstanceUIDOf4DVolume" vr="UI" vm="1">Series Instance UID of 4D-Volume</el>
+<el tag="7005006e" owner="TOSHIBA_MEC_CT3" keyword="Stitching" vr="SH" vm="1">Stitching</el>
+<el tag="7005006f" owner="TOSHIBA_MEC_CT3" keyword="3DObjectFileHeader" vr="OB" vm="1">3D Object File Header</el>
+<el tag="70050070" owner="TOSHIBA_MEC_CT3" keyword="3DObjectOpacityData" vr="OB" vm="1">3D Object Opacity Data</el>
+<el tag="70050071" owner="TOSHIBA_MEC_CT3" keyword="RowsOfCapturedImageFor3DObject" vr="US" vm="1">Rows of Captured Image for 3D Object</el>
+<el tag="70050072" owner="TOSHIBA_MEC_CT3" keyword="ColumnsOfCapturedImageFor3DObject" vr="US" vm="1">Columns of Captured Image for 3D Object</el>
+<el tag="70050073" owner="TOSHIBA_MEC_CT3" keyword="AllocatedBitsOfCapturedImageFor3DObject" vr="US" vm="1">Allocated Bits of Captured Image for 3D Object</el>
+<el tag="70050074" owner="TOSHIBA_MEC_CT3" keyword="StoredBitsOfCapturedImageFor3DObject" vr="US" vm="1">Stored Bits of Captured Image for 3D Object</el>
+<el tag="70050075" owner="TOSHIBA_MEC_CT3" keyword="HighBitOfCapturedImageFor3DObject" vr="US" vm="1">High it of Captured Image for 3D Object</el>
+<el tag="70050076" owner="TOSHIBA_MEC_CT3" keyword="PixelRepresentationOfCapturedImageFor3DObject" vr="US" vm="1">PixelRepresentation of Captured Image for 3D Object</el>
+<el tag="70050077" owner="TOSHIBA_MEC_CT3" keyword="CapturedImageFor3DObject" vr="OW" vm="1">Captured Image for 3D Object</el>
+<el tag="70050078" owner="TOSHIBA_MEC_CT3" keyword="FrameTagListFor3DObject" vr="AT" vm="1-n">Frame Tag List for 3D Object</el>
+<el tag="70050079" owner="TOSHIBA_MEC_CT3" keyword="InjectorElapsedTime" vr="SH" vm="1">Injector Elapsed Time</el>
+<el tag="7005007a" owner="TOSHIBA_MEC_CT3" keyword="SeriesInstanceUIDOfShuttleHelicalVolume" vr="UI" vm="1">Series Instance UID of Shuttle Helical Volume</el>
+<el tag="7005007b" owner="TOSHIBA_MEC_CT3" keyword="BasisMaterialOfRawDataDE" vr="LO" vm="1">Basis Material of Raw Data DE</el>
+<el tag="7005008e" owner="TOSHIBA_MEC_CT3" keyword="RelatedImageSequence" vr="SQ" vm="1">Related Image Sequence</el>
+<el tag="70050092" owner="TOSHIBA_MEC_CT3" keyword="ReconstructionAlgorithm" vr="LO" vm="1">Reconstruction Algorithm</el>
+<el tag="70050093" owner="TOSHIBA_MEC_CT3" keyword="SliceResolutionMode" vr="SH" vm="1">Slice Resolution Mode</el>
+<el tag="700500F1" owner="TOSHIBA_MEC_CT3" keyword="ProtectMarkForImageCurveOrPrivateRecord" vr="CS" vm="1">Protect Mark for Image, Curve or Private Record</el>
+<el tag="700500F2" owner="TOSHIBA_MEC_CT3" keyword="ProtectMarkForSeriesRecord" vr="CS" vm="1">Protect Mark for Series Record</el>
+<el tag="700500F3" owner="TOSHIBA_MEC_CT3" keyword="ProtectMarkForStudyRecord" vr="CS" vm="1">Protect Mark for Study Record</el>
+<el tag="700d0000" owner="TOSHIBA_MEC_MR3" keyword="ScaleFactor" vr="DS" vm="1">Scale Factor</el>
+<el tag="700d0001" owner="TOSHIBA_MEC_MR3" keyword="AcquisitionOrder" vr="OB" vm="1">Acquisition Order</el>
+<el tag="700d0002" owner="TOSHIBA_MEC_MR3" keyword="OrientationVector" vr="DS" vm="1">Orientation Vector</el>
+<el tag="700d0003" owner="TOSHIBA_MEC_MR3" keyword="FlipFlag" vr="SS" vm="1">Flip Flag</el>
+<el tag="700d0004" owner="TOSHIBA_MEC_MR3" keyword="RotateInformation" vr="OB" vm="1">Rotate Information</el>
+<el tag="700d0005" owner="TOSHIBA_MEC_MR3" keyword="FOV" vr="DS" vm="1">FOV</el>
+<el tag="700d0006" owner="TOSHIBA_MEC_MR3" keyword="ImageMatrix" vr="US" vm="1">Image Matrix</el>
+<el tag="700d0007" owner="TOSHIBA_MEC_MR3" keyword="ImageInformation" vr="OB" vm="1">Image Information</el>
+<el tag="700d0008" owner="TOSHIBA_MEC_MR3" keyword="OriginalData" vr="OB" vm="1">Original Data</el>
+<el tag="700d0009" owner="TOSHIBA_MEC_MR3" keyword="OriginalDataFlag" vr="SS" vm="1">Original Data Flag</el>
+<el tag="700d000C" owner="TOSHIBA_MEC_MR3" vr="CS" vm="1"/>
+<el tag="700d0020" owner="TOSHIBA_MEC_MR3" vr="SH" vm="1"/>
+<el tag="70150000" owner="TOSHIBA ENCRYPTED SR DATA" vr="OB" vm="1"/>
+<el tag="70150010" owner="TOSHIBA_SR" vr="OB" vm="1"/>
+<el tag="70150060" owner="TOSHIBA_SR" vr="OB" vm="1"/>
+<el tag="70150073" owner="PMTF INFORMATION DATA" vr="SQ" vm="1"/>
+<el tag="70790021" owner="TOSHIBA_MEC_XA3" vr="SH" vm="5"/>
+<el tag="70790022" owner="TOSHIBA_MEC_XA3" vr="IS" vm="2"/>
+<el tag="70790023" owner="TOSHIBA_MEC_XA3" vr="IS" vm="2"/>
+<el tag="70790024" owner="TOSHIBA_MEC_XA3" vr="DS" vm="1"/>
+<el tag="70790025" owner="TOSHIBA_MEC_XA3" vr="SH" vm="1"/>
+<el tag="70790026" owner="TOSHIBA_MEC_XA3" vr="DS" vm="2"/>
+<el tag="70790027" owner="TOSHIBA_MEC_XA3" vr="US" vm="2"/>
+<el tag="70790028" owner="TOSHIBA_MEC_XA3" vr="US" vm="1"/>
+<el tag="7079002a" owner="TOSHIBA_MEC_XA3" vr="US" vm="5"/>
+<el tag="7079002c" owner="TOSHIBA_MEC_XA3" vr="SH" vm="3"/>
+<el tag="7079002d" owner="TOSHIBA_MEC_XA3" vr="SS" vm="2"/>
+<el tag="7079002e" owner="TOSHIBA_MEC_XA3" vr="SH" vm="1"/>
+<el tag="7079002f" owner="TOSHIBA_MEC_XA3" vr="SH" vm="1"/>
+<el tag="70790030" owner="TOSHIBA_MEC_XA3" vr="US" vm="1"/>
+<el tag="70790031" owner="TOSHIBA_MEC_XA3" vr="US" vm="1-n"/>
+<el tag="70790032" owner="TOSHIBA_MEC_XA3" vr="SH" vm="2"/>
+<el tag="70790033" owner="TOSHIBA_MEC_XA3" vr="US" vm="1-n"/>
+<el tag="70790034" owner="TOSHIBA_MEC_XA3" vr="SH" vm="1"/>
+<el tag="70790035" owner="TOSHIBA_MEC_XA3" vr="SH" vm="1"/>
+<el tag="70790036" owner="TOSHIBA_MEC_XA3" vr="SH" vm="1"/>
+<el tag="70790037" owner="TOSHIBA_MEC_XA3" vr="US" vm="4"/>
+<el tag="70790038" owner="TOSHIBA_MEC_XA3" vr="SS" vm="1-n"/>
+<el tag="70790039" owner="TOSHIBA_MEC_XA3" vr="SS" vm="1-n"/>
+<el tag="7079003a" owner="TOSHIBA_MEC_XA3" vr="US" vm="2"/>
+<el tag="7079003b" owner="TOSHIBA_MEC_XA3" vr="SH" vm="1"/>
+<el tag="7079003c" owner="TOSHIBA_MEC_XA3" vr="DS" vm="2"/>
+<el tag="7079003d" owner="TOSHIBA_MEC_XA3" vr="SS" vm="2"/>
+<el tag="7079003e" owner="TOSHIBA_MEC_XA3" vr="SH" vm="1"/>
+<el tag="7079003f" owner="TOSHIBA_MEC_XA3" vr="US" vm="2"/>
+<el tag="70790040" owner="TOSHIBA_MEC_XA3" vr="SH" vm="2"/>
+<el tag="70790041" owner="TOSHIBA_MEC_XA3" vr="SS" vm="2"/>
+<el tag="70790042" owner="TOSHIBA_MEC_XA3" vr="SH" vm="1"/>
+<el tag="70790043" owner="TOSHIBA_MEC_XA3" vr="SH" vm="1"/>
+<el tag="70790044" owner="TOSHIBA_MEC_XA3" vr="US" vm="1"/>
+<el tag="70790045" owner="TOSHIBA_MEC_XA3" vr="SH" vm="1"/>
+<el tag="70790046" owner="TOSHIBA_MEC_XA3" vr="SS" vm="1"/>
+<el tag="70790047" owner="TOSHIBA_MEC_XA3" vr="SS" vm="18"/>
+<el tag="70790048" owner="TOSHIBA_MEC_XA3" vr="US" vm="12"/>
+<el tag="70790049" owner="TOSHIBA_MEC_XA3" vr="US" vm="3"/>
+<el tag="7079004a" owner="TOSHIBA_MEC_XA3" vr="US" vm="1"/>
+<el tag="7079004b" owner="TOSHIBA_MEC_XA3" vr="LO" vm="3"/>
+<el tag="7079004c" owner="TOSHIBA_MEC_XA3" vr="OB" vm="1"/>
+<el tag="7079004d" owner="TOSHIBA_MEC_XA3" vr="SH" vm="3"/>
+<el tag="7079004e" owner="TOSHIBA_MEC_XA3" vr="SL" vm="35"/>
+<el tag="7079004f" owner="TOSHIBA_MEC_XA3" vr="SH" vm="3"/>
+<el tag="70790050" owner="TOSHIBA_MEC_XA3" vr="US" vm="1-n"/>
+<el tag="70790051" owner="TOSHIBA_MEC_XA3" vr="US" vm="1-n"/>
+<el tag="70790052" owner="TOSHIBA_MEC_XA3" vr="US" vm="1"/>
+<el tag="70790053" owner="TOSHIBA_MEC_XA3" vr="SH" vm="1"/>
+<el tag="70790054" owner="TOSHIBA_MEC_XA3" vr="US" vm="5"/>
+<el tag="70790055" owner="TOSHIBA_MEC_XA3" vr="UL" vm="47-47n"/>
+<el tag="70790056" owner="TOSHIBA_MEC_XA3" vr="US" vm="1"/>
+<el tag="70790057" owner="TOSHIBA_MEC_XA3" vr="US" vm="1-n"/>
+<el tag="70790058" owner="TOSHIBA_MEC_XA3" vr="US" vm="1"/>
+<el tag="70790059" owner="TOSHIBA_MEC_XA3" vr="US" vm="2-2n"/>
+<el tag="7079005a" owner="TOSHIBA_MEC_XA3" vr="US" vm="1"/>
+<el tag="7079005b" owner="TOSHIBA_MEC_XA3" vr="US" vm="2"/>
+<el tag="7079005c" owner="TOSHIBA_MEC_XA3" vr="US" vm="2-2n"/>
+<el tag="7079005d" owner="TOSHIBA_MEC_XA3" vr="SH" vm="1"/>
+<el tag="7079005e" owner="TOSHIBA_MEC_XA3" vr="US" vm="2"/>
+<el tag="7079005f" owner="TOSHIBA_MEC_XA3" vr="SS" vm="4-4n"/>
+<el tag="70790060" owner="TOSHIBA_MEC_XA3" vr="US" vm="1-n"/>
+<el tag="70790061" owner="TOSHIBA_MEC_XA3" vr="SS" vm="30-30n"/>
+<el tag="70790062" owner="TOSHIBA_MEC_XA3" vr="US" vm="4"/>
+<el tag="70790063" owner="TOSHIBA_MEC_XA3" vr="US" vm="1-n"/>
+<el tag="70790064" owner="TOSHIBA_MEC_XA3" vr="US" vm="1-n"/>
+<el tag="70790065" owner="TOSHIBA_MEC_XA3" vr="US" vm="1-n"/>
+<el tag="70790066" owner="TOSHIBA_MEC_XA3" vr="US" vm="1-n"/>
+<el tag="70790067" owner="TOSHIBA_MEC_XA3" vr="US" vm="1-n"/>
+<el tag="70790068" owner="TOSHIBA_MEC_XA3" vr="US" vm="1-n"/>
+<el tag="70790069" owner="TOSHIBA_MEC_XA3" vr="US" vm="1-n"/>
+<el tag="7079006a" owner="TOSHIBA_MEC_XA3" vr="US" vm="1-n"/>
+<el tag="7079006b" owner="TOSHIBA_MEC_XA3" vr="US" vm="1-n"/>
+<el tag="7079006c" owner="TOSHIBA_MEC_XA3" vr="US" vm="1"/>
+<el tag="7079006d" owner="TOSHIBA_MEC_XA3" vr="DS" vm="1"/>
+<el tag="7079006e" owner="TOSHIBA_MEC_XA3" vr="LO" vm="1"/>
+<el tag="7079006f" owner="TOSHIBA_MEC_XA3" vr="DS" vm="1"/>
+<el tag="70790070" owner="TOSHIBA_MEC_XA3" vr="DS" vm="1"/>
+<el tag="70790071" owner="TOSHIBA_MEC_XA3" vr="DS" vm="1-n"/>
+<el tag="70790072" owner="TOSHIBA_MEC_XA3" vr="DS" vm="1-n"/>
+<el tag="70790073" owner="TOSHIBA_MEC_XA3" vr="SL" vm="4"/>
+<el tag="70790074" owner="TOSHIBA_MEC_XA3" vr="SL" vm="28"/>
+<el tag="70790075" owner="TOSHIBA_MEC_XA3" vr="SH" vm="1"/>
+<el tag="70790076" owner="TOSHIBA_MEC_XA3" vr="US" vm="1"/>
+<el tag="70790077" owner="TOSHIBA_MEC_XA3" vr="SL" vm="1"/>
+<el tag="70790078" owner="TOSHIBA_MEC_XA3" vr="US" vm="1"/>
+<el tag="70790079" owner="TOSHIBA_MEC_XA3" vr="US" vm="1"/>
+<el tag="7079007b" owner="TOSHIBA_MEC_XA3" vr="SH" vm="1"/>
+<el tag="70790080" owner="TOSHIBA_MEC_XA3" vr="LO" vm="1"/>
+<el tag="7ff10001" owner="TOSHIBA_MEC_1.0" vr="US" vm="1-n"/>
+<el tag="7ff10001" owner="TOSHIBA_MEC_CT_1.0" vr="US" vm="1-n"/>
+<el tag="7ff10002" owner="TOSHIBA_MEC_1.0" vr="US" vm="1-n"/>
+<el tag="7ff10002" owner="TOSHIBA_MEC_CT_1.0" vr="US" vm="1-n"/>
+<el tag="7ff10003" owner="TOSHIBA_MEC_CT_1.0" vr="IS" vm="1"/>
+<el tag="7ff10003" owner="TOSHIBA_MEC_1.0" vr="US" vm="1-n"/>
+<el tag="7ff10004" owner="TOSHIBA_MEC_CT_1.0" vr="IS" vm="1"/>
+<el tag="7ff10005" owner="TOSHIBA_MEC_CT_1.0" vr="US" vm="1-n"/>
+<el tag="7ff10007" owner="TOSHIBA_MEC_CT_1.0" vr="US" vm="1-n"/>
+<el tag="7ff10008" owner="TOSHIBA_MEC_CT_1.0" vr="US" vm="1-n"/>
+<el tag="7ff10009" owner="TOSHIBA_MEC_CT_1.0" vr="US" vm="1-n"/>
+<el tag="7ff1000a" owner="TOSHIBA_MEC_CT_1.0" vr="LT" vm="1"/>
+<el tag="7ff1000b" owner="TOSHIBA_MEC_CT_1.0" vr="US" vm="1-n"/>
+<el tag="7ff1000c" owner="TOSHIBA_MEC_CT_1.0" vr="US" vm="1-n"/>
+<el tag="7ff1000d" owner="TOSHIBA_MEC_CT_1.0" vr="US" vm="1-n"/>
+<el tag="7ff10010" owner="TOSHIBA_MEC_1.0" vr="US" vm="1-n"/>
+</elements>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elements>
+<el tag="00290070" owner="ISG shadow" vr="IS" vm="1"/>
+<el tag="00290080" owner="ISG shadow" vr="IS" vm="1"/>
+<el tag="00290090" owner="ISG shadow" vr="IS" vm="1"/>
+<el tag="00290013" owner="Silhouette V1.0" vr="UL" vm="1"/>
+<el tag="00290014" owner="Silhouette V1.0" vr="UL" vm="1"/>
+<el tag="00290017" owner="Silhouette V1.0" vr="UN" vm="1"/>
+<el tag="00290018" owner="Silhouette V1.0" vr="UN" vm="1"/>
+<el tag="00290019" owner="Silhouette V1.0" vr="UL" vm="1"/>
+<el tag="0029001a" owner="Silhouette V1.0" vr="UN" vm="1"/>
+<el tag="0029001b" owner="Silhouette V1.0" vr="UL" vm="1"/>
+<el tag="0029001c" owner="Silhouette V1.0" vr="UL" vm="1"/>
+<el tag="0029001d" owner="Silhouette V1.0" vr="UN" vm="1"/>
+<el tag="0029001e" owner="Silhouette V1.0" vr="UN" vm="1"/>
+<el tag="00290021" owner="Silhouette V1.0" vr="US" vm="1"/>
+<el tag="00290022" owner="Silhouette V1.0" vr="US" vm="1"/>
+<el tag="00290023" owner="Silhouette V1.0" vr="US" vm="1"/>
+<el tag="00290024" owner="Silhouette V1.0" vr="US" vm="1"/>
+<el tag="00290025" owner="Silhouette V1.0" vr="US" vm="1"/>
+<el tag="00290027" owner="Silhouette V1.0" vr="UN" vm="1"/>
+<el tag="00290028" owner="Silhouette V1.0" vr="UN" vm="1"/>
+<el tag="00290029" owner="Silhouette V1.0" vr="UN" vm="1"/>
+<el tag="00290030" owner="Silhouette V1.0" vr="UN" vm="1"/>
+<el tag="00290031" owner="Silhouette V1.0" vr="UN" vm="1"/>
+<el tag="00290046" owner="Silhouette V1.0" vr="UN" vm="1"/>
+<el tag="00290047" owner="Silhouette V1.0" vr="UN" vm="1"/>
+<el tag="00290052" owner="Silhouette V1.0" vr="US" vm="1"/>
+<el tag="00290053" owner="Silhouette V1.0" vr="LT" vm="1"/>
+<el tag="00290054" owner="Silhouette V1.0" vr="UN" vm="1"/>
+<el tag="00290055" owner="Silhouette V1.0" vr="LT" vm="1"/>
+<el tag="00290056" owner="Silhouette V1.0" vr="LT" vm="1"/>
+<el tag="00290057" owner="Silhouette V1.0" vr="UN" vm="1"/>
+<el tag="00290073" owner="Silhouette V1.0" vr="UN" vm="1"/>
+<el tag="00290074" owner="Silhouette V1.0" vr="UN" vm="1"/>
+<el tag="00290077" owner="Silhouette V1.0" vr="UN" vm="1"/>
+<el tag="00290078" owner="Silhouette V1.0" vr="UN" vm="1"/>
+<el tag="00290088" owner="Silhouette V1.0" vr="UN" vm="1"/>
+<el tag="00290089" owner="Silhouette V1.0" vr="UN" vm="1"/>
+<el tag="00290090" owner="Silhouette V1.0" vr="UN" vm="1"/>
+<el tag="00290091" owner="Silhouette V1.0" vr="UN" vm="1"/>
+<el tag="00290000" owner="Silhouette Graphics Export V1.0" vr="UI" vm="1"/>
+<el tag="00290011" owner="Silhouette Line V1.0" keyword="LineName" vr="IS" vm="1">Line Name</el>
+<el tag="00290012" owner="Silhouette Line V1.0" keyword="LineNameFont" vr="LT" vm="1">Line Name Font</el>
+<el tag="00290013" owner="Silhouette Line V1.0" keyword="LineNameDisplay" vr="UL" vm="1">Line Name Display</el>
+<el tag="00290014" owner="Silhouette Line V1.0" keyword="LineNormalColor" vr="LT" vm="1">Line Normal Color</el>
+<el tag="00290015" owner="Silhouette Line V1.0" keyword="LineType" vr="UL" vm="1">Line Type</el>
+<el tag="00290016" owner="Silhouette Line V1.0" keyword="LineThickness" vr="UL" vm="1">Line Thickness</el>
+<el tag="00290017" owner="Silhouette Line V1.0" keyword="LineStyle" vr="UL" vm="1">Line Style</el>
+<el tag="00290018" owner="Silhouette Line V1.0" keyword="LineDashLength" vr="UL" vm="1">Line Dash Length</el>
+<el tag="00290019" owner="Silhouette Line V1.0" keyword="LineInteractivity" vr="UL" vm="1">Line Interactivity</el>
+<el tag="00290020" owner="Silhouette Line V1.0" keyword="LineMeasurementColor" vr="LT" vm="1">Line Measurement Color</el>
+<el tag="00290021" owner="Silhouette Line V1.0" keyword="LineMeasurementFont" vr="LT" vm="1">Line Measurement Font</el>
+<el tag="00290022" owner="Silhouette Line V1.0" keyword="LineMeasurementDashLength" vr="UL" vm="1">Line Measurement Dash Length</el>
+<el tag="00290023" owner="Silhouette Line V1.0" keyword="LinePointSpace" vr="UL" vm="1">Line Point Space</el>
+<el tag="00290024" owner="Silhouette Line V1.0" keyword="LinePoints" vr="FD" vm="1">Line Points</el>
+<el tag="00290025" owner="Silhouette Line V1.0" keyword="LineControlPointSize" vr="UL" vm="1">Line Control Point Size</el>
+<el tag="00290026" owner="Silhouette Line V1.0" keyword="LineControlPointSpace" vr="UL" vm="1">Line Control Point Space</el>
+<el tag="00290027" owner="Silhouette Line V1.0" keyword="LineControlPoints" vr="FD" vm="1">Line Control Points</el>
+<el tag="00290028" owner="Silhouette Line V1.0" keyword="LineLabel" vr="LT" vm="1">Line Label</el>
+<el tag="00290029" owner="Silhouette Line V1.0" keyword="LineDontSave" vr="UL" vm="1">Line Don't Save</el>
+<el tag="00290041" owner="Silhouette Sequence Ids V1.0" vr="SQ" vm="1"/>
+<el tag="00290042" owner="Silhouette Sequence Ids V1.0" vr="SQ" vm="1"/>
+<el tag="00290043" owner="Silhouette Sequence Ids V1.0" vr="SQ" vm="1"/>
+<el tag="00290011" owner="Silhouette Annot V1.0" keyword="AnnotationName" vr="IS" vm="1">Annotation Name</el>
+<el tag="00290012" owner="Silhouette Annot V1.0" keyword="AnnotationFont" vr="LT" vm="1">Annotation Font</el>
+<el tag="00290013" owner="Silhouette Annot V1.0" keyword="AnnotationTextForegroundColor" vr="LT" vm="1">Annotation Text Foreground Color</el>
+<el tag="00290014" owner="Silhouette Annot V1.0" keyword="AnnotationTextBackgroundColor" vr="LT" vm="1">Annotation Text Background Color</el>
+<el tag="00290015" owner="Silhouette Annot V1.0" keyword="AnnotationTextBackingMode" vr="UL" vm="1">Annotation Text Backing Mode</el>
+<el tag="00290016" owner="Silhouette Annot V1.0" keyword="AnnotationTextJustification" vr="UL" vm="1">Annotation Text Justification</el>
+<el tag="00290017" owner="Silhouette Annot V1.0" keyword="AnnotationTextLocation" vr="UL" vm="1">Annotation Text Location</el>
+<el tag="00290018" owner="Silhouette Annot V1.0" keyword="AnnotationTextString" vr="LT" vm="1">Annotation Text String</el>
+<el tag="00290019" owner="Silhouette Annot V1.0" keyword="AnnotationTextAttachMode" vr="UL" vm="1">Annotation Text Attach Mode</el>
+<el tag="00290020" owner="Silhouette Annot V1.0" keyword="AnnotationTextCursorMode" vr="UL" vm="1">Annotation Text Cursor Mode</el>
+<el tag="00290021" owner="Silhouette Annot V1.0" keyword="AnnotationTextShadowOffsetX" vr="UL" vm="1">Annotation Text Shadow Offset X</el>
+<el tag="00290022" owner="Silhouette Annot V1.0" keyword="AnnotationTextShadowOffsetY" vr="UL" vm="1">Annotation Text Shadow Offset Y</el>
+<el tag="00290023" owner="Silhouette Annot V1.0" keyword="AnnotationLineColor" vr="LT" vm="1">Annotation Line Color</el>
+<el tag="00290024" owner="Silhouette Annot V1.0" keyword="AnnotationLineThickness" vr="UL" vm="1">Annotation Line Thickness</el>
+<el tag="00290025" owner="Silhouette Annot V1.0" keyword="AnnotationLineType" vr="UL" vm="1">Annotation Line Type</el>
+<el tag="00290026" owner="Silhouette Annot V1.0" keyword="AnnotationLineStyle" vr="UL" vm="1">Annotation Line Style</el>
+<el tag="00290027" owner="Silhouette Annot V1.0" keyword="AnnotationLineDashLength" vr="UL" vm="1">Annotation Line Dash Length</el>
+<el tag="00290028" owner="Silhouette Annot V1.0" keyword="AnnotationLineAttachMode" vr="UL" vm="1">Annotation Line Attach Mode</el>
+<el tag="00290029" owner="Silhouette Annot V1.0" keyword="AnnotationLinePointCount" vr="UL" vm="1">Annotation Line Point Count</el>
+<el tag="00290030" owner="Silhouette Annot V1.0" keyword="AnnotationLinePoints" vr="FD" vm="1">Annotation Line Points</el>
+<el tag="00290031" owner="Silhouette Annot V1.0" keyword="AnnotationLineControlSize" vr="UL" vm="1">Annotation Line Control Size</el>
+<el tag="00290032" owner="Silhouette Annot V1.0" keyword="AnnotationMarkerColor" vr="LT" vm="1">Annotation Marker Color</el>
+<el tag="00290033" owner="Silhouette Annot V1.0" keyword="AnnotationMarkerType" vr="UL" vm="1">Annotation Marker Type</el>
+<el tag="00290034" owner="Silhouette Annot V1.0" keyword="AnnotationMarkerSize" vr="UL" vm="1">Annotation Marker Size</el>
+<el tag="00290035" owner="Silhouette Annot V1.0" keyword="AnnotationMarkerLocation" vr="FD" vm="1">Annotation Marker Location</el>
+<el tag="00290036" owner="Silhouette Annot V1.0" keyword="AnnotationMarkerAttachMode" vr="UL" vm="1">Annotation Marker Attach Mode</el>
+<el tag="00290037" owner="Silhouette Annot V1.0" keyword="AnnotationGeomColor" vr="LT" vm="1">Annotation Geom Color</el>
+<el tag="00290038" owner="Silhouette Annot V1.0" keyword="AnnotationGeomThickness" vr="UL" vm="1">Annotation Geom Thickness</el>
+<el tag="00290039" owner="Silhouette Annot V1.0" keyword="AnnotationGeomLineStyle" vr="UL" vm="1">Annotation Geom Line Style</el>
+<el tag="00290040" owner="Silhouette Annot V1.0" keyword="AnnotationGeomDashLength" vr="UL" vm="1">Annotation Geom Dash Length</el>
+<el tag="00290041" owner="Silhouette Annot V1.0" keyword="AnnotationGeomFillPattern" vr="UL" vm="1">Annotation Geom Fill Pattern</el>
+<el tag="00290042" owner="Silhouette Annot V1.0" keyword="AnnotationInteractivity" vr="UL" vm="1">Annotation Interactivity</el>
+<el tag="00290043" owner="Silhouette Annot V1.0" keyword="AnnotationArrowLength" vr="FD" vm="1">Annotation Arrow Length</el>
+<el tag="00290044" owner="Silhouette Annot V1.0" keyword="AnnotationArrowAngle" vr="FD" vm="1">Annotation Arrow Angle</el>
+<el tag="00290045" owner="Silhouette Annot V1.0" keyword="AnnotationDontSave" vr="UL" vm="1">Annotation Don't Save</el>
+<el tag="00290011" owner="Silhouette ROI V1.0" keyword="ROIName" vr="IS" vm="1">ROI Name</el>
+<el tag="00290012" owner="Silhouette ROI V1.0" keyword="ROINameFont" vr="LT" vm="1">ROI Name Font</el>
+<el tag="00290013" owner="Silhouette ROI V1.0" keyword="ROINormalColor" vr="LT" vm="1">ROI Normal Color</el>
+<el tag="00290014" owner="Silhouette ROI V1.0" keyword="ROIFillPattern" vr="UL" vm="1">ROI Fill Pattern</el>
+<el tag="00290015" owner="Silhouette ROI V1.0" keyword="ROIBpSeg" vr="UL" vm="1">ROI Bp Seg</el>
+<el tag="00290016" owner="Silhouette ROI V1.0" keyword="ROIBpSegPairs" vr="UN" vm="1">ROI Bp Seg Pairs</el>
+<el tag="00290017" owner="Silhouette ROI V1.0" keyword="ROISeedSpace" vr="UL" vm="1">ROI Seed Space</el>
+<el tag="00290018" owner="Silhouette ROI V1.0" keyword="ROISeeds" vr="UN" vm="1">ROI Seeds</el>
+<el tag="00290019" owner="Silhouette ROI V1.0" keyword="ROILineThickness" vr="UL" vm="1">ROI Line Thickness</el>
+<el tag="00290020" owner="Silhouette ROI V1.0" keyword="ROILineStyle" vr="UL" vm="1">ROI Line Style</el>
+<el tag="00290021" owner="Silhouette ROI V1.0" keyword="ROILineDashLength" vr="UL" vm="1">ROI Line Dash Length</el>
+<el tag="00290022" owner="Silhouette ROI V1.0" keyword="ROIInteractivity" vr="UL" vm="1">ROI Interactivity</el>
+<el tag="00290023" owner="Silhouette ROI V1.0" keyword="ROINamePosition" vr="UL" vm="1">ROI Name Position</el>
+<el tag="00290024" owner="Silhouette ROI V1.0" keyword="ROINameDisplay" vr="UL" vm="1">ROI Name Display</el>
+<el tag="00290025" owner="Silhouette ROI V1.0" keyword="ROILabel" vr="LT" vm="1">ROI Label</el>
+<el tag="00290026" owner="Silhouette ROI V1.0" keyword="ROIShape" vr="UL" vm="1">ROI Shape</el>
+<el tag="00290027" owner="Silhouette ROI V1.0" keyword="ROIShapeTilt" vr="FD" vm="1">ROI Shape Tilt</el>
+<el tag="00290028" owner="Silhouette ROI V1.0" keyword="ROIShapePointsCount" vr="UL" vm="1">ROI Shape Points Count</el>
+<el tag="00290029" owner="Silhouette ROI V1.0" keyword="ROIShapePointsSpace" vr="UL" vm="1">ROI Shape Points Space</el>
+<el tag="00290030" owner="Silhouette ROI V1.0" keyword="ROIShapePoints" vr="FD" vm="1">ROI Shape Points</el>
+<el tag="00290031" owner="Silhouette ROI V1.0" keyword="ROIShapeControlPointsCount" vr="UL" vm="1">ROI Shape Control Points Count</el>
+<el tag="00290032" owner="Silhouette ROI V1.0" keyword="ROIShapeControlPointsSpace" vr="UL" vm="1">ROI Shape Control Points Space</el>
+<el tag="00290033" owner="Silhouette ROI V1.0" keyword="ROIShapeControlPoints" vr="FD" vm="1">ROI Shape Control Points</el>
+<el tag="00290034" owner="Silhouette ROI V1.0" keyword="ROIDontSave" vr="UL" vm="1">ROI Don't Save</el>
+</elements>

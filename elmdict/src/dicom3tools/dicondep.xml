@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elements>
+<el tag="00110023" owner="astm.org/diconde/iod/Component" keyword="CADFileFormat" vr="ST" vm="1-n">CAD File Format</el>
+<el tag="00110024" owner="astm.org/diconde/iod/Component" keyword="ComponentReferenceSystem" vr="ST" vm="1-n">Component Reference System</el>
+<el tag="00110025" owner="astm.org/diconde/iod/Component" keyword="ComponentManufacturingProcedure" vr="ST" vm="1-n">Component Manufacturing Procedure</el>
+<el tag="00110028" owner="astm.org/diconde/iod/Component" keyword="ComponentManufacturer" vr="ST" vm="1-n">Component Manufacturer</el>
+<el tag="00110030" owner="astm.org/diconde/iod/Component" keyword="MaterialThickness" vr="DS" vm="1-n">Material Thickness</el>
+<el tag="00110032" owner="astm.org/diconde/iod/Component" keyword="MaterialPipeDiameter" vr="DS" vm="1-n">Material Pipe Diameter</el>
+<el tag="00110034" owner="astm.org/diconde/iod/Component" keyword="MaterialIsolationDiameter" vr="DS" vm="1-n">Material Isolation Diameter</el>
+<el tag="00110042" owner="astm.org/diconde/iod/Component" keyword="MaterialGrade" vr="ST" vm="1-n">Material Grade</el>
+<el tag="00110044" owner="astm.org/diconde/iod/Component" keyword="MaterialPropertiesFileID" vr="ST" vm="1-n">Material Properties File ID</el>
+<el tag="00110045" owner="astm.org/diconde/iod/Component" keyword="MaterialPropertiesFileFormat" vr="ST" vm="1-n">Material Properties File Format</el>
+<el tag="00110046" owner="astm.org/diconde/iod/Component" keyword="MaterialNotes" vr="LT" vm="1">Material Notes</el>
+<el tag="00110050" owner="astm.org/diconde/iod/Component" keyword="ComponentShape" vr="CS" vm="1">Component Shape</el>
+<el tag="00110052" owner="astm.org/diconde/iod/Component" keyword="CurvatureType" vr="CS" vm="1">Curvature Type</el>
+<el tag="00110054" owner="astm.org/diconde/iod/Component" keyword="OuterDiameter" vr="DS" vm="1">Outer Diameter</el>
+<el tag="00110056" owner="astm.org/diconde/iod/Component" keyword="InnerDiameter" vr="DS" vm="1">Inner Diameter</el>
+<el tag="00090020" owner="astm.org/diconde/iod/ComponentStudy" keyword="ExpiryDate" vr="DA" vm="1">Expiry Date</el>
+<el tag="00090010" owner="astm.org/diconde/iod/ComponentSeries" keyword="ActualEnvironmentalConditions" vr="ST" vm="1">Actual Environmental Conditions</el>
+<el tag="00090040" owner="astm.org/diconde/iod/ComponentSeries" keyword="EnvironmentalConditions" vr="ST" vm="1">Environmental Conditions</el>
+<el tag="00210002" owner="astm.org/diconde/iod/NdeIndication" keyword="EvaluatorSequence" vr="SQ" vm="1">Evaluator Sequence</el>
+<el tag="00210004" owner="astm.org/diconde/iod/NdeIndication" keyword="EvaluatorNumber" vr="IS" vm="1">Evaluator Number</el>
+<el tag="00210006" owner="astm.org/diconde/iod/NdeIndication" keyword="EvaluatorName" vr="PN" vm="1">Evaluator Name</el>
+<el tag="00210008" owner="astm.org/diconde/iod/NdeIndication" keyword="EvaluationAttempt" vr="IS" vm="1">Evaluation Attempt</el>
+<el tag="00210012" owner="astm.org/diconde/iod/NdeIndication" keyword="IndicationSequence" vr="SQ" vm="1">Indication Sequence</el>
+<el tag="00210014" owner="astm.org/diconde/iod/NdeIndication" keyword="IndicationNumber" vr="IS" vm="1">Indication Number </el>
+<el tag="00210016" owner="astm.org/diconde/iod/NdeIndication" keyword="IndicationLabel" vr="SH" vm="1">Indication Label</el>
+<el tag="00210018" owner="astm.org/diconde/iod/NdeIndication" keyword="IndicationDescription" vr="ST" vm="1">Indication Description</el>
+<el tag="0021001A" owner="astm.org/diconde/iod/NdeIndication" keyword="IndicationType" vr="CS" vm="1-n">Indication Type</el>
+<el tag="0021001C" owner="astm.org/diconde/iod/NdeIndication" keyword="IndicationDisposition" vr="CS" vm="1">Indication Disposition</el>
+<el tag="0021001E" owner="astm.org/diconde/iod/NdeIndication" keyword="IndicationROISequence" vr="SQ" vm="1">Indication ROI Sequence</el>
+<el tag="00210030" owner="astm.org/diconde/iod/NdeIndication" keyword="IndicationPhysicalPropertySequence" vr="SQ" vm="1">Indication Physical Property Sequence</el>
+<el tag="00210032" owner="astm.org/diconde/iod/NdeIndication" keyword="PropertyLabel" vr="SH" vm="1">Property Label</el>
+<el tag="00210002" owner="astm.org/diconde/iod/NDEGeometry" keyword="CoordinateSystemNumberOfAxes" vr="IS" vm="1">Coordinate System Number of Axes </el>
+<el tag="00210004" owner="astm.org/diconde/iod/NDEGeometry" keyword="CoordinateSystemAxesSequence" vr="SQ" vm="1">Coordinate System Axes Sequence</el>
+<el tag="00210006" owner="astm.org/diconde/iod/NDEGeometry" keyword="CoordinateSystemAxisDescription" vr="ST" vm="1">Coordinate System Axis Description</el>
+<el tag="00210008" owner="astm.org/diconde/iod/NDEGeometry" keyword="CoordinateSystemDataSetMapping" vr="CS" vm="1">Coordinate System Data Set Mapping</el>
+<el tag="0021000A" owner="astm.org/diconde/iod/NDEGeometry" keyword="CoordinateSystemAxisNumber" vr="IS" vm="1">Coordinate System Axis Number</el>
+<el tag="0021000C" owner="astm.org/diconde/iod/NDEGeometry" keyword="CoordinateSystemAxisType" vr="CS" vm="1">Coordinate System Axis Type</el>
+<el tag="0021000E" owner="astm.org/diconde/iod/NDEGeometry" keyword="CoordinateSystemAxisUnits" vr="CS" vm="1">Coordinate System Axis Units</el>
+<el tag="00210010" owner="astm.org/diconde/iod/NDEGeometry" keyword="CoordinateSystemAxisValues" vr="OB" vm="1">Coordinate System Axis Values</el>
+<el tag="00210020" owner="astm.org/diconde/iod/NDEGeometry" keyword="CoordinateSystemTransformSequence" vr="SQ" vm="1">Coordinate System Transform Sequence</el>
+<el tag="00210022" owner="astm.org/diconde/iod/NDEGeometry" keyword="TransformDescription" vr="ST" vm="1">Transform Description</el>
+<el tag="00210024" owner="astm.org/diconde/iod/NDEGeometry" keyword="TransformNumberOfAxes" vr="IS" vm="1">Transform Number of Axes</el>
+<el tag="00210026" owner="astm.org/diconde/iod/NDEGeometry" keyword="TransformOrderOfAxes" vr="IS" vm="1-n">Transform Order of Axes</el>
+<el tag="00210028" owner="astm.org/diconde/iod/NDEGeometry" keyword="TransformedAxisUnits" vr="CS" vm="1">Transformed Axis Units</el>
+<el tag="0021002A" owner="astm.org/diconde/iod/NDEGeometry" keyword="CoordinateSystemTransformRotationAndScaleMatrix" vr="DS" vm="1-n">Coordinate System Transform Rotation and Scale Matrix</el>
+<el tag="0021002C" owner="astm.org/diconde/iod/NDEGeometry" keyword="CoordinateSystemTransformTranslationMatrix" vr="DS" vm="1-n">Coordinate System Transform Translation Matrix</el>
+<el tag="00090011" owner="astm.org/diconde/iod/NdeDxDetector" keyword="InternalDetectorFrameTime" vr="DS" vm="1">Internal Detector Frame Time</el>
+<el tag="00090012" owner="astm.org/diconde/iod/NdeDxDetector" keyword="NumberOfFramesIntegrated" vr="DS" vm="1">Number of Frames Integrated</el>
+<el tag="00090020" owner="astm.org/diconde/iod/NdeDxDetector" keyword="DetectorTemperatureSequence" vr="SQ" vm="1">Detector Temperature Sequence</el>
+<el tag="00090022" owner="astm.org/diconde/iod/NdeDxDetector" keyword="SensorName" vr="DS" vm="1">Sensor Name</el>
+<el tag="00090024" owner="astm.org/diconde/iod/NdeDxDetector" keyword="HorizontalOffsetOfSensor" vr="DS" vm="1">Horizontal Offset of Sensor</el>
+<el tag="00090026" owner="astm.org/diconde/iod/NdeDxDetector" keyword="VerticalOffsetOfSensor" vr="DS" vm="1">Vertical Offset of Sensor</el>
+<el tag="00090028" owner="astm.org/diconde/iod/NdeDxDetector" keyword="SensorTemperature" vr="DS" vm="1">Sensor Temperature</el>
+<el tag="00090040" owner="astm.org/diconde/iod/NdeDxCalibrationData" keyword="DarkCurrentSequence" vr="SQ" vm="1">Dark Current Sequence</el>
+<el tag="00090050" owner="astm.org/diconde/iod/NdeDxCalibrationData" keyword="DarkCurrentCounts" vr="OB or OW" vm="1">Dark Current Counts</el>
+<el tag="00090060" owner="astm.org/diconde/iod/NdeDxCalibrationData" keyword="GainCorrectionReferenceSequence" vr="SQ" vm="1">Gain Correction Reference Sequence</el>
+<el tag="00090070" owner="astm.org/diconde/iod/NdeDxCalibrationData" keyword="AirCounts" vr="OB or OW" vm="1">Air Counts</el>
+<el tag="00090071" owner="astm.org/diconde/iod/NdeDxCalibrationData" keyword="KVUsedInGainCalibration" vr="DS" vm="1">KV Used in Gain Calibration</el>
+<el tag="00090072" owner="astm.org/diconde/iod/NdeDxCalibrationData" keyword="MAUsedInGainCalibration" vr="DS" vm="1">MA Used in Gain Calibration</el>
+<el tag="00090073" owner="astm.org/diconde/iod/NdeDxCalibrationData" keyword="NumberOfFramesUsedForIntegration" vr="DS" vm="1">Number of Frames Used for Integration</el>
+<el tag="00090074" owner="astm.org/diconde/iod/NdeDxCalibrationData" keyword="FilterMaterialUsedInGainCalibration" vr="LO" vm="1">Filter Material Used in Gain Calibration</el>
+<el tag="00090075" owner="astm.org/diconde/iod/NdeDxCalibrationData" keyword="FilterThicknessUsedInGainCalibration" vr="DS" vm="1">Filter Thickness Used in Gain Calibration</el>
+<el tag="00090076" owner="astm.org/diconde/iod/NdeDxCalibrationData" keyword="DateOfGainCalibration" vr="DA" vm="1">Date of Gain Calibration</el>
+<el tag="00090077" owner="astm.org/diconde/iod/NdeDxCalibrationData" keyword="TimeOfGainCalibration" vr="TM" vm="1">Time of Gain Calibration</el>
+<el tag="00090080" owner="astm.org/diconde/iod/NdeDxCalibrationData" keyword="BadPixelImage" vr="OB" vm="1">Bad Pixel Image</el>
+<el tag="00090099" owner="astm.org/diconde/iod/NdeDxCalibrationData" keyword="CalibrationNotes" vr="LT" vm="1">Calibration Notes</el>
+<el tag="00090002" owner="astm.org/diconde/iod/NdeUsEquipment" keyword="PulserEquipmentSequence" vr="SQ" vm="1">Pulser Equipment Sequence</el>
+<el tag="00090004" owner="astm.org/diconde/iod/NdeUsEquipment" keyword="PulserType" vr="CS" vm="1">Pulser Type</el>
+<el tag="00090006" owner="astm.org/diconde/iod/NdeUsEquipment" keyword="PulserNotes" vr="LT" vm="1">Pulser Notes</el>
+<el tag="00090008" owner="astm.org/diconde/iod/NdeUsEquipment" keyword="ReceiverEquipmentSequence" vr="SQ" vm="1">Receiver Equipment Sequence</el>
+<el tag="0009000A" owner="astm.org/diconde/iod/NdeUsEquipment" keyword="AmplifierType" vr="CS" vm="1">Amplifier Type</el>
+<el tag="0009000C" owner="astm.org/diconde/iod/NdeUsEquipment" keyword="ReceiverNotes" vr="LT" vm="1">Receiver Notes</el>
+<el tag="0009000E" owner="astm.org/diconde/iod/NdeUsEquipment" keyword="PreAmplifierEquipmentSequence" vr="SQ" vm="1">Pre-Amplifier Equipment Sequence</el>
+<el tag="0009000F" owner="astm.org/diconde/iod/NdeUsEquipment" keyword="PreAmplifierNotes" vr="LT" vm="1">Pre-Amplifier Notes</el>
+<el tag="00090010" owner="astm.org/diconde/iod/NdeUsEquipment" keyword="TransmitTransducerSequence" vr="SQ" vm="1">Transmit Transducer Sequence</el>
+<el tag="00090011" owner="astm.org/diconde/iod/NdeUsEquipment" keyword="ReceiveTransducerSequence" vr="SQ" vm="1">Receive Transducer Sequence</el>
+<el tag="00090012" owner="astm.org/diconde/iod/NdeUsEquipment" keyword="NumberOfElements" vr="US" vm="1">Number of Elements</el>
+<el tag="00090013" owner="astm.org/diconde/iod/NdeUsEquipment" keyword="ElementShape" vr="CS" vm="1">Element Shape</el>
+<el tag="00090014" owner="astm.org/diconde/iod/NdeUsEquipment" keyword="ElementDimensionA" vr="DS" vm="1">Element Dimension A</el>
+<el tag="00090015" owner="astm.org/diconde/iod/NdeUsEquipment" keyword="ElementDimensionB" vr="DS" vm="1">Element Dimension B</el>
+<el tag="00090016" owner="astm.org/diconde/iod/NdeUsEquipment" keyword="ElementPitch" vr="DS" vm="1">Element Pitch</el>
+<el tag="00090017" owner="astm.org/diconde/iod/NdeUsEquipment" keyword="MeasuredBeamDimensionA" vr="DS" vm="1">Measured Beam Dimension A</el>
+<el tag="00090018" owner="astm.org/diconde/iod/NdeUsEquipment" keyword="MeasuredBeamDimensionB" vr="DS" vm="1">Measured Beam Dimension B</el>
+<el tag="00090019" owner="astm.org/diconde/iod/NdeUsEquipment" keyword="LocationOfMeasuredBeamDiameter" vr="DS" vm="1">Location of Measured Beam Diameter</el>
+<el tag="0009001A" owner="astm.org/diconde/iod/NdeUsEquipment" keyword="NominalFrequency" vr="DS" vm="1">Nominal Frequency</el>
+<el tag="0009001B" owner="astm.org/diconde/iod/NdeUsEquipment" keyword="MeasuredCenterFrequency" vr="DS" vm="1">Measured Center Frequency</el>
+<el tag="0009001C" owner="astm.org/diconde/iod/NdeUsEquipment" keyword="MeasuredBandwidth" vr="DS" vm="1">Measured Bandwidth</el>
+<el tag="00090020" owner="astm.org/diconde/iod/NdeUsEquipmentSettings" keyword="PulserSettingsSequence" vr="SQ" vm="1">Pulser Settings Sequence</el>
+<el tag="00090022" owner="astm.org/diconde/iod/NdeUsEquipmentSettings" keyword="PulseWidth" vr="DS" vm="1">Pulse Width</el>
+<el tag="00090024" owner="astm.org/diconde/iod/NdeUsEquipmentSettings" keyword="ExcitationFrequency" vr="DS" vm="1">Excitation Frequency</el>
+<el tag="00090026" owner="astm.org/diconde/iod/NdeUsEquipmentSettings" keyword="ModulationType" vr="CS" vm="1">Modulation Type</el>
+<el tag="00090028" owner="astm.org/diconde/iod/NdeUsEquipmentSettings" keyword="Damping" vr="DS" vm="1">Damping</el>
+<el tag="00090030" owner="astm.org/diconde/iod/NdeUsEquipmentSettings" keyword="ReceiverSettingsSequence" vr="SQ" vm="1">Receiver Settings Sequence</el>
+<el tag="00090031" owner="astm.org/diconde/iod/NdeUsEquipmentSettings" keyword="AcquiredSoundpathLength" vr="DS" vm="1">Acquired Soundpath Length</el>
+<el tag="00090032" owner="astm.org/diconde/iod/NdeUsEquipmentSettings" keyword="AcquisitionCompressionType" vr="CS" vm="1">Acquisition Compression Type</el>
+<el tag="00090033" owner="astm.org/diconde/iod/NdeUsEquipmentSettings" keyword="AcquisitionSampleSize" vr="IS" vm="1">Acquisition Sample Size</el>
+<el tag="00090034" owner="astm.org/diconde/iod/NdeUsEquipmentSettings" keyword="RectifierSmoothing" vr="DS" vm="1">Rectifier Smoothing</el>
+<el tag="00090035" owner="astm.org/diconde/iod/NdeUsEquipmentSettings" keyword="DACSequence" vr="SQ" vm="1">DAC Sequence</el>
+<el tag="00090036" owner="astm.org/diconde/iod/NdeUsEquipmentSettings" keyword="DACType" vr="CS" vm="1">DAC Type</el>
+<el tag="00090038" owner="astm.org/diconde/iod/NdeUsEquipmentSettings" keyword="DACGainPoints" vr="DS" vm="1-n">DAC Gain Points</el>
+<el tag="0009003A" owner="astm.org/diconde/iod/NdeUsEquipmentSettings" keyword="DACTimePoints" vr="DS" vm="1-n">DAC Time Points</el>
+<el tag="0009003C" owner="astm.org/diconde/iod/NdeUsEquipmentSettings" keyword="DACAmplitude" vr="DS" vm="1-n">DAC Amplitude</el>
+<el tag="00090040" owner="astm.org/diconde/iod/NdeUsEquipmentSettings" keyword="PreAmplifierSettingsSequence" vr="SQ" vm="1">Pre-Amplifier Settings Sequence</el>
+<el tag="00090050" owner="astm.org/diconde/iod/NdeUsEquipmentSettings" keyword="TransmitTransducerSettingsSequence" vr="SQ" vm="1">Transmit Transducer Settings Sequence</el>
+<el tag="00090051" owner="astm.org/diconde/iod/NdeUsEquipmentSettings" keyword="ReceiveTransducerSettingsSequence" vr="SQ" vm="1">Receive Transducer Settings Sequence</el>
+<el tag="00090052" owner="astm.org/diconde/iod/NdeUsEquipmentSettings" keyword="IncidentAngle" vr="DS" vm="1">Incident Angle</el>
+<el tag="00090054" owner="astm.org/diconde/iod/NdeUsEquipmentSettings" keyword="CouplingTechnique" vr="ST" vm="1">Coupling Technique</el>
+<el tag="00090056" owner="astm.org/diconde/iod/NdeUsEquipmentSettings" keyword="CouplingMedium" vr="ST" vm="1">Coupling Medium</el>
+<el tag="00090057" owner="astm.org/diconde/iod/NdeUsEquipmentSettings" keyword="CouplingVelocity" vr="DS" vm="1">Coupling Velocity</el>
+<el tag="00090058" owner="astm.org/diconde/iod/NdeUsEquipmentSettings" keyword="CrystalCenterLocationX" vr="DS" vm="1">Crystal Center Location X</el>
+<el tag="00090059" owner="astm.org/diconde/iod/NdeUsEquipmentSettings" keyword="CrystalCenterLocationZ" vr="DS" vm="1">Crystal Center Location Z</el>
+<el tag="0009005A" owner="astm.org/diconde/iod/NdeUsEquipmentSettings" keyword="SoundPathLength" vr="DS" vm="1">Sound Path Length</el>
+<el tag="0009005C" owner="astm.org/diconde/iod/NdeUsEquipmentSettings" keyword="DelayLawIdentifier" vr="ST" vm="1">Delay Law Identifier</el>
+<el tag="00090060" owner="astm.org/diconde/iod/NdeUsEquipmentSettings" keyword="GateSettingsSequence" vr="SQ" vm="1">Gate Settings Sequence</el>
+<el tag="00090062" owner="astm.org/diconde/iod/NdeUsEquipmentSettings" keyword="GateThreshold" vr="DS" vm="1">Gate Threshold</el>
+<el tag="00090064" owner="astm.org/diconde/iod/NdeUsEquipmentSettings" keyword="VelocityOfSound" vr="DS" vm="1">Velocity of Sound</el>
+<el tag="00090070" owner="astm.org/diconde/iod/NdeUsEquipmentSettings" keyword="CalibrationSettingsSequence" vr="SQ" vm="1">Calibration Settings Sequence</el>
+<el tag="00090072" owner="astm.org/diconde/iod/NdeUsEquipmentSettings" keyword="CalibrationProcedure" vr="ST" vm="1">Calibration Procedure</el>
+<el tag="00090074" owner="astm.org/diconde/iod/NdeUsEquipmentSettings" keyword="ProcedureVersion" vr="SH" vm="1">Procedure Version</el>
+<el tag="00090076" owner="astm.org/diconde/iod/NdeUsEquipmentSettings" keyword="ProcedureCreationDate" vr="DA" vm="1">Procedure Creation Date</el>
+<el tag="00090078" owner="astm.org/diconde/iod/NdeUsEquipmentSettings" keyword="ProcedureExpirationDate" vr="DA" vm="1">Procedure Expiration Date</el>
+<el tag="0009007A" owner="astm.org/diconde/iod/NdeUsEquipmentSettings" keyword="ProcedureLastModifiedDate" vr="DA" vm="1">Procedure Last Modified Date</el>
+<el tag="0009007C" owner="astm.org/diconde/iod/NdeUsEquipmentSettings" keyword="CalibrationTime" vr="TM" vm="1-n">Calibration Time</el>
+<el tag="0009007E" owner="astm.org/diconde/iod/NdeUsEquipmentSettings" keyword="CalibrationDate" vr="DA" vm="1-n">Calibration Date</el>
+<el tag="00090002" owner="astm.org/diconde/iod/NdeCtImage" keyword="LINACEnergy" vr="IS" vm="1">LINAC Energy</el>
+<el tag="00090004" owner="astm.org/diconde/iod/NdeCtImage" keyword="LINACOutput" vr="IS" vm="1">LINAC Output</el>
+<el tag="00090011" owner="astm.org/diconde/iod/NdeCtDetector" keyword="InternalDetectorFrameTime" vr="DS" vm="1">Internal Detector Frame Time</el>
+<el tag="00090012" owner="astm.org/diconde/iod/NdeCtDetector" keyword="NumberOfFramesIntegrated" vr="DS" vm="1">Number of Frames Integrated</el>
+<el tag="00090020" owner="astm.org/diconde/iod/NdeCtDetector" keyword="DetectorTemperatureSequence" vr="SQ" vm="1">Detector Temperature Sequence</el>
+<el tag="00090022" owner="astm.org/diconde/iod/NdeCtDetector" keyword="SensorName" vr="DS" vm="1">Sensor Name</el>
+<el tag="00090024" owner="astm.org/diconde/iod/NdeCtDetector" keyword="HorizontalOffsetOfSensor" vr="DS" vm="1">Horizontal Offset of Sensor</el>
+<el tag="00090026" owner="astm.org/diconde/iod/NdeCtDetector" keyword="VerticalOffsetOfSensor" vr="DS" vm="1">Vertical Offset of Sensor</el>
+<el tag="00090028" owner="astm.org/diconde/iod/NdeCtDetector" keyword="SensorTemperature" vr="DS" vm="1">Sensor Temperature</el>
+<el tag="00090040" owner="astm.org/diconde/iod/NdeCtCalibrationData" keyword="DarkCurrentSequence" vr="SQ" vm="1">Dark Current Sequence</el>
+<el tag="00090050" owner="astm.org/diconde/iod/NdeCtCalibrationData" keyword="DarkCurrentCounts" vr="OB or OW" vm="1">Dark Current Counts</el>
+<el tag="00090060" owner="astm.org/diconde/iod/NdeCtCalibrationData" keyword="GainCorrectionReferenceSequence" vr="SQ" vm="1">Gain Correction Reference Sequence</el>
+<el tag="00090070" owner="astm.org/diconde/iod/NdeCtCalibrationData" keyword="AirCounts" vr="OB or OW" vm="1">Air Counts</el>
+<el tag="00090071" owner="astm.org/diconde/iod/NdeCtCalibrationData" keyword="KVUsedInGainCalibration" vr="DS" vm="1">KV Used in Gain Calibration</el>
+<el tag="00090072" owner="astm.org/diconde/iod/NdeCtCalibrationData" keyword="MAUsedInGainCalibration" vr="DS" vm="1">MA Used in Gain Calibration</el>
+<el tag="00090073" owner="astm.org/diconde/iod/NdeCtCalibrationData" keyword="NumberOfFramesUsedForIntegration" vr="DS" vm="1">Number of Frames Used for Integration</el>
+<el tag="00090074" owner="astm.org/diconde/iod/NdeCtCalibrationData" keyword="FilterMaterialUsedInGainCalibration" vr="LO" vm="1">Filter Material Used in Gain Calibration</el>
+<el tag="00090075" owner="astm.org/diconde/iod/NdeCtCalibrationData" keyword="FilterThicknessUsedInGainCalibration" vr="DS" vm="1">Filter Thickness Used in Gain Calibration</el>
+<el tag="00090076" owner="astm.org/diconde/iod/NdeCtCalibrationData" keyword="DateOfGainCalibration" vr="DA" vm="1">Date of Gain Calibration</el>
+<el tag="00090077" owner="astm.org/diconde/iod/NdeCtCalibrationData" keyword="TimeOfGainCalibration" vr="TM" vm="1">Time of Gain Calibration</el>
+<el tag="00090080" owner="astm.org/diconde/iod/NdeCtCalibrationData" keyword="BadPixelImage" vr="OB" vm="1">Bad Pixel Image</el>
+<el tag="00090099" owner="astm.org/diconde/iod/NdeCtCalibrationData" keyword="CalibrationNotes" vr="LT" vm="1">Calibration Notes</el>
+</elements>

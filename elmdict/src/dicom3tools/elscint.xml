@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elements>
+<el tag="00030001" owner="ELSCINT1" keyword="OffsetListStructure" vr="OW" vm="1">Offset List Structure</el>
+<el tag="00E10001" owner="ELSCINT1" keyword="DataDictionaryVersion" vr="US" vm="1">Data Dictionary Version</el>
+<el tag="00E10005" owner="ELSCINT1" vr="IS" vm="1"/>
+<el tag="00E10006" owner="ELSCINT1" vr="IS" vm="1"/>
+<el tag="00E10007" owner="ELSCINT1" vr="IS" vm="1"/>
+<el tag="00E10014" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="00E10018" owner="ELSCINT1" vr="OB" vm="1"/>
+<el tag="00E10021" owner="ELSCINT1" keyword="DLPTotal" vr="DS" vm="1">DLP Total</el>
+<el tag="00E10022" owner="ELSCINT1" keyword="PresentationRelativeCenter" vr="DS" vm="2">Presentation Relative Center</el>
+<el tag="00E10023" owner="ELSCINT1" keyword="PresentationRelativePart" vr="DS" vm="2">Presentation Relative Part</el>
+<el tag="00E10024" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="00E10025" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="00E10030" owner="ELSCINT1" vr="UI" vm="1"/>
+<el tag="00E10031" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="00E10032" owner="ELSCINT1" vr="US" vm="2"/>
+<el tag="00E10037" owner="ELSCINT1" keyword="TotalDoseSavings" vr="DS" vm="1">Total Dose Savings</el>
+<el tag="00E10039" owner="ELSCINT1" vr="SQ" vm="1"/>
+<el tag="00E1003E" owner="ELSCINT1" vr="IS" vm="1"/>
+<el tag="00E1003F" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="00E10040" owner="ELSCINT1" keyword="ImageLabel" vr="SH" vm="1">Image Label</el>
+<el tag="00E10041" owner="ELSCINT1" vr="DS" vm="1"/>
+<el tag="00E10042" owner="ELSCINT1" vr="LO" vm="1"/>
+<el tag="00E10043" owner="ELSCINT1" vr="IS" vm="1"/>
+<el tag="00E10050" owner="ELSCINT1" keyword="AcquisitionDuration" vr="DS" vm="1">Acquisition Duration</el>
+<el tag="00E10051" owner="ELSCINT1" vr="SH" vm="1"/>
+<el tag="00E10060" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="00E10061" owner="ELSCINT1" keyword="ProtocolFileName" vr="LO" vm="1">Protocol File Name</el>
+<el tag="00E10062" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="00E10063" owner="ELSCINT1" keyword="PatientLanguage" vr="SH" vm="1">Patient Language</el>
+<el tag="00E10065" owner="ELSCINT1" vr="LO" vm="1"/>
+<el tag="00E1006A" owner="ELSCINT1" vr="IS" vm="1"/>
+<el tag="00E1006B" owner="ELSCINT1" vr="IS" vm="1"/>
+<el tag="00E100A0" owner="ELSCINT1" vr="LO" vm="1"/>
+<el tag="00E100C2" owner="ELSCINT1" vr="UI" vm="1"/>
+<el tag="00E100C4" owner="ELSCINT1" vr="DS" vm="1"/>
+<el tag="00E100CF" owner="ELSCINT1" vr="IS" vm="1"/>
+<el tag="00E100EB" owner="ELSCINT1" vr="US" vm="1"/>
+<el tag="00E100EC" owner="ELSCINT1" vr="US" vm="1"/>
+<el tag="01E10018" owner="ELSCINT1" vr="OB" vm="1"/>
+<el tag="01E10021" owner="ELSCINT1" vr="ST" vm="1"/>
+<el tag="01E10026" owner="ELSCINT1" keyword="PhantomType" vr="CS" vm="1">Phantom Type</el>
+<el tag="01E10034" owner="ELSCINT1" vr="IS" vm="1"/>
+<el tag="01E10040" owner="ELSCINT1" vr="UI" vm="1"/>
+<el tag="01E10041" owner="ELSCINT1" vr="OW" vm="1"/>
+<el tag="01E10055" owner="ELSCINT1" keyword="ReferenceSequence" vr="SQ" vm="1">Reference Sequence</el>
+<el tag="01E10056" owner="ELSCINT1" keyword="ReferenceType" vr="CS" vm="1">Reference Type</el>
+<el tag="01E10057" owner="ELSCINT1" keyword="ReferenceLevel" vr="CS" vm="1">Reference Level</el>
+<el tag="01F10001" owner="ELSCINT1" keyword="AcquisitionType" vr="CS" vm="1">Acquisition Type</el>
+<el tag="01F10002" owner="ELSCINT1" keyword="FocalSpotResolution" vr="CS" vm="1">Focal Spot Resolution</el>
+<el tag="01F10003" owner="ELSCINT1" keyword="ConcurrentSlicesGeneration" vr="CS" vm="1">Concurrent Slices Generation</el>
+<el tag="01F10004" owner="ELSCINT1" keyword="AngularSamplingDensity" vr="CS" vm="1">Angular Sampling Density</el>
+<el tag="01F10005" owner="ELSCINT1" keyword="ReconstructionArc" vr="DS" vm="1">Reconstruction Arc</el>
+<el tag="01F10007" owner="ELSCINT1" keyword="TableVelocity" vr="DS" vm="1">Table Velocity</el>
+<el tag="01F10008" owner="ELSCINT1" keyword="AcquisitionLength" vr="DS" vm="1">Acquisition Length</el>
+<el tag="01F1000A" owner="ELSCINT1" keyword="EdgeEnhancementWeight" vr="US" vm="1">Edge Enhancement Weight</el>
+<el tag="01F1000C" owner="ELSCINT1" keyword="ScannerRelativeCenter" vr="DS" vm="1">Scanner Relative Center</el>
+<el tag="01F1000D" owner="ELSCINT1" keyword="RotationAngle" vr="DS" vm="1">Rotation Angle</el>
+<el tag="01F1000E" owner="ELSCINT1" vr="FL" vm="1"/>
+<el tag="01F10026" owner="ELSCINT1" keyword="Pitch" vr="DS" vm="1">Pitch</el>
+<el tag="01F10027" owner="ELSCINT1" keyword="RotationTime" vr="DS" vm="1">Rotation Time</el>
+<el tag="01F10028" owner="ELSCINT1" keyword="TableIncrement" vr="DS" vm="1">Table Increment</el>
+<el tag="01F10030" owner="ELSCINT1" vr="US" vm="1"/>
+<el tag="01F10032" owner="ELSCINT1" keyword="ImageViewConvention" vr="CS" vm="1">Image View Convention</el>
+<el tag="01F10033" owner="ELSCINT1" keyword="CycleTime" vr="DS" vm="1">Cycle Time</el>
+<el tag="01F10036" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="01F10037" owner="ELSCINT1" vr="DS" vm="1"/>
+<el tag="01F10038" owner="ELSCINT1" vr="LO" vm="1"/>
+<el tag="01F10039" owner="ELSCINT1" vr="LO" vm="1"/>
+<el tag="01F10040" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="01F10042" owner="ELSCINT1" vr="SH" vm="1"/>
+<el tag="01F10043" owner="ELSCINT1" vr="LO" vm="1"/>
+<el tag="01F10044" owner="ELSCINT1" vr="OW" vm="1"/>
+<el tag="01F10045" owner="ELSCINT1" vr="IS" vm="1"/>
+<el tag="01F10046" owner="ELSCINT1" vr="FL" vm="1"/>
+<el tag="01F10047" owner="ELSCINT1" vr="SH" vm="1"/>
+<el tag="01F10049" owner="ELSCINT1" vr="DS" vm="1"/>
+<el tag="01F1004A" owner="ELSCINT1" vr="SH" vm="1"/>
+<el tag="01F1004B" owner="ELSCINT1" vr="SH" vm="1"/>
+<el tag="01F1004C" owner="ELSCINT1" vr="SH" vm="1"/>
+<el tag="01F1004D" owner="ELSCINT1" vr="SH" vm="1"/>
+<el tag="01F1004E" owner="ELSCINT1" vr="LO" vm="1"/>
+<el tag="01F1004F" owner="ELSCINT1" keyword="DetectorsLayers" vr="US" vm="1">Detectors Layers</el>
+<el tag="01F10053" owner="ELSCINT1" vr="SH" vm="1"/>
+<el tag="01F30001" owner="ELSCINT1" vr="SQ" vm="1"/>
+<el tag="01F30002" owner="ELSCINT1" vr="SS" vm="1"/>
+<el tag="01F30003" owner="ELSCINT1" vr="FL" vm="2"/>
+<el tag="01F30004" owner="ELSCINT1" vr="FL" vm="1"/>
+<el tag="01F30011" owner="ELSCINT1" vr="SQ" vm="1"/>
+<el tag="01F30012" owner="ELSCINT1" vr="SS" vm="1"/>
+<el tag="01F30013" owner="ELSCINT1" vr="FL" vm="2"/>
+<el tag="01F30014" owner="ELSCINT1" vr="FL" vm="1"/>
+<el tag="01F30015" owner="ELSCINT1" vr="US" vm="1"/>
+<el tag="01F30016" owner="ELSCINT1" vr="FL" vm="1"/>
+<el tag="01F30017" owner="ELSCINT1" vr="FL" vm="1"/>
+<el tag="01F30018" owner="ELSCINT1" vr="SH" vm="1"/>
+<el tag="01F30019" owner="ELSCINT1" vr="FL" vm="1"/>
+<el tag="01F30023" owner="ELSCINT1" vr="US" vm="1"/>
+<el tag="01F30024" owner="ELSCINT1" vr="IS" vm="2"/>
+<el tag="01F70010" owner="ELSCINT1" vr="OB" vm="1"/>
+<el tag="01F70011" owner="ELSCINT1" vr="OW" vm="1"/>
+<el tag="01F70013" owner="ELSCINT1" vr="OW" vm="1"/>
+<el tag="01F70014" owner="ELSCINT1" vr="OW" vm="1"/>
+<el tag="01F70015" owner="ELSCINT1" vr="OW" vm="1"/>
+<el tag="01F70016" owner="ELSCINT1" vr="OW" vm="1"/>
+<el tag="01F70017" owner="ELSCINT1" vr="OW" vm="1"/>
+<el tag="01F70018" owner="ELSCINT1" vr="OW" vm="1"/>
+<el tag="01F70019" owner="ELSCINT1" vr="OW" vm="1"/>
+<el tag="01F7001A" owner="ELSCINT1" vr="OW" vm="1"/>
+<el tag="01F7001B" owner="ELSCINT1" vr="OW" vm="1"/>
+<el tag="01F7001C" owner="ELSCINT1" vr="OW" vm="1"/>
+<el tag="01F7001E" owner="ELSCINT1" vr="OW" vm="1"/>
+<el tag="01F7001F" owner="ELSCINT1" vr="OW" vm="1"/>
+<el tag="01F70022" owner="ELSCINT1" vr="UI" vm="1"/>
+<el tag="01F70023" owner="ELSCINT1" vr="OW" vm="1"/>
+<el tag="01F70025" owner="ELSCINT1" vr="OW" vm="1"/>
+<el tag="01F70026" owner="ELSCINT1" vr="OW" vm="1"/>
+<el tag="01F70027" owner="ELSCINT1" vr="OW" vm="1"/>
+<el tag="01F70028" owner="ELSCINT1" vr="OW" vm="1"/>
+<el tag="01F70029" owner="ELSCINT1" vr="OW" vm="1"/>
+<el tag="01F7002B" owner="ELSCINT1" vr="OW" vm="1"/>
+<el tag="01F7002C" owner="ELSCINT1" vr="OW" vm="1"/>
+<el tag="01F7002D" owner="ELSCINT1" vr="OW" vm="1"/>
+<el tag="01F7002E" owner="ELSCINT1" vr="OW" vm="1"/>
+<el tag="01F70030" owner="ELSCINT1" vr="OW" vm="1"/>
+<el tag="01F70031" owner="ELSCINT1" vr="OW" vm="1"/>
+<el tag="01F7005C" owner="ELSCINT1" vr="OW" vm="1"/>
+<el tag="01F70070" owner="ELSCINT1" vr="OW" vm="1"/>
+<el tag="01F70073" owner="ELSCINT1" vr="OW" vm="1"/>
+<el tag="01F70074" owner="ELSCINT1" vr="OW" vm="1"/>
+<el tag="01F70075" owner="ELSCINT1" vr="OW" vm="1"/>
+<el tag="01F7007F" owner="ELSCINT1" vr="OW" vm="1"/>
+<el tag="01F7009B" owner="ELSCINT1" keyword="iDoseLevel" vr="IS" vm="1">iDose Level</el>
+<el tag="01F700CB" owner="ELSCINT1" keyword="keV" vr="DS" vm="1">keV</el>
+<el tag="01F700CC" owner="ELSCINT1" keyword="SBIVersion" vr="ST" vm="1">SBI Version</el>
+<el tag="01F700CD" owner="ELSCINT1" keyword="SCCTEquivalent" vr="CS" vm="1">SC CT Equivalent</el>
+<el tag="01F700CE" owner="ELSCINT1" keyword="ReferenceSBIType" vr="LT" vm="1">Reference SBI Type</el>
+<el tag="01F700D3" owner="ELSCINT1" keyword="BurnedSpectralAnnotations" vr="LT" vm="1">Burned Spectral Annotations</el>
+<el tag="01F700D4" owner="ELSCINT1" keyword="HeadBody" vr="SH" vm="1">Head Body</el>
+<el tag="01F700D6" owner="ELSCINT1" keyword="SpectralLevel" vr="IS" vm="1">Spectral Level</el>
+<el tag="01F90001" owner="ELSCINT1" keyword="SPFilter" vr="LO" vm="1">SP Filter</el>
+<el tag="01F90004" owner="ELSCINT1" keyword="AdaptiveFilter" vr="IS" vm="1">Adaptive Filter</el>
+<el tag="01F90005" owner="ELSCINT1" keyword="ReconIncrement" vr="IS" vm="1">Recon Increment</el>
+<el tag="01F90008" owner="ELSCINT1" vr="DS" vm="1"/>
+<el tag="01F90009" owner="ELSCINT1" vr="DS" vm="1"/>
+<el tag="06010000" owner="ELSCINT1" keyword="ImplementationVersion" vr="SH" vm="1">Implementation Version</el>
+<el tag="06010020" owner="ELSCINT1" keyword="RelativeTablePosition" vr="DS" vm="1">Relative Table Position</el>
+<el tag="06010021" owner="ELSCINT1" keyword="RelativeTableHeight" vr="DS" vm="1">Relative Table Height</el>
+<el tag="06010030" owner="ELSCINT1" keyword="SurviewDirection" vr="SH" vm="1">Surview Direction</el>
+<el tag="06010031" owner="ELSCINT1" keyword="SurviewLength" vr="DS" vm="1">Surview Length</el>
+<el tag="06010050" owner="ELSCINT1" keyword="ImageViewType" vr="SH" vm="1">Image View Type</el>
+<el tag="06010070" owner="ELSCINT1" keyword="BatchNumber" vr="DS" vm="1">Batch Number</el>
+<el tag="06010071" owner="ELSCINT1" keyword="BatchSize" vr="DS" vm="1">Batch Size</el>
+<el tag="06010072" owner="ELSCINT1" keyword="BatchSliceNumber" vr="DS" vm="1">Batch Slice Number</el>
+<el tag="07A10002" owner="ELSCINT1" vr="UL" vm="1"/>
+<el tag="07A10007" owner="ELSCINT1" vr="US" vm="3"/>
+<el tag="07A10008" owner="ELSCINT1" vr="DS" vm="1-n"/>
+<el tag="07A10009" owner="ELSCINT1" vr="OW" vm="1"/>
+<el tag="07A1000A" owner="ELSCINT1" vr="OB" vm="1"/>
+<el tag="07A1000C" owner="ELSCINT1" vr="US" vm="1"/>
+<el tag="07A10010" owner="ELSCINT1" vr="LO" vm="1"/>
+<el tag="07A10011" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="07A10012" owner="ELSCINT1" vr="FL" vm="1-n"/>
+<el tag="07A10013" owner="ELSCINT1" vr="UL" vm="1"/>
+<el tag="07A10016" owner="ELSCINT1" vr="FL" vm="1-n"/>
+<el tag="07A10018" owner="ELSCINT1" vr="SQ" vm="1"/>
+<el tag="07A10019" owner="ELSCINT1" vr="FL" vm="1"/>
+<el tag="07A1001C" owner="ELSCINT1" vr="FL" vm="1-n"/>
+<el tag="07A1002A" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="07A1002B" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="07A10036" owner="ELSCINT1" vr="AE" vm="1"/>
+<el tag="07A1003D" owner="ELSCINT1" vr="US" vm="1"/>
+<el tag="07A10040" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="07A10042" owner="ELSCINT1" vr="SH" vm="1"/>
+<el tag="07A10043" owner="ELSCINT1" vr="IS" vm="1"/>
+<el tag="07A10045" owner="ELSCINT1" vr="LT" vm="1"/>
+<el tag="07A10047" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="07A1004A" owner="ELSCINT1" vr="SH" vm="1"/>
+<el tag="07A10050" owner="ELSCINT1" vr="US" vm="1"/>
+<el tag="07A10056" owner="ELSCINT1" vr="US" vm="1"/>
+<el tag="07A10058" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="07A1005D" owner="ELSCINT1" vr="DT" vm="1"/>
+<el tag="07A1005F" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="07A10070" owner="ELSCINT1" vr="SH" vm="1"/>
+<el tag="07A10071" owner="ELSCINT1" vr="SH" vm="1"/>
+<el tag="07A10075" owner="ELSCINT1" vr="LO" vm="2"/>
+<el tag="07A10076" owner="ELSCINT1" vr="ST" vm="1"/>
+<el tag="07A10085" owner="ELSCINT1" vr="UL" vm="1"/>
+<el tag="07A10087" owner="ELSCINT1" vr="LT" vm="1"/>
+<el tag="07A10088" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="07A1008C" owner="ELSCINT1" vr="ST" vm="1"/>
+<el tag="07A10094" owner="ELSCINT1" vr="ST" vm="1"/>
+<el tag="07A10096" owner="ELSCINT1" vr="DA" vm="1"/>
+<el tag="07A10097" owner="ELSCINT1" vr="SH" vm="1"/>
+<el tag="07A10098" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="07A1009F" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="07A100D0" owner="ELSCINT1" vr="LO" vm="1"/>
+<el tag="07A30001" owner="ELSCINT1" vr="LO" vm="1"/>
+<el tag="07A30003" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="07A30005" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="07A30006" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="07A30009" owner="ELSCINT1" vr="IS" vm="1"/>
+<el tag="07A30013" owner="ELSCINT1" vr="SH" vm="1"/>
+<el tag="07A30014" owner="ELSCINT1" vr="ST" vm="1"/>
+<el tag="07A30015" owner="ELSCINT1" vr="ST" vm="1"/>
+<el tag="07A30017" owner="ELSCINT1" vr="SH" vm="1"/>
+<el tag="07A3001B" owner="ELSCINT1" vr="ST" vm="1"/>
+<el tag="07A3001F" owner="ELSCINT1" vr="ST" vm="1"/>
+<el tag="07A30022" owner="ELSCINT1" vr="ST" vm="1"/>
+<el tag="07A30023" owner="ELSCINT1" vr="ST" vm="1"/>
+<el tag="07A30034" owner="ELSCINT1" vr="SH" vm="1"/>
+<el tag="07A30043" owner="ELSCINT1" vr="DS" vm="1-n"/>
+<el tag="07A30055" owner="ELSCINT1" vr="SH" vm="1"/>
+<el tag="07A3005C" owner="ELSCINT1" vr="ST" vm="1"/>
+<el tag="07A30061" owner="ELSCINT1" vr="LT" vm="1"/>
+<el tag="07A30062" owner="ELSCINT1" vr="SQ" vm="1"/>
+<el tag="07A30063" owner="ELSCINT1" vr="SQ" vm="1"/>
+<el tag="07A30064" owner="ELSCINT1" vr="IS" vm="1-n"/>
+<el tag="07A30065" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="07A30066" owner="ELSCINT1" vr="IS" vm="1"/>
+<el tag="07A30080" owner="ELSCINT1" vr="SQ" vm="1"/>
+<el tag="07A3008F" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="07A30092" owner="ELSCINT1" vr="DS" vm="1"/>
+<el tag="07A30093" owner="ELSCINT1" vr="DS" vm="1"/>
+<el tag="07A30099" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="07A3009C" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="07A3009F" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="07A300B9" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="07A300BB" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="07A300C0" owner="ELSCINT1" vr="SQ" vm="1"/>
+<el tag="07A300C1" owner="ELSCINT1" vr="LO" vm="1"/>
+<el tag="07A300C2" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="07A300C3" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="07A300C4" owner="ELSCINT1" vr="LO" vm="1"/>
+<el tag="07A300C5" owner="ELSCINT1" vr="LO" vm="1"/>
+<el tag="07A300C8" owner="ELSCINT1" vr="AE" vm="1"/>
+<el tag="07A300C9" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="07A300CB" owner="ELSCINT1" vr="SQ" vm="1"/>
+<el tag="07A300CC" owner="ELSCINT1" vr="LO" vm="1"/>
+<el tag="07A300E3" owner="ELSCINT1" vr="LO" vm="1"/>
+<el tag="07A300F2" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="07A300F5" owner="ELSCINT1" vr="LO" vm="1"/>
+<el tag="07A300FA" owner="ELSCINT1" vr="DT" vm="1"/>
+<el tag="07A300FB" owner="ELSCINT1" vr="DT" vm="1"/>
+<el tag="07A50000" owner="ELSCINT1" vr="LO" vm="1"/>
+<el tag="07A50054" owner="ELSCINT1" vr="DT" vm="1"/>
+<el tag="07A50056" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="07A50059" owner="ELSCINT1" vr="IS" vm="1"/>
+<el tag="07A50062" owner="ELSCINT1" vr="LO" vm="1"/>
+<el tag="07A50069" owner="ELSCINT1" vr="LO" vm="1"/>
+<el tag="07A500AE" owner="ELSCINT1" vr="IS" vm="1"/>
+<el tag="07A500C8" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="50010080" owner="ELSCINT1" vr="SQ" vm="1"/>
+<el tag="50010081" owner="ELSCINT1" vr="SH" vm="1"/>
+<el tag="50010082" owner="ELSCINT1" vr="US" vm="3"/>
+<el tag="50010083" owner="ELSCINT1" vr="FL" vm="1-n"/>
+<el tag="50010084" owner="ELSCINT1" vr="SQ" vm="1"/>
+<el tag="50010090" owner="ELSCINT1" vr="ST" vm="1"/>
+<el tag="50010099" owner="ELSCINT1" vr="FL" vm="1"/>
+<el tag="5001009f" owner="ELSCINT1" vr="LO" vm="1"/>
+<el tag="500100a0" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="500100a1" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="500100a2" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="500100a3" owner="ELSCINT1" vr="LO" vm="1"/>
+<el tag="500100a5" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="500100a6" owner="ELSCINT1" vr="US" vm="1"/>
+<el tag="500100a7" owner="ELSCINT1" vr="LO" vm="1-n"/>
+<el tag="500100a8" owner="ELSCINT1" vr="US" vm="1"/>
+<el tag="500100b4" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="500100c0" owner="ELSCINT1" vr="US" vm="1"/>
+<el tag="500100c2" owner="ELSCINT1" vr="US" vm="1"/>
+<el tag="500100c5" owner="ELSCINT1" vr="CS" vm="1"/>
+<el tag="50050010" owner="ELSCINT1" vr="ST" vm="1"/>
+<el tag="7FDF00F0" owner="ELSCINT1" vr="OB" vm="1"/>
+<el tag="7FDF00FF" owner="ELSCINT1" vr="SH" vm="1"/>
+<el tag="07A3000F" owner="ELSCINT1" vr="LT" vm="1"/>
+<el tag="07A30053" owner="ELSCINT1" vr="LT" vm="1"/>
+<el tag="07A30054" owner="ELSCINT1" vr="OB" vm="1"/>
+<el tag="07A300D0" owner="ELSCINT1" vr="LT" vm="1"/>
+<el tag="07A100C3" owner="ELSCINT1" vr="LT" vm="1"/>
+<el tag="50010019" owner="ELSCINT1" vr="OB" vm="1"/>
+<el tag="50030019" owner="ELSCINT1" vr="OB" vm="1"/>
+<el tag="50050019" owner="ELSCINT1" vr="OB" vm="1"/>
+<el tag="50010070" owner="ELSCINT1" vr="OB" vm="1"/>
+<el tag="50010071" owner="ELSCINT1" vr="OB" vm="1"/>
+</elements>
