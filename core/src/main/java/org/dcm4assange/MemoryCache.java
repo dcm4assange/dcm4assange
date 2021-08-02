@@ -44,6 +44,7 @@ class MemoryCache {
     }
 
     public void skipFrom(InputStream in, long pos, int len, OutputStream out) throws IOException {
+        if (len <= 0) return;
         int skip = (int) (pos + len - limit);
         long pos1 = pos - skippedBytes(pos);
         if (out != null) {

@@ -76,6 +76,11 @@ class BasicDicomElement implements DicomElement {
     }
 
     @Override
+    public Optional<String> bulkDataURI() {
+        return Optional.empty();
+    }
+
+    @Override
     public String[] stringValues() {
         return StringUtils.EMPTY_STRINGS;
     }

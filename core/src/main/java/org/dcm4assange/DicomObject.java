@@ -43,6 +43,8 @@ public interface DicomObject {
 
     OptionalDouble getDouble(int tag);
 
+    Optional<String> getBulkDataURI(int tag);
+
     DicomElement setEmpty(int tag, VR vr);
 
     DicomElement setString(int tag, VR vr, String value);

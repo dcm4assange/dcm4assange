@@ -143,6 +143,11 @@ class WriteableDicomObject implements DicomObject {
     }
 
     @Override
+    public Optional<String> getBulkDataURI(int tag) {
+        return get(tag).flatMap(DicomElement::bulkDataURI);
+    }
+
+    @Override
     public DicomElement add(DicomElement dcmElm) {
         if (dcmElm.dicomObject() != this) {
             throw new IllegalArgumentException("dcmElm belongs to different Dicom Object");

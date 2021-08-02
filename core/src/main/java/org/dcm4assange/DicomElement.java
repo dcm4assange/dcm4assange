@@ -23,6 +23,7 @@ public interface DicomElement {
     OptionalFloat floatValue();
     OptionalDouble doubleValue();
     Optional<String> stringValue();
+    Optional<String> bulkDataURI();
     String[] stringValues();
     int numberOfItems();
     DicomObject addItem();

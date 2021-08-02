@@ -3,14 +3,14 @@ package org.dcm4assange;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.zip.Deflater;
 import java.util.zip.DeflaterOutputStream;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DicomInputStreamTest {
 
@@ -125,6 +125,25 @@ public class DicomInputStreamTest {
     private static final byte[] DEFL_EVR_LE = {'D', 'I', 'C', 'M',
             2, 0, 0, 0, 'U', 'L', 4, 0, 30, 0, 0, 0,
             2, 0, 16, 0, 'U', 'I', 22, 0, 49, 46, 50, 46, 56, 52, 48, 46, 49, 48, 48, 48, 56, 46, 49, 46, 50, 46, 49, 46, 57, 57
+    };
+    private static final byte[] FMI_IVR_LE_PX_DATA = {'D', 'I', 'C', 'M',
+            2, 0, 0, 0, 'U', 'L', 4, 0, 26, 0, 0, 0,
+            2, 0, 16, 0, 'U', 'I', 18, 0, 49, 46, 50, 46, 56, 52, 48, 46, 49, 48, 48, 48, 56, 46, 49, 46, 50, 00,
+            -32, 0x7F, 0x10, 0, 0, 0, 4, 0
+    };
+    private static final byte[] POST_IVR_LE_PX_DATA = {
+            -4, -1, -4, 1, 0, 0, 0, 0
+    };
+    private static final byte[] FMI_ENCAPS_PX_DATA = {'D', 'I', 'C', 'M',
+            2, 0, 0, 0, 'U', 'L', 4, 0, 30, 0, 0, 0,
+            2, 0, 16, 0, 'U', 'I', 22, 0, 49, 46, 50, 46, 56, 52, 48, 46, 49, 48, 48, 48, 56, 46, 49, 46, 50, 46, 49, 46, 57, 56,
+            -32, 0x7F, 0x10, 0, 'O', 'B', 0, 0, -1, -1, -1, -1,
+            -2, -1, 0, -32, 0, 0, 0, 0,
+            -2, -1, 0, -32, 0, 0, 4, 0,
+    };
+    private static final byte[] POST_ENCAPS_PX_DATA = {
+            -2, -1, -35, -32, 0, 0, 0, 0,
+            -4, -1, -4, 1, 'O', 'B', 0, 0, 0, 0, 0, 0
     };
     static final byte[] C_ECHO_RQ = {
             0, 0, 0, 0, 4, 0, 0, 0, 56, 0, 0, 0,
@@ -242,6 +261,28 @@ public class DicomInputStreamTest {
         parsePerFrameFunctionalGroupsSequenceLazy(PER_FRAME_FUNCTIONAL_GROUPS_SEQ_EVR_LE, DicomEncoding.EVR_LE);
     }
 
+    @Test
+    public void parseBulkDataIVR_LE() throws IOException {
+        parseBulkData(FMI_IVR_LE_PX_DATA, POST_IVR_LE_PX_DATA, "#offset=170,length=262144");
+    }
+
+    @Test
+    public void parseBulkDataEncapsulated() throws IOException {
+        parseBulkData(FMI_ENCAPS_PX_DATA, POST_ENCAPS_PX_DATA, "#offset=174,length=-1");
+    }
+
+    @Test
+    public void spoolBulkDataIVR_LE() throws IOException {
+        spoolBulkData(FMI_IVR_LE_PX_DATA, POST_IVR_LE_PX_DATA, "#offset=170,length=262144",
+                262144);
+    }
+
+    @Test
+    public void spoolBulkDataEncapsulated() throws IOException {
+        spoolBulkData(FMI_ENCAPS_PX_DATA, POST_ENCAPS_PX_DATA, "#offset=174,length=-1",
+                262168);
+    }
+
     static DicomObject c_echo_rq() throws IOException {
         try (InputStream in = new ByteArrayInputStream(C_ECHO_RQ)) {
             return new DicomInputStream(in).readCommandSet();
@@ -260,6 +301,44 @@ public class DicomInputStreamTest {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    static void parseBulkData(byte[] prefix, byte[] suffix, String fragment) throws IOException {
+        Path file = createFile(prefix, new byte[8192], 32, suffix);
+        try (DicomInputStream dis = new DicomInputStream(file).withBulkDataPredicate()) {
+            DicomObject dcmObj = dis.readDataSet();
+            assertEquals(file.toUri() + fragment, dcmObj.getBulkDataURI(Tag.PixelData).get());
+        } finally {
+            Files.delete(file);
+        }
+    }
+
+    static void spoolBulkData(byte[] prefix, byte[] suffix, String fragment, long blkdataLength) throws IOException {
+        Path file = createFile(prefix, new byte[8192], 32, suffix);
+        Path spoolFile =  Files.createTempFile("", ".blk");
+        try (DicomInputStream dis = new DicomInputStream(Files.newInputStream(file))
+                .withBulkDataPredicate()
+                .withSpoolBulkDataTo(spoolFile)) {
+            DicomObject dcmObj = dis.readDataSet();
+            assertEquals(spoolFile.toUri() + fragment, dcmObj.getBulkDataURI(Tag.PixelData).get());
+            assertEquals(blkdataLength, Files.size(spoolFile));
+        } finally {
+            Files.delete(file);
+            Files.delete(spoolFile);
+        }
+    }
+
+    static Path createFile(byte[] prefix, byte[] buffer, int count, byte[] suffix) throws IOException {
+        Path path = Files.createTempFile("", ".dcm");
+        try (OutputStream out = Files.newOutputStream(path)) {
+            out.write(new byte[128]);
+            out.write(prefix);
+            for (int i = 0; i < count; i++) {
+                out.write(buffer);
+            }
+            out.write(suffix);
+        }
+        return path;
     }
 
     static void parseSequence(byte[] b, DicomEncoding encoding, int tag) throws IOException {

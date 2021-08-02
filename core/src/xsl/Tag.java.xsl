@@ -487,7 +487,7 @@ public class Tag {
     <xsl:apply-templates select="//el[@vr='UV']"/>
     <xsl:text>
         }
-        switch (tag &amp; 0xFF00FFFF) {</xsl:text>
+        switch (tag &amp; 0xFF01FFFF) {</xsl:text>
     <xsl:apply-templates select="//el[@vr='AT' and substring(@tag,3,2)='xx']"/>
     <xsl:apply-templates select="//el[@vr='CS' and substring(@tag,3,2)='xx']"/>
     <xsl:apply-templates select="//el[@vr='DS' and substring(@tag,3,2)='xx']"/>
