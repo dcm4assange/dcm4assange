@@ -26,7 +26,7 @@ class BasicDicomElement implements DicomElement {
     }
 
     @Override
-    public DicomObject dicomObject() {
+    public DicomObject containedBy() {
         return dicomObject;
     }
 
@@ -137,7 +137,7 @@ class BasicDicomElement implements DicomElement {
 
     @Override
     public StringBuilder promptLevelTo(StringBuilder appendTo) {
-        for (DicomElement seq = dicomObject.sequence(); seq != null; seq = seq.dicomObject().sequence()) {
+        for (DicomElement seq = dicomObject.containedBy(); seq != null; seq = seq.containedBy().containedBy()) {
             appendTo.append('>');
         }
         return appendTo;

@@ -25,7 +25,9 @@ public interface DicomObject {
 
     boolean isRoot();
 
-    DicomElement sequence();
+    boolean contains(int tag);
+
+    DicomElement containedBy();
 
     Optional<String> privateCreatorOf(int tag);
 

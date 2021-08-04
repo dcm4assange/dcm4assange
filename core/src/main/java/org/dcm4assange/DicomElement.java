@@ -13,7 +13,7 @@ import java.util.OptionalLong;
  * @since May 2021
  */
 public interface DicomElement {
-    DicomObject dicomObject();
+    DicomObject containedBy();
     int tag();
     VR vr();
     int valueLength();

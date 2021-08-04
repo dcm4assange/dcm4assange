@@ -79,7 +79,7 @@ public class DcmDump implements Callable<Integer> {
                 || tag == Tag.SpecificCharacterSet
                 || TagUtils.isPrivateCreator(tag);
         if (keep) {
-            dcmElm.dicomObject().add(dcmElm);
+            dcmElm.containedBy().add(dcmElm);
         }
         int headerLength = (int) (dis.streamPosition() - pos);
         if (dcmElm.vr() == VR.SQ) {
@@ -88,7 +88,7 @@ public class DcmDump implements Callable<Integer> {
             dis.parseFragments(dcmElm);
         } else {
             if (!keep && valueLength > limit) {
-                dis.skip(pos, headerLength + valueLength);
+                dis.skip(pos, headerLength + valueLength, null);
             }
             dis.seek(dis.streamPosition() + valueLength);
         }
@@ -140,7 +140,7 @@ public class DcmDump implements Callable<Integer> {
         System.out.println(sb);
         int itemLengh = itemHeader.valueLength();
         if (itemLengh > limit) {
-            dis.skip(pos, 8 + itemLengh);
+            dis.skip(pos, 8 + itemLengh, null);
         }
         dis.seek(dis.streamPosition() + itemLengh);
     }

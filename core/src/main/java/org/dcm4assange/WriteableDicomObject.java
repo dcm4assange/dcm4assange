@@ -28,7 +28,7 @@ class WriteableDicomObject implements DicomObject {
     }
 
     WriteableDicomObject(DicomElement sequence) {
-        this(null, sequence, sequence.dicomObject().specificCharacterSet(), new ArrayList<>());
+        this(null, sequence, sequence.containedBy().specificCharacterSet(), new ArrayList<>());
     }
 
     WriteableDicomObject(DicomInputStream dis, DicomElement sequence, SpecificCharacterSet specificCharacterSet,
@@ -62,7 +62,12 @@ class WriteableDicomObject implements DicomObject {
     }
 
     @Override
-    public DicomElement sequence() {
+    public boolean contains(int tag) {
+        return binarySearch(elements, tag) >= 0;
+    }
+
+    @Override
+    public DicomElement containedBy() {
         return sequence;
     }
 
@@ -149,7 +154,7 @@ class WriteableDicomObject implements DicomObject {
 
     @Override
     public DicomElement add(DicomElement dcmElm) {
-        if (dcmElm.dicomObject() != this) {
+        if (dcmElm.containedBy() != this) {
             throw new IllegalArgumentException("dcmElm belongs to different Dicom Object");
         }
         int tag = dcmElm.tag();

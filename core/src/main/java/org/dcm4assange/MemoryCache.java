@@ -43,7 +43,7 @@ class MemoryCache {
         return length;
     }
 
-    public void skipFrom(InputStream in, long pos, int len, OutputStream out) throws IOException {
+    public void skipFrom(InputStream in, long pos, long len, OutputStream out) throws IOException {
         if (len <= 0) return;
         int skip = (int) (pos + len - limit);
         long pos1 = pos - skippedBytes(pos);
@@ -77,11 +77,11 @@ class MemoryCache {
         skippedBytes.add(new Segment(pos, len));
     }
 
-    private void writeTo(OutputStream out, long pos, int len) throws IOException {
+    private void writeTo(OutputStream out, long pos, long len) throws IOException {
         while (len > 0) {
             byte[] b = blocks.get(blockIndex(pos));
             int off = blockOffset(b, pos);
-            int write = Math.min(b.length - off, len);
+            int write = (int) Math.min(b.length - off, len);
             out.write(b, off, write);
             pos += write;
             len -= write;
@@ -133,7 +133,7 @@ class MemoryCache {
         return len;
     }
 
-    private static record Segment(long pos, int length){
+    private static record Segment(long pos, long length){
         long end() {
             return pos + length;
         }
