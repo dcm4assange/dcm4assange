@@ -207,335 +207,97 @@ public class Tag {
     }
 
     public static int tmTagOf(int daTag) {
-        switch (daTag) {
-            case Tag.InstanceCreationDate:
-                return Tag.InstanceCreationTime;
-            case Tag.StudyDate:
-                return Tag.StudyTime;
-            case Tag.SeriesDate:
-                return Tag.SeriesTime;
-            case Tag.AcquisitionDate:
-                return Tag.AcquisitionTime;
-            case Tag.ContentDate:
-                return Tag.ContentTime;
-            case Tag.OverlayDate:
-                return Tag.OverlayTime;
-            case Tag.CurveDate:
-                return Tag.CurveTime;
-            case Tag.PatientBirthDate:
-                return Tag.PatientBirthTime;
-            case Tag.DateOfSecondaryCapture:
-                return Tag.TimeOfSecondaryCapture;
-            case Tag.DateOfLastCalibration:
-                return Tag.TimeOfLastCalibration;
-            case Tag.DateOfLastDetectorCalibration:
-                return Tag.TimeOfLastDetectorCalibration;
-            case Tag.ModifiedImageDate:
-                return Tag.ModifiedImageTime;
-            case Tag.StudyVerifiedDate:
-                return Tag.StudyVerifiedTime;
-            case Tag.StudyReadDate:
-                return Tag.StudyReadTime;
-            case Tag.ScheduledStudyStartDate:
-                return Tag.ScheduledStudyStartTime;
-            case Tag.ScheduledStudyStopDate:
-                return Tag.ScheduledStudyStopTime;
-            case Tag.StudyArrivalDate:
-                return Tag.StudyArrivalTime;
-            case Tag.StudyCompletionDate:
-                return Tag.StudyCompletionTime;
-            case Tag.ScheduledAdmissionDate:
-                return Tag.ScheduledAdmissionTime;
-            case Tag.ScheduledDischargeDate:
-                return Tag.ScheduledDischargeTime;
-            case Tag.AdmittingDate:
-                return Tag.AdmittingTime;
-            case Tag.DischargeDate:
-                return Tag.DischargeTime;
-            case Tag.ScheduledProcedureStepStartDate:
-                return Tag.ScheduledProcedureStepStartTime;
-            case Tag.ScheduledProcedureStepEndDate:
-                return Tag.ScheduledProcedureStepEndTime;
-            case Tag.PerformedProcedureStepStartDate:
-                return Tag.PerformedProcedureStepStartTime;
-            case Tag.PerformedProcedureStepEndDate:
-                return Tag.PerformedProcedureStepEndTime;
-            case Tag.IssueDateOfImagingServiceRequest:
-                return Tag.IssueTimeOfImagingServiceRequest;
-            case Tag.Date:
-                return Tag.Time;
-            case Tag.PresentationCreationDate:
-                return Tag.PresentationCreationTime;
-            case Tag.CreationDate:
-                return Tag.CreationTime;
-            case Tag.StructureSetDate:
-                return Tag.StructureSetTime;
-            case Tag.TreatmentControlPointDate:
-                return Tag.TreatmentControlPointTime;
-            case Tag.SafePositionExitDate:
-                return Tag.SafePositionExitTime;
-            case Tag.SafePositionReturnDate:
-                return Tag.SafePositionReturnTime;
-            case Tag.TreatmentDate:
-                return Tag.TreatmentTime;
-            case Tag.RTPlanDate:
-                return Tag.RTPlanTime;
-            case Tag.SourceStrengthReferenceDate:
-                return Tag.SourceStrengthReferenceTime;
-            case Tag.ReviewDate:
-                return Tag.ReviewTime;
-            case Tag.InterpretationRecordedDate:
-                return Tag.InterpretationRecordedTime;
-            case Tag.InterpretationTranscriptionDate:
-                return Tag.InterpretationTranscriptionTime;
-            case Tag.InterpretationApprovalDate:
-                return Tag.InterpretationApprovalTime;
-        }
-        return 0;
+        return switch (daTag) {
+            case Tag.InstanceCreationDate -> Tag.InstanceCreationTime;
+            case Tag.StudyDate -> Tag.StudyTime;
+            case Tag.SeriesDate -> Tag.SeriesTime;
+            case Tag.AcquisitionDate -> Tag.AcquisitionTime;
+            case Tag.ContentDate -> Tag.ContentTime;
+            case Tag.OverlayDate -> Tag.OverlayTime;
+            case Tag.CurveDate -> Tag.CurveTime;
+            case Tag.PatientBirthDate -> Tag.PatientBirthTime;
+            case Tag.DateOfSecondaryCapture -> Tag.TimeOfSecondaryCapture;
+            case Tag.DateOfLastCalibration -> Tag.TimeOfLastCalibration;
+            case Tag.DateOfLastDetectorCalibration -> Tag.TimeOfLastDetectorCalibration;
+            case Tag.ModifiedImageDate -> Tag.ModifiedImageTime;
+            case Tag.StudyVerifiedDate -> Tag.StudyVerifiedTime;
+            case Tag.StudyReadDate -> Tag.StudyReadTime;
+            case Tag.ScheduledStudyStartDate -> Tag.ScheduledStudyStartTime;
+            case Tag.ScheduledStudyStopDate -> Tag.ScheduledStudyStopTime;
+            case Tag.StudyArrivalDate -> Tag.StudyArrivalTime;
+            case Tag.StudyCompletionDate -> Tag.StudyCompletionTime;
+            case Tag.ScheduledAdmissionDate -> Tag.ScheduledAdmissionTime;
+            case Tag.ScheduledDischargeDate -> Tag.ScheduledDischargeTime;
+            case Tag.AdmittingDate -> Tag.AdmittingTime;
+            case Tag.DischargeDate -> Tag.DischargeTime;
+            case Tag.ScheduledProcedureStepStartDate -> Tag.ScheduledProcedureStepStartTime;
+            case Tag.ScheduledProcedureStepEndDate -> Tag.ScheduledProcedureStepEndTime;
+            case Tag.PerformedProcedureStepStartDate -> Tag.PerformedProcedureStepStartTime;
+            case Tag.PerformedProcedureStepEndDate -> Tag.PerformedProcedureStepEndTime;
+            case Tag.IssueDateOfImagingServiceRequest -> Tag.IssueTimeOfImagingServiceRequest;
+            case Tag.Date -> Tag.Time;
+            case Tag.PresentationCreationDate -> Tag.PresentationCreationTime;
+            case Tag.CreationDate -> Tag.CreationTime;
+            case Tag.StructureSetDate -> Tag.StructureSetTime;
+            case Tag.TreatmentControlPointDate -> Tag.TreatmentControlPointTime;
+            case Tag.SafePositionExitDate -> Tag.SafePositionExitTime;
+            case Tag.SafePositionReturnDate -> Tag.SafePositionReturnTime;
+            case Tag.TreatmentDate -> Tag.TreatmentTime;
+            case Tag.RTPlanDate -> Tag.RTPlanTime;
+            case Tag.SourceStrengthReferenceDate -> Tag.SourceStrengthReferenceTime;
+            case Tag.ReviewDate -> Tag.ReviewTime;
+            case Tag.InterpretationRecordedDate -> Tag.InterpretationRecordedTime;
+            case Tag.InterpretationTranscriptionDate -> Tag.InterpretationTranscriptionTime;
+            case Tag.InterpretationApprovalDate -> Tag.InterpretationApprovalTime;
+            default -> 0;
+        };
     }
 
     public static int daTagOf(int tmTag) {
-        switch (tmTag) {
-            case Tag.InstanceCreationTime:
-                return Tag.InstanceCreationDate;
-            case Tag.StudyTime:
-                return Tag.StudyDate;
-            case Tag.SeriesTime:
-                return Tag.SeriesDate;
-            case Tag.AcquisitionTime:
-                return Tag.AcquisitionDate;
-            case Tag.ContentTime:
-                return Tag.ContentDate;
-            case Tag.OverlayTime:
-                return Tag.OverlayDate;
-            case Tag.CurveTime:
-                return Tag.CurveDate;
-            case Tag.PatientBirthTime:
-                return Tag.PatientBirthDate;
-            case Tag.TimeOfSecondaryCapture:
-                return Tag.DateOfSecondaryCapture;
-            case Tag.TimeOfLastCalibration:
-                return Tag.DateOfLastCalibration;
-            case Tag.TimeOfLastDetectorCalibration:
-                return Tag.DateOfLastDetectorCalibration;
-            case Tag.ModifiedImageTime:
-                return Tag.ModifiedImageDate;
-            case Tag.StudyVerifiedTime:
-                return Tag.StudyVerifiedDate;
-            case Tag.StudyReadTime:
-                return Tag.StudyReadDate;
-            case Tag.ScheduledStudyStartTime:
-                return Tag.ScheduledStudyStartDate;
-            case Tag.ScheduledStudyStopTime:
-                return Tag.ScheduledStudyStopDate;
-            case Tag.StudyArrivalTime:
-                return Tag.StudyArrivalDate;
-            case Tag.StudyCompletionTime:
-                return Tag.StudyCompletionDate;
-            case Tag.ScheduledAdmissionTime:
-                return Tag.ScheduledAdmissionDate;
-            case Tag.ScheduledDischargeTime:
-                return Tag.ScheduledDischargeDate;
-            case Tag.AdmittingTime:
-                return Tag.AdmittingDate;
-            case Tag.DischargeTime:
-                return Tag.DischargeDate;
-            case Tag.ScheduledProcedureStepStartTime:
-                return Tag.ScheduledProcedureStepStartDate;
-            case Tag.ScheduledProcedureStepEndTime:
-                return Tag.ScheduledProcedureStepEndDate;
-            case Tag.PerformedProcedureStepStartTime:
-                return Tag.PerformedProcedureStepStartDate;
-            case Tag.PerformedProcedureStepEndTime:
-                return Tag.PerformedProcedureStepEndDate;
-            case Tag.IssueTimeOfImagingServiceRequest:
-                return Tag.IssueDateOfImagingServiceRequest;
-            case Tag.Time:
-                return Tag.Date;
-            case Tag.PresentationCreationTime:
-                return Tag.PresentationCreationDate;
-            case Tag.CreationTime:
-                return Tag.CreationDate;
-            case Tag.StructureSetTime:
-                return Tag.StructureSetDate;
-            case Tag.TreatmentControlPointTime:
-                return Tag.TreatmentControlPointDate;
-            case Tag.SafePositionExitTime:
-                return Tag.SafePositionExitDate;
-            case Tag.SafePositionReturnTime:
-                return Tag.SafePositionReturnDate;
-            case Tag.TreatmentTime:
-                return Tag.TreatmentDate;
-            case Tag.RTPlanTime:
-                return Tag.RTPlanDate;
-            case Tag.SourceStrengthReferenceTime:
-                return Tag.SourceStrengthReferenceDate;
-            case Tag.ReviewTime:
-                return Tag.ReviewDate;
-            case Tag.InterpretationRecordedTime:
-                return Tag.InterpretationRecordedDate;
-            case Tag.InterpretationTranscriptionTime:
-                return Tag.InterpretationTranscriptionDate;
-            case Tag.InterpretationApprovalTime:
-                return Tag.InterpretationApprovalDate;
-        }
-        return 0;
-    }
-
-    public static String keywordOf(int tag) {
-        if ((tag &amp; 0x0000FFFF) == 0)
-            return tag == 0x00000000 ? "CommandGroupLength"
-                    : tag == 0x00020000 ? "FileMetaInformationGroupLength"
-                    : "GroupLength";
-        if ((tag &amp; 0x00010000) != 0)
-            return ((tag &amp; 0x0000FF00) == 0 &amp;&amp; (tag &amp; 0x000000F0) != 0)
-                    ? "PrivateCreatorID"
-                    : "";
-        switch (tag) {
-</xsl:text>
-    <xsl:apply-templates select="//el[@keyword and not(contains(@tag,'x'))]" mode="keywordOf"/>
-    <xsl:text>        }
-        switch (tag &amp; 0xFF00FFFF) {
-</xsl:text>
-    <xsl:apply-templates select="//el[@keyword and substring(@tag,3,2)='xx']" mode="keywordOf"/>
-    <xsl:text>        }
-        switch (tag &amp; 0xFFFFFF0F) {
-            case 0x00280400:
-                return "RowsForNthOrderCoefficients";
-            case 0x00280401:
-                return "ColumnsForNthOrderCoefficients";
-            case 0x00280402:
-                return "CoefficientCoding";
-            case 0x00280403:
-                return "CoefficientCodingPointers";
-            case 0x00280800:
-                return "CodeLabel";
-            case 0x00280802:
-                return "NumberOfTables";
-            case 0x00280803:
-                return "CodeTableLocation";
-            case 0x00280804:
-                return "BitsForCodeWord";
-            case 0x00280808:
-                return "ImageDataLocation";
-        }
-        switch (tag &amp; 0xFFFF000F) {
-            case 0x10000000:
-                return "EscapeTriplet";
-            case 0x10000001:
-                return "RunLengthTriplet";
-            case 0x10000002:
-                return "HuffmanTableSize";
-            case 0x10000003:
-                return "HuffmanTableTriplet";
-            case 0x10000004:
-                return "ShiftTableSize";
-            case 0x10000005:
-                return "ShiftTableTriplet";
-        }
-        if ((tag &amp; 0xFFFF0000) == 0x10100000)
-            return "ZonalMap";
-        if ((tag &amp; 0xFFFFFF00) == 0x00203100)
-            return "SourceImageIDs";
-        return "";
-    }
-
-    public static VR vrOf(int tag) {
-        if ((tag &amp; 0x0000FFFF) == 0)
-            return VR.UL;
-        if ((tag &amp; 0x00010000) != 0)
-            return ((tag &amp; 0x0000FF00) == 0 &amp;&amp; (tag &amp; 0x000000F0) != 0)
-                    ? VR.LO
-                    : VR.UN;
-        switch (tag) {</xsl:text>
-    <xsl:apply-templates select="//el[@vr='AE']"/>
-    <xsl:apply-templates select="//el[@vr='AS']"/>
-    <xsl:apply-templates select="//el[@vr='AT' and not(contains(@tag,'x'))]"/>
-    <xsl:apply-templates select="//el[@vr='CS' and not(contains(@tag,'x'))]"/>
-    <xsl:apply-templates select="//el[@vr='DA']"/>
-    <xsl:apply-templates select="//el[@vr='DS' and not(contains(@tag,'x'))]"/>
-    <xsl:apply-templates select="//el[@vr='DT']"/>
-    <xsl:apply-templates select="//el[@vr='FL']"/>
-    <xsl:apply-templates select="//el[@vr='FD']"/>
-    <xsl:apply-templates select="//el[@vr='IS' and not(contains(@tag,'x'))]"/>
-    <xsl:apply-templates select="//el[@vr='LO' and not(contains(@tag,'x'))]"/>
-    <xsl:apply-templates select="//el[@vr='LT' and not(contains(@tag,'x'))]"/>
-    <xsl:apply-templates select="//el[@vr='OB']"/>
-    <xsl:apply-templates select="//el[@vr='OD']"/>
-    <xsl:apply-templates select="//el[@vr='OF']"/>
-    <xsl:apply-templates select="//el[@vr='OL']"/>
-    <xsl:apply-templates select="//el[@vr='OV']"/>
-    <xsl:apply-templates select="//el[contains(@vr,'OW') and not(contains(@tag,'x'))]">
-      <xsl:with-param name="vr">OW</xsl:with-param>
-    </xsl:apply-templates>
-    <xsl:apply-templates select="//el[@vr='PN' and not(contains(@tag,'x'))]"/>
-    <xsl:apply-templates select="//el[@vr='SH' and not(contains(@tag,'x'))]"/>
-    <xsl:apply-templates select="//el[@vr='SL']"/>
-    <xsl:apply-templates select="//el[@vr='SQ' and not(contains(@tag,'x'))]"/>
-    <xsl:apply-templates select="//el[contains(@vr,'SS') and not(contains(@vr,'OW')) and not(contains(@tag,'x'))]">
-      <xsl:with-param name="vr">SS</xsl:with-param>
-    </xsl:apply-templates>
-    <xsl:apply-templates select="//el[@vr='ST']"/>
-    <xsl:apply-templates select="//el[@vr='SV']"/>
-    <xsl:apply-templates select="//el[@vr='TM']"/>
-    <xsl:apply-templates select="//el[@vr='UC']"/>
-    <xsl:apply-templates select="//el[@vr='UI']"/>
-    <xsl:apply-templates select="//el[@vr='UL' and not(contains(@tag,'x'))]"/>
-    <xsl:apply-templates select="//el[@vr='UR']"/>
-    <xsl:apply-templates select="//el[@vr='US' and not(contains(@tag,'x'))]"/>
-    <xsl:apply-templates select="//el[@vr='UT']"/>
-    <xsl:apply-templates select="//el[@vr='UV']"/>
-    <xsl:text>
-        }
-        switch (tag &amp; 0xFF01FFFF) {</xsl:text>
-    <xsl:apply-templates select="//el[@vr='AT' and substring(@tag,3,2)='xx']"/>
-    <xsl:apply-templates select="//el[@vr='CS' and substring(@tag,3,2)='xx']"/>
-    <xsl:apply-templates select="//el[@vr='DS' and substring(@tag,3,2)='xx']"/>
-    <xsl:apply-templates select="//el[@vr='IS' and substring(@tag,3,2)='xx']"/>
-    <xsl:apply-templates select="//el[@vr='LO' and substring(@tag,3,2)='xx']"/>
-    <xsl:apply-templates select="//el[@vr='LT' and substring(@tag,3,2)='xx']"/>
-    <xsl:apply-templates select="//el[contains(@vr,'OW') and substring(@tag,3,2)='xx']">
-      <xsl:with-param name="vr">OW</xsl:with-param>
-    </xsl:apply-templates>
-    <xsl:apply-templates select="//el[@vr='PN' and substring(@tag,3,2)='xx']"/>
-    <xsl:apply-templates select="//el[@vr='SH' and substring(@tag,3,2)='xx']"/>
-    <xsl:apply-templates select="//el[@vr='SQ' and substring(@tag,3,2)='xx']"/>
-    <xsl:apply-templates select="//el[contains(@vr,'SS') and not(contains(@vr,'OW')) and substring(@tag,3,2)='xx']">
-      <xsl:with-param name="vr">SS</xsl:with-param>
-    </xsl:apply-templates>
-    <xsl:apply-templates select="//el[@vr='UL' and substring(@tag,3,2)='xx']"/>
-    <xsl:apply-templates select="//el[@vr='US' and substring(@tag,3,2)='xx']"/>
-    <xsl:text>
-        }
-        switch (tag &amp; 0xFFFFFF0F) {
-            case 0x00280403:
-            case 0x00280803:
-            case 0x00280808:
-                return VR.AT;
-            case 0x00280800:
-                return VR.CS;
-            case 0x00280402:
-                return VR.LO;
-            case 0x00280400:
-            case 0x00280401:
-            case 0x00280802:
-            case 0x00280804:
-                return VR.US;
-        }
-        switch (tag &amp; 0xFFFF000F) {
-            case 0x10000000:
-            case 0x10000001:
-            case 0x10000002:
-            case 0x10000003:
-            case 0x10000004:
-            case 0x10000005:
-                return VR.US;
-        }
-        if ((tag &amp; 0xFFFF0000) == 0x10100000)
-            return VR.US;
-        if ((tag &amp; 0xFFFFFF00) == 0x00203100)
-            return VR.CS;
-        return VR.UN;
+        return switch (tmTag) {
+            case Tag.InstanceCreationTime -> Tag.InstanceCreationDate;
+            case Tag.StudyTime -> Tag.StudyDate;
+            case Tag.SeriesTime -> Tag.SeriesDate;
+            case Tag.AcquisitionTime -> Tag.AcquisitionDate;
+            case Tag.ContentTime -> Tag.ContentDate;
+            case Tag.OverlayTime -> Tag.OverlayDate;
+            case Tag.CurveTime -> Tag.CurveDate;
+            case Tag.PatientBirthTime -> Tag.PatientBirthDate;
+            case Tag.TimeOfSecondaryCapture -> Tag.DateOfSecondaryCapture;
+            case Tag.TimeOfLastCalibration -> Tag.DateOfLastCalibration;
+            case Tag.TimeOfLastDetectorCalibration -> Tag.DateOfLastDetectorCalibration;
+            case Tag.ModifiedImageTime -> Tag.ModifiedImageDate;
+            case Tag.StudyVerifiedTime -> Tag.StudyVerifiedDate;
+            case Tag.StudyReadTime -> Tag.StudyReadDate;
+            case Tag.ScheduledStudyStartTime -> Tag.ScheduledStudyStartDate;
+            case Tag.ScheduledStudyStopTime -> Tag.ScheduledStudyStopDate;
+            case Tag.StudyArrivalTime -> Tag.StudyArrivalDate;
+            case Tag.StudyCompletionTime -> Tag.StudyCompletionDate;
+            case Tag.ScheduledAdmissionTime -> Tag.ScheduledAdmissionDate;
+            case Tag.ScheduledDischargeTime -> Tag.ScheduledDischargeDate;
+            case Tag.AdmittingTime -> Tag.AdmittingDate;
+            case Tag.DischargeTime -> Tag.DischargeDate;
+            case Tag.ScheduledProcedureStepStartTime -> Tag.ScheduledProcedureStepStartDate;
+            case Tag.ScheduledProcedureStepEndTime -> Tag.ScheduledProcedureStepEndDate;
+            case Tag.PerformedProcedureStepStartTime -> Tag.PerformedProcedureStepStartDate;
+            case Tag.PerformedProcedureStepEndTime -> Tag.PerformedProcedureStepEndDate;
+            case Tag.IssueTimeOfImagingServiceRequest -> Tag.IssueDateOfImagingServiceRequest;
+            case Tag.Time -> Tag.Date;
+            case Tag.PresentationCreationTime -> Tag.PresentationCreationDate;
+            case Tag.CreationTime -> Tag.CreationDate;
+            case Tag.StructureSetTime -> Tag.StructureSetDate;
+            case Tag.TreatmentControlPointTime -> Tag.TreatmentControlPointDate;
+            case Tag.SafePositionExitTime -> Tag.SafePositionExitDate;
+            case Tag.SafePositionReturnTime -> Tag.SafePositionReturnDate;
+            case Tag.TreatmentTime -> Tag.TreatmentDate;
+            case Tag.RTPlanTime -> Tag.RTPlanDate;
+            case Tag.SourceStrengthReferenceTime -> Tag.SourceStrengthReferenceDate;
+            case Tag.ReviewTime -> Tag.ReviewDate;
+            case Tag.InterpretationRecordedTime -> Tag.InterpretationRecordedDate;
+            case Tag.InterpretationTranscriptionTime -> Tag.InterpretationTranscriptionDate;
+            case Tag.InterpretationApprovalTime -> Tag.InterpretationApprovalDate;
+            default -> 0;
+        };
     }
 }
 </xsl:text>
@@ -563,30 +325,6 @@ public class Tag {
     <xsl:value-of select="translate(@tag,'x','0')" />
     <xsl:text>;
 </xsl:text>
-  </xsl:template>
-
-  <xsl:template match="el" mode="keywordOf">
-    <xsl:text>        case 0x</xsl:text>
-    <xsl:value-of select="translate(@tag,'x','0')"/>
-    <xsl:text>:
-            return "</xsl:text>
-    <xsl:value-of select="@keyword" />
-    <xsl:text>";
-</xsl:text>
-  </xsl:template>
-
-  <xsl:template match="el">
-    <xsl:param name="vr" select="@vr" />
-    <xsl:text>
-        case 0x</xsl:text>
-    <xsl:value-of select="translate(@tag,'x','0')"/>
-    <xsl:text>:</xsl:text>
-    <xsl:if test="position()=last()">
-      <xsl:text>
-            return VR.</xsl:text>
-      <xsl:value-of select="$vr"/>
-      <xsl:text>;</xsl:text>
-    </xsl:if>
   </xsl:template>
 
 </xsl:stylesheet>

@@ -82,6 +82,19 @@
             <transformationSet>
               <dir>${project.build.directory}/maven-shared-archive-resources</dir>
               <includes>
+                <include>elements.xml</include>
+              </includes>
+              <stylesheet>src/xsl/ElementDictionary.properties.xsl</stylesheet>
+              <outputDir>target/generated-resources/org/dcm4assange</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>ElementDictionary.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>${project.build.directory}/maven-shared-archive-resources</dir>
+              <includes>
                 <include>uids.xml</include>
               </includes>
               <stylesheet>src/xsl/UIDNames.properties.xsl</stylesheet>

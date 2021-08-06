@@ -29,7 +29,12 @@ public class DicomInputStream extends InputStream {
     public interface ItemHandler {
         boolean apply(DicomInputStream dis, long pos, DicomElement dcmElm, DicomElement itemHeader) throws IOException;
     }
-    private static final byte[] END_OF_SEQ = { -2, -1, -35, -32, 0, 0, 0, 0 };
+    private static final byte[] END_OF_SEQ = {
+            (byte) 0xFE,
+            (byte) 0xFF,
+            (byte) 0xDD,
+            (byte) 0xE0,
+            0, 0, 0, 0 };
     private Path path;
     private InputStream in;
     private DicomInput input;
@@ -120,11 +125,6 @@ public class DicomInputStream extends InputStream {
     public DicomInputStream spoolBulkDataTo(Path bulkDataSpoolPath, Predicate<DicomElement> bulkDataPredicate) {
         this.bulkDataSpoolPath = Objects.requireNonNull(bulkDataSpoolPath);
         this.bulkDataPredicate = Objects.requireNonNull(bulkDataPredicate);
-        return this;
-    }
-
-    public DicomInputStream withBulkData() {
-        this.bulkDataPredicate = DicomInputStream::bulkDataPredicate;
         return this;
     }
 
@@ -356,12 +356,13 @@ public class DicomInputStream extends InputStream {
     }
 
     private boolean probeExplicitVR(long pos) {
-        try {
-            VR.of(cache.vrcode(pos));
-            return true;
-        } catch (IllegalArgumentException e) {
-            return false;
-        }
+        return switch (cache.vrcode(pos)) {
+            case 0x4145, 0x4153, 0x4154, 0x4353, 0x4441, 0x4453, 0x4454, 0x4644, 0x464c, 0x4953, 0x4c4f, 0x4c54,
+                    0x4f42, 0x4f44, 0x4f46, 0x4f4c, 0x4f56, 0x4f57, 0x504e, 0x5348, 0x534c, 0x5351, 0x5353,
+                    0x5354, 0x5356, 0x544d, 0x5543, 0x5549, 0x554c, 0x554e, 0x5552, 0x5553, 0x5554, 0x5556
+                    -> true;
+            default -> false;
+        };
     }
 
     private DicomElement parseHeader(DicomObject dcmObj, DicomInput input) throws EOFException {
@@ -400,8 +401,8 @@ public class DicomInputStream extends InputStream {
     }
 
     private static VR lookupVR(int tag, DicomObject dcmObj) {
-        return ElementDictionary.vrOf(tag,
-                dcmObj != null ? dcmObj.privateCreatorOf(tag).orElse(null) : null);
+        return ElementDictionary.vrOf(dcmObj != null ? dcmObj.privateCreatorOf(tag).orElse(null) : null, tag
+        );
     }
 
     public boolean parse(DicomObject dcmObj, int length) throws IOException {

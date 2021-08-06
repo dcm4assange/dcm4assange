@@ -54,42 +54,42 @@ public enum VR {
     }
 
     public static VR of(int code) {
-        switch (code) {
-            case 0x4145: return AE;
-            case 0x4153: return AS;
-            case 0x4154: return AT;
-            case 0x4353: return CS;
-            case 0x4441: return DA;
-            case 0x4453: return DS;
-            case 0x4454: return DT;
-            case 0x4644: return FD;
-            case 0x464c: return FL;
-            case 0x4953: return IS;
-            case 0x4c4f: return LO;
-            case 0x4c54: return LT;
-            case 0x4f42: return OB;
-            case 0x4f44: return OD;
-            case 0x4f46: return OF;
-            case 0x4f4c: return OL;
-            case 0x4f56: return OV;
-            case 0x4f57: return OW;
-            case 0x504e: return PN;
-            case 0x5348: return SH;
-            case 0x534c: return SL;
-            case 0x5351: return SQ;
-            case 0x5353: return SS;
-            case 0x5354: return ST;
-            case 0x5356: return SV;
-            case 0x544d: return TM;
-            case 0x5543: return UC;
-            case 0x5549: return UI;
-            case 0x554c: return UL;
-            case 0x554e: return UN;
-            case 0x5552: return UR;
-            case 0x5553: return US;
-            case 0x5554: return UT;
-            case 0x5556: return UV;
-        }
-        throw new IllegalArgumentException(String.format("Unknown VR code: %04XH", code));
+        return switch (code) {
+            case 0x4145 -> AE;
+            case 0x4153 -> AS;
+            case 0x4154 -> AT;
+            case 0x4353 -> CS;
+            case 0x4441 -> DA;
+            case 0x4453 -> DS;
+            case 0x4454 -> DT;
+            case 0x4644 -> FD;
+            case 0x464c -> FL;
+            case 0x4953 -> IS;
+            case 0x4c4f -> LO;
+            case 0x4c54 -> LT;
+            case 0x4f42 -> OB;
+            case 0x4f44 -> OD;
+            case 0x4f46 -> OF;
+            case 0x4f4c -> OL;
+            case 0x4f56 -> OV;
+            case 0x4f57 -> OW;
+            case 0x504e -> PN;
+            case 0x5348 -> SH;
+            case 0x534c -> SL;
+            case 0x5351 -> SQ;
+            case 0x5353 -> SS;
+            case 0x5354 -> ST;
+            case 0x5356 -> SV;
+            case 0x544d -> TM;
+            case 0x5543 -> UC;
+            case 0x5549 -> UI;
+            case 0x554c -> UL;
+            case 0x554e -> UN;
+            case 0x5552 -> UR;
+            case 0x5553 -> US;
+            case 0x5554 -> UT;
+            case 0x5556 -> UV;
+            default -> throw new IllegalArgumentException(String.format("Unknown VR code: %04XH", code));
+        };
     }
 }

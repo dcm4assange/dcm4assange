@@ -118,7 +118,7 @@ class BasicDicomElement implements DicomElement {
         promptValueTo(appendTo, maxLength);
         if (appendTo.length() < maxLength) {
             appendTo.append(" ").append(
-                    ElementDictionary.keywordOf(tag, dicomObject.privateCreatorOf(tag).orElse(null)));
+                    ElementDictionary.keywordOf(dicomObject.privateCreatorOf(tag).orElse(null), tag));
             if (appendTo.length() > maxLength) {
                 appendTo.setLength(maxLength);
             }
