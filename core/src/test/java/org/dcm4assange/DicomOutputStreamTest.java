@@ -21,6 +21,9 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
@@ -129,6 +132,16 @@ public class DicomOutputStreamTest {
         writeCommandSet(c_echo_rq());
     }
 
+    @Test
+    public void writeBulkDataIVR_LE() throws IOException {
+        writeBulkData(DicomFileStream.ivrPxData(0x40000L));
+    }
+
+    @Test
+    public void writeBulkDataEncapsulated() throws IOException {
+        writeBulkData(DicomFileStream.encapsPxData(0x40000L));
+    }
+
     private static void writeCommandSet(DicomObject cmd) throws IOException {
         ByteArrayOutputStream bout = new ByteArrayOutputStream();
         try (DicomOutputStream dos = new DicomOutputStream(bout)) {
@@ -167,4 +180,25 @@ public class DicomOutputStreamTest {
         return cmd;
     }
 
+    static void writeBulkData(DicomFileStream dfs) throws IOException {
+        DicomObject fmi;
+        DicomObject data;
+        Path file = Files.createTempFile("in", ".dcm");
+        Path out = Files.createTempFile("out", ".dcm");
+        try {
+            Files.copy(dfs, file, StandardCopyOption.REPLACE_EXISTING);
+            try (DicomInputStream dis = new DicomInputStream(file, DicomInputStream::bulkDataPredicate)) {
+                fmi = dis.readFileMetaInformation();
+                data = dis.readDataSet();
+            }
+            try (DicomOutputStream dos = new DicomOutputStream(Files.newOutputStream(out))) {
+                dos.writeFileMetaInformation(fmi);
+                dos.writeDataSet(data);
+            }
+            assertEquals(Files.size(file), Files.size(out));
+        } finally {
+            Files.delete(file);
+            Files.delete(out);
+        }
+    }
 }

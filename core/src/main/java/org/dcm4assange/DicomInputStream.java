@@ -270,7 +270,7 @@ public class DicomInputStream extends InputStream {
                     }
                     dcmElm.containedBy().add(dcmElm = new FileBulkDataElement(bulkDataSpoolPath, bulkDataPos, dcmElm));
                 } else if (path != null) {
-                    dcmElm.containedBy().add(dcmElm = new FileBulkDataElement(path, pos, dcmElm));
+                    dcmElm.containedBy().add(dcmElm = new FileBulkDataElement(path, this.pos, dcmElm));
                 }
             } else {
                 dcmElm.containedBy().add(dcmElm);

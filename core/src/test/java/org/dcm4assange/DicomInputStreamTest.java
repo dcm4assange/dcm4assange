@@ -127,25 +127,6 @@ public class DicomInputStreamTest {
             2, 0, 0, 0, 'U', 'L', 4, 0, 30, 0, 0, 0,
             2, 0, 16, 0, 'U', 'I', 22, 0, 49, 46, 50, 46, 56, 52, 48, 46, 49, 48, 48, 48, 56, 46, 49, 46, 50, 46, 49, 46, 57, 57
     };
-    private static final byte[] FMI_IVR_LE_PX_DATA= {'D', 'I', 'C', 'M',
-            2, 0, 0, 0, 'U', 'L', 4, 0, 26, 0, 0, 0,
-            2, 0, 16, 0, 'U', 'I', 18, 0, 49, 46, 50, 46, 56, 52, 48, 46, 49, 48, 48, 48, 56, 46, 49, 46, 50, 00,
-            -32, 0x7F, 0x10, 0, 0, 0, 0, 0
-    };
-    private static final byte[] POST_IVR_LE_PX_DATA = {
-            -4, -1, -4, -1, 0, 0, 0, 0
-    };
-    private static final byte[] FMI_ENCAPS_PX_DATA = {'D', 'I', 'C', 'M',
-            2, 0, 0, 0, 'U', 'L', 4, 0, 30, 0, 0, 0,
-            2, 0, 16, 0, 'U', 'I', 22, 0, 49, 46, 50, 46, 56, 52, 48, 46, 49, 48, 48, 48, 56, 46, 49, 46, 50, 46, 49, 46, 57, 56,
-            -32, 0x7F, 0x10, 0, 'O', 'B', 0, 0, -1, -1, -1, -1,
-            -2, -1, 0, -32, 0, 0, 0, 0,
-            -2, -1, 0, -32, 0, 0, 0, 0,
-    };
-    private static final byte[] POST_ENCAPS_PX_DATA = {
-            -2, -1, -35, -32, 0, 0, 0, 0,
-            -4, -1, -4, -1, 'O', 'B', 0, 0, 0, 0, 0, 0
-    };
     static final byte[] C_ECHO_RQ = {
             0, 0, 0, 0, 4, 0, 0, 0, 56, 0, 0, 0,
             0, 0, 2, 0, 18, 0, 0, 0, 49, 46, 50, 46, 56, 52, 48, 46, 49, 48, 48, 48, 56, 46, 49, 46, 49, 0,
@@ -264,34 +245,32 @@ public class DicomInputStreamTest {
 
     @Test
     public void parseWithoutBulkDataIVR_LE() throws IOException {
-        parseWithoutBulkData(FMI_IVR_LE_PX_DATA, 0x80000000L, POST_IVR_LE_PX_DATA);
+        parseWithoutBulkData(DicomFileStream.ivrPxData(0x80000000L));
     }
 
     @Test
     public void parseWithoutBulkDataEncapsulated() throws IOException {
-        parseWithoutBulkData(FMI_ENCAPS_PX_DATA, 0x80000000L, POST_ENCAPS_PX_DATA);
+        parseWithoutBulkData(DicomFileStream.encapsPxData(0x80000000L));
     }
 
     @Test
     public void parseBulkDataIVR_LE() throws IOException {
-        parseBulkData(FMI_IVR_LE_PX_DATA, 0x40000L, POST_IVR_LE_PX_DATA, "#offset=170,length=262144");
+        parseBulkData(DicomFileStream.ivrPxData(0x40000L), "#offset=178,length=262144");
     }
 
     @Test
     public void parseBulkDataEncapsulated() throws IOException {
-        parseBulkData(FMI_ENCAPS_PX_DATA, 0x40000L, POST_ENCAPS_PX_DATA, "#offset=174,length=-1");
+        parseBulkData(DicomFileStream.encapsPxData(0x40000L), "#offset=186,length=-1");
     }
 
     @Test
     public void spoolBulkDataIVR_LE() throws IOException {
-        spoolBulkData(FMI_IVR_LE_PX_DATA, 0x40000L, POST_IVR_LE_PX_DATA, "#offset=0,length=262144",
-                262144);
+        spoolBulkData(DicomFileStream.ivrPxData(0x40000L), "#offset=0,length=262144", 262144);
     }
 
     @Test
     public void spoolBulkDataEncapsulated() throws IOException {
-        spoolBulkData(FMI_ENCAPS_PX_DATA, 0x40000L, POST_ENCAPS_PX_DATA, "#offset=0,length=-1",
-                262168);
+        spoolBulkData(DicomFileStream.encapsPxData(0x40000L), "#offset=0,length=-1", 262168);
     }
 
     static DicomObject c_echo_rq() throws IOException {
@@ -314,22 +293,17 @@ public class DicomInputStreamTest {
         }
     }
 
-    static void parseWithoutBulkData(byte[] prefix, long pixelDataLength, byte[] suffix)
-            throws IOException {
-        ByteOrder.LITTLE_ENDIAN.intToBytes((int) pixelDataLength, prefix, prefix.length - 4);
-        try (DicomInputStream dis = new DicomInputStream(new DicomFileStream(prefix, pixelDataLength, suffix))
-                .withoutBulkData()) {
+    static void parseWithoutBulkData(DicomFileStream dfs) throws IOException {
+        try (DicomInputStream dis = new DicomInputStream(dfs).withoutBulkData()) {
             DicomObject dcmObj = dis.readDataSet();
             assertFalse(dcmObj.contains(Tag.PixelData));
             assertTrue(dcmObj.contains(Tag.DataSetTrailingPadding));
         }
     }
 
-    static void parseBulkData(byte[] prefix, long pixelDataLength, byte[] suffix, String fragment)
-            throws IOException {
-        ByteOrder.LITTLE_ENDIAN.intToBytes((int) pixelDataLength, prefix, prefix.length - 4);
+    static void parseBulkData(DicomFileStream dfs, String fragment) throws IOException {
         Path file =  Files.createTempFile("", ".dcm");
-        Files.copy(new DicomFileStream(prefix, pixelDataLength, suffix), file, StandardCopyOption.REPLACE_EXISTING);
+        Files.copy(dfs, file, StandardCopyOption.REPLACE_EXISTING);
         try (DicomInputStream dis = new DicomInputStream(file, DicomInputStream::bulkDataPredicate)) {
             DicomObject dcmObj = dis.readDataSet();
             assertEquals(file.toUri() + fragment, dcmObj.getBulkDataURI(Tag.PixelData).get());
@@ -339,12 +313,9 @@ public class DicomInputStreamTest {
         }
     }
 
-    static void spoolBulkData(byte[] prefix, long pixelDataLength, byte[] suffix, String fragment, long blkdataLength)
-            throws IOException {
-        ByteOrder.LITTLE_ENDIAN.intToBytes((int) pixelDataLength, prefix, prefix.length - 4);
+    static void spoolBulkData(DicomFileStream dfs, String fragment, long blkdataLength) throws IOException {
         Path spoolFile =  Files.createTempFile("", ".blk");
-        try (DicomInputStream dis = new DicomInputStream(new DicomFileStream(prefix, pixelDataLength, suffix))
-                .spoolBulkDataTo(spoolFile)) {
+        try (DicomInputStream dis = new DicomInputStream(dfs).spoolBulkDataTo(spoolFile)) {
             DicomObject dcmObj = dis.readDataSet();
             assertEquals(spoolFile.toUri() + fragment, dcmObj.getBulkDataURI(Tag.PixelData).get());
             assertEquals(blkdataLength, Files.size(spoolFile));
@@ -431,48 +402,4 @@ public class DicomInputStreamTest {
         }
     }
 
-    static class DicomFileStream extends InputStream {
-        final byte[] prefix;
-        final long pixelDataLength;
-        final byte[] suffix;
-        long position;
-        long available;
-
-        DicomFileStream(byte[] prefix, long pixelDataLength, byte[] suffix) {
-            this.prefix = prefix;
-            this.pixelDataLength = pixelDataLength;
-            this.suffix = suffix;
-            this.available = 128 + prefix.length + suffix.length + pixelDataLength;
-        }
-
-        @Override
-        public int available() throws IOException {
-            return (int) Math.min(0, Math.max(available, Integer.MAX_VALUE));
-        }
-
-        @Override
-        public int read() throws IOException {
-            if (--available < 0)
-                return -1;
-            long index = position++ - 128;
-            if (index >= 0) {
-                if (index < prefix.length && index >= 0)
-                    return prefix[(int) index] & 0xff;
-                if ((index -= prefix.length + pixelDataLength) >= 0)
-                    return suffix[(int) index] & 0xff;
-            }
-            return 0;
-        }
-
-        @Override
-        public long skip(long n) throws IOException {
-            if (available < 0)
-                return 0;
-
-            long skip = Math.min(available, n);
-            position += skip;
-            available -= skip;
-            return skip;
-        }
-    }
 }

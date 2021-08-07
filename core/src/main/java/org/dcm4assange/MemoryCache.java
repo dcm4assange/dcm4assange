@@ -316,6 +316,7 @@ class MemoryCache {
         DicomElement newDicomElement(DicomObject dcmObj, int tag, VR vr, int valueLength, long valuePos) {
             return vr == VR.SQ || (vr == VR.UN && valueLength == -1)
                     ? new DicomSequence(dcmObj, tag, valueLength)
+                    : valueLength == 0 ? new BasicDicomElement(dcmObj, tag, vr, valueLength)
                     : new ParsedDicomElement(dcmObj, tag, vr, valueLength, valuePos);
         }
 
