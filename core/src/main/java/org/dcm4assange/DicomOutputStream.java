@@ -115,7 +115,7 @@ public class DicomOutputStream extends OutputStream {
         byte[] header = this.header;
         ByteOrder byteOrder = encoding.byteOrder;
         byteOrder.tagToBytes(tag, header, 0);
-        if (vr == VR.NONE || !encoding.explicitVR) {
+        if (vr == null || !encoding.explicitVR) {
             byteOrder.intToBytes(length, header, 4);
         } else {
             header[4] = (byte) (vr.code >>> 8);

@@ -25,7 +25,7 @@ public class ElementDictionaryTest {
         assertEquals(VR.OW, ElementDictionary.vrOf(Tag.CurveData | 0x00CA0000));
         assertEquals(VR.OW, ElementDictionary.vrOf(Tag.OverlayData | 0x00CA0000));
         assertEquals(VR.OW, ElementDictionary.vrOf(Tag.VariablePixelData | 0x00CA0000));
-        assertEquals(VR.NONE, ElementDictionary.vrOf(Tag.Item));
+        assertNull(ElementDictionary.vrOf(Tag.Item));
     }
 
     @Test

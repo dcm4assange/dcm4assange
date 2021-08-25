@@ -119,7 +119,7 @@ public class ElementDictionary {
                     .forEach(line -> action.accept(
                         line.substring(0,8), line.charAt(11) == ':'
                                 ? new Object[]{VR.valueOf(line.substring(9,11)), line.substring(12)}
-                                : new Object[]{VR.NONE, line.substring(10)}));
+                                : new Object[]{null, line.substring(10)}));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

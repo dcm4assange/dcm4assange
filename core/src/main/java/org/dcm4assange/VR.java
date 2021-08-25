@@ -5,7 +5,6 @@ package org.dcm4assange;
  * @since May 2021
  */
 public enum VR {
-    NONE(-1, true, BinaryVR.OB, 0),
     AE(0x4145, true, StringVR.ASCII, 0x20),
     AS(0x4153, true, StringVR.ASCII, 0x20),
     AT(0x4154, true, BinaryVR.AT, 0),
@@ -45,6 +44,15 @@ public enum VR {
     final boolean evr8;
     final VRType type;
     final int paddingByte;
+    private static final VR[] VALUE_OF = new VR[1024];
+    static {
+        for (VR vr : VR.values())
+            VALUE_OF[indexOf(vr.code)] = vr;
+    }
+
+    private static int indexOf(int code) {
+        return ((code & 0x1f00) >> 3) | (code & 0x1f);
+    }
 
     VR(int code, boolean evr8, VRType type, int paddingByte) {
         this.code = code;
@@ -54,42 +62,6 @@ public enum VR {
     }
 
     public static VR of(int code) {
-        return switch (code) {
-            case 0x4145 -> AE;
-            case 0x4153 -> AS;
-            case 0x4154 -> AT;
-            case 0x4353 -> CS;
-            case 0x4441 -> DA;
-            case 0x4453 -> DS;
-            case 0x4454 -> DT;
-            case 0x4644 -> FD;
-            case 0x464c -> FL;
-            case 0x4953 -> IS;
-            case 0x4c4f -> LO;
-            case 0x4c54 -> LT;
-            case 0x4f42 -> OB;
-            case 0x4f44 -> OD;
-            case 0x4f46 -> OF;
-            case 0x4f4c -> OL;
-            case 0x4f56 -> OV;
-            case 0x4f57 -> OW;
-            case 0x504e -> PN;
-            case 0x5348 -> SH;
-            case 0x534c -> SL;
-            case 0x5351 -> SQ;
-            case 0x5353 -> SS;
-            case 0x5354 -> ST;
-            case 0x5356 -> SV;
-            case 0x544d -> TM;
-            case 0x5543 -> UC;
-            case 0x5549 -> UI;
-            case 0x554c -> UL;
-            case 0x554e -> UN;
-            case 0x5552 -> UR;
-            case 0x5553 -> US;
-            case 0x5554 -> UT;
-            case 0x5556 -> UV;
-            default -> throw new IllegalArgumentException(String.format("Unknown VR code: %04XH", code));
-        };
+        return ((code ^ 0x4040) & 0xffffe0e0) == 0 ? VALUE_OF[indexOf(code)] : null;
     }
 }

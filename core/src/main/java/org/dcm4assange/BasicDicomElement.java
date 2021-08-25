@@ -21,7 +21,7 @@ class BasicDicomElement implements DicomElement {
     BasicDicomElement(DicomObject dicomObject, int tag, VR vr, int valueLength) {
         this.dicomObject = dicomObject;
         this.tag = tag;
-        this.vr = Objects.requireNonNull(vr);
+        this.vr = vr;
         this.valueLength = valueLength;
     }
 
@@ -113,7 +113,7 @@ class BasicDicomElement implements DicomElement {
     @Override
     public StringBuilder promptTo(StringBuilder appendTo, int maxLength) {
         promptLevelTo(appendTo).append(TagUtils.toCharArray(tag));
-        if (vr != VR.NONE) appendTo.append(' ').append(vr);
+        if (vr != null) appendTo.append(' ').append(vr);
         appendTo.append(" #").append(valueLength);
         promptValueTo(appendTo, maxLength);
         if (appendTo.length() < maxLength) {

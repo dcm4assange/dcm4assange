@@ -261,7 +261,7 @@ public class DicomInputStream extends InputStream {
     public boolean onElement(long pos, DicomElement dcmElm) throws IOException {
         int valueLength = dcmElm.valueLength();
         long unsignedValueLength = valueLength & 0xffffffffL;
-        if (dcmElm.vr() != VR.NONE) {
+        if (dcmElm.vr() != null) {
             boolean bulkData = bulkDataPredicate.test(dcmElm) && dcmElm.vr() != VR.SQ;
             if (bulkData) {
                 if (bulkDataSpoolPath != null) {
@@ -356,13 +356,7 @@ public class DicomInputStream extends InputStream {
     }
 
     private boolean probeExplicitVR(long pos) {
-        return switch (cache.vrcode(pos)) {
-            case 0x4145, 0x4153, 0x4154, 0x4353, 0x4441, 0x4453, 0x4454, 0x4644, 0x464c, 0x4953, 0x4c4f, 0x4c54,
-                    0x4f42, 0x4f44, 0x4f46, 0x4f4c, 0x4f56, 0x4f57, 0x504e, 0x5348, 0x534c, 0x5351, 0x5353,
-                    0x5354, 0x5356, 0x544d, 0x5543, 0x5549, 0x554c, 0x554e, 0x5552, 0x5553, 0x5554, 0x5556
-                    -> true;
-            default -> false;
-        };
+        return VR.of(cache.vrcode(pos)) != null;
     }
 
     private DicomElement parseHeader(DicomObject dcmObj, DicomInput input) throws EOFException {
@@ -374,7 +368,7 @@ public class DicomInputStream extends InputStream {
             case Tag.Item:
             case Tag.ItemDelimitationItem:
             case Tag.SequenceDelimitationItem:
-                return input.newDicomElement(dcmObj, tag, VR.NONE, input.intAt(pos + 4), pos += 8);
+                return input.newDicomElement(dcmObj, tag, null, input.intAt(pos + 4), pos += 8);
         }
         if (!input.encoding.explicitVR) {
             return input.newDicomElement(dcmObj, tag, lookupVR(tag, dcmObj), input.intAt(pos + 4), pos += 8);

@@ -212,7 +212,7 @@ class WriteableDicomObject implements DicomObject {
                 dos.writeHeader(tag, element.vr(), valueLength);
                 element.writeValueTo(dos);
                 if (valueLength == -1) {
-                    dos.writeHeader(Tag.SequenceDelimitationItem, VR.NONE, 0);
+                    dos.writeHeader(Tag.SequenceDelimitationItem, null, 0);
                 }
             }
         }
@@ -277,10 +277,10 @@ class WriteableDicomObject implements DicomObject {
     void writeItemTo(DicomOutputStream dos) throws IOException {
         int size = elements.size();
         boolean undefinedLength = dos.itemLengthEncoding().undefined.test(size);
-        dos.writeHeader(Tag.Item, VR.NONE, undefinedLength ? -1 : size == 0 ? 0 : calculatedItemLength.get());
+        dos.writeHeader(Tag.Item, null, undefinedLength ? -1 : size == 0 ? 0 : calculatedItemLength.get());
         writeTo(dos);
         if (undefinedLength) {
-            dos.writeHeader(Tag.ItemDelimitationItem, VR.NONE, 0);
+            dos.writeHeader(Tag.ItemDelimitationItem, null, 0);
         }
     }
 
