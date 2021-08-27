@@ -50,10 +50,6 @@ public enum VR {
             VALUE_OF[indexOf(vr.code)] = vr;
     }
 
-    private static int indexOf(int code) {
-        return ((code & 0x1f00) >> 3) | (code & 0x1f);
-    }
-
     VR(int code, boolean evr8, VRType type, int paddingByte) {
         this.code = code;
         this.evr8 = evr8;
@@ -63,5 +59,13 @@ public enum VR {
 
     public static VR of(int code) {
         return ((code ^ 0x4040) & 0xffffe0e0) == 0 ? VALUE_OF[indexOf(code)] : null;
+    }
+
+    public static VR get(int index) {
+        return VALUE_OF[index];
+    }
+
+    public static int indexOf(int code) {
+        return ((code & 0x1f00) >> 3) | (code & 0x1f);
     }
 }
