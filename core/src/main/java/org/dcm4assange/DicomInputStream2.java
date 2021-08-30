@@ -522,7 +522,7 @@ public class DicomInputStream2 extends InputStream {
             }
         };
 
-        static final long POS_BITS = 0x000fffffffffffffL;
+        static final long POS_BITS = 0x00ffffffffffffffL;
         final int headerLength;
 
         HeaderType(int headerLength) {
@@ -538,11 +538,11 @@ public class DicomInputStream2 extends InputStream {
         }
 
         static long encode(VR vr) {
-            return ((long) (vr.ordinal() + 1) << 52);
+            return ((long) (vr.ordinal() + 1) << 56);
         }
 
         static VR vr(long header) {
-            int i = ((int) (header >> 52)) & 0x3f;
+            int i = ((int) (header >> 56)) & 0x3f;
             return i > 0 ? VR.values()[i-1] : null;
         }
 
