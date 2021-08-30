@@ -19,7 +19,15 @@ interface VRType {
         return OptionalInt.empty();
     }
 
+    default OptionalInt intValue(DicomObject2 dcmobj, int index) {
+        return OptionalInt.empty();
+    }
+
     default OptionalLong longValue(DicomInput dicomInput, long valpos, int vallen) {
+        return OptionalLong.empty();
+    }
+
+    default OptionalLong longValue(DicomObject2 dcmobj, int index) {
         return OptionalLong.empty();
     }
 
@@ -27,7 +35,15 @@ interface VRType {
         return OptionalFloat.empty();
     }
 
+    default OptionalFloat floatValue(DicomObject2 dcmobj, int index) {
+        return OptionalFloat.empty();
+    }
+
     default OptionalDouble doubleValue(DicomInput dicomInput, long valuePos, int valueLength) {
+        return OptionalDouble.empty();
+    }
+
+    default OptionalDouble doubleValue(DicomObject2 dcmobj, int index) {
         return OptionalDouble.empty();
     }
 
@@ -37,6 +53,14 @@ interface VRType {
     }
 
     default String[] stringValues(DicomInput dicomInput, long valuePos, int valueLen, DicomObject dicomObject) {
+        return StringUtils.EMPTY_STRINGS;
+    }
+
+    default Optional<String> stringValue(DicomObject2 dcmobj, int index) {
+        return Optional.empty();
+    }
+
+    default String[] stringValues(DicomObject2 dcmobj, int index) {
         return StringUtils.EMPTY_STRINGS;
     }
 
@@ -57,6 +81,19 @@ interface VRType {
             return Optional.of(
                             promptValueTo(dicomInput, valuePos, valueLength,
                                     new StringBuilder(Math.min(valueLength, 16)))
+                                    .toString());
+        }
+
+        @Override
+        public Optional<String> stringValue(DicomObject2 dcmobj, int index) {
+            long header = dcmobj.getHeader(index);
+            DicomInputStream2.HeaderType headerType = DicomInputStream2.HeaderType.of(header);
+            return Optional.of(
+                            promptValueTo(
+                                    dcmobj.dicomInput,
+                                    headerType.valuePosition(header),
+                                    headerType.valueLength(header, dcmobj.dicomInput),
+                                    new StringBuilder())
                                     .toString());
         }
 

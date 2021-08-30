@@ -57,15 +57,11 @@ public enum VR {
         this.paddingByte = paddingByte;
     }
 
-    public static VR of(int code) {
+    static VR of(int code) {
         return ((code ^ 0x4040) & 0xffffe0e0) == 0 ? VALUE_OF[indexOf(code)] : null;
     }
 
-    public static VR get(int index) {
-        return VALUE_OF[index];
-    }
-
-    public static int indexOf(int code) {
+    private static int indexOf(int code) {
         return ((code & 0x1f00) >> 3) | (code & 0x1f);
     }
 }

@@ -1,23 +1,181 @@
 package org.dcm4assange;
 
-public class DicomObject2 {
-    private static final long PARSED = 0xc000000000000000L;
-    private static final long POSITION = 0x000fffffffffffffL;
+import org.dcm4assange.util.OptionalFloat;
+import org.dcm4assange.util.StringUtils;
+import org.dcm4assange.util.TagUtils;
 
-    private final MemoryCache.DicomInput dicomInput;
-    private long[] elmRefs;
+import java.util.*;
+
+public class DicomObject2 {
+    private static final int DEFAULT_CAPACITY = 16;
+    private static final long[] DEFAULT_EMPTY_HEADERS = {};
+    private static final Object[] EMPTY_VALUES = {};
+    final MemoryCache.DicomInput dicomInput;
+    private final DicomObject2 parent;
+    private final int sequenceTag;
+    private long[] headers;
+    private Object[] values;
+    private SpecificCharacterSet specificCharacterSet;
+
     private int size;
 
-    DicomObject2(MemoryCache.DicomInput dicomInput, int capacity) {
+    DicomObject2(MemoryCache.DicomInput dicomInput) {
+        this(dicomInput, null, 0);
+    }
+
+    DicomObject2(MemoryCache.DicomInput dicomInput, DicomObject2 parent, int sequenceTag) {
         this.dicomInput = dicomInput;
-        this.elmRefs = new long[capacity];
+        this.headers = DEFAULT_EMPTY_HEADERS;
+        this.values = EMPTY_VALUES;
+        this.parent = parent;
+        this.sequenceTag = sequenceTag;
     }
 
-    private int tagOf(long elmRef) {
-        return (elmRef & PARSED) == 0 ? (int) elmRef : dicomInput.tagAt(elmRef & POSITION);
+    public SpecificCharacterSet specificCharacterSet() {
+        return specificCharacterSet != null ? specificCharacterSet
+                : parent != null ? parent.specificCharacterSet()
+                : SpecificCharacterSet.getDefaultCharacterSet();
     }
 
-    private VR vrOf(long elmRef) {
-        return VR.get(((int) (elmRef >> 52)) & 0x3ff);
+    public int size() {
+        return size;
+    }
+
+    public boolean isRoot() {
+        return parent == null;
+    }
+
+    public DicomObject2 getParent() {
+        return parent;
+    }
+
+    public int getSequenceTag() {
+        return sequenceTag;
+    }
+
+    public boolean contains(int tag) {
+        return indexOf(tag) >= 0;
+    }
+
+    public Optional<String> privateCreatorOf(int tag) {
+        return TagUtils.isPrivateTag(tag)
+                ? getString(TagUtils.creatorTagOf(tag))
+                : Optional.empty();
+    }
+
+    public OptionalInt getInt(int tag) {
+        int i = indexOf(tag);
+        return i < 0
+                ? OptionalInt.empty()
+                : DicomInputStream2.HeaderType.vr(headers[i]).type.intValue(this, i);
+    }
+
+    public OptionalLong getLong(int tag) {
+        int i = indexOf(tag);
+        return i < 0
+                ? OptionalLong.empty()
+                : DicomInputStream2.HeaderType.vr(headers[i]).type.longValue(this, i);
+    }
+
+    public OptionalFloat getFloat(int tag) {
+        int i = indexOf(tag);
+        return i < 0
+                ? OptionalFloat.empty()
+                : DicomInputStream2.HeaderType.vr(headers[i]).type.floatValue(this, i);
+    }
+
+    public OptionalDouble getDouble(int tag) {
+        int i = indexOf(tag);
+        return i < 0
+                ? OptionalDouble.empty()
+                : DicomInputStream2.HeaderType.vr(headers[i]).type.doubleValue(this, i);
+    }
+
+    public Optional<String> getString(int tag) {
+        int i = indexOf(tag);
+        return i < 0
+                ? Optional.empty()
+                : DicomInputStream2.HeaderType.vr(headers[i]).type.stringValue(this, i);
+    }
+
+    public String[] getStrings(int tag) {
+        int i = indexOf(tag);
+        return i < 0
+                ? StringUtils.EMPTY_STRINGS
+                : DicomInputStream2.HeaderType.vr(headers[i]).type.stringValues(this, i);
+    }
+
+    public Optional<String> getBulkDataURI(int tag) {
+        int i = indexOf(tag);
+        return (i >= 0 && values[i] instanceof String s)
+                ? Optional.of(s)
+                : Optional.empty();
+    }
+
+    public List<DicomObject2> getItems(int tag) {
+        int i = indexOf(tag);
+        if (i >= 0 && (values[i] instanceof List list))
+            return list;
+        return Collections.EMPTY_LIST;
+    }
+
+    long getHeader(int index) {
+        return headers[index];
+    }
+
+    Object getValue(int index) {
+        return values[index];
+    }
+
+    void setValue(int index, Object value) {
+        values[index] = value;
+    }
+
+    int add(long header, Object value) {
+        int index = indexOf(DicomInputStream2.HeaderType.of(header).tag(header, dicomInput));
+        if (index < 0) {
+            insertAt(-(index + 1), header, value);
+        } else {
+            headers[index] = header;
+        }
+        return index;
+    }
+
+    private void insertAt(int index, long header, Object value) {
+        int copy = size - index;
+        if (++size >= headers.length) {
+            if (headers == DEFAULT_EMPTY_HEADERS) {
+                headers = new long[DEFAULT_CAPACITY];
+                values = new Object[DEFAULT_CAPACITY];
+            } else {
+                int newCapacity = headers.length << 1;
+                headers = Arrays.copyOf(headers, newCapacity);
+                values = Arrays.copyOf(values, newCapacity);
+            }
+        }
+        if (copy > 0) {
+            System.arraycopy(headers, index, headers, index + 1, copy);
+            System.arraycopy(values, index, values, index + 1, copy);
+        }
+        headers[index] = header;
+        values[index] = value;
+    }
+
+    private int indexOf(int tag) {
+        int high = size - 1;
+        if (size > 0 && Integer.compareUnsigned(DicomInputStream2.HeaderType.tagOf(headers[high], dicomInput), tag) < 0)
+            return -(size + 1);
+        int low = 0;
+        while (low <= high) {
+            int mid = (low + high) >>> 1;
+            int cmp = Integer.compareUnsigned(DicomInputStream2.HeaderType.tagOf(headers[mid], dicomInput), tag);
+            if (cmp < 0)
+                low = mid + 1;
+            else if (cmp > 0)
+                high = mid - 1;
+            else
+                return mid; // tag found
+        }
+        return -(low + 1);  // tag not found
     }
 }
