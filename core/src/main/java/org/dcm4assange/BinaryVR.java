@@ -244,9 +244,8 @@ enum BinaryVR implements VRType {
     @Override
     public OptionalInt intValue(DicomObject2 dcmobj, int index) {
         long header = dcmobj.getHeader(index);
-        DicomInputStream2.HeaderType headerType = DicomInputStream2.HeaderType.of(header);
-        return headerType.valueLength(header, dcmobj.dicomInput) >= bytes
-                ? OptionalInt.of(intAt(dcmobj.dicomInput, headerType.valuePosition(header)))
+        return dcmobj.vallen(header) >= bytes
+                ? OptionalInt.of(intAt(dcmobj.dicomInput, DicomObject2.valpos(header)))
                 : OptionalInt.empty();
     }
 
@@ -260,9 +259,8 @@ enum BinaryVR implements VRType {
     @Override
     public OptionalLong longValue(DicomObject2 dcmobj, int index) {
         long header = dcmobj.getHeader(index);
-        DicomInputStream2.HeaderType headerType = DicomInputStream2.HeaderType.of(header);
-        return headerType.valueLength(header, dcmobj.dicomInput) >= bytes
-                ? OptionalLong.of(longAt(dcmobj.dicomInput, headerType.valuePosition(header)))
+        return dcmobj.vallen(header) >= bytes
+                ? OptionalLong.of(longAt(dcmobj.dicomInput, DicomObject2.valpos(header)))
                 : OptionalLong.empty();
     }
 
@@ -276,9 +274,8 @@ enum BinaryVR implements VRType {
     @Override
     public OptionalFloat floatValue(DicomObject2 dcmobj, int index) {
         long header = dcmobj.getHeader(index);
-        DicomInputStream2.HeaderType headerType = DicomInputStream2.HeaderType.of(header);
-        return headerType.valueLength(header, dcmobj.dicomInput) >= bytes
-                ? OptionalFloat.of(floatAt(dcmobj.dicomInput, headerType.valuePosition(header)))
+        return dcmobj.vallen(header) >= bytes
+                ? OptionalFloat.of(floatAt(dcmobj.dicomInput, DicomObject2.valpos(header)))
                 : OptionalFloat.empty();
     }
 
@@ -292,9 +289,8 @@ enum BinaryVR implements VRType {
     @Override
     public OptionalDouble doubleValue(DicomObject2 dcmobj, int index) {
         long header = dcmobj.getHeader(index);
-        DicomInputStream2.HeaderType headerType = DicomInputStream2.HeaderType.of(header);
-        return headerType.valueLength(header, dcmobj.dicomInput) >= bytes
-                ? OptionalDouble.of(doubleAt(dcmobj.dicomInput, headerType.valuePosition(header)))
+        return dcmobj.vallen(header) >= bytes
+                ? OptionalDouble.of(doubleAt(dcmobj.dicomInput, DicomObject2.valpos(header)))
                 : OptionalDouble.empty();
     }
 

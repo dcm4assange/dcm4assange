@@ -11,20 +11,21 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.function.Consumer;
 
 /**
  * @author Gunter Zeilinger (gunterze@protonmail.com)
  * @since May 2021
  */
 public class DicomInputStream2 extends InputStream {
+
     @FunctionalInterface
     public interface PreambleHandler {
         void accept(DicomInputStream2 dis) throws IOException;
     }
     @FunctionalInterface
     public interface DicomElementHandler {
-        boolean apply(DicomInputStream2 dis, DicomObject2 dcmobj, long header)
-                throws IOException;
+        boolean apply(DicomInputStream2 dis, DicomObject2 dcmobj, long header) throws IOException;
     }
     @FunctionalInterface
     public interface DicomElementPredicate {
@@ -32,20 +33,14 @@ public class DicomInputStream2 extends InputStream {
     }
     @FunctionalInterface
     public interface ItemHandler {
-        boolean apply(DicomInputStream2 dis, List<DicomObject2> items, DicomObject2 parent, int seqtag, long header)
-                throws IOException;
+        boolean apply(DicomInputStream2 dis, Consumer<DicomObject2> itemConsumer, DicomObject2 parent, int seqtag,
+                      int itemtag, int itemlen) throws IOException;
     }
     @FunctionalInterface
     public interface FragmentHandler {
-        boolean apply(DicomInputStream2 dis, List<Long> fragments, DicomObject2 parent, int seqtag, long header)
+        boolean apply(DicomInputStream2 dis, DicomObject2 parent, int seqtag, int itemtag, int itemlen, boolean skip)
                 throws IOException;
     }
-    private static final byte[] END_OF_SEQ = {
-            (byte) 0xFE,
-            (byte) 0xFF,
-            (byte) 0xDD,
-            (byte) 0xE0,
-            0, 0, 0, 0 };
     private Path path;
     private InputStream in;
     private DicomInput input;
@@ -240,11 +235,10 @@ public class DicomInputStream2 extends InputStream {
         pos = 132;
         input = cache.dicomInput(DicomEncoding.EVR_LE);
         DicomObject2 fmi = new DicomObject2(input);
-        long header  = parseHeader(fmi, input);
-        VR vr = HeaderType.vr(header);
-        HeaderType headerType = HeaderType.of(header);
-        int tag = headerType.tag(header, input);
-        int vallen = headerType.valueLength(header, input);
+        long header  = parseHeader(fmi);
+        VR vr = DicomObject2.header2vr(header);
+        int tag = fmi.header2tag(header);
+        int vallen = fmi.vallen(header);
         if (tag != Tag.FileMetaInformationGroupLength || vr != VR.UL || vallen != 4) {
             throw new DicomParseException("Missing Group Length in File Meta Information");
         }
@@ -258,18 +252,16 @@ public class DicomInputStream2 extends InputStream {
         return fmi;
     }
 
-    public boolean onElement(DicomObject2 dcmObj, long header)
-            throws IOException {
-        VR vr = HeaderType.vr(header);
-        HeaderType headerType = HeaderType.of(header);
-        int tag = headerType.tag(header, input);
-        int vallen = headerType.valueLength(header, input);
+    public boolean onElement(DicomObject2 dcmObj, long header) throws IOException {
+        VR vr = DicomObject2.header2vr(header);
+        int tag = dcmObj.header2tag(header);
+        int vallen = dcmObj.vallen(header);
         long unsignedValueLength = vallen & 0xffffffffL;
         if (vr != null) {
             if (vr == VR.SQ) {
                 List<DicomObject2> items = new ArrayList<>();
                 dcmObj.add(header, items);
-                return parseItems(items, dcmObj, tag, vallen);
+                return parseItems(items::add, dcmObj, tag, vallen);
             }
             boolean bulkData = bulkDataPredicate.test(dcmObj, tag, vr, vallen);
             if (bulkData) {
@@ -282,19 +274,13 @@ public class DicomInputStream2 extends InputStream {
                     dcmObj.add(header, bulkDataURI(path, pos, vallen));
                 }
                 if (vallen == -1) {
-                    if (!parseFragments(null, dcmObj, tag)) return false;
-                    if (bulkDataOutputStream != null) {
-                        bulkDataOutputStream.write(END_OF_SEQ);
-                        bulkDataPos += END_OF_SEQ.length;
-                    }
-                    return true;
+                    return parseFragments(dcmObj, tag, true);
                 }
                 skip(pos, unsignedValueLength, bulkDataOutputStream);
                 bulkDataPos += unsignedValueLength;
             } else if (vallen == -1) {
-                List<Long> fragments = new ArrayList<>();
-                dcmObj.add(header, fragments);
-                return parseFragments(fragments, dcmObj, tag);
+                dcmObj.add(header, null);
+                return parseFragments(dcmObj, tag, false);
             } else {
                 dcmObj.add(header, null);
             }
@@ -313,14 +299,11 @@ public class DicomInputStream2 extends InputStream {
         return sb.toString();
     }
 
-    public boolean onItem(List<DicomObject2> items, DicomObject2 parent, int seqtag, long header)
+    public boolean onItem(Consumer<DicomObject2> itemConsumer, DicomObject2 parent, int seqtag, int itemtag, int itemlen)
             throws IOException {
-        HeaderType headerType = HeaderType.of(header);
-        int itemtag = headerType.tag(header, input);
-        int itemlen = headerType.valueLength(header, input);
         if (itemtag == Tag.Item) {
             DicomObject2 dcmObj = new DicomObject2(input, parent, seqtag);
-            items.add(dcmObj);
+            itemConsumer.accept(dcmObj);
             if (!parse(dcmObj, itemlen))
                 return false;
         } else {
@@ -329,19 +312,12 @@ public class DicomInputStream2 extends InputStream {
         return true;
     }
 
-    public boolean onFragment(List<Long> fragments, DicomObject2 parent, int seqtag, long header)
+    public boolean onFragment(DicomObject2 parent, int seqtag, int itemtag, int itemlen, boolean skip)
             throws IOException {
-        HeaderType headerType = HeaderType.of(header);
-        int itemtag = headerType.tag(header, input);
-        int itemlen = headerType.valueLength(header, input);
         long uitemlen = itemlen & 0xffffffffL;
-        if (itemtag == Tag.Item) {
-            if (fragments != null) {
-                fragments.add(uitemlen);
-            } else {
-                skip(pos - 8, 8 + uitemlen, bulkDataOutputStream);
-                bulkDataPos += 8 + uitemlen;
-            }
+        if (skip) {
+            skip(pos - 8, 8 + uitemlen, bulkDataOutputStream);
+            bulkDataPos += 8 + uitemlen;
         }
         this.pos += uitemlen;
         return true;
@@ -378,7 +354,7 @@ public class DicomInputStream2 extends InputStream {
         return VR.of(cache.vrcode(pos)) != null;
     }
 
-    private long parseHeader(DicomObject2 dcmObj, DicomInput input) throws IOException {
+    private long parseHeader(DicomObject2 dcmObj) throws IOException {
         long pos0 = pos;
         if (cache.fillFrom(in, pos0 + 8) < pos0 + 8) {
             throw new EOFException();
@@ -389,61 +365,50 @@ public class DicomInputStream2 extends InputStream {
             case Tag.Item:
             case Tag.ItemDelimitationItem:
             case Tag.SequenceDelimitationItem:
-                return HeaderType.IVR_POS.encode(pos0);
+                return pos0 | 0x4000000000000000L;
         }
         if (!input.encoding.explicitVR) {
-            return HeaderType.IVR_POS.encode(pos0) | HeaderType.encode(lookupVR(tag, dcmObj));
+            return pos0 | 0x4000000000000000L | vr2header(lookupVR(tag, dcmObj));
         }
         int vrcode = cache.vrcode(pos0 + 4);
-        boolean vrcodeUN = vrcode == VR.UN.code;
-        VR vr = vrcodeUN ? VR.UN : vrOf(vrcode, tag, dcmObj);
+        VR vr = VR.of(vrcode);
+        if (vr == null) vr = lookupVR(tag, dcmObj); // replace invalid vrcode
         if (vr.evr8) {
-            return HeaderType.EVR_8_POS.encode(pos0) | HeaderType.encode(vr);
+            return pos0 | 0x8000000000000000L | vr2header(vr);
         }
         if (pos0 + 12 > cache.limit()) {
             throw new EOFException();
         }
         pos += 4;
-        return HeaderType.EVR_12_POS.encode(pos0) | HeaderType.encode(vr);
-    }
-
-    private static VR vrOf(int vrCode, int tag, DicomObject2 dcmObj) {
-        try {
-            return VR.of(vrCode);
-        } catch (IllegalArgumentException e) {
-            return lookupVR(tag, dcmObj);
-        }
+        if (vrcode == VR.UN.code)
+            vr = lookupVR(tag, dcmObj);
+        if (vr == VR.UN && input.intAt(pos0+ 8) == -1)
+            vr = VR.SQ;
+        return pos0 | 0xc000000000000000L | vr2header(vr);
     }
 
     private static VR lookupVR(int tag, DicomObject2 dcmObj) {
         return ElementDictionary.vrOf(
-                dcmObj != null ? dcmObj.privateCreatorOf(tag).orElse(null) : null,
-                tag
-        );
+                dcmObj.privateCreatorOf(tag).orElse(null),
+                tag);
     }
 
     public boolean parse(DicomObject2 dcmObj, int length) throws IOException {
         boolean undefinedLength = length == -1;
         long endPos = pos + length & 0xffffffffL;
-        DicomInput input = this.input;
-        if (length != 0 && input.encoding.explicitVR) {
-            if (cache.fillFrom(in,  pos + 6) == pos + 6 && !probeExplicitVR(pos + 4)) {
-                input = cache.dicomInput(DicomEncoding.IVR_LE);
-            }
-        }
         while (undefinedLength || pos < endPos) {
             long pos0 = pos;
             long header;
             try {
-                header = parseHeader(dcmObj, input);
+                header = parseHeader(dcmObj);
             } catch (EOFException e) {
                 if (undefinedLength && dcmObj.isRoot() && pos0 == cache.limit()) break;
                 throw e;
             }
-            HeaderType headerType = HeaderType.of(header);
-            int tag = headerType.tag(header, input);
+            int tag = input.tagAt(pos0);
+            int vallen = dcmObj.vallen(header);
             if (tag == Tag.SpecificCharacterSet) {
-                cache.fillFrom(in, pos + headerType.valueLength(header, input));
+                cache.fillFrom(in, pos + vallen);
             }
             if (!onElement.apply(this, dcmObj, header)) return false;
             if (tag == Tag.ItemDelimitationItem) break;
@@ -451,26 +416,66 @@ public class DicomInputStream2 extends InputStream {
         return true;
     }
 
-    public boolean parseItems(List<DicomObject2> items, DicomObject2 parent, int seqtag, int length)
+    public boolean parseItems(Consumer<DicomObject2> itemConsumer, DicomObject2 parent, int seqtag, int length)
             throws IOException {
         if (length == 0) return true;
         boolean undefinedLength = length == -1;
         long endPos = pos + length & 0xffffffffL;
-        while (undefinedLength || pos < endPos) {
-            long header = parseHeader(parent, input);
-            int itemtag = HeaderType.IVR_POS.tag(header, input);
-            if (!onItem.apply(this, items, parent, seqtag, header)) return false;
-            if (itemtag == Tag.SequenceDelimitationItem) break;
+        MemoryCache.DicomInput prevInput = null;
+        if (input.encoding.explicitVR
+                && cache.vrcode(pos - 8) == VR.UN.code
+                && probeSQImplicitVR(pos)) {
+            prevInput = input;
+            input = cache.dicomInput(DicomEncoding.IVR_LE);
+        }
+        try {
+            while (undefinedLength || pos < endPos) {
+                int itemtag = input.tagAt(pos);
+                int itemlen = input.intAt(pos + 4);
+                pos += 8;
+                if (!onItem.apply(this, itemConsumer, parent, seqtag, itemtag, itemlen)) return false;
+                if (itemtag == Tag.SequenceDelimitationItem) break;
+            }
+        } finally {
+            if (prevInput != null) {
+                input = prevInput;
+            }
         }
         return true;
     }
 
-    public boolean parseFragments(List<Long> fragments, DicomObject2 parent, int seqtag)
+    private boolean probeSQImplicitVR(long pos) throws IOException {
+        if (cache.fillFrom(in, pos + 8) < pos + 8) {
+            throw new EOFException();
+        }
+        int itemtag = cache.tagAt(pos, ByteOrder.LITTLE_ENDIAN);
+        if (input.encoding.byteOrder == ByteOrder.BIG_ENDIAN) {
+            return itemtag == Tag.Item || itemtag == Tag.SequenceDelimitationItem;
+        }
+        if (itemtag != Tag.Item) {
+            return false;
+        }
+        int itemlen = cache.intAt(pos + 4, ByteOrder.LITTLE_ENDIAN);
+        if (itemlen == 0) {
+            return false;
+        }
+        if (cache.fillFrom(in, pos + 16) < pos + 16) {
+            throw new EOFException();
+        }
+        if (itemlen == -1
+                && cache.tagAt(pos + 8, ByteOrder.LITTLE_ENDIAN) == Tag.ItemDelimitationItem) {
+            return false;
+        }
+        return !probeExplicitVR(pos + 12);
+    }
+
+    public boolean parseFragments(DicomObject2 parent, int seqtag, boolean skip)
             throws IOException {
         for (;;) {
-            long header = parseHeader(parent, input);
-            int itemtag = HeaderType.IVR_POS.tag(header, input);
-            if (!onFragment.apply(this, fragments, parent, seqtag, header)) return false;
+            int itemtag = input.tagAt(pos);
+            int itemlen = input.intAt(pos + 4);
+            pos += 8;
+            if (!onFragment.apply(this,  parent, seqtag, itemtag, itemlen, skip)) return false;
             if (itemtag == Tag.SequenceDelimitationItem) break;
         }
         return true;
@@ -491,75 +496,8 @@ public class DicomInputStream2 extends InputStream {
         return sb.append(']');
     }
 
-    enum HeaderType {
-        VR_TAG(0) {
-            @Override
-            int tag(long header, DicomInput dicomInput) {
-                return (int) header;
-            }
-
-            @Override
-            int valueLength(long header, DicomInput dicomInput) {
-                throw new UnsupportedOperationException();
-            }
-        },
-        IVR_POS(8) {
-            @Override
-            int valueLength(long header, DicomInput dicomInput) {
-                return dicomInput.intAt((header & POS_BITS) + 4);
-            }
-        },
-        EVR_8_POS(8) {
-            @Override
-            int valueLength(long header, DicomInput dicomInput) {
-                return dicomInput.ushortAt((header & POS_BITS) + 6);
-            }
-        },
-        EVR_12_POS(12) {
-            @Override
-            int valueLength(long header, DicomInput dicomInput) {
-                return dicomInput.intAt((header & POS_BITS) + 8);
-            }
-        };
-
-        static final long POS_BITS = 0x00ffffffffffffffL;
-        final int headerLength;
-
-        HeaderType(int headerLength) {
-            this.headerLength = headerLength;
-        }
-
-        static HeaderType of(long header) {
-            return HeaderType.values()[(int) (header >>> 62)];
-        }
-
-        long encode(long pos) {
-            return (long) ordinal() << 62 | pos;
-        }
-
-        static long encode(VR vr) {
-            return ((long) (vr.ordinal() + 1) << 56);
-        }
-
-        static VR vr(long header) {
-            int i = ((int) (header >> 56)) & 0x3f;
-            return i > 0 ? VR.values()[i-1] : null;
-        }
-
-        static int tagOf(long header, DicomInput dicomInput) {
-            return of(header).tag(header, dicomInput);
-        }
-
-        int tag(long header, DicomInput dicomInput) {
-            return dicomInput.tagAt(header & POS_BITS);
-        }
-
-        long valuePosition(long header) {
-            return (header & POS_BITS) + headerLength;
-        }
-
-        int valueLength(long header, DicomInput dicomInput) {
-            throw new UnsupportedOperationException();
-        }
+    private static long vr2header(VR vr) {
+        return (long)(vr.ordinal() + 1) << 56;
     }
+
 }

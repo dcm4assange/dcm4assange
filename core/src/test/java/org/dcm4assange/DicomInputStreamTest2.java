@@ -165,6 +165,24 @@ public class DicomInputStreamTest2 {
             'Q', 'U', 'A', 'S', 'A', 'R', '_', 'I', 'N', 'T', 'E', 'R', 'N', 'A', 'L', '_', 'U', 'S', 'E', ' ',
             -2, -1, -35, -32, 0, 0, 0, 0
     };
+    private static final byte[] UN_SEQ_IVR_BE = {
+            0, 55, 0, 16, 'L', 'O', 0, 20,
+            'Q', 'U', 'A', 'S', 'A', 'R', '_', 'I', 'N', 'T', 'E', 'R', 'N', 'A', 'L', '_', 'U', 'S', 'E', ' ',
+            0, 55, 16, 16, 'U', 'N', 0, 0, -1, -1, -1, -1,
+            -2, -1, 0, -32, 28, 0, 0, 0,
+            55, 0, 16, 0, 20, 0, 0, 0,
+            'Q', 'U', 'A', 'S', 'A', 'R', '_', 'I', 'N', 'T', 'E', 'R', 'N', 'A', 'L', '_', 'U', 'S', 'E', ' ',
+            -2, -1, -35, -32, 0, 0, 0, 0
+    };
+    private static final byte[] UN_SEQ_EVR_BE = {
+            0, 55, 0, 16, 'L', 'O', 0, 20,
+            'Q', 'U', 'A', 'S', 'A', 'R', '_', 'I', 'N', 'T', 'E', 'R', 'N', 'A', 'L', '_', 'U', 'S', 'E', ' ',
+            0, 55, 16, 16, 'U', 'N', 0, 0, -1, -1, -1, -1,
+            -1, -2, -32, 0, 0, 0, 0, 28,
+            0, 55, 0, 16, 'L', 'O', 0, 20,
+            'Q', 'U', 'A', 'S', 'A', 'R', '_', 'I', 'N', 'T', 'E', 'R', 'N', 'A', 'L', '_', 'U', 'S', 'E', ' ',
+            -1, -2, -32, -35, 0, 0, 0, 0
+    };
 
     @Test
     public void readDataSetIVR_LE() throws IOException {
@@ -212,6 +230,16 @@ public class DicomInputStreamTest2 {
     @Test
     public void parseSequenceUN_EVR_LE() throws IOException {
         parseSequence(UN_SEQ_EVR_LE, DicomEncoding.EVR_LE, 0x00371010);
+    }
+
+    @Test
+    public void parseSequenceUN_IVR_BE() throws IOException {
+        parseSequence(UN_SEQ_IVR_BE, DicomEncoding.EVR_BE, 0x00371010);
+    }
+
+    @Test
+    public void parseSequenceUN_EVR_BE() throws IOException {
+        parseSequence(UN_SEQ_EVR_BE, DicomEncoding.EVR_BE, 0x00371010);
     }
 
     @Test

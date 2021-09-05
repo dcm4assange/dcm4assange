@@ -87,12 +87,11 @@ interface VRType {
         @Override
         public Optional<String> stringValue(DicomObject2 dcmobj, int index) {
             long header = dcmobj.getHeader(index);
-            DicomInputStream2.HeaderType headerType = DicomInputStream2.HeaderType.of(header);
             return Optional.of(
                             promptValueTo(
                                     dcmobj.dicomInput,
-                                    headerType.valuePosition(header),
-                                    headerType.valueLength(header, dcmobj.dicomInput),
+                                    DicomObject2.valpos(header),
+                                    dcmobj.vallen(header),
                                     new StringBuilder())
                                     .toString());
         }

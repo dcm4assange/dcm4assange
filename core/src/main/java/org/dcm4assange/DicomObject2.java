@@ -67,42 +67,42 @@ public class DicomObject2 {
         int i = indexOf(tag);
         return i < 0
                 ? OptionalInt.empty()
-                : DicomInputStream2.HeaderType.vr(headers[i]).type.intValue(this, i);
+                : header2vr(headers[i]).type.intValue(this, i);
     }
 
     public OptionalLong getLong(int tag) {
         int i = indexOf(tag);
         return i < 0
                 ? OptionalLong.empty()
-                : DicomInputStream2.HeaderType.vr(headers[i]).type.longValue(this, i);
+                : header2vr(headers[i]).type.longValue(this, i);
     }
 
     public OptionalFloat getFloat(int tag) {
         int i = indexOf(tag);
         return i < 0
                 ? OptionalFloat.empty()
-                : DicomInputStream2.HeaderType.vr(headers[i]).type.floatValue(this, i);
+                : header2vr(headers[i]).type.floatValue(this, i);
     }
 
     public OptionalDouble getDouble(int tag) {
         int i = indexOf(tag);
         return i < 0
                 ? OptionalDouble.empty()
-                : DicomInputStream2.HeaderType.vr(headers[i]).type.doubleValue(this, i);
+                : header2vr(headers[i]).type.doubleValue(this, i);
     }
 
     public Optional<String> getString(int tag) {
         int i = indexOf(tag);
         return i < 0
                 ? Optional.empty()
-                : DicomInputStream2.HeaderType.vr(headers[i]).type.stringValue(this, i);
+                : header2vr(headers[i]).type.stringValue(this, i);
     }
 
     public String[] getStrings(int tag) {
         int i = indexOf(tag);
         return i < 0
                 ? StringUtils.EMPTY_STRINGS
-                : DicomInputStream2.HeaderType.vr(headers[i]).type.stringValues(this, i);
+                : header2vr(headers[i]).type.stringValues(this, i);
     }
 
     public Optional<String> getBulkDataURI(int tag) {
@@ -131,8 +131,8 @@ public class DicomObject2 {
         values[index] = value;
     }
 
-    int add(long header, Object value) {
-        int index = indexOf(DicomInputStream2.HeaderType.of(header).tag(header, dicomInput));
+    public int add(long header, Object value) {
+        int index = indexOf(header2tag(header));
         if (index < 0) {
             insertAt(-(index + 1), header, value);
         } else {
@@ -163,12 +163,12 @@ public class DicomObject2 {
 
     private int indexOf(int tag) {
         int high = size - 1;
-        if (size > 0 && Integer.compareUnsigned(DicomInputStream2.HeaderType.tagOf(headers[high], dicomInput), tag) < 0)
+        if (size > 0 && Integer.compareUnsigned(header2tag(headers[high]), tag) < 0)
             return -(size + 1);
         int low = 0;
         while (low <= high) {
             int mid = (low + high) >>> 1;
-            int cmp = Integer.compareUnsigned(DicomInputStream2.HeaderType.tagOf(headers[mid], dicomInput), tag);
+            int cmp = Integer.compareUnsigned(header2tag(headers[mid]), tag);
             if (cmp < 0)
                 low = mid + 1;
             else if (cmp > 0)
@@ -177,5 +177,31 @@ public class DicomObject2 {
                 return mid; // tag found
         }
         return -(low + 1);  // tag not found
+    }
+
+    static VR header2vr(long header) {
+        int index = ((int) (header >>> 56)) & 0x3f;
+        return index > 0 ? VR.values()[index - 1] : null;
+    }
+
+    int header2tag(long header) {
+        return ((int)(header >>> 62) == 0) ? (int) header : dicomInput.tagAt(header & 0x00ffffffffffffffL);
+    }
+
+    static long valpos(long header) {
+        return (header & 0x00ffffffffffffffL) + headerlen(header);
+    }
+
+    static int headerlen(long header) {
+        return ((int)(header >>> 62) == 3) ? 12 : 8;
+    }
+
+    int vallen(long header) {
+        long pos = header & 0x00ffffffffffffffL;
+        int type = (int)(header >>> 62);
+        return type == 0 ? -1
+                : type == 1 ? dicomInput.intAt(pos + 4)
+                : type == 2 ? dicomInput.shortAt(pos + 6)
+                : dicomInput.intAt(pos + 8);
     }
 }

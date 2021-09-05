@@ -89,10 +89,9 @@ enum StringVR implements VRType {
         if (dcmobj.getValue(index) instanceof String[] ss)
             return ss;
         long header = dcmobj.getHeader(index);
-        DicomInputStream2.HeaderType headerType = DicomInputStream2.HeaderType.of(header);
         String[] ss = stringValues(dcmobj.dicomInput.stringAt(
-                headerType.valuePosition(header),
-                headerType.valueLength(header, dcmobj.dicomInput),
+                DicomObject2.valpos(header),
+                dcmobj.vallen(header),
                 asciiOrCS2.apply(dcmobj)));
         dcmobj.setValue(index, ss);
         return ss;
