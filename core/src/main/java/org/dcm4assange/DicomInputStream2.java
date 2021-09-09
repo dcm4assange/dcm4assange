@@ -34,11 +34,11 @@ public class DicomInputStream2 extends InputStream {
     @FunctionalInterface
     public interface ItemHandler {
         boolean apply(DicomInputStream2 dis, Consumer<DicomObject2> itemConsumer, DicomObject2 parent, int seqtag,
-                      int itemtag, int itemlen) throws IOException;
+                      long header) throws IOException;
     }
     @FunctionalInterface
     public interface FragmentHandler {
-        boolean apply(DicomInputStream2 dis, DicomObject2 parent, int seqtag, int itemtag, int itemlen, boolean skip)
+        boolean apply(DicomInputStream2 dis, DicomObject2 parent, int seqtag, long header, boolean skip)
                 throws IOException;
     }
     private Path path;
@@ -237,8 +237,8 @@ public class DicomInputStream2 extends InputStream {
         DicomObject2 fmi = new DicomObject2(input);
         long header  = parseHeader(fmi);
         VR vr = DicomObject2.header2vr(header);
-        int tag = fmi.header2tag(header);
-        int vallen = fmi.vallen(header);
+        int tag = header2tag(header);
+        int vallen = input.vallen(header);
         if (tag != Tag.FileMetaInformationGroupLength || vr != VR.UL || vallen != 4) {
             throw new DicomParseException("Missing Group Length in File Meta Information");
         }
@@ -252,10 +252,18 @@ public class DicomInputStream2 extends InputStream {
         return fmi;
     }
 
+    public int header2valueLength(long header) {
+        return input.vallen(header);
+    }
+
+    public int header2tag(long header) {
+        return input.tagAt(header & 0x00ffffffffffffffL);
+    }
+
     public boolean onElement(DicomObject2 dcmObj, long header) throws IOException {
         VR vr = DicomObject2.header2vr(header);
-        int tag = dcmObj.header2tag(header);
-        int vallen = dcmObj.vallen(header);
+        int tag = header2tag(header);
+        int vallen = input.vallen(header);
         long unsignedValueLength = vallen & 0xffffffffL;
         if (vr != null) {
             if (vr == VR.SQ) {
@@ -299,9 +307,10 @@ public class DicomInputStream2 extends InputStream {
         return sb.toString();
     }
 
-    public boolean onItem(Consumer<DicomObject2> itemConsumer, DicomObject2 parent, int seqtag, int itemtag, int itemlen)
+    public boolean onItem(Consumer<DicomObject2> itemConsumer, DicomObject2 parent, int seqtag, long header)
             throws IOException {
-        if (itemtag == Tag.Item) {
+        int itemlen = input.vallen(header);
+        if (header2tag(header) == Tag.Item) {
             DicomObject2 dcmObj = new DicomObject2(input, parent, seqtag);
             itemConsumer.accept(dcmObj);
             if (!parse(dcmObj, itemlen))
@@ -312,12 +321,14 @@ public class DicomInputStream2 extends InputStream {
         return true;
     }
 
-    public boolean onFragment(DicomObject2 parent, int seqtag, int itemtag, int itemlen, boolean skip)
-            throws IOException {
-        long uitemlen = itemlen & 0xffffffffL;
+    public boolean onFragment(DicomObject2 parent, int seqtag, long header, boolean skip) throws IOException {
+        long uitemlen = input.vallen(header) & 0xffffffffL;
         if (skip) {
-            skip(pos - 8, 8 + uitemlen, bulkDataOutputStream);
-            bulkDataPos += 8 + uitemlen;
+            if (bulkDataOutputStream != null) {
+                bulkDataOutputStream.write(cache.bytesAt(pos - 8, 8));
+                bulkDataPos += 8 + uitemlen;
+            }
+            skip(pos, uitemlen, bulkDataOutputStream);
         }
         this.pos += uitemlen;
         return true;
@@ -406,7 +417,7 @@ public class DicomInputStream2 extends InputStream {
                 throw e;
             }
             int tag = input.tagAt(pos0);
-            int vallen = dcmObj.vallen(header);
+            int vallen = input.vallen(header);
             if (tag == Tag.SpecificCharacterSet) {
                 cache.fillFrom(in, pos + vallen);
             }
@@ -430,10 +441,9 @@ public class DicomInputStream2 extends InputStream {
         }
         try {
             while (undefinedLength || pos < endPos) {
-                int itemtag = input.tagAt(pos);
-                int itemlen = input.intAt(pos + 4);
-                pos += 8;
-                if (!onItem.apply(this, itemConsumer, parent, seqtag, itemtag, itemlen)) return false;
+                long header = parseHeader(parent);
+                int itemtag = header2tag(header);
+                if (!onItem.apply(this, itemConsumer, parent, seqtag, header)) return false;
                 if (itemtag == Tag.SequenceDelimitationItem) break;
             }
         } finally {
@@ -472,11 +482,9 @@ public class DicomInputStream2 extends InputStream {
     public boolean parseFragments(DicomObject2 parent, int seqtag, boolean skip)
             throws IOException {
         for (;;) {
-            int itemtag = input.tagAt(pos);
-            int itemlen = input.intAt(pos + 4);
-            pos += 8;
-            if (!onFragment.apply(this,  parent, seqtag, itemtag, itemlen, skip)) return false;
-            if (itemtag == Tag.SequenceDelimitationItem) break;
+            long header = parseHeader(parent);
+            if (!onFragment.apply(this,  parent, seqtag, header, skip)) return false;
+            if (header2tag(header) == Tag.SequenceDelimitationItem) break;
         }
         return true;
     }

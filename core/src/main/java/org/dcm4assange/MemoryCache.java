@@ -191,10 +191,15 @@ class MemoryCache {
         int offset = blockOffset(b, pos);
         return (offset + length <= b.length)
                 ? cs.decode(b, offset, length)
-                : cs.decode(bytesAt(pos, length), 0, length);
+                : cs.decode(bytesAt0(pos, length), 0, length);
     }
 
     byte[] bytesAt(long pos, int length) {
+        pos -= skippedBytes(pos);
+        return bytesAt0(pos, length);
+    }
+
+    byte[] bytesAt0(long pos, int length) {
         byte[] dest = new byte[length];
         copyBytesTo(pos, dest, 0, length);
         return dest;
@@ -318,6 +323,15 @@ class MemoryCache {
                     ? new DicomSequence(dcmObj, tag, valueLength)
                     : valueLength == 0 ? new BasicDicomElement(dcmObj, tag, vr, valueLength)
                     : new ParsedDicomElement(dcmObj, tag, vr, valueLength, valuePos);
+        }
+
+        int vallen(long header) {
+            long pos = header & 0x00ffffffffffffffL;
+            int type = (int)(header >>> 62);
+            return type == 0 ? -1
+                    : type == 1 ? intAt(pos + 4)
+                    : type == 2 ? shortAt(pos + 6)
+                    : intAt(pos + 8);
         }
 
         class ParsedDicomElement extends BasicDicomElement {

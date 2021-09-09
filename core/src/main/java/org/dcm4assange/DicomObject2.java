@@ -197,11 +197,6 @@ public class DicomObject2 {
     }
 
     int vallen(long header) {
-        long pos = header & 0x00ffffffffffffffL;
-        int type = (int)(header >>> 62);
-        return type == 0 ? -1
-                : type == 1 ? dicomInput.intAt(pos + 4)
-                : type == 2 ? dicomInput.shortAt(pos + 6)
-                : dicomInput.intAt(pos + 8);
+        return ((int)(header >>> 62) == 0) ? -1 : dicomInput.vallen(header);
     }
 }
