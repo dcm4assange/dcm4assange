@@ -8,10 +8,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
-import java.util.function.Consumer;
 
 /**
  * @author Gunter Zeilinger (gunterze@protonmail.com)
@@ -33,13 +30,11 @@ public class DicomInputStream2 extends InputStream {
     }
     @FunctionalInterface
     public interface ItemHandler {
-        boolean apply(DicomInputStream2 dis, Consumer<DicomObject2> itemConsumer, DicomObject2 parent, int seqtag,
-                      long header) throws IOException;
+        boolean apply(DicomInputStream2 dis, Sequence dcmseq, long header) throws IOException;
     }
     @FunctionalInterface
     public interface FragmentHandler {
-        boolean apply(DicomInputStream2 dis, DicomObject2 parent, int seqtag, long header, boolean skip)
-                throws IOException;
+        boolean apply(DicomInputStream2 dis, Fragments fragments, long header) throws IOException;
     }
     private Path path;
     private InputStream in;
@@ -267,9 +262,9 @@ public class DicomInputStream2 extends InputStream {
         long unsignedValueLength = vallen & 0xffffffffL;
         if (vr != null) {
             if (vr == VR.SQ) {
-                List<DicomObject2> items = new ArrayList<>();
-                dcmObj.add(header, items);
-                return parseItems(items::add, dcmObj, tag, vallen);
+                Sequence dcmseq = new Sequence(dcmObj, tag);
+                dcmObj.add(header, dcmseq);
+                return parseItems(dcmseq, vallen);
             }
             boolean bulkData = bulkDataPredicate.test(dcmObj, tag, vr, vallen);
             if (bulkData) {
@@ -282,18 +277,34 @@ public class DicomInputStream2 extends InputStream {
                     dcmObj.add(header, bulkDataURI(path, pos, vallen));
                 }
                 if (vallen == -1) {
-                    return parseFragments(dcmObj, tag, true);
+                    return skipFragments(dcmObj);
                 }
                 skip(pos, unsignedValueLength, bulkDataOutputStream);
                 bulkDataPos += unsignedValueLength;
             } else if (vallen == -1) {
-                dcmObj.add(header, null);
-                return parseFragments(dcmObj, tag, false);
+                Fragments frags = new Fragments(dcmObj, tag);
+                dcmObj.add(header, frags);
+                return parseFragments(frags);
             } else {
                 dcmObj.add(header, null);
             }
         }
         this.pos += unsignedValueLength;
+        return true;
+    }
+
+    private boolean skipFragments(DicomObject2 parent) throws IOException {
+        for (;;) {
+            long header = parseHeader(parent);
+            long uitemlen = input.vallen(header) & 0xffffffffL;
+            if (bulkDataOutputStream != null) {
+                bulkDataOutputStream.write(cache.bytesAt(pos - 8, 8));
+                bulkDataPos += 8 + uitemlen;
+            }
+            skip(pos, uitemlen, bulkDataOutputStream);
+            this.pos += uitemlen;
+            if (header2tag(header) == Tag.SequenceDelimitationItem) break;
+        }
         return true;
     }
 
@@ -307,12 +318,12 @@ public class DicomInputStream2 extends InputStream {
         return sb.toString();
     }
 
-    public boolean onItem(Consumer<DicomObject2> itemConsumer, DicomObject2 parent, int seqtag, long header)
+    public boolean onItem(Sequence dcmseq, long header)
             throws IOException {
         int itemlen = input.vallen(header);
         if (header2tag(header) == Tag.Item) {
-            DicomObject2 dcmObj = new DicomObject2(input, parent, seqtag);
-            itemConsumer.accept(dcmObj);
+            DicomObject2 dcmObj = new DicomObject2(input, dcmseq);
+            dcmseq.add(dcmObj);
             if (!parse(dcmObj, itemlen))
                 return false;
         } else {
@@ -321,15 +332,9 @@ public class DicomInputStream2 extends InputStream {
         return true;
     }
 
-    public boolean onFragment(DicomObject2 parent, int seqtag, long header, boolean skip) throws IOException {
+    public boolean onFragment(Fragments fragments, long header) throws IOException {
+        fragments.add(header);
         long uitemlen = input.vallen(header) & 0xffffffffL;
-        if (skip) {
-            if (bulkDataOutputStream != null) {
-                bulkDataOutputStream.write(cache.bytesAt(pos - 8, 8));
-                bulkDataPos += 8 + uitemlen;
-            }
-            skip(pos, uitemlen, bulkDataOutputStream);
-        }
         this.pos += uitemlen;
         return true;
     }
@@ -427,7 +432,7 @@ public class DicomInputStream2 extends InputStream {
         return true;
     }
 
-    public boolean parseItems(Consumer<DicomObject2> itemConsumer, DicomObject2 parent, int seqtag, int length)
+    public boolean parseItems(Sequence dcmseq, int length)
             throws IOException {
         if (length == 0) return true;
         boolean undefinedLength = length == -1;
@@ -441,9 +446,9 @@ public class DicomInputStream2 extends InputStream {
         }
         try {
             while (undefinedLength || pos < endPos) {
-                long header = parseHeader(parent);
+                long header = parseHeader(dcmseq.dcmobj);
                 int itemtag = header2tag(header);
-                if (!onItem.apply(this, itemConsumer, parent, seqtag, header)) return false;
+                if (!onItem.apply(this, dcmseq, header)) return false;
                 if (itemtag == Tag.SequenceDelimitationItem) break;
             }
         } finally {
@@ -479,11 +484,11 @@ public class DicomInputStream2 extends InputStream {
         return !probeExplicitVR(pos + 12);
     }
 
-    public boolean parseFragments(DicomObject2 parent, int seqtag, boolean skip)
+    public boolean parseFragments(Fragments fragments)
             throws IOException {
         for (;;) {
-            long header = parseHeader(parent);
-            if (!onFragment.apply(this,  parent, seqtag, header, skip)) return false;
+            long header = parseHeader(fragments.dcmobj);
+            if (!onFragment.apply(this,  fragments, header)) return false;
             if (header2tag(header) == Tag.SequenceDelimitationItem) break;
         }
         return true;

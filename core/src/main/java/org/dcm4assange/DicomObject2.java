@@ -8,32 +8,31 @@ import java.util.*;
 
 public class DicomObject2 {
     private static final int DEFAULT_CAPACITY = 16;
-    private static final long[] DEFAULT_EMPTY_HEADERS = {};
+    private static final int ITEM_DEFAULT_CAPACITY = 4;
+    private static final long[] EMPTY_HEADERS = {};
     private static final Object[] EMPTY_VALUES = {};
     final MemoryCache.DicomInput dicomInput;
-    private final DicomObject2 parent;
-    private final int sequenceTag;
     private long[] headers;
+    private Sequence dcmseq;
     private Object[] values;
     private SpecificCharacterSet specificCharacterSet;
 
     private int size;
 
     DicomObject2(MemoryCache.DicomInput dicomInput) {
-        this(dicomInput, null, 0);
+        this(dicomInput, null);
     }
 
-    DicomObject2(MemoryCache.DicomInput dicomInput, DicomObject2 parent, int sequenceTag) {
+    DicomObject2(MemoryCache.DicomInput dicomInput, Sequence dcmseq) {
         this.dicomInput = dicomInput;
-        this.headers = DEFAULT_EMPTY_HEADERS;
+        this.headers = EMPTY_HEADERS;
         this.values = EMPTY_VALUES;
-        this.parent = parent;
-        this.sequenceTag = sequenceTag;
+        this.dcmseq = dcmseq;
     }
 
     public SpecificCharacterSet specificCharacterSet() {
         return specificCharacterSet != null ? specificCharacterSet
-                : parent != null ? parent.specificCharacterSet()
+                : dcmseq != null ? dcmseq.dcmobj.specificCharacterSet()
                 : SpecificCharacterSet.getDefaultCharacterSet();
     }
 
@@ -42,15 +41,15 @@ public class DicomObject2 {
     }
 
     public boolean isRoot() {
-        return parent == null;
+        return dcmseq == null;
     }
 
     public DicomObject2 getParent() {
-        return parent;
+        return dcmseq != null ? dcmseq.dcmobj : null;
     }
 
     public int getSequenceTag() {
-        return sequenceTag;
+        return dcmseq != null ? dcmseq.tag : 0;
     }
 
     public boolean contains(int tag) {
@@ -112,11 +111,18 @@ public class DicomObject2 {
                 : Optional.empty();
     }
 
-    public List<DicomObject2> getItems(int tag) {
+    public Optional<Sequence> getSequence(int tag) {
         int i = indexOf(tag);
-        if (i >= 0 && (values[i] instanceof List list))
-            return list;
-        return Collections.EMPTY_LIST;
+        return (i >= 0 && values[i] instanceof Sequence sequence)
+                ? Optional.of(sequence)
+                : Optional.empty();
+    }
+
+    public Optional<Fragments> getFragments(int tag) {
+        int i = indexOf(tag);
+        return (i >= 0 && values[i] instanceof Fragments fragments)
+                ? Optional.of(fragments)
+                : Optional.empty();
     }
 
     long getHeader(int index) {
@@ -143,12 +149,14 @@ public class DicomObject2 {
 
     private void insertAt(int index, long header, Object value) {
         int copy = size - index;
-        if (++size >= headers.length) {
-            if (headers == DEFAULT_EMPTY_HEADERS) {
-                headers = new long[DEFAULT_CAPACITY];
-                values = new Object[DEFAULT_CAPACITY];
+        int oldCapacity = headers.length;
+        if (++size >= oldCapacity) {
+            if (oldCapacity == 0) {
+                int newCapacity = dcmseq != null ? ITEM_DEFAULT_CAPACITY : DEFAULT_CAPACITY;
+                headers = new long[newCapacity];
+                values = new Object[newCapacity];
             } else {
-                int newCapacity = headers.length << 1;
+                int newCapacity = oldCapacity << 1;
                 headers = Arrays.copyOf(headers, newCapacity);
                 values = Arrays.copyOf(values, newCapacity);
             }

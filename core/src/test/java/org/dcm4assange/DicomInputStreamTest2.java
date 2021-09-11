@@ -10,7 +10,7 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
-import java.util.List;
+import java.util.Optional;
 import java.util.zip.Deflater;
 import java.util.zip.DeflaterOutputStream;
 
@@ -327,8 +327,8 @@ public class DicomInputStreamTest2 {
     }
 
     static void parseSequence(byte[] b, DicomEncoding encoding, int tag) throws IOException {
-        List<DicomObject2> items = parseWithEncoding(b, encoding).getItems(tag);
-        assertEquals(1, items.size());
+        Optional<Sequence> items = parseWithEncoding(b, encoding).getSequence(tag);
+        assertEquals(1, items.orElseGet(Assertions::fail).size());
     }
 
     static DicomObject2 parseWithEncoding(byte[] b, DicomEncoding encoding) throws IOException {
@@ -376,7 +376,7 @@ public class DicomInputStreamTest2 {
         assertEquals(-1L, dcmObj.getLong(Tag.SelectorSLValue).orElseGet(Assertions::fail));
         assertEquals(-1, dcmObj.getInt(Tag.SelectorSSValue).orElseGet(Assertions::fail));
         assertEquals(UID.Verification, dcmObj.getString(Tag.SelectorUIValue).orElseGet(Assertions::fail));
-        assertEquals(1, dcmObj.getItems(Tag.SelectorCodeSequenceValue).size());
+        assertEquals(1, dcmObj.getSequence(Tag.SelectorCodeSequenceValue).orElseGet(Assertions::fail).size());
         assertEquals(-1L, dcmObj.getLong(Tag.SelectorOVValue).orElseGet(Assertions::fail));
         assertEquals(-1L, dcmObj.getLong(Tag.SelectorSVValue).orElseGet(Assertions::fail));
         assertEquals(-1L, dcmObj.getLong(Tag.SelectorUVValue).orElseGet(Assertions::fail));
