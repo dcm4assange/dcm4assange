@@ -231,9 +231,9 @@ public class DicomInputStream2 extends InputStream {
         input = cache.dicomInput(DicomEncoding.EVR_LE);
         DicomObject2 fmi = new DicomObject2(input);
         long header  = parseHeader(fmi);
-        VR vr = DicomObject2.header2vr(header);
+        VR vr = VR.fromHeader(header);
         int tag = header2tag(header);
-        int vallen = input.vallen(header);
+        int vallen = input.header2valueLength(header);
         if (tag != Tag.FileMetaInformationGroupLength || vr != VR.UL || vallen != 4) {
             throw new DicomParseException("Missing Group Length in File Meta Information");
         }
@@ -247,8 +247,12 @@ public class DicomInputStream2 extends InputStream {
         return fmi;
     }
 
+    public static long header2position(long header) {
+        return header & 0x00ffffffffffffffL;
+    }
+
     public int header2valueLength(long header) {
-        return input.vallen(header);
+        return input.header2valueLength(header);
     }
 
     public int header2tag(long header) {
@@ -256,9 +260,9 @@ public class DicomInputStream2 extends InputStream {
     }
 
     public boolean onElement(DicomObject2 dcmObj, long header) throws IOException {
-        VR vr = DicomObject2.header2vr(header);
+        VR vr = VR.fromHeader(header);
         int tag = header2tag(header);
-        int vallen = input.vallen(header);
+        int vallen = input.header2valueLength(header);
         long unsignedValueLength = vallen & 0xffffffffL;
         if (vr != null) {
             if (vr == VR.SQ) {
@@ -296,7 +300,7 @@ public class DicomInputStream2 extends InputStream {
     private boolean skipFragments(DicomObject2 parent) throws IOException {
         for (;;) {
             long header = parseHeader(parent);
-            long uitemlen = input.vallen(header) & 0xffffffffL;
+            long uitemlen = input.header2valueLength(header) & 0xffffffffL;
             if (bulkDataOutputStream != null) {
                 bulkDataOutputStream.write(cache.bytesAt(pos - 8, 8));
                 bulkDataPos += 8 + uitemlen;
@@ -320,9 +324,9 @@ public class DicomInputStream2 extends InputStream {
 
     public boolean onItem(Sequence dcmseq, long header)
             throws IOException {
-        int itemlen = input.vallen(header);
+        int itemlen = input.header2valueLength(header);
         if (header2tag(header) == Tag.Item) {
-            DicomObject2 dcmObj = new DicomObject2(input, dcmseq);
+            DicomObject2 dcmObj = new DicomObject2(input, header, dcmseq);
             dcmseq.add(dcmObj);
             if (!parse(dcmObj, itemlen))
                 return false;
@@ -334,7 +338,7 @@ public class DicomInputStream2 extends InputStream {
 
     public boolean onFragment(Fragments fragments, long header) throws IOException {
         fragments.add(header);
-        long uitemlen = input.vallen(header) & 0xffffffffL;
+        long uitemlen = input.header2valueLength(header) & 0xffffffffL;
         this.pos += uitemlen;
         return true;
     }
@@ -384,13 +388,13 @@ public class DicomInputStream2 extends InputStream {
                 return pos0 | 0x4000000000000000L;
         }
         if (!input.encoding.explicitVR) {
-            return pos0 | 0x4000000000000000L | vr2header(lookupVR(tag, dcmObj));
+            return pos0 | 0x4000000000000000L | lookupVR(tag, dcmObj).toHeader();
         }
         int vrcode = cache.vrcode(pos0 + 4);
         VR vr = VR.of(vrcode);
         if (vr == null) vr = lookupVR(tag, dcmObj); // replace invalid vrcode
         if (vr.evr8) {
-            return pos0 | 0x8000000000000000L | vr2header(vr);
+            return pos0 | 0x8000000000000000L | vr.toHeader();
         }
         if (pos0 + 12 > cache.limit()) {
             throw new EOFException();
@@ -400,7 +404,7 @@ public class DicomInputStream2 extends InputStream {
             vr = lookupVR(tag, dcmObj);
         if (vr == VR.UN && input.intAt(pos0+ 8) == -1)
             vr = VR.SQ;
-        return pos0 | 0xc000000000000000L | vr2header(vr);
+        return pos0 | 0xc000000000000000L | vr.toHeader();
     }
 
     private static VR lookupVR(int tag, DicomObject2 dcmObj) {
@@ -422,7 +426,7 @@ public class DicomInputStream2 extends InputStream {
                 throw e;
             }
             int tag = input.tagAt(pos0);
-            int vallen = input.vallen(header);
+            int vallen = input.header2valueLength(header);
             if (tag == Tag.SpecificCharacterSet) {
                 cache.fillFrom(in, pos + vallen);
             }
@@ -507,10 +511,6 @@ public class DicomInputStream2 extends InputStream {
             }
         }
         return sb.append(']');
-    }
-
-    private static long vr2header(VR vr) {
-        return (long)(vr.ordinal() + 1) << 56;
     }
 
 }

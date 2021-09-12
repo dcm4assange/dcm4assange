@@ -51,7 +51,7 @@ public class DcmDump implements Callable<Integer> {
 
     @Override
     public Integer call() throws Exception {
-        try (DicomInputStream dis = new DicomInputStream(Files.newInputStream(file))) {
+        try (DicomInputStream2 dis = new DicomInputStream2(Files.newInputStream(file))) {
             dis.withPreambleHandler(this::onPreamble)
                     .withDicomElementHandler(this::onElement)
                     .withItemHandler(this::onItem)
@@ -61,87 +61,82 @@ public class DcmDump implements Callable<Integer> {
         return 0;
     }
 
-    private void onPreamble(DicomInputStream dis) throws IOException {
+    private void onPreamble(DicomInputStream2 dis) throws IOException {
         System.out.println(dis.promptPreambleTo(sb.append("0: "), cols));
     }
 
-    private boolean onElement(DicomInputStream dis, long pos, DicomElement dcmElm)
+    private boolean onElement(DicomInputStream2 dis, DicomObject2 dcmobj, long header)
             throws IOException {
-        int tag = dcmElm.tag();
-        int valueLength = dcmElm.valueLength();
+        long pos = DicomInputStream2.header2position(header);
+        int tag = dis.header2tag(header);
+        VR vr = VR.fromHeader(header);
+        int headerLength = DicomObject2.header2headerLength(header);
+        int valueLength = dis.header2valueLength(header);
         sb.setLength(0);
         sb.append(pos).append(": ");
-        if (!(dcmElm.vr() == VR.SQ || valueLength == -1))
+        if (!(vr == VR.SQ || valueLength == -1))
             dis.fillCache(dis.streamPosition() + Math.min(valueLength, cols * 2));
-        dcmElm.promptTo(sb, cols);
+        dcmobj.promptElementTo(header, sb, cols);
         System.out.println(sb);
         boolean keep = tag == Tag.TransferSyntaxUID
                 || tag == Tag.SpecificCharacterSet
                 || TagUtils.isPrivateCreator(tag);
         if (keep) {
-            dcmElm.containedBy().add(dcmElm);
+            dcmobj.add(header, null);
         }
-        int headerLength = (int) (dis.streamPosition() - pos);
-        if (dcmElm.vr() == VR.SQ) {
-            dis.parseItems(dcmElm, valueLength);
+        if (vr == VR.SQ) {
+            dis.parseItems(new Sequence(dcmobj, tag), valueLength);
         } else if (valueLength == -1) {
-            dis.parseFragments(dcmElm);
+            dis.parseFragments(new Fragments(dcmobj, tag));
         } else {
-            if (!keep && valueLength > limit) {
-                dis.skip(pos, headerLength + valueLength, null);
+            long uvalueLength = valueLength & 0xffffffffL;
+            if (!keep && uvalueLength > limit) {
+                dis.skip(pos, headerLength + uvalueLength, null);
             }
-            dis.seek(dis.streamPosition() + valueLength);
+            dis.seek(pos + headerLength + uvalueLength);
         }
         return true;
     }
 
-    private boolean onItem(DicomInputStream dis, long pos, DicomElement dcmElm, DicomElement itemHeader)
-            throws IOException {
-        return promptItem(dis, pos, dcmElm, itemHeader, this::promptItem);
+    private boolean onItem(DicomInputStream2 dis, Sequence seq, long header) throws IOException {
+        if (promptItem(false, dis, header, seq.getDicomObject(), seq.size() + 1)) {
+            dis.onItem(seq, header);
+        }
+        return true;
     }
 
-    private boolean onFragment(DicomInputStream dis, long pos, DicomElement dcmElm, DicomElement itemHeader)
-            throws IOException {
-        return promptItem(dis, pos, dcmElm, itemHeader, this::promptFragment);
+    private boolean onFragment(DicomInputStream2 dis, Fragments frags, long header) throws IOException {
+        if (promptItem(true, dis, header, frags.getDicomObject(), frags.size() + 1)) {
+            long pos = DicomInputStream2.header2position(header);
+            long uitemlen = dis.header2valueLength(header) & 0xffffffffL;
+            if (uitemlen > limit) {
+                dis.skip(pos, 8 + uitemlen, null);
+            }
+            dis.seek(pos + 8 + uitemlen);
+        }
+        return true;
     }
 
-    private boolean promptItem(DicomInputStream dis, long pos, DicomElement dcmElm, DicomElement itemHeader,
-                               ItemPrompter itemPrompter) throws IOException {
+    private boolean promptItem(boolean fragment, DicomInputStream2 dis, long header, DicomObject2 dcmobj, int no) {
+        long pos = DicomInputStream2.header2position(header);
+        int tag = dis.header2tag(header);
+        int itemLength = dis.header2valueLength(header);
         sb.setLength(0);
         sb.append(pos).append(": ");
-        if (itemHeader.tag() == Tag.Item) {
-            itemPrompter.accept(dis, pos, dcmElm, itemHeader);
+        boolean item = tag == Tag.Item;
+        if (item) {
+            if (fragment) {
+                dcmobj.promptFragmentTo(header, sb, cols);
+            } else {
+                dcmobj.promptLevelTo(sb)
+                        .append("(FFFE,E000) #").append(itemLength)
+                        .append(" Item #").append(no);
+            }
         } else {
-            itemHeader.promptTo(sb, cols);
-            System.out.println(sb);
-            dis.seek(dis.streamPosition() + itemHeader.valueLength());
+            dcmobj.promptElementTo(header, sb, cols);
+            dis.seek(dis.streamPosition() + itemLength);
         }
-        return true;
-    }
-
-    @FunctionalInterface
-    private interface ItemPrompter {
-        void accept(DicomInputStream dis, long pos, DicomElement dcmElm, DicomElement itemHeader) throws IOException;
-    }
-
-    private void promptItem(DicomInputStream dis, long pos, DicomElement dcmElm, DicomElement itemHeader)
-            throws IOException {
-        int itemLength = itemHeader.valueLength();
-        dcmElm.promptLevelTo(sb)
-                .append("(FFFE,E000) #").append(itemLength)
-                .append(" Item #").append(dcmElm.numberOfItems() + 1);
         System.out.println(sb);
-        dis.parse(dcmElm.addItem(), itemLength);
-    }
-
-    private void promptFragment(DicomInputStream dis, long pos, DicomElement dcmElm, DicomElement itemHeader)
-            throws IOException {
-        itemHeader.promptTo(sb, cols);
-        System.out.println(sb);
-        int itemLengh = itemHeader.valueLength();
-        if (itemLengh > limit) {
-            dis.skip(pos, 8 + itemLengh, null);
-        }
-        dis.seek(dis.streamPosition() + itemLengh);
+        return item;
     }
 }

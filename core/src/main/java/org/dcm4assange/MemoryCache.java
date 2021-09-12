@@ -325,7 +325,7 @@ class MemoryCache {
                     : new ParsedDicomElement(dcmObj, tag, vr, valueLength, valuePos);
         }
 
-        int vallen(long header) {
+        int header2valueLength(long header) {
             long pos = header & 0x00ffffffffffffffL;
             int type = (int)(header >>> 62);
             return type == 0 ? -1

@@ -90,8 +90,8 @@ interface VRType {
             return Optional.of(
                             promptValueTo(
                                     dcmobj.dicomInput,
-                                    DicomObject2.valpos(header),
-                                    dcmobj.vallen(header),
+                                    DicomObject2.header2valuePosition(header),
+                                    dcmobj.header2valueLength(header),
                                     new StringBuilder())
                                     .toString());
         }
@@ -125,10 +125,30 @@ interface VRType {
             }
             return sb;
         }
+
+        @Override
+        public StringBuilder promptValueTo(DicomInput dicomInput, long valuePos, int valueLength,
+                                           DicomObject2 dicomObject, StringBuilder sb, int maxLength) {
+            sb.append(" [");
+            int truncate = Math.max(0, valueLength - sb.length() - maxLength);
+            promptValueTo(dicomInput, valuePos, valueLength - truncate, sb);
+            if (truncate < 0) {
+                sb.append(']');
+            }
+            if (sb.length() > maxLength) {
+                sb.setLength(maxLength);
+            }
+            return sb;
+        }
     };
 
     default StringBuilder promptValueTo(DicomInput dicomInput, long valuePos, int valueLength,
                                 DicomObject dicomObject, StringBuilder sb, int maxLength) {
+        throw new UnsupportedOperationException();
+    }
+
+    default StringBuilder promptValueTo(DicomInput dicomInput, long valuePos, int valueLength,
+                                DicomObject2 dicomObject, StringBuilder sb, int maxLength) {
         throw new UnsupportedOperationException();
     }
 

@@ -39,6 +39,10 @@ fi
 # Setup the module path
 MP="$DCM4CHE_HOME/lib/$MAIN_JAR"
 MP="$MP:$DCM4CHE_HOME/lib/dcm4assange-core-${project.version}.jar"
+MP="$MP:$DCM4CHE_HOME/lib/dcm4assange-elmdict-acuson-${project.version}.jar"
+MP="$MP:$DCM4CHE_HOME/lib/dcm4assange-elmdict-agfa-${project.version}.jar"
+MP="$MP:$DCM4CHE_HOME/lib/dcm4assange-elmdict-camtron-${project.version}.jar"
+MP="$MP:$DCM4CHE_HOME/lib/dcm4assange-elmdict-elscint-${project.version}.jar"
 MP="$MP:$DCM4CHE_HOME/lib/picocli-${picocli.version}.jar"
 
 # For Cygwin, switch paths to Windows format before running java

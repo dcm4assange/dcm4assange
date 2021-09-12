@@ -55,4 +55,8 @@ public class Fragments {
     public int size() {
         return size;
     }
+
+    public DicomObject2 getDicomObject() {
+        return dcmobj;
+    }
 }

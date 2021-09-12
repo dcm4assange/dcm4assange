@@ -244,8 +244,8 @@ enum BinaryVR implements VRType {
     @Override
     public OptionalInt intValue(DicomObject2 dcmobj, int index) {
         long header = dcmobj.getHeader(index);
-        return dcmobj.vallen(header) >= bytes
-                ? OptionalInt.of(intAt(dcmobj.dicomInput, DicomObject2.valpos(header)))
+        return dcmobj.header2valueLength(header) >= bytes
+                ? OptionalInt.of(intAt(dcmobj.dicomInput, DicomObject2.header2valuePosition(header)))
                 : OptionalInt.empty();
     }
 
@@ -259,8 +259,8 @@ enum BinaryVR implements VRType {
     @Override
     public OptionalLong longValue(DicomObject2 dcmobj, int index) {
         long header = dcmobj.getHeader(index);
-        return dcmobj.vallen(header) >= bytes
-                ? OptionalLong.of(longAt(dcmobj.dicomInput, DicomObject2.valpos(header)))
+        return dcmobj.header2valueLength(header) >= bytes
+                ? OptionalLong.of(longAt(dcmobj.dicomInput, DicomObject2.header2valuePosition(header)))
                 : OptionalLong.empty();
     }
 
@@ -274,8 +274,8 @@ enum BinaryVR implements VRType {
     @Override
     public OptionalFloat floatValue(DicomObject2 dcmobj, int index) {
         long header = dcmobj.getHeader(index);
-        return dcmobj.vallen(header) >= bytes
-                ? OptionalFloat.of(floatAt(dcmobj.dicomInput, DicomObject2.valpos(header)))
+        return dcmobj.header2valueLength(header) >= bytes
+                ? OptionalFloat.of(floatAt(dcmobj.dicomInput, DicomObject2.header2valuePosition(header)))
                 : OptionalFloat.empty();
     }
 
@@ -289,8 +289,8 @@ enum BinaryVR implements VRType {
     @Override
     public OptionalDouble doubleValue(DicomObject2 dcmobj, int index) {
         long header = dcmobj.getHeader(index);
-        return dcmobj.vallen(header) >= bytes
-                ? OptionalDouble.of(doubleAt(dcmobj.dicomInput, DicomObject2.valpos(header)))
+        return dcmobj.header2valueLength(header) >= bytes
+                ? OptionalDouble.of(doubleAt(dcmobj.dicomInput, DicomObject2.header2valuePosition(header)))
                 : OptionalDouble.empty();
     }
 
@@ -346,6 +346,24 @@ enum BinaryVR implements VRType {
 
     @Override
     public StringBuilder promptValueTo(DicomInput input, long valpos, int vallen, DicomObject dicomObject,
+                                       StringBuilder appendTo, int maxLength) {
+        appendTo.append(" [");
+        int n = vallen / bytes;
+        for (int i = 0; i < n; i++, valpos += bytes) {
+            if (i > 0) {
+                appendTo.append('\\');
+            }
+            appendTo.append(stringAt(input, valpos));
+            if (appendTo.length() >= maxLength) {
+                appendTo.setLength(maxLength);
+                return appendTo;
+            }
+        }
+        return appendTo.append(']');
+    }
+
+    @Override
+    public StringBuilder promptValueTo(DicomInput input, long valpos, int vallen, DicomObject2 dicomObject,
                                        StringBuilder appendTo, int maxLength) {
         appendTo.append(" [");
         int n = vallen / bytes;

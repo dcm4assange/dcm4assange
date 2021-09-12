@@ -12,27 +12,29 @@ public class DicomObject2 {
     private static final long[] EMPTY_HEADERS = {};
     private static final Object[] EMPTY_VALUES = {};
     final MemoryCache.DicomInput dicomInput;
+    final long header;
     private long[] headers;
-    private Sequence dcmseq;
+    private Sequence seq;
     private Object[] values;
     private SpecificCharacterSet specificCharacterSet;
 
     private int size;
 
     DicomObject2(MemoryCache.DicomInput dicomInput) {
-        this(dicomInput, null);
+        this(dicomInput, 0, null);
     }
 
-    DicomObject2(MemoryCache.DicomInput dicomInput, Sequence dcmseq) {
+    DicomObject2(MemoryCache.DicomInput dicomInput, long header, Sequence seq) {
         this.dicomInput = dicomInput;
+        this.header = header;
         this.headers = EMPTY_HEADERS;
         this.values = EMPTY_VALUES;
-        this.dcmseq = dcmseq;
+        this.seq = seq;
     }
 
     public SpecificCharacterSet specificCharacterSet() {
         return specificCharacterSet != null ? specificCharacterSet
-                : dcmseq != null ? dcmseq.dcmobj.specificCharacterSet()
+                : seq != null ? seq.dcmobj.specificCharacterSet()
                 : SpecificCharacterSet.getDefaultCharacterSet();
     }
 
@@ -41,15 +43,15 @@ public class DicomObject2 {
     }
 
     public boolean isRoot() {
-        return dcmseq == null;
+        return seq == null;
     }
 
     public DicomObject2 getParent() {
-        return dcmseq != null ? dcmseq.dcmobj : null;
+        return seq != null ? seq.dcmobj : null;
     }
 
     public int getSequenceTag() {
-        return dcmseq != null ? dcmseq.tag : 0;
+        return seq != null ? seq.tag : 0;
     }
 
     public boolean contains(int tag) {
@@ -66,42 +68,42 @@ public class DicomObject2 {
         int i = indexOf(tag);
         return i < 0
                 ? OptionalInt.empty()
-                : header2vr(headers[i]).type.intValue(this, i);
+                : VR.fromHeader(headers[i]).type.intValue(this, i);
     }
 
     public OptionalLong getLong(int tag) {
         int i = indexOf(tag);
         return i < 0
                 ? OptionalLong.empty()
-                : header2vr(headers[i]).type.longValue(this, i);
+                : VR.fromHeader(headers[i]).type.longValue(this, i);
     }
 
     public OptionalFloat getFloat(int tag) {
         int i = indexOf(tag);
         return i < 0
                 ? OptionalFloat.empty()
-                : header2vr(headers[i]).type.floatValue(this, i);
+                : VR.fromHeader(headers[i]).type.floatValue(this, i);
     }
 
     public OptionalDouble getDouble(int tag) {
         int i = indexOf(tag);
         return i < 0
                 ? OptionalDouble.empty()
-                : header2vr(headers[i]).type.doubleValue(this, i);
+                : VR.fromHeader(headers[i]).type.doubleValue(this, i);
     }
 
     public Optional<String> getString(int tag) {
         int i = indexOf(tag);
         return i < 0
                 ? Optional.empty()
-                : header2vr(headers[i]).type.stringValue(this, i);
+                : VR.fromHeader(headers[i]).type.stringValue(this, i);
     }
 
     public String[] getStrings(int tag) {
         int i = indexOf(tag);
         return i < 0
                 ? StringUtils.EMPTY_STRINGS
-                : header2vr(headers[i]).type.stringValues(this, i);
+                : VR.fromHeader(headers[i]).type.stringValues(this, i);
     }
 
     public Optional<String> getBulkDataURI(int tag) {
@@ -139,10 +141,15 @@ public class DicomObject2 {
 
     public int add(long header, Object value) {
         int index = indexOf(header2tag(header));
+        int i;
         if (index < 0) {
-            insertAt(-(index + 1), header, value);
+            insertAt(i = -(index + 1), header, value);
         } else {
-            headers[index] = header;
+            headers[i = index] = header;
+        }
+        int tag = header2tag(header);
+        if (tag == Tag.SpecificCharacterSet) {
+            specificCharacterSet = SpecificCharacterSet.valueOf(StringVR.ASCII.stringValues(this, i));
         }
         return index;
     }
@@ -152,7 +159,7 @@ public class DicomObject2 {
         int oldCapacity = headers.length;
         if (++size >= oldCapacity) {
             if (oldCapacity == 0) {
-                int newCapacity = dcmseq != null ? ITEM_DEFAULT_CAPACITY : DEFAULT_CAPACITY;
+                int newCapacity = seq != null ? ITEM_DEFAULT_CAPACITY : DEFAULT_CAPACITY;
                 headers = new long[newCapacity];
                 values = new Object[newCapacity];
             } else {
@@ -187,24 +194,54 @@ public class DicomObject2 {
         return -(low + 1);  // tag not found
     }
 
-    static VR header2vr(long header) {
-        int index = ((int) (header >>> 56)) & 0x3f;
-        return index > 0 ? VR.values()[index - 1] : null;
-    }
-
     int header2tag(long header) {
         return ((int)(header >>> 62) == 0) ? (int) header : dicomInput.tagAt(header & 0x00ffffffffffffffL);
     }
 
-    static long valpos(long header) {
-        return (header & 0x00ffffffffffffffL) + headerlen(header);
+    static long header2valuePosition(long header) {
+        return (header & 0x00ffffffffffffffL) + header2headerLength(header);
     }
 
-    static int headerlen(long header) {
+    public static int header2headerLength(long header) {
         return ((int)(header >>> 62) == 3) ? 12 : 8;
     }
 
-    int vallen(long header) {
-        return ((int)(header >>> 62) == 0) ? -1 : dicomInput.vallen(header);
+    int header2valueLength(long header) {
+        return ((int)(header >>> 62) == 0) ? -1 : dicomInput.header2valueLength(header);
+    }
+
+    public StringBuilder promptElementTo(long header, StringBuilder sb, int maxLength) {
+        return promptTo(false, header, sb, maxLength);
+    }
+
+    public StringBuilder promptFragmentTo(long header, StringBuilder sb, int maxLength) {
+        return promptTo(true, header, sb, maxLength);
+    }
+
+    private StringBuilder promptTo(boolean fragment, long header, StringBuilder sb, int maxLength) {
+        int tag = header2tag(header);
+        VR vr = VR.fromHeader(header);
+        int valueLength = header2valueLength(header);
+        promptLevelTo(sb).append(TagUtils.toCharArray(tag));
+        if (vr != null) sb.append(' ').append(vr);
+        else if (fragment) vr = VR.OB;
+        sb.append(" #").append(valueLength);
+        if (vr != null && vr != VR.SQ)
+            vr.type.promptValueTo(dicomInput, header2valuePosition(header), header2valueLength(header), this, sb, maxLength);
+        if (sb.length() < maxLength) {
+            sb.append(" ").append(
+                    ElementDictionary.keywordOf(privateCreatorOf(tag).orElse(null), tag));
+            if (sb.length() > maxLength) {
+                sb.setLength(maxLength);
+            }
+        }
+        return sb;
+    }
+
+    public StringBuilder promptLevelTo(StringBuilder appendTo) {
+        for (Sequence seq = this.seq; seq != null; seq = seq.dcmobj.seq) {
+            appendTo.append('>');
+        }
+        return appendTo;
     }
 }

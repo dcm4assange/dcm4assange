@@ -36,6 +36,10 @@
       <outputDirectory>/lib</outputDirectory>
       <includes>
         <include>org.dcm4assange:dcm4assange-core</include>
+        <include>org.dcm4assange.elmdict:dcm4assange-elmdict-acuson</include>
+        <include>org.dcm4assange.elmdict:dcm4assange-elmdict-agfa</include>
+        <include>org.dcm4assange.elmdict:dcm4assange-elmdict-camtron</include>
+        <include>org.dcm4assange.elmdict:dcm4assange-elmdict-elscint</include>
         <include>org.dcm4assange.tool:dcm4assange-tool-dcmdump</include>
         <include>info.picocli:picocli</include>
       </includes>

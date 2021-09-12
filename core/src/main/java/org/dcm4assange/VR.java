@@ -64,4 +64,13 @@ public enum VR {
     private static int indexOf(int code) {
         return ((code & 0x1f00) >> 3) | (code & 0x1f);
     }
+
+    public static VR fromHeader(long header) {
+        int index = ((int) (header >>> 56)) & 0x3f;
+        return index > 0 ? values()[index - 1] : null;
+    }
+
+    long toHeader() {
+        return (long)(ordinal() + 1) << 56;
+    }
 }

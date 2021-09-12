@@ -90,8 +90,8 @@ enum StringVR implements VRType {
             return ss;
         long header = dcmobj.getHeader(index);
         String[] ss = stringValues(dcmobj.dicomInput.stringAt(
-                DicomObject2.valpos(header),
-                dcmobj.vallen(header),
+                DicomObject2.header2valuePosition(header),
+                dcmobj.header2valueLength(header),
                 asciiOrCS2.apply(dcmobj)));
         dcmobj.setValue(index, ss);
         return ss;
@@ -130,6 +130,23 @@ enum StringVR implements VRType {
             sb.append(input.stringAt(valuePos, limitValueLen, asciiOrCS.apply(dcmobj)));
         } else {
             sb.append(StringUtils.trim(input.stringAt(valuePos, valueLen, asciiOrCS.apply(dcmobj)), trim));
+            sb.append(']');
+        }
+        if (sb.length() > maxLength) {
+            sb.setLength(maxLength);
+        }
+        return sb;
+    }
+
+    @Override
+    public StringBuilder promptValueTo(DicomInput input, long valuePos, int valueLen, DicomObject2 dcmobj,
+                                       StringBuilder sb, int maxLength) {
+        sb.append(" [");
+        int limitValueLen = (maxLength - sb.length() - 1) * 2; // assume max 2 bytes by char
+        if (limitValueLen < valueLen) {
+            sb.append(input.stringAt(valuePos, limitValueLen, asciiOrCS2.apply(dcmobj)));
+        } else {
+            sb.append(StringUtils.trim(input.stringAt(valuePos, valueLen, asciiOrCS2.apply(dcmobj)), trim));
             sb.append(']');
         }
         if (sb.length() > maxLength) {
