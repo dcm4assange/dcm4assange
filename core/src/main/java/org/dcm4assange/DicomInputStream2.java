@@ -453,12 +453,12 @@ public class DicomInputStream2 extends InputStream {
     }
 
     private static VR lookupVR(int tag, DicomObject2 dcmObj) {
-        Optional<String> privateCreator;
-        return TagUtils.isPrivateTag(tag)
-                && dcmObj != null
-                && (privateCreator = dcmObj.privateCreatorOf(tag)).isPresent()
-                ? ElementDictionary.vrOf(privateCreator.get(), tag)
-                : ElementDictionary.vrOf(tag);
+        if (TagUtils.isPrivateTag(tag) && dcmObj != null) {
+            Optional<String> privateCreator = dcmObj.privateCreatorOf(tag);
+            if (privateCreator.isPresent())
+                return ElementDictionary.vrOf(privateCreator.get(), tag);
+        }
+        return ElementDictionary.vrOf(tag);
     }
 
     public boolean parse(DicomObject2 dcmObj, int length) throws IOException {
