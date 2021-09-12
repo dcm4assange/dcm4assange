@@ -52,11 +52,20 @@ public class Sequence {
         }
     }
 
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
     public int size() {
         return size;
     }
 
     public DicomObject2 getDicomObject() {
         return dcmobj;
+    }
+
+    public DicomObject2 getItem(int index) {
+        Objects.checkIndex(index, size);
+        return items[index];
     }
 }

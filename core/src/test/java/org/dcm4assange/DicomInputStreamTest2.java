@@ -183,6 +183,28 @@ public class DicomInputStreamTest2 {
             'Q', 'U', 'A', 'S', 'A', 'R', '_', 'I', 'N', 'T', 'E', 'R', 'N', 'A', 'L', '_', 'U', 'S', 'E', ' ',
             -1, -2, -32, -35, 0, 0, 0, 0
     };
+    static final byte[] PER_FRAME_FUNCTIONAL_GROUPS_SEQ_IVR_LE = {
+            0, 82, 48, -110, 56, 0, 0, 0,
+            -2, -1, 0, -32, 40, 0, 0, 0,
+            24, 0, 20, -111, 24, 0, 0, 0,
+            -2, -1, 0, -32, 16, 0, 0, 0,
+            24, 0, -126, -112, 8, 0, 0, 0, -1, -1, -1, -1, 102, 102, -10, 63,
+            32, 0, 19, -111, 0, 0, 0, 0,
+            -2, -1, 0, -32, 0, 0, 0, 0
+    };
+    static final byte[] PER_FRAME_FUNCTIONAL_GROUPS_SEQ_EVR_LE = {
+            0, 82, 48, -110, 83, 81, 0, 0, -1, -1, -1, -1,
+            -2, -1, 0, -32, -1, -1, -1, -1,
+            24, 0, 20, -111, 83, 81, 0, 0, -1, -1, -1, -1,
+            -2, -1, 0, -32, -1, -1, -1, -1,
+            24, 0, -126, -112, 70, 68, 8, 0, -1, -1, -1, -1, 102, 102, -10, 63,
+            -2, -1, 13, -32, 0, 0, 0, 0,
+            -2, -1, -35, -32, 0, 0, 0, 0,
+            32, 0, 19, -111, 83, 81, 0, 0, 0, 0, 0, 0,
+            -2, -1, 13, -32, 0, 0, 0, 0,
+            -2, -1, 0, -32, 0, 0, 0, 0,
+            -2, -1, -35, -32, 0, 0, 0, 0
+    };
 
     @Test
     public void readDataSetIVR_LE() throws IOException {
@@ -240,6 +262,16 @@ public class DicomInputStreamTest2 {
     @Test
     public void parseSequenceUN_EVR_BE() throws IOException {
         parseSequence(UN_SEQ_EVR_BE, DicomEncoding.EVR_BE, 0x00371010);
+    }
+
+    @Test
+    public void parsePerFrameFunctionalGroupsSequenceLazyIVR_LE() throws IOException {
+        parsePerFrameFunctionalGroupsSequenceLazy(PER_FRAME_FUNCTIONAL_GROUPS_SEQ_IVR_LE, DicomEncoding.IVR_LE);
+    }
+
+    @Test
+    public void parsePerFrameFunctionalGroupsSequenceLazyEVR_LE() throws IOException {
+        parsePerFrameFunctionalGroupsSequenceLazy(PER_FRAME_FUNCTIONAL_GROUPS_SEQ_EVR_LE, DicomEncoding.EVR_LE);
     }
 
     @Test
@@ -380,6 +412,27 @@ public class DicomInputStreamTest2 {
         assertEquals(-1L, dcmObj.getLong(Tag.SelectorOVValue).orElseGet(Assertions::fail));
         assertEquals(-1L, dcmObj.getLong(Tag.SelectorSVValue).orElseGet(Assertions::fail));
         assertEquals(-1L, dcmObj.getLong(Tag.SelectorUVValue).orElseGet(Assertions::fail));
+    }
+
+    static void parsePerFrameFunctionalGroupsSequenceLazy(byte[] b, DicomEncoding encoding) throws IOException {
+        DicomObject2 dataset = parseLazy(b, encoding, Tag.PerFrameFunctionalGroupsSequence);
+        Sequence functionalGroupSeq = dataset.getSequence(Tag.PerFrameFunctionalGroupsSequence)
+                .orElseGet(Assertions::fail);
+        DicomObject2 functionalGroup = functionalGroupSeq.getItem(0);
+        Sequence mrEchoSeq = functionalGroup.getSequence(Tag.MREchoSequence).orElseGet(Assertions::fail);
+        DicomObject2 mrEcho = mrEchoSeq.getItem(0);
+        assertEquals(1.4000005722045896, mrEcho.getDouble(Tag.EffectiveEchoTime).orElseGet(Assertions::fail));
+        Sequence planePositionSeq = functionalGroup.getSequence(Tag.PlanePositionSequence).orElseGet(Assertions::fail);
+        assertTrue(planePositionSeq.isEmpty());
+        assertTrue(functionalGroupSeq.getItem(1).isEmpty());
+    }
+
+    static DicomObject2 parseLazy(byte[] b, DicomEncoding encoding, int seqTag) throws IOException {
+        try (DicomInputStream2 dis = new DicomInputStream2(new ByteArrayInputStream(b))
+                .withEncoding(encoding)
+                .withParseItemsLazy(seqTag)) {
+            return dis.readDataSet();
+        }
     }
 
 }

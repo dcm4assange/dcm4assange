@@ -1,9 +1,11 @@
 package org.dcm4assange;
 
+import org.dcm4assange.util.IORuntimeException;
 import org.dcm4assange.util.OptionalFloat;
 import org.dcm4assange.util.StringUtils;
 import org.dcm4assange.util.TagUtils;
 
+import java.io.IOException;
 import java.util.*;
 
 public class DicomObject2 {
@@ -21,15 +23,16 @@ public class DicomObject2 {
     private int size;
 
     DicomObject2(MemoryCache.DicomInput dicomInput) {
-        this(dicomInput, 0, null);
+        this(dicomInput, 0, null, 0);
     }
 
-    DicomObject2(MemoryCache.DicomInput dicomInput, long header, Sequence seq) {
+    DicomObject2(MemoryCache.DicomInput dicomInput, long header, Sequence seq, int size) {
         this.dicomInput = dicomInput;
         this.header = header;
         this.headers = EMPTY_HEADERS;
         this.values = EMPTY_VALUES;
         this.seq = seq;
+        this.size = size;
     }
 
     public SpecificCharacterSet specificCharacterSet() {
@@ -39,7 +42,21 @@ public class DicomObject2 {
     }
 
     public int size() {
+        if (size < 0) {
+            size = 0;
+            try {
+                DicomInputStream2 dis = new DicomInputStream2(dicomInput);
+                dis.seek(header2valuePosition(header));
+                dis.parse(this, header2valueLength(header));
+            } catch (IOException e) {
+                throw new IORuntimeException("Failed to parse item", e);
+            }
+        }
         return size;
+    }
+
+    public boolean isEmpty() {
+        return size() == 0;
     }
 
     public boolean isRoot() {
@@ -177,6 +194,7 @@ public class DicomObject2 {
     }
 
     private int indexOf(int tag) {
+        int size = size();
         int high = size - 1;
         if (size > 0 && Integer.compareUnsigned(header2tag(headers[high]), tag) < 0)
             return -(size + 1);

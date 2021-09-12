@@ -334,6 +334,10 @@ class MemoryCache {
                     : intAt(pos + 8);
         }
 
+        MemoryCache cache() {
+            return MemoryCache.this;
+        }
+
         class ParsedDicomElement extends BasicDicomElement {
             private final long valuePos;
 

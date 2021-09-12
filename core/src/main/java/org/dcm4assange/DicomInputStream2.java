@@ -1,6 +1,7 @@
 package org.dcm4assange;
 
 import org.dcm4assange.MemoryCache.DicomInput;
+import org.dcm4assange.util.TagUtils;
 
 import java.io.EOFException;
 import java.io.IOException;
@@ -9,6 +10,8 @@ import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Objects;
+import java.util.Optional;
+import java.util.function.Predicate;
 
 /**
  * @author Gunter Zeilinger (gunterze@protonmail.com)
@@ -43,12 +46,13 @@ public class DicomInputStream2 extends InputStream {
     private Path bulkDataSpoolPath;
     private OutputStream bulkDataOutputStream;
     private long bulkDataPos;
-    private final MemoryCache cache = new MemoryCache();
+    private final MemoryCache cache;
     private DicomElementHandler onElement = DicomInputStream2::onElement;
     private ItemHandler onItem = DicomInputStream2::onItem;
     private FragmentHandler onFragment = DicomInputStream2::onFragment;
     private PreambleHandler preambleHandler = x -> {};
     private DicomElementPredicate bulkDataPredicate = (dcmObj, tag, vr, valueLength) -> false;
+    private Predicate<Sequence> parseItemsLazyPredicate = x -> false;
     private DicomObject2 fmi;
 
     public DicomInputStream2(Path path, DicomElementPredicate bulkDataPredicate)
@@ -60,6 +64,12 @@ public class DicomInputStream2 extends InputStream {
 
     public DicomInputStream2(InputStream in) {
         this.in = Objects.requireNonNull(in);
+        this.cache = new MemoryCache();
+    }
+
+    public DicomInputStream2(DicomInput input) {
+        this.input = input;
+        this.cache = input.cache();
     }
 
     public static boolean bulkDataPredicate(DicomObject2 dcmobj, int tag, VR vr, int valueLength) {
@@ -138,6 +148,15 @@ public class DicomInputStream2 extends InputStream {
     public DicomInputStream2 withFragmentHandler(FragmentHandler handler) {
         this.onFragment = Objects.requireNonNull(handler);
         return this;
+    }
+
+    public DicomInputStream2 withParseItemsLazy(Predicate<Sequence> parseItemsPredicate) {
+        this.parseItemsLazyPredicate = Objects.requireNonNull(parseItemsPredicate);
+        return this;
+    }
+
+    public DicomInputStream2 withParseItemsLazy(int seqTag) {
+        return withParseItemsLazy(x -> x.tag == seqTag);
     }
 
     public long streamPosition() {
@@ -326,14 +345,54 @@ public class DicomInputStream2 extends InputStream {
             throws IOException {
         int itemlen = input.header2valueLength(header);
         if (header2tag(header) == Tag.Item) {
-            DicomObject2 dcmObj = new DicomObject2(input, header, dcmseq);
+            boolean parseLazy = parseItemsLazyPredicate.test(dcmseq);
+            DicomObject2 dcmObj = new DicomObject2(input, header, dcmseq, parseLazy ? -1 : 0);
             dcmseq.add(dcmObj);
-            if (!parse(dcmObj, itemlen))
+            if (parseLazy) {
+                skipItem(itemlen);
+            } else if (!parse(dcmObj, itemlen)) {
                 return false;
+            }
         } else {
             this.pos += itemlen & 0xffffffffL;
         }
         return true;
+    }
+
+    private void skipItem(int itemlen) throws IOException {
+        if (itemlen == -1) {
+            for(;;) {
+                long header = parseHeader(null);
+                int tag = header2tag(header);
+                int valueLength = input.header2valueLength(header);
+                if (valueLength == -1) {
+                    MemoryCache.DicomInput prevInput = null;
+                    if (input.encoding.explicitVR
+                            && cache.vrcode(pos - 8) == VR.UN.code
+                            && probeSQImplicitVR(pos)) {
+                        prevInput = input;
+                        input = cache.dicomInput(DicomEncoding.IVR_LE);
+                    }
+                    try {
+                        for (;;) {
+                            long itemheader = parseHeader(null);
+                            int itemtag = header2tag(itemheader);
+                            skipItem(input.header2valueLength(itemheader));
+                            if (itemtag == Tag.SequenceDelimitationItem) break;
+                        }
+                    } finally {
+                        if (prevInput != null) {
+                            input = prevInput;
+                        }
+                    }
+                } else {
+                    this.pos += valueLength & 0xffffffffL;
+                }
+                if (tag == Tag.ItemDelimitationItem) break;
+            }
+        } else {
+            this.pos += itemlen & 0xffffffffL;
+        }
     }
 
     public boolean onFragment(Fragments fragments, long header) throws IOException {
@@ -341,20 +400,6 @@ public class DicomInputStream2 extends InputStream {
         long uitemlen = input.header2valueLength(header) & 0xffffffffL;
         this.pos += uitemlen;
         return true;
-    }
-
-    int itemLength(long itemPosition) {
-        return input.intAt(itemPosition + 4);
-    }
-
-    boolean parseItem(long itemPosition, DicomObject2 dcmObj) throws IOException {
-        long prevPos = this.pos;
-        this.pos = itemPosition + 8;
-        try {
-            return parse(dcmObj, input.intAt(itemPosition + 4));
-        } finally {
-            this.pos = prevPos;
-        }
     }
 
     private void guessEncoding() throws IOException {
@@ -408,9 +453,12 @@ public class DicomInputStream2 extends InputStream {
     }
 
     private static VR lookupVR(int tag, DicomObject2 dcmObj) {
-        return ElementDictionary.vrOf(
-                dcmObj.privateCreatorOf(tag).orElse(null),
-                tag);
+        Optional<String> privateCreator;
+        return TagUtils.isPrivateTag(tag)
+                && dcmObj != null
+                && (privateCreator = dcmObj.privateCreatorOf(tag)).isPresent()
+                ? ElementDictionary.vrOf(privateCreator.get(), tag)
+                : ElementDictionary.vrOf(tag);
     }
 
     public boolean parse(DicomObject2 dcmObj, int length) throws IOException {
