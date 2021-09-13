@@ -59,16 +59,16 @@ public class DicomObject2 {
         return size() == 0;
     }
 
-    public boolean isRoot() {
-        return seq == null;
+    public boolean isItem() {
+        return seq != null;
     }
 
     public DicomObject2 getParent() {
         return seq != null ? seq.dcmobj : null;
     }
 
-    public int getSequenceTag() {
-        return seq != null ? seq.tag : 0;
+    public Sequence getSequence() {
+        return seq;
     }
 
     public boolean contains(int tag) {

@@ -56,6 +56,7 @@ public class DcmDump implements Callable<Integer> {
                     .withDicomElementHandler(this::onElement)
                     .withItemHandler(this::onItem)
                     .withFragmentHandler(this::onFragment)
+                    .withParseItemsEager(true)
                     .readDataSet();
         }
         return 0;

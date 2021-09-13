@@ -52,7 +52,7 @@ public class DicomInputStream2 extends InputStream {
     private FragmentHandler onFragment = DicomInputStream2::onFragment;
     private PreambleHandler preambleHandler = x -> {};
     private DicomElementPredicate bulkDataPredicate = (dcmObj, tag, vr, valueLength) -> false;
-    private Predicate<Sequence> parseItemsLazyPredicate = x -> false;
+    private Predicate<Sequence> parseItemsEagerPredicate = DicomInputStream2::isWaveformSequence;
     private DicomObject2 fmi;
 
     public DicomInputStream2(Path path, DicomElementPredicate bulkDataPredicate)
@@ -79,24 +79,23 @@ public class DicomInputStream2 extends InputStream {
             case Tag.DoubleFloatPixelData:
             case Tag.SpectroscopyData:
             case Tag.EncapsulatedDocument:
-                return dcmobj.isRoot();
+                return !dcmobj.isItem();
             case Tag.WaveformData:
-                return isWaveformSequenceItem(dcmobj);
+                return isWaveformSequence(dcmobj.getSequence());
         }
         switch (tag & 0xFF01FFFF) {
             case Tag.OverlayData:
             case Tag.CurveData:
             case Tag.AudioSampleData:
-                return dcmobj.isRoot();
+                return !dcmobj.isItem();
         }
         return false;
     }
 
-    private static boolean isWaveformSequenceItem(DicomObject2 item) {
-        DicomObject2 parent = item.getParent();
-        return parent != null
-                && item.getSequenceTag() == Tag.WaveformSequence
-                && parent.isRoot();
+    public static boolean isWaveformSequence(Sequence seq) {
+        return seq != null
+                && seq.tag == Tag.WaveformSequence
+                && !seq.getDicomObject().isItem();
     }
 
     public DicomEncoding encoding() {
@@ -150,13 +149,14 @@ public class DicomInputStream2 extends InputStream {
         return this;
     }
 
-    public DicomInputStream2 withParseItemsLazy(Predicate<Sequence> parseItemsPredicate) {
-        this.parseItemsLazyPredicate = Objects.requireNonNull(parseItemsPredicate);
+    public DicomInputStream2 withParseItemsEager(Predicate<Sequence> parseItemsPredicate) {
+        this.parseItemsEagerPredicate = Objects.requireNonNull(parseItemsPredicate);
         return this;
     }
 
-    public DicomInputStream2 withParseItemsLazy(int seqTag) {
-        return withParseItemsLazy(x -> x.tag == seqTag);
+    public DicomInputStream2 withParseItemsEager(boolean parseItemsEager) {
+        this.parseItemsEagerPredicate = seq -> parseItemsEager;
+        return this;
     }
 
     public long streamPosition() {
@@ -345,13 +345,13 @@ public class DicomInputStream2 extends InputStream {
             throws IOException {
         int itemlen = input.header2valueLength(header);
         if (header2tag(header) == Tag.Item) {
-            boolean parseLazy = parseItemsLazyPredicate.test(dcmseq);
-            DicomObject2 dcmObj = new DicomObject2(input, header, dcmseq, parseLazy ? -1 : 0);
+            boolean parseItems = parseItemsEagerPredicate.test(dcmseq);
+            DicomObject2 dcmObj = new DicomObject2(input, header, dcmseq, parseItems ? 0 : -1);
             dcmseq.add(dcmObj);
-            if (parseLazy) {
+            if (parseItems) {
+                if (!parse(dcmObj, itemlen)) return false;
+            } else {
                 skipItem(itemlen);
-            } else if (!parse(dcmObj, itemlen)) {
-                return false;
             }
         } else {
             this.pos += itemlen & 0xffffffffL;
@@ -471,7 +471,7 @@ public class DicomInputStream2 extends InputStream {
             try {
                 header = parseHeader(dcmObj);
             } catch (EOFException e) {
-                if (undefinedLength && dcmObj.isRoot() && pos0 == cache.limit()) break;
+                if (undefinedLength && !dcmObj.isItem() && pos0 == cache.limit()) break;
                 throw e;
             }
             int tag = input.tagAt(pos0);

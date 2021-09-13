@@ -151,27 +151,30 @@ public class DicomInputStreamTest2 {
             55, 0, 16, 0, 'L', 'O', 20, 0,
             'Q', 'U', 'A', 'S', 'A', 'R', '_', 'I', 'N', 'T', 'E', 'R', 'N', 'A', 'L', '_', 'U', 'S', 'E', ' ',
             55, 0, 16, 16, 'U', 'N', 0, 0, -1, -1, -1, -1,
-            -2, -1, 0, -32, 28, 0, 0, 0,
+            -2, -1, 0, -32, -1, -1, -1, -1,
             55, 0, 16, 0, 20, 0, 0, 0,
             'Q', 'U', 'A', 'S', 'A', 'R', '_', 'I', 'N', 'T', 'E', 'R', 'N', 'A', 'L', '_', 'U', 'S', 'E', ' ',
+            -2, -1, 13, -32, 0, 0, 0, 0,
             -2, -1, -35, -32, 0, 0, 0, 0
     };
     private static final byte[] UN_SEQ_EVR_LE = {
             55, 0, 16, 0, 'L', 'O', 20, 0,
             'Q', 'U', 'A', 'S', 'A', 'R', '_', 'I', 'N', 'T', 'E', 'R', 'N', 'A', 'L', '_', 'U', 'S', 'E', ' ',
             55, 0, 16, 16, 'U', 'N', 0, 0, -1, -1, -1, -1,
-            -2, -1, 0, -32, 28, 0, 0, 0,
+            -2, -1, 0, -32, -1, -1, -1, -1,
             55, 0, 16, 0, 'L', 'O', 20, 0,
             'Q', 'U', 'A', 'S', 'A', 'R', '_', 'I', 'N', 'T', 'E', 'R', 'N', 'A', 'L', '_', 'U', 'S', 'E', ' ',
+            -2, -1, 13, -32, 0, 0, 0, 0,
             -2, -1, -35, -32, 0, 0, 0, 0
     };
     private static final byte[] UN_SEQ_IVR_BE = {
             0, 55, 0, 16, 'L', 'O', 0, 20,
             'Q', 'U', 'A', 'S', 'A', 'R', '_', 'I', 'N', 'T', 'E', 'R', 'N', 'A', 'L', '_', 'U', 'S', 'E', ' ',
             0, 55, 16, 16, 'U', 'N', 0, 0, -1, -1, -1, -1,
-            -2, -1, 0, -32, 28, 0, 0, 0,
+            -2, -1, 0, -32, -1, -1, -1, -1,
             55, 0, 16, 0, 20, 0, 0, 0,
             'Q', 'U', 'A', 'S', 'A', 'R', '_', 'I', 'N', 'T', 'E', 'R', 'N', 'A', 'L', '_', 'U', 'S', 'E', ' ',
+            -2, -1, 13, -32, 0, 0, 0, 0,
             -2, -1, -35, -32, 0, 0, 0, 0
     };
     private static final byte[] UN_SEQ_EVR_BE = {
@@ -235,43 +238,45 @@ public class DicomInputStreamTest2 {
     }
 
     @Test
-    public void parseSequenceEVR_LE() throws IOException {
-        parseSequence(WF_SEQ_EVR_LE, DicomEncoding.EVR_LE, Tag.WaveformSequence);
+    public void parseWaveformSequenceEVR_LE() throws IOException {
+        parseSequence(WF_SEQ_EVR_LE, DicomEncoding.EVR_LE, Tag.WaveformSequence, 1);
     }
 
     @Test
-    public void parseSequenceIVR_LE() throws IOException {
-        parseSequence(WF_SEQ_IVR_LE, DicomEncoding.IVR_LE, Tag.WaveformSequence);
+    public void parseWaveformSequenceIVR_LE() throws IOException {
+        parseSequence(WF_SEQ_IVR_LE, DicomEncoding.IVR_LE, Tag.WaveformSequence, 1);
     }
 
     @Test
     public void parseSequenceUN_IVR_LE() throws IOException {
-        parseSequence(UN_SEQ_IVR_LE, DicomEncoding.EVR_LE, 0x00371010);
+        parseSequence(UN_SEQ_IVR_LE, DicomEncoding.EVR_LE, 0x00371010, 1);
     }
 
     @Test
     public void parseSequenceUN_EVR_LE() throws IOException {
-        parseSequence(UN_SEQ_EVR_LE, DicomEncoding.EVR_LE, 0x00371010);
+        parseSequence(UN_SEQ_EVR_LE, DicomEncoding.EVR_LE, 0x00371010, 1);
     }
 
     @Test
     public void parseSequenceUN_IVR_BE() throws IOException {
-        parseSequence(UN_SEQ_IVR_BE, DicomEncoding.EVR_BE, 0x00371010);
+        parseSequence(UN_SEQ_IVR_BE, DicomEncoding.EVR_BE, 0x00371010, 1);
     }
 
     @Test
     public void parseSequenceUN_EVR_BE() throws IOException {
-        parseSequence(UN_SEQ_EVR_BE, DicomEncoding.EVR_BE, 0x00371010);
+        parseSequence(UN_SEQ_EVR_BE, DicomEncoding.EVR_BE, 0x00371010, 1);
     }
 
     @Test
-    public void parsePerFrameFunctionalGroupsSequenceLazyIVR_LE() throws IOException {
-        parsePerFrameFunctionalGroupsSequenceLazy(PER_FRAME_FUNCTIONAL_GROUPS_SEQ_IVR_LE, DicomEncoding.IVR_LE);
+    public void parseSequenceIVR_LE() throws IOException {
+        parseSequence(PER_FRAME_FUNCTIONAL_GROUPS_SEQ_IVR_LE, DicomEncoding.IVR_LE,
+                Tag.PerFrameFunctionalGroupsSequence, 2);
     }
 
     @Test
-    public void parsePerFrameFunctionalGroupsSequenceLazyEVR_LE() throws IOException {
-        parsePerFrameFunctionalGroupsSequenceLazy(PER_FRAME_FUNCTIONAL_GROUPS_SEQ_EVR_LE, DicomEncoding.EVR_LE);
+    public void parseSequenceEVR_LE() throws IOException {
+        parseSequence(PER_FRAME_FUNCTIONAL_GROUPS_SEQ_EVR_LE, DicomEncoding.EVR_LE,
+                Tag.PerFrameFunctionalGroupsSequence, 2);
     }
 
     @Test
@@ -358,9 +363,9 @@ public class DicomInputStreamTest2 {
         }
     }
 
-    static void parseSequence(byte[] b, DicomEncoding encoding, int tag) throws IOException {
+    static void parseSequence(byte[] b, DicomEncoding encoding, int tag, int size) throws IOException {
         Optional<Sequence> items = parseWithEncoding(b, encoding).getSequence(tag);
-        assertEquals(1, items.orElseGet(Assertions::fail).size());
+        assertEquals(size, items.orElseGet(Assertions::fail).size());
     }
 
     static DicomObject2 parseWithEncoding(byte[] b, DicomEncoding encoding) throws IOException {
@@ -412,27 +417,6 @@ public class DicomInputStreamTest2 {
         assertEquals(-1L, dcmObj.getLong(Tag.SelectorOVValue).orElseGet(Assertions::fail));
         assertEquals(-1L, dcmObj.getLong(Tag.SelectorSVValue).orElseGet(Assertions::fail));
         assertEquals(-1L, dcmObj.getLong(Tag.SelectorUVValue).orElseGet(Assertions::fail));
-    }
-
-    static void parsePerFrameFunctionalGroupsSequenceLazy(byte[] b, DicomEncoding encoding) throws IOException {
-        DicomObject2 dataset = parseLazy(b, encoding, Tag.PerFrameFunctionalGroupsSequence);
-        Sequence functionalGroupSeq = dataset.getSequence(Tag.PerFrameFunctionalGroupsSequence)
-                .orElseGet(Assertions::fail);
-        DicomObject2 functionalGroup = functionalGroupSeq.getItem(0);
-        Sequence mrEchoSeq = functionalGroup.getSequence(Tag.MREchoSequence).orElseGet(Assertions::fail);
-        DicomObject2 mrEcho = mrEchoSeq.getItem(0);
-        assertEquals(1.4000005722045896, mrEcho.getDouble(Tag.EffectiveEchoTime).orElseGet(Assertions::fail));
-        Sequence planePositionSeq = functionalGroup.getSequence(Tag.PlanePositionSequence).orElseGet(Assertions::fail);
-        assertTrue(planePositionSeq.isEmpty());
-        assertTrue(functionalGroupSeq.getItem(1).isEmpty());
-    }
-
-    static DicomObject2 parseLazy(byte[] b, DicomEncoding encoding, int seqTag) throws IOException {
-        try (DicomInputStream2 dis = new DicomInputStream2(new ByteArrayInputStream(b))
-                .withEncoding(encoding)
-                .withParseItemsLazy(seqTag)) {
-            return dis.readDataSet();
-        }
     }
 
 }
