@@ -67,7 +67,7 @@ public class DicomInputStream2 extends InputStream {
         this.cache = new MemoryCache();
     }
 
-    public DicomInputStream2(DicomInput input) {
+    DicomInputStream2(DicomInput input) {
         this.input = input;
         this.cache = input.cache();
     }
