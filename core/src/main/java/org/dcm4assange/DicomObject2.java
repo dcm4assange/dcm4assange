@@ -15,8 +15,8 @@ public class DicomObject2 {
     private static final Object[] EMPTY_VALUES = {};
     final MemoryCache.DicomInput dicomInput;
     final long header;
-    private long[] headers;
     private Sequence seq;
+    private long[] headers;
     private Object[] values;
     private SpecificCharacterSet specificCharacterSet;
 
@@ -33,6 +33,26 @@ public class DicomObject2 {
         this.values = EMPTY_VALUES;
         this.seq = seq;
         this.size = size;
+    }
+
+    DicomObject2(DicomObject2 o) {
+        this(o.dicomInput, o.header, o.seq, o.size);
+        if (size > 0) {
+            this.headers = Arrays.copyOf(o.headers, size);
+            this.values = Arrays.copyOf(o.values, size);
+            this.specificCharacterSet = o.specificCharacterSet;
+            for (int i = 0; i < size; i++) {
+                if (values[i] instanceof Sequence seq) {
+                    values[i] = new Sequence(this, seq);
+                } else if (values[i] instanceof Fragments frag) {
+                    values[i] = new Fragments(this, frag);
+                }
+            }
+        }
+    }
+
+    public DicomObject2() {
+        this(null, 0, null, 0);
     }
 
     public SpecificCharacterSet specificCharacterSet() {
@@ -73,6 +93,11 @@ public class DicomObject2 {
 
     public boolean contains(int tag) {
         return indexOf(tag) >= 0;
+    }
+
+    public boolean containsValue(int tag) {
+        int i = indexOf(tag);
+        return i >= 0 && !isEmpty(headers[i], values[i]);
     }
 
     public Optional<String> privateCreatorOf(int tag) {
@@ -144,6 +169,14 @@ public class DicomObject2 {
                 : Optional.empty();
     }
 
+    public void setString(int tag, VR vr, String... vals) {
+        add(tag, vr, vr.type.valueOf(vals));
+    }
+
+    public void setInt(int tag, VR vr, int... vals) {
+        add(tag, vr, vr.type.valueOf(vals));
+    }
+
     long getHeader(int index) {
         return headers[index];
     }
@@ -154,6 +187,10 @@ public class DicomObject2 {
 
     void setValue(int index, Object value) {
         values[index] = value;
+    }
+
+    public int add(int tag, VR vr, Object value) {
+        return add(vr.toHeader() | (tag & 0xffffffffL), value);
     }
 
     public int add(long header, Object value) {
@@ -228,6 +265,14 @@ public class DicomObject2 {
         return ((int)(header >>> 62) == 0) ? -1 : dicomInput.header2valueLength(header);
     }
 
+    boolean isEmpty(long header, Object value) {
+        return value instanceof byte[] b ? b.length == 0
+                : value instanceof String[] ss ? ss.length == 0
+                : value instanceof Sequence seq ? seq.size() == 0
+                : value instanceof Fragments frags ? frags.size() == 0
+                : dicomInput.header2valueLength(header) == 0;
+    }
+
     public StringBuilder promptElementTo(long header, StringBuilder sb, int maxLength) {
         return promptTo(false, header, sb, maxLength);
     }
@@ -261,5 +306,183 @@ public class DicomObject2 {
             appendTo.append('>');
         }
         return appendTo;
+    }
+
+    Encoder createEncoder(DicomEncoding encoding,
+                          boolean includeGroupLength,
+                          boolean undefSequenceLength,
+                          boolean undefItemLength) {
+        return new Encoder(encoding, includeGroupLength, undefSequenceLength, undefItemLength);
+    }
+
+    class Encoder {
+        private static final int BUFFER_SIZE = 8192;
+        private final DicomEncoding encoding;
+        private final boolean includeGroupLength;
+        private final boolean undefSequenceLength;
+        private final boolean undefItemLength;
+        private final int[] groupLengths;
+        private final int itemLength;
+        private byte[] swapBuffer;
+
+        Encoder(DicomEncoding encoding,
+                boolean includeGroupLength,
+                boolean undefSequenceLength,
+                boolean undefItemLength) {
+            this.encoding = encoding;
+            this.includeGroupLength = includeGroupLength;
+            this.undefSequenceLength = undefSequenceLength;
+            this.undefItemLength = undefItemLength;
+            this.groupLengths = includeGroupLength && size != 0
+                    ? new int[numberOfGroups()]
+                    : ByteOrder.EMPTY_INTS;
+            this.itemLength = calc();
+        }
+
+        private int calc() {
+            int size = size();
+            if (size == 0) return 0;
+            int length = groupLengths.length * 12;
+            int groupLengthsIndex = -1;
+            int gggg0000 = -1;
+            for (int i = 0; i < size; i++) {
+                long header = headers[i];
+                int l = totLength(header, i);
+                length += l;
+                if (includeGroupLength) {
+                    int hhhh0000 = TagUtils.groupLengthTagOf(header2tag(header));
+                    if (gggg0000 != hhhh0000) {
+                        gggg0000 = hhhh0000;
+                        groupLengthsIndex++;
+                    }
+                    groupLengths[groupLengthsIndex] += l;
+                }
+            }
+            return length;
+        }
+
+        private int valueLength(long header, VR vr, int index) {
+            Object value = values[index];
+            if (value instanceof Sequence seq) {
+                Encoder[] encoders = new Encoder[seq.size()];
+                for (int i = 0; i < encoders.length; i++) {
+                    encoders[i] = seq.getItem(i).createEncoder(
+                                    encoding, includeGroupLength, undefSequenceLength, undefItemLength);
+                }
+                values[index] = value = encoders;
+            }
+            if (value instanceof Encoder[] encoders) {
+                int length = encoders.length * 8;
+                for (Encoder encoder : encoders) {
+                    length += encoder.itemLength;
+                    if (undefItemLength) length += 8;
+                }
+                return length;
+            }
+            if (value instanceof String[] ss) {
+                values[index] = value = vr.type.toBytes(ss, DicomObject2.this);
+            }
+            if (value instanceof byte[] b) {
+                return (b.length + 1) & ~1;
+            }
+            return header2valueLength(header);
+        }
+
+        private int totLength(long header, int index) {
+            VR vr = VR.fromHeader(header);
+            return (vr.evr8 || !encoding.explicitVR ? 8 : 12)
+                    + valueLength(header, vr, index)
+                    + (undefSequenceLength && vr == VR.SQ ? 8 : 0);
+        }
+
+        public void writeTo(DicomOutputStream2 out) throws IOException {
+            int size = size();
+            if (size == 0) return;
+            byte[] b12 = new byte[12];
+            int groupLengthsIndex = -1;
+            int gggg0000 = -1;
+            for (int index = 0; index < size; index++) {
+                long header = headers[index];
+                int tag = header2tag(header);
+                if (includeGroupLength) {
+                    int hhhh0000 = TagUtils.groupLengthTagOf(tag);
+                    if (gggg0000 != hhhh0000) {
+                        gggg0000 = hhhh0000;
+                        groupLengthsIndex++;
+                        fillHeader(gggg0000, VR.UL, 4, b12);
+                        encoding.byteOrder.intToBytes(groupLengths[groupLengthsIndex], b12, 8);
+                        out.write(b12, 0, 12);
+                    }
+                }
+                Object value = values[index];
+                VR vr = VR.fromHeader(header);
+                int vlen = valueLength(header, vr, index);
+                if (value instanceof Encoder[] encoders) {
+                    out.write(b12, 0, fillHeader(tag, vr, undefSequenceLength ? -1 : vlen, b12));
+                    for (Encoder encoder : encoders) {
+                        out.write(b12, 0, fillHeader(Tag.Item, null, undefItemLength ? -1 : encoder.itemLength, b12));
+                        encoder.writeTo(out);
+                        if (undefItemLength)
+                            out.write(b12, 0, fillHeader(Tag.ItemDelimitationItem, null, 0, b12));
+                    }
+                    if (undefSequenceLength)
+                        out.write(b12, 0, fillHeader(Tag.SequenceDelimitationItem, null, 0, b12));
+                } else {
+                    out.write(b12, 0, fillHeader(tag, vr, vlen, b12));
+                    if (value instanceof byte[] b) {
+                        out.write(b);
+                        if ((b.length & 1) != 0)
+                            out.write(vr.paddingByte);
+                    } else {
+                        if (encoding.byteOrder == dicomInput.encoding.byteOrder || vr.type.toggleEndian() == null)
+                            dicomInput.cache().writeBytesTo(header2valuePosition(header), vlen, out);
+                        else
+                            dicomInput.cache().writeSwappedBytesTo(header2valuePosition(header), vlen, out,
+                                    vr.type.toggleEndian(), swapBuffer());
+                    }
+                }
+            }
+        }
+
+        private byte[] swapBuffer() {
+            byte[] swapBuffer = this.swapBuffer;
+            if (swapBuffer == null)
+                this.swapBuffer = swapBuffer = new byte[BUFFER_SIZE];
+            return swapBuffer;
+        }
+
+        private int fillHeader(int tag, VR vr, int length, byte[] b12) {
+            encoding.byteOrder.tagToBytes(tag, b12, 0);
+            if (!encoding.explicitVR || vr == null) {
+                encoding.byteOrder.intToBytes(length, b12, 4);
+                return 8;
+            }
+            b12[4] = (byte) (vr.code >>> 8);
+            b12[5] = (byte) vr.code;
+            if (vr.evr8) {
+                encoding.byteOrder.shortToBytes(length, b12, 6);
+                return 8;
+            }
+            b12[6] = 0;
+            b12[7] = 0;
+            encoding.byteOrder.intToBytes(length, b12, 8);
+            return 12;
+        }
+    }
+
+    private int numberOfGroups() {
+        int size = size();
+        if (size == 0) return 0;
+        int gggg0000 = TagUtils.groupLengthTagOf(header2tag(headers[0]));
+        if (gggg0000 == TagUtils.groupLengthTagOf(header2tag(headers[size - 1]))) return 1;
+        int n = 1;
+        for (int i = 1; i < size; i++) {
+            int hhhh0000 = TagUtils.groupLengthTagOf(header2tag(headers[i]));
+            if (gggg0000 != hhhh0000) {
+                gggg0000 = hhhh0000;
+                n++;
+            }
+        }
+        return n;
     }
 }

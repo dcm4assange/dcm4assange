@@ -179,4 +179,16 @@ interface VRType {
     default int paddingByte() {
         return 0;
     }
+
+    default byte[] toBytes(String[] ss, DicomObject2 dcmobj) {
+        throw new UnsupportedOperationException();
+    }
+
+    default Object valueOf(String[] ss) {
+        throw new UnsupportedOperationException();
+    }
+
+    default Object valueOf(int[] vals) {
+        throw new UnsupportedOperationException();
+    }
 }

@@ -36,6 +36,15 @@ public class Sequence {
         this.tag = tag;
     }
 
+    Sequence(DicomObject2 dcmobj, Sequence o) {
+        this(dcmobj, o.tag);
+        this.items = new DicomObject2[o.size];
+        this.size = o.size;
+        for (int i = 0; i < o.size; i++) {
+            items[i] = new DicomObject2(o.items[i]);
+        }
+    }
+
     public void add(DicomObject2 dcmObj) {
         int index = size++;
         ensureCapacity(index);

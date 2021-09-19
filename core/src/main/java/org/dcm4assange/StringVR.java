@@ -69,6 +69,16 @@ enum StringVR implements VRType {
     }
 
     @Override
+    public byte[] toBytes(String[] ss, DicomObject2 dcmobj) {
+        return asciiOrCS2.apply(dcmobj).encode(StringUtils.join(ss, 0, ss.length, '\\'), delimiters);
+    }
+
+    @Override
+    public Object valueOf(String[] ss) {
+        return ss;
+    }
+
+    @Override
     public Optional<String> stringValue(DicomInput input, long valuePos, int valueLen, DicomObject dcmobj) {
         return stringValue(input.stringAt(valuePos, valueLen, asciiOrCS.apply(dcmobj)));
     }

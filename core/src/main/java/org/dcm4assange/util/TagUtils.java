@@ -45,10 +45,6 @@ public class TagUtils {
                 HEX_DIGITS[tag & 0xF]};
     }
 
-    public static int groupNumber(int tag) {
-        return tag >>> 16;
-    }
-
     public static int elementNumber(int tag) {
         return tag & 0xFFFF;
     }

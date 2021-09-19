@@ -320,6 +320,18 @@ enum BinaryVR implements VRType {
         return new ByteArrayElement(dcmObj, tag, vr, b);
     }
 
+    @Override
+    public Object valueOf(int[] vals) {
+        if (vals.length == 0) {
+            return ByteOrder.EMPTY_BYTES;
+        }
+        byte[] b = new byte[vals.length * bytes];
+        for (int i = 0; i < vals.length; i++) {
+            intToBytes(vals[i], b, i * bytes);
+        }
+        return b;
+    }
+
     int intAt(DicomInput input, long pos) {
         return input.intAt(pos);
     }

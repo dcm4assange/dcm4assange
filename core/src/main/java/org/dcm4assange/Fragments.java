@@ -36,6 +36,12 @@ public class Fragments {
         this.tag = tag;
     }
 
+    Fragments(DicomObject2 dcmobj, Fragments o) {
+        this(dcmobj, o.tag);
+        this.headers = Arrays.copyOf(o.headers, o.size);
+        this.size = o.size;
+    }
+
     public void add(long header) {
         int index = size++;
         ensureCapacity(index);

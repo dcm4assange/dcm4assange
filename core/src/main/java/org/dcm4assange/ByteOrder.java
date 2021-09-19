@@ -152,4 +152,9 @@ public enum ByteOrder {
     public abstract void tagToBytes(int val, byte[] dest, int destPos);
 
     public abstract void longToBytes(long val, byte[] dest, int destPos);
+
+    public static final byte[] EMPTY_BYTES = {};
+    public static final short[] EMPTY_SHORTS = {};
+    public static final int[] EMPTY_INTS = {};
+    public static final long[] EMPTY_LONGS = {};
 }
