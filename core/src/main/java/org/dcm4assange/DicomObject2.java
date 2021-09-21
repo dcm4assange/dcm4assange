@@ -21,6 +21,7 @@ public class DicomObject2 {
     private SpecificCharacterSet specificCharacterSet;
 
     private int size;
+    private int length = -1;
 
     DicomObject2(MemoryCache.DicomInput dicomInput) {
         this(dicomInput, 0, null, 0);
@@ -38,8 +39,9 @@ public class DicomObject2 {
     DicomObject2(DicomObject2 o) {
         this(o.dicomInput, o.header, o.seq, o.size);
         if (size > 0) {
-            this.headers = Arrays.copyOf(o.headers, size);
-            this.values = Arrays.copyOf(o.values, size);
+            int capacity = size + 1; // reserve space to include Group Length
+            this.headers = Arrays.copyOf(o.headers, capacity);
+            this.values = Arrays.copyOf(o.values, capacity);
             this.specificCharacterSet = o.specificCharacterSet;
             for (int i = 0; i < size; i++) {
                 if (values[i] instanceof Sequence seq) {
@@ -73,6 +75,14 @@ public class DicomObject2 {
             }
         }
         return size;
+    }
+
+    int length() {
+        return length;
+    }
+
+    void setLength(int length) {
+        this.length = length;
     }
 
     public boolean isEmpty() {
@@ -308,181 +318,83 @@ public class DicomObject2 {
         return appendTo;
     }
 
-    Encoder createEncoder(DicomEncoding encoding,
-                          boolean includeGroupLength,
-                          boolean undefSequenceLength,
-                          boolean undefItemLength) {
-        return new Encoder(encoding, includeGroupLength, undefSequenceLength, undefItemLength);
+    int calculateLength(DicomOutputStream2 dos, int[] groupLengthTags) {
+        int size = size();
+        int length = 0;
+        int[] groupLengths =  groupLengthTags != null ? new int[groupLengthTags.length] : null;
+        for (int index = 0, gi = 0; index < size; index++) {
+            long header = headers[index];
+            VR vr = VR.fromHeader(header);
+            int l = (vr.evr8 || !dos.encoding().explicitVR ? 8 : 12)
+                    + valueLength(dos, header, vr, index)
+                    + (dos.undefSequenceLength() && vr == VR.SQ ? 8 : 0);
+            length += l;
+            if (groupLengthTags != null) {
+                if (groupLengthTags[gi] != TagUtils.groupLengthTagOf(header2tag(header))) gi++;
+                groupLengths[gi] += l;
+            }
+        }
+        if (groupLengthTags != null) {
+            for (int i = 0; i < groupLengthTags.length; i++) {
+                setInt(groupLengthTags[i], VR.UL, groupLengths[i]);
+                length += 12;
+            }
+        }
+        this.length = length;
+        return length;
     }
 
-    class Encoder {
-        private static final int BUFFER_SIZE = 8192;
-        private final DicomEncoding encoding;
-        private final boolean includeGroupLength;
-        private final boolean undefSequenceLength;
-        private final boolean undefItemLength;
-        private final int[] groupLengths;
-        private final int itemLength;
-        private byte[] swapBuffer;
-
-        Encoder(DicomEncoding encoding,
-                boolean includeGroupLength,
-                boolean undefSequenceLength,
-                boolean undefItemLength) {
-            this.encoding = encoding;
-            this.includeGroupLength = includeGroupLength;
-            this.undefSequenceLength = undefSequenceLength;
-            this.undefItemLength = undefItemLength;
-            this.groupLengths = includeGroupLength && size != 0
-                    ? new int[numberOfGroups()]
-                    : ByteOrder.EMPTY_INTS;
-            this.itemLength = calc();
-        }
-
-        private int calc() {
-            int size = size();
-            if (size == 0) return 0;
-            int length = groupLengths.length * 12;
-            int groupLengthsIndex = -1;
-            int gggg0000 = -1;
+    private int valueLength(DicomOutputStream2 dos, long header, VR vr, int index) {
+        Object value = values[index];
+        if (value instanceof Sequence seq) {
+            int size = seq.size();
+            int length = (dos.undefItemLength() ? 16 : 8) * size;
             for (int i = 0; i < size; i++) {
-                long header = headers[i];
-                int l = totLength(header, i);
-                length += l;
-                if (includeGroupLength) {
-                    int hhhh0000 = TagUtils.groupLengthTagOf(header2tag(header));
-                    if (gggg0000 != hhhh0000) {
-                        gggg0000 = hhhh0000;
-                        groupLengthsIndex++;
-                    }
-                    groupLengths[groupLengthsIndex] += l;
-                }
+                DicomObject2 item = seq.getItem(i);
+                length += item.calculateLength(dos, dos.includeGroupLength() ? item.groupLengthTags() : null);
             }
             return length;
         }
+        if (value instanceof String[] ss) {
+            values[index] = value = vr.type.toBytes(ss, DicomObject2.this);
+        }
+        if (value instanceof byte[] b) {
+            return (b.length + 1) & ~1;
+        }
+        return header2valueLength(header);
+    }
 
-        private int valueLength(long header, VR vr, int index) {
+    void writeTo(DicomOutputStream2 out) throws IOException {
+        for (int index = 0, n = size; index < n; index++) {
+            long header = headers[index];
             Object value = values[index];
             if (value instanceof Sequence seq) {
-                Encoder[] encoders = new Encoder[seq.size()];
-                for (int i = 0; i < encoders.length; i++) {
-                    encoders[i] = seq.getItem(i).createEncoder(
-                                    encoding, includeGroupLength, undefSequenceLength, undefItemLength);
-                }
-                values[index] = value = encoders;
-            }
-            if (value instanceof Encoder[] encoders) {
-                int length = encoders.length * 8;
-                for (Encoder encoder : encoders) {
-                    length += encoder.itemLength;
-                    if (undefItemLength) length += 8;
-                }
-                return length;
-            }
-            if (value instanceof String[] ss) {
-                values[index] = value = vr.type.toBytes(ss, DicomObject2.this);
-            }
-            if (value instanceof byte[] b) {
-                return (b.length + 1) & ~1;
-            }
-            return header2valueLength(header);
-        }
-
-        private int totLength(long header, int index) {
-            VR vr = VR.fromHeader(header);
-            return (vr.evr8 || !encoding.explicitVR ? 8 : 12)
-                    + valueLength(header, vr, index)
-                    + (undefSequenceLength && vr == VR.SQ ? 8 : 0);
-        }
-
-        public void writeTo(DicomOutputStream2 out) throws IOException {
-            int size = size();
-            if (size == 0) return;
-            byte[] b12 = new byte[12];
-            int groupLengthsIndex = -1;
-            int gggg0000 = -1;
-            for (int index = 0; index < size; index++) {
-                long header = headers[index];
-                int tag = header2tag(header);
-                if (includeGroupLength) {
-                    int hhhh0000 = TagUtils.groupLengthTagOf(tag);
-                    if (gggg0000 != hhhh0000) {
-                        gggg0000 = hhhh0000;
-                        groupLengthsIndex++;
-                        fillHeader(gggg0000, VR.UL, 4, b12);
-                        encoding.byteOrder.intToBytes(groupLengths[groupLengthsIndex], b12, 8);
-                        out.write(b12, 0, 12);
-                    }
-                }
-                Object value = values[index];
-                VR vr = VR.fromHeader(header);
-                int vlen = valueLength(header, vr, index);
-                if (value instanceof Encoder[] encoders) {
-                    out.write(b12, 0, fillHeader(tag, vr, undefSequenceLength ? -1 : vlen, b12));
-                    for (Encoder encoder : encoders) {
-                        out.write(b12, 0, fillHeader(Tag.Item, null, undefItemLength ? -1 : encoder.itemLength, b12));
-                        encoder.writeTo(out);
-                        if (undefItemLength)
-                            out.write(b12, 0, fillHeader(Tag.ItemDelimitationItem, null, 0, b12));
-                    }
-                    if (undefSequenceLength)
-                        out.write(b12, 0, fillHeader(Tag.SequenceDelimitationItem, null, 0, b12));
+                out.write(seq);
+            } else {
+                if (value instanceof byte[] b) {
+                    out.write(header2tag(header), VR.fromHeader(header), b);
                 } else {
-                    out.write(b12, 0, fillHeader(tag, vr, vlen, b12));
-                    if (value instanceof byte[] b) {
-                        out.write(b);
-                        if ((b.length & 1) != 0)
-                            out.write(vr.paddingByte);
-                    } else {
-                        if (encoding.byteOrder == dicomInput.encoding.byteOrder || vr.type.toggleEndian() == null)
-                            dicomInput.cache().writeBytesTo(header2valuePosition(header), vlen, out);
-                        else
-                            dicomInput.cache().writeSwappedBytesTo(header2valuePosition(header), vlen, out,
-                                    vr.type.toggleEndian(), swapBuffer());
-                    }
+                    out.write(header, dicomInput);
                 }
             }
-        }
-
-        private byte[] swapBuffer() {
-            byte[] swapBuffer = this.swapBuffer;
-            if (swapBuffer == null)
-                this.swapBuffer = swapBuffer = new byte[BUFFER_SIZE];
-            return swapBuffer;
-        }
-
-        private int fillHeader(int tag, VR vr, int length, byte[] b12) {
-            encoding.byteOrder.tagToBytes(tag, b12, 0);
-            if (!encoding.explicitVR || vr == null) {
-                encoding.byteOrder.intToBytes(length, b12, 4);
-                return 8;
-            }
-            b12[4] = (byte) (vr.code >>> 8);
-            b12[5] = (byte) vr.code;
-            if (vr.evr8) {
-                encoding.byteOrder.shortToBytes(length, b12, 6);
-                return 8;
-            }
-            b12[6] = 0;
-            b12[7] = 0;
-            encoding.byteOrder.intToBytes(length, b12, 8);
-            return 12;
         }
     }
 
-    private int numberOfGroups() {
+    int[] groupLengthTags() {
         int size = size();
-        if (size == 0) return 0;
+        if (size == 0) return ByteOrder.EMPTY_INTS;
         int gggg0000 = TagUtils.groupLengthTagOf(header2tag(headers[0]));
-        if (gggg0000 == TagUtils.groupLengthTagOf(header2tag(headers[size - 1]))) return 1;
-        int n = 1;
-        for (int i = 1; i < size; i++) {
-            int hhhh0000 = TagUtils.groupLengthTagOf(header2tag(headers[i]));
-            if (gggg0000 != hhhh0000) {
-                gggg0000 = hhhh0000;
-                n++;
+        int[] tags = { gggg0000 };
+        if (gggg0000 != TagUtils.groupLengthTagOf(header2tag(headers[size - 1]))) {
+            int n = 1;
+            for (int i = 1; i < size; i++) {
+                int hhhh0000 = TagUtils.groupLengthTagOf(header2tag(headers[i]));
+                if (gggg0000 != hhhh0000) {
+                    tags = Arrays.copyOf(tags, n + 1);
+                    tags[n++] = gggg0000 = hhhh0000;
+                }
             }
         }
-        return n;
+        return tags;
     }
 }

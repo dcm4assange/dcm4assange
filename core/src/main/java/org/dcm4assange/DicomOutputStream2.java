@@ -20,7 +20,6 @@ package org.dcm4assange;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Objects;
-import java.util.function.IntPredicate;
 import java.util.zip.Deflater;
 import java.util.zip.DeflaterOutputStream;
 
@@ -29,11 +28,14 @@ import java.util.zip.DeflaterOutputStream;
  * @since Sep 2021
  */
 public class DicomOutputStream2 extends OutputStream  {
+    private static final int BUFFER_SIZE = 8192;
     private OutputStream out;
     private DicomEncoding encoding;
     private boolean includeGroupLength;
     private boolean undefSequenceLength;
     private boolean undefItemLength;
+    private byte[] b12 = new byte[12];
+    private byte[] swapBuffer;
 
     public DicomOutputStream2(OutputStream out) {
         this.out = Objects.requireNonNull(out);
@@ -106,12 +108,9 @@ public class DicomOutputStream2 extends OutputStream  {
     }
 
     public DicomOutputStream2 writeFileMetaInformation(DicomObject2 fmi) throws IOException {
-        if (encoding != null)
-            throw new IllegalStateException("encoding already initialized: " + encoding);
-
+        ensureEncoding(DicomEncoding.EVR_LE);
         if (!fmi.containsValue(Tag.TransferSyntaxUID))
             throw new IllegalArgumentException("missing Transfer Syntax UID");
-
 
         byte[] b = new byte[132];
         b[128] = 'D';
@@ -119,9 +118,7 @@ public class DicomOutputStream2 extends OutputStream  {
         b[130] = 'C';
         b[131] = 'M';
         write(b);
-        new DicomObject2(fmi)
-                .createEncoder(DicomEncoding.EVR_LE, true, undefSequenceLength, undefItemLength)
-                .writeTo(this);
+        write(fmi, new int[] { Tag.FileMetaInformationGroupLength });
         return withEncoding(fmi);
     }
 
@@ -129,20 +126,95 @@ public class DicomOutputStream2 extends OutputStream  {
         if (encoding == null)
             throw new IllegalStateException("encoding not initialized");
 
-        new DicomObject2(dcmobj)
-                .createEncoder(encoding, includeGroupLength, undefSequenceLength, undefItemLength)
-                .writeTo(this);
+        write(dcmobj, includeGroupLength ? dcmobj.groupLengthTags() : null);
     }
 
     public void writeCommandSet(DicomObject2 dcmobj) throws IOException {
-        if (encoding != null)
-            throw new IllegalStateException("encoding already initialized: " + encoding);
-
+        ensureEncoding(DicomEncoding.IVR_LE);
         if (dcmobj.isEmpty())
             throw new IllegalArgumentException("empty command set");
 
-        new DicomObject2(dcmobj)
-                .createEncoder(DicomEncoding.IVR_LE, true, undefSequenceLength, undefItemLength)
-                .writeTo(this);
+        write(dcmobj, new int[] { Tag.CommandGroupLength });
+    }
+
+    private void ensureEncoding(DicomEncoding encoding) {
+        if (this.encoding == null)
+            this.encoding = encoding;
+        else if (this.encoding != encoding)
+            throw new IllegalStateException("invalid encoding: " + encoding);
+    }
+
+    private void write(DicomObject2 dcmobj, int[] groupLengthTags) throws IOException {
+        DicomObject2 tmp = new DicomObject2(dcmobj);
+        tmp.calculateLength(this, groupLengthTags);
+        tmp.writeTo(this);
+    }
+
+    void writeHeader(int tag, VR vr, int length) throws IOException {
+        write(b12, 0, fillHeader(tag, vr, length, b12));
+    }
+
+    private int fillHeader(int tag, VR vr, int length, byte[] b12) {
+        ByteOrder byteOrder = encoding.byteOrder;
+        byteOrder.tagToBytes(tag, b12, 0);
+        if (!encoding.explicitVR || vr == null) {
+            byteOrder.intToBytes(length, b12, 4);
+            return 8;
+        }
+        b12[4] = (byte) (vr.code >>> 8);
+        b12[5] = (byte) vr.code;
+        if (vr.evr8) {
+            byteOrder.shortToBytes(length, b12, 6);
+            return 8;
+        }
+        b12[6] = 0;
+        b12[7] = 0;
+        byteOrder.intToBytes(length, b12, 8);
+        return 12;
+    }
+
+    void write(Sequence seq) throws IOException {
+        writeHeader(seq.tag, VR.SQ, undefSequenceLength ? -1 : valueLength(seq));
+        for (int i = 0, n = seq.size(); i < n; i++) {
+            DicomObject2 item = seq.getItem(i);
+            writeHeader(Tag.Item, null, undefItemLength ? -1 : item.length());
+            item.writeTo(this);
+            if (undefItemLength)
+                writeHeader(Tag.ItemDelimitationItem, null, 0);
+        }
+        if (undefSequenceLength)
+            writeHeader(Tag.SequenceDelimitationItem, null, 0);
+    }
+
+    private int valueLength(Sequence seq) {
+        int length = (undefItemLength ? 16 : 8) * seq.size();
+        for (int i = 0; i < seq.size(); i++) {
+            length += seq.getItem(i).length();
+        }
+        return length;
+    }
+
+    void write(int tag, VR vr, byte[] b) throws IOException {
+        writeHeader(tag, vr, (b.length + 1) & ~1);
+        write(b);
+        if ((b.length & 1) != 0)
+            write(vr.paddingByte);
+    }
+
+    void write(long header, MemoryCache.DicomInput dicomInput) throws IOException {
+        int tag = dicomInput.tagAt(header & 0x00ffffffffffffffL);
+        VR vr = VR.fromHeader(header);
+        int vlen = dicomInput.header2valueLength(header);
+        writeHeader(tag, vr, vlen);
+        if (encoding.byteOrder == dicomInput.encoding.byteOrder || vr.type.toggleEndian() == null)
+            dicomInput.cache().writeBytesTo(DicomObject2.header2valuePosition(header), vlen, this);
+        else {
+            byte[] swapBuffer = this.swapBuffer;
+            if (swapBuffer == null) {
+                this.swapBuffer = swapBuffer = new byte[BUFFER_SIZE];
+            }
+            dicomInput.cache().writeSwappedBytesTo(DicomObject2.header2valuePosition(header), vlen, this,
+                    vr.type.toggleEndian(), swapBuffer);
+        }
     }
 }
