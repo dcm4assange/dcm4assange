@@ -221,6 +221,9 @@ class MemoryCache {
     }
 
     void writeBytesTo(long pos, int length, OutputStream out) throws IOException {
+        if (length == 0) {
+            return;
+        }
         int i = blockIndex(pos);
         byte[] src = blocks.get(i);
         int srcPos = blockOffset(src, pos);

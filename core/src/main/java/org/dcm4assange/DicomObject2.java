@@ -14,7 +14,7 @@ public class DicomObject2 {
     private static final long[] EMPTY_HEADERS = {};
     private static final Object[] EMPTY_VALUES = {};
     final MemoryCache.DicomInput dicomInput;
-    final long header;
+    final long position;
     private Sequence seq;
     private long[] headers;
     private Object[] values;
@@ -23,13 +23,10 @@ public class DicomObject2 {
     private int size;
     private int length = -1;
 
-    DicomObject2(MemoryCache.DicomInput dicomInput) {
-        this(dicomInput, 0, null, 0);
-    }
-
-    DicomObject2(MemoryCache.DicomInput dicomInput, long header, Sequence seq, int size) {
+    DicomObject2(MemoryCache.DicomInput dicomInput, long position, int length, Sequence seq, int size) {
         this.dicomInput = dicomInput;
-        this.header = header;
+        this.position = position;
+        this.length = length;
         this.headers = EMPTY_HEADERS;
         this.values = EMPTY_VALUES;
         this.seq = seq;
@@ -37,7 +34,7 @@ public class DicomObject2 {
     }
 
     DicomObject2(DicomObject2 o) {
-        this(o.dicomInput, o.header, o.seq, o.size);
+        this(o.dicomInput, o.position, o.length, o.seq, o.size);
         if (size > 0) {
             int capacity = size + 1; // reserve space to include Group Length
             this.headers = Arrays.copyOf(o.headers, capacity);
@@ -54,7 +51,7 @@ public class DicomObject2 {
     }
 
     public DicomObject2() {
-        this(null, 0, null, 0);
+        this(null, -1L, -1, null, 0);
     }
 
     public SpecificCharacterSet specificCharacterSet() {
@@ -67,9 +64,7 @@ public class DicomObject2 {
         if (size < 0) {
             size = 0;
             try {
-                DicomInputStream2 dis = new DicomInputStream2(dicomInput);
-                dis.seek(header2valuePosition(header));
-                dis.parse(this, header2valueLength(header));
+                new DicomInputStream2(dicomInput).parse(this);
             } catch (IOException e) {
                 throw new IORuntimeException("Failed to parse item", e);
             }
@@ -319,6 +314,9 @@ public class DicomObject2 {
     }
 
     int calculateLength(DicomOutputStream2 dos, int[] groupLengthTags) {
+        if (size == -1 && dicomInput.encoding == dos.encoding()) {
+            return length;
+        }
         int size = size();
         int length = 0;
         int[] groupLengths =  groupLengthTags != null ? new int[groupLengthTags.length] : null;
@@ -365,6 +363,10 @@ public class DicomObject2 {
     }
 
     void writeTo(DicomOutputStream2 out) throws IOException {
+        if (size == -1) {
+            dicomInput.cache().writeBytesTo(position, length, out);
+            return;
+        }
         for (int index = 0, n = size; index < n; index++) {
             long header = headers[index];
             Object value = values[index];

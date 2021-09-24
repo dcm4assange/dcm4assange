@@ -212,8 +212,8 @@ public class DicomInputStream2 extends InputStream {
             throw new IllegalStateException("Stream position: " + pos);
 
         input = cache.dicomInput(DicomEncoding.IVR_LE);
-        DicomObject2 dcmObj = new DicomObject2(input);
-        parse(dcmObj, -1);
+        DicomObject2 dcmObj = new DicomObject2(input, pos, -1, null, 0);
+        parse(dcmObj);
         return dcmObj;
     }
 
@@ -221,8 +221,8 @@ public class DicomInputStream2 extends InputStream {
         if (input == null) {
             guessEncoding();
         }
-        DicomObject2 dcmObj = new DicomObject2(input);
-        parse(dcmObj, -1);
+        DicomObject2 dcmObj = new DicomObject2(input, pos, -1, null, 0);
+        parse(dcmObj);
         return dcmObj;
     }
 
@@ -248,7 +248,7 @@ public class DicomInputStream2 extends InputStream {
         preambleHandler.accept(this);
         pos = 132;
         input = cache.dicomInput(DicomEncoding.EVR_LE);
-        DicomObject2 fmi = new DicomObject2(input);
+        DicomObject2 fmi = new DicomObject2(input, 132, -1, null, 0);
         long header  = parseHeader(fmi);
         VR vr = VR.fromHeader(header);
         int tag = header2tag(header);
@@ -258,7 +258,8 @@ public class DicomInputStream2 extends InputStream {
         }
         int groupLength = input.intAt(pos);
         onElement.apply(this, fmi, header);
-        parse(fmi, groupLength);
+        fmi.setLength(12 + groupLength);
+        parse(fmi);
         String tsuid = fmi.getString(Tag.TransferSyntaxUID).orElseThrow(
                 () -> new DicomParseException("Missing Transfer Syntax UID in File Meta Information"));
         withEncoding(DicomEncoding.of(tsuid));
@@ -346,12 +347,12 @@ public class DicomInputStream2 extends InputStream {
         int itemlen = input.header2valueLength(header);
         if (header2tag(header) == Tag.Item) {
             boolean parseItems = parseItemsEagerPredicate.test(dcmseq);
-            DicomObject2 dcmObj = new DicomObject2(input, header, dcmseq, parseItems ? 0 : -1);
+            DicomObject2 dcmObj = new DicomObject2(input, pos, itemlen, dcmseq, parseItems ? 0 : -1);
             dcmseq.add(dcmObj);
             if (parseItems) {
-                if (!parse(dcmObj, itemlen)) return false;
+                if (!parse(dcmObj)) return false;
             } else {
-                skipItem(itemlen);
+                skipItem(dcmObj, itemlen);
             }
         } else {
             this.pos += itemlen & 0xffffffffL;
@@ -359,9 +360,10 @@ public class DicomInputStream2 extends InputStream {
         return true;
     }
 
-    private void skipItem(int itemlen) throws IOException {
+    private void skipItem(DicomObject2 dcmObj, int itemlen) throws IOException {
         if (itemlen == -1) {
             for(;;) {
+                long pos0 = pos;
                 long header = parseHeader(null);
                 int tag = header2tag(header);
                 int valueLength = input.header2valueLength(header);
@@ -377,7 +379,7 @@ public class DicomInputStream2 extends InputStream {
                         for (;;) {
                             long itemheader = parseHeader(null);
                             int itemtag = header2tag(itemheader);
-                            skipItem(input.header2valueLength(itemheader));
+                            skipItem(dcmObj, input.header2valueLength(itemheader));
                             if (itemtag == Tag.SequenceDelimitationItem) break;
                         }
                     } finally {
@@ -388,7 +390,10 @@ public class DicomInputStream2 extends InputStream {
                 } else {
                     this.pos += valueLength & 0xffffffffL;
                 }
-                if (tag == Tag.ItemDelimitationItem) break;
+                if (tag == Tag.ItemDelimitationItem) {
+                    dcmObj.setLength((int) (pos0 - dcmObj.position));
+                    break;
+                }
             }
         } else {
             this.pos += itemlen & 0xffffffffL;
@@ -462,8 +467,10 @@ public class DicomInputStream2 extends InputStream {
         return ElementDictionary.vrOf(tag);
     }
 
-    public boolean parse(DicomObject2 dcmObj, int length) throws IOException {
+    public boolean parse(DicomObject2 dcmObj) throws IOException {
+        int length = dcmObj.length();
         boolean undefinedLength = length == -1;
+        pos = dcmObj.position;
         long endPos = pos + length & 0xffffffffL;
         while (undefinedLength || pos < endPos) {
             long pos0 = pos;
@@ -480,7 +487,10 @@ public class DicomInputStream2 extends InputStream {
                 cache.fillFrom(in, pos + vallen);
             }
             if (!onElement.apply(this, dcmObj, header)) return false;
-            if (tag == Tag.ItemDelimitationItem) break;
+            if (tag == Tag.ItemDelimitationItem) {
+                dcmObj.setLength((int) (pos0 - dcmObj.position));
+                break;
+            }
         }
         return true;
     }
