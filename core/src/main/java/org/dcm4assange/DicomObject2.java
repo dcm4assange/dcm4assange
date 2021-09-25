@@ -8,7 +8,6 @@ import org.dcm4assange.util.TagUtils;
 import java.io.IOException;
 import java.util.*;
 import java.util.function.ToIntBiFunction;
-import java.util.function.ToIntFunction;
 
 public class DicomObject2 {
     private static final int DEFAULT_CAPACITY = 16;
@@ -201,14 +200,15 @@ public class DicomObject2 {
     }
 
     public int add(long header, Object value) {
-        int index = indexOf(header2tag(header));
+        int tag = header2tag(header);
+        int index = indexOf(tag);
         int i;
         if (index < 0) {
             insertAt(i = -(index + 1), header, value);
         } else {
             headers[i = index] = header;
+            values[i] = value;
         }
-        int tag = header2tag(header);
         if (tag == Tag.SpecificCharacterSet) {
             specificCharacterSet = SpecificCharacterSet.valueOf(StringVR.ASCII.stringValues(this, i));
         }
@@ -323,11 +323,13 @@ public class DicomObject2 {
         int length = 0;
         for (int index = 0, gi = 0; index < size; index++) {
             long header = headers[index];
-            VR vr = VR.fromHeader(header);
-            int l = (vr.evr8 || !dos.encoding().explicitVR ? 8 : 12)
-                    + valueLength(dos, header, vr, index, DicomObject2::calculateLength)
-                    + (dos.undefSequenceLength() && vr == VR.SQ ? 8 : 0);
-            length += l;
+            if (!TagUtils.isGroupLength(header2tag(header))) {
+                VR vr = VR.fromHeader(header);
+                int l = (vr.evr8 || !dos.encoding().explicitVR ? 8 : 12)
+                        + valueLength(dos, header, vr, index, DicomObject2::calculateLength)
+                        + (dos.undefSequenceLength() && vr == VR.SQ ? 8 : 0);
+                length += l;
+            }
         }
         this.length = length;
         return length;
@@ -340,13 +342,16 @@ public class DicomObject2 {
         int[] groupLengths = new int[groupLengthTags.length];
         for (int index = 0, gi = 0; index < size; index++) {
             long header = headers[index];
-            VR vr = VR.fromHeader(header);
-            int l = (vr.evr8 || !dos.encoding().explicitVR ? 8 : 12)
-                    + valueLength(dos, header, vr, index, DicomObject2::calculateLengthWithGroupLength)
-                    + (dos.undefSequenceLength() && vr == VR.SQ ? 8 : 0);
-            length += l;
-                if (groupLengthTags[gi] != TagUtils.groupLengthTagOf(header2tag(header))) gi++;
+            int tag = header2tag(header);
+            if (!TagUtils.isGroupLength(tag)) {
+                VR vr = VR.fromHeader(header);
+                int l = (vr.evr8 || !dos.encoding().explicitVR ? 8 : 12)
+                        + valueLength(dos, header, vr, index, DicomObject2::calculateLengthWithGroupLength)
+                        + (dos.undefSequenceLength() && vr == VR.SQ ? 8 : 0);
+                length += l;
+                if (groupLengthTags[gi] != TagUtils.groupLengthTagOf(tag)) gi++;
                 groupLengths[gi] += l;
+            }
         }
         for (int i = 0; i < groupLengthTags.length; i++) {
             setInt(groupLengthTags[i], VR.UL, groupLengths[i]);
@@ -377,7 +382,7 @@ public class DicomObject2 {
         return header2valueLength(header);
     }
 
-    void writeTo(DicomOutputStream2 out) throws IOException {
+    void writeTo(DicomOutputStream2 out, boolean includeGroupLength) throws IOException {
         if (size == -1) {
             dicomInput.cache().writeBytesTo(position, length, out);
             return;
@@ -386,12 +391,15 @@ public class DicomObject2 {
             long header = headers[index];
             Object value = values[index];
             if (value instanceof Sequence seq) {
-                out.write(seq);
+                out.write(seq, includeGroupLength);
             } else {
-                if (value instanceof byte[] b) {
-                    out.write(header2tag(header), VR.fromHeader(header), b);
-                } else {
-                    out.write(header, dicomInput);
+                int tag = header2tag(header);
+                if (includeGroupLength || !TagUtils.isGroupLength(tag)){
+                    if (value instanceof byte[] b) {
+                        out.write(tag, VR.fromHeader(header), b);
+                    } else {
+                        out.write(header, dicomInput);
+                    }
                 }
             }
         }

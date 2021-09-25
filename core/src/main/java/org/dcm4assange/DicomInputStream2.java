@@ -284,7 +284,7 @@ public class DicomInputStream2 extends InputStream {
         int tag = header2tag(header);
         int vallen = input.header2valueLength(header);
         long unsignedValueLength = vallen & 0xffffffffL;
-        if (vr != null && !TagUtils.isGroupLength(tag)) {
+        if (vr != null) {
             if (vr == VR.SQ) {
                 Sequence dcmseq = new Sequence(dcmObj, tag);
                 dcmObj.add(header, dcmseq);

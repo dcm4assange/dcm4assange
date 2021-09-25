@@ -20,7 +20,6 @@ package org.dcm4assange;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Objects;
-import java.util.function.ToIntBiFunction;
 import java.util.zip.Deflater;
 import java.util.zip.DeflaterOutputStream;
 
@@ -119,7 +118,7 @@ public class DicomOutputStream2 extends OutputStream  {
         b[130] = 'C';
         b[131] = 'M';
         write(b);
-        write(fmi, DicomObject2::calculateLengthWithGroupLength);
+        write(fmi, true);
         return withEncoding(fmi);
     }
 
@@ -127,7 +126,7 @@ public class DicomOutputStream2 extends OutputStream  {
         if (encoding == null)
             throw new IllegalStateException("encoding not initialized");
 
-        write(dcmobj, includeGroupLength ? DicomObject2::calculateLengthWithGroupLength : DicomObject2::calculateLength);
+        write(dcmobj, includeGroupLength);
     }
 
     public void writeCommandSet(DicomObject2 dcmobj) throws IOException {
@@ -135,7 +134,7 @@ public class DicomOutputStream2 extends OutputStream  {
         if (dcmobj.isEmpty())
             throw new IllegalArgumentException("empty command set");
 
-        write(dcmobj, DicomObject2::calculateLengthWithGroupLength);
+        write(dcmobj, true);
     }
 
     private void ensureEncoding(DicomEncoding encoding) {
@@ -145,10 +144,14 @@ public class DicomOutputStream2 extends OutputStream  {
             throw new IllegalStateException("invalid encoding: " + encoding);
     }
 
-    private void write(DicomObject2 dcmobj, ToIntBiFunction<DicomObject2, DicomOutputStream2> calc) throws IOException {
+    private void write(DicomObject2 dcmobj, boolean includeGroupLength) throws IOException {
         DicomObject2 tmp = new DicomObject2(dcmobj);
-        calc.applyAsInt(tmp, this);
-        tmp.writeTo(this);
+        if (includeGroupLength) {
+            tmp.calculateLengthWithGroupLength(this);
+        } else {
+            tmp.calculateLength(this);
+        }
+        tmp.writeTo(this, includeGroupLength);
     }
 
     void writeHeader(int tag, VR vr, int length) throws IOException {
@@ -174,12 +177,12 @@ public class DicomOutputStream2 extends OutputStream  {
         return 12;
     }
 
-    void write(Sequence seq) throws IOException {
+    void write(Sequence seq, boolean includeGroupLength) throws IOException {
         writeHeader(seq.tag, VR.SQ, undefSequenceLength ? -1 : valueLength(seq));
         for (int i = 0, n = seq.size(); i < n; i++) {
             DicomObject2 item = seq.getItem(i);
             writeHeader(Tag.Item, null, undefItemLength ? -1 : item.length());
-            item.writeTo(this);
+            item.writeTo(this, includeGroupLength);
             if (undefItemLength)
                 writeHeader(Tag.ItemDelimitationItem, null, 0);
         }
