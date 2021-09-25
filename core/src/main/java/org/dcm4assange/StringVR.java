@@ -149,6 +149,20 @@ enum StringVR implements VRType {
     }
 
     @Override
+    public StringBuilder promptValueTo(String[] ss, StringBuilder sb, int maxLength) {
+        sb.append(" [");
+        for (int i = 0; i < ss.length && sb.length() < maxLength; i++) {
+            if (i > 0) sb.append('\\');
+            sb.append(ss[i]);
+        }
+        if (sb.length() < maxLength)
+            sb.append("]");
+        else
+            sb.setLength(maxLength);
+        return sb;
+    }
+
+    @Override
     public StringBuilder promptValueTo(DicomInput input, long valuePos, int valueLen, DicomObject2 dcmobj,
                                        StringBuilder sb, int maxLength) {
         sb.append(" [");

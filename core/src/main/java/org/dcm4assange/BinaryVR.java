@@ -43,6 +43,11 @@ enum BinaryVR implements VRType {
         }
 
         @Override
+        String bytesToString(byte[] b, int pos) {
+            return TagUtils.toHexString(ByteOrder.LITTLE_ENDIAN.bytesToTag(b, pos));
+        }
+
+        @Override
         void intToBytes(int val, byte[] b, int off) {
             ByteOrder.LITTLE_ENDIAN.tagToBytes(val, b, off);
         }
@@ -74,6 +79,11 @@ enum BinaryVR implements VRType {
         }
 
         @Override
+        String bytesToString(byte[] b, int off) {
+            return Double.toString(Double.longBitsToDouble(ByteOrder.LITTLE_ENDIAN.bytesToLong(b, off)));
+        }
+
+        @Override
         void intToBytes(int val, byte[] b, int off) {
             ByteOrder.LITTLE_ENDIAN.longToBytes(Double.doubleToRawLongBits(val), b, off);
         }
@@ -97,6 +107,11 @@ enum BinaryVR implements VRType {
         @Override
         String stringAt(DicomInput input, long pos) {
             return Float.toString(floatAt(input, pos));
+        }
+
+        @Override
+        String bytesToString(byte[] b, int pos) {
+            return Float.toString(Float.intBitsToFloat(ByteOrder.LITTLE_ENDIAN.bytesToInt(b, pos)));
         }
 
         @Override
@@ -149,6 +164,11 @@ enum BinaryVR implements VRType {
         }
 
         @Override
+        String bytesToString(byte[] b, int pos) {
+            return Long.toString(ByteOrder.LITTLE_ENDIAN.bytesToLong(b, pos));
+        }
+
+        @Override
         void intToBytes(int val, byte[] b, int off) {
             ByteOrder.LITTLE_ENDIAN.longToBytes(val, b, off);
         }
@@ -162,6 +182,11 @@ enum BinaryVR implements VRType {
         @Override
         String stringAt(DicomInput input, long pos) {
             return Integer.toUnsignedString(input.intAt(pos));
+        }
+
+        @Override
+        String bytesToString(byte[] b, int pos) {
+            return Integer.toUnsignedString(ByteOrder.LITTLE_ENDIAN.bytesToInt(b, pos));
         }
     },
     US(2, ToggleEndian.SHORT) {
@@ -201,6 +226,11 @@ enum BinaryVR implements VRType {
         @Override
         String stringAt(DicomInput input, long pos) {
             return Long.toUnsignedString(input.longAt(pos));
+        }
+
+        @Override
+        String bytesToString(byte[] b, int pos) {
+            return Long.toUnsignedString(ByteOrder.LITTLE_ENDIAN.bytesToLong(b, pos));
         }
 
         @Override
@@ -352,6 +382,10 @@ enum BinaryVR implements VRType {
         return Integer.toString(intAt(input, pos));
     }
 
+    String bytesToString(byte[] b, int pos) {
+        return Integer.toString(ByteOrder.LITTLE_ENDIAN.bytesToInt(b, pos));
+    }
+
     void intToBytes(int val, byte[] b, int off) {
         ByteOrder.LITTLE_ENDIAN.intToBytes(val, b, off);
     }
@@ -372,6 +406,23 @@ enum BinaryVR implements VRType {
             }
         }
         return appendTo.append(']');
+    }
+
+    @Override
+    public StringBuilder promptValueTo(byte[] b, StringBuilder sb, int maxLength) {
+        sb.append(" [");
+        int n = b.length / bytes;
+        for (int i = 0; i < n; i++) {
+            if (i > 0) {
+                sb.append('\\');
+            }
+            sb.append(bytesToString(b, i * bytes));
+            if (sb.length() >= maxLength) {
+                sb.setLength(maxLength);
+                return sb;
+            }
+        }
+        return sb.append(']');
     }
 
     @Override

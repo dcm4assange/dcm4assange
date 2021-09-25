@@ -147,8 +147,16 @@ interface VRType {
         throw new UnsupportedOperationException();
     }
 
+    default StringBuilder promptValueTo(String[] ss, StringBuilder sb, int maxLength) {
+        throw new UnsupportedOperationException();
+    }
+
+    default StringBuilder promptValueTo(byte[] b, StringBuilder sb, int maxLength) {
+        throw new UnsupportedOperationException();
+    }
+
     default StringBuilder promptValueTo(DicomInput dicomInput, long valuePos, int valueLength,
-                                DicomObject2 dicomObject, StringBuilder sb, int maxLength) {
+                                        DicomObject2 dicomObject, StringBuilder sb, int maxLength) {
         throw new UnsupportedOperationException();
     }
 

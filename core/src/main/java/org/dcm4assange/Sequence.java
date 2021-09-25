@@ -77,4 +77,19 @@ public class Sequence {
         Objects.checkIndex(index, size);
         return items[index];
     }
+
+    int promptItemsTo(StringBuilder sb, int maxColumns, int maxLines) {
+        for (int i = 0; i < size; i++) {
+            if (--maxLines < 0) break;
+            sb.append(System.lineSeparator());
+            DicomObject2 item = items[i];
+            item.promptLevelTo(sb)
+                    .append("(FFFE,E000) #")
+                    .append(item.length())
+                    .append(" Item #").append(i + 1)
+                    .append(System.lineSeparator());
+            maxLines = item.promptTo(sb, maxColumns, maxLines);
+        }
+        return maxLines;
+    }
 }

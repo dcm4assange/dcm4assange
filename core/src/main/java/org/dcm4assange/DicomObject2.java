@@ -10,6 +10,8 @@ import java.util.*;
 import java.util.function.ToIntBiFunction;
 
 public class DicomObject2 {
+    private static final int TO_STRING_LENGTH = 78;
+    private static final int TO_STRING_LINES = 50;
     private static final int DEFAULT_CAPACITY = 16;
     private static final int ITEM_DEFAULT_CAPACITY = 4;
     private static final long[] EMPTY_HEADERS = {};
@@ -280,27 +282,70 @@ public class DicomObject2 {
                 : dicomInput.header2valueLength(header) == 0;
     }
 
-    public StringBuilder promptElementTo(long header, StringBuilder sb, int maxLength) {
-        return promptTo(false, header, sb, maxLength);
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder(512);
+        if (promptTo(sb, TO_STRING_LENGTH, TO_STRING_LINES) < 0) {
+            sb.append(System.lineSeparator()).append("...");
+        }
+        return sb.toString();
     }
 
-    public StringBuilder promptFragmentTo(long header, StringBuilder sb, int maxLength) {
-        return promptTo(true, header, sb, maxLength);
+    public int promptTo(StringBuilder sb, int maxColumns, int maxLines) {
+        if (size < 0) {
+            if (--maxLines > 0) {
+                promptLevelTo(sb).append(" not parsed");
+            }
+        } else {
+            for (int i = 0; i < size; i++) {
+                if (--maxLines < 0) break;
+                if (i > 0) sb.append(System.lineSeparator());
+                promptElementTo(headers[i], values[i], sb, sb.length() + maxColumns);
+                if (values[i] instanceof Sequence seq) {
+                    maxColumns = seq.promptItemsTo(sb, maxColumns, maxLines);
+                }
+            }
+        }
+        return maxLines;
     }
 
-    private StringBuilder promptTo(boolean fragment, long header, StringBuilder sb, int maxLength) {
+    public StringBuilder promptElementTo(long header, Object value, StringBuilder sb, int maxLength) {
         int tag = header2tag(header);
         VR vr = VR.fromHeader(header);
-        int valueLength = header2valueLength(header);
         promptLevelTo(sb).append(TagUtils.toCharArray(tag));
         if (vr != null) sb.append(' ').append(vr);
-        else if (fragment) vr = VR.OB;
-        sb.append(" #").append(valueLength);
-        if (vr != null && vr != VR.SQ)
-            vr.type.promptValueTo(dicomInput, header2valuePosition(header), header2valueLength(header), this, sb, maxLength);
+        if (value instanceof byte[] b) {
+            sb.append(" #").append((b.length + 1) & ~1);
+            vr.type.promptValueTo(b, sb, maxLength);
+        } else if (value instanceof String[] ss) {
+            int valueLength = ss.length;
+            for (String s: ss) valueLength += s.length();
+            sb.append(" #").append(valueLength & ~1);
+            vr.type.promptValueTo(ss, sb, maxLength);
+        } else if (value instanceof String s) {
+            sb.append(" {").append(s).append('}');
+        } else {
+            int valueLength = header2valueLength(header);
+            sb.append(" #").append(valueLength);
+            if (vr != null && vr != VR.SQ)
+                vr.type.promptValueTo(dicomInput, header2valuePosition(header), header2valueLength(header), this, sb, maxLength);
+        }
         if (sb.length() < maxLength) {
             sb.append(" ").append(
                     ElementDictionary.keywordOf(privateCreatorOf(tag).orElse(null), tag));
+            if (sb.length() > maxLength) {
+                sb.setLength(maxLength);
+            }
+        }
+        return sb;
+    }
+
+    public StringBuilder promptFragmentTo(long header, Object value, StringBuilder sb, int maxLength) {
+        int valueLength = header2valueLength(header);
+        promptLevelTo(sb).append("(FFFE,E000) #").append(valueLength);
+        BinaryVR.OB.promptValueTo(dicomInput, header2valuePosition(header), header2valueLength(header), this, sb, maxLength);
+        if (sb.length() < maxLength) {
+            sb.append(" Fragment");
             if (sb.length() > maxLength) {
                 sb.setLength(maxLength);
             }

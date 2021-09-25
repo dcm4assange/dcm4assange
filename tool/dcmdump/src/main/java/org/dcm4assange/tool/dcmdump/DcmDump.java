@@ -77,7 +77,7 @@ public class DcmDump implements Callable<Integer> {
         sb.append(pos).append(": ");
         if (!(vr == VR.SQ || valueLength == -1))
             dis.fillCache(dis.streamPosition() + Math.min(valueLength, cols * 2));
-        dcmobj.promptElementTo(header, sb, cols);
+        dcmobj.promptElementTo(header, null, sb, cols);
         System.out.println(sb);
         boolean keep = tag == Tag.TransferSyntaxUID
                 || tag == Tag.SpecificCharacterSet
@@ -127,14 +127,14 @@ public class DcmDump implements Callable<Integer> {
         boolean item = tag == Tag.Item;
         if (item) {
             if (fragment) {
-                dcmobj.promptFragmentTo(header, sb, cols);
+                dcmobj.promptFragmentTo(header, null, sb, cols);
             } else {
                 dcmobj.promptLevelTo(sb)
                         .append("(FFFE,E000) #").append(itemLength)
                         .append(" Item #").append(no);
             }
         } else {
-            dcmobj.promptElementTo(header, sb, cols);
+            dcmobj.promptElementTo(header, null, sb, cols);
             dis.seek(dis.streamPosition() + itemLength);
         }
         System.out.println(sb);
