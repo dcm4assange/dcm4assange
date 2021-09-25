@@ -343,7 +343,7 @@ public class DicomObject2 {
     public StringBuilder promptFragmentTo(long header, Object value, StringBuilder sb, int maxLength) {
         int valueLength = header2valueLength(header);
         promptLevelTo(sb).append("(FFFE,E000) #").append(valueLength);
-        BinaryVR.OB.promptValueTo(dicomInput, header2valuePosition(header), header2valueLength(header), this, sb, maxLength);
+        BinaryVR.OB.promptValueTo(dicomInput, header2valuePosition(header), valueLength, this, sb, maxLength);
         if (sb.length() < maxLength) {
             sb.append(" Fragment");
             if (sb.length() > maxLength) {
