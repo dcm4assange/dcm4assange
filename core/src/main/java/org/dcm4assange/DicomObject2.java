@@ -313,26 +313,31 @@ public class DicomObject2 {
         return appendTo;
     }
 
-    int calculateLength(DicomOutputStream2 dos, int[] groupLengthTags) {
-        if (size == -1 && dicomInput.encoding == dos.encoding()) {
+    int calculateLength(DicomOutputStream2 dos, boolean includeGroupLength) {
+        if (!includeGroupLength && size == -1 && dicomInput.encoding == dos.encoding()) {
             return length;
         }
         int size = size();
         int length = 0;
-        int[] groupLengths =  groupLengthTags != null ? new int[groupLengthTags.length] : null;
+        int[] groupLengthTags = null;
+        int[] groupLengths = null;
+        if (includeGroupLength) {
+            groupLengthTags = groupLengthTags();
+            groupLengths = new int[groupLengthTags.length];
+        }
         for (int index = 0, gi = 0; index < size; index++) {
             long header = headers[index];
             VR vr = VR.fromHeader(header);
             int l = (vr.evr8 || !dos.encoding().explicitVR ? 8 : 12)
-                    + valueLength(dos, header, vr, index)
+                    + valueLength(dos, includeGroupLength, header, vr, index)
                     + (dos.undefSequenceLength() && vr == VR.SQ ? 8 : 0);
             length += l;
-            if (groupLengthTags != null) {
+            if (includeGroupLength) {
                 if (groupLengthTags[gi] != TagUtils.groupLengthTagOf(header2tag(header))) gi++;
                 groupLengths[gi] += l;
             }
         }
-        if (groupLengthTags != null) {
+        if (includeGroupLength) {
             for (int i = 0; i < groupLengthTags.length; i++) {
                 setInt(groupLengthTags[i], VR.UL, groupLengths[i]);
                 length += 12;
@@ -342,14 +347,14 @@ public class DicomObject2 {
         return length;
     }
 
-    private int valueLength(DicomOutputStream2 dos, long header, VR vr, int index) {
+    private int valueLength(DicomOutputStream2 dos, boolean includeGroupLength, long header, VR vr, int index) {
         Object value = values[index];
         if (value instanceof Sequence seq) {
             int size = seq.size();
             int length = (dos.undefItemLength() ? 16 : 8) * size;
             for (int i = 0; i < size; i++) {
                 DicomObject2 item = seq.getItem(i);
-                length += item.calculateLength(dos, dos.includeGroupLength() ? item.groupLengthTags() : null);
+                length += item.calculateLength(dos, includeGroupLength);
             }
             return length;
         }

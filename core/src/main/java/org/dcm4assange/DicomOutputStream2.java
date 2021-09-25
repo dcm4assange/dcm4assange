@@ -118,7 +118,7 @@ public class DicomOutputStream2 extends OutputStream  {
         b[130] = 'C';
         b[131] = 'M';
         write(b);
-        write(fmi, new int[] { Tag.FileMetaInformationGroupLength });
+        write(fmi, true);
         return withEncoding(fmi);
     }
 
@@ -126,7 +126,7 @@ public class DicomOutputStream2 extends OutputStream  {
         if (encoding == null)
             throw new IllegalStateException("encoding not initialized");
 
-        write(dcmobj, includeGroupLength ? dcmobj.groupLengthTags() : null);
+        write(dcmobj, includeGroupLength);
     }
 
     public void writeCommandSet(DicomObject2 dcmobj) throws IOException {
@@ -134,7 +134,7 @@ public class DicomOutputStream2 extends OutputStream  {
         if (dcmobj.isEmpty())
             throw new IllegalArgumentException("empty command set");
 
-        write(dcmobj, new int[] { Tag.CommandGroupLength });
+        write(dcmobj, true);
     }
 
     private void ensureEncoding(DicomEncoding encoding) {
@@ -144,9 +144,9 @@ public class DicomOutputStream2 extends OutputStream  {
             throw new IllegalStateException("invalid encoding: " + encoding);
     }
 
-    private void write(DicomObject2 dcmobj, int[] groupLengthTags) throws IOException {
+    private void write(DicomObject2 dcmobj, boolean includeGroupLength) throws IOException {
         DicomObject2 tmp = new DicomObject2(dcmobj);
-        tmp.calculateLength(this, groupLengthTags);
+        tmp.calculateLength(this, includeGroupLength);
         tmp.writeTo(this);
     }
 
