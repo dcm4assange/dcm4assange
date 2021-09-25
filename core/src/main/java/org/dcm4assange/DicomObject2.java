@@ -327,7 +327,7 @@ public class DicomObject2 {
         } else {
             int valueLength = header2valueLength(header);
             sb.append(" #").append(valueLength);
-            if (vr != null && vr != VR.SQ)
+            if (valueLength != -1 && vr != null && vr != VR.SQ)
                 vr.type.promptValueTo(dicomInput, header2valuePosition(header), header2valueLength(header), this, sb, maxLength);
         }
         if (sb.length() < maxLength) {
