@@ -328,7 +328,7 @@ public class DicomObject2 {
             int valueLength = header2valueLength(header);
             sb.append(" #").append(valueLength);
             if (vr != null && vr != VR.SQ && valueLength != -1)
-                vr.type.promptValueTo(dicomInput, header2valuePosition(header), header2valueLength(header), this, sb, maxLength);
+                vr.type.promptValueTo(dicomInput, header2valuePosition(header), valueLength, this, sb, maxLength);
         }
         if (sb.length() < maxLength) {
             sb.append(" ").append(
