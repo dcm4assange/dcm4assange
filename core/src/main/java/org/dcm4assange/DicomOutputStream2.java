@@ -20,6 +20,7 @@ package org.dcm4assange;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Objects;
+import java.util.function.ToIntBiFunction;
 import java.util.zip.Deflater;
 import java.util.zip.DeflaterOutputStream;
 
@@ -118,7 +119,7 @@ public class DicomOutputStream2 extends OutputStream  {
         b[130] = 'C';
         b[131] = 'M';
         write(b);
-        write(fmi, true);
+        write(fmi, DicomObject2::calculateLengthWithGroupLength);
         return withEncoding(fmi);
     }
 
@@ -126,7 +127,7 @@ public class DicomOutputStream2 extends OutputStream  {
         if (encoding == null)
             throw new IllegalStateException("encoding not initialized");
 
-        write(dcmobj, includeGroupLength);
+        write(dcmobj, includeGroupLength ? DicomObject2::calculateLengthWithGroupLength : DicomObject2::calculateLength);
     }
 
     public void writeCommandSet(DicomObject2 dcmobj) throws IOException {
@@ -134,7 +135,7 @@ public class DicomOutputStream2 extends OutputStream  {
         if (dcmobj.isEmpty())
             throw new IllegalArgumentException("empty command set");
 
-        write(dcmobj, true);
+        write(dcmobj, DicomObject2::calculateLengthWithGroupLength);
     }
 
     private void ensureEncoding(DicomEncoding encoding) {
@@ -144,9 +145,9 @@ public class DicomOutputStream2 extends OutputStream  {
             throw new IllegalStateException("invalid encoding: " + encoding);
     }
 
-    private void write(DicomObject2 dcmobj, boolean includeGroupLength) throws IOException {
+    private void write(DicomObject2 dcmobj, ToIntBiFunction<DicomObject2, DicomOutputStream2> calc) throws IOException {
         DicomObject2 tmp = new DicomObject2(dcmobj);
-        tmp.calculateLength(this, includeGroupLength);
+        calc.applyAsInt(tmp, this);
         tmp.writeTo(this);
     }
 

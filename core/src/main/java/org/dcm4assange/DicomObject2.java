@@ -7,6 +7,8 @@ import org.dcm4assange.util.TagUtils;
 
 import java.io.IOException;
 import java.util.*;
+import java.util.function.ToIntBiFunction;
+import java.util.function.ToIntFunction;
 
 public class DicomObject2 {
     private static final int DEFAULT_CAPACITY = 16;
@@ -313,48 +315,56 @@ public class DicomObject2 {
         return appendTo;
     }
 
-    int calculateLength(DicomOutputStream2 dos, boolean includeGroupLength) {
-        if (!includeGroupLength && size == -1 && dicomInput.encoding == dos.encoding()) {
+    int calculateLength(DicomOutputStream2 dos) {
+        if (size == -1 && dicomInput.encoding == dos.encoding()) {
             return length;
         }
         int size = size();
         int length = 0;
-        int[] groupLengthTags = null;
-        int[] groupLengths = null;
-        if (includeGroupLength) {
-            groupLengthTags = groupLengthTags();
-            groupLengths = new int[groupLengthTags.length];
-        }
         for (int index = 0, gi = 0; index < size; index++) {
             long header = headers[index];
             VR vr = VR.fromHeader(header);
             int l = (vr.evr8 || !dos.encoding().explicitVR ? 8 : 12)
-                    + valueLength(dos, includeGroupLength, header, vr, index)
+                    + valueLength(dos, header, vr, index, DicomObject2::calculateLength)
                     + (dos.undefSequenceLength() && vr == VR.SQ ? 8 : 0);
             length += l;
-            if (includeGroupLength) {
-                if (groupLengthTags[gi] != TagUtils.groupLengthTagOf(header2tag(header))) gi++;
-                groupLengths[gi] += l;
-            }
-        }
-        if (includeGroupLength) {
-            for (int i = 0; i < groupLengthTags.length; i++) {
-                setInt(groupLengthTags[i], VR.UL, groupLengths[i]);
-                length += 12;
-            }
         }
         this.length = length;
         return length;
     }
 
-    private int valueLength(DicomOutputStream2 dos, boolean includeGroupLength, long header, VR vr, int index) {
+    int calculateLengthWithGroupLength(DicomOutputStream2 dos) {
+        int size = size();
+        int length = 0;
+        int[] groupLengthTags = groupLengthTags();
+        int[] groupLengths = new int[groupLengthTags.length];
+        for (int index = 0, gi = 0; index < size; index++) {
+            long header = headers[index];
+            VR vr = VR.fromHeader(header);
+            int l = (vr.evr8 || !dos.encoding().explicitVR ? 8 : 12)
+                    + valueLength(dos, header, vr, index, DicomObject2::calculateLengthWithGroupLength)
+                    + (dos.undefSequenceLength() && vr == VR.SQ ? 8 : 0);
+            length += l;
+                if (groupLengthTags[gi] != TagUtils.groupLengthTagOf(header2tag(header))) gi++;
+                groupLengths[gi] += l;
+        }
+        for (int i = 0; i < groupLengthTags.length; i++) {
+            setInt(groupLengthTags[i], VR.UL, groupLengths[i]);
+            length += 12;
+        }
+        this.length = length;
+        return length;
+    }
+
+    private int valueLength(DicomOutputStream2 dos, long header, VR vr, int index,
+                            ToIntBiFunction<DicomObject2, DicomOutputStream2> calc) {
         Object value = values[index];
         if (value instanceof Sequence seq) {
             int size = seq.size();
             int length = (dos.undefItemLength() ? 16 : 8) * size;
             for (int i = 0; i < size; i++) {
                 DicomObject2 item = seq.getItem(i);
-                length += item.calculateLength(dos, includeGroupLength);
+                length += calc.applyAsInt(item, dos);
             }
             return length;
         }
