@@ -100,44 +100,41 @@ public class DcmDump implements Callable<Integer> {
     }
 
     private boolean onItem(DicomInputStream2 dis, Sequence seq, long header) throws IOException {
-        if (promptItem(false, dis, header, seq.getDicomObject(), seq.size() + 1)) {
+        promptPos(header);
+        int itemLength = dis.header2valueLength(header);
+        if (dis.header2tag(header) == Tag.Item) {
+            seq.getDicomObject().promptLevelTo(sb)
+                    .append("(FFFE,E000) #").append(itemLength)
+                    .append(" Item #").append(seq.size() + 1);
+            System.out.println(sb);
             dis.onItem(seq, header);
+        } else {
+            seq.getDicomObject().promptElementTo(header, null, sb, cols);
+            dis.seek(dis.streamPosition() + itemLength);
+            System.out.println(sb);
         }
         return true;
     }
 
     private boolean onFragment(DicomInputStream2 dis, Fragments frags, long header) throws IOException {
-        if (promptItem(true, dis, header, frags.getDicomObject(), frags.size() + 1)) {
-            long pos = DicomInputStream2.header2position(header);
-            long uitemlen = dis.header2valueLength(header) & 0xffffffffL;
+        promptPos(header);
+        long uitemlen = dis.header2valueLength(header) & 0xffffffffL;
+        if (dis.header2tag(header) == Tag.Item) {
+            frags.getDicomObject().promptFragmentTo(header, null, sb, cols);
             if (uitemlen > limit) {
-                dis.skip(pos, 8 + uitemlen, null);
+                dis.skip(dis.streamPosition(), uitemlen, null);
             }
-            dis.seek(pos + 8 + uitemlen);
+        } else {
+            frags.getDicomObject().promptElementTo(header, null, sb, cols);
         }
+        dis.seek(dis.streamPosition() + uitemlen);
+        System.out.println(sb);
         return true;
     }
 
-    private boolean promptItem(boolean fragment, DicomInputStream2 dis, long header, DicomObject2 dcmobj, int no) {
+    private void promptPos(long header) {
         long pos = DicomInputStream2.header2position(header);
-        int tag = dis.header2tag(header);
-        int itemLength = dis.header2valueLength(header);
         sb.setLength(0);
         sb.append(pos).append(": ");
-        boolean item = tag == Tag.Item;
-        if (item) {
-            if (fragment) {
-                dcmobj.promptFragmentTo(header, null, sb, cols);
-            } else {
-                dcmobj.promptLevelTo(sb)
-                        .append("(FFFE,E000) #").append(itemLength)
-                        .append(" Item #").append(no);
-            }
-        } else {
-            dcmobj.promptElementTo(header, null, sb, cols);
-            dis.seek(dis.streamPosition() + itemLength);
-        }
-        System.out.println(sb);
-        return item;
     }
 }

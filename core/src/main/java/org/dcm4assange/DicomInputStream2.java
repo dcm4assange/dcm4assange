@@ -256,9 +256,7 @@ public class DicomInputStream2 extends InputStream {
         if (tag != Tag.FileMetaInformationGroupLength || vr != VR.UL || vallen != 4) {
             throw new DicomParseException("Missing Group Length in File Meta Information");
         }
-        int groupLength = input.intAt(pos);
-        onElement.apply(this, fmi, header);
-        fmi.setLength(12 + groupLength);
+        fmi.setLength(12 + input.intAt(pos));
         parse(fmi);
         String tsuid = fmi.getString(Tag.TransferSyntaxUID).orElseThrow(
                 () -> new DicomParseException("Missing Transfer Syntax UID in File Meta Information"));
