@@ -442,6 +442,8 @@ public class DicomObject2 {
                 if (includeGroupLength || !TagUtils.isGroupLength(tag)){
                     if (value instanceof byte[] b) {
                         out.write(tag, VR.fromHeader(header), b);
+                    } else if (value instanceof String bulkDataURI) {
+                        out.write(tag, VR.fromHeader(header), bulkDataURI);
                     } else {
                         out.write(header, dicomInput);
                     }

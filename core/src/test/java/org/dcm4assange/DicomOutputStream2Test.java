@@ -120,7 +120,6 @@ public class DicomOutputStream2Test {
         writeCommandSet(c_echo_rq());
     }
 
-/*
     @Test
     public void writeBulkDataIVR_LE() throws IOException {
         writeBulkData(DicomFileStream.ivrPxData(0x40000L));
@@ -130,7 +129,6 @@ public class DicomOutputStream2Test {
     public void writeBulkDataEncapsulated() throws IOException {
         writeBulkData(DicomFileStream.encapsPxData(0x40000L));
     }
-*/
 
     private static void writeCommandSet(DicomObject2 cmd) throws IOException {
         ByteArrayOutputStream bout = new ByteArrayOutputStream();

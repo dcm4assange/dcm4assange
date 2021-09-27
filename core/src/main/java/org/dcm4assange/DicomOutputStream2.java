@@ -17,9 +17,18 @@
 
 package org.dcm4assange;
 
+import org.dcm4assange.util.StringUtils;
+
+import java.io.EOFException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.URI;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Objects;
+import java.util.StringTokenizer;
 import java.util.zip.Deflater;
 import java.util.zip.DeflaterOutputStream;
 
@@ -35,7 +44,7 @@ public class DicomOutputStream2 extends OutputStream  {
     private boolean undefSequenceLength;
     private boolean undefItemLength;
     private byte[] b12 = new byte[12];
-    private byte[] swapBuffer;
+    private byte[] buffer;
 
     public DicomOutputStream2(OutputStream out) {
         this.out = Objects.requireNonNull(out);
@@ -213,12 +222,80 @@ public class DicomOutputStream2 extends OutputStream  {
         if (encoding.byteOrder == dicomInput.encoding.byteOrder || vr.type.toggleEndian() == null)
             dicomInput.cache().writeBytesTo(DicomObject2.header2valuePosition(header), vlen, this);
         else {
-            byte[] swapBuffer = this.swapBuffer;
-            if (swapBuffer == null) {
-                this.swapBuffer = swapBuffer = new byte[BUFFER_SIZE];
-            }
             dicomInput.cache().writeSwappedBytesTo(DicomObject2.header2valuePosition(header), vlen, this,
-                    vr.type.toggleEndian(), swapBuffer);
+                    vr.type.toggleEndian(), buffer());
+        }
+    }
+
+    private byte[] buffer() {
+        byte[] buffer = this.buffer;
+        if (buffer == null) {
+            this.buffer = buffer = new byte[BUFFER_SIZE];
+        }
+        return buffer;
+    }
+
+    void write(int tag, VR vr, String bulkDataURI) throws IOException {
+        URI uri = URI.create(bulkDataURI);
+        Path path = Paths.get(uri.getPath());
+        long offsetAndLength = offsetAndLength(uri.getFragment());
+        int offset = (int) (offsetAndLength >>> 32);
+        int length = (int) offsetAndLength;
+        writeHeader(tag, vr, length);
+        try (InputStream in = Files.newInputStream(path)) {
+            byte[] buffer = buffer();
+            skip(in, offset, buffer);
+            copy(in, length, buffer);
+        }
+    }
+
+    private static long offsetAndLength(String fragment) {
+        if (fragment == null) return 0L;
+        long result = 0;
+        for (String param : StringUtils.split(fragment, ',')) {
+            String[] keyValue = StringUtils.split(param, '=');
+            switch (keyValue[0]) {
+                case "offset":
+                    result |= Long.parseLong(keyValue[1]) << 32;
+                    break;
+                case "length":
+                    result |= Integer.parseInt(keyValue[1]) & 0xffffffffL ;
+                    break;
+            }
+        }
+        return result;
+    }
+
+    private static void skip(InputStream in, int length, byte[] buffer) throws IOException {
+        int read;
+        while (length > 0 && (read = in.read(buffer, 0, Math.min(length, BUFFER_SIZE))) > 0) {
+            length -= read;
+        }
+    }
+
+    private void copy(InputStream in, int length, byte[] buffer) throws IOException {
+        int read = 0;
+        if (length == -1) {
+            int off = 0;
+            int len = 0;
+            do {
+                len += 8;
+                do {
+                    if ((off = Math.max(8 - len, 0)) > 0) {
+                        System.arraycopy(buffer, read - off, buffer, 0, off);
+                    }
+                    read = in.read(buffer, off, Math.min(len, BUFFER_SIZE - off));
+                    if (read <= 0) throw new EOFException();
+                    write(buffer, off, read);
+                } while ((len -= read) > 0);
+                len = ByteOrder.LITTLE_ENDIAN.bytesToInt(buffer, off + read - 4);
+            } while (ByteOrder.LITTLE_ENDIAN.bytesToTag(buffer, off + read - 8) == Tag.Item);
+        } else {
+            do {
+                read = in.read(buffer, 0, Math.min(length, BUFFER_SIZE));
+                if (read <= 0) throw new EOFException();
+                write(buffer, 0, read);
+            } while ((length -= read) > 0);
         }
     }
 }
