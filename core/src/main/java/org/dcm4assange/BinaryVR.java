@@ -6,7 +6,6 @@ import org.dcm4assange.util.TagUtils;
 import org.dcm4assange.util.ToggleEndian;
 
 import java.math.BigInteger;
-import java.util.Optional;
 import java.util.OptionalDouble;
 import java.util.OptionalInt;
 import java.util.OptionalLong;
@@ -23,17 +22,17 @@ enum BinaryVR implements VRType {
         }
 
         @Override
-        public OptionalLong longValue(DicomInput input, long valpos, int vallen) {
+        public OptionalLong longValue(DicomObject dcmobj, int index) {
             return OptionalLong.empty();
         }
 
         @Override
-        public OptionalFloat floatValue(DicomInput input, long valpos, int vallen) {
+        public OptionalFloat floatValue(DicomObject dcmobj, int index) {
             return OptionalFloat.empty();
         }
 
         @Override
-        public OptionalDouble doubleValue(DicomInput input, long valpos, int vallen) {
+        public OptionalDouble doubleValue(DicomObject dcmobj, int index) {
             return OptionalDouble.empty();
         }
 
@@ -265,89 +264,35 @@ enum BinaryVR implements VRType {
     }
 
     @Override
-    public OptionalInt intValue(DicomInput input, long valpos, int vallen) {
-        return vallen >= bytes
-                ? OptionalInt.of(intAt(input, valpos))
+    public OptionalInt intValue(DicomObject dcmobj, int index) {
+        long header = dcmobj.getHeader(index);
+        return dcmobj.header2valueLength(header) >= bytes
+                ? OptionalInt.of(intAt(dcmobj.dicomInput, DicomObject.header2valuePosition(header)))
                 : OptionalInt.empty();
     }
 
     @Override
-    public OptionalInt intValue(DicomObject2 dcmobj, int index) {
+    public OptionalLong longValue(DicomObject dcmobj, int index) {
         long header = dcmobj.getHeader(index);
         return dcmobj.header2valueLength(header) >= bytes
-                ? OptionalInt.of(intAt(dcmobj.dicomInput, DicomObject2.header2valuePosition(header)))
-                : OptionalInt.empty();
-    }
-
-    @Override
-    public OptionalLong longValue(DicomInput input, long valpos, int vallen) {
-        return vallen >= bytes
-                ? OptionalLong.of(longAt(input, valpos))
+                ? OptionalLong.of(longAt(dcmobj.dicomInput, DicomObject.header2valuePosition(header)))
                 : OptionalLong.empty();
     }
 
     @Override
-    public OptionalLong longValue(DicomObject2 dcmobj, int index) {
+    public OptionalFloat floatValue(DicomObject dcmobj, int index) {
         long header = dcmobj.getHeader(index);
         return dcmobj.header2valueLength(header) >= bytes
-                ? OptionalLong.of(longAt(dcmobj.dicomInput, DicomObject2.header2valuePosition(header)))
-                : OptionalLong.empty();
-    }
-
-    @Override
-    public OptionalFloat floatValue(DicomInput input, long valpos, int vallen) {
-        return vallen >= bytes
-                ? OptionalFloat.of(floatAt(input, valpos))
+                ? OptionalFloat.of(floatAt(dcmobj.dicomInput, DicomObject.header2valuePosition(header)))
                 : OptionalFloat.empty();
     }
 
     @Override
-    public OptionalFloat floatValue(DicomObject2 dcmobj, int index) {
+    public OptionalDouble doubleValue(DicomObject dcmobj, int index) {
         long header = dcmobj.getHeader(index);
         return dcmobj.header2valueLength(header) >= bytes
-                ? OptionalFloat.of(floatAt(dcmobj.dicomInput, DicomObject2.header2valuePosition(header)))
-                : OptionalFloat.empty();
-    }
-
-    @Override
-    public OptionalDouble doubleValue(DicomInput input, long valpos, int vallen) {
-        return vallen >= bytes
-                ? OptionalDouble.of(doubleAt(input, valpos))
+                ? OptionalDouble.of(doubleAt(dcmobj.dicomInput, DicomObject.header2valuePosition(header)))
                 : OptionalDouble.empty();
-    }
-
-    @Override
-    public OptionalDouble doubleValue(DicomObject2 dcmobj, int index) {
-        long header = dcmobj.getHeader(index);
-        return dcmobj.header2valueLength(header) >= bytes
-                ? OptionalDouble.of(doubleAt(dcmobj.dicomInput, DicomObject2.header2valuePosition(header)))
-                : OptionalDouble.empty();
-    }
-
-    @Override
-    public Optional<String> stringValue(DicomInput input, long valpos, int vallen,
-            DicomObject dicomObject) {
-        OptionalInt i = intValue(input, valpos, vallen);
-        return i.isPresent() ? Optional.of(Integer.toString(i.getAsInt())) : Optional.empty();
-    }
-
-    @Override
-    public DicomElement elementOf(DicomObject dcmObj, int tag, VR vr, int val) {
-        byte[] b = new byte[bytes];
-        intToBytes(val, b, 0);
-        return new ByteArrayElement(dcmObj, tag, vr, b);
-    }
-
-    @Override
-    public DicomElement elementOf(DicomObject dcmObj, int tag, VR vr, int... vals) {
-        if (vals.length == 0) {
-            return new BasicDicomElement(dcmObj, tag, vr, 0);
-        }
-        byte[] b = new byte[vals.length * bytes];
-        for (int i = 0; i < vals.length; i++) {
-            intToBytes(vals[i], b, i * bytes);
-        }
-        return new ByteArrayElement(dcmObj, tag, vr, b);
     }
 
     @Override
@@ -391,24 +336,6 @@ enum BinaryVR implements VRType {
     }
 
     @Override
-    public StringBuilder promptValueTo(DicomInput input, long valpos, int vallen, DicomObject dicomObject,
-                                       StringBuilder appendTo, int maxLength) {
-        appendTo.append(" [");
-        int n = vallen / bytes;
-        for (int i = 0; i < n; i++, valpos += bytes) {
-            if (i > 0) {
-                appendTo.append('\\');
-            }
-            appendTo.append(stringAt(input, valpos));
-            if (appendTo.length() >= maxLength) {
-                appendTo.setLength(maxLength);
-                return appendTo;
-            }
-        }
-        return appendTo.append(']');
-    }
-
-    @Override
     public StringBuilder promptValueTo(byte[] b, StringBuilder sb, int maxLength) {
         sb.append(" [");
         int n = b.length / bytes;
@@ -426,7 +353,7 @@ enum BinaryVR implements VRType {
     }
 
     @Override
-    public StringBuilder promptValueTo(DicomInput input, long valpos, int vallen, DicomObject2 dicomObject,
+    public StringBuilder promptValueTo(DicomInput input, long valpos, int vallen, DicomObject dicomObject,
                                        StringBuilder appendTo, int maxLength) {
         appendTo.append(" [");
         int n = vallen / bytes;

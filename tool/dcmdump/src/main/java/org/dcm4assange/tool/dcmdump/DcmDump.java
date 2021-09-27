@@ -51,7 +51,7 @@ public class DcmDump implements Callable<Integer> {
 
     @Override
     public Integer call() throws Exception {
-        try (DicomInputStream2 dis = new DicomInputStream2(Files.newInputStream(file))) {
+        try (DicomInputStream dis = new DicomInputStream(Files.newInputStream(file))) {
             dis.withPreambleHandler(this::onPreamble)
                     .withDicomElementHandler(this::onElement)
                     .withItemHandler(this::onItem)
@@ -62,16 +62,16 @@ public class DcmDump implements Callable<Integer> {
         return 0;
     }
 
-    private void onPreamble(DicomInputStream2 dis) throws IOException {
+    private void onPreamble(DicomInputStream dis) throws IOException {
         System.out.println(dis.promptPreambleTo(sb.append("0: "), cols));
     }
 
-    private boolean onElement(DicomInputStream2 dis, DicomObject2 dcmobj, long header)
+    private boolean onElement(DicomInputStream dis, DicomObject dcmobj, long header)
             throws IOException {
-        long pos = DicomInputStream2.header2position(header);
+        long pos = DicomInputStream.header2position(header);
         int tag = dis.header2tag(header);
         VR vr = VR.fromHeader(header);
-        int headerLength = DicomObject2.header2headerLength(header);
+        int headerLength = DicomObject.header2headerLength(header);
         int valueLength = dis.header2valueLength(header);
         sb.setLength(0);
         sb.append(pos).append(": ");
@@ -99,7 +99,7 @@ public class DcmDump implements Callable<Integer> {
         return true;
     }
 
-    private boolean onItem(DicomInputStream2 dis, Sequence seq, long header) throws IOException {
+    private boolean onItem(DicomInputStream dis, Sequence seq, long header) throws IOException {
         promptPos(header);
         int itemLength = dis.header2valueLength(header);
         if (dis.header2tag(header) == Tag.Item) {
@@ -116,7 +116,7 @@ public class DcmDump implements Callable<Integer> {
         return true;
     }
 
-    private boolean onFragment(DicomInputStream2 dis, Fragments frags, long header) throws IOException {
+    private boolean onFragment(DicomInputStream dis, Fragments frags, long header) throws IOException {
         promptPos(header);
         long uitemlen = dis.header2valueLength(header) & 0xffffffffL;
         if (dis.header2tag(header) == Tag.Item) {
@@ -133,7 +133,7 @@ public class DcmDump implements Callable<Integer> {
     }
 
     private void promptPos(long header) {
-        long pos = DicomInputStream2.header2position(header);
+        long pos = DicomInputStream.header2position(header);
         sb.setLength(0);
         sb.append(pos).append(": ");
     }

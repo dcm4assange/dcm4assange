@@ -26,17 +26,17 @@ import java.util.Objects;
  */
 public class Fragments {
     private static final long[] EMPTY = {};
-    final DicomObject2 dcmobj;
+    final DicomObject dcmobj;
     final int tag;
     private long[] headers = EMPTY;
     private int size;
 
-    public Fragments(DicomObject2 dcmobj, int tag) {
+    public Fragments(DicomObject dcmobj, int tag) {
         this.dcmobj = Objects.requireNonNull(dcmobj);
         this.tag = tag;
     }
 
-    Fragments(DicomObject2 dcmobj, Fragments o) {
+    Fragments(DicomObject dcmobj, Fragments o) {
         this(dcmobj, o.tag);
         this.headers = Arrays.copyOf(o.headers, o.size);
         this.size = o.size;
@@ -62,7 +62,7 @@ public class Fragments {
         return size;
     }
 
-    public DicomObject2 getDicomObject() {
+    public DicomObject getDicomObject() {
         return dcmobj;
     }
 }

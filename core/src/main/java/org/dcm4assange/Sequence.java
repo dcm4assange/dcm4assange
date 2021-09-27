@@ -25,27 +25,27 @@ import java.util.Objects;
  * @since Sep 2021
  */
 public class Sequence {
-    private static final DicomObject2[] EMPTY_SEQUENCE = {};
-    final DicomObject2 dcmobj;
+    private static final DicomObject[] EMPTY_SEQUENCE = {};
+    final DicomObject dcmobj;
     final int tag;
-    private DicomObject2[] items = EMPTY_SEQUENCE;
+    private DicomObject[] items = EMPTY_SEQUENCE;
     private int size;
 
-    public Sequence(DicomObject2 dcmobj, int tag) {
+    public Sequence(DicomObject dcmobj, int tag) {
         this.dcmobj = Objects.requireNonNull(dcmobj);
         this.tag = tag;
     }
 
-    Sequence(DicomObject2 dcmobj, Sequence o) {
+    Sequence(DicomObject dcmobj, Sequence o) {
         this(dcmobj, o.tag);
-        this.items = new DicomObject2[o.size];
+        this.items = new DicomObject[o.size];
         this.size = o.size;
         for (int i = 0; i < o.size; i++) {
-            items[i] = new DicomObject2(o.items[i]);
+            items[i] = new DicomObject(o.items[i]);
         }
     }
 
-    public void add(DicomObject2 dcmObj) {
+    public void add(DicomObject dcmObj) {
         int index = size++;
         ensureCapacity(index);
         items[index] = dcmObj;
@@ -55,7 +55,7 @@ public class Sequence {
         int oldCapacity = items.length;
         if (index < oldCapacity) return;
         if (oldCapacity == 0) {
-            items = new DicomObject2[1];
+            items = new DicomObject[1];
         } else {
             items = Arrays.copyOf(items, oldCapacity == 1 ? 16 : oldCapacity << 1);
         }
@@ -69,11 +69,11 @@ public class Sequence {
         return size;
     }
 
-    public DicomObject2 getDicomObject() {
+    public DicomObject getDicomObject() {
         return dcmobj;
     }
 
-    public DicomObject2 getItem(int index) {
+    public DicomObject getItem(int index) {
         Objects.checkIndex(index, size);
         return items[index];
     }
@@ -82,7 +82,7 @@ public class Sequence {
         for (int i = 0; i < size; i++) {
             if (--maxLines < 0) break;
             sb.append(System.lineSeparator());
-            DicomObject2 item = items[i];
+            DicomObject item = items[i];
             item.promptLevelTo(sb)
                     .append("(FFFE,E000) #")
                     .append(item.length())

@@ -1,17 +1,18 @@
 /*
  * Copyright 2021 the original author or authors.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *        https://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
  */
 
 package org.dcm4assange;
@@ -26,11 +27,10 @@ import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 /**
  * @author Gunter Zeilinger (gunterze@protonmail.com)
- * @since Jun 2021
+ * @since Sep 2021
  */
 public class DicomOutputStreamTest {
 
@@ -53,25 +53,22 @@ public class DicomOutputStreamTest {
 
     @Test
     public void writeDataSetIVR_LE() throws IOException {
-        assertArrayEquals(DicomInputStreamTest.IVR_LE, writeDataSet(DicomEncoding.IVR_LE, false,
-                DicomOutputStream.LengthEncoding.UNDEFINED_OR_ZERO,
-                DicomOutputStream.LengthEncoding.UNDEFINED_OR_ZERO,
+        assertArrayEquals(DicomInputStreamTest.IVR_LE,
+                writeDataSet(DicomEncoding.IVR_LE, false, false, false,
                 readDataset(DicomInputStreamTest.IVR_LE, DicomEncoding.IVR_LE)));
     }
 
     @Test
     public void writeDataSetEVR_LE() throws IOException {
-        assertArrayEquals(DicomInputStreamTest.EVR_LE, writeDataSet(DicomEncoding.EVR_LE, false,
-                DicomOutputStream.LengthEncoding.UNDEFINED_OR_ZERO,
-                DicomOutputStream.LengthEncoding.UNDEFINED_OR_ZERO,
+        assertArrayEquals(DicomInputStreamTest.EVR_LE,
+                writeDataSet(DicomEncoding.EVR_LE, false, false, false,
                 readDataset(DicomInputStreamTest.EVR_BE, DicomEncoding.EVR_BE)));
     }
 
     @Test
     public void writeDataSetEVR_BE() throws IOException {
-        assertArrayEquals(DicomInputStreamTest.EVR_BE, writeDataSet(DicomEncoding.EVR_BE, false,
-                DicomOutputStream.LengthEncoding.UNDEFINED_OR_ZERO,
-                DicomOutputStream.LengthEncoding.UNDEFINED_OR_ZERO,
+        assertArrayEquals(DicomInputStreamTest.EVR_BE,
+                writeDataSet(DicomEncoding.EVR_BE, false, false, false,
                 readDataset(DicomInputStreamTest.EVR_LE, DicomEncoding.EVR_LE)));
     }
 
@@ -93,33 +90,24 @@ public class DicomOutputStreamTest {
     }
 
     @Test
-    public void writeSequenceEVR_LE() throws IOException {
+    public void writeSequenceEVR_LE_UndefLength() throws IOException {
         assertArrayEquals(DicomInputStreamTest.PER_FRAME_FUNCTIONAL_GROUPS_SEQ_EVR_LE,
-                writeDataSet(DicomEncoding.EVR_LE, false,
-                        DicomOutputStream.LengthEncoding.UNDEFINED_OR_ZERO,
-                        DicomOutputStream.LengthEncoding.UNDEFINED_OR_ZERO,
-                        readDataset(DicomInputStreamTest.PER_FRAME_FUNCTIONAL_GROUPS_SEQ_IVR_LE,
-                                DicomEncoding.IVR_LE)));
+                writeDataSet(DicomEncoding.EVR_LE, false, true, true,
+                readDataset(DicomInputStreamTest.PER_FRAME_FUNCTIONAL_GROUPS_SEQ_IVR_LE, DicomEncoding.IVR_LE)));
     }
 
     @Test
-    public void writeSequenceIVR_LE_ExplicitLength() throws IOException {
+    public void writeSequenceIVR_LE() throws IOException {
         assertArrayEquals(DicomInputStreamTest.PER_FRAME_FUNCTIONAL_GROUPS_SEQ_IVR_LE,
-                writeDataSet(DicomEncoding.IVR_LE, false,
-                        DicomOutputStream.LengthEncoding.EXPLICIT,
-                        DicomOutputStream.LengthEncoding.EXPLICIT,
-                        readDataset(DicomInputStreamTest.PER_FRAME_FUNCTIONAL_GROUPS_SEQ_IVR_LE,
-                                DicomEncoding.IVR_LE)));
+                writeDataSet(DicomEncoding.IVR_LE, false, false, false,
+                readDataset(DicomInputStreamTest.PER_FRAME_FUNCTIONAL_GROUPS_SEQ_IVR_LE, DicomEncoding.IVR_LE)));
     }
 
     @Test
     public void writeSequenceEVR_LE_GroupLength() throws IOException {
         assertArrayEquals(SEQ_IVR_LE_GROUP_LENGTH,
-                writeDataSet(DicomEncoding.IVR_LE, true,
-                        DicomOutputStream.LengthEncoding.EXPLICIT,
-                        DicomOutputStream.LengthEncoding.UNDEFINED,
-                        readDataset(DicomInputStreamTest.PER_FRAME_FUNCTIONAL_GROUPS_SEQ_IVR_LE,
-                                DicomEncoding.IVR_LE)));
+                writeDataSet(DicomEncoding.IVR_LE, true, false, true,
+                readDataset(DicomInputStreamTest.PER_FRAME_FUNCTIONAL_GROUPS_SEQ_IVR_LE, DicomEncoding.IVR_LE)));
     }
 
     @Test
@@ -157,22 +145,21 @@ public class DicomOutputStreamTest {
     }
 
     private static byte[] writeDataSet(DicomEncoding encoding, boolean groupLength,
-                                       DicomOutputStream.LengthEncoding seqEncoding,
-                                       DicomOutputStream.LengthEncoding itemEncoding,
+                                       boolean undefSeqenceLength, boolean undefItemLength,
                                        DicomObject dcmObj) throws IOException {
         ByteArrayOutputStream bout = new ByteArrayOutputStream();
         try (DicomOutputStream dos = new DicomOutputStream(bout)) {
             dos.withEncoding(encoding)
                     .withIncludeGroupLength(groupLength)
-                    .withSequenceLengthEncoding(seqEncoding)
-                    .withItemLengthEncoding(itemEncoding)
+                    .withUndefSequenceLength(undefSeqenceLength)
+                    .withUndefItemLength(undefItemLength)
                     .writeDataSet(dcmObj);
         }
         return bout.toByteArray();
     }
 
-    static DicomObject c_echo_rq() throws IOException {
-        DicomObject cmd = DicomObject.newDicomObject();
+    static DicomObject c_echo_rq() {
+        DicomObject cmd = new DicomObject();
         cmd.setString(Tag.AffectedSOPClassUID, VR.UI, UID.Verification);
         cmd.setInt(Tag.CommandField, VR.US, 48);
         cmd.setInt(Tag.MessageID, VR.US, 1);

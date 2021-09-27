@@ -321,13 +321,6 @@ class MemoryCache {
             return MemoryCache.this.stringAt(pos, len, cs);
         }
 
-        DicomElement newDicomElement(DicomObject dcmObj, int tag, VR vr, int valueLength, long valuePos) {
-            return vr == VR.SQ || (vr == VR.UN && valueLength == -1)
-                    ? new DicomSequence(dcmObj, tag, valueLength)
-                    : valueLength == 0 ? new BasicDicomElement(dcmObj, tag, vr, valueLength)
-                    : new ParsedDicomElement(dcmObj, tag, vr, valueLength, valuePos);
-        }
-
         int header2valueLength(long header) {
             long pos = header & 0x00ffffffffffffffL;
             int type = (int)(header >>> 62);
@@ -341,57 +334,5 @@ class MemoryCache {
             return MemoryCache.this;
         }
 
-        class ParsedDicomElement extends BasicDicomElement {
-            private final long valuePos;
-
-            public ParsedDicomElement(DicomObject dcmObj, int tag, VR vr, int valueLength, long valuePos) {
-                super(dcmObj, tag, vr, valueLength);
-                this.valuePos = valuePos;
-            }
-
-            @Override
-            public OptionalInt intValue() {
-                return vr.type.intValue(DicomInput.this, valuePos, valueLength);
-            }
-
-            @Override
-            public OptionalLong longValue() {
-                return vr.type.longValue(DicomInput.this, valuePos, valueLength);
-            }
-
-            @Override
-            public OptionalFloat floatValue() {
-                return vr.type.floatValue(DicomInput.this, valuePos, valueLength);
-            }
-
-            @Override
-            public OptionalDouble doubleValue() {
-                return vr.type.doubleValue(DicomInput.this, valuePos, valueLength);
-            }
-
-            @Override
-            public Optional<String> stringValue() {
-                return vr.type.stringValue(DicomInput.this, valuePos, valueLength, dicomObject);
-            }
-
-            @Override
-            public String[] stringValues() {
-                return vr.type.stringValues(DicomInput.this, valuePos, valueLength, dicomObject);
-            }
-
-            @Override
-            protected StringBuilder promptValueTo(StringBuilder appendTo, int maxLength) {
-                return vr.type.promptValueTo(DicomInput.this, valuePos, valueLength, dicomObject, appendTo, maxLength);
-            }
-
-            @Override
-            public void writeValueTo(DicomOutputStream dos) throws IOException {
-                if (encoding.byteOrder == dos.encoding().byteOrder || vr.type.toggleEndian() == null) {
-                    writeBytesTo(valuePos, valueLength, dos);
-                } else {
-                    writeSwappedBytesTo(valuePos, valueLength, dos, vr.type.toggleEndian(), dos.swapBuffer());
-                }
-            }
-        }
     }
 }

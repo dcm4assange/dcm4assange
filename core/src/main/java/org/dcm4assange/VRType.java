@@ -15,52 +15,27 @@ import java.util.OptionalLong;
  * @since May 2021
  */
 interface VRType {
-    default OptionalInt intValue(DicomInput dicomInput, long valuePos, int valueLength) {
+    default OptionalInt intValue(DicomObject dcmobj, int index) {
         return OptionalInt.empty();
     }
 
-    default OptionalInt intValue(DicomObject2 dcmobj, int index) {
-        return OptionalInt.empty();
-    }
-
-    default OptionalLong longValue(DicomInput dicomInput, long valpos, int vallen) {
+    default OptionalLong longValue(DicomObject dcmobj, int index) {
         return OptionalLong.empty();
     }
 
-    default OptionalLong longValue(DicomObject2 dcmobj, int index) {
-        return OptionalLong.empty();
-    }
-
-    default OptionalFloat floatValue(DicomInput dicomInput, long valpos, int vallen) {
+    default OptionalFloat floatValue(DicomObject dcmobj, int index) {
         return OptionalFloat.empty();
     }
 
-    default OptionalFloat floatValue(DicomObject2 dcmobj, int index) {
-        return OptionalFloat.empty();
-    }
-
-    default OptionalDouble doubleValue(DicomInput dicomInput, long valuePos, int valueLength) {
+    default OptionalDouble doubleValue(DicomObject dcmobj, int index) {
         return OptionalDouble.empty();
     }
 
-    default OptionalDouble doubleValue(DicomObject2 dcmobj, int index) {
-        return OptionalDouble.empty();
-    }
-
-    default Optional<String> stringValue(DicomInput dicomInput, long valuePos, int valueLength,
-            DicomObject dicomObject) {
+    default Optional<String> stringValue(DicomObject dcmobj, int index) {
         return Optional.empty();
     }
 
-    default String[] stringValues(DicomInput dicomInput, long valuePos, int valueLen, DicomObject dicomObject) {
-        return StringUtils.EMPTY_STRINGS;
-    }
-
-    default Optional<String> stringValue(DicomObject2 dcmobj, int index) {
-        return Optional.empty();
-    }
-
-    default String[] stringValues(DicomObject2 dcmobj, int index) {
+    default String[] stringValues(DicomObject dcmobj, int index) {
         return StringUtils.EMPTY_STRINGS;
     }
 
@@ -76,21 +51,12 @@ interface VRType {
 
     VRType UN = new VRType(){
         @Override
-        public Optional<String> stringValue(DicomInput dicomInput, long valuePos, int valueLength,
-                                            DicomObject dicomObject) {
-            return Optional.of(
-                            promptValueTo(dicomInput, valuePos, valueLength,
-                                    new StringBuilder(Math.min(valueLength, 16)))
-                                    .toString());
-        }
-
-        @Override
-        public Optional<String> stringValue(DicomObject2 dcmobj, int index) {
+        public Optional<String> stringValue(DicomObject dcmobj, int index) {
             long header = dcmobj.getHeader(index);
             return Optional.of(
                             promptValueTo(
                                     dcmobj.dicomInput,
-                                    DicomObject2.header2valuePosition(header),
+                                    DicomObject.header2valuePosition(header),
                                     dcmobj.header2valueLength(header),
                                     new StringBuilder())
                                     .toString());
@@ -125,27 +91,7 @@ interface VRType {
             }
             return sb;
         }
-
-        @Override
-        public StringBuilder promptValueTo(DicomInput dicomInput, long valuePos, int valueLength,
-                                           DicomObject2 dicomObject, StringBuilder sb, int maxLength) {
-            sb.append(" [");
-            int truncate = Math.max(0, valueLength - sb.length() - maxLength);
-            promptValueTo(dicomInput, valuePos, valueLength - truncate, sb);
-            if (truncate < 0) {
-                sb.append(']');
-            }
-            if (sb.length() > maxLength) {
-                sb.setLength(maxLength);
-            }
-            return sb;
-        }
     };
-
-    default StringBuilder promptValueTo(DicomInput dicomInput, long valuePos, int valueLength,
-                                DicomObject dicomObject, StringBuilder sb, int maxLength) {
-        throw new UnsupportedOperationException();
-    }
 
     default StringBuilder promptValueTo(String[] ss, StringBuilder sb, int maxLength) {
         throw new UnsupportedOperationException();
@@ -156,23 +102,7 @@ interface VRType {
     }
 
     default StringBuilder promptValueTo(DicomInput dicomInput, long valuePos, int valueLength,
-                                        DicomObject2 dicomObject, StringBuilder sb, int maxLength) {
-        throw new UnsupportedOperationException();
-    }
-
-    default DicomElement elementOf(DicomObject dcmObj, int tag, VR vr, String val) {
-        throw new UnsupportedOperationException();
-    }
-
-    default DicomElement elementOf(DicomObject dcmObj, int tag, VR vr, String... vals) {
-        throw new UnsupportedOperationException();
-    }
-
-    default DicomElement elementOf(DicomObject dcmObj, int tag, VR vr, int val) {
-        throw new UnsupportedOperationException();
-    }
-
-    default DicomElement elementOf(DicomObject dcmObj, int tag, VR vr, int... vals) {
+                                        DicomObject dicomObject, StringBuilder sb, int maxLength) {
         throw new UnsupportedOperationException();
     }
 
@@ -188,7 +118,7 @@ interface VRType {
         return 0;
     }
 
-    default byte[] toBytes(String[] ss, DicomObject2 dcmobj) {
+    default byte[] toBytes(String[] ss, DicomObject dcmobj) {
         throw new UnsupportedOperationException();
     }
 
