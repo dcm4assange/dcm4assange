@@ -211,6 +211,12 @@ public class DicomInputStreamTest {
             -2, -1, -35, -32, 0, 0, 0, 0
     };
 
+    static DicomObject readDataset(byte[] b, DicomEncoding encoding) throws IOException {
+        try (DicomInputStream dis = new DicomInputStream(new ByteArrayInputStream(b))) {
+            return dis.withEncoding(encoding).readDataSet();
+        }
+    }
+
     @Test
     public void readDataSetIVR_LE() throws IOException {
         assertDataSet(parseGuessEncoding(IVR_LE, DicomEncoding.IVR_LE));
@@ -233,7 +239,10 @@ public class DicomInputStreamTest {
 
     @Test
     public void readCommandSet() throws IOException {
-        DicomObject cmd = c_echo_rq();
+        assert_c_echo_rq(c_echo_rq());
+    }
+
+    static void assert_c_echo_rq(DicomObject cmd) {
         assertNotNull(cmd);
         assertEquals(48, cmd.getInt(Tag.CommandField).orElseGet(Assertions::fail));
         Assertions.assertEquals(UID.Verification, cmd.getString(Tag.AffectedSOPClassUID).orElseGet(Assertions::fail));
@@ -386,7 +395,7 @@ public class DicomInputStreamTest {
         }
     }
 
-    private void assertDataSet(DicomObject dcmObj) {
+    static void assertDataSet(DicomObject dcmObj) {
         assertEquals("TEXT", dcmObj.getString(Tag.SelectorAEValue).orElseGet(Assertions::fail));
         assertEquals("099Y", dcmObj.getString(Tag.SelectorASValue).orElseGet(Assertions::fail));
         assertEquals(Tag.SelectorATValue, dcmObj.getInt(Tag.SelectorATValue).orElseGet(Assertions::fail));

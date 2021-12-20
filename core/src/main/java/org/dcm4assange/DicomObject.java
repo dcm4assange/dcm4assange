@@ -5,11 +5,11 @@ import org.dcm4assange.util.OptionalFloat;
 import org.dcm4assange.util.StringUtils;
 import org.dcm4assange.util.TagUtils;
 
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 import java.util.function.ToIntBiFunction;
 
-public class DicomObject {
+public class DicomObject implements Serializable {
     private static final int TO_STRING_LENGTH = 78;
     private static final int TO_STRING_LINES = 50;
     private static final int DEFAULT_CAPACITY = 16;
@@ -170,6 +170,19 @@ public class DicomObject {
                 : Optional.empty();
     }
 
+    public Optional<DicomObject> getItem(int tag) {
+        int i = indexOf(tag);
+        return (i >= 0 && values[i] instanceof Sequence sequence && !sequence.isEmpty())
+                ? Optional.of(sequence.getItem(0))
+                : Optional.empty();
+    }
+
+    public Sequence newSequence(int tag) {
+        Sequence sequence = new Sequence(this, tag);
+        add(tag, VR.SQ, sequence);
+        return sequence;
+    }
+
     public Optional<Fragments> getFragments(int tag) {
         int i = indexOf(tag);
         return (i >= 0 && values[i] instanceof Fragments fragments)
@@ -179,6 +192,10 @@ public class DicomObject {
 
     public void setString(int tag, VR vr, String... vals) {
         add(tag, vr, vr.type.valueOf(vals));
+    }
+
+    public void setBulkDataURI(int tag, VR vr, String bulkdataURI) {
+        add(tag, vr, Objects.requireNonNull(bulkdataURI));
     }
 
     public void setInt(int tag, VR vr, int... vals) {
@@ -259,11 +276,11 @@ public class DicomObject {
     }
 
     int header2tag(long header) {
-        return ((int)(header >>> 62) == 0) ? (int) header : dicomInput.tagAt(header & 0x00ffffffffffffffL);
+        return ((int)(header >>> 62) == 0) ? (int) header : dicomInput.tagAt(header & 0x007fffffffffffffL);
     }
 
     static long header2valuePosition(long header) {
-        return (header & 0x00ffffffffffffffL) + header2headerLength(header);
+        return (header & 0x007fffffffffffffL) + header2headerLength(header);
     }
 
     public static int header2headerLength(long header) {
@@ -366,7 +383,7 @@ public class DicomObject {
         }
         int size = size();
         int length = 0;
-        for (int index = 0, gi = 0; index < size; index++) {
+        for (int index = 0; index < size; index++) {
             long header = headers[index];
             if (!TagUtils.isGroupLength(header2tag(header))) {
                 VR vr = VR.fromHeader(header);
@@ -409,20 +426,33 @@ public class DicomObject {
     private int valueLength(DicomOutputStream dos, long header, VR vr, int index,
                             ToIntBiFunction<DicomObject, DicomOutputStream> calc) {
         Object value = values[index];
-        if (value instanceof Sequence seq) {
-            int size = seq.size();
-            int length = (dos.undefItemLength() ? 16 : 8) * size;
-            for (int i = 0; i < size; i++) {
-                DicomObject item = seq.getItem(i);
-                length += calc.applyAsInt(item, dos);
+        if (value instanceof String bulkDataURI) {
+            if (dos.encoding() == DicomEncoding.SERIALIZE) {
+                final int strlen = bulkDataURI.length();
+                int utflen = bulkDataURI.length();
+                for (int i = 0; i < strlen; i++) {
+                    int c = bulkDataURI.charAt(i);
+                    if (c >= 0x80 || c == 0)
+                        utflen += (c >= 0x800) ? 2 : 1;
+                }
+                return utflen;
             }
-            return length;
-        }
-        if (value instanceof String[] ss) {
-            values[index] = value = vr.type.toBytes(ss, DicomObject.this);
-        }
-        if (value instanceof byte[] b) {
-            return (b.length + 1) & ~1;
+        } else {
+            if (value instanceof Sequence seq) {
+                int size = seq.size();
+                int length = (dos.undefItemLength() ? 16 : 8) * size;
+                for (int i = 0; i < size; i++) {
+                    DicomObject item = seq.getItem(i);
+                    length += calc.applyAsInt(item, dos);
+                }
+                return length;
+            }
+            if (value instanceof String[] ss) {
+                values[index] = value = vr.type.toBytes(ss, DicomObject.this);
+            }
+            if (value instanceof byte[] b) {
+                return (b.length + 1) & ~1;
+            }
         }
         return header2valueLength(header);
     }
@@ -469,4 +499,49 @@ public class DicomObject {
         }
         return tags;
     }
+
+    private static class SerializationProxy implements Serializable {
+        private transient DicomObject dcmobj;
+
+        public SerializationProxy(DicomObject dcmobj) {
+            this.dcmobj = dcmobj;
+        }
+
+        @Serial
+        private Object readResolve() throws ObjectStreamException {
+            return dcmobj;
+        }
+
+        @Serial
+        private void readObject(ObjectInputStream ois) throws IOException, ClassNotFoundException {
+            ois.defaultReadObject();
+            dcmobj = new DicomInputStream(ois).withEncoding(DicomEncoding.SERIALIZE).readDataSet();
+        }
+
+        @Serial
+        private void writeObject(ObjectOutputStream oos) throws IOException {
+            oos.defaultWriteObject();
+            new DicomOutputStream(oos).withEncoding(DicomEncoding.SERIALIZE).writeDataSet(dcmobj);
+        }
+
+        @Serial
+        private static final long serialVersionUID = 3614827395326873440L;
+
+    }
+
+    @Serial
+    private Object writeReplace() {
+        return new SerializationProxy(this);
+    }
+
+    @Serial
+    private void readObject(ObjectInputStream stream) throws InvalidObjectException {
+        throw new InvalidObjectException("Proxy required.");
+    }
+
+    @Serial
+    private void readObjectNoData() throws InvalidObjectException {
+        throw new InvalidObjectException("Proxy required");
+    }
+
 }

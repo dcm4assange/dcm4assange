@@ -19,11 +19,9 @@ package org.dcm4assange;
 
 import org.dcm4assange.util.StringUtils;
 
-import java.io.EOFException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.URI;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -37,6 +35,7 @@ import java.util.zip.DeflaterOutputStream;
  */
 public class DicomOutputStream extends OutputStream  {
     private static final int BUFFER_SIZE = 8192;
+    private static final int BULKDATA_VR_BIT = 0x80;
     private OutputStream out;
     private DicomEncoding encoding;
     private boolean includeGroupLength;
@@ -214,7 +213,7 @@ public class DicomOutputStream extends OutputStream  {
     }
 
     void write(long header, MemoryCache.DicomInput dicomInput) throws IOException {
-        int tag = dicomInput.tagAt(header & 0x00ffffffffffffffL);
+        int tag = dicomInput.tagAt(header & 0x007fffffffffffffL);
         VR vr = VR.fromHeader(header);
         int vlen = dicomInput.header2valueLength(header);
         writeHeader(tag, vr, vlen);
@@ -235,16 +234,24 @@ public class DicomOutputStream extends OutputStream  {
     }
 
     void write(int tag, VR vr, String bulkDataURI) throws IOException {
-        URI uri = URI.create(bulkDataURI);
-        Path path = Paths.get(uri.getPath());
-        long offsetAndLength = offsetAndLength(uri.getFragment());
-        int offset = (int) (offsetAndLength >>> 32);
-        int length = (int) offsetAndLength;
-        writeHeader(tag, vr, length);
-        try (InputStream in = Files.newInputStream(path)) {
-            byte[] buffer = buffer();
-            skip(in, offset, buffer);
-            copy(in, length, buffer);
+        if (encoding == DicomEncoding.SERIALIZE) {
+            byte[] b = bulkDataURI.getBytes(StandardCharsets.UTF_8);
+            int hlen = fillHeader(tag, vr, b.length, b12);
+            b12[4] |= BULKDATA_VR_BIT;
+            write(b12, 0, hlen);
+            write(b, 0, b.length);
+        } else {
+            URI uri = URI.create(bulkDataURI);
+            Path path = Paths.get(uri.getPath());
+            long offsetAndLength = offsetAndLength(uri.getFragment());
+            int offset = (int) (offsetAndLength >>> 32);
+            int length = (int) offsetAndLength;
+            writeHeader(tag, vr, length);
+            try (InputStream in = Files.newInputStream(path)) {
+                byte[] buffer = buffer();
+                skip(in, offset, buffer);
+                copy(in, length, buffer);
+            }
         }
     }
 

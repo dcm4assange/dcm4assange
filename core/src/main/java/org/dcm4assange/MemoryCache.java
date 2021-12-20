@@ -322,7 +322,7 @@ class MemoryCache {
         }
 
         int header2valueLength(long header) {
-            long pos = header & 0x00ffffffffffffffL;
+            long pos = header & 0x007fffffffffffffL;
             int type = (int)(header >>> 62);
             return type == 0 ? -1
                     : type == 1 ? intAt(pos + 4)

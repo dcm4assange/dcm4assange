@@ -3,10 +3,8 @@ package org.dcm4assange;
 import org.dcm4assange.MemoryCache.DicomInput;
 import org.dcm4assange.util.TagUtils;
 
-import java.io.EOFException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Objects;
@@ -18,6 +16,8 @@ import java.util.function.Predicate;
  * @since May 2021
  */
 public class DicomInputStream extends InputStream {
+
+    private static final long BULKDATA_HEADER_BIT = 0x2000000000000000L;
 
     @FunctionalInterface
     public interface PreambleHandler {
@@ -266,7 +266,7 @@ public class DicomInputStream extends InputStream {
     }
 
     public static long header2position(long header) {
-        return header & 0x00ffffffffffffffL;
+        return header & 0x007fffffffffffffL;
     }
 
     public int header2valueLength(long header) {
@@ -274,13 +274,19 @@ public class DicomInputStream extends InputStream {
     }
 
     public int header2tag(long header) {
-        return input.tagAt(header & 0x00ffffffffffffffL);
+        return input.tagAt(header & 0x007ffffffffffffL);
     }
 
     public boolean onElement(DicomObject dcmObj, long header) throws IOException {
         VR vr = VR.fromHeader(header);
         int tag = header2tag(header);
         int vallen = input.header2valueLength(header);
+        if ((header & BULKDATA_HEADER_BIT) != 0) {
+            byte[] b = new byte[vallen];
+            read(b);
+            dcmObj.add(header, new String(b, StandardCharsets.UTF_8));
+            return true;
+        }
         long unsignedValueLength = vallen & 0xffffffffL;
         if (vr != null) {
             if (vr == VR.SQ) {
@@ -439,10 +445,15 @@ public class DicomInputStream extends InputStream {
             return pos0 | 0x4000000000000000L | lookupVR(tag, dcmObj).toHeader();
         }
         int vrcode = cache.vrcode(pos0 + 4);
+        long bulkdata = 0;
+        if (vrcode < 0 && encoding() == DicomEncoding.SERIALIZE) {
+            vrcode &= 0x7fff;
+            bulkdata = BULKDATA_HEADER_BIT;
+        }
         VR vr = VR.of(vrcode);
         if (vr == null) vr = lookupVR(tag, dcmObj); // replace invalid vrcode
         if (vr.evr8) {
-            return pos0 | 0x8000000000000000L | vr.toHeader();
+            return pos0 | 0x8000000000000000L | bulkdata | vr.toHeader();
         }
         if (pos0 + 12 > cache.limit()) {
             throw new EOFException();
@@ -452,7 +463,7 @@ public class DicomInputStream extends InputStream {
             vr = lookupVR(tag, dcmObj);
         if (vr == VR.UN && input.intAt(pos0+ 8) == -1)
             vr = VR.SQ;
-        return pos0 | 0xc000000000000000L | vr.toHeader();
+        return pos0 | 0xc000000000000000L | bulkdata | vr.toHeader();
     }
 
     private static VR lookupVR(int tag, DicomObject dcmObj) {

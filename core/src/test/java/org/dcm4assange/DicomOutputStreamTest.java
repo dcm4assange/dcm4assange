@@ -55,21 +55,21 @@ public class DicomOutputStreamTest {
     public void writeDataSetIVR_LE() throws IOException {
         assertArrayEquals(DicomInputStreamTest.IVR_LE,
                 writeDataSet(DicomEncoding.IVR_LE, false, false, false,
-                readDataset(DicomInputStreamTest.IVR_LE, DicomEncoding.IVR_LE)));
+                DicomInputStreamTest.readDataset(DicomInputStreamTest.IVR_LE, DicomEncoding.IVR_LE)));
     }
 
     @Test
     public void writeDataSetEVR_LE() throws IOException {
         assertArrayEquals(DicomInputStreamTest.EVR_LE,
                 writeDataSet(DicomEncoding.EVR_LE, false, false, false,
-                readDataset(DicomInputStreamTest.EVR_BE, DicomEncoding.EVR_BE)));
+                DicomInputStreamTest.readDataset(DicomInputStreamTest.EVR_BE, DicomEncoding.EVR_BE)));
     }
 
     @Test
     public void writeDataSetEVR_BE() throws IOException {
         assertArrayEquals(DicomInputStreamTest.EVR_BE,
                 writeDataSet(DicomEncoding.EVR_BE, false, false, false,
-                readDataset(DicomInputStreamTest.EVR_LE, DicomEncoding.EVR_LE)));
+                DicomInputStreamTest.readDataset(DicomInputStreamTest.EVR_LE, DicomEncoding.EVR_LE)));
     }
 
     @Test
@@ -93,21 +93,21 @@ public class DicomOutputStreamTest {
     public void writeSequenceEVR_LE_UndefLength() throws IOException {
         assertArrayEquals(DicomInputStreamTest.PER_FRAME_FUNCTIONAL_GROUPS_SEQ_EVR_LE,
                 writeDataSet(DicomEncoding.EVR_LE, false, true, true,
-                readDataset(DicomInputStreamTest.PER_FRAME_FUNCTIONAL_GROUPS_SEQ_IVR_LE, DicomEncoding.IVR_LE)));
+                DicomInputStreamTest.readDataset(DicomInputStreamTest.PER_FRAME_FUNCTIONAL_GROUPS_SEQ_IVR_LE, DicomEncoding.IVR_LE)));
     }
 
     @Test
     public void writeSequenceIVR_LE() throws IOException {
         assertArrayEquals(DicomInputStreamTest.PER_FRAME_FUNCTIONAL_GROUPS_SEQ_IVR_LE,
                 writeDataSet(DicomEncoding.IVR_LE, false, false, false,
-                readDataset(DicomInputStreamTest.PER_FRAME_FUNCTIONAL_GROUPS_SEQ_IVR_LE, DicomEncoding.IVR_LE)));
+                DicomInputStreamTest.readDataset(DicomInputStreamTest.PER_FRAME_FUNCTIONAL_GROUPS_SEQ_IVR_LE, DicomEncoding.IVR_LE)));
     }
 
     @Test
     public void writeSequenceEVR_LE_GroupLength() throws IOException {
         assertArrayEquals(SEQ_IVR_LE_GROUP_LENGTH,
                 writeDataSet(DicomEncoding.IVR_LE, true, false, true,
-                readDataset(DicomInputStreamTest.PER_FRAME_FUNCTIONAL_GROUPS_SEQ_IVR_LE, DicomEncoding.IVR_LE)));
+                DicomInputStreamTest.readDataset(DicomInputStreamTest.PER_FRAME_FUNCTIONAL_GROUPS_SEQ_IVR_LE, DicomEncoding.IVR_LE)));
     }
 
     @Test
@@ -136,12 +136,6 @@ public class DicomOutputStreamTest {
             dos.writeCommandSet(cmd);
         }
         assertArrayEquals(DicomInputStreamTest.C_ECHO_RQ, bout.toByteArray());
-    }
-
-    private static DicomObject readDataset(byte[] b, DicomEncoding encoding) throws IOException {
-        try (DicomInputStream dis = new DicomInputStream(new ByteArrayInputStream(b))) {
-            return dis.withEncoding(encoding).readDataSet();
-        }
     }
 
     private static byte[] writeDataSet(DicomEncoding encoding, boolean groupLength,
