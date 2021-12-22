@@ -3,6 +3,10 @@ package org.dcm4assange.util;
 import java.util.Objects;
 import java.util.Optional;
 
+/**
+ * @author Gunter Zeilinger (gunterze@protonmail.com)
+ * @since Jul 2018
+ */
 public class StringUtils {
 
     public static String[] EMPTY_STRINGS = {};

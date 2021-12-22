@@ -10,6 +10,7 @@
   <version>1.0.0</version>
   <modules>
     <module>standard</module>
+    <module>conf</module>
     <module>core</module>
     <module>elmdict</module>
     <module>tool</module>
