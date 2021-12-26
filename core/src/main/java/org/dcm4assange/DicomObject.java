@@ -121,11 +121,19 @@ public class DicomObject implements Serializable {
                 : VR.fromHeader(headers[i]).type.intValue(this, i);
     }
 
+    public int getIntOrElseThrow(int tag) {
+        return getInt(tag).orElseThrow(() -> missing(tag));
+    }
+
     public OptionalLong getLong(int tag) {
         int i = indexOf(tag);
         return i < 0
                 ? OptionalLong.empty()
                 : VR.fromHeader(headers[i]).type.longValue(this, i);
+    }
+
+    public long getLongOrElseThrow(int tag) {
+        return getLong(tag).orElseThrow(() -> missing(tag));
     }
 
     public OptionalFloat getFloat(int tag) {
@@ -135,6 +143,10 @@ public class DicomObject implements Serializable {
                 : VR.fromHeader(headers[i]).type.floatValue(this, i);
     }
 
+    public float getFloatOrElseThrow(int tag) {
+        return getFloat(tag).orElseThrow(() -> missing(tag));
+    }
+
     public OptionalDouble getDouble(int tag) {
         int i = indexOf(tag);
         return i < 0
@@ -142,11 +154,19 @@ public class DicomObject implements Serializable {
                 : VR.fromHeader(headers[i]).type.doubleValue(this, i);
     }
 
+    public double getDoubleOrElseThrow(int tag) {
+        return getDouble(tag).orElseThrow(() -> missing(tag));
+    }
+
     public Optional<String> getString(int tag) {
         int i = indexOf(tag);
         return i < 0
                 ? Optional.empty()
                 : VR.fromHeader(headers[i]).type.stringValue(this, i);
+    }
+
+    public String getStringOrElseThrow(int tag) {
+        return getString(tag).orElseThrow(() -> missing(tag));
     }
 
     public String[] getStrings(int tag) {
@@ -544,4 +564,9 @@ public class DicomObject implements Serializable {
         throw new InvalidObjectException("Proxy required");
     }
 
+    private static NoSuchElementException missing(int tag) {
+        return new NoSuchElementException("Missing "
+                + ElementDictionary.keywordOf(tag) + ' '
+                + TagUtils.toString(tag));
+    }
 }

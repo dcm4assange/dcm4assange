@@ -21,7 +21,7 @@
   <parent>
     <artifactId>dcm4assange-tool</artifactId>
     <groupId>org.dcm4assange.tool</groupId>
-    <version>1.0.0</version>
+    <version>7.0.0</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
