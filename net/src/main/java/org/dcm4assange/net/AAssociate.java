@@ -285,90 +285,20 @@ public abstract class AAssociate {
         maxPDULength = -1;
         implClassUID = null;
         implVersionName = null;
-        int itemType, itemLength, itemRemaining, subitemType, subitemLength, uidLen;
         while (remaining > 0) {
             if ((remaining -= 4) < 0)
                 throw AAbort.invalidPDUParameterValue();
-            itemType = dis.readUnsignedByte();
-            if (dis.read() < 0)
-                throw new EOFException();
-            itemLength = dis.readUnsignedShort();
+            int itemType = dis.readUnsignedByte();
+            skipByte(dis);
+            int itemLength = dis.readUnsignedShort();
             if ((remaining -= itemLength) < 0)
                 throw AAbort.invalidPDUParameterValue();
             switch (itemType) {
-                case 0x10:
-                    applicationContextName = readASCII(dis, itemLength, buf);
-                    break;
-                case 0x20:
-                    parsePresentationContextRQ(dis, itemLength, buf);
-                    break;
-                case 0x21:
-                    parsePresentationContextAC(dis, itemLength, buf);
-                    break;
-                case 0x50:
-                    itemRemaining = itemLength;
-                    while (itemRemaining > 0) {
-                        if ((itemRemaining -= 4) < 0)
-                            throw AAbort.invalidPDUParameterValue();
-                        subitemType = dis.readUnsignedByte();
-                        if (dis.read() < 0)
-                            throw new EOFException();
-                        subitemLength = dis.readUnsignedShort();
-                        if ((itemRemaining -= subitemLength) < 0)
-                            throw AAbort.invalidPDUParameterValue();
-                        switch (subitemType) {
-                            case 0x51:
-                                if (subitemLength != 4)
-                                    throw AAbort.invalidPDUParameterValue();
-                                maxPDULength = dis.readInt();
-                                break;
-                            case 0x52:
-                                implClassUID =  readASCII(dis, subitemLength, buf);
-                                break;
-                            case 0x53:
-                                if (subitemLength != 4)
-                                    throw AAbort.invalidPDUParameterValue();
-                                asyncOpsWindow = dis.readInt();
-                                break;
-                            case 0x54:
-                                if (subitemLength < 4)
-                                    throw AAbort.invalidPDUParameterValue();
-                                uidLen = dis.readUnsignedShort();
-                                if (subitemLength != 4 + uidLen)
-                                    throw AAbort.invalidPDUParameterValue();
-                                roleSelectionMap.put(
-                                        readASCII(dis, uidLen, buf),
-                                        RoleSelection.of(dis.readBoolean(), dis.readBoolean()));
-                                break;
-                            case 0x55:
-                                implVersionName =  readASCII(dis, subitemLength, buf);
-                                break;
-                            case 0x56:
-                                if (subitemLength < 2)
-                                    throw AAbort.invalidPDUParameterValue();
-                                uidLen = dis.readUnsignedShort();
-                                if (subitemLength < 2 + uidLen)
-                                    throw AAbort.invalidPDUParameterValue();
-                                extNegMap.put(
-                                        readASCII(dis, uidLen, buf),
-                                        readBytes(dis, subitemLength - (2 + uidLen)));
-                                break;
-                            case 0x57:
-                                parseCommonExtendedNegotation(dis, subitemLength, buf);
-                                break;
-                            case 0x58:
-                                parseUserIdentityRQ(dis, subitemLength, buf);
-                                break;
-                            case 0x59:
-                                parseUserIdentityAC(dis, subitemLength, buf);
-                                break;
-                            default:
-                                throw AAbort.unexpectedOrUnrecognizedItem(subitemType);
-                        }
-                    }
-                    break;
-                default:
-                    throw AAbort.unexpectedOrUnrecognizedItem(itemType);
+                case 0x10 -> applicationContextName = readASCII(dis, itemLength, buf);
+                case 0x20 -> parsePresentationContextRQ(dis, itemLength, buf);
+                case 0x21 -> parsePresentationContextAC(dis, itemLength, buf);
+                case 0x50 -> parseUserItems(dis, itemLength, buf);
+                default -> throw AAbort.unexpectedOrUnrecognizedItem(itemType);
             }
         }
         if (applicationContextName == null) {
@@ -392,7 +322,71 @@ public abstract class AAssociate {
         throw AAbort.unexpectedPDUParameter();
     }
 
-    void parseCommonExtendedNegotation(DataInputStream dis, int subitemLength, byte[] buf)
+    private void parseUserItems(DataInputStream dis, int itemLength, byte[] buf)
+            throws IOException {
+        int itemRemaining = itemLength;
+        while (itemRemaining > 0) {
+            if ((itemRemaining -= 4) < 0)
+                throw AAbort.invalidPDUParameterValue();
+            int subitemType = dis.readUnsignedByte();
+            skipByte(dis);
+            int subitemLength = dis.readUnsignedShort();
+            if ((itemRemaining -= subitemLength) < 0)
+                throw AAbort.invalidPDUParameterValue();
+            switch (subitemType) {
+                case 0x51 -> parseMaxPDULength(dis, subitemLength);
+                case 0x52 -> implClassUID = readASCII(dis, subitemLength, buf);
+                case 0x53 -> parseOpsWindow(dis, subitemLength);
+                case 0x54 -> parseRoleSelections(dis, subitemLength, buf);
+                case 0x55 -> implVersionName = readASCII(dis, subitemLength, buf);
+                case 0x56 -> parseExtendedNegotations(dis, subitemLength, buf);
+                case 0x57 -> parseCommonExtendedNegotations(dis, subitemLength, buf);
+                case 0x58 -> parseUserIdentityRQ(dis, subitemLength, buf);
+                case 0x59 -> parseUserIdentityAC(dis, subitemLength, buf);
+                default -> throw AAbort.unexpectedOrUnrecognizedItem(subitemType);
+            }
+        }
+    }
+
+    private void parseMaxPDULength(DataInputStream dis, int subitemLength)
+            throws IOException {
+        if (subitemLength != 4)
+            throw AAbort.invalidPDUParameterValue();
+        maxPDULength = dis.readInt();
+    }
+
+    private void parseOpsWindow(DataInputStream dis, int subitemLength)
+            throws IOException {
+        if (subitemLength != 4)
+            throw AAbort.invalidPDUParameterValue();
+        asyncOpsWindow = dis.readInt();
+    }
+
+    private void parseRoleSelections(DataInputStream dis, int subitemLength, byte[] buf)
+            throws IOException {
+        if (subitemLength < 4)
+            throw AAbort.invalidPDUParameterValue();
+        int uidLen = dis.readUnsignedShort();
+        if (subitemLength != 4 + uidLen)
+            throw AAbort.invalidPDUParameterValue();
+        roleSelectionMap.put(
+                readASCII(dis, uidLen, buf),
+                RoleSelection.of(dis.readBoolean(), dis.readBoolean()));
+    }
+
+    private void parseExtendedNegotations(DataInputStream dis, int subitemLength, byte[] buf)
+            throws IOException {
+        if (subitemLength < 2)
+            throw AAbort.invalidPDUParameterValue();
+        int uidLen = dis.readUnsignedShort();
+        if (subitemLength < 2 + uidLen)
+            throw AAbort.invalidPDUParameterValue();
+        extNegMap.put(
+                readASCII(dis, uidLen, buf),
+                readBytes(dis, subitemLength - (2 + uidLen)));
+    }
+
+    void parseCommonExtendedNegotations(DataInputStream dis, int subitemLength, byte[] buf)
             throws IOException {
         throw AAbort.unexpectedPDUParameter();
     }
@@ -425,6 +419,11 @@ public abstract class AAssociate {
         return buf;
     }
 
+    static void skipByte(DataInputStream dis) throws IOException {
+        if (dis.read() < 0)
+            throw new EOFException();
+    }
+
     public static class RQ extends AAssociate {
 
         private final Map<Byte, PresentationContext> pcs = new LinkedHashMap<>();
@@ -448,15 +447,14 @@ public abstract class AAssociate {
                     () -> addPresentationContext(abstractSyntax, transferSyntax));
         }
 
-        private Byte addPresentationContext(String abstractSyntax, String transferSyntax) {
-            if (pcs.size() >= 128)
-                throw new IllegalStateException("Maximal number (128) of Presentation Contexts reached");
-
-            Byte pcid = IntStream.iterate(pcs.size() * 2 + 1, i -> i + 2)
-                    .mapToObj(i -> Byte.valueOf((byte) i))
+        public Byte addPresentationContext(String abstractSyntax, String... transferSyntax) {
+            int start = pcs.size() * 2 + 1;
+            Byte pcid = IntStream.range(0, 128)
+                    .mapToObj(i -> (byte) (start + i * 2))
                     .filter(((Predicate<Byte>) pcs.keySet()::contains).negate())
                     .findFirst()
-                    .get();
+                    .orElseThrow(
+                            () -> new IllegalStateException("Maximal number (128) of Presentation Contexts reached"));
             pcs.put(pcid, new PresentationContext(abstractSyntax, transferSyntax));
             return pcid;
         }
@@ -482,7 +480,12 @@ public abstract class AAssociate {
         }
 
         public void putCommonExtendedNegotation(String cuid, String serviceClass, String... relatedSOPClasses) {
-            commonExtNegMap.put(cuid, new CommonExtendedNegotation(serviceClass, relatedSOPClasses));
+            putCommonExtendedNegotation(cuid, serviceClass, relatedSOPClasses, new byte[0]);
+        }
+
+        public void putCommonExtendedNegotation(String cuid, String serviceClass, String[] relatedSOPClasses,
+                                                byte[] reserved) {
+            commonExtNegMap.put(cuid, new CommonExtendedNegotation(serviceClass, relatedSOPClasses, reserved));
         }
 
         public CommonExtendedNegotation getCommonExtendedNegotation(String cuid) {
@@ -562,20 +565,14 @@ public abstract class AAssociate {
                 if ((remaining -= 4) < 0)
                     throw AAbort.invalidPDUParameterValue();
                 subitemType = dis.readUnsignedByte();
-                if (dis.read() < 0)
-                    throw new EOFException();
+                skipByte(dis);
                 subitemLength = dis.readUnsignedShort();
                 if ((remaining -= subitemLength) < 0)
                     throw AAbort.invalidPDUParameterValue();
                 switch (subitemType) {
-                    case 0x30:
-                        abstractSyntax = readASCII(dis, subitemLength, buf);
-                        break;
-                    case 0x40:
-                        transferSyntaxes.add(readASCII(dis, subitemLength, buf));
-                        break;
-                    default:
-                        throw AAbort.unexpectedOrUnrecognizedItem(subitemType);
+                    case 0x30 -> abstractSyntax = readASCII(dis, subitemLength, buf);
+                    case 0x40 -> transferSyntaxes.add(readASCII(dis, subitemLength, buf));
+                    default -> throw AAbort.unexpectedOrUnrecognizedItem(subitemType);
                 }
             }
             if (abstractSyntax == null) {
@@ -598,7 +595,7 @@ public abstract class AAssociate {
         }
 
         @Override
-        void parseCommonExtendedNegotation(DataInputStream dis, int subitemLength, byte[] buf)
+        void parseCommonExtendedNegotations(DataInputStream dis, int subitemLength, byte[] buf)
                 throws IOException {
             int remaining = subitemLength - 6;
             if (remaining < 0)
@@ -612,8 +609,10 @@ public abstract class AAssociate {
                 throw AAbort.invalidPDUParameterValue();
             String serviceClass = readASCII(dis, length, buf);
             length = dis.readUnsignedShort();
-            if (remaining != length)
+            int reservedLength = remaining - length;
+            if (reservedLength < 0)
                 throw AAbort.invalidPDUParameterValue();
+            remaining -= reservedLength;
             List<String> relatedSOPClasses = new ArrayList<>();
             while (remaining > 0) {
                 if ((remaining -= 2) < 0)
@@ -623,7 +622,10 @@ public abstract class AAssociate {
                     throw AAbort.invalidPDUParameterValue();
                 relatedSOPClasses.add(readASCII(dis, length, buf));
             }
-            putCommonExtendedNegotation(cuid, serviceClass, relatedSOPClasses.toArray(EMPTY_STRINGS));
+            putCommonExtendedNegotation(cuid,
+                    serviceClass,
+                    relatedSOPClasses.toArray(EMPTY_STRINGS),
+                    readBytes(dis, reservedLength));
         }
 
         @Override
@@ -809,8 +811,7 @@ public abstract class AAssociate {
             if (remaining < 0)
                 throw AAbort.invalidPDUParameterValue();
             byte pcid = (byte) dis.readUnsignedByte();
-            if (dis.read() < 0)
-                throw new EOFException();
+            skipByte(dis);
             Result result = switch (dis.readUnsignedByte()) {
                     case 0 -> Result.ACCEPTANCE;
                     case 1 -> Result.USER_REJECTION;
@@ -819,26 +820,21 @@ public abstract class AAssociate {
                     case 4 -> Result.TRANSFER_SYNTAXES_NOT_SUPPORTED;
                     default -> throw AAbort.invalidPDUParameterValue();
                 };
-            if (dis.read() < 0)
-                throw new EOFException();
+            skipByte(dis);
             int subitemType, subitemLength;
             String transferSyntax = null;
             while (remaining > 0) {
                 if ((remaining -= 4) < 0)
                     throw AAbort.invalidPDUParameterValue();
                 subitemType = dis.readUnsignedByte();
-                if (dis.read() < 0)
-                    throw new EOFException();
+                skipByte(dis);
                 subitemLength = dis.readUnsignedShort();
                 if ((remaining -= subitemLength) < 0)
                     throw AAbort.invalidPDUParameterValue();
-                switch (subitemType) {
-                    case 0x40:
-                        transferSyntax = readASCII(dis, subitemLength, buf);
-                        break;
-                    default:
-                        throw AAbort.unexpectedOrUnrecognizedItem(subitemType);
-                }
+                transferSyntax = switch (subitemType) {
+                    case 0x40 -> readASCII(dis, subitemLength, buf);
+                    default -> throw AAbort.unexpectedOrUnrecognizedItem(subitemType);
+                };
             }
             if (transferSyntax == null) {
                 throw AAbort.invalidPDUParameterValue();
@@ -948,10 +944,12 @@ public abstract class AAssociate {
     public static class CommonExtendedNegotation {
         public final String serviceClass;
         private final List<String> relatedSOPClassList = new ArrayList<>();
+        private final byte[] reserved;
 
-        CommonExtendedNegotation(String serviceClass, String... relatedSOPClasses) {
+        CommonExtendedNegotation(String serviceClass, String[] relatedSOPClasses, byte[] reserved) {
             this.serviceClass = serviceClass;
             this.relatedSOPClassList.addAll(List.of(relatedSOPClasses));
+            this.reserved = reserved.clone();
         }
 
         public String[] relatedSOPClasses() {
@@ -962,8 +960,12 @@ public abstract class AAssociate {
             return relatedSOPClassList.stream();
         }
 
+        public byte[] reserved() {
+            return reserved.clone();
+        }
+
         int length() {
-            return 4 + serviceClass.length() + relatedSOPClassListLength();
+            return 4 + serviceClass.length() + relatedSOPClassListLength() + reserved.length;
         }
 
         private int relatedSOPClassListLength() {
@@ -976,6 +978,7 @@ public abstract class AAssociate {
             for (String uid : relatedSOPClassList) {
                 writeLengthASCII(dos, uid, buf);
             }
+            dos.write(reserved);
         }
 
         public void promptTo(String cuid, StringBuilder sb) {
@@ -990,6 +993,11 @@ public abstract class AAssociate {
             relatedSOPClassList.forEach(s ->
                     UIDUtils.promptTo(s, sb.append("    related-general-sop-class: "))
                             .append(System.lineSeparator()));
+            if (reserved.length > 0)
+                sb.append("    reserved: byte[")
+                        .append(reserved.length)
+                        .append("]")
+                        .append(System.lineSeparator());
             sb.append("  ]").append(System.lineSeparator());
         }
     }

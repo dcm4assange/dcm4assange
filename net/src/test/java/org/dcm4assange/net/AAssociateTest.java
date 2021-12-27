@@ -34,9 +34,9 @@ public class AAssociateTest {
     public void writeReadRQ() throws IOException {
         AAssociate.RQ rq = new AAssociate.RQ();
         init(rq);
-        rq.putPresentationContext((byte) 1, UID.StorageCommitmentPushModel, UID.ImplicitVRLittleEndian);
-        rq.putPresentationContext((byte) 3, UID.StudyRootQueryRetrieveInformationModelFind, UID.ImplicitVRLittleEndian);
-        rq.putPresentationContext((byte) 5, UID.ComprehensiveSRStorage,
+        rq.addPresentationContext(UID.StorageCommitmentPushModel, UID.ImplicitVRLittleEndian);
+        rq.addPresentationContext(UID.StudyRootQueryRetrieveInformationModelFind, UID.ImplicitVRLittleEndian);
+        rq.addPresentationContext(UID.ComprehensiveSRStorage,
                 UID.ImplicitVRLittleEndian, UID.ExplicitVRLittleEndian);
         rq.putCommonExtendedNegotation(UID.ComprehensiveSRStorage, UID.Storage,
                 UID.Comprehensive3DSRStorage, UID.ExtensibleSRStorage);
@@ -45,7 +45,6 @@ public class AAssociateTest {
         assertEquals(bytes.length, rq.pduLength());
         AAssociate.RQ rq2 = readRQ(bytes);
         assertEquals(rq.toString(), rq2.toString());
-        System.out.println(rq);
     }
 
     @Test
@@ -61,7 +60,6 @@ public class AAssociateTest {
         assertEquals(bytes.length, ac.pduLength());
         AAssociate.AC ac2 = readAC(bytes);
         assertEquals(ac.toString(), ac2.toString());
-        System.out.println(ac);
     }
 
     private void init(AAssociate rqac) {
