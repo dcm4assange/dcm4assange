@@ -1,5 +1,6 @@
 package org.dcm4assange.conf.model;
 
+import org.dcm4assange.util.ArrayUtils;
 import org.dcm4assange.util.StringUtils;
 
 import java.util.*;
@@ -14,6 +15,9 @@ public class ApplicationEntity {
     private volatile String description;
     private volatile String[] applicationClusters = {};
     private volatile String[] supportedCharacterSets = {};
+    private volatile String[] preferredCalledAETs = {};
+    private volatile String[] preferredCallingAETs = {};
+    private volatile String[] acceptedCallingAETs = {};
     private volatile boolean acceptor = true;
     private volatile boolean initiator = true;
     private volatile Boolean installed;
@@ -22,8 +26,8 @@ public class ApplicationEntity {
     private final List<Connection> conns = new ArrayList<>();
     private final List<TransferCapability> tcs = new ArrayList<>();
 
-    public Optional<Device> getDevice() {
-        return Optional.ofNullable(device);
+    public Device getDevice() {
+        return device;
     }
 
     public ApplicationEntity setDevice(Device device) {
@@ -60,7 +64,7 @@ public class ApplicationEntity {
     }
 
     public ApplicationEntity setApplicationClusters(String... applicationClusters) {
-        this.applicationClusters = Objects.requireNonNullElse(applicationClusters, StringUtils.EMPTY_STRINGS);
+        this.applicationClusters = ArrayUtils.requireNonNull(applicationClusters);
         return this;
     }
 
@@ -69,8 +73,39 @@ public class ApplicationEntity {
     }
 
     public ApplicationEntity setSupportedCharacterSets(String... supportedCharacterSets) {
-        this.supportedCharacterSets = Objects.requireNonNullElse(supportedCharacterSets, StringUtils.EMPTY_STRINGS);
+        this.supportedCharacterSets = ArrayUtils.requireNonNull(supportedCharacterSets);
         return this;
+    }
+
+    public List<String> getPreferredCalledAETs() {
+        return List.of(preferredCalledAETs);
+    }
+
+    public ApplicationEntity preferredCalledAETs(String... preferredCalledAETs) {
+        this.preferredCalledAETs = ArrayUtils.requireNonNull(preferredCalledAETs);
+        return this;
+    }
+
+    public List<String> setPreferredCallingAETs() {
+        return List.of(preferredCallingAETs);
+    }
+
+    public ApplicationEntity preferredCallingAETs(String... preferredCallingAETs) {
+        this.preferredCallingAETs = ArrayUtils.requireNonNull(preferredCallingAETs);
+        return this;
+    }
+
+    public List<String> getAcceptedCallingAETs() {
+        return List.of(acceptedCallingAETs);
+    }
+
+    public ApplicationEntity setAcceptedCallingAETs(String... acceptedCallingAETs) {
+        this.acceptedCallingAETs = ArrayUtils.requireNonNull(preferredCallingAETs);
+        return this;
+    }
+
+    public boolean isAcceptedCallingAET(String aeTitle) {
+        return acceptedCallingAETs.length == 0 || ArrayUtils.contains(acceptedCallingAETs, aeTitle);
     }
 
     public boolean isAssociationAcceptor() {
@@ -119,6 +154,12 @@ public class ApplicationEntity {
     }
 
     public ApplicationEntity addConnection(Connection conn) {
+        if (device == null) {
+            throw new IllegalStateException("No associated Device");
+        }
+        if (device != conn.getDevice()) {
+            throw new IllegalStateException("Connection not contained by associated Device");
+        }
         conns.add(conn.setDevice(device));
         return this;
     }
@@ -141,9 +182,11 @@ public class ApplicationEntity {
     }
 
     public Optional<TransferCapability> getTransferCapability(TransferCapability.Role role, String abstractSyntax) {
-        return tcs.stream()
-                .filter(tc -> tc.getRole().equals(role) && tc.getSOPClass().equals(abstractSyntax))
-                .findFirst();
+        for (TransferCapability tc : tcs) {
+            if (tc.getRole().equals(role) && tc.getSOPClass().equals(abstractSyntax))
+                return Optional.of(tc);
+        }
+        return Optional.empty();
     }
 
     public ApplicationEntity removeTransferCapability(TransferCapability tc) {

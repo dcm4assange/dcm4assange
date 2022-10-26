@@ -1,11 +1,15 @@
 package org.dcm4assange.conf.model;
 
+import org.dcm4assange.UID;
 import org.dcm4assange.util.Code;
 import org.dcm4assange.util.Issuer;
 import org.dcm4assange.util.StringUtils;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+
+import static org.dcm4assange.util.ArrayUtils.contains;
+import static org.dcm4assange.util.ArrayUtils.requireNonNull;
 
 /**
  * @author Gunter Zeilinger (gunterze@protonmail.com)
@@ -37,6 +41,8 @@ public class Device {
     private volatile String[] relatedDeviceReferences = {};
     private volatile String[] authorizedNodeCertificateReferences = {};
     private volatile String[] thisNodeCertificateReferences = {};
+
+    private volatile String[] supportedApplicationContextNames = {};
 
     private volatile boolean installed = true;
 
@@ -189,7 +195,7 @@ public class Device {
     }
 
     public Device setSoftwareVersions(String... softwareVersions) {
-        this.softwareVersions = Objects.requireNonNullElse(softwareVersions, StringUtils.EMPTY_STRINGS);
+        this.softwareVersions = requireNonNull(softwareVersions);
         return this;
     }
 
@@ -198,7 +204,7 @@ public class Device {
     }
 
     public Device setPrimaryDeviceTypes(String... primaryDeviceTypes) {
-        this.primaryDeviceTypes = Objects.requireNonNullElse(primaryDeviceTypes, StringUtils.EMPTY_STRINGS);
+        this.primaryDeviceTypes = requireNonNull(primaryDeviceTypes);
         return this;
     }
 
@@ -207,7 +213,7 @@ public class Device {
     }
 
     public Device setInstitutionNames(String... institutionNames) {
-        this.institutionNames = institutionNames;
+        this.institutionNames = requireNonNull(institutionNames);
         return this;
     }
 
@@ -225,7 +231,7 @@ public class Device {
     }
 
     public Device setInstitutionAddresses(String... institutionAddresses) {
-        this.institutionAddresses = institutionAddresses;
+        this.institutionAddresses = requireNonNull(institutionAddresses);
         return this;
     }
 
@@ -234,7 +240,7 @@ public class Device {
     }
 
     public Device setInstitutionalDepartmentNames(String... institutionalDepartmentNames) {
-        this.institutionalDepartmentNames = institutionalDepartmentNames;
+        this.institutionalDepartmentNames = requireNonNull(institutionalDepartmentNames);
         return this;
     }
 
@@ -243,7 +249,7 @@ public class Device {
     }
 
     public Device setRelatedDeviceReferences(String... relatedDeviceReferences) {
-        this.relatedDeviceReferences = relatedDeviceReferences;
+        this.relatedDeviceReferences = requireNonNull(relatedDeviceReferences);
         return this;
     }
 
@@ -252,7 +258,7 @@ public class Device {
     }
 
     public Device setAuthorizedNodeCertificateReferences(String... authorizedNodeCertificateReferences) {
-        this.authorizedNodeCertificateReferences = authorizedNodeCertificateReferences;
+        this.authorizedNodeCertificateReferences = requireNonNull(authorizedNodeCertificateReferences);
         return this;
     }
 
@@ -261,7 +267,7 @@ public class Device {
     }
 
     public Device setThisNodeCertificateReferences(String... thisNodeCertificateReferences) {
-        this.thisNodeCertificateReferences = thisNodeCertificateReferences;
+        this.thisNodeCertificateReferences = requireNonNull(thisNodeCertificateReferences);
         return this;
     }
 
@@ -273,6 +279,22 @@ public class Device {
         this.installed = installed;
         return this;
     }
+
+    public List<String> getSupportedApplicationContextNames() {
+        return List.of(supportedApplicationContextNames);
+    }
+
+    public Device setSupportedApplicationContextNames(String... supportedApplicationContextNames) {
+        this.supportedApplicationContextNames = requireNonNull(supportedApplicationContextNames);
+        return this;
+    }
+
+    public boolean isSupportedApplicationContextNames(String name) {
+        return supportedApplicationContextNames.length == 0
+                ? UID.DICOMApplicationContext.equals(name)
+                : contains(supportedApplicationContextNames, name);
+    }
+
 
     public OptionalInt getLimitOpenAssociations() {
         return limitOpenAssociations >= 0 ? OptionalInt.of(limitOpenAssociations) : OptionalInt.empty();

@@ -31,7 +31,17 @@
   <dependencies>
     <dependency>
       <groupId>org.dcm4assange</groupId>
+      <artifactId>dcm4assange-conf-model</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.dcm4assange</groupId>
       <artifactId>dcm4assange-core</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.dcm4assange</groupId>
+      <artifactId>dcm4assange-net</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
@@ -59,10 +69,25 @@
       <artifactId>dcm4assange-tool-dcmdump</artifactId>
       <version>${project.version}</version>
     </dependency>
+    <dependency>
+      <groupId>org.dcm4assange.tool</groupId>
+      <artifactId>dcm4assange-tool-storescp</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-core</artifactId>
+      <version>${logback.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>${logback.version}</version>
+    </dependency>
   </dependencies>
 
   <build>
-    <finalName>dcm4che-${project.version}</finalName>
+    <finalName>dcm4assange-${project.version}</finalName>
     <plugins>
       <plugin>
         <artifactId>maven-assembly-plugin</artifactId>

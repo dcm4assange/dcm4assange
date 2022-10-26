@@ -1,14 +1,14 @@
 package org.dcm4assange.net;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 /**
  * @author Gunter Zeilinger (gunterze@protonmail.com)
  * @since Dec 2019
  */
-public class AAssociateRJ extends Exception {
+public class AAssociateRJ extends IOException {
     private static final String[] RESULTS = {
             "0",
             "1 - rejected-permanent",
@@ -52,12 +52,29 @@ public class AAssociateRJ extends Exception {
         this.resultSourceReason = resultSourceReason;
     }
 
-    public static AAssociateRJ readFrom(DataInputStream dis, int pduLength) throws IOException {
-        return new AAssociateRJ(dis.readInt());
+    public static AAssociateRJ protocolVersionNotSupported() {
+        return new AAssociateRJ(0x010202);
+    }
+    public static AAssociateRJ applicationContextNameNotSupported() {
+        return new AAssociateRJ(0x010102);
     }
 
-    public void writeTo(DataOutputStream dos) throws IOException {
-        dos.writeInt(resultSourceReason);
+    public static AAssociateRJ callingAETitleNotRecognized() {
+        return new AAssociateRJ(0x010103);
+    }
+
+    public static AAssociateRJ calledAETitleNotRecognized() {
+        return new AAssociateRJ(0x010107);
+    }
+
+    public static AAssociateRJ readFrom(InputStream is, int pduLength) throws IOException {
+        if (pduLength != 4)
+            throw AAbort.invalidPDUParameterValue();
+        return new AAssociateRJ(Utils.readInt(is));
+    }
+
+    public void writeTo(OutputStream out) throws IOException {
+        Utils.writeInt(out, resultSourceReason);
     }
 
     static String toString(int resultSourceReason) {

@@ -1,13 +1,14 @@
 package org.dcm4assange.net;
 
+import org.dcm4assange.ByteOrder;
 import org.dcm4assange.Implementation;
 import org.dcm4assange.UID;
+import org.dcm4assange.util.ArrayUtils;
 import org.dcm4assange.util.UIDUtils;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.EOFException;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.function.BiConsumer;
@@ -15,6 +16,7 @@ import java.util.function.Predicate;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+import static org.dcm4assange.net.Utils.*;
 import static org.dcm4assange.util.StringUtils.EMPTY_STRINGS;
 
 /**
@@ -22,26 +24,36 @@ import static org.dcm4assange.util.StringUtils.EMPTY_STRINGS;
  * @since Nov 2019
  */
 public abstract class AAssociate {
-    public static final int DEF_MAX_PDU_LENGTH = 16378;
-    // to fit into SunJSSE TLS Application Data Length 16408
 
     private int protocolVersion = 1;
-    private String calledAETitle = "ANONYMOUS";
-    private String callingAETitle = "ANONYMOUS";
-    private String applicationContextName = UID.DICOMApplicationContext;
-    private int maxPDULength = DEF_MAX_PDU_LENGTH;
-    private String implClassUID = Implementation.CLASS_UID;
-    private String implVersionName = Implementation.VERSION_NAME;
+    private String calledAETitle;
+    private String callingAETitle;
+    private String applicationContextName;
+    private int maxPDULength = -1;
+    private String implClassUID;
+    private String implVersionName;
     private int asyncOpsWindow = -1;
     private final Map<String, RoleSelection> roleSelectionMap = new LinkedHashMap<>();
     private final Map<String, byte[]> extNegMap = new LinkedHashMap<>();
+
+    AAssociate() {
+    }
+
+    AAssociate(String callingAETitle, String calledAETitle) {
+        setCalledAETitle(calledAETitle);
+        setCallingAETitle(callingAETitle);
+        applicationContextName = UID.DICOMApplicationContext;
+        implClassUID = Implementation.CLASS_UID;
+        implVersionName = Implementation.VERSION_NAME;
+        maxPDULength = 0;
+    }
 
     public String getCalledAETitle() {
         return calledAETitle;
     }
 
     public void setCalledAETitle(String calledAETitle) {
-        this.calledAETitle = calledAETitle;
+        this.calledAETitle = checkLength(calledAETitle, 16);
     }
 
     public String getCallingAETitle() {
@@ -49,7 +61,7 @@ public abstract class AAssociate {
     }
 
     public void setCallingAETitle(String callingAETitle) {
-        this.callingAETitle = callingAETitle;
+        this.callingAETitle = checkLength(callingAETitle, 16);
     }
 
     public String getApplicationContextName() {
@@ -57,6 +69,7 @@ public abstract class AAssociate {
     }
 
     public void setApplicationContextName(String applicationContextName) {
+        Objects.requireNonNull(applicationContextName);
         this.applicationContextName = applicationContextName;
     }
 
@@ -73,6 +86,7 @@ public abstract class AAssociate {
     }
 
     public void setImplClassUID(String implClassUID) {
+        Objects.requireNonNull(implClassUID);
         this.implClassUID = implClassUID;
     }
 
@@ -113,6 +127,8 @@ public abstract class AAssociate {
     }
 
     public void putRoleSelection(String cuid, RoleSelection roleSelection) {
+        Objects.requireNonNull(cuid, "cuid");
+        Objects.requireNonNull(roleSelection, "roleSelection");
         roleSelectionMap.put(cuid, roleSelection);
     }
 
@@ -121,6 +137,8 @@ public abstract class AAssociate {
     }
 
     public void putExtendedNegotation(String cuid, byte[] extNeg) {
+        Objects.requireNonNull(cuid, "cuid");
+        Objects.requireNonNull(extNeg, "extNeg");
         extNegMap.put(cuid, extNeg.clone());
     }
 
@@ -214,97 +232,112 @@ public abstract class AAssociate {
     abstract int presentationContextLength();
 
     int userItemLength() {
-        return (asyncOpsWindow != -1 ? 24 : 16)
+        int l = (asyncOpsWindow != -1 ? 24 : 16)
                 + implClassUID.length()
                 + implVersionName.length()
-                + roleSelectionMap.keySet().stream().mapToInt(cuid -> 8 + cuid.length()).sum()
-                + extNegMap.entrySet().stream()
-                    .mapToInt(e -> 6 + e.getKey().length() + e.getValue().length)
-                    .sum();
+                + roleSelectionMap.size() * 8
+                + extNegMap.size() * 6;
+        for (String cuid : roleSelectionMap.keySet()) l += cuid.length();
+        for (Map.Entry<String, byte[]> e : extNegMap.entrySet()) l += e.getKey().length() + e.getValue().length;
+        return l;
     }
 
-    void writeTo(DataOutputStream dos) throws IOException {
-        byte[] buf = new byte[64];
-        dos.writeShort(protocolVersion);
-        dos.writeShort(0);
-        Arrays.fill(buf, 0, 32, (byte) 0x20);
-        calledAETitle.getBytes(0, calledAETitle.length(), buf, 0);
-        callingAETitle.getBytes(0, callingAETitle.length(), buf, 16);
-        dos.write(buf);
-        dos.writeShort(0x1000);
-        writeLengthASCII(dos, applicationContextName, buf);
-        writePresentationContextTo(dos, buf);
-        dos.writeShort(0x5000);
-        dos.writeShort(userItemLength());
-        dos.writeInt(0x51000004);
-        dos.writeInt(maxPDULength);
-        dos.writeShort(0x5200);
-        writeLengthASCII(dos, implClassUID, buf);
-        dos.writeShort(0x5500);
-        writeLengthASCII(dos, implVersionName, buf);
-        if (asyncOpsWindow != -1) {
-            dos.writeInt(0x53000004);
-            dos.writeInt(asyncOpsWindow);
+    abstract void writeTo(OutputStream out) throws IOException;
+
+    void writeTo(OutputStream out, int pdutype) throws IOException {
+        synchronized (out) {
+            out.write(pdutype);
+            out.write(0);
+            writeInt(out, pduLength());
+            writeShort(out, protocolVersion);
+            out.write(0);
+            out.write(0);
+            writePaddedASCII(out, calledAETitle, 16);
+            writePaddedASCII(out, callingAETitle, 16);
+            writeNBytes(out, 0, 32);
+            out.write(0x10);
+            out.write(0);
+            writeLengthASCII(out, applicationContextName);
+            writePresentationContextTo(out);
+            out.write(0x50);
+            out.write(0);
+            writeShort(out, userItemLength());
+            out.write(0x51);
+            out.write(0);
+            out.write(0);
+            out.write(4);
+            writeInt(out, maxPDULength);
+            out.write(0x52);
+            out.write(0);
+            writeLengthASCII(out, implClassUID);
+            out.write(0x55);
+            out.write(0);
+            writeLengthASCII(out, implVersionName);
+            if (asyncOpsWindow != -1) {
+                out.write(0x53);
+                out.write(0);
+                out.write(0);
+                out.write(4);
+                writeInt(out, asyncOpsWindow);
+            }
+            for (Map.Entry<String, RoleSelection> e : roleSelectionMap.entrySet()) {
+                out.write(0x54);
+                out.write(0);
+                writeShort(out, 4 + e.getKey().length());
+                writeLengthASCII(out,  e.getKey());
+                writeBoolean(out, e.getValue().scu);
+                writeBoolean(out, e.getValue().scp);
+            }
+            for (Map.Entry<String, byte[]> e : extNegMap.entrySet()) {
+                out.write(0x56);
+                out.write(0);
+                writeShort(out, 2 + e.getKey().length() + e.getValue().length);
+                writeLengthASCII(out, e.getKey());
+                out.write(e.getValue());
+            }
+            writeCommonExtendedNegotationTo(out);
+            writeUserIdentityTo(out);
+            out.flush();
         }
-        for (Map.Entry<String, RoleSelection> e : roleSelectionMap.entrySet()) {
-            dos.writeShort(0x5400);
-            dos.writeShort((4 + e.getKey().length()));
-            writeLengthASCII(dos,  e.getKey(), buf);
-            dos.writeBoolean(e.getValue().scu);
-            dos.writeBoolean(e.getValue().scp);
-        }
-        for (Map.Entry<String, byte[]> e : extNegMap.entrySet()) {
-            dos.writeShort(0x5600);
-            dos.writeShort((2 + e.getKey().length() + e.getValue().length));
-            writeLengthASCII(dos, e.getKey(), buf);
-            dos.write(e.getValue());
-        }
-        writeCommonExtendedNegotationTo(dos, buf);
-        writeUserIdentityTo(dos, buf);
     }
 
-    abstract void writePresentationContextTo(DataOutputStream dos, byte[] buf) throws IOException;
+    abstract void writePresentationContextTo(OutputStream out) throws IOException;
 
-    void writeCommonExtendedNegotationTo(DataOutputStream dos, byte[] buf) throws IOException {
+    void writeCommonExtendedNegotationTo(OutputStream out) throws IOException {
     }
 
-    abstract void writeUserIdentityTo(DataOutputStream dos, byte[] buf) throws IOException;
+    abstract void writeUserIdentityTo(OutputStream out) throws IOException;
 
-    void parse(DataInputStream dis, int pduLength) throws IOException {
+    void parse(InputStream in, int pduLength) throws IOException {
         int remaining = pduLength - 68;
         if (remaining < 0)
             throw AAbort.invalidPDUParameterValue();
-        byte[] buf = new byte[64];
-        protocolVersion = dis.readShort();
-        if ((dis.read() | dis.read()) < 0)
-            throw new EOFException();
-        dis.readFully(buf);
-        calledAETitle = new String(buf, 0, 0, 16).trim();
-        callingAETitle = new String(buf, 0, 16, 32).trim();
-        applicationContextName = null;
-        maxPDULength = -1;
-        implClassUID = null;
-        implVersionName = null;
+        protocolVersion = readUnsignedShort(in);
+        skipByte(in);
+        skipByte(in);
+        calledAETitle = readASCII(in, 16).trim();
+        callingAETitle = readASCII(in, 16).trim();
+        skipNBytes(in, 32);
         while (remaining > 0) {
             if ((remaining -= 4) < 0)
                 throw AAbort.invalidPDUParameterValue();
-            int itemType = dis.readUnsignedByte();
-            skipByte(dis);
-            int itemLength = dis.readUnsignedShort();
+            int itemType = readUnsignedByte(in);
+            skipByte(in);
+            int itemLength = readUnsignedShort(in);
             if ((remaining -= itemLength) < 0)
                 throw AAbort.invalidPDUParameterValue();
             switch (itemType) {
-                case 0x10 -> applicationContextName = readASCII(dis, itemLength, buf);
-                case 0x20 -> parsePresentationContextRQ(dis, itemLength, buf);
-                case 0x21 -> parsePresentationContextAC(dis, itemLength, buf);
-                case 0x50 -> parseUserItems(dis, itemLength, buf);
+                case 0x10 -> applicationContextName = readASCII(in, itemLength);
+                case 0x20 -> parsePresentationContextRQ(in, itemLength);
+                case 0x21 -> parsePresentationContextAC(in, itemLength);
+                case 0x50 -> parseUserItems(in, itemLength);
                 default -> throw AAbort.unexpectedOrUnrecognizedItem(itemType);
             }
         }
         if (applicationContextName == null) {
             throw AAbort.invalidPDUParameterValue();
         }
-        if (maxPDULength == -1) {
+        if (maxPDULength < 0) {
             throw AAbort.invalidPDUParameterValue();
         }
         if (implClassUID == null) {
@@ -312,116 +345,93 @@ public abstract class AAssociate {
         }
     }
 
-    void parsePresentationContextRQ(DataInputStream dis, int itemLength, byte[] buf)
+    void parsePresentationContextRQ(InputStream in, int itemLength)
             throws IOException {
         throw AAbort.unexpectedPDUParameter();
     }
 
-    void parsePresentationContextAC(DataInputStream dis, int itemLength, byte[] buf)
+    void parsePresentationContextAC(InputStream in, int itemLength)
             throws IOException {
         throw AAbort.unexpectedPDUParameter();
     }
 
-    private void parseUserItems(DataInputStream dis, int itemLength, byte[] buf)
+    private void parseUserItems(InputStream in, int itemLength)
             throws IOException {
         int itemRemaining = itemLength;
         while (itemRemaining > 0) {
             if ((itemRemaining -= 4) < 0)
                 throw AAbort.invalidPDUParameterValue();
-            int subitemType = dis.readUnsignedByte();
-            skipByte(dis);
-            int subitemLength = dis.readUnsignedShort();
+            int subitemType = readUnsignedByte(in);
+            skipByte(in);
+            int subitemLength = readUnsignedShort(in);
             if ((itemRemaining -= subitemLength) < 0)
                 throw AAbort.invalidPDUParameterValue();
             switch (subitemType) {
-                case 0x51 -> parseMaxPDULength(dis, subitemLength);
-                case 0x52 -> implClassUID = readASCII(dis, subitemLength, buf);
-                case 0x53 -> parseOpsWindow(dis, subitemLength);
-                case 0x54 -> parseRoleSelections(dis, subitemLength, buf);
-                case 0x55 -> implVersionName = readASCII(dis, subitemLength, buf);
-                case 0x56 -> parseExtendedNegotations(dis, subitemLength, buf);
-                case 0x57 -> parseCommonExtendedNegotations(dis, subitemLength, buf);
-                case 0x58 -> parseUserIdentityRQ(dis, subitemLength, buf);
-                case 0x59 -> parseUserIdentityAC(dis, subitemLength, buf);
+                case 0x51 -> parseMaxPDULength(in, subitemLength);
+                case 0x52 -> implClassUID = readASCII(in, subitemLength);
+                case 0x53 -> parseOpsWindow(in, subitemLength);
+                case 0x54 -> parseRoleSelections(in, subitemLength);
+                case 0x55 -> implVersionName = readASCII(in, subitemLength);
+                case 0x56 -> parseExtendedNegotations(in, subitemLength);
+                case 0x57 -> parseCommonExtendedNegotations(in, subitemLength);
+                case 0x58 -> parseUserIdentityRQ(in, subitemLength);
+                case 0x59 -> parseUserIdentityAC(in, subitemLength);
                 default -> throw AAbort.unexpectedOrUnrecognizedItem(subitemType);
             }
         }
     }
 
-    private void parseMaxPDULength(DataInputStream dis, int subitemLength)
+    private void parseMaxPDULength(InputStream in, int subitemLength)
             throws IOException {
         if (subitemLength != 4)
             throw AAbort.invalidPDUParameterValue();
-        maxPDULength = dis.readInt();
+        maxPDULength = readInt(in);
     }
 
-    private void parseOpsWindow(DataInputStream dis, int subitemLength)
+    private void parseOpsWindow(InputStream in, int subitemLength)
             throws IOException {
         if (subitemLength != 4)
             throw AAbort.invalidPDUParameterValue();
-        asyncOpsWindow = dis.readInt();
+        asyncOpsWindow = readInt(in);
     }
 
-    private void parseRoleSelections(DataInputStream dis, int subitemLength, byte[] buf)
+    private void parseRoleSelections(InputStream in, int subitemLength)
             throws IOException {
         if (subitemLength < 4)
             throw AAbort.invalidPDUParameterValue();
-        int uidLen = dis.readUnsignedShort();
+        int uidLen = readUnsignedShort(in);
         if (subitemLength != 4 + uidLen)
             throw AAbort.invalidPDUParameterValue();
         roleSelectionMap.put(
-                readASCII(dis, uidLen, buf),
-                RoleSelection.of(dis.readBoolean(), dis.readBoolean()));
+                readASCII(in, uidLen),
+                RoleSelection.of(readBoolean(in), readBoolean(in)));
     }
 
-    private void parseExtendedNegotations(DataInputStream dis, int subitemLength, byte[] buf)
+    private void parseExtendedNegotations(InputStream in, int subitemLength)
             throws IOException {
         if (subitemLength < 2)
             throw AAbort.invalidPDUParameterValue();
-        int uidLen = dis.readUnsignedShort();
+        int uidLen = readUnsignedShort(in);
         if (subitemLength < 2 + uidLen)
             throw AAbort.invalidPDUParameterValue();
         extNegMap.put(
-                readASCII(dis, uidLen, buf),
-                readBytes(dis, subitemLength - (2 + uidLen)));
+                readASCII(in, uidLen),
+                in.readNBytes(subitemLength - (2 + uidLen)));
     }
 
-    void parseCommonExtendedNegotations(DataInputStream dis, int subitemLength, byte[] buf)
+    void parseCommonExtendedNegotations(InputStream in, int subitemLength)
             throws IOException {
         throw AAbort.unexpectedPDUParameter();
     }
 
-    void parseUserIdentityRQ(DataInputStream dis, int subitemLength, byte[] buf)
+    void parseUserIdentityRQ(InputStream in, int subitemLength)
             throws IOException {
         throw AAbort.unexpectedPDUParameter();
     }
 
-    void parseUserIdentityAC(DataInputStream dis, int subitemLength, byte[] buf)
+    void parseUserIdentityAC(InputStream in, int subitemLength)
             throws IOException {
         throw AAbort.unexpectedPDUParameter();
-    }
-
-    static String readASCII(DataInputStream dis, int length, byte[] buf) throws IOException {
-        dis.readFully(buf, 0, length);
-        return new String(buf, 0, 0, length);
-    }
-
-    static void writeLengthASCII(DataOutputStream dos, String s, byte[] buf) throws IOException {
-        int length = s.length();
-        s.getBytes(0, length, buf, 0);
-        dos.writeShort(length);
-        dos.write(buf, 0, length);
-    }
-
-    static byte[] readBytes(DataInputStream dis, int length) throws IOException {
-        byte[] buf = new byte[length];
-        dis.readFully(buf, 0, length);
-        return buf;
-    }
-
-    static void skipByte(DataInputStream dis) throws IOException {
-        if (dis.read() < 0)
-            throw new EOFException();
     }
 
     public static class RQ extends AAssociate {
@@ -430,16 +440,20 @@ public abstract class AAssociate {
         private final Map<String, CommonExtendedNegotation> commonExtNegMap = new LinkedHashMap<>();
         private UserIdentity userIdentity;
 
-        public RQ() {}
+        private RQ() {}
 
-        public static RQ readFrom(DataInputStream dis, int pduLength) throws IOException {
+        public RQ(String callingAETitle, String calledAETitle) {
+            super(callingAETitle, calledAETitle);
+        }
+
+        public static RQ readFrom(InputStream in, int pduLength) throws IOException {
             RQ rq = new RQ();
-            rq.parse(dis, pduLength);
+            rq.parse(in, pduLength);
             return rq;
         }
 
         public void putPresentationContext(Byte id, String abstractSyntax, String... transferSyntaxes) {
-            pcs.put(id, new PresentationContext(abstractSyntax, transferSyntaxes));
+            pcs.put(id, new PresentationContext(abstractSyntax, transferSyntaxes.clone()));
         }
 
         public Byte findOrAddPresentationContext(String abstractSyntax, String transferSyntax) {
@@ -455,7 +469,7 @@ public abstract class AAssociate {
                     .findFirst()
                     .orElseThrow(
                             () -> new IllegalStateException("Maximal number (128) of Presentation Contexts reached"));
-            pcs.put(pcid, new PresentationContext(abstractSyntax, transferSyntax));
+            pcs.put(pcid, new PresentationContext(abstractSyntax, transferSyntax.clone()));
             return pcid;
         }
 
@@ -497,12 +511,16 @@ public abstract class AAssociate {
         }
 
         public void setUserIdentity(int type, boolean positiveResponseRequested, byte[] primaryField) {
-            setUserIdentity(type, positiveResponseRequested, primaryField, new byte[0]);
+            this.userIdentity = new UserIdentity(type, positiveResponseRequested, primaryField.clone(), ByteOrder.EMPTY_BYTES);
         }
 
         public void setUserIdentity(int type, boolean positiveResponseRequested, byte[] primaryField,
                 byte[] secondaryField) {
-            this.userIdentity = new UserIdentity(type, positiveResponseRequested, primaryField, secondaryField);
+            this.userIdentity = new UserIdentity(type, positiveResponseRequested, primaryField.clone(), secondaryField.clone());
+        }
+
+        public void unsetUserIdentity() {
+            this.userIdentity = null;
         }
 
         @Override
@@ -527,51 +545,60 @@ public abstract class AAssociate {
 
         @Override
         int presentationContextLength() {
-            return pcs.values().stream().mapToInt(pc -> 4 + pc.itemLength()).sum();
+            int l = pcs.size() * 4;
+            for (PresentationContext s : pcs.values()) l += s.itemLength();
+            return l;
         }
 
         @Override
         int userItemLength() {
-            return super.userItemLength()
-                    + commonExtNegMap.entrySet().stream()
-                        .mapToInt(e -> 6 + e.getKey().length() + e.getValue().length())
-                        .sum()
-                    + (userIdentity != null ? 4 + userIdentity.itemLength() : 0);
+            int l = super.userItemLength() + commonExtNegMap.size() * 6;
+            for (Map.Entry<String, CommonExtendedNegotation> e : commonExtNegMap.entrySet())
+                l += e.getKey().length() + e.getValue().length();
+            if (userIdentity != null) l += 4 + userIdentity.itemLength();
+            return l;
         }
 
         @Override
-        void writePresentationContextTo(DataOutputStream dos, byte[] buf) throws IOException {
+        void writeTo(OutputStream out) throws IOException {
+            writeTo(out, 0x01);
+        }
+
+        @Override
+        void writePresentationContextTo(OutputStream out) throws IOException {
             for (Map.Entry<Byte, RQ.PresentationContext> e : pcs.entrySet()) {
-                dos.writeShort(0x2000);
-                dos.writeShort(e.getValue().itemLength());
-                dos.writeShort(e.getKey().intValue() << 8);
-                e.getValue().writeTo(dos, buf);
+                out.write(0x20);
+                out.write(0);
+                writeShort(out, e.getValue().itemLength());
+                writeShort(out, e.getKey().intValue() << 8);
+                e.getValue().writeTo(out);
             }
         }
 
         @Override
-        void parsePresentationContextRQ(DataInputStream dis, int itemLength, byte[] buf)
+        void parsePresentationContextRQ(InputStream in, int itemLength)
                 throws IOException {
             int remaining = itemLength - 4;
             if (remaining < 0)
                 throw AAbort.invalidPDUParameterValue();
-            byte pcid = (byte) dis.readUnsignedByte();
-            if ((dis.read() | dis.read() | dis.read()) < 0)
-                throw new EOFException();
+            byte pcid = (byte) readUnsignedByte(in);
+            skipByte(in);
+            skipByte(in);
+            skipByte(in);
             String abstractSyntax = null;
             List<String> transferSyntaxes = new ArrayList<>();
             int subitemType, subitemLength;
             while (remaining > 0) {
                 if ((remaining -= 4) < 0)
                     throw AAbort.invalidPDUParameterValue();
-                subitemType = dis.readUnsignedByte();
-                skipByte(dis);
-                subitemLength = dis.readUnsignedShort();
+                subitemType = readUnsignedByte(in);
+                skipByte(in);
+                subitemLength = readUnsignedShort(in);
                 if ((remaining -= subitemLength) < 0)
                     throw AAbort.invalidPDUParameterValue();
                 switch (subitemType) {
-                    case 0x30 -> abstractSyntax = readASCII(dis, subitemLength, buf);
-                    case 0x40 -> transferSyntaxes.add(readASCII(dis, subitemLength, buf));
+                    case 0x30 -> abstractSyntax = readASCII(in, subitemLength);
+                    case 0x40 -> transferSyntaxes.add(readASCII(in, subitemLength));
                     default -> throw AAbort.unexpectedOrUnrecognizedItem(subitemType);
                 }
             }
@@ -581,34 +608,35 @@ public abstract class AAssociate {
             if (transferSyntaxes.isEmpty()) {
                 throw AAbort.invalidPDUParameterValue();
             }
-            putPresentationContext(pcid, abstractSyntax, transferSyntaxes.toArray(EMPTY_STRINGS));
+            pcs.put(pcid, new PresentationContext(abstractSyntax, transferSyntaxes.toArray(EMPTY_STRINGS)));
         }
 
         @Override
-        void writeCommonExtendedNegotationTo(DataOutputStream dos, byte[] buf) throws IOException {
+        void writeCommonExtendedNegotationTo(OutputStream out) throws IOException {
             for (Map.Entry<String, CommonExtendedNegotation> e : commonExtNegMap.entrySet()) {
-                dos.writeShort(0x5700);
-                dos.writeShort(2 + e.getKey().length() + e.getValue().length());
-                writeLengthASCII(dos, e.getKey(), buf);
-                e.getValue().writeTo(dos, buf);
+                out.write(0x57);
+                out.write(0);
+                writeShort(out, 2 + e.getKey().length() + e.getValue().length());
+                writeLengthASCII(out, e.getKey());
+                e.getValue().writeTo(out);
             }
         }
 
         @Override
-        void parseCommonExtendedNegotations(DataInputStream dis, int subitemLength, byte[] buf)
+        void parseCommonExtendedNegotations(InputStream in, int subitemLength)
                 throws IOException {
             int remaining = subitemLength - 6;
             if (remaining < 0)
                 throw AAbort.invalidPDUParameterValue();
-            int length = dis.readUnsignedShort();
+            int length = readUnsignedShort(in);
             if ((remaining -= length) < 0)
                 throw AAbort.invalidPDUParameterValue();
-            String cuid = readASCII(dis, length, buf);
-            length = dis.readUnsignedShort();
+            String cuid = readASCII(in, length);
+            length = readUnsignedShort(in);
             if ((remaining -= length) < 0)
                 throw AAbort.invalidPDUParameterValue();
-            String serviceClass = readASCII(dis, length, buf);
-            length = dis.readUnsignedShort();
+            String serviceClass = readASCII(in, length);
+            length = readUnsignedShort(in);
             int reservedLength = remaining - length;
             if (reservedLength < 0)
                 throw AAbort.invalidPDUParameterValue();
@@ -617,65 +645,66 @@ public abstract class AAssociate {
             while (remaining > 0) {
                 if ((remaining -= 2) < 0)
                     throw AAbort.invalidPDUParameterValue();
-                length = dis.readUnsignedShort();
+                length = readUnsignedShort(in);
                 if ((remaining -= length) < 0)
                     throw AAbort.invalidPDUParameterValue();
-                relatedSOPClasses.add(readASCII(dis, length, buf));
+                relatedSOPClasses.add(readASCII(in, length));
             }
             putCommonExtendedNegotation(cuid,
                     serviceClass,
                     relatedSOPClasses.toArray(EMPTY_STRINGS),
-                    readBytes(dis, reservedLength));
+                    in.readNBytes(reservedLength));
         }
 
         @Override
-        void writeUserIdentityTo(DataOutputStream dos, byte[] buf) throws IOException {
+        void writeUserIdentityTo(OutputStream out) throws IOException {
             if (userIdentity != null) {
-                dos.writeShort(0x5800);
-                dos.writeShort(userIdentity.itemLength());
-                userIdentity.writeTo(dos);
+                out.write(0x58);
+                out.write(0);
+                writeShort(out, userIdentity.itemLength());
+                userIdentity.writeTo(out);
             }
         }
 
         @Override
-        void parseUserIdentityRQ(DataInputStream dis, int subitemLength, byte[] buf)
+        void parseUserIdentityRQ(InputStream in, int subitemLength)
                 throws IOException {
             int remaining = subitemLength - 6;
             if (remaining < 0)
                 throw AAbort.invalidPDUParameterValue();
-            int type = dis.readUnsignedByte();
-            boolean responseRequested = dis.readBoolean();
-            int length = dis.readUnsignedShort();
+            int type = readUnsignedByte(in);
+            boolean responseRequested = readBoolean(in);
+            int length = readUnsignedShort(in);
             if ((remaining -= length) < 0)
                 throw AAbort.invalidPDUParameterValue();
-            byte[] primaryField = readBytes(dis, length);
-            length = dis.readUnsignedShort();
+            byte[] primaryField = in.readNBytes(length);
+            length = readUnsignedShort(in);
             if (remaining != length)
                 throw AAbort.invalidPDUParameterValue();
-            byte[] secondaryField = readBytes(dis, length);
-            setUserIdentity(type, responseRequested, primaryField, secondaryField);
+            byte[] secondaryField = in.readNBytes(length);
+            try {
+                this.userIdentity = new UserIdentity(type, responseRequested, primaryField, secondaryField);
+            } catch (IllegalArgumentException e) {
+                throw AAbort.invalidPDUParameterValue();
+            }
         }
 
         public static class PresentationContext {
 
-            private String abstractSyntax;
-            private final List<String> transferSyntaxList = new ArrayList<>();
+            final String abstractSyntax;
+            final String[] transferSyntaxes;
 
             PresentationContext(String abstractSyntax, String... transferSyntaxes) {
                 this.abstractSyntax = abstractSyntax;
-                this.transferSyntaxList.addAll(List.of(transferSyntaxes));
+                this.transferSyntaxes = transferSyntaxes;
             }
 
             public String abstractSyntax() {
                 return abstractSyntax;
             }
 
-            public String anyTransferSyntax() {
-                return transferSyntaxList.get(0);
-            }
-
-            public String[] transferSyntax() {
-                return transferSyntaxList.toArray(new String[0]);
+            public String[] transferSyntaxes() {
+                return transferSyntaxes.clone();
             }
 
             public boolean equalsAbstractSyntax(String abstractSyntax) {
@@ -683,7 +712,7 @@ public abstract class AAssociate {
             }
 
             public boolean containsTransferSyntax(String transferSyntax) {
-                return transferSyntaxList.contains(transferSyntax);
+                return ArrayUtils.contains(transferSyntaxes, transferSyntax);
             }
 
             public boolean matches(String abstractSyntax, String transferSyntax) {
@@ -691,16 +720,21 @@ public abstract class AAssociate {
             }
 
             int itemLength() {
-                return 8 + abstractSyntax.length()
-                        + transferSyntaxList.stream().mapToInt(s -> 4 + s.length()).sum();
+                int l = 8 + abstractSyntax.length() + transferSyntaxes.length * 4;
+                for (String s : transferSyntaxes) l += s.length();
+                return l;
             }
 
-            void writeTo(DataOutputStream dos, byte[] buf) throws IOException {
-                dos.writeInt(0x3000);
-                writeLengthASCII(dos, abstractSyntax, buf);
-                for (String uid : transferSyntaxList) {
-                    dos.writeShort(0x4000);
-                    writeLengthASCII(dos, uid, buf);
+            void writeTo(OutputStream out) throws IOException {
+                out.write(0);
+                out.write(0);
+                out.write(0x30);
+                out.write(0);
+                writeLengthASCII(out, abstractSyntax);
+                for (String uid : transferSyntaxes) {
+                    out.write(0x40);
+                    out.write(0);
+                    writeLengthASCII(out, uid);
                 }
             }
 
@@ -711,11 +745,11 @@ public abstract class AAssociate {
                         .append("    abstract-syntax: ");
                 UIDUtils.promptTo(abstractSyntax, sb)
                         .append(System.lineSeparator());
-                transferSyntaxList.forEach(ts ->
-                        UIDUtils.promptTo(ts, sb.append("    transfer-syntax: "))
-                            .append(System.lineSeparator()));
-                sb.append("  ]")
-                        .append(System.lineSeparator());
+                for (String ts : transferSyntaxes) {
+                    UIDUtils.promptTo(ts, sb.append("    transfer-syntax: "))
+                            .append(System.lineSeparator());
+                }
+                sb.append("  ]").append(System.lineSeparator());
             }
         }
     }
@@ -725,11 +759,15 @@ public abstract class AAssociate {
         private final Map<Byte, PresentationContext> pcs = new LinkedHashMap<>();
         private byte[] userIdentityServerResponse;
 
-        public AC() {}
+        private AC() {}
 
-        public static AC readFrom(DataInputStream dis, int pduLength) throws IOException {
+        public AC(String callingAETitle, String calledAETitle) {
+            super(callingAETitle, calledAETitle);
+        }
+
+        public static AC readFrom(InputStream in, int pduLength) throws IOException {
             AC ac = new AC();
-            ac.parse(dis, pduLength);
+            ac.parse(in, pduLength);
             return ac;
         }
 
@@ -741,8 +779,8 @@ public abstract class AAssociate {
             return pcs.get(id);
         }
 
-        public byte[] getUserIdentityServerResponse() {
-            return clone(userIdentityServerResponse);
+        public Optional<byte[]> getUserIdentityServerResponse() {
+            return Optional.ofNullable(clone(userIdentityServerResponse));
         }
 
         public void setUserIdentityServerResponse(byte[] userIdentityServerResponse) {
@@ -785,34 +823,44 @@ public abstract class AAssociate {
 
         @Override
         int presentationContextLength() {
-            return pcs.values().stream().mapToInt(pc -> 4 + pc.itemLength()).sum();
+            int l = pcs.size() * 4;
+            for (PresentationContext pc : pcs.values()) l += pc.itemLength();
+            return l;
         }
 
         @Override
         int userItemLength() {
-            return super.userItemLength()
-                    + (userIdentityServerResponse != null ? 6 + userIdentityServerResponse.length : 0);
+            int l = super.userItemLength();
+            if (userIdentityServerResponse != null) l += 6 + userIdentityServerResponse.length;
+            return l;
         }
 
         @Override
-        void writePresentationContextTo(DataOutputStream dos, byte[] buf) throws IOException {
+        void writeTo(OutputStream out) throws IOException {
+            writeTo(out, 0x02);
+        }
+
+        @Override
+        void writePresentationContextTo(OutputStream out) throws IOException {
             for (Map.Entry<Byte, PresentationContext> e : pcs.entrySet()) {
-                dos.writeShort(0x2100);
-                dos.writeShort(e.getValue().itemLength());
-                dos.writeShort(e.getKey().intValue() << 8);
-                e.getValue().writeTo(dos, buf);
+                out.write(0x21);
+                out.write(0);
+                writeShort(out, e.getValue().itemLength());
+                out.write(e.getKey());
+                out.write(0);
+                e.getValue().writeTo(out);
             }
         }
 
         @Override
-        void parsePresentationContextAC(DataInputStream dis, int itemLength, byte[] buf)
+        void parsePresentationContextAC(InputStream in, int itemLength)
                 throws IOException {
             int remaining = itemLength - 4;
             if (remaining < 0)
                 throw AAbort.invalidPDUParameterValue();
-            byte pcid = (byte) dis.readUnsignedByte();
-            skipByte(dis);
-            Result result = switch (dis.readUnsignedByte()) {
+            byte pcid = (byte) readUnsignedByte(in);
+            skipByte(in);
+            Result result = switch (readUnsignedByte(in)) {
                     case 0 -> Result.ACCEPTANCE;
                     case 1 -> Result.USER_REJECTION;
                     case 2 -> Result.NO_REASON;
@@ -820,19 +868,19 @@ public abstract class AAssociate {
                     case 4 -> Result.TRANSFER_SYNTAXES_NOT_SUPPORTED;
                     default -> throw AAbort.invalidPDUParameterValue();
                 };
-            skipByte(dis);
+            skipByte(in);
             int subitemType, subitemLength;
             String transferSyntax = null;
             while (remaining > 0) {
                 if ((remaining -= 4) < 0)
                     throw AAbort.invalidPDUParameterValue();
-                subitemType = dis.readUnsignedByte();
-                skipByte(dis);
-                subitemLength = dis.readUnsignedShort();
+                subitemType = readUnsignedByte(in);
+                skipByte(in);
+                subitemLength = readUnsignedShort(in);
                 if ((remaining -= subitemLength) < 0)
                     throw AAbort.invalidPDUParameterValue();
                 transferSyntax = switch (subitemType) {
-                    case 0x40 -> readASCII(dis, subitemLength, buf);
+                    case 0x40 -> readASCII(in, subitemLength);
                     default -> throw AAbort.unexpectedOrUnrecognizedItem(subitemType);
                 };
             }
@@ -843,23 +891,24 @@ public abstract class AAssociate {
         }
 
         @Override
-        void writeUserIdentityTo(DataOutputStream dos, byte[] buf) throws IOException {
+        void writeUserIdentityTo(OutputStream out) throws IOException {
             if (userIdentityServerResponse != null) {
-                dos.writeShort(0x5900);
-                dos.writeShort(2 + userIdentityServerResponse.length);
-                dos.writeShort(userIdentityServerResponse.length);
-                dos.write(userIdentityServerResponse);
+                out.write(0x59);
+                out.write(0);
+                writeShort(out, 2 + userIdentityServerResponse.length);
+                writeShort(out, userIdentityServerResponse.length);
+                out.write(userIdentityServerResponse);
             }
         }
 
         @Override
-        void parseUserIdentityAC(DataInputStream dis, int subitemLength, byte[] buf)
+        void parseUserIdentityAC(InputStream in, int subitemLength)
                 throws IOException {
             if (subitemLength < 2)
                 throw AAbort.invalidPDUParameterValue();
-            if (subitemLength != 2 + dis.readShort())
+            if (subitemLength != 2 + readUnsignedShort(in))
                 throw AAbort.invalidPDUParameterValue();
-            userIdentityServerResponse = readBytes(dis, subitemLength - 2);
+            userIdentityServerResponse = in.readNBytes(subitemLength - 2);
         }
 
         public static class PresentationContext {
@@ -889,10 +938,12 @@ public abstract class AAssociate {
                         .append(System.lineSeparator());
             }
 
-            void writeTo(DataOutputStream dos, byte[] buf) throws IOException {
-                dos.writeShort(result.code() << 8);
-                dos.writeShort(0x4000);
-                writeLengthASCII(dos, transferSyntax, buf);
+            void writeTo(OutputStream out) throws IOException {
+                out.write(result.code());
+                out.write(0);
+                out.write(0x40);
+                out.write(0);
+                writeLengthASCII(out, transferSyntax);
             }
         }
 
@@ -942,43 +993,33 @@ public abstract class AAssociate {
     }
 
     public static class CommonExtendedNegotation {
-        public final String serviceClass;
-        private final List<String> relatedSOPClassList = new ArrayList<>();
-        private final byte[] reserved;
+        final String serviceClass;
+        final String[] relatedSOPClasses;
+        final byte[] reserved;
 
         CommonExtendedNegotation(String serviceClass, String[] relatedSOPClasses, byte[] reserved) {
             this.serviceClass = serviceClass;
-            this.relatedSOPClassList.addAll(List.of(relatedSOPClasses));
+            this.relatedSOPClasses = relatedSOPClasses;
             this.reserved = reserved.clone();
         }
 
-        public String[] relatedSOPClasses() {
-            return relatedSOPClassList.toArray(new String[0]);
-        }
-
-        public Stream<String> relatedSOPClassesStream() {
-            return relatedSOPClassList.stream();
-        }
-
-        public byte[] reserved() {
-            return reserved.clone();
-        }
-
         int length() {
-            return 4 + serviceClass.length() + relatedSOPClassListLength() + reserved.length;
+            return 4 + serviceClass.length() + relatedSOPClassesLength() + reserved.length;
         }
 
-        private int relatedSOPClassListLength() {
-            return relatedSOPClassList.stream().mapToInt(s -> 2 + s.length()).sum();
+        private int relatedSOPClassesLength() {
+            int l = relatedSOPClasses.length * 2;
+            for (String s : relatedSOPClasses) l += s.length();
+            return l;
         }
 
-        void writeTo(DataOutputStream dos, byte[] buf) throws IOException {
-            writeLengthASCII(dos, serviceClass, buf);
-            dos.writeShort(relatedSOPClassListLength());
-            for (String uid : relatedSOPClassList) {
-                writeLengthASCII(dos, uid, buf);
+        void writeTo(OutputStream out) throws IOException {
+            writeLengthASCII(out, serviceClass);
+            writeShort(out, relatedSOPClassesLength());
+            for (String uid : relatedSOPClasses) {
+                writeLengthASCII(out, uid);
             }
-            dos.write(reserved);
+            out.write(reserved);
         }
 
         public void promptTo(String cuid, StringBuilder sb) {
@@ -990,9 +1031,9 @@ public abstract class AAssociate {
                     .append("    service-class: ");
             UIDUtils.promptTo(serviceClass, sb)
                     .append(System.lineSeparator());
-            relatedSOPClassList.forEach(s ->
-                    UIDUtils.promptTo(s, sb.append("    related-general-sop-class: "))
-                            .append(System.lineSeparator()));
+            for (String s : relatedSOPClasses)
+                UIDUtils.promptTo(s, sb.append("    related-general-sop-class: "))
+                        .append(System.lineSeparator());
             if (reserved.length > 0)
                 sb.append("    reserved: byte[")
                         .append(reserved.length)
@@ -1015,6 +1056,9 @@ public abstract class AAssociate {
         private final byte[] secondaryField;
 
         UserIdentity(int type, boolean positiveResponseRequested, byte[] primaryField, byte[] secondaryField) {
+            if (type <= 0 || type > 5) {
+                throw new IllegalArgumentException("type: " + type);
+            }
             this.type = type;
             this.positiveResponseRequested = positiveResponseRequested;
             this.primaryField = primaryField.clone();
@@ -1044,12 +1088,12 @@ public abstract class AAssociate {
             return 6 + primaryField.length + secondaryField.length;
         }
 
-        void writeTo(DataOutputStream out) throws IOException {
+        void writeTo(OutputStream out) throws IOException {
             out.write(type);
-            out.writeBoolean(positiveResponseRequested);
-            out.writeShort(primaryField.length);
+            writeBoolean(out, positiveResponseRequested);
+            writeShort(out, primaryField.length);
             out.write(primaryField);
-            out.writeShort(secondaryField.length);
+            writeShort(out, secondaryField.length);
             out.write(secondaryField);
         }
 

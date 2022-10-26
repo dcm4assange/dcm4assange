@@ -19,9 +19,7 @@ package org.dcm4assange.net;
 
 import org.dcm4assange.util.StringUtils;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
+import java.io.*;
 
 /**
  * @author Gunter Zeilinger (gunterze@protonmail.com)
@@ -97,12 +95,14 @@ public class AAbort extends IOException {
         };
     }
 
-    public static AAbort readFrom(DataInputStream dis, int pduLength) throws IOException {
-        return new AAbort(dis.readInt());
+    public static AAbort readFrom(InputStream in, int pduLength) throws IOException {
+        if (pduLength != 4)
+            throw invalidPDUParameterValue();
+        return new AAbort(Utils.readInt(in));
     }
 
-    public void writeTo(DataOutputStream dos) throws IOException {
-        dos.writeInt(sourceReason);
+    public void writeTo(OutputStream out) throws IOException {
+        Utils.writeInt(out, sourceReason);
     }
 
     private static String toString(int sourceReason) {

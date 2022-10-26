@@ -1,12 +1,11 @@
 package org.dcm4assange.conf.model;
 
 import org.dcm4assange.UID;
+import org.dcm4assange.util.ArrayUtils;
 import org.dcm4assange.util.StringUtils;
 
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.function.Predicate;
 
 /**
  * @author Gunter Zeilinger (gunterze@protonmail.com)
@@ -18,7 +17,7 @@ public class TransferCapability {
     private String name;
     private String sopClass = UID.Verification;
     private Role role = Role.SCP;
-    private String[] transferSyntaxes = {};
+    private String[] transferSyntaxes = { "*" };
 
     public Optional<String> getName() {
         return Optional.ofNullable(name);
@@ -47,20 +46,26 @@ public class TransferCapability {
         return this;
     }
 
-    public List<String> getTransferSyntaxes() {
-        return List.of(transferSyntaxes);
+    public String[] getTransferSyntaxes() {
+        return transferSyntaxes.clone();
     }
 
     public TransferCapability setTransferSyntaxes(String... transferSyntaxes) {
-        this.transferSyntaxes = Objects.requireNonNullElse(transferSyntaxes, StringUtils.EMPTY_STRINGS);
+        this.transferSyntaxes = ArrayUtils.requireNonNull(transferSyntaxes);
         return this;
     }
 
-    public Optional<String> selectTransferSyntax(Predicate<String> predicate) {
-        return List.of(transferSyntaxes).stream().filter(predicate).findFirst();
-    }
-
-    public boolean anyTransferSyntax() {
-        return List.of(transferSyntaxes).contains("*");
+    public Optional<String> selectTransferSyntax(String... from) {
+        if (from.length > 0) {
+            for (String ts : transferSyntaxes) {
+                if (ArrayUtils.contains(from, ts)) {
+                    return Optional.of(ts);
+                }
+            }
+            if (ArrayUtils.contains(transferSyntaxes, "*")) {
+                return Optional.of(from[0]);
+            }
+        }
+        return Optional.empty();
     }
 }

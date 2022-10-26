@@ -20,7 +20,9 @@ package org.dcm4assange.net;
 import org.dcm4assange.UID;
 import org.junit.jupiter.api.Test;
 
-import java.io.*;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -32,7 +34,7 @@ public class AAssociateTest {
 
     @Test
     public void writeReadRQ() throws IOException {
-        AAssociate.RQ rq = new AAssociate.RQ();
+        AAssociate.RQ rq = new AAssociate.RQ("CALLING_AET", "CALLED_AET");
         init(rq);
         rq.addPresentationContext(UID.StorageCommitmentPushModel, UID.ImplicitVRLittleEndian);
         rq.addPresentationContext(UID.StudyRootQueryRetrieveInformationModelFind, UID.ImplicitVRLittleEndian);
@@ -42,14 +44,14 @@ public class AAssociateTest {
                 UID.Comprehensive3DSRStorage, UID.ExtensibleSRStorage);
         rq.setUserIdentity(AAssociate.UserIdentity.USERNAME, true, new byte[] {'d', 'o', 'e'});
         byte[] bytes = write(rq);
-        assertEquals(bytes.length, rq.pduLength());
+        assertEquals(bytes.length, 6 + rq.pduLength());
         AAssociate.RQ rq2 = readRQ(bytes);
         assertEquals(rq.toString(), rq2.toString());
     }
 
     @Test
     public void writeReadAC() throws IOException {
-        AAssociate.AC ac = new AAssociate.AC();
+        AAssociate.AC ac = new AAssociate.AC("CALLING_AET", "CALLED_AET");
         init(ac);
         ac.putPresentationContext((byte) 1, AAssociate.AC.Result.ACCEPTANCE, UID.ImplicitVRLittleEndian);
         ac.putPresentationContext((byte) 3, AAssociate.AC.Result.USER_REJECTION, UID.ImplicitVRLittleEndian);
@@ -57,7 +59,7 @@ public class AAssociateTest {
                 UID.ImplicitVRLittleEndian);
         ac.setUserIdentityServerResponse(new byte[]{0, 1});
         byte[] bytes = write(ac);
-        assertEquals(bytes.length, ac.pduLength());
+        assertEquals(bytes.length, 6 + ac.pduLength());
         AAssociate.AC ac2 = readAC(bytes);
         assertEquals(ac.toString(), ac2.toString());
     }
@@ -69,22 +71,27 @@ public class AAssociateTest {
     }
 
     private byte[] write(AAssociate rqac) throws IOException {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        try (DataOutputStream dos = new DataOutputStream(baos)) {
-            rqac.writeTo(dos);
+        try (ByteArrayOutputStream out = new ByteArrayOutputStream()) {
+            rqac.writeTo(out);
+            return out.toByteArray();
         }
-        return baos.toByteArray();
     }
 
     private AAssociate.RQ readRQ(byte[] data) throws IOException {
-        try (DataInputStream dis = new DataInputStream(new ByteArrayInputStream(data))) {
-            return AAssociate.RQ.readFrom(dis, data.length);
+        try (ByteArrayInputStream in = new ByteArrayInputStream(data)) {
+            assertEquals(0x01, Utils.readUnsignedByte(in));
+            Utils.skipByte(in);
+            int pduLength = Utils.readInt(in);
+            return AAssociate.RQ.readFrom(in, pduLength);
         }
     }
 
     private AAssociate.AC readAC(byte[] data) throws IOException {
-        try (DataInputStream dis = new DataInputStream(new ByteArrayInputStream(data))) {
-            return AAssociate.AC.readFrom(dis, data.length);
+        try (ByteArrayInputStream in = new ByteArrayInputStream(data)) {
+            assertEquals(0x02, Utils.readUnsignedByte(in));
+            Utils.skipByte(in);
+            int pduLength = Utils.readInt(in);
+            return AAssociate.AC.readFrom(in, pduLength);
         }
     }
 }
