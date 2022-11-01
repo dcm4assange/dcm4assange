@@ -1013,6 +1013,15 @@ public abstract class AAssociate {
             return l;
         }
 
+        DimseHandler selectDimseHandler(Map<String, DimseHandler> map) {
+            for (String relatedSOPClass : relatedSOPClasses) {
+                DimseHandler handler = map.get(relatedSOPClass);
+                if (handler != null)
+                    return handler;
+            }
+            return map.get(serviceClass);
+        }
+
         void writeTo(OutputStream out) throws IOException {
             writeLengthASCII(out, serviceClass);
             writeShort(out, relatedSOPClassesLength());

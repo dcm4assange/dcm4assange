@@ -132,6 +132,11 @@ enum BinaryVR implements VRType {
         }
 
         @Override
+        String bytesToString(byte[] b, int pos) {
+            return Short.toString(ByteOrder.LITTLE_ENDIAN.bytesToShort(b, pos));
+        }
+
+        @Override
         void intToBytes(int val, byte[] b, int off) {
             ByteOrder.LITTLE_ENDIAN.shortToBytes(val, b, off);
         }
@@ -192,6 +197,11 @@ enum BinaryVR implements VRType {
         @Override
         int intAt(DicomInput input, long pos) {
             return input.ushortAt(pos);
+        }
+
+        @Override
+        String bytesToString(byte[] b, int pos) {
+            return Integer.toString(ByteOrder.LITTLE_ENDIAN.bytesToShort(b, pos) & 0xffff);
         }
 
         @Override

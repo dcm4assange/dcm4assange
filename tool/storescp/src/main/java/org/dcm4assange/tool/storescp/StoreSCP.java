@@ -22,6 +22,7 @@ import org.dcm4assange.conf.model.Connection;
 import org.dcm4assange.conf.model.Device;
 import org.dcm4assange.conf.model.TransferCapability;
 import org.dcm4assange.net.DeviceRuntime;
+import org.dcm4assange.net.DicomServiceRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import picocli.CommandLine;
@@ -87,7 +88,7 @@ public class StoreSCP implements Callable<Integer> {
         ae.addTransferCapability(new TransferCapability());
         Device device = new Device().addConnection(conn).addApplicationEntity(ae);
         ae.addConnection(conn);
-        DeviceRuntime runtime = new DeviceRuntime(device);
+        DeviceRuntime runtime = new DeviceRuntime(device, new DicomServiceRegistry());
         runtime.bindConnections();
         return 0;
     }

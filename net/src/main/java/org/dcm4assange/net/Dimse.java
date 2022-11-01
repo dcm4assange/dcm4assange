@@ -159,10 +159,6 @@ public enum Dimse {
         return commandSet;
     }
 
-    static boolean hasDataSet(DicomObject commandSet) {
-        return commandSet.getIntOrElseThrow(Tag.CommandDataSetType) != NO_DATASET;
-    }
-
     public Object toString(Byte pcid, DicomObject commandSet, String tsuid) {
         return new Object(){
             @Override

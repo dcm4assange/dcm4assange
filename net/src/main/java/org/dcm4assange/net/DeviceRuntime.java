@@ -17,11 +17,13 @@
 
 package org.dcm4assange.net;
 
+import org.dcm4assange.DicomObject;
 import org.dcm4assange.conf.model.ApplicationEntity;
 import org.dcm4assange.conf.model.Connection;
 import org.dcm4assange.conf.model.Device;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.util.Objects;
@@ -37,9 +39,10 @@ public class DeviceRuntime {
     final ScheduledExecutorService scheduledExecutorService;
     final TCPConnectionMonitor monitor;
     final NegotiateUserIdentity negotiateUserIdentity;
+    final DimseHandler dimseHandler;
 
-    public DeviceRuntime(Device device) {
-        this(device,
+    public DeviceRuntime(Device device, DimseHandler dimseHandler) {
+        this(device, dimseHandler,
                 Executors.newCachedThreadPool(),
                 Executors.newSingleThreadScheduledExecutor(),
                 TCPConnectionMonitor.DEFAULT,
@@ -47,11 +50,12 @@ public class DeviceRuntime {
     }
 
     public DeviceRuntime(Device device,
-                         ExecutorService executorService,
+                         DimseHandler dimseHandler, ExecutorService executorService,
                          ScheduledExecutorService scheduledExecutorService,
                          TCPConnectionMonitor monitor,
                          NegotiateUserIdentity negotiateUserIdentity) {
         this.device = Objects.requireNonNull(device);
+        this.dimseHandler = Objects.requireNonNull(dimseHandler);
         this.executorService = Objects.requireNonNull(executorService);
         this.scheduledExecutorService = Objects.requireNonNull(scheduledExecutorService);
         this.monitor = Objects.requireNonNull(monitor);
@@ -103,4 +107,8 @@ public class DeviceRuntime {
         }
     }
 
+    void onDimseRQ(Association as, Byte pcid, Dimse dimse, DicomObject commandSet, InputStream dataStream)
+            throws IOException {
+        dimseHandler.accept(as, pcid, dimse, commandSet, dataStream);
+    }
 }
