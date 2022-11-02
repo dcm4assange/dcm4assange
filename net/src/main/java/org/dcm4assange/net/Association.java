@@ -146,7 +146,7 @@ public class Association implements Runnable {
         return arrpReceived;
     }
 
-    void writeDimse(Byte pcid, Dimse dimse, DicomObject cmd) throws IOException {
+    public void writeDimse(Byte pcid, Dimse dimse, DicomObject cmd) throws IOException {
         writeLock.lock();
         try {
             pDataTFLength = 4;
@@ -432,13 +432,13 @@ public class Association implements Runnable {
     }
 
     private void onPDataTF(int pduLength) throws IOException {
-        if ((pduRemaining = pduLength - 4) < 0)
-            throw AAbort.invalidPDUParameterValue();
-
+        pduRemaining = pduLength;
         onNextPDV();
     }
 
     private void onNextPDV() throws IOException {
+        if ((pduRemaining -= 4) < 0)
+            throw AAbort.invalidPDUParameterValue();
         if ((pdvRemaining = Utils.readInt(in) - 2) < 0)
             throw AAbort.invalidPDUParameterValue();
         if ((pduRemaining -= 2 + pdvRemaining) < 0)
@@ -502,12 +502,12 @@ public class Association implements Runnable {
     }
 
     private int readPDV(byte[] b, int off, int len) throws IOException {
-            Objects.checkFromIndexSize(off, len, b.length);
+        Objects.checkFromIndexSize(off, len, b.length);
         if (len == 0) {
             return 0;
         }
         while (pdvRemaining == 0) {
-            if ((pdvmch & 2) != 0) return -1;
+            if ((pdvmch & LAST) != 0) return -1;
             if (pduRemaining == 0) {
                 if (nextPDU() != 0x04)
                     throw new EOFException();

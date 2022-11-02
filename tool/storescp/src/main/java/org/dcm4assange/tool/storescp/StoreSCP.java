@@ -17,16 +17,22 @@
 
 package org.dcm4assange.tool.storescp;
 
+import org.dcm4assange.DicomObject;
+import org.dcm4assange.DicomOutputStream;
+import org.dcm4assange.Tag;
 import org.dcm4assange.conf.model.ApplicationEntity;
 import org.dcm4assange.conf.model.Connection;
 import org.dcm4assange.conf.model.Device;
 import org.dcm4assange.conf.model.TransferCapability;
-import org.dcm4assange.net.DeviceRuntime;
-import org.dcm4assange.net.DicomServiceRegistry;
+import org.dcm4assange.net.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import picocli.CommandLine;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.concurrent.Callable;
 
@@ -47,7 +53,7 @@ import java.util.concurrent.Callable;
         footer = { "$ storescp 11112",
                 "Starts server listening on port 11112" }
 )
-public class StoreSCP implements Callable<Integer> {
+public class StoreSCP implements Callable<Integer>, DimseHandler {
     static final Logger LOG = LoggerFactory.getLogger(StoreSCP.class);
     static class VersionProvider implements CommandLine.IVersionProvider {
         @Override
@@ -83,14 +89,43 @@ public class StoreSCP implements Callable<Integer> {
 
     @Override
     public Integer call() throws Exception {
+        if (directory != null) {
+            Files.createDirectories(directory);
+        }
         Connection conn = new Connection().setPort(port);
         ApplicationEntity ae = new ApplicationEntity().setAETitle(called);
-        ae.addTransferCapability(new TransferCapability());
+        ae.addTransferCapability(new TransferCapability()
+                .setSOPClass("*")
+                .setTransferSyntaxes("*")
+                .setRole(TransferCapability.Role.SCP));
         Device device = new Device().addConnection(conn).addApplicationEntity(ae);
         ae.addConnection(conn);
-        DeviceRuntime runtime = new DeviceRuntime(device, new DicomServiceRegistry());
+        DeviceRuntime runtime = new DeviceRuntime(device, new DicomServiceRegistry().setDefaultRQHandler(this));
         runtime.bindConnections();
         return 0;
     }
 
+    @Override
+    public void accept(Association as, Byte pcid, Dimse dimse, DicomObject commandSet, InputStream dataStream)
+            throws IOException {
+        if (dimse != Dimse.C_STORE_RQ) {
+            throw new DicomServiceException(Status.UnrecognizedOperation);
+        }
+        if (directory == null) {
+            dataStream.transferTo(OutputStream.nullOutputStream());
+        } else {
+            Path file = directory.resolve(commandSet.getStringOrElseThrow(Tag.AffectedSOPInstanceUID));
+            LOG.info("Start M-WRITE {}", file);
+            try (DicomOutputStream dos = new DicomOutputStream(Files.newOutputStream(file))) {
+                dos.writeFileMetaInformation(DicomObject.createFileMetaInformation(
+                        commandSet.getStringOrElseThrow(Tag.AffectedSOPClassUID),
+                        commandSet.getStringOrElseThrow(Tag.AffectedSOPInstanceUID),
+                        as.getTransferSyntax(pcid),
+                        true));
+                dataStream.transferTo(dos);
+            }
+            LOG.info("Finished M-WRITE {}", file);
+        }
+        as.writeDimse(pcid, Dimse.C_STORE_RSP, dimse.mkRSP(commandSet));
+    }
 }

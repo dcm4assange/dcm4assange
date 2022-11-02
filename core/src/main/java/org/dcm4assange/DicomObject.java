@@ -57,6 +57,27 @@ public class DicomObject implements Serializable {
         this(null, -1L, -1, null, 0);
     }
 
+    public static DicomObject createFileMetaInformation(String cuid, String iuid, String tsuid,
+                                                        boolean implementationVersionName) {
+        if (iuid == null || iuid.isEmpty())
+            throw new IllegalArgumentException("Missing SOP Instance UID");
+        if (cuid == null || cuid.isEmpty())
+            throw new IllegalArgumentException("Missing SOP Class UID");
+        if (tsuid == null || tsuid.isEmpty())
+            throw new IllegalArgumentException("Missing Transfer Syntax UID");
+
+        DicomObject fmi = new DicomObject();
+        fmi.setBytes(Tag.FileMetaInformationVersion, VR.OB, new byte[]{0, 1});
+        fmi.setString(Tag.MediaStorageSOPClassUID, VR.UI, cuid);
+        fmi.setString(Tag.MediaStorageSOPInstanceUID, VR.UI, iuid);
+        fmi.setString(Tag.TransferSyntaxUID, VR.UI, tsuid);
+        fmi.setString(Tag.ImplementationClassUID, VR.UI, Implementation.CLASS_UID);
+        if (implementationVersionName) {
+            fmi.setString(Tag.ImplementationVersionName, VR.SH, Implementation.VERSION_NAME);
+        }
+        return fmi;
+    }
+
     public SpecificCharacterSet specificCharacterSet() {
         return specificCharacterSet != null ? specificCharacterSet
                 : seq != null ? seq.dcmobj.specificCharacterSet()
@@ -208,6 +229,10 @@ public class DicomObject implements Serializable {
         return (i >= 0 && values[i] instanceof Fragments fragments)
                 ? Optional.of(fragments)
                 : Optional.empty();
+    }
+
+    public void setBytes(int tag, VR vr, byte[] val) {
+        add(tag, vr, val);
     }
 
     public void setString(int tag, VR vr, String... vals) {

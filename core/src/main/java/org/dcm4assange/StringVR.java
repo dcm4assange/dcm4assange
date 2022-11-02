@@ -13,17 +13,17 @@ import java.util.function.Function;
  * @since Mar 2021
  */
 enum StringVR implements VRType {
-    ASCII("\\", VM.MULTI, Trim.LEADING_AND_TRAILING, StringVR::ascii2),
+    ASCII("\\", VM.MULTI, Trim.LEADING_AND_TRAILING, StringVR::ascii),
     STRING("\\", VM.MULTI, Trim.LEADING_AND_TRAILING, DicomObject::specificCharacterSet),
     TEXT("\n\t\f", VM.SINGLE, Trim.TRAILING, DicomObject::specificCharacterSet),
-    DS("\\", VM.MULTI, Trim.LEADING_AND_TRAILING, StringVR::ascii2) {
+    DS("\\", VM.MULTI, Trim.LEADING_AND_TRAILING, StringVR::ascii) {
         @Override
         public OptionalInt intValue(DicomObject dcmobj, int index) {
             Optional<String> s = stringValue(dcmobj, index);
             return s.isPresent() ? OptionalInt.of((int) Double.parseDouble(s.get())) : OptionalInt.empty();
         }
     },
-    IS("\\", VM.MULTI, Trim.LEADING_AND_TRAILING, StringVR::ascii2) {
+    IS("\\", VM.MULTI, Trim.LEADING_AND_TRAILING, StringVR::ascii) {
         @Override
         public OptionalInt intValue(DicomObject dcmobj, int index) {
             Optional<String> s = stringValue(dcmobj, index);
@@ -31,21 +31,21 @@ enum StringVR implements VRType {
         }
     },
     PN("\\^=", VM.MULTI, Trim.LEADING_AND_TRAILING, DicomObject::specificCharacterSet),
-    UC("\\", VM.MULTI, Trim.TRAILING, StringVR::ascii2),
-    UR("", VM.SINGLE, Trim.LEADING_AND_TRAILING, StringVR::ascii2),
-    UI("\\", VM.MULTI, Trim.LEADING_AND_TRAILING, StringVR::ascii2);
+    UC("\\", VM.MULTI, Trim.TRAILING, StringVR::ascii),
+    UR("", VM.SINGLE, Trim.LEADING_AND_TRAILING, StringVR::ascii),
+    UI("\\", VM.MULTI, Trim.LEADING_AND_TRAILING, StringVR::ascii);
 
     private final String delimiters;
     private final VM vm;
     private final StringUtils.Trim trim;
-    private final Function<DicomObject, SpecificCharacterSet> asciiOrCS2;
+    private final Function<DicomObject, SpecificCharacterSet> asciiOrCS;
 
     StringVR(String delimiters, VM vm, Trim trim,
-             Function<DicomObject, SpecificCharacterSet> asciiOrCS2) {
+             Function<DicomObject, SpecificCharacterSet> asciiOrCS) {
         this.delimiters = delimiters;
         this.vm = vm;
         this.trim = trim;
-        this.asciiOrCS2 = asciiOrCS2;
+        this.asciiOrCS = asciiOrCS;
     }
 
     @Override
@@ -55,7 +55,7 @@ enum StringVR implements VRType {
 
     @Override
     public byte[] toBytes(String[] ss, DicomObject dcmobj) {
-        return asciiOrCS2.apply(dcmobj).encode(StringUtils.join(ss, 0, ss.length, '\\'), delimiters);
+        return asciiOrCS.apply(dcmobj).encode(StringUtils.join(ss, 0, ss.length, '\\'), delimiters);
     }
 
     @Override
@@ -77,7 +77,7 @@ enum StringVR implements VRType {
         String[] ss = stringValues(dcmobj.dicomInput.stringAt(
                 DicomObject.header2valuePosition(header),
                 dcmobj.header2valueLength(header),
-                asciiOrCS2.apply(dcmobj)));
+                asciiOrCS.apply(dcmobj)));
         dcmobj.setValue(index, ss);
         return ss;
     }
@@ -112,9 +112,9 @@ enum StringVR implements VRType {
         sb.append(" [");
         int limitValueLen = (maxLength - sb.length() - 1) * 2; // assume max 2 bytes by char
         if (limitValueLen < valueLen) {
-            sb.append(input.stringAt(valuePos, limitValueLen, asciiOrCS2.apply(dcmobj)));
+            sb.append(input.stringAt(valuePos, limitValueLen, asciiOrCS.apply(dcmobj)));
         } else {
-            sb.append(StringUtils.trim(input.stringAt(valuePos, valueLen, asciiOrCS2.apply(dcmobj)), trim));
+            sb.append(StringUtils.trim(input.stringAt(valuePos, valueLen, asciiOrCS.apply(dcmobj)), trim));
             sb.append(']');
         }
         if (sb.length() > maxLength) {
@@ -123,7 +123,7 @@ enum StringVR implements VRType {
         return sb;
     }
 
-    private static SpecificCharacterSet ascii2(DicomObject dicomObject) {
+    private static SpecificCharacterSet ascii(DicomObject dicomObject) {
         return SpecificCharacterSet.ASCII;
     }
 
