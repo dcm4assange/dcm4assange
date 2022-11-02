@@ -31,7 +31,6 @@ import picocli.CommandLine;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.concurrent.Callable;
@@ -112,7 +111,7 @@ public class StoreSCP implements Callable<Integer>, DimseHandler {
             throw new DicomServiceException(Status.UnrecognizedOperation);
         }
         if (directory == null) {
-            dataStream.transferTo(OutputStream.nullOutputStream());
+            while (dataStream.skip(Integer.MAX_VALUE) > 0);
         } else {
             Path file = directory.resolve(commandSet.getStringOrElseThrow(Tag.AffectedSOPInstanceUID));
             LOG.info("Start M-WRITE {}", file);

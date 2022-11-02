@@ -487,6 +487,11 @@ public class Association implements Runnable {
         public int read(byte[] b, int off, int len) throws IOException {
             return readPDV(b, off, len);
         }
+
+        @Override
+        public long skip(long n) throws IOException {
+            return skipPDV(n);
+        }
     };
     private int readPDV() throws IOException {
         while (pdvRemaining == 0) {
@@ -518,6 +523,24 @@ public class Association implements Runnable {
         int n = in.read(b, off, Math.min(pdvRemaining, len));
         if (n == 0)
             throw new EOFException();
+        pdvRemaining -= n;
+        return n;
+    }
+
+    private long skipPDV(long n) throws IOException {
+        if (n <= 0) {
+            return 0;
+        }
+        while (pdvRemaining == 0) {
+            if ((pdvmch & LAST) != 0) return 0;
+            if (pduRemaining == 0) {
+                if (nextPDU() != 0x04)
+                    throw new EOFException();
+            } else {
+                onNextPDV();
+            }
+        }
+        n = in.skip(Math.min(pdvRemaining, n));
         pdvRemaining -= n;
         return n;
     }
