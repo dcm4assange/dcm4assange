@@ -32,7 +32,7 @@ public interface TCPConnectionMonitor {
     TCPConnectionMonitor DEFAULT = new TCPConnectionMonitor(){};
 
     default void onConnectionEstablished(Connection conn, Connection remoteConn, Socket s) {
-        LOG.warn("Connection established {}", s);
+        LOG.info("Connection established {}", s);
     }
 
     default void onConnectionFailed(Connection conn, Connection remoteConn, Socket s, Throwable e) {

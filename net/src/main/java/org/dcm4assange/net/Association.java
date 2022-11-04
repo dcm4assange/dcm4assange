@@ -17,10 +17,7 @@
 
 package org.dcm4assange.net;
 
-import org.dcm4assange.ByteOrder;
-import org.dcm4assange.DicomInputStream;
-import org.dcm4assange.DicomObject;
-import org.dcm4assange.DicomOutputStream;
+import org.dcm4assange.*;
 import org.dcm4assange.conf.model.ApplicationEntity;
 import org.dcm4assange.conf.model.Connection;
 import org.dcm4assange.conf.model.TransferCapability;
@@ -31,9 +28,10 @@ import java.io.*;
 import java.net.Socket;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -47,6 +45,7 @@ public class Association implements Runnable {
     private static final int DATA = 0;
     private static final int COMMAND = 1;
     private static final int LAST = 2;
+    private static final int LAST_DATA = 2;
     private static final int LAST_COMMAND = 3;
     private final int serialNo;
     private final DeviceRuntime deviceRuntime;
@@ -56,33 +55,54 @@ public class Association implements Runnable {
     private final InputStream in;
     private final OutputStream out;
     private final ReentrantLock writeLock = new ReentrantLock();
-    final CompletableFuture<Association> aaacReceived = new CompletableFuture<>();
-    final CompletableFuture<Association> arrpReceived = new CompletableFuture<>();
+    private final CompletableFuture<Association> aaacReceived = new CompletableFuture<>();
+    private final CompletableFuture<Association> arrpReceived = new CompletableFuture<>();
+    private final AtomicInteger messageID = new AtomicInteger();
     private volatile String name;
     private volatile ApplicationEntity ae;
     private volatile AAssociate.RQ aarq;
     private volatile AAssociate.AC aaac;
+    private volatile BlockingQueue<OutstandingRSP> outstandingRSPs;
     private volatile State state;
-    private int pduRemaining;
-    private int pdvRemaining;
-    private Byte pcid;
-    private int pdvmch = COMMAND;
-    private byte[] pDataTF;
-    private int pDataTFLength;
+    private int ipduRemaining;
+    private int ipdvRemaining;
+    private Byte ipcid;
+    private int ipdvmch = COMMAND;
+    private byte[] opdu;
+    private int opduLen;
+    private int opdvPos;
+    private Byte opcid;
+    private byte opdvmch;
 
-    private Association(DeviceRuntime deviceRuntime, Connection conn, Socket sock, Role role, State state)
+    private Association(DeviceRuntime deviceRuntime, Connection conn, Socket sock, Role role)
             throws IOException {
         this.serialNo = prevSerialNo.incrementAndGet();
-        this.name = "" + sock.getLocalSocketAddress()
-                + role.delim + sock.getRemoteSocketAddress()
-                + '(' + serialNo + ')';
         this.deviceRuntime = deviceRuntime;
         this.conn = conn;
         this.sock = sock;
         this.in = new BufferedInputStream(sock.getInputStream());
         this.out = new BufferedOutputStream(sock.getOutputStream());
         this.role = role;
-        this.state = state;
+    }
+
+    private Association(DeviceRuntime deviceRuntime, Connection conn, Socket sock,
+                        ApplicationEntity ae, AAssociate.RQ aarq)
+            throws IOException {
+        this(deviceRuntime, conn, sock, Role.REQUESTOR);
+        this.name = aarq.getCallingAETitle() + role.delim + aarq.getCalledAETitle() + '(' + serialNo + ')';
+        this.ae = ae;
+        this.aarq = aarq;
+        this.state = State.EXPECT_AA_AC;
+        write(aarq);
+    }
+
+    private Association(DeviceRuntime deviceRuntime, Connection conn, Socket sock)
+            throws IOException {
+        this(deviceRuntime, conn, sock, Role.ACCEPTOR);
+        this.name = "" + sock.getLocalSocketAddress()
+                + role.delim + sock.getRemoteSocketAddress()
+                + '(' + serialNo + ')';
+        this.state = State.EXPECT_AA_RQ;
     }
 
     @Override
@@ -94,16 +114,15 @@ public class Association implements Runnable {
         return aarq.getCommonExtendedNegotation(cuid);
     }
 
-    static Association open(DeviceRuntime deviceRuntime, ApplicationEntity ae, Connection conn, Socket sock,
+    static CompletableFuture<Association> open(DeviceRuntime deviceRuntime, ApplicationEntity ae, Connection conn, Socket sock,
                             AAssociate.RQ rq) throws IOException {
-        Association as = new Association(deviceRuntime, conn, sock, Role.REQUESTOR, State.EXPECT_AA_AC);
-        as.ae = ae;
-        as.write(rq);
-        return as;
+        Association as = new Association(deviceRuntime, conn, sock, ae, rq);
+        deviceRuntime.executorService.execute(as);
+        return as.aaacReceived;
     }
 
     static Association accept(DeviceRuntime deviceRuntime, Connection conn, Socket sock) throws IOException {
-        return new Association(deviceRuntime, conn, sock, Role.ACCEPTOR, State.EXPECT_AA_RQ);
+        return new Association(deviceRuntime, conn, sock);
     }
 
     public String getTransferSyntax(Byte pcid) {
@@ -140,29 +159,142 @@ public class Association implements Runnable {
         return pduType;
     }
 
-    public CompletableFuture<Association> release(long timeout, TimeUnit unit)
-            throws IOException, InterruptedException, TimeoutException {
-        state.release(this, timeout, unit);
+    public CompletableFuture<DimseRSP> cecho() throws IOException, InterruptedException {
+        return cecho(UID.Verification);
+    }
+
+    public CompletableFuture<DimseRSP> cecho(String sopClassUID) throws IOException, InterruptedException {
+        int msgid = messageID.incrementAndGet();
+        return invoke(sopClassUID, msgid, Dimse.C_ECHO_RQ,
+                Dimse.C_ECHO_RQ.mkRQ(msgid, sopClassUID, null, Dimse.NO_DATASET));
+    }
+
+    public CompletableFuture<DimseRSP> cstore(String sopClassUID, String sopInstanceUID,
+                                              DataWriter dataWriter, String transferSyntax)
+            throws IOException, InterruptedException {
+        int msgid = messageID.incrementAndGet();
+        return invoke(sopClassUID, msgid, Dimse.C_STORE_RQ,
+                Dimse.C_STORE_RQ.mkRQ(msgid, sopClassUID, sopInstanceUID, Dimse.WITH_DATASET),
+                dataWriter, transferSyntax);
+    }
+
+    private CompletableFuture<DimseRSP> invoke(String abstractSyntax, int msgid, Dimse dimse, DicomObject commandSet)
+            throws IOException, InterruptedException {
+        Byte pcid = pcidFor(abstractSyntax);
+        OutstandingRSP outstandingRSP = new OutstandingRSP(msgid, new CompletableFuture<>());
+        outstandingRSPs.put(outstandingRSP);
+        writeDimse(pcid, dimse, commandSet);
+        return outstandingRSP.futureDimseRSP;
+    }
+
+    private CompletableFuture<DimseRSP> invoke(String abstractSyntax, int msgid, Dimse dimse, DicomObject commandSet,
+                                               DataWriter dataWriter, String transferSyntax)
+            throws IOException, InterruptedException {
+        Byte pcid = pcidFor(abstractSyntax, transferSyntax);
+        OutstandingRSP outstandingRSP = new OutstandingRSP(msgid, new CompletableFuture<>());
+        outstandingRSPs.put(outstandingRSP);
+        writeDimse(pcid, dimse, commandSet, dataWriter, transferSyntax);
+        return outstandingRSP.futureDimseRSP;
+    }
+
+    private Byte pcidFor(String abstractSyntax) {
+        return aarq.pcidsFor(abstractSyntax)
+                .filter(aaac::isAcceptance)
+                .findFirst()
+                .orElseThrow(() -> new IllegalStateException("No accepted Presentation Context"));
+    }
+
+    private Byte pcidFor(String abstractSyntax, String transferSyntax) {
+        return aarq.pcidsFor(abstractSyntax, transferSyntax)
+                .filter(pcid -> aaac.acceptedTransferSyntax(pcid, transferSyntax))
+                .findFirst()
+                .orElseThrow(() -> new IllegalStateException("No accepted Presentation Context"));
+    }
+
+    public CompletableFuture<Association> release() throws IOException {
+        writeAReleaseRQ();
         return arrpReceived;
     }
 
-    public void writeDimse(Byte pcid, Dimse dimse, DicomObject cmd) throws IOException {
+    public void writeDimse(Byte pcid, Dimse dimse, DicomObject commandSet) throws IOException {
         writeLock.lock();
         try {
-            pDataTFLength = 4;
-            pdvOutputStream.write(pcid);
-            pdvOutputStream.write(LAST_COMMAND);
-            new DicomOutputStream(pdvOutputStream).writeCommandSet(cmd);
-            ByteOrder.BIG_ENDIAN.intToBytes(pDataTFLength - 4, pDataTF, 0);
-            out.write(0x04);
-            out.write(0);
-            Utils.writeInt(out, pDataTFLength);
-            out.write(pDataTF, 0, pDataTFLength);
-            out.flush();
+            opcid = pcid;
+            opdvmch = COMMAND;
+            opdvPos = 0;
+            opduLen = 6;
+            new DicomOutputStream(pdvOutputStream).writeCommandSet(commandSet);
+            opdvmch = LAST_COMMAND;
+            writePDataTF();
         } finally {
             writeLock.unlock();
         }
     }
+
+    public void writeDimse(Byte pcid, Dimse dimse, DicomObject commandSet,
+                           DataWriter dataWriter, String transferSyntax) throws IOException {
+        writeLock.lock();
+        try {
+            opcid = pcid;
+            opdvmch = COMMAND;
+            opdvPos = 0;
+            opduLen = 6;
+            new DicomOutputStream(pdvOutputStream).writeCommandSet(commandSet);
+            opdvmch = LAST_COMMAND;
+            setPDVHeader();
+            opdvmch = DATA;
+            opdvPos = opduLen;
+            opduLen += 6;
+            dataWriter.writeTo(pdvOutputStream, transferSyntax);
+            opdvmch = LAST_DATA;
+            writePDataTF();
+        } finally {
+            writeLock.unlock();
+        }
+    }
+
+    private void setPDVHeader() {
+        int pdvlen = opduLen - opdvPos - 4;
+        ByteOrder.BIG_ENDIAN.intToBytes(pdvlen, opdu, opdvPos);
+        opdu[opdvPos + 4] = opcid;
+        opdu[opdvPos + 5] = opdvmch;
+        LOG.trace("{} << PDV[len={}, pcid={}, mch={}]", name, pdvlen, opcid, opdvmch);
+    }
+
+    private void writePDataTF() throws IOException {
+        setPDVHeader();
+        LOG.trace("{} << PDU[type=4, len={}]", name, opduLen);
+        out.write(0x04);
+        out.write(0);
+        Utils.writeInt(out, opduLen);
+        out.write(opdu, 0, opduLen);
+        out.flush();
+        opdvPos = 0;
+        opduLen = 6;
+    }
+
+    private final OutputStream pdvOutputStream = new OutputStream() {
+
+        @Override
+        public void write(int b) throws IOException {
+            if (opduLen == opdu.length)
+                writePDataTF();
+            opdu[opduLen++] = (byte) b;
+        }
+
+        @Override
+        public void write(byte[] b, int off, int len) throws IOException {
+            int d;
+            while (len > (d = opdu.length - opduLen)) {
+                System.arraycopy(b, off, opdu, opduLen, d);
+                opduLen = opdu.length;
+                writePDataTF();
+                len -= d;
+            }
+            System.arraycopy(b, off, opdu, opduLen, len);
+            opduLen += len;
+        }
+    };
 
     public enum Role {
         ACCEPTOR("<-"),
@@ -257,16 +389,15 @@ public class Association implements Runnable {
             as.onIOException(ex);
         }
 
-        public void release(Association as, long timeout, TimeUnit unit) {
-            throw new IllegalStateException("State: " + this);
-        }
     }
 
     private void onAAssociateRQ(int pduLength) throws IOException {
         try {
-            negotiate(AAssociate.RQ.readFrom(in, pduLength));
+            aarq = AAssociate.RQ.readFrom(in, pduLength);
+            name = aarq.getCalledAETitle() + role.delim + aarq.getCallingAETitle() + '(' + serialNo + ')';
+            negotiate();
             write(aaac);
-            state = State.EXPECT_PDATA_TF;
+            established(aarq.getMaxPDULength(), aaac.getMaxOpsPerformed());
         } catch (AAssociateRJ aarj) {
             aarj.writeTo(out);
             sock.shutdownInput();
@@ -274,8 +405,13 @@ public class Association implements Runnable {
         }
     }
 
-    private void negotiate(AAssociate.RQ aarq) throws AAssociateRJ {
-        this.aarq = aarq;
+    private void established(int maxPDULength, int maxOpsInvoked) {
+        opdu = new byte[maxPDULength != 0 ? maxPDULength : Connection.DEF_MAX_PDU_LENGTH];
+        outstandingRSPs = newBlockingQueue(maxOpsInvoked);
+        state = State.EXPECT_PDATA_TF;
+    }
+
+    private void negotiate() throws AAssociateRJ {
         if ((aarq.getProtocolVersion() & 1) == 0)
             throw AAssociateRJ.protocolVersionNotSupported();
 
@@ -293,7 +429,6 @@ public class Association implements Runnable {
 
         aaac = new AAssociate.AC(aarq.getCallingAETitle(), aarq.getCalledAETitle());
         aaac.setMaxPDULength(conn.getReceivePDULength());
-        pDataTF = new byte[minZeroAsMax(aarq.getMaxPDULength(), conn.getSendPDULength())];
         if (aarq.hasAsyncOpsWindow())
             aaac.setAsyncOpsWindow(
                     minZeroAsMax(aarq.getMaxOpsInvoked(), conn.getMaxOpsPerformed()),
@@ -340,20 +475,31 @@ public class Association implements Runnable {
         return i1 == 0 ? i2 : i2 == 0 ? i1 : Math.min(i1, i2);
     }
 
+    private static BlockingQueue<OutstandingRSP> newBlockingQueue(int limit) {
+        return new LinkedBlockingQueue<>(limit > 0 ? limit : Integer.MAX_VALUE);
+    }
+
     private void onAAssociateAC(int pduLength) throws IOException {
         this.aaac = AAssociate.AC.readFrom(in, pduLength);
+        established(aaac.getMaxPDULength(), aaac.getMaxOpsInvoked());
+        aaacReceived.complete(this);
     }
 
     private void onAAssociateRJ(int pduLength) throws IOException {
-        AAssociateRJ.readFrom(in, pduLength);
+        AAssociateRJ aarj = AAssociateRJ.readFrom(in, pduLength);
+        deviceRuntime.closeSocket(conn, sock);
+        aaacReceived.completeExceptionally(aarj);
     }
 
     private void onAAbort(int pduLength) throws IOException {
-        AAbort.readFrom(in, pduLength);
+        AAbort aAbort = AAbort.readFrom(in, pduLength);
         deviceRuntime.closeSocket(conn, sock);
+        aaacReceived.completeExceptionally(aAbort);
+        arrpReceived.completeExceptionally(aAbort);
     }
 
     private void onAReleaseRQ(int pduLength) throws IOException {
+        LOG.info("{} >> A-RELEASE-RQ[len={}]", name, pduLength);
         if (pduLength != 4)
             throw AAbort.invalidPDUParameterValue();
         Utils.readInt(in);
@@ -363,10 +509,12 @@ public class Association implements Runnable {
     }
 
     private void onAReleaseRP(int pduLength) throws IOException {
+        LOG.info("{} >> A-RELEASE-RP[len={}]", name, pduLength);
         if (pduLength != 4)
             throw AAbort.invalidPDUParameterValue();
         Utils.readInt(in);
         deviceRuntime.closeSocket(conn, sock);
+        arrpReceived.complete(this);
     }
 
     private void onIOException(IOException ex) {
@@ -390,10 +538,13 @@ public class Association implements Runnable {
     }
 
     private void writeAReleaseRQ() throws IOException {
+        LOG.info("{} << A-RELEASE-RQ[len=4]", name);
         blockingWrite(0x05, 0, 0, 0);
+        state = State.EXPECT_AR_RP;
     }
 
     private void writeAReleaseRP() throws IOException {
+        LOG.info("{} << A-RELEASE-RP[len=4]", name);
         blockingWrite(0x06, 0, 0, 0);
     }
 
@@ -429,40 +580,42 @@ public class Association implements Runnable {
         };
         out.write(b);
         out.flush();
+        sock.shutdownOutput();
     }
 
     private void onPDataTF(int pduLength) throws IOException {
-        pduRemaining = pduLength;
+        ipduRemaining = pduLength;
         onNextPDV();
     }
 
     private void onNextPDV() throws IOException {
-        if ((pduRemaining -= 4) < 0)
+        if ((ipduRemaining -= 4) < 0)
             throw AAbort.invalidPDUParameterValue();
-        if ((pdvRemaining = Utils.readInt(in) - 2) < 0)
-            throw AAbort.invalidPDUParameterValue();
-        if ((pduRemaining -= 2 + pdvRemaining) < 0)
-            throw AAbort.invalidPDUParameterValue();
-
+        int pdvlen = Utils.readInt(in);
         int pcid = Utils.readUnsignedByte(in);
         int pdvmch = Utils.readUnsignedByte(in);
-        if ((pdvmch & COMMAND) != (this.pdvmch & COMMAND))
+        LOG.trace("{} >> PDV[len={}, pcid={}, mch={}]", name, pdvlen, opcid, opdvmch);
+        if ((ipdvRemaining = pdvlen - 2) < 0)
+            throw AAbort.invalidPDUParameterValue();
+        if ((ipduRemaining -= 2 + ipdvRemaining) < 0)
+            throw AAbort.invalidPDUParameterValue();
+        if ((pdvmch & COMMAND) != (this.ipdvmch & COMMAND))
             throw AAbort.userInitiated();
-        this.pdvmch = pdvmch;
-        if (this.pcid == null) {
-            this.pcid = (byte) pcid;
-            AAssociate.AC.PresentationContext pc = aaac.getPresentationContext(this.pcid);
+        this.ipdvmch = pdvmch;
+        if (this.ipcid == null) {
+            this.ipcid = (byte) pcid;
+            AAssociate.AC.PresentationContext pc = aaac.getPresentationContext(this.ipcid);
             if (pc == null)
                 throw AAbort.userInitiated();
             if (pc.result != AAssociate.AC.Result.ACCEPTANCE)
                 throw AAbort.userInitiated();
             DicomObject commandSet = new DicomInputStream(pdvInputStream).readCommandSet();
             Dimse dimse = Dimse.of(commandSet);
-            this.pdvmch = DATA;
-            dimse.handler.accept(this, this.pcid, dimse, commandSet, pdvInputStream);
-            this.pdvmch = COMMAND;
-            this.pcid = null;
-        } else if (this.pcid.intValue() != pcid) {
+            this.ipdvmch = DATA;
+            dimse.handler.accept(this, this.ipcid, dimse, commandSet, pdvInputStream);
+            this.ipdvmch = COMMAND;
+            this.ipcid = null;
+        } else if (this.ipcid.intValue() != pcid) {
             throw AAbort.userInitiated();
         }
     }
@@ -475,6 +628,11 @@ public class Association implements Runnable {
     }
 
     void onDimseRSP(Byte pcid, Dimse dimse, DicomObject commandSet, DicomObject dataSet) {
+        int messageID = commandSet.getInt(Tag.MessageIDBeingRespondedTo).getAsInt();
+        OutstandingRSP outstandingRSP =
+                outstandingRSPs.stream().filter(o -> o.messageID == messageID).findFirst().get();
+        outstandingRSPs.remove(outstandingRSP);
+        outstandingRSP.futureDimseRSP.complete(new DimseRSP(dimse, commandSet, dataSet));
     }
 
     private final InputStream pdvInputStream = new InputStream() {
@@ -494,15 +652,15 @@ public class Association implements Runnable {
         }
     };
     private int readPDV() throws IOException {
-        while (pdvRemaining == 0) {
-            if ((pdvmch & LAST) != 0) return -1;
-            if (pduRemaining == 0) {
+        while (ipdvRemaining == 0) {
+            if ((ipdvmch & LAST) != 0) return -1;
+            if (ipduRemaining == 0) {
                 if (nextPDU() != 0x04)
                     throw new EOFException();
             } else
                 onNextPDV();
         }
-        pdvRemaining--;
+        ipdvRemaining--;
         return Utils.readUnsignedByte(in);
     }
 
@@ -511,19 +669,19 @@ public class Association implements Runnable {
         if (len == 0) {
             return 0;
         }
-        while (pdvRemaining == 0) {
-            if ((pdvmch & LAST) != 0) return -1;
-            if (pduRemaining == 0) {
+        while (ipdvRemaining == 0) {
+            if ((ipdvmch & LAST) != 0) return -1;
+            if (ipduRemaining == 0) {
                 if (nextPDU() != 0x04)
                     throw new EOFException();
             } else {
                 onNextPDV();
             }
         }
-        int n = in.read(b, off, Math.min(pdvRemaining, len));
+        int n = in.read(b, off, Math.min(ipdvRemaining, len));
         if (n == 0)
             throw new EOFException();
-        pdvRemaining -= n;
+        ipdvRemaining -= n;
         return n;
     }
 
@@ -531,31 +689,31 @@ public class Association implements Runnable {
         if (n <= 0) {
             return 0;
         }
-        while (pdvRemaining == 0) {
-            if ((pdvmch & LAST) != 0) return 0;
-            if (pduRemaining == 0) {
+        while (ipdvRemaining == 0) {
+            if ((ipdvmch & LAST) != 0) return 0;
+            if (ipduRemaining == 0) {
                 if (nextPDU() != 0x04)
                     throw new EOFException();
             } else {
                 onNextPDV();
             }
         }
-        n = in.skip(Math.min(pdvRemaining, n));
-        pdvRemaining -= n;
+        n = in.skip(Math.min(ipdvRemaining, n));
+        ipdvRemaining -= n;
         return n;
     }
 
-    private final OutputStream pdvOutputStream = new OutputStream() {
+    public interface DataWriter {
+        void writeTo(OutputStream out, String tsuid) throws IOException;
+    }
 
-        @Override
-        public void write(int b) throws IOException {
-            pDataTF[pDataTFLength++] = (byte) b;
-        }
+    private static class OutstandingRSP {
+        final int messageID;
+        final CompletableFuture<DimseRSP> futureDimseRSP;
 
-        @Override
-        public void write(byte[] b, int off, int len) throws IOException {
-            System.arraycopy(b, off, pDataTF, pDataTFLength, len);
-            pDataTFLength += len;
+        private OutstandingRSP(int messageID, CompletableFuture<DimseRSP> futureDimseRSP) {
+            this.messageID = messageID;
+            this.futureDimseRSP = futureDimseRSP;
         }
-    };
+    }
 }

@@ -1,6 +1,5 @@
 package org.dcm4assange;
 
-import org.dcm4assange.util.OptionalFloat;
 import org.dcm4assange.util.ToggleEndian;
 
 import java.io.*;
@@ -133,7 +132,7 @@ class MemoryCache {
         return len;
     }
 
-    private static record Segment(long pos, long length){
+    private record Segment(long pos, long length){
         long end() {
             return pos + length;
         }

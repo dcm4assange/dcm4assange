@@ -32,6 +32,7 @@
   <modules>
     <module>dcmdump</module>
     <module>storescp</module>
+    <module>storescu</module>
   </modules>
 
   <dependencies>

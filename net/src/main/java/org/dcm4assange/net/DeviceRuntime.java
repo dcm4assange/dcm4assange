@@ -28,6 +28,7 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.util.Objects;
 import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author Gunter Zeilinger (gunterze@protonmail.com)
@@ -37,29 +38,29 @@ public class DeviceRuntime {
     final Device device;
     final ExecutorService executorService;
     final ScheduledExecutorService scheduledExecutorService;
-    final TCPConnectionMonitor monitor;
-    final NegotiateUserIdentity negotiateUserIdentity;
     final DimseHandler dimseHandler;
+    TCPConnectionMonitor monitor = TCPConnectionMonitor.DEFAULT;
+    NegotiateUserIdentity negotiateUserIdentity = NegotiateUserIdentity.DEFAULT;
 
     public DeviceRuntime(Device device, DimseHandler dimseHandler) {
         this(device, dimseHandler,
-                Executors.newCachedThreadPool(),
-                Executors.newSingleThreadScheduledExecutor(),
-                TCPConnectionMonitor.DEFAULT,
-                NegotiateUserIdentity.DEFAULT);
+                new DaemonThreadFactory("device-" + device.getDeviceName() + "-thread-"));
+    }
+
+    private DeviceRuntime(Device device, DimseHandler dimseHandler, ThreadFactory threadFactory) {
+        this(device, dimseHandler,
+                Executors.newCachedThreadPool(threadFactory),
+                Executors.newSingleThreadScheduledExecutor(threadFactory));
     }
 
     public DeviceRuntime(Device device,
-                         DimseHandler dimseHandler, ExecutorService executorService,
-                         ScheduledExecutorService scheduledExecutorService,
-                         TCPConnectionMonitor monitor,
-                         NegotiateUserIdentity negotiateUserIdentity) {
+                         DimseHandler dimseHandler,
+                         ExecutorService executorService,
+                         ScheduledExecutorService scheduledExecutorService) {
         this.device = Objects.requireNonNull(device);
-        this.dimseHandler = Objects.requireNonNull(dimseHandler);
+        this.dimseHandler = dimseHandler;
         this.executorService = Objects.requireNonNull(executorService);
         this.scheduledExecutorService = Objects.requireNonNull(scheduledExecutorService);
-        this.monitor = Objects.requireNonNull(monitor);
-        this.negotiateUserIdentity = negotiateUserIdentity;
     }
 
     public void bindConnections() throws IOException {
@@ -79,9 +80,7 @@ public class DeviceRuntime {
     public CompletableFuture<Association> openAssociation(
             ApplicationEntity ae, Connection localConn, Connection remoteConn, AAssociate.RQ rq)
             throws IOException {
-        Association as = Association.open(this, ae, localConn, connect(localConn, remoteConn), rq);
-        executorService.execute(as);
-        return as.aaacReceived;
+        return Association.open(this, ae, localConn, connect(localConn, remoteConn), rq);
     }
 
     void onAccepted(Connection conn, Socket sock) {
@@ -110,5 +109,20 @@ public class DeviceRuntime {
     void onDimseRQ(Association as, Byte pcid, Dimse dimse, DicomObject commandSet, InputStream dataStream)
             throws IOException {
         dimseHandler.accept(as, pcid, dimse, commandSet, dataStream);
+    }
+
+    private static class DaemonThreadFactory implements ThreadFactory {
+        private final AtomicInteger threadNumber = new AtomicInteger(1);
+        private final String namePrefix;
+
+        DaemonThreadFactory(String namePrefix) {
+            this.namePrefix = namePrefix;
+        }
+
+        public Thread newThread(Runnable r) {
+            Thread t = new Thread(r,namePrefix + threadNumber.getAndIncrement());
+            t.setDaemon(true);
+            return t;
+        }
     }
 }

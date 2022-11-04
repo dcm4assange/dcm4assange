@@ -34,6 +34,7 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.concurrent.Callable;
+import java.util.concurrent.CompletableFuture;
 
 /**
  * @author Gunter Zeilinger (gunterze@protonmail.com)
@@ -52,7 +53,7 @@ import java.util.concurrent.Callable;
         footer = { "$ storescp 11112",
                 "Starts server listening on port 11112" }
 )
-public class StoreSCP implements Callable<Integer>, DimseHandler {
+public class StoreSCP implements Callable<Integer> {
     static final Logger LOG = LoggerFactory.getLogger(StoreSCP.class);
     static class VersionProvider implements CommandLine.IVersionProvider {
         @Override
@@ -80,7 +81,7 @@ public class StoreSCP implements Callable<Integer>, DimseHandler {
     @CommandLine.Option(names = "--max-ops-invoked", paramLabel = "<no>",
             description = "maximum number of outstanding operations it allows the Association-requester " +
                     "to invoke asynchronously, 0 = unlimited")
-    int maxOpsInvoked;
+    int maxOpsInvoked = 1;
 
     public static void main(String[] args) {
         new CommandLine(new StoreSCP()).execute(args);
@@ -92,20 +93,23 @@ public class StoreSCP implements Callable<Integer>, DimseHandler {
             Files.createDirectories(directory);
         }
         Connection conn = new Connection().setPort(port);
+        if (maxOpsInvoked != 1) {
+            conn.setMaxOpsPerformed(maxOpsInvoked);
+        }
         ApplicationEntity ae = new ApplicationEntity().setAETitle(called);
         ae.addTransferCapability(new TransferCapability()
                 .setSOPClass("*")
                 .setTransferSyntaxes("*")
                 .setRole(TransferCapability.Role.SCP));
         Device device = new Device().addConnection(conn).addApplicationEntity(ae);
-        ae.addConnection(conn);
-        DeviceRuntime runtime = new DeviceRuntime(device, new DicomServiceRegistry().setDefaultRQHandler(this));
+        DeviceRuntime runtime = new DeviceRuntime(device,
+                new DicomServiceRegistry().setDefaultRQHandler(this::onDimseRQ));
         runtime.bindConnections();
+        Thread.sleep(Long.MAX_VALUE);
         return 0;
     }
 
-    @Override
-    public void accept(Association as, Byte pcid, Dimse dimse, DicomObject commandSet, InputStream dataStream)
+    private void onDimseRQ(Association as, Byte pcid, Dimse dimse, DicomObject commandSet, InputStream dataStream)
             throws IOException {
         if (dimse != Dimse.C_STORE_RQ) {
             throw new DicomServiceException(Status.UnrecognizedOperation);

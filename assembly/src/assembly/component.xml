@@ -44,6 +44,7 @@
         <include>org.dcm4assange.elmdict:dcm4assange-elmdict-elscint</include>
         <include>org.dcm4assange.tool:dcm4assange-tool-dcmdump</include>
         <include>org.dcm4assange.tool:dcm4assange-tool-storescp</include>
+        <include>org.dcm4assange.tool:dcm4assange-tool-storescu</include>
         <include>org.slf4j:slf4j-api</include>
         <include>ch.qos.logback:logback-core</include>
         <include>ch.qos.logback:logback-classic</include>
