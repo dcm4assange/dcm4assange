@@ -28,7 +28,7 @@ import java.util.stream.Stream;
         mixinStandardHelpOptions = true,
         versionProvider = StoreSCU.ModuleVersionProvider.class,
         descriptionHeading = "%n",
-        description = "The storescu application implements a Service Class User (SCU) for the Storage SOP Class.",
+        description = "The storescu application implements a Service Class User (SCU) for the Verification and Storage SOP Class.",
         parameterListHeading = "%nParameters:%n",
         optionListHeading = "%nOptions:%n",
         showDefaultValues = true,
@@ -45,18 +45,19 @@ public class StoreSCU implements Callable<Integer> {
     }
 
     @CommandLine.Parameters(
-            description = "hostname of DICOM peer",
+            description = "hostname of DICOM peer AE",
             index = "0")
     String peer;
 
     @CommandLine.Parameters(
-            description = "tcp/ip port number of peer",
+            description = "tcp/ip port number of peer AE",
             showDefaultValue = CommandLine.Help.Visibility.NEVER,
             index = "1")
     int port;
 
     @CommandLine.Parameters(
-            description = "DICOM file or directory to be transmitted",
+            description = { "DICOM file or directory to be transmitted.",
+                    "If absent, verifies the communication by sending a C-ECHO RQ."},
             index = "2..*")
     List<Path> file;
 
@@ -65,12 +66,16 @@ public class StoreSCU implements Callable<Integer> {
     String calling = "STORESCU";
 
     @CommandLine.Option(names = "--called", paramLabel = "<aetitle>",
-            description = "set called AE title of peer")
+            description = "set called AE title of peer AE")
     String called = "STORESCP";
 
     @CommandLine.Option(names = "--max-ops-invoked", paramLabel = "<no>",
             description = "maximum number of outstanding operations invoked asynchronously, 0 = unlimited")
     int maxOpsInvoked = 1;
+
+    @CommandLine.Option(names = "--max-pdu-length", paramLabel = "<no>",
+            description = "maximum length of sent P-DATA-TF PDUs")
+    int maxPduLength = Association.MAX_SEND_PDU_LENGTH;
 
     private final List<FileInfo> fileInfos = new ArrayList<>();
 
@@ -80,12 +85,18 @@ public class StoreSCU implements Callable<Integer> {
 
     @Override
     public Integer call() throws Exception {
-        Connection remoteConn = new Connection().setHostname(peer).setPort(port);
-        Connection localConn = new Connection();
+        Connection remoteConn = new Connection()
+                .setHostname(peer)
+                .setPort(port);
+        Connection localConn = new Connection()
+                .setMaxOpsInvoked(maxOpsInvoked)
+                .setSendPDULength(maxPduLength);
         ApplicationEntity ae = new ApplicationEntity().setAETitle(calling);
         Device device = new Device().setDeviceName(calling).addConnection(localConn).addApplicationEntity(ae);
         DeviceRuntime runtime = new DeviceRuntime(device, null);
         AAssociate.RQ rq = new AAssociate.RQ(calling, called);
+        rq.setAsyncOpsWindow(localConn);
+        rq.setMaxPDULength(localConn);
         if (file == null) {
             rq.addPresentationContext(UID.Verification, UID.ImplicitVRLittleEndian);
             Association as = runtime.openAssociation(ae, localConn, remoteConn, rq).join();
@@ -97,20 +108,25 @@ public class StoreSCU implements Callable<Integer> {
                     walk.filter(file -> Files.isRegularFile(file)).forEach(this::scanFile);
                 }
             }
-            if (maxOpsInvoked != 1) {
-                rq.setAsyncOpsWindow(maxOpsInvoked, 1);
-            }
             fileInfos.forEach(info ->
                     rq.findOrAddPresentationContext(info.sopClassUID, info.transferSyntax));
+            long t1 = System.currentTimeMillis();
             Association as = runtime.openAssociation(ae, localConn, remoteConn, rq).join();
+            long t2 = System.currentTimeMillis();
+            System.out.format("Opened DICOM association in %d ms%n", t2 - t1);
+            long totLength = 0;
             for (FileInfo fileInfo : fileInfos) {
                 as.cstore(fileInfo.sopClassUID, fileInfo.sopInstanceUID, fileInfo, fileInfo.transferSyntax);
+                totLength += fileInfo.length;
             }
             as.release().join();
+            long t3 = System.currentTimeMillis();
+            long dt = t3 - t2;
+            System.out.format("Sent %d objects (%f MB) in %d ms (%f MB/s)%n",
+                    fileInfos.size(), totLength / 1000000.f, dt, totLength / (dt * 1000.f));
         }
         return 0;
     }
-
 
     private void scanFile(Path path) {
         try (DicomInputStream dis = new DicomInputStream(Files.newInputStream(path))) {

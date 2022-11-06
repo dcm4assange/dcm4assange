@@ -36,6 +36,9 @@ else
     JAVA="java"
 fi
 
+# Setup the classpath
+CP="$DCM4CHE_HOME/etc/storescu"
+
 # Setup the module path
 MP="$DCM4CHE_HOME/lib/$MAIN_JAR"
 MP="$MP:$DCM4CHE_HOME/lib/dcm4assange-conf-model-${project.version}.jar"
@@ -53,8 +56,9 @@ MP="$MP:$DCM4CHE_HOME/lib/picocli-${picocli.version}.jar"
 # For Cygwin, switch paths to Windows format before running java
 if $cygwin; then
     JAVA=`cygpath --path --windows "$JAVA"`
+    CP=`cygpath --path --windows "$CP"`
     MP=`cygpath --path --windows "$MP"`
 fi
 
 # Execute the JVM
-exec "$JAVA" $JAVA_OPTS -p "$MP" -m $MAIN_MODULE "$@"
+exec "$JAVA" $JAVA_OPTS -cp "$CP" -p "$MP" -m $MAIN_MODULE "$@"

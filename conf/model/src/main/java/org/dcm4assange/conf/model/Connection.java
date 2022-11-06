@@ -25,8 +25,6 @@ public class Connection {
     public static final int DEF_SOCKETDELAY = 50;
     public static final int DEF_ABORT_TIMEOUT = 1000;
     public static final int DEF_BUFFERSIZE = 0;
-    public static final int DEF_MAX_PDU_LENGTH = 16378;
-    // to fit into SunJSSE TLS Application Data Length 16408
 
     public static final String TLS_RSA_WITH_NULL_SHA = "SSL_RSA_WITH_NULL_SHA";
     public static final String TLS_RSA_WITH_3DES_EDE_CBC_SHA = "SSL_RSA_WITH_3DES_EDE_CBC_SHA";
@@ -42,8 +40,8 @@ public class Connection {
     private volatile int connectTimeout;
 
     private volatile int socketCloseDelay = DEF_SOCKETDELAY;
-    private int sendPDULength = DEF_MAX_PDU_LENGTH;
-    private int receivePDULength = DEF_MAX_PDU_LENGTH;
+    private int sendPDULength;
+    private int receivePDULength;
     private int maxOpsPerformed = SYNCHRONOUS_MODE;
     private int maxOpsInvoked = SYNCHRONOUS_MODE;
     private final SSLParameters sslParameters = new SSLParameters();
@@ -199,32 +197,40 @@ public class Connection {
         return sendPDULength;
     }
 
-    public final void setSendPDULength(int sendPDULength) {
+    public final Connection setSendPDULength(int sendPDULength) {
         this.sendPDULength = sendPDULength;
+        return this;
     }
 
     public final int getReceivePDULength() {
         return receivePDULength;
     }
 
-    public final void setReceivePDULength(int receivePDULength) {
+    public final Connection setReceivePDULength(int receivePDULength) {
         this.receivePDULength = receivePDULength;
+        return this;
     }
 
     public final int getMaxOpsPerformed() {
         return maxOpsPerformed;
     }
 
-    public final void setMaxOpsPerformed(int maxOpsPerformed) {
+    public final Connection setMaxOpsPerformed(int maxOpsPerformed) {
         this.maxOpsPerformed = maxOpsPerformed;
+        return this;
     }
 
     public final int getMaxOpsInvoked() {
         return maxOpsInvoked;
     }
 
-    public final void setMaxOpsInvoked(int maxOpsInvoked) {
+    public final Connection setMaxOpsInvoked(int maxOpsInvoked) {
         this.maxOpsInvoked = maxOpsInvoked;
+        return this;
+    }
+
+    public boolean isAsynchronousMode() {
+        return maxOpsPerformed != SYNCHRONOUS_MODE || maxOpsInvoked != SYNCHRONOUS_MODE;
     }
 
     public boolean isBlackListed(InetAddress inetAddr) {

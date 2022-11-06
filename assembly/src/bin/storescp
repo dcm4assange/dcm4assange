@@ -36,6 +36,9 @@ else
     JAVA="java"
 fi
 
+# Setup the classpath
+CP="$DCM4CHE_HOME/etc/storescp"
+
 # Setup the module path
 MP="$DCM4CHE_HOME/lib/$MAIN_JAR"
 MP="$MP:$DCM4CHE_HOME/lib/dcm4assange-conf-model-${project.version}.jar"
@@ -57,4 +60,4 @@ if $cygwin; then
 fi
 
 # Execute the JVM
-exec "$JAVA" $JAVA_OPTS -p "$MP" -m $MAIN_MODULE "$@"
+exec "$JAVA" $JAVA_OPTS -cp "$CP" -p "$MP" -m $MAIN_MODULE "$@"

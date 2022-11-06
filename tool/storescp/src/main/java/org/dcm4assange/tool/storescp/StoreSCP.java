@@ -83,6 +83,10 @@ public class StoreSCP implements Callable<Integer> {
                     "to invoke asynchronously, 0 = unlimited")
     int maxOpsInvoked = 1;
 
+    @CommandLine.Option(names = "--max-pdu-length", paramLabel = "<no>",
+            description = "maximum length of received P-DATA-TF PDUs, 0 = unlimited")
+    int maxPduLength = 0;
+
     public static void main(String[] args) {
         new CommandLine(new StoreSCP()).execute(args);
     }
@@ -92,10 +96,10 @@ public class StoreSCP implements Callable<Integer> {
         if (directory != null) {
             Files.createDirectories(directory);
         }
-        Connection conn = new Connection().setPort(port);
-        if (maxOpsInvoked != 1) {
-            conn.setMaxOpsPerformed(maxOpsInvoked);
-        }
+        Connection conn = new Connection()
+                .setPort(port)
+                .setReceivePDULength(maxPduLength)
+                .setMaxOpsPerformed(maxOpsInvoked);
         ApplicationEntity ae = new ApplicationEntity().setAETitle(called);
         ae.addTransferCapability(new TransferCapability()
                 .setSOPClass("*")

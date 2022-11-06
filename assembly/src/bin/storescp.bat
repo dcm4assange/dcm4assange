@@ -40,6 +40,8 @@ set JAVA=%JAVA_HOME%\bin\java
 
 :SKIP_SET_JAVA_HOME
 
+set CP=%DCM4CHE_HOME%\etc\storescp
+
 set MP=%MP%;%DCM4CHE_HOME%\lib\%MAIN_JAR%
 set MP=%MP%;%DCM4CHE_HOME%\lib\dcm4assange-conf-model-${project.version}.jar
 set MP=%MP%;%DCM4CHE_HOME%\lib\dcm4assange-core-${project.version}.jar
@@ -53,4 +55,4 @@ set MP=%MP%;%DCM4CHE_HOME%\lib\logback-core-${logback.version}.jar
 set MP=%MP%;%DCM4CHE_HOME%\lib\logback-classic-${logback.version}.jar
 set MP=%MP%;%DCM4CHE_HOME%\lib\picocli-${picocli.version}.jar
 
-"%JAVA%" %JAVA_OPTS% -p "%MP%" -m %MAIN_MODULE% %ARGS%
+"%JAVA%" %JAVA_OPTS% -cp "%CP%" -p "%MP%" -m %MAIN_MODULE% %ARGS%

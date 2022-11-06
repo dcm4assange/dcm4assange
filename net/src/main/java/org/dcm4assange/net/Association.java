@@ -41,13 +41,14 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class Association implements Runnable {
     static final Logger LOG = LoggerFactory.getLogger(Association.class);
+    public static final int MAX_SEND_PDU_LENGTH = 65536;
     private static final AtomicInteger prevSerialNo = new AtomicInteger();
-    private static final int DATA = 0;
-    private static final int COMMAND = 1;
-    private static final int LAST = 2;
-    private static final int LAST_DATA = 2;
-    private static final int FIRST_DATA = 4;
-    private static final int LAST_COMMAND = 3;
+    private static final int COMMAND = 0b01;
+    private static final int LAST = 0b10;
+    private static final int LAST_COMMAND = 0b11;
+    private static final int DATA = 0b00;
+    private static final int LAST_DATA = 0b10;
+    private static final int FIRST_DATA = 0b100;
     private final int serialNo;
     private final DeviceRuntime deviceRuntime;
     private final Role role;
@@ -266,7 +267,7 @@ public class Association implements Runnable {
         EXPECT_PDATA_TF {
             @Override
             public void onPDataTF(Association as, int pduType, int pduLength) throws IOException {
-                as.onPDataTF(pduLength);
+                as.pdvIn.onPDataTF(pduLength);
             }
 
             @Override
@@ -277,7 +278,7 @@ public class Association implements Runnable {
         EXPECT_AR_RP {
             @Override
             public void onPDataTF(Association as, int pduType, int pduLength) throws IOException {
-                as.onPDataTF(pduLength);
+                as.pdvIn.onPDataTF(pduLength);
             }
 
             @Override
@@ -329,29 +330,6 @@ public class Association implements Runnable {
 
     }
 
-    private void onPDataTF(int pduLength) throws IOException {
-        LOG.trace("{} >> P-DATA-TF[len={}]", name, pduLength);
-        pdvIn.pduRemaining = pduLength;
-        if (pdvIn.pcid == null) {
-            pdvIn.mch = COMMAND;
-            pdvIn.pcid = (byte) pdvIn.parsePDVHeader();
-            AAssociate.AC.PresentationContext pc = aaac.getPresentationContext(pdvIn.pcid);
-            if (pc == null)
-                throw AAbort.userInitiated();
-            if (pc.result != AAssociate.AC.Result.ACCEPTANCE)
-                throw AAbort.userInitiated();
-            DicomObject commandSet = new DicomInputStream(pdvIn).readCommandSet();
-            Dimse dimse = Dimse.of(commandSet);
-            if (LOG.isInfoEnabled()) {
-                LOG.info("{} >> {}", name, dimse.toString(pdvIn.pcid, commandSet, getTransferSyntax(pdvIn.pcid)));
-                LOG.debug("{} >> Command:\n{}", name, commandSet);
-            }
-            pdvIn.mch = FIRST_DATA;
-            dimse.handler.accept(this, pdvIn.pcid, dimse, commandSet, pdvIn);
-            pdvIn.pcid = null;
-        }
-    }
-
     private void onAAssociateRQ(int pduLength) throws IOException {
         try {
             aarq = AAssociate.RQ.readFrom(in, pduLength);
@@ -370,7 +348,7 @@ public class Association implements Runnable {
     }
 
     private void established(int maxPDULength, int maxOpsInvoked) {
-        pdvOut = new PDVOutputStream(maxPDULength != 0 ? maxPDULength : Connection.DEF_MAX_PDU_LENGTH);
+        pdvOut = new PDVOutputStream(maxPDULength);
         outstandingRSPs = newBlockingQueue(maxOpsInvoked);
         state = State.EXPECT_PDATA_TF;
     }
@@ -392,7 +370,7 @@ public class Association implements Runnable {
             throw AAssociateRJ.callingAETitleNotRecognized();
 
         aaac = new AAssociate.AC(aarq.getCallingAETitle(), aarq.getCalledAETitle());
-        aaac.setMaxPDULength(conn.getReceivePDULength());
+        aaac.setMaxPDULength(conn);
         if (aarq.hasAsyncOpsWindow())
             aaac.setAsyncOpsWindow(
                     minZeroAsMax(aarq.getMaxOpsInvoked(), conn.getMaxOpsPerformed()),
@@ -598,6 +576,29 @@ public class Association implements Runnable {
             return n;
         }
 
+        private void onPDataTF(int pduLength) throws IOException {
+            LOG.trace("{} >> P-DATA-TF[len={}]", name, pduLength);
+            pduRemaining = pduLength;
+            if (pcid == null) {
+                mch = COMMAND;
+                pcid = (byte) parsePDVHeader();
+                AAssociate.AC.PresentationContext pc = aaac.getPresentationContext(pcid);
+                if (pc == null)
+                    throw AAbort.userInitiated();
+                if (pc.result != AAssociate.AC.Result.ACCEPTANCE)
+                    throw AAbort.userInitiated();
+                DicomObject commandSet = new DicomInputStream(this).readCommandSet();
+                Dimse dimse = Dimse.of(commandSet);
+                if (LOG.isInfoEnabled()) {
+                    LOG.info("{} >> {}", name, dimse.toString(pcid, commandSet, getTransferSyntax(pcid)));
+                    LOG.debug("{} >> Command:\n{}", name, commandSet);
+                }
+                mch = FIRST_DATA;
+                dimse.handler.accept(Association.this, pcid, dimse, commandSet, this);
+                pcid = null;
+            }
+        }
+
         boolean nextPDV() throws IOException {
             while (pdvRemaining == 0) {
                 if ((mch & LAST) != 0) {
@@ -645,7 +646,7 @@ public class Association implements Runnable {
         byte mch;
 
         PDVOutputStream(int maxPDULength) {
-            this.pdu = new byte[maxPDULength];
+            this.pdu = new byte[minZeroAsMax(maxPDULength, MAX_SEND_PDU_LENGTH)];
         }
 
         @Override

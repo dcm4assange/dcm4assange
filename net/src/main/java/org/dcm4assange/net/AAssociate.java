@@ -3,6 +3,7 @@ package org.dcm4assange.net;
 import org.dcm4assange.ByteOrder;
 import org.dcm4assange.Implementation;
 import org.dcm4assange.UID;
+import org.dcm4assange.conf.model.Connection;
 import org.dcm4assange.util.ArrayUtils;
 import org.dcm4assange.util.UIDUtils;
 
@@ -434,6 +435,10 @@ public abstract class AAssociate {
         throw AAbort.unexpectedPDUParameter();
     }
 
+    public void setMaxPDULength(Connection conn) {
+        setMaxPDULength(conn.getReceivePDULength());
+    }
+
     public static class RQ extends AAssociate {
 
         private final Map<Byte, PresentationContext> pcs = new LinkedHashMap<>();
@@ -686,6 +691,12 @@ public abstract class AAssociate {
                 this.userIdentity = new UserIdentity(type, responseRequested, primaryField, secondaryField);
             } catch (IllegalArgumentException e) {
                 throw AAbort.invalidPDUParameterValue();
+            }
+        }
+
+        public void setAsyncOpsWindow(Connection conn) {
+            if (conn.isAsynchronousMode()) {
+                setAsyncOpsWindow(conn.getMaxOpsInvoked(), conn.getMaxOpsPerformed());
             }
         }
 

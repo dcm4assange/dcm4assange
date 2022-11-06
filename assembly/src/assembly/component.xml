@@ -23,7 +23,7 @@
       <filtered>true</filtered>
     </fileSet>
     <fileSet>
-      <directory>${project.build.directory}</directory>
+      <directory>./src</directory>
       <includes>
         <include>etc/*/*</include>
       </includes>
