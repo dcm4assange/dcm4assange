@@ -14,24 +14,19 @@ public class DicomObject implements Serializable {
     private static final int TO_STRING_LINES = 50;
     private static final int DEFAULT_CAPACITY = 16;
     private static final int ITEM_DEFAULT_CAPACITY = 4;
-    private static final long[] EMPTY_HEADERS = {};
-    private static final Object[] EMPTY_VALUES = {};
     final MemoryCache.DicomInput dicomInput;
     final long position;
-    private Sequence seq;
-    private long[] headers;
-    private Object[] values;
-    private SpecificCharacterSet specificCharacterSet;
-
-    private int size;
-    private int length = -1;
+    final Sequence seq;
+    volatile long[] headers = {};
+    volatile Object[] values = {};
+    volatile SpecificCharacterSet specificCharacterSet;
+    volatile int size;
+    volatile int length = -1;
 
     DicomObject(MemoryCache.DicomInput dicomInput, long position, int length, Sequence seq, int size) {
         this.dicomInput = dicomInput;
         this.position = position;
         this.length = length;
-        this.headers = EMPTY_HEADERS;
-        this.values = EMPTY_VALUES;
         this.seq = seq;
         this.size = size;
     }
@@ -96,14 +91,6 @@ public class DicomObject implements Serializable {
         return size;
     }
 
-    int length() {
-        return length;
-    }
-
-    void setLength(int length) {
-        this.length = length;
-    }
-
     public boolean isEmpty() {
         return size() == 0;
     }
@@ -135,55 +122,75 @@ public class DicomObject implements Serializable {
                 : Optional.empty();
     }
 
-    public OptionalInt getInt(int tag) {
+    public OptionalInt getInt(int tag, int index) {
         int i = indexOf(tag);
         return i < 0
                 ? OptionalInt.empty()
-                : VR.fromHeader(headers[i]).type.intValue(this, i);
+                : VR.fromHeader(headers[i]).type.intValue(this, i, index);
+    }
+
+    public OptionalInt getInt(int tag) {
+        return getInt(tag, 0);
     }
 
     public int getIntOrElseThrow(int tag) {
         return getInt(tag).orElseThrow(() -> missing(tag));
     }
 
-    public OptionalLong getLong(int tag) {
+    public OptionalLong getLong(int tag, int index) {
         int i = indexOf(tag);
         return i < 0
                 ? OptionalLong.empty()
-                : VR.fromHeader(headers[i]).type.longValue(this, i);
+                : VR.fromHeader(headers[i]).type.longValue(this, i, index);
+    }
+
+    public OptionalLong getLong(int tag) {
+        return getLong(tag, 0);
     }
 
     public long getLongOrElseThrow(int tag) {
         return getLong(tag).orElseThrow(() -> missing(tag));
     }
 
-    public OptionalFloat getFloat(int tag) {
+    public OptionalFloat getFloat(int tag, int index) {
         int i = indexOf(tag);
         return i < 0
                 ? OptionalFloat.empty()
-                : VR.fromHeader(headers[i]).type.floatValue(this, i);
+                : VR.fromHeader(headers[i]).type.floatValue(this, i, index);
+    }
+
+    public OptionalFloat getFloat(int tag) {
+        return getFloat(tag, 0);
     }
 
     public float getFloatOrElseThrow(int tag) {
         return getFloat(tag).orElseThrow(() -> missing(tag));
     }
 
-    public OptionalDouble getDouble(int tag) {
+    public OptionalDouble getDouble(int tag, int index) {
         int i = indexOf(tag);
         return i < 0
                 ? OptionalDouble.empty()
-                : VR.fromHeader(headers[i]).type.doubleValue(this, i);
+                : VR.fromHeader(headers[i]).type.doubleValue(this, i, index);
+    }
+
+    public OptionalDouble getDouble(int tag) {
+        return getDouble(tag, 0);
     }
 
     public double getDoubleOrElseThrow(int tag) {
         return getDouble(tag).orElseThrow(() -> missing(tag));
     }
 
-    public Optional<String> getString(int tag) {
+    public Optional<String> getString(int tag, int index) {
         int i = indexOf(tag);
         return i < 0
                 ? Optional.empty()
-                : VR.fromHeader(headers[i]).type.stringValue(this, i);
+                : VR.fromHeader(headers[i]).type.stringValue(this, i, index);
+    }
+
+    public Optional<String> getString(int tag) {
+        return getString(tag, 0);
     }
 
     public String getStringOrElseThrow(int tag) {
@@ -247,19 +254,7 @@ public class DicomObject implements Serializable {
         add(tag, vr, vr.type.valueOf(vals));
     }
 
-    long getHeader(int index) {
-        return headers[index];
-    }
-
-    Object getValue(int index) {
-        return values[index];
-    }
-
-    void setValue(int index, Object value) {
-        values[index] = value;
-    }
-
-    public int add(int tag, VR vr, Object value) {
+    private int add(int tag, VR vr, Object value) {
         return add(vr.toHeader() | (tag & 0xffffffffL), value);
     }
 

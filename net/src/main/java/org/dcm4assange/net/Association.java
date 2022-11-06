@@ -46,6 +46,7 @@ public class Association implements Runnable {
     private static final int COMMAND = 1;
     private static final int LAST = 2;
     private static final int LAST_DATA = 2;
+    private static final int FIRST_DATA = 4;
     private static final int LAST_COMMAND = 3;
     private final int serialNo;
     private final DeviceRuntime deviceRuntime;
@@ -64,15 +65,8 @@ public class Association implements Runnable {
     private volatile AAssociate.AC aaac;
     private volatile BlockingQueue<OutstandingRSP> outstandingRSPs;
     private volatile State state;
-    private int ipduRemaining;
-    private int ipdvRemaining;
-    private Byte ipcid;
-    private int ipdvmch = COMMAND;
-    private byte[] opdu;
-    private int opduLen;
-    private int opdvPos;
-    private Byte opcid;
-    private byte opdvmch;
+    private final PDVInputStream pdvIn = new PDVInputStream();
+    private PDVOutputStream pdvOut;
 
     private Association(DeviceRuntime deviceRuntime, Connection conn, Socket sock, Role role)
             throws IOException {
@@ -93,6 +87,7 @@ public class Association implements Runnable {
         this.ae = ae;
         this.aarq = aarq;
         this.state = State.EXPECT_AA_AC;
+        LOG.info("{} << {}", name, aarq);
         write(aarq);
     }
 
@@ -219,13 +214,8 @@ public class Association implements Runnable {
     public void writeDimse(Byte pcid, Dimse dimse, DicomObject commandSet) throws IOException {
         writeLock.lock();
         try {
-            opcid = pcid;
-            opdvmch = COMMAND;
-            opdvPos = 0;
-            opduLen = 6;
-            new DicomOutputStream(pdvOutputStream).writeCommandSet(commandSet);
-            opdvmch = LAST_COMMAND;
-            writePDataTF();
+            pdvOut.writeCommandSet(pcid, dimse, commandSet);
+            pdvOut.flush();
         } finally {
             writeLock.unlock();
         }
@@ -235,66 +225,14 @@ public class Association implements Runnable {
                            DataWriter dataWriter, String transferSyntax) throws IOException {
         writeLock.lock();
         try {
-            opcid = pcid;
-            opdvmch = COMMAND;
-            opdvPos = 0;
-            opduLen = 6;
-            new DicomOutputStream(pdvOutputStream).writeCommandSet(commandSet);
-            opdvmch = LAST_COMMAND;
-            setPDVHeader();
-            opdvmch = DATA;
-            opdvPos = opduLen;
-            opduLen += 6;
-            dataWriter.writeTo(pdvOutputStream, transferSyntax);
-            opdvmch = LAST_DATA;
-            writePDataTF();
+            pdvOut.writeCommandSet(pcid, dimse, commandSet);
+            pdvOut.setPDVHeader();
+            pdvOut.writeDataset(dataWriter, transferSyntax);
+            pdvOut.flush();
         } finally {
             writeLock.unlock();
         }
     }
-
-    private void setPDVHeader() {
-        int pdvlen = opduLen - opdvPos - 4;
-        ByteOrder.BIG_ENDIAN.intToBytes(pdvlen, opdu, opdvPos);
-        opdu[opdvPos + 4] = opcid;
-        opdu[opdvPos + 5] = opdvmch;
-        LOG.trace("{} << PDV[len={}, pcid={}, mch={}]", name, pdvlen, opcid, opdvmch);
-    }
-
-    private void writePDataTF() throws IOException {
-        setPDVHeader();
-        LOG.trace("{} << PDU[type=4, len={}]", name, opduLen);
-        out.write(0x04);
-        out.write(0);
-        Utils.writeInt(out, opduLen);
-        out.write(opdu, 0, opduLen);
-        out.flush();
-        opdvPos = 0;
-        opduLen = 6;
-    }
-
-    private final OutputStream pdvOutputStream = new OutputStream() {
-
-        @Override
-        public void write(int b) throws IOException {
-            if (opduLen == opdu.length)
-                writePDataTF();
-            opdu[opduLen++] = (byte) b;
-        }
-
-        @Override
-        public void write(byte[] b, int off, int len) throws IOException {
-            int d;
-            while (len > (d = opdu.length - opduLen)) {
-                System.arraycopy(b, off, opdu, opduLen, d);
-                opduLen = opdu.length;
-                writePDataTF();
-                len -= d;
-            }
-            System.arraycopy(b, off, opdu, opduLen, len);
-            opduLen += len;
-        }
-    };
 
     public enum Role {
         ACCEPTOR("<-"),
@@ -391,14 +329,40 @@ public class Association implements Runnable {
 
     }
 
+    private void onPDataTF(int pduLength) throws IOException {
+        LOG.trace("{} >> P-DATA-TF[len={}]", name, pduLength);
+        pdvIn.pduRemaining = pduLength;
+        if (pdvIn.pcid == null) {
+            pdvIn.mch = COMMAND;
+            pdvIn.pcid = (byte) pdvIn.parsePDVHeader();
+            AAssociate.AC.PresentationContext pc = aaac.getPresentationContext(pdvIn.pcid);
+            if (pc == null)
+                throw AAbort.userInitiated();
+            if (pc.result != AAssociate.AC.Result.ACCEPTANCE)
+                throw AAbort.userInitiated();
+            DicomObject commandSet = new DicomInputStream(pdvIn).readCommandSet();
+            Dimse dimse = Dimse.of(commandSet);
+            if (LOG.isInfoEnabled()) {
+                LOG.info("{} >> {}", name, dimse.toString(pdvIn.pcid, commandSet, getTransferSyntax(pdvIn.pcid)));
+                LOG.debug("{} >> Command:\n{}", name, commandSet);
+            }
+            pdvIn.mch = FIRST_DATA;
+            dimse.handler.accept(this, pdvIn.pcid, dimse, commandSet, pdvIn);
+            pdvIn.pcid = null;
+        }
+    }
+
     private void onAAssociateRQ(int pduLength) throws IOException {
         try {
             aarq = AAssociate.RQ.readFrom(in, pduLength);
+            LOG.info("{} >> {}", name, aarq);
             name = aarq.getCalledAETitle() + role.delim + aarq.getCallingAETitle() + '(' + serialNo + ')';
             negotiate();
+            LOG.info("{} << {}", name, aaac);
             write(aaac);
             established(aarq.getMaxPDULength(), aaac.getMaxOpsPerformed());
         } catch (AAssociateRJ aarj) {
+            LOG.info("{} << {}", name, aarj);
             aarj.writeTo(out);
             sock.shutdownInput();
             deviceRuntime.closeSocketDelayed(conn, sock);
@@ -406,7 +370,7 @@ public class Association implements Runnable {
     }
 
     private void established(int maxPDULength, int maxOpsInvoked) {
-        opdu = new byte[maxPDULength != 0 ? maxPDULength : Connection.DEF_MAX_PDU_LENGTH];
+        pdvOut = new PDVOutputStream(maxPDULength != 0 ? maxPDULength : Connection.DEF_MAX_PDU_LENGTH);
         outstandingRSPs = newBlockingQueue(maxOpsInvoked);
         state = State.EXPECT_PDATA_TF;
     }
@@ -481,12 +445,14 @@ public class Association implements Runnable {
 
     private void onAAssociateAC(int pduLength) throws IOException {
         this.aaac = AAssociate.AC.readFrom(in, pduLength);
+        LOG.info("{} >> {}", name, aaac);
         established(aaac.getMaxPDULength(), aaac.getMaxOpsInvoked());
         aaacReceived.complete(this);
     }
 
     private void onAAssociateRJ(int pduLength) throws IOException {
         AAssociateRJ aarj = AAssociateRJ.readFrom(in, pduLength);
+        LOG.info("{} >> {}", name, aarj);
         deviceRuntime.closeSocket(conn, sock);
         aaacReceived.completeExceptionally(aarj);
     }
@@ -583,43 +549,6 @@ public class Association implements Runnable {
         sock.shutdownOutput();
     }
 
-    private void onPDataTF(int pduLength) throws IOException {
-        ipduRemaining = pduLength;
-        onNextPDV();
-    }
-
-    private void onNextPDV() throws IOException {
-        if ((ipduRemaining -= 4) < 0)
-            throw AAbort.invalidPDUParameterValue();
-        int pdvlen = Utils.readInt(in);
-        int pcid = Utils.readUnsignedByte(in);
-        int pdvmch = Utils.readUnsignedByte(in);
-        LOG.trace("{} >> PDV[len={}, pcid={}, mch={}]", name, pdvlen, opcid, opdvmch);
-        if ((ipdvRemaining = pdvlen - 2) < 0)
-            throw AAbort.invalidPDUParameterValue();
-        if ((ipduRemaining -= 2 + ipdvRemaining) < 0)
-            throw AAbort.invalidPDUParameterValue();
-        if ((pdvmch & COMMAND) != (this.ipdvmch & COMMAND))
-            throw AAbort.userInitiated();
-        this.ipdvmch = pdvmch;
-        if (this.ipcid == null) {
-            this.ipcid = (byte) pcid;
-            AAssociate.AC.PresentationContext pc = aaac.getPresentationContext(this.ipcid);
-            if (pc == null)
-                throw AAbort.userInitiated();
-            if (pc.result != AAssociate.AC.Result.ACCEPTANCE)
-                throw AAbort.userInitiated();
-            DicomObject commandSet = new DicomInputStream(pdvInputStream).readCommandSet();
-            Dimse dimse = Dimse.of(commandSet);
-            this.ipdvmch = DATA;
-            dimse.handler.accept(this, this.ipcid, dimse, commandSet, pdvInputStream);
-            this.ipdvmch = COMMAND;
-            this.ipcid = null;
-        } else if (this.ipcid.intValue() != pcid) {
-            throw AAbort.userInitiated();
-        }
-    }
-
     void onDimseRQ(Byte pcid, Dimse dimse, DicomObject commandSet, InputStream dataStream) throws IOException {
         deviceRuntime.onDimseRQ(this, pcid, dimse, commandSet, dataStream);
     }
@@ -635,72 +564,156 @@ public class Association implements Runnable {
         outstandingRSP.futureDimseRSP.complete(new DimseRSP(dimse, commandSet, dataSet));
     }
 
-    private final InputStream pdvInputStream = new InputStream() {
+    private class PDVInputStream extends InputStream {
+        int pduRemaining;
+        int pdvRemaining;
+        Byte pcid;
+        int mch;
+
         @Override
         public int read() throws IOException {
-            return readPDV();
+            if (!nextPDV()) return -1;
+            pdvRemaining--;
+            return Utils.readUnsignedByte(in);
         }
 
         @Override
         public int read(byte[] b, int off, int len) throws IOException {
-            return readPDV(b, off, len);
+            Objects.checkFromIndexSize(off, len, b.length);
+            if (len == 0) return 0;
+            if (!nextPDV()) return -1;
+            int n = in.read(b, off, Math.min(pdvRemaining, len));
+            if (n == 0)
+                throw new EOFException();
+            pdvRemaining -= n;
+            return n;
         }
 
         @Override
         public long skip(long n) throws IOException {
-            return skipPDV(n);
+            if (n <= 0) return 0;
+            if (!nextPDV()) return 0;
+            n = in.skip(Math.min(pdvRemaining, n));
+            pdvRemaining -= n;
+            return n;
         }
-    };
-    private int readPDV() throws IOException {
-        while (ipdvRemaining == 0) {
-            if ((ipdvmch & LAST) != 0) return -1;
-            if (ipduRemaining == 0) {
-                if (nextPDU() != 0x04)
-                    throw new EOFException();
-            } else
-                onNextPDV();
+
+        boolean nextPDV() throws IOException {
+            while (pdvRemaining == 0) {
+                if ((mch & LAST) != 0) {
+                    if ((mch & COMMAND) == 0)
+                        LOG.debug("{} >> Data finished", name);
+                    return false;
+                }
+                if (pduRemaining == 0) {
+                    if (nextPDU() != 0x04)
+                        throw new EOFException();
+                }
+                if (parsePDVHeader() != pcid) {
+                    throw AAbort.userInitiated();
+                }
+            }
+            return true;
         }
-        ipdvRemaining--;
-        return Utils.readUnsignedByte(in);
+
+        private int parsePDVHeader() throws IOException {
+            if ((pduRemaining -= 6) < 0)
+                throw AAbort.invalidPDUParameterValue();
+            int pdvlen = Utils.readInt(in);
+            int pcid = Utils.readUnsignedByte(in);
+            int mch = Utils.readUnsignedByte(in);
+            LOG.trace("{} >> PDV[len={}, pcid={}, mch={}]", name, pdvlen, pcid, mch);
+            if ((pdvRemaining = pdvlen - 2) < 0)
+                throw AAbort.invalidPDUParameterValue();
+            if ((pduRemaining -= pdvRemaining) < 0)
+                throw AAbort.invalidPDUParameterValue();
+            if ((mch & COMMAND) != (this.mch & COMMAND))
+                throw AAbort.userInitiated();
+            if (this.mch == FIRST_DATA)
+                LOG.debug("{} >> Data start", name);
+            this.mch = mch;
+            return pcid;
+        }
+
     }
 
-    private int readPDV(byte[] b, int off, int len) throws IOException {
-        Objects.checkFromIndexSize(off, len, b.length);
-        if (len == 0) {
-            return 0;
-        }
-        while (ipdvRemaining == 0) {
-            if ((ipdvmch & LAST) != 0) return -1;
-            if (ipduRemaining == 0) {
-                if (nextPDU() != 0x04)
-                    throw new EOFException();
-            } else {
-                onNextPDV();
-            }
-        }
-        int n = in.read(b, off, Math.min(ipdvRemaining, len));
-        if (n == 0)
-            throw new EOFException();
-        ipdvRemaining -= n;
-        return n;
-    }
+    private class PDVOutputStream extends OutputStream {
+        final byte[] pdu;
+        int len;
+        int pos;
+        Byte pcid;
+        byte mch;
 
-    private long skipPDV(long n) throws IOException {
-        if (n <= 0) {
-            return 0;
+        PDVOutputStream(int maxPDULength) {
+            this.pdu = new byte[maxPDULength];
         }
-        while (ipdvRemaining == 0) {
-            if ((ipdvmch & LAST) != 0) return 0;
-            if (ipduRemaining == 0) {
-                if (nextPDU() != 0x04)
-                    throw new EOFException();
-            } else {
-                onNextPDV();
+
+        @Override
+        public void write(int b) throws IOException {
+            if (len == pdu.length) {
+                flush();
             }
+            pdu[len++] = (byte) b;
         }
-        n = in.skip(Math.min(ipdvRemaining, n));
-        ipdvRemaining -= n;
-        return n;
+
+        @Override
+        public void write(byte[] b, int off, int len) throws IOException {
+            int d;
+            while (len > (d = pdu.length - this.len)) {
+                System.arraycopy(b, off, pdu, this.len, d);
+                this.len = pdu.length;
+                flush();
+                len -= d;
+            }
+            System.arraycopy(b, off, pdu, this.len, len);
+            this.len += len;
+        }
+
+        @Override
+        public void flush() throws IOException {
+            setPDVHeader();
+            LOG.trace("{} << P-DATA-TF[len={}]", name, len);
+            synchronized (out) {
+                out.write(0x04);
+                out.write(0);
+                Utils.writeInt(out, len);
+                out.write(pdu, 0, len);
+                out.flush();
+            }
+            pos = 0;
+            len = 6;
+        }
+
+        void writeCommandSet(Byte pcid, Dimse dimse, DicomObject commandSet) throws IOException {
+            if (LOG.isInfoEnabled()) {
+                LOG.info("{} << {}", name, dimse.toString(pcid, commandSet, getTransferSyntax(pcid)));
+                LOG.debug("{} << Command:\n{}", name, commandSet);
+            }
+            this.pcid = pcid;
+            mch = COMMAND;
+            pos = 0;
+            len = 6;
+            new DicomOutputStream(this).writeCommandSet(commandSet);
+            mch = LAST_COMMAND;
+        }
+
+        void writeDataset(DataWriter dataWriter, String transferSyntax) throws IOException {
+            LOG.debug("{} << Data start", name);
+            mch = DATA;
+            pos = len;
+            len += 6;
+            dataWriter.writeTo(this, transferSyntax);
+            mch = LAST_DATA;
+            LOG.debug("{} << Data finished", name);
+        }
+
+        void setPDVHeader() {
+            int pdvlen = len - pos - 4;
+            ByteOrder.BIG_ENDIAN.intToBytes(pdvlen, pdu, pos);
+            pdu[pos + 4] = pcid;
+            pdu[pos + 5] = mch;
+            LOG.trace("{} << PDV[len={}, pcid={}, mch={}]", name, pdvlen, pcid, mch);
+        }
     }
 
     public interface DataWriter {

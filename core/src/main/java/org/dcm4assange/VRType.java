@@ -15,23 +15,23 @@ import java.util.OptionalLong;
  * @since May 2021
  */
 interface VRType {
-    default OptionalInt intValue(DicomObject dcmobj, int index) {
+    default OptionalInt intValue(DicomObject dcmobj, int i, int index) {
         return OptionalInt.empty();
     }
 
-    default OptionalLong longValue(DicomObject dcmobj, int index) {
+    default OptionalLong longValue(DicomObject dcmobj, int i, int index) {
         return OptionalLong.empty();
     }
 
-    default OptionalFloat floatValue(DicomObject dcmobj, int index) {
+    default OptionalFloat floatValue(DicomObject dcmobj, int i, int index) {
         return OptionalFloat.empty();
     }
 
-    default OptionalDouble doubleValue(DicomObject dcmobj, int index) {
+    default OptionalDouble doubleValue(DicomObject dcmobj, int i, int index) {
         return OptionalDouble.empty();
     }
 
-    default Optional<String> stringValue(DicomObject dcmobj, int index) {
+    default Optional<String> stringValue(DicomObject dcmobj, int i, int index) {
         return Optional.empty();
     }
 
@@ -51,8 +51,9 @@ interface VRType {
 
     VRType UN = new VRType(){
         @Override
-        public Optional<String> stringValue(DicomObject dcmobj, int index) {
-            long header = dcmobj.getHeader(index);
+        public Optional<String> stringValue(DicomObject dcmobj, int i, int index) {
+            if (index != 0) return Optional.empty();
+            long header = dcmobj.headers[i];
             return Optional.of(
                             promptValueTo(
                                     dcmobj.dicomInput,

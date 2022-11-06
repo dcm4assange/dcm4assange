@@ -18,15 +18,15 @@ enum StringVR implements VRType {
     TEXT("\n\t\f", VM.SINGLE, Trim.TRAILING, DicomObject::specificCharacterSet),
     DS("\\", VM.MULTI, Trim.LEADING_AND_TRAILING, StringVR::ascii) {
         @Override
-        public OptionalInt intValue(DicomObject dcmobj, int index) {
-            Optional<String> s = stringValue(dcmobj, index);
+        public OptionalInt intValue(DicomObject dcmobj, int i, int index) {
+            Optional<String> s = stringValue(dcmobj, i, index);
             return s.isPresent() ? OptionalInt.of((int) Double.parseDouble(s.get())) : OptionalInt.empty();
         }
     },
     IS("\\", VM.MULTI, Trim.LEADING_AND_TRAILING, StringVR::ascii) {
         @Override
-        public OptionalInt intValue(DicomObject dcmobj, int index) {
-            Optional<String> s = stringValue(dcmobj, index);
+        public OptionalInt intValue(DicomObject dcmobj, int i, int index) {
+            Optional<String> s = stringValue(dcmobj, i, index);
             return s.isPresent() ? OptionalInt.of(Integer.parseInt(s.get())) : OptionalInt.empty();
         }
     },
@@ -64,21 +64,21 @@ enum StringVR implements VRType {
     }
 
     @Override
-    public Optional<String> stringValue(DicomObject dcmobj, int index) {
-        String[] ss = stringValues(dcmobj, index);
-        return ss.length > 0 ? Optional.of(ss[0]) : Optional.empty();
+    public Optional<String> stringValue(DicomObject dcmobj, int i, int index) {
+        String[] ss = stringValues(dcmobj, i);
+        return ss.length > index ? Optional.of(ss[index]) : Optional.empty();
     }
 
     @Override
     public String[] stringValues(DicomObject dcmobj, int index) {
-        if (dcmobj.getValue(index) instanceof String[] ss)
+        if (dcmobj.values[index] instanceof String[] ss)
             return ss;
-        long header = dcmobj.getHeader(index);
+        long header = dcmobj.headers[index];
         String[] ss = stringValues(dcmobj.dicomInput.stringAt(
                 DicomObject.header2valuePosition(header),
                 dcmobj.header2valueLength(header),
                 asciiOrCS.apply(dcmobj)));
-        dcmobj.setValue(index, ss);
+        dcmobj.values[index] = ss;
         return ss;
     }
 

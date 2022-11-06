@@ -188,7 +188,7 @@ public class DicomOutputStream extends OutputStream  {
         writeHeader(seq.tag, VR.SQ, undefSequenceLength ? -1 : valueLength(seq));
         for (int i = 0, n = seq.size(); i < n; i++) {
             DicomObject item = seq.getItem(i);
-            writeHeader(Tag.Item, null, undefItemLength ? -1 : item.length());
+            writeHeader(Tag.Item, null, undefItemLength ? -1 : item.length);
             item.writeTo(this, includeGroupLength);
             if (undefItemLength)
                 writeHeader(Tag.ItemDelimitationItem, null, 0);
@@ -200,7 +200,7 @@ public class DicomOutputStream extends OutputStream  {
     private int valueLength(Sequence seq) {
         int length = (undefItemLength ? 16 : 8) * seq.size();
         for (int i = 0; i < seq.size(); i++) {
-            length += seq.getItem(i).length();
+            length += seq.getItem(i).length;
         }
         return length;
     }

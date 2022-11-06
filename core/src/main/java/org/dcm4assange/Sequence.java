@@ -85,7 +85,7 @@ public class Sequence {
             DicomObject item = items[i];
             item.promptLevelTo(sb)
                     .append("(FFFE,E000) #")
-                    .append(item.length())
+                    .append(item.length)
                     .append(" Item #").append(i + 1)
                     .append(System.lineSeparator());
             maxLines = item.promptTo(sb, maxColumns, maxLines);

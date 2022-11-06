@@ -256,7 +256,7 @@ public class DicomInputStream extends InputStream {
         if (tag != Tag.FileMetaInformationGroupLength || vr != VR.UL || vallen != 4) {
             throw new DicomParseException("Missing Group Length in File Meta Information");
         }
-        fmi.setLength(12 + input.intAt(pos));
+        fmi.length = 12 + input.intAt(pos);
         parse(fmi);
         String tsuid = fmi.getString(Tag.TransferSyntaxUID).orElseThrow(
                 () -> new DicomParseException("Missing Transfer Syntax UID in File Meta Information"));
@@ -395,7 +395,7 @@ public class DicomInputStream extends InputStream {
                     this.pos += valueLength & 0xffffffffL;
                 }
                 if (tag == Tag.ItemDelimitationItem) {
-                    dcmObj.setLength((int) (pos0 - dcmObj.position));
+                    dcmObj.length = (int) (pos0 - dcmObj.position);
                     break;
                 }
             }
@@ -477,7 +477,7 @@ public class DicomInputStream extends InputStream {
     }
 
     public boolean parse(DicomObject dcmObj) throws IOException {
-        int length = dcmObj.length();
+        int length = dcmObj.length;
         boolean undefinedLength = length == -1;
         pos = dcmObj.position;
         long endPos = pos + length & 0xffffffffL;
@@ -497,7 +497,7 @@ public class DicomInputStream extends InputStream {
             }
             if (!onElement.apply(this, dcmObj, header)) return false;
             if (tag == Tag.ItemDelimitationItem) {
-                dcmObj.setLength((int) (pos0 - dcmObj.position));
+                dcmObj.length = (int) (pos0 - dcmObj.position);
                 break;
             }
         }

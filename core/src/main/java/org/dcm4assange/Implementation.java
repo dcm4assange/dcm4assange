@@ -46,7 +46,7 @@ import java.lang.module.ModuleDescriptor;
 public class Implementation {
 
     public static final String CLASS_UID = "1.2.40.0.13.1.3.7";
-    public static final String VERSION_NAME = "dcm4assange" + version();
+    public static final String VERSION_NAME = "julian-" + version();
 
     private static String version() {
         ModuleDescriptor descriptor = Implementation.class.getModule().getDescriptor();

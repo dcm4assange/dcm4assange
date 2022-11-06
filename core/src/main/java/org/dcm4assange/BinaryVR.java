@@ -22,17 +22,17 @@ enum BinaryVR implements VRType {
         }
 
         @Override
-        public OptionalLong longValue(DicomObject dcmobj, int index) {
+        public OptionalLong longValue(DicomObject dcmobj, int i, int index) {
             return OptionalLong.empty();
         }
 
         @Override
-        public OptionalFloat floatValue(DicomObject dcmobj, int index) {
+        public OptionalFloat floatValue(DicomObject dcmobj, int i, int index) {
             return OptionalFloat.empty();
         }
 
         @Override
-        public OptionalDouble doubleValue(DicomObject dcmobj, int index) {
+        public OptionalDouble doubleValue(DicomObject dcmobj, int i, int index) {
             return OptionalDouble.empty();
         }
 
@@ -123,6 +123,11 @@ enum BinaryVR implements VRType {
         int intAt(DicomInput input, long pos) {
             return input.byteAt(pos);
         }
+
+        @Override
+        int bytesToInt(byte[] b, int pos) {
+            return b[pos];
+        }
     },
     SL(4, ToggleEndian.INT),
     SS(2, ToggleEndian.SHORT){
@@ -139,6 +144,11 @@ enum BinaryVR implements VRType {
         @Override
         void intToBytes(int val, byte[] b, int off) {
             ByteOrder.LITTLE_ENDIAN.shortToBytes(val, b, off);
+        }
+
+        @Override
+        int bytesToInt(byte[] b, int pos) {
+            return ByteOrder.LITTLE_ENDIAN.bytesToShort(b, pos);
         }
     },
     SV(8, ToggleEndian.LONG){
@@ -168,13 +178,23 @@ enum BinaryVR implements VRType {
         }
 
         @Override
-        String bytesToString(byte[] b, int pos) {
-            return Long.toString(ByteOrder.LITTLE_ENDIAN.bytesToLong(b, pos));
+        void intToBytes(int val, byte[] b, int off) {
+            ByteOrder.LITTLE_ENDIAN.longToBytes(val, b, off);
         }
 
         @Override
-        void intToBytes(int val, byte[] b, int off) {
-            ByteOrder.LITTLE_ENDIAN.longToBytes(val, b, off);
+        int bytesToInt(byte[] b, int pos) {
+            return (int) ByteOrder.LITTLE_ENDIAN.bytesToLong(b, pos);
+        }
+
+        @Override
+        long bytesToLong(byte[] b, int pos) {
+            return ByteOrder.LITTLE_ENDIAN.bytesToLong(b, pos);
+        }
+
+        @Override
+        String bytesToString(byte[] b, int pos) {
+            return Long.toString(bytesToLong(b, pos));
         }
     },
     UL(4, ToggleEndian.INT){
@@ -190,7 +210,7 @@ enum BinaryVR implements VRType {
 
         @Override
         String bytesToString(byte[] b, int pos) {
-            return Integer.toUnsignedString(ByteOrder.LITTLE_ENDIAN.bytesToInt(b, pos));
+            return Integer.toUnsignedString(bytesToInt(b, pos));
         }
     },
     US(2, ToggleEndian.SHORT) {
@@ -200,13 +220,13 @@ enum BinaryVR implements VRType {
         }
 
         @Override
-        String bytesToString(byte[] b, int pos) {
-            return Integer.toString(ByteOrder.LITTLE_ENDIAN.bytesToShort(b, pos) & 0xffff);
+        void intToBytes(int val, byte[] b, int off) {
+            ByteOrder.LITTLE_ENDIAN.shortToBytes(val, b, off);
         }
 
         @Override
-        void intToBytes(int val, byte[] b, int off) {
-            ByteOrder.LITTLE_ENDIAN.shortToBytes(val, b, off);
+        int bytesToInt(byte[] b, int pos) {
+            return ByteOrder.LITTLE_ENDIAN.bytesToShort(b, pos & 0xffff);
         }
     },
     UV(8, ToggleEndian.LONG){
@@ -238,13 +258,13 @@ enum BinaryVR implements VRType {
         }
 
         @Override
-        String bytesToString(byte[] b, int pos) {
-            return Long.toUnsignedString(ByteOrder.LITTLE_ENDIAN.bytesToLong(b, pos));
+        void intToBytes(int val, byte[] b, int off) {
+            ByteOrder.LITTLE_ENDIAN.longToBytes(val & 0xffffffffL, b, off);
         }
 
         @Override
-        void intToBytes(int val, byte[] b, int off) {
-            ByteOrder.LITTLE_ENDIAN.longToBytes(val & 0xffffffffL, b, off);
+        String bytesToString(byte[] b, int pos) {
+            return Long.toUnsignedString(ByteOrder.LITTLE_ENDIAN.bytesToLong(b, pos));
         }
     };
 
@@ -274,35 +294,59 @@ enum BinaryVR implements VRType {
     }
 
     @Override
-    public OptionalInt intValue(DicomObject dcmobj, int index) {
-        long header = dcmobj.getHeader(index);
-        return dcmobj.header2valueLength(header) >= bytes
-                ? OptionalInt.of(intAt(dcmobj.dicomInput, DicomObject.header2valuePosition(header)))
-                : OptionalInt.empty();
+    public OptionalInt intValue(DicomObject dcmobj, int i, int index) {
+        long header = dcmobj.headers[i];
+        if ((int)(header >>> 62) == 0) {
+            if (dcmobj.values[i] instanceof byte[] b && b.length / bytes > index) {
+                return OptionalInt.of(bytesToInt(b, bytes * index));
+            }
+        } else if (dcmobj.header2valueLength(header) / bytes > index) {
+            return OptionalInt.of(
+                    intAt(dcmobj.dicomInput, DicomObject.header2valuePosition(header) + bytes * index));
+        }
+        return OptionalInt.empty();
     }
 
     @Override
-    public OptionalLong longValue(DicomObject dcmobj, int index) {
-        long header = dcmobj.getHeader(index);
-        return dcmobj.header2valueLength(header) >= bytes
-                ? OptionalLong.of(longAt(dcmobj.dicomInput, DicomObject.header2valuePosition(header)))
-                : OptionalLong.empty();
+    public OptionalLong longValue(DicomObject dcmobj, int i, int index) {
+        long header = dcmobj.headers[i];
+        if ((int)(header >>> 62) == 0) {
+            if (dcmobj.values[i] instanceof byte[] b && b.length / bytes > index) {
+                return OptionalLong.of(bytesToLong(b, bytes * index));
+            }
+        } else if (dcmobj.header2valueLength(header) / bytes > index) {
+            return OptionalLong.of(
+                    longAt(dcmobj.dicomInput, DicomObject.header2valuePosition(header) + bytes * index));
+        }
+        return OptionalLong.empty();
     }
 
     @Override
-    public OptionalFloat floatValue(DicomObject dcmobj, int index) {
-        long header = dcmobj.getHeader(index);
-        return dcmobj.header2valueLength(header) >= bytes
-                ? OptionalFloat.of(floatAt(dcmobj.dicomInput, DicomObject.header2valuePosition(header)))
-                : OptionalFloat.empty();
+    public OptionalFloat floatValue(DicomObject dcmobj, int i, int index) {
+        long header = dcmobj.headers[i];
+        if ((int)(header >>> 62) == 0) {
+            if (dcmobj.values[i] instanceof byte[] b && b.length / bytes > index) {
+                return OptionalFloat.of(bytesToFloat(b, bytes * index));
+            }
+        } else if (dcmobj.header2valueLength(header) / bytes > index) {
+            return OptionalFloat.of(
+                    floatAt(dcmobj.dicomInput, DicomObject.header2valuePosition(header) + bytes * index));
+        }
+        return OptionalFloat.empty();
     }
 
     @Override
-    public OptionalDouble doubleValue(DicomObject dcmobj, int index) {
-        long header = dcmobj.getHeader(index);
-        return dcmobj.header2valueLength(header) >= bytes
-                ? OptionalDouble.of(doubleAt(dcmobj.dicomInput, DicomObject.header2valuePosition(header)))
-                : OptionalDouble.empty();
+    public OptionalDouble doubleValue(DicomObject dcmobj, int i, int index) {
+        long header = dcmobj.headers[i];
+        if ((int)(header >>> 62) == 0) {
+            if (dcmobj.values[i] instanceof byte[] b && b.length / bytes > index) {
+                return OptionalDouble.of(bytesToDouble(b, bytes * index));
+            }
+        } else if (dcmobj.header2valueLength(header) / bytes > index) {
+            return OptionalDouble.of(
+                    doubleAt(dcmobj.dicomInput, DicomObject.header2valuePosition(header) + bytes * index));
+        }
+        return OptionalDouble.empty();
     }
 
     @Override
@@ -332,17 +376,32 @@ enum BinaryVR implements VRType {
     double doubleAt(DicomInput input, long pos) {
         return floatAt(input, pos);
     }
-
     String stringAt(DicomInput input, long pos) {
         return Integer.toString(intAt(input, pos));
     }
 
-    String bytesToString(byte[] b, int pos) {
-        return Integer.toString(ByteOrder.LITTLE_ENDIAN.bytesToInt(b, pos));
-    }
-
     void intToBytes(int val, byte[] b, int off) {
         ByteOrder.LITTLE_ENDIAN.intToBytes(val, b, off);
+    }
+
+    int bytesToInt(byte[] b, int pos) {
+        return ByteOrder.LITTLE_ENDIAN.bytesToInt(b, pos);
+    }
+
+    long bytesToLong(byte[] b, int pos) {
+        return bytesToInt(b, pos);
+    }
+
+    float bytesToFloat(byte[] b, int pos) {
+        return bytesToInt(b, pos);
+    }
+
+    double bytesToDouble(byte[] b, int pos) {
+        return bytesToFloat(b, pos);
+    }
+
+    String bytesToString(byte[] b, int pos) {
+        return Integer.toString(bytesToInt(b, pos));
     }
 
     @Override
