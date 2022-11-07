@@ -86,9 +86,9 @@ public class DcmDump implements Callable<Integer> {
             dcmobj.add(header, null);
         }
         if (vr == VR.SQ) {
-            dis.parseItems(new Sequence(dcmobj, tag), valueLength);
+            dis.parseItems(dcmobj.newSequence(tag), valueLength);
         } else if (valueLength == -1) {
-            dis.parseFragments(new Fragments(dcmobj, tag));
+            dis.parseFragments(dcmobj.newFragments(tag, header));
         } else {
             long uvalueLength = valueLength & 0xffffffffL;
             if (!keep && uvalueLength > limit) {
@@ -99,33 +99,33 @@ public class DcmDump implements Callable<Integer> {
         return true;
     }
 
-    private boolean onItem(DicomInputStream dis, Sequence seq, long header) throws IOException {
+    private boolean onItem(DicomInputStream dis, DicomObject.Sequence seq, long header) throws IOException {
         promptPos(header);
         int itemLength = dis.header2valueLength(header);
         if (dis.header2tag(header) == Tag.Item) {
-            seq.getDicomObject().promptLevelTo(sb)
+            seq.containedBy().promptLevelTo(sb)
                     .append("(FFFE,E000) #").append(itemLength)
                     .append(" Item #").append(seq.size() + 1);
             System.out.println(sb);
             dis.onItem(seq, header);
         } else {
-            seq.getDicomObject().promptElementTo(header, null, sb, cols);
+            seq.containedBy().promptElementTo(header, null, sb, cols);
             dis.seek(dis.streamPosition() + itemLength);
             System.out.println(sb);
         }
         return true;
     }
 
-    private boolean onFragment(DicomInputStream dis, Fragments frags, long header) throws IOException {
+    private boolean onFragment(DicomInputStream dis, DicomObject.Fragments frags, long header) throws IOException {
         promptPos(header);
         long uitemlen = dis.header2valueLength(header) & 0xffffffffL;
         if (dis.header2tag(header) == Tag.Item) {
-            frags.getDicomObject().promptFragmentTo(header, null, sb, cols);
+            frags.containedBy().promptFragmentTo(header, null, sb, cols);
             if (uitemlen > limit) {
                 dis.skip(dis.streamPosition(), uitemlen, null);
             }
         } else {
-            frags.getDicomObject().promptElementTo(header, null, sb, cols);
+            frags.containedBy().promptElementTo(header, null, sb, cols);
         }
         dis.seek(dis.streamPosition() + uitemlen);
         System.out.println(sb);

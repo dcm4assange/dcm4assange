@@ -33,11 +33,11 @@ public class DicomInputStream extends InputStream {
     }
     @FunctionalInterface
     public interface ItemHandler {
-        boolean apply(DicomInputStream dis, Sequence dcmseq, long header) throws IOException;
+        boolean apply(DicomInputStream dis, DicomObject.Sequence dcmseq, long header) throws IOException;
     }
     @FunctionalInterface
     public interface FragmentHandler {
-        boolean apply(DicomInputStream dis, Fragments fragments, long header) throws IOException;
+        boolean apply(DicomInputStream dis, DicomObject.Fragments fragments, long header) throws IOException;
     }
     private Path path;
     private InputStream in;
@@ -52,7 +52,7 @@ public class DicomInputStream extends InputStream {
     private FragmentHandler onFragment = DicomInputStream::onFragment;
     private PreambleHandler preambleHandler = x -> {};
     private DicomElementPredicate bulkDataPredicate = (dcmObj, tag, vr, valueLength) -> false;
-    private Predicate<Sequence> parseItemsEagerPredicate = DicomInputStream::isWaveformSequence;
+    private Predicate<DicomObject.Sequence> parseItemsEagerPredicate = DicomInputStream::isWaveformSequence;
     private DicomObject fmi;
 
     public DicomInputStream(Path path, DicomElementPredicate bulkDataPredicate)
@@ -92,10 +92,10 @@ public class DicomInputStream extends InputStream {
         return false;
     }
 
-    public static boolean isWaveformSequence(Sequence seq) {
+    public static boolean isWaveformSequence(DicomObject.Sequence seq) {
         return seq != null
                 && seq.tag == Tag.WaveformSequence
-                && !seq.getDicomObject().isItem();
+                && !seq.containedBy().isItem();
     }
 
     public DicomEncoding encoding() {
@@ -149,7 +149,7 @@ public class DicomInputStream extends InputStream {
         return this;
     }
 
-    public DicomInputStream withParseItemsEager(Predicate<Sequence> parseItemsPredicate) {
+    public DicomInputStream withParseItemsEager(Predicate<DicomObject.Sequence> parseItemsPredicate) {
         this.parseItemsEagerPredicate = Objects.requireNonNull(parseItemsPredicate);
         return this;
     }
@@ -290,7 +290,7 @@ public class DicomInputStream extends InputStream {
         long unsignedValueLength = vallen & 0xffffffffL;
         if (vr != null) {
             if (vr == VR.SQ) {
-                Sequence dcmseq = new Sequence(dcmObj, tag);
+                DicomObject.Sequence dcmseq = dcmObj.newSequence(tag);
                 dcmObj.add(header, dcmseq);
                 return parseItems(dcmseq, vallen);
             }
@@ -310,8 +310,7 @@ public class DicomInputStream extends InputStream {
                 skip(pos, unsignedValueLength, bulkDataOutputStream);
                 bulkDataPos += unsignedValueLength;
             } else if (vallen == -1) {
-                Fragments frags = new Fragments(dcmObj, tag);
-                dcmObj.add(header, frags);
+                DicomObject.Fragments frags = dcmObj.newFragments(tag, header);
                 return parseFragments(frags);
             } else {
                 dcmObj.add(header, null);
@@ -346,7 +345,7 @@ public class DicomInputStream extends InputStream {
         return sb.toString();
     }
 
-    public boolean onItem(Sequence dcmseq, long header)
+    public boolean onItem(DicomObject.Sequence dcmseq, long header)
             throws IOException {
         int itemlen = input.header2valueLength(header);
         if (header2tag(header) == Tag.Item) {
@@ -404,7 +403,7 @@ public class DicomInputStream extends InputStream {
         }
     }
 
-    public boolean onFragment(Fragments fragments, long header) throws IOException {
+    public boolean onFragment(DicomObject.Fragments fragments, long header) throws IOException {
         fragments.add(header);
         long uitemlen = input.header2valueLength(header) & 0xffffffffL;
         this.pos += uitemlen;
@@ -504,7 +503,7 @@ public class DicomInputStream extends InputStream {
         return true;
     }
 
-    public boolean parseItems(Sequence dcmseq, int length)
+    public boolean parseItems(DicomObject.Sequence dcmseq, int length)
             throws IOException {
         if (length == 0) return true;
         boolean undefinedLength = length == -1;
@@ -518,7 +517,7 @@ public class DicomInputStream extends InputStream {
         }
         try {
             while (undefinedLength || pos < endPos) {
-                long header = parseHeader(dcmseq.dcmobj);
+                long header = parseHeader(dcmseq.containedBy());
                 int itemtag = header2tag(header);
                 if (!onItem.apply(this, dcmseq, header)) return false;
                 if (itemtag == Tag.SequenceDelimitationItem) break;
@@ -556,10 +555,10 @@ public class DicomInputStream extends InputStream {
         return !probeExplicitVR(pos + 12);
     }
 
-    public boolean parseFragments(Fragments fragments)
+    public boolean parseFragments(DicomObject.Fragments fragments)
             throws IOException {
         for (;;) {
-            long header = parseHeader(fragments.dcmobj);
+            long header = parseHeader(fragments.containedBy());
             if (!onFragment.apply(this,  fragments, header)) return false;
             if (header2tag(header) == Tag.SequenceDelimitationItem) break;
         }

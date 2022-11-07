@@ -209,9 +209,9 @@ public class StoreSCU implements Callable<Integer> {
                     return false;
             }
             if (vr == VR.SQ) {
-                dis.parseItems(new Sequence(dcmobj, tag), valueLength);
+                dis.parseItems(dcmobj.newSequence(tag), valueLength);
             } else if (valueLength == -1) {
-                dis.parseFragments(new Fragments(dcmobj, tag));
+                dis.parseFragments(dcmobj.newFragments(tag, header));
             } else {
                 dis.seek(valueEnd);
             }

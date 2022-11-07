@@ -40,9 +40,9 @@ public class DicomObject implements Serializable {
             this.specificCharacterSet = o.specificCharacterSet;
             for (int i = 0; i < size; i++) {
                 if (values[i] instanceof Sequence seq) {
-                    values[i] = new Sequence(this, seq);
+                    values[i] = new Sequence(seq);
                 } else if (values[i] instanceof Fragments frag) {
-                    values[i] = new Fragments(this, frag);
+                    values[i] = new Fragments(frag);
                 }
             }
         }
@@ -75,7 +75,7 @@ public class DicomObject implements Serializable {
 
     public SpecificCharacterSet specificCharacterSet() {
         return specificCharacterSet != null ? specificCharacterSet
-                : seq != null ? seq.dcmobj.specificCharacterSet()
+                : seq != null ? seq.containedBy().specificCharacterSet()
                 : SpecificCharacterSet.getDefaultCharacterSet();
     }
 
@@ -100,7 +100,7 @@ public class DicomObject implements Serializable {
     }
 
     public DicomObject getParent() {
-        return seq != null ? seq.dcmobj : null;
+        return seq != null ? seq.containedBy() : null;
     }
 
     public Sequence getSequence() {
@@ -226,7 +226,7 @@ public class DicomObject implements Serializable {
     }
 
     public Sequence newSequence(int tag) {
-        Sequence sequence = new Sequence(this, tag);
+        Sequence sequence = new Sequence(tag);
         add(tag, VR.SQ, sequence);
         return sequence;
     }
@@ -236,6 +236,12 @@ public class DicomObject implements Serializable {
         return (i >= 0 && values[i] instanceof Fragments fragments)
                 ? Optional.of(fragments)
                 : Optional.empty();
+    }
+
+    public Fragments newFragments(int tag, long header) {
+        Fragments fragments = new Fragments(tag);
+        add(header, fragments);
+        return fragments;
     }
 
     public void setBytes(int tag, VR vr, byte[] val) {
@@ -411,7 +417,7 @@ public class DicomObject implements Serializable {
     }
 
     public StringBuilder promptLevelTo(StringBuilder appendTo) {
-        for (Sequence seq = this.seq; seq != null; seq = seq.dcmobj.seq) {
+        for (Sequence seq = this.seq; seq != null; seq = seq.containedBy().seq) {
             appendTo.append('>');
         }
         return appendTo;
@@ -588,5 +594,114 @@ public class DicomObject implements Serializable {
         return new NoSuchElementException("Missing "
                 + ElementDictionary.keywordOf(tag) + ' '
                 + TagUtils.toString(tag));
+    }
+
+    public class Sequence {
+        private static final DicomObject[] EMPTY_SEQUENCE = {};
+        final int tag;
+        private DicomObject[] items = EMPTY_SEQUENCE;
+        private int size;
+
+        private Sequence(int tag) {
+            this.tag = tag;
+        }
+
+        private Sequence(Sequence o) {
+            this(o.tag);
+            this.items = new DicomObject[o.size];
+            this.size = o.size;
+            for (int i = 0; i < o.size; i++) {
+                items[i] = new DicomObject(o.items[i]);
+            }
+        }
+
+        public DicomObject containedBy() {
+            return DicomObject.this;
+        }
+
+        public void add(DicomObject dcmObj) {
+            int index = size++;
+            ensureCapacity(index);
+            items[index] = dcmObj;
+        }
+
+        private void ensureCapacity(int index) {
+            int oldCapacity = items.length;
+            if (index < oldCapacity) return;
+            if (oldCapacity == 0) {
+                items = new DicomObject[1];
+            } else {
+                items = Arrays.copyOf(items, oldCapacity == 1 ? 16 : oldCapacity << 1);
+            }
+        }
+
+        public boolean isEmpty() {
+            return size == 0;
+        }
+
+        public int size() {
+            return size;
+        }
+
+        public DicomObject getItem(int index) {
+            Objects.checkIndex(index, size);
+            return items[index];
+        }
+
+        int promptItemsTo(StringBuilder sb, int maxColumns, int maxLines) {
+            for (int i = 0; i < size; i++) {
+                if (--maxLines < 0) break;
+                sb.append(System.lineSeparator());
+                DicomObject item = items[i];
+                item.promptLevelTo(sb)
+                        .append("(FFFE,E000) #")
+                        .append(item.length)
+                        .append(" Item #").append(i + 1)
+                        .append(System.lineSeparator());
+                maxLines = item.promptTo(sb, maxColumns, maxLines);
+            }
+            return maxLines;
+        }
+    }
+
+    public class Fragments {
+        private static final long[] EMPTY = {};
+        final int tag;
+        private long[] headers = EMPTY;
+        private int size;
+
+        private Fragments(int tag) {
+            this.tag = tag;
+        }
+
+        private Fragments(Fragments o) {
+            this(o.tag);
+            this.headers = Arrays.copyOf(o.headers, o.size);
+            this.size = o.size;
+        }
+
+        public void add(long header) {
+            int index = size++;
+            ensureCapacity(index);
+            headers[index] = header;
+        }
+
+        private void ensureCapacity(int index) {
+            int oldCapacity = headers.length;
+            if (index < oldCapacity) return;
+            if (oldCapacity == 0) {
+                headers = new long[2];
+            } else {
+                headers = Arrays.copyOf(headers, oldCapacity == 2 ? 16 : oldCapacity << 1);
+            }
+        }
+
+        public int size() {
+            return size;
+        }
+
+        public DicomObject containedBy() {
+            return DicomObject.this;
+        }
     }
 }

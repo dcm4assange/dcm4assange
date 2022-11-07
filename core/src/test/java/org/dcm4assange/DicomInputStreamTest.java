@@ -375,8 +375,8 @@ public class DicomInputStreamTest {
     }
 
     static void parseSequence(byte[] b, DicomEncoding encoding, int tag, int size, int size1) throws IOException {
-        Optional<Sequence> items = parseWithEncoding(b, encoding).getSequence(tag);
-        Sequence seq = items.orElseGet(Assertions::fail);
+        Optional<DicomObject.Sequence> items = parseWithEncoding(b, encoding).getSequence(tag);
+        DicomObject.Sequence seq = items.orElseGet(Assertions::fail);
         assertEquals(size, seq.size());
         assertEquals(size1, seq.getItem(0).size());
     }
