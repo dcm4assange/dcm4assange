@@ -26,6 +26,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.net.SocketException;
 import java.util.Objects;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -72,9 +73,18 @@ public class DeviceRuntime {
     public Socket connect(Connection localConn, Connection remoteConn) throws IOException {
         Socket s = new Socket();
         s.bind(new InetSocketAddress(localConn.clientBindAddress(), 0));
+        configureSocket(s, localConn);
         s.connect(new InetSocketAddress(remoteConn.getHostname(), remoteConn.getPort()), localConn.getConnectTimeout());
         monitor.onConnectionEstablished(localConn, remoteConn, s);
         return s;
+    }
+
+    private void configureSocket(Socket s, Connection conn) throws SocketException {
+        if (conn.getSendBufferSize() > 0)
+            s.setSendBufferSize(conn.getSendBufferSize());
+        if (conn.getReceiveBufferSize() > 0)
+            s.setReceiveBufferSize(conn.getReceiveBufferSize());
+        s.setTcpNoDelay(conn.isTcpNoDelay());
     }
 
     public CompletableFuture<Association> openAssociation(
@@ -84,8 +94,9 @@ public class DeviceRuntime {
     }
 
     void onAccepted(Connection conn, Socket sock) {
-        monitor.onConnectionAccepted(conn, sock);
         try {
+            configureSocket(sock, conn);
+            monitor.onConnectionAccepted(conn, sock);
             executorService.execute(Association.accept(this, conn, sock));
         } catch (IOException e) {
             e.printStackTrace();

@@ -87,6 +87,23 @@ public class StoreSCP implements Callable<Integer> {
             description = "maximum length of received P-DATA-TF PDUs, 0 = unlimited")
     int maxPduLength = 0;
 
+    @CommandLine.Option(names = "--sosnd-buffer", paramLabel = "<size>",
+            description = "set SO_SNDBUF socket option to specified value, 0 = use default")
+    int sndBufferSize = 0;
+
+    @CommandLine.Option(names = "--sorcv-buffer", paramLabel = "<size>",
+            description = "set SO_RCVBUF socket option to specified value, 0 = use default")
+    int rcvBufferSize = 0;
+
+    @CommandLine.Option(names = "--tcp-delay",
+            description = "set TCP_NODELAY socket option to false, true by default")
+    boolean tcpDelay;
+
+    @CommandLine.Option(names = "--not-pack-pdv", paramLabel = "<size>",
+            description = {"send only one PDV in one P-Data-TF PDU",
+                    "pack command and data PDV in one P-DATA-TF PDU by default" })
+    boolean notPackPDV;
+
     public static void main(String[] args) {
         new CommandLine(new StoreSCP()).execute(args);
     }
@@ -99,7 +116,11 @@ public class StoreSCP implements Callable<Integer> {
         Connection conn = new Connection()
                 .setPort(port)
                 .setReceivePDULength(maxPduLength)
-                .setMaxOpsPerformed(maxOpsInvoked);
+                .setMaxOpsPerformed(maxOpsInvoked)
+                .setSendBufferSize(sndBufferSize)
+                .setReceiveBufferSize(rcvBufferSize)
+                .setTcpNoDelay(!tcpDelay)
+                .setPackPDV(!notPackPDV);
         ApplicationEntity ae = new ApplicationEntity().setAETitle(called);
         ae.addTransferCapability(new TransferCapability()
                 .setSOPClass("*")

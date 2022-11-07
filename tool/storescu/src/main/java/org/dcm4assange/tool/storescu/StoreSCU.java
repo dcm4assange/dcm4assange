@@ -77,6 +77,23 @@ public class StoreSCU implements Callable<Integer> {
             description = "maximum length of sent P-DATA-TF PDUs")
     int maxPduLength = Association.MAX_SEND_PDU_LENGTH;
 
+    @CommandLine.Option(names = "--sosnd-buffer", paramLabel = "<size>",
+            description = "set SO_SNDBUF socket option to specified value, 0 = use default")
+    int sndBufferSize = 0;
+
+    @CommandLine.Option(names = "--sorcv-buffer", paramLabel = "<size>",
+            description = "set SO_RCVBUF socket option to specified value, 0 = use default")
+    int rcvBufferSize = 0;
+
+    @CommandLine.Option(names = "--tcp-delay",
+            description = "set TCP_NODELAY socket option to false, true by default")
+    boolean tcpDelay;
+
+    @CommandLine.Option(names = "--not-pack-pdv", paramLabel = "<size>",
+            description = {"send only one PDV in one P-Data-TF PDU",
+                    "pack command and data PDV in one P-DATA-TF PDU by default" })
+    boolean notPackPDV;
+
     private final List<FileInfo> fileInfos = new ArrayList<>();
 
     public static void main(String[] args) {
@@ -90,7 +107,11 @@ public class StoreSCU implements Callable<Integer> {
                 .setPort(port);
         Connection localConn = new Connection()
                 .setMaxOpsInvoked(maxOpsInvoked)
-                .setSendPDULength(maxPduLength);
+                .setSendPDULength(maxPduLength)
+                .setSendBufferSize(sndBufferSize)
+                .setReceiveBufferSize(rcvBufferSize)
+                .setTcpNoDelay(!tcpDelay)
+                .setPackPDV(!notPackPDV);
         ApplicationEntity ae = new ApplicationEntity().setAETitle(calling);
         Device device = new Device().setDeviceName(calling).addConnection(localConn).addApplicationEntity(ae);
         DeviceRuntime runtime = new DeviceRuntime(device, null);

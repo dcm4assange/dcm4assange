@@ -40,10 +40,14 @@ public class Connection {
     private volatile int connectTimeout;
 
     private volatile int socketCloseDelay = DEF_SOCKETDELAY;
-    private int sendPDULength;
-    private int receivePDULength;
-    private int maxOpsPerformed = SYNCHRONOUS_MODE;
-    private int maxOpsInvoked = SYNCHRONOUS_MODE;
+    private volatile boolean packPDV = true;
+    private volatile boolean tcpNoDelay = true;
+    private volatile int sendBufferSize;
+    private volatile int receiveBufferSize;
+    private volatile int sendPDULength;
+    private volatile int receivePDULength;
+    private volatile int maxOpsPerformed = SYNCHRONOUS_MODE;
+    private volatile int maxOpsInvoked = SYNCHRONOUS_MODE;
     private final SSLParameters sslParameters = new SSLParameters();
     private volatile String[] blacklist = {};
     private volatile Boolean installed;
@@ -191,6 +195,42 @@ public class Connection {
 
     public boolean isInstalled() {
         return (device == null || device.isInstalled()) && (installed == null || installed);
+    }
+
+    public boolean isPackPDV() {
+        return packPDV;
+    }
+
+    public Connection setPackPDV(boolean packPDV) {
+        this.packPDV = packPDV;
+        return this;
+    }
+
+    public boolean isTcpNoDelay() {
+        return tcpNoDelay;
+    }
+
+    public Connection setTcpNoDelay(boolean tcpNoDelay) {
+        this.tcpNoDelay = tcpNoDelay;
+        return this;
+    }
+
+    public int getSendBufferSize() {
+        return sendBufferSize;
+    }
+
+    public Connection setSendBufferSize(int sendBufferSize) {
+        this.sendBufferSize = sendBufferSize;
+        return this;
+    }
+
+    public int getReceiveBufferSize() {
+        return receiveBufferSize;
+    }
+
+    public Connection setReceiveBufferSize(int receiveBufferSize) {
+        this.receiveBufferSize = receiveBufferSize;
+        return this;
     }
 
     public final int getSendPDULength() {

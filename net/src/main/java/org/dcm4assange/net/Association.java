@@ -227,7 +227,12 @@ public class Association implements Runnable {
         writeLock.lock();
         try {
             pdvOut.writeCommandSet(pcid, dimse, commandSet);
-            pdvOut.setPDVHeader();
+            if (conn.isPackPDV()) {
+                pdvOut.setPDVHeader();
+            } else {
+                pdvOut.flush();
+                pdvOut.len = 0;
+            }
             pdvOut.writeDataset(dataWriter, transferSyntax);
             pdvOut.flush();
         } finally {
@@ -348,7 +353,8 @@ public class Association implements Runnable {
     }
 
     private void established(int maxPDULength, int maxOpsInvoked) {
-        pdvOut = new PDVOutputStream(maxPDULength);
+        pdvOut = new PDVOutputStream(minZeroAsMax(maxPDULength,
+                minZeroAsMax(conn.getSendPDULength(), MAX_SEND_PDU_LENGTH)));
         outstandingRSPs = newBlockingQueue(maxOpsInvoked);
         state = State.EXPECT_PDATA_TF;
     }
@@ -646,7 +652,7 @@ public class Association implements Runnable {
         byte mch;
 
         PDVOutputStream(int maxPDULength) {
-            this.pdu = new byte[minZeroAsMax(maxPDULength, MAX_SEND_PDU_LENGTH)];
+            this.pdu = new byte[maxPDULength];
         }
 
         @Override
