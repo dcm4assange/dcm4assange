@@ -314,8 +314,8 @@ public abstract class AAssociate {
         if (remaining < 0)
             throw AAbort.invalidPDUParameterValue();
         protocolVersion = in.readUnsignedShort();
-        skipByte(in);
-        skipByte(in);
+        in.readUnsignedByte();
+        in.readUnsignedByte();
         calledAETitle = readASCII(in, 16).trim();
         callingAETitle = readASCII(in, 16).trim();
         in.skipNBytes(32);
@@ -323,7 +323,7 @@ public abstract class AAssociate {
             if ((remaining -= 4) < 0)
                 throw AAbort.invalidPDUParameterValue();
             int itemType = in.readUnsignedByte();
-            skipByte(in);
+            in.readUnsignedByte();
             int itemLength = in.readUnsignedShort();
             if ((remaining -= itemLength) < 0)
                 throw AAbort.invalidPDUParameterValue();
@@ -363,7 +363,7 @@ public abstract class AAssociate {
             if ((itemRemaining -= 4) < 0)
                 throw AAbort.invalidPDUParameterValue();
             int subitemType = in.readUnsignedByte();
-            skipByte(in);
+            in.readUnsignedByte();
             int subitemLength = in.readUnsignedShort();
             if ((itemRemaining -= subitemLength) < 0)
                 throw AAbort.invalidPDUParameterValue();
@@ -587,9 +587,9 @@ public abstract class AAssociate {
             if (remaining < 0)
                 throw AAbort.invalidPDUParameterValue();
             byte pcid = (byte) in.readUnsignedByte();
-            skipByte(in);
-            skipByte(in);
-            skipByte(in);
+            in.readUnsignedByte();
+            in.readUnsignedByte();
+            in.readUnsignedByte();
             String abstractSyntax = null;
             List<String> transferSyntaxes = new ArrayList<>();
             int subitemType, subitemLength;
@@ -597,7 +597,7 @@ public abstract class AAssociate {
                 if ((remaining -= 4) < 0)
                     throw AAbort.invalidPDUParameterValue();
                 subitemType = in.readUnsignedByte();
-                skipByte(in);
+                in.readUnsignedByte();
                 subitemLength = in.readUnsignedShort();
                 if ((remaining -= subitemLength) < 0)
                     throw AAbort.invalidPDUParameterValue();
@@ -870,7 +870,7 @@ public abstract class AAssociate {
             if (remaining < 0)
                 throw AAbort.invalidPDUParameterValue();
             byte pcid = (byte) in.readUnsignedByte();
-            skipByte(in);
+            in.readUnsignedByte();
             Result result = switch (in.readUnsignedByte()) {
                     case 0 -> Result.ACCEPTANCE;
                     case 1 -> Result.USER_REJECTION;
@@ -879,14 +879,14 @@ public abstract class AAssociate {
                     case 4 -> Result.TRANSFER_SYNTAXES_NOT_SUPPORTED;
                     default -> throw AAbort.invalidPDUParameterValue();
                 };
-            skipByte(in);
+            in.readUnsignedByte();
             int subitemType, subitemLength;
             String transferSyntax = null;
             while (remaining > 0) {
                 if ((remaining -= 4) < 0)
                     throw AAbort.invalidPDUParameterValue();
                 subitemType = in.readUnsignedByte();
-                skipByte(in);
+                in.readUnsignedByte();
                 subitemLength = in.readUnsignedShort();
                 if ((remaining -= subitemLength) < 0)
                     throw AAbort.invalidPDUParameterValue();

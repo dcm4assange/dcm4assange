@@ -78,7 +78,7 @@ public class AAssociateTest {
     private AAssociate.RQ readRQ(byte[] data) throws IOException {
         try (DataInputStream in = new DataInputStream(new ByteArrayInputStream(data))) {
             assertEquals(0x01, in.readUnsignedByte());
-            Utils.skipByte(in);
+            in.readUnsignedByte();
             int pduLength = in.readInt();
             return AAssociate.RQ.readFrom(in, pduLength);
         }
@@ -87,7 +87,7 @@ public class AAssociateTest {
     private AAssociate.AC readAC(byte[] data) throws IOException {
         try (DataInputStream in = new DataInputStream(new ByteArrayInputStream(data))) {
             assertEquals(0x02, in.readUnsignedByte());
-            Utils.skipByte(in);
+            in.readUnsignedByte();
             int pduLength = in.readInt();
             return AAssociate.AC.readFrom(in, pduLength);
         }

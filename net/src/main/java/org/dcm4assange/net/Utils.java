@@ -25,10 +25,6 @@ import java.nio.charset.StandardCharsets;
  * @since Dec 2021
  */
 class Utils {
-    static void skipByte(InputStream in) throws IOException {
-        if (in.read() < 0)
-            throw new EOFException();
-    }
 
     static String readASCII(DataInputStream in, int length) throws IOException {
         byte[] b = new byte[length];

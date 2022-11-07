@@ -138,7 +138,7 @@ public class Association implements Runnable {
     private int nextPDU() throws IOException {
         LOG.trace("{}: waiting for PDU", name);
         int pduType = in.readUnsignedByte();
-        Utils.skipByte(in);
+        in.readUnsignedByte();
         int pduLength = in.readInt();
         LOG.trace("{} >> PDU[type={}, len={}]", name, pduType, pduLength & 0xFFFFFFFFL);
         switch (pduType) {
