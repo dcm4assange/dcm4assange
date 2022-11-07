@@ -72,7 +72,7 @@ public class DeviceRuntime {
 
     public Socket connect(Connection localConn, Connection remoteConn) throws IOException {
         Socket s = new Socket();
-        s.bind(new InetSocketAddress(localConn.clientBindAddress(), 0));
+        s.bind(localConn.clientBindSocketAddress());
         configureSocket(s, localConn);
         s.connect(new InetSocketAddress(remoteConn.getHostname(), remoteConn.getPort()), localConn.getConnectTimeout());
         monitor.onConnectionEstablished(localConn, remoteConn, s);

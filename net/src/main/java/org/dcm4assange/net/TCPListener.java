@@ -44,7 +44,7 @@ public class TCPListener implements Runnable {
 
     @Override
     public void run() {
-        InetSocketAddress endpoint = new InetSocketAddress(conn.bindAddress(), conn.getPort());
+        InetSocketAddress endpoint = conn.bindSocketAddress();
         try {
             LOG.info("Start TCP Listener on {}", endpoint);
             ssock.bind(endpoint, conn.getBacklog());

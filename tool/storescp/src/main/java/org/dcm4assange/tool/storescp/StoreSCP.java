@@ -34,7 +34,6 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.concurrent.Callable;
-import java.util.concurrent.CompletableFuture;
 
 /**
  * @author Gunter Zeilinger (gunterze@protonmail.com)
@@ -63,45 +62,57 @@ public class StoreSCP implements Callable<Integer> {
     }
 
     @CommandLine.Parameters(
-            description = "tcp/ip port number to listen on",
+            description = "TCP/IP port number to listen on",
             showDefaultValue = CommandLine.Help.Visibility.NEVER,
             index = "0")
     int port;
 
     @CommandLine.Parameters(
-            description = "directory to which received DICOM Composite Objects are stored",
+            description = {"Directory to which received DICOM Composite Objects are stored.",
+                "If absent, do not received DICOM Composite Objects."},
             arity = "0..1",
             index = "1")
     Path directory;
 
     @CommandLine.Option(names = "--called", paramLabel = "<aetitle>",
-            description = "accepted called AE title")
+            description = "Accepted called AE title.")
     String called = "*";
 
-    @CommandLine.Option(names = "--max-ops-invoked", paramLabel = "<no>",
-            description = "maximum number of outstanding operations it allows the Association-requester " +
-                    "to invoke asynchronously, 0 = unlimited")
-    int maxOpsInvoked = 1;
+    @CommandLine.Option(names = "--not-async",
+            description = "Do not use asynchronous mode; equivalent to --max-ops-invoked=1 and --max-ops-performed=1.")
+    boolean notAsync;
 
-    @CommandLine.Option(names = "--max-pdu-length", paramLabel = "<no>",
-            description = "maximum length of received P-DATA-TF PDUs, 0 = unlimited")
-    int maxPduLength = 0;
+    @CommandLine.Option(names = "--max-ops-invoked", paramLabel = "<no>",
+            description = "Maximum number of outstanding operations invoked asynchronously, 0 = unlimited.")
+    int maxOpsInvoked;
+
+    @CommandLine.Option(names = "--max-ops-performed", paramLabel = "<no>",
+            description = "Maximum number of outstanding operations performed asynchronously, 0 = unlimited.")
+    int maxOpsPerformed;
+
+    @CommandLine.Option(names = "--max-pdulen-rcv", paramLabel = "<size>",
+            description = "Maximum length of received P-DATA-TF PDUs, 0 = unlimited.")
+    int receivePduLength;
+
+    @CommandLine.Option(names = "--max-pdulen-snd", paramLabel = "<size>",
+            description = "Maximum length of sent P-DATA-TF PDUs.")
+    int sendPduLength = Connection.DEF_SEND_PDU_LENGTH;
 
     @CommandLine.Option(names = "--sosnd-buffer", paramLabel = "<size>",
-            description = "set SO_SNDBUF socket option to specified value, 0 = use default")
-    int sndBufferSize = 0;
+            description = "Set SO_SNDBUF socket option to specified value, 0 = use default.")
+    int sndBufferSize;
 
     @CommandLine.Option(names = "--sorcv-buffer", paramLabel = "<size>",
-            description = "set SO_RCVBUF socket option to specified value, 0 = use default")
-    int rcvBufferSize = 0;
+            description = "Set SO_RCVBUF socket option to specified value, 0 = use default.")
+    int rcvBufferSize;
 
     @CommandLine.Option(names = "--tcp-delay",
-            description = "set TCP_NODELAY socket option to false, true by default")
+            description = "Set TCP_NODELAY socket option to false, true by default.")
     boolean tcpDelay;
 
     @CommandLine.Option(names = "--not-pack-pdv", paramLabel = "<size>",
-            description = {"send only one PDV in one P-Data-TF PDU",
-                    "pack command and data PDV in one P-DATA-TF PDU by default" })
+            description = {"Send only one PDV in one P-Data-TF PDU.",
+                    "Pack command and data PDV in one P-DATA-TF PDU by default." })
     boolean notPackPDV;
 
     public static void main(String[] args) {
@@ -115,8 +126,10 @@ public class StoreSCP implements Callable<Integer> {
         }
         Connection conn = new Connection()
                 .setPort(port)
-                .setReceivePDULength(maxPduLength)
-                .setMaxOpsPerformed(maxOpsInvoked)
+                .setMaxOpsInvoked(notAsync ? 1 : maxOpsInvoked)
+                .setMaxOpsInvoked(notAsync ? 1 : maxOpsPerformed)
+                .setSendPDULength(sendPduLength)
+                .setReceivePDULength(receivePduLength)
                 .setSendBufferSize(sndBufferSize)
                 .setReceiveBufferSize(rcvBufferSize)
                 .setTcpNoDelay(!tcpDelay)
@@ -126,7 +139,10 @@ public class StoreSCP implements Callable<Integer> {
                 .setSOPClass("*")
                 .setTransferSyntaxes("*")
                 .setRole(TransferCapability.Role.SCP));
-        Device device = new Device().addConnection(conn).addApplicationEntity(ae);
+        Device device = new Device()
+                .setDeviceName(called)
+                .addConnection(conn)
+                .addApplicationEntity(ae);
         DeviceRuntime runtime = new DeviceRuntime(device,
                 new DicomServiceRegistry().setDefaultRQHandler(this::onDimseRQ));
         runtime.bindConnections();

@@ -20,9 +20,7 @@ package org.dcm4assange.net;
 import org.dcm4assange.UID;
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
+import java.io.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -72,25 +70,25 @@ public class AAssociateTest {
 
     private byte[] write(AAssociate rqac) throws IOException {
         try (ByteArrayOutputStream out = new ByteArrayOutputStream()) {
-            rqac.writeTo(out);
+            rqac.writeTo(new DataOutputStream(out));
             return out.toByteArray();
         }
     }
 
     private AAssociate.RQ readRQ(byte[] data) throws IOException {
-        try (ByteArrayInputStream in = new ByteArrayInputStream(data)) {
-            assertEquals(0x01, Utils.readUnsignedByte(in));
+        try (DataInputStream in = new DataInputStream(new ByteArrayInputStream(data))) {
+            assertEquals(0x01, in.readUnsignedByte());
             Utils.skipByte(in);
-            int pduLength = Utils.readInt(in);
+            int pduLength = in.readInt();
             return AAssociate.RQ.readFrom(in, pduLength);
         }
     }
 
     private AAssociate.AC readAC(byte[] data) throws IOException {
-        try (ByteArrayInputStream in = new ByteArrayInputStream(data)) {
-            assertEquals(0x02, Utils.readUnsignedByte(in));
+        try (DataInputStream in = new DataInputStream(new ByteArrayInputStream(data))) {
+            assertEquals(0x02, in.readUnsignedByte());
             Utils.skipByte(in);
-            int pduLength = Utils.readInt(in);
+            int pduLength = in.readInt();
             return AAssociate.AC.readFrom(in, pduLength);
         }
     }

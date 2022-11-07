@@ -1,8 +1,8 @@
 package org.dcm4assange.net;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 
 /**
  * @author Gunter Zeilinger (gunterze@protonmail.com)
@@ -67,14 +67,14 @@ public class AAssociateRJ extends IOException {
         return new AAssociateRJ(0x010107);
     }
 
-    public static AAssociateRJ readFrom(InputStream is, int pduLength) throws IOException {
+    public static AAssociateRJ readFrom(DataInputStream in, int pduLength) throws IOException {
         if (pduLength != 4)
             throw AAbort.invalidPDUParameterValue();
-        return new AAssociateRJ(Utils.readInt(is));
+        return new AAssociateRJ(in.readInt());
     }
 
-    public void writeTo(OutputStream out) throws IOException {
-        Utils.writeInt(out, resultSourceReason);
+    public void writeTo(DataOutputStream out) throws IOException {
+        out.writeInt(resultSourceReason);
     }
 
     static String toString(int resultSourceReason) {

@@ -34,7 +34,7 @@ import java.util.stream.Stream;
         showDefaultValues = true,
         footerHeading = "%nExample:%n",
         footer = { "$ storescu --called DCM4CHEE localhost 11112 image.dcm",
-                "Sends image.dcm to Application Entity DCM4CHEE listening on port 11112 at localhost" }
+                "Sends image.dcm to Application Entity DCM4CHEE listening on port 11112 at localhost." }
 )
 public class StoreSCU implements Callable<Integer> {
 
@@ -45,12 +45,12 @@ public class StoreSCU implements Callable<Integer> {
     }
 
     @CommandLine.Parameters(
-            description = "hostname of DICOM peer AE",
+            description = "Hostname of DICOM peer AE.",
             index = "0")
     String peer;
 
     @CommandLine.Parameters(
-            description = "tcp/ip port number of peer AE",
+            description = "TCP/IP port number of peer AE.",
             showDefaultValue = CommandLine.Help.Visibility.NEVER,
             index = "1")
     int port;
@@ -62,36 +62,48 @@ public class StoreSCU implements Callable<Integer> {
     List<Path> file;
 
     @CommandLine.Option(names = "--calling", paramLabel = "<aetitle>",
-            description = "set my calling AE title")
+            description = "Set my calling AE title.")
     String calling = "STORESCU";
 
     @CommandLine.Option(names = "--called", paramLabel = "<aetitle>",
-            description = "set called AE title of peer AE")
+            description = "Set called AE title of peer AE.")
     String called = "STORESCP";
 
-    @CommandLine.Option(names = "--max-ops-invoked", paramLabel = "<no>",
-            description = "maximum number of outstanding operations invoked asynchronously, 0 = unlimited")
-    int maxOpsInvoked = 1;
+    @CommandLine.Option(names = "--not-async",
+            description = "Do not use asynchronous mode; equivalent to --max-ops-invoked=1 and --max-ops-performed=1.")
+    boolean notAsync;
 
-    @CommandLine.Option(names = "--max-pdu-length", paramLabel = "<no>",
-            description = "maximum length of sent P-DATA-TF PDUs")
-    int maxPduLength = Association.MAX_SEND_PDU_LENGTH;
+    @CommandLine.Option(names = "--max-ops-invoked", paramLabel = "<no>",
+            description = "Maximum number of outstanding operations invoked asynchronously, 0 = unlimited.")
+    int maxOpsInvoked;
+
+    @CommandLine.Option(names = "--max-ops-performed", paramLabel = "<no>",
+            description = "Maximum number of outstanding operations performed asynchronously, 0 = unlimited.")
+    int maxOpsPerformed;
+
+    @CommandLine.Option(names = "--max-pdulen-rcv", paramLabel = "<size>",
+            description = "Maximum length of received P-DATA-TF PDUs, 0 = unlimited.")
+    int receivePduLength;
+
+    @CommandLine.Option(names = "--max-pdulen-snd", paramLabel = "<size>",
+            description = "Maximum length of sent P-DATA-TF PDUs.")
+    int sendPduLength = Connection.DEF_SEND_PDU_LENGTH;
 
     @CommandLine.Option(names = "--sosnd-buffer", paramLabel = "<size>",
-            description = "set SO_SNDBUF socket option to specified value, 0 = use default")
-    int sndBufferSize = 0;
+            description = "Set SO_SNDBUF socket option to specified value, 0 = use default.")
+    int sndBufferSize;
 
     @CommandLine.Option(names = "--sorcv-buffer", paramLabel = "<size>",
-            description = "set SO_RCVBUF socket option to specified value, 0 = use default")
-    int rcvBufferSize = 0;
+            description = "Set SO_RCVBUF socket option to specified value, 0 = use default.")
+    int rcvBufferSize;
 
     @CommandLine.Option(names = "--tcp-delay",
-            description = "set TCP_NODELAY socket option to false, true by default")
+            description = "Set TCP_NODELAY socket option to false, true by default.")
     boolean tcpDelay;
 
     @CommandLine.Option(names = "--not-pack-pdv", paramLabel = "<size>",
-            description = {"send only one PDV in one P-Data-TF PDU",
-                    "pack command and data PDV in one P-DATA-TF PDU by default" })
+            description = {"Send only one PDV in one P-Data-TF PDU.",
+                    "Pack command and data PDV in one P-DATA-TF PDU by default." })
     boolean notPackPDV;
 
     private final List<FileInfo> fileInfos = new ArrayList<>();
@@ -106,8 +118,10 @@ public class StoreSCU implements Callable<Integer> {
                 .setHostname(peer)
                 .setPort(port);
         Connection localConn = new Connection()
-                .setMaxOpsInvoked(maxOpsInvoked)
-                .setSendPDULength(maxPduLength)
+                .setMaxOpsInvoked(notAsync ? 1 : maxOpsInvoked)
+                .setMaxOpsInvoked(notAsync ? 1 : maxOpsPerformed)
+                .setSendPDULength(sendPduLength)
+                .setReceivePDULength(receivePduLength)
                 .setSendBufferSize(sndBufferSize)
                 .setReceiveBufferSize(rcvBufferSize)
                 .setTcpNoDelay(!tcpDelay)

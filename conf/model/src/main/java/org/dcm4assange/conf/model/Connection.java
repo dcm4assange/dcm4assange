@@ -4,14 +4,7 @@ import org.dcm4assange.util.StringUtils;
 
 import javax.net.ssl.SSLParameters;
 import javax.net.ssl.SSLServerSocket;
-import java.net.InetAddress;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.net.UnknownHostException;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.OptionalInt;
+import java.net.*;
 
 /**
  * @author Gunter Zeilinger (gunterze@protonmail.com)
@@ -19,12 +12,11 @@ import java.util.OptionalInt;
  */
 public class Connection {
     public static final int NO_TIMEOUT = 0;
-    public static final int SYNCHRONOUS_MODE = 1;
     public static final int NOT_LISTENING = -1;
     public static final int DEF_BACKLOG = 50;
     public static final int DEF_SOCKETDELAY = 50;
     public static final int DEF_ABORT_TIMEOUT = 1000;
-    public static final int DEF_BUFFERSIZE = 0;
+    public static final int DEF_SEND_PDU_LENGTH = 65536;
 
     public static final String TLS_RSA_WITH_NULL_SHA = "SSL_RSA_WITH_NULL_SHA";
     public static final String TLS_RSA_WITH_3DES_EDE_CBC_SHA = "SSL_RSA_WITH_3DES_EDE_CBC_SHA";
@@ -44,10 +36,10 @@ public class Connection {
     private volatile boolean tcpNoDelay = true;
     private volatile int sendBufferSize;
     private volatile int receiveBufferSize;
-    private volatile int sendPDULength;
+    private volatile int sendPDULength = DEF_SEND_PDU_LENGTH;
     private volatile int receivePDULength;
-    private volatile int maxOpsPerformed = SYNCHRONOUS_MODE;
-    private volatile int maxOpsInvoked = SYNCHRONOUS_MODE;
+    private volatile int maxOpsPerformed;
+    private volatile int maxOpsInvoked;
     private final SSLParameters sslParameters = new SSLParameters();
     private volatile String[] blacklist = {};
     private volatile Boolean installed;
@@ -99,8 +91,8 @@ public class Connection {
         return this;
     }
 
-    public String bindAddress() {
-        return bindAddress != null ? bindAddress : hostname;
+    public InetSocketAddress bindSocketAddress() {
+        return bindSocketAddress(bindAddress, port);
     }
 
     public String getClientBindAddress() {
@@ -112,8 +104,14 @@ public class Connection {
         return this;
     }
 
-    public String clientBindAddress() {
-        return clientBindAddress != null ? clientBindAddress : hostname;
+    public InetSocketAddress clientBindSocketAddress() {
+        return bindSocketAddress(clientBindAddress, 0);
+    }
+
+    private static InetSocketAddress bindSocketAddress(String hostname, int port) {
+        return hostname != null
+                ? new InetSocketAddress(hostname, port)
+                : new InetSocketAddress(port);
     }
 
     public int getPort() {
@@ -270,7 +268,7 @@ public class Connection {
     }
 
     public boolean isAsynchronousMode() {
-        return maxOpsPerformed != SYNCHRONOUS_MODE || maxOpsInvoked != SYNCHRONOUS_MODE;
+        return maxOpsPerformed != 1 || maxOpsInvoked != 1;
     }
 
     public boolean isBlackListed(InetAddress inetAddr) {

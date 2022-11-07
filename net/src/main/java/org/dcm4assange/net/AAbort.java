@@ -95,14 +95,14 @@ public class AAbort extends IOException {
         };
     }
 
-    public static AAbort readFrom(InputStream in, int pduLength) throws IOException {
+    public static AAbort readFrom(DataInputStream in, int pduLength) throws IOException {
         if (pduLength != 4)
             throw invalidPDUParameterValue();
-        return new AAbort(Utils.readInt(in));
+        return new AAbort(in.readInt());
     }
 
-    public void writeTo(OutputStream out) throws IOException {
-        Utils.writeInt(out, sourceReason);
+    public void writeTo(DataOutputStream out) throws IOException {
+        out.writeInt(sourceReason);
     }
 
     private static String toString(int sourceReason) {

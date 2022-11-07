@@ -7,9 +7,9 @@ import org.dcm4assange.conf.model.Connection;
 import org.dcm4assange.util.ArrayUtils;
 import org.dcm4assange.util.UIDUtils;
 
+import java.io.DataInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.DataOutputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.function.BiConsumer;
@@ -243,14 +243,14 @@ public abstract class AAssociate {
         return l;
     }
 
-    abstract void writeTo(OutputStream out) throws IOException;
+    abstract void writeTo(DataOutputStream out) throws IOException;
 
-    void writeTo(OutputStream out, int pdutype) throws IOException {
+    void writeTo(DataOutputStream out, int pdutype) throws IOException {
         synchronized (out) {
             out.write(pdutype);
             out.write(0);
-            writeInt(out, pduLength());
-            writeShort(out, protocolVersion);
+            out.writeInt(pduLength());
+            out.writeShort(protocolVersion);
             out.write(0);
             out.write(0);
             writePaddedASCII(out, calledAETitle, 16);
@@ -262,12 +262,12 @@ public abstract class AAssociate {
             writePresentationContextTo(out);
             out.write(0x50);
             out.write(0);
-            writeShort(out, userItemLength());
+            out.writeShort(userItemLength());
             out.write(0x51);
             out.write(0);
             out.write(0);
             out.write(4);
-            writeInt(out, maxPDULength);
+            out.writeInt(maxPDULength);
             out.write(0x52);
             out.write(0);
             writeLengthASCII(out, implClassUID);
@@ -279,20 +279,20 @@ public abstract class AAssociate {
                 out.write(0);
                 out.write(0);
                 out.write(4);
-                writeInt(out, asyncOpsWindow);
+                out.writeInt(asyncOpsWindow);
             }
             for (Map.Entry<String, RoleSelection> e : roleSelectionMap.entrySet()) {
                 out.write(0x54);
                 out.write(0);
-                writeShort(out, 4 + e.getKey().length());
+                out.writeShort(4 + e.getKey().length());
                 writeLengthASCII(out,  e.getKey());
-                writeBoolean(out, e.getValue().scu);
-                writeBoolean(out, e.getValue().scp);
+                out.writeBoolean(e.getValue().scu);
+                out.writeBoolean(e.getValue().scp);
             }
             for (Map.Entry<String, byte[]> e : extNegMap.entrySet()) {
                 out.write(0x56);
                 out.write(0);
-                writeShort(out, 2 + e.getKey().length() + e.getValue().length);
+                out.writeShort(2 + e.getKey().length() + e.getValue().length);
                 writeLengthASCII(out, e.getKey());
                 out.write(e.getValue());
             }
@@ -302,29 +302,29 @@ public abstract class AAssociate {
         }
     }
 
-    abstract void writePresentationContextTo(OutputStream out) throws IOException;
+    abstract void writePresentationContextTo(DataOutputStream out) throws IOException;
 
-    void writeCommonExtendedNegotationTo(OutputStream out) throws IOException {
+    void writeCommonExtendedNegotationTo(DataOutputStream out) throws IOException {
     }
 
-    abstract void writeUserIdentityTo(OutputStream out) throws IOException;
+    abstract void writeUserIdentityTo(DataOutputStream out) throws IOException;
 
-    void parse(InputStream in, int pduLength) throws IOException {
+    void parse(DataInputStream in, int pduLength) throws IOException {
         int remaining = pduLength - 68;
         if (remaining < 0)
             throw AAbort.invalidPDUParameterValue();
-        protocolVersion = readUnsignedShort(in);
+        protocolVersion = in.readUnsignedShort();
         skipByte(in);
         skipByte(in);
         calledAETitle = readASCII(in, 16).trim();
         callingAETitle = readASCII(in, 16).trim();
-        skipNBytes(in, 32);
+        in.skipNBytes(32);
         while (remaining > 0) {
             if ((remaining -= 4) < 0)
                 throw AAbort.invalidPDUParameterValue();
-            int itemType = readUnsignedByte(in);
+            int itemType = in.readUnsignedByte();
             skipByte(in);
-            int itemLength = readUnsignedShort(in);
+            int itemLength = in.readUnsignedShort();
             if ((remaining -= itemLength) < 0)
                 throw AAbort.invalidPDUParameterValue();
             switch (itemType) {
@@ -346,25 +346,25 @@ public abstract class AAssociate {
         }
     }
 
-    void parsePresentationContextRQ(InputStream in, int itemLength)
+    void parsePresentationContextRQ(DataInputStream in, int itemLength)
             throws IOException {
         throw AAbort.unexpectedPDUParameter();
     }
 
-    void parsePresentationContextAC(InputStream in, int itemLength)
+    void parsePresentationContextAC(DataInputStream in, int itemLength)
             throws IOException {
         throw AAbort.unexpectedPDUParameter();
     }
 
-    private void parseUserItems(InputStream in, int itemLength)
+    private void parseUserItems(DataInputStream in, int itemLength)
             throws IOException {
         int itemRemaining = itemLength;
         while (itemRemaining > 0) {
             if ((itemRemaining -= 4) < 0)
                 throw AAbort.invalidPDUParameterValue();
-            int subitemType = readUnsignedByte(in);
+            int subitemType = in.readUnsignedByte();
             skipByte(in);
-            int subitemLength = readUnsignedShort(in);
+            int subitemLength = in.readUnsignedShort();
             if ((itemRemaining -= subitemLength) < 0)
                 throw AAbort.invalidPDUParameterValue();
             switch (subitemType) {
@@ -382,37 +382,37 @@ public abstract class AAssociate {
         }
     }
 
-    private void parseMaxPDULength(InputStream in, int subitemLength)
+    private void parseMaxPDULength(DataInputStream in, int subitemLength)
             throws IOException {
         if (subitemLength != 4)
             throw AAbort.invalidPDUParameterValue();
-        maxPDULength = readInt(in);
+        maxPDULength = in.readInt();
     }
 
-    private void parseOpsWindow(InputStream in, int subitemLength)
+    private void parseOpsWindow(DataInputStream in, int subitemLength)
             throws IOException {
         if (subitemLength != 4)
             throw AAbort.invalidPDUParameterValue();
-        asyncOpsWindow = readInt(in);
+        asyncOpsWindow = in.readInt();
     }
 
-    private void parseRoleSelections(InputStream in, int subitemLength)
+    private void parseRoleSelections(DataInputStream in, int subitemLength)
             throws IOException {
         if (subitemLength < 4)
             throw AAbort.invalidPDUParameterValue();
-        int uidLen = readUnsignedShort(in);
+        int uidLen = in.readUnsignedShort();
         if (subitemLength != 4 + uidLen)
             throw AAbort.invalidPDUParameterValue();
         roleSelectionMap.put(
                 readASCII(in, uidLen),
-                RoleSelection.of(readBoolean(in), readBoolean(in)));
+                RoleSelection.of(in.readBoolean(), in.readBoolean()));
     }
 
-    private void parseExtendedNegotations(InputStream in, int subitemLength)
+    private void parseExtendedNegotations(DataInputStream in, int subitemLength)
             throws IOException {
         if (subitemLength < 2)
             throw AAbort.invalidPDUParameterValue();
-        int uidLen = readUnsignedShort(in);
+        int uidLen = in.readUnsignedShort();
         if (subitemLength < 2 + uidLen)
             throw AAbort.invalidPDUParameterValue();
         extNegMap.put(
@@ -420,17 +420,17 @@ public abstract class AAssociate {
                 in.readNBytes(subitemLength - (2 + uidLen)));
     }
 
-    void parseCommonExtendedNegotations(InputStream in, int subitemLength)
+    void parseCommonExtendedNegotations(DataInputStream in, int subitemLength)
             throws IOException {
         throw AAbort.unexpectedPDUParameter();
     }
 
-    void parseUserIdentityRQ(InputStream in, int subitemLength)
+    void parseUserIdentityRQ(DataInputStream in, int subitemLength)
             throws IOException {
         throw AAbort.unexpectedPDUParameter();
     }
 
-    void parseUserIdentityAC(InputStream in, int subitemLength)
+    void parseUserIdentityAC(DataInputStream in, int subitemLength)
             throws IOException {
         throw AAbort.unexpectedPDUParameter();
     }
@@ -451,7 +451,7 @@ public abstract class AAssociate {
             super(callingAETitle, calledAETitle);
         }
 
-        public static RQ readFrom(InputStream in, int pduLength) throws IOException {
+        public static RQ readFrom(DataInputStream in, int pduLength) throws IOException {
             RQ rq = new RQ();
             rq.parse(in, pduLength);
             return rq;
@@ -565,28 +565,28 @@ public abstract class AAssociate {
         }
 
         @Override
-        void writeTo(OutputStream out) throws IOException {
+        void writeTo(DataOutputStream out) throws IOException {
             writeTo(out, 0x01);
         }
 
         @Override
-        void writePresentationContextTo(OutputStream out) throws IOException {
+        void writePresentationContextTo(DataOutputStream out) throws IOException {
             for (Map.Entry<Byte, RQ.PresentationContext> e : pcs.entrySet()) {
                 out.write(0x20);
                 out.write(0);
-                writeShort(out, e.getValue().itemLength());
-                writeShort(out, e.getKey().intValue() << 8);
+                out.writeShort(e.getValue().itemLength());
+                out.writeShort(e.getKey().intValue() << 8);
                 e.getValue().writeTo(out);
             }
         }
 
         @Override
-        void parsePresentationContextRQ(InputStream in, int itemLength)
+        void parsePresentationContextRQ(DataInputStream in, int itemLength)
                 throws IOException {
             int remaining = itemLength - 4;
             if (remaining < 0)
                 throw AAbort.invalidPDUParameterValue();
-            byte pcid = (byte) readUnsignedByte(in);
+            byte pcid = (byte) in.readUnsignedByte();
             skipByte(in);
             skipByte(in);
             skipByte(in);
@@ -596,9 +596,9 @@ public abstract class AAssociate {
             while (remaining > 0) {
                 if ((remaining -= 4) < 0)
                     throw AAbort.invalidPDUParameterValue();
-                subitemType = readUnsignedByte(in);
+                subitemType = in.readUnsignedByte();
                 skipByte(in);
-                subitemLength = readUnsignedShort(in);
+                subitemLength = in.readUnsignedShort();
                 if ((remaining -= subitemLength) < 0)
                     throw AAbort.invalidPDUParameterValue();
                 switch (subitemType) {
@@ -617,31 +617,31 @@ public abstract class AAssociate {
         }
 
         @Override
-        void writeCommonExtendedNegotationTo(OutputStream out) throws IOException {
+        void writeCommonExtendedNegotationTo(DataOutputStream out) throws IOException {
             for (Map.Entry<String, CommonExtendedNegotation> e : commonExtNegMap.entrySet()) {
                 out.write(0x57);
                 out.write(0);
-                writeShort(out, 2 + e.getKey().length() + e.getValue().length());
+                out.writeShort(2 + e.getKey().length() + e.getValue().length());
                 writeLengthASCII(out, e.getKey());
                 e.getValue().writeTo(out);
             }
         }
 
         @Override
-        void parseCommonExtendedNegotations(InputStream in, int subitemLength)
+        void parseCommonExtendedNegotations(DataInputStream in, int subitemLength)
                 throws IOException {
             int remaining = subitemLength - 6;
             if (remaining < 0)
                 throw AAbort.invalidPDUParameterValue();
-            int length = readUnsignedShort(in);
+            int length = in.readUnsignedShort();
             if ((remaining -= length) < 0)
                 throw AAbort.invalidPDUParameterValue();
             String cuid = readASCII(in, length);
-            length = readUnsignedShort(in);
+            length = in.readUnsignedShort();
             if ((remaining -= length) < 0)
                 throw AAbort.invalidPDUParameterValue();
             String serviceClass = readASCII(in, length);
-            length = readUnsignedShort(in);
+            length = in.readUnsignedShort();
             int reservedLength = remaining - length;
             if (reservedLength < 0)
                 throw AAbort.invalidPDUParameterValue();
@@ -650,7 +650,7 @@ public abstract class AAssociate {
             while (remaining > 0) {
                 if ((remaining -= 2) < 0)
                     throw AAbort.invalidPDUParameterValue();
-                length = readUnsignedShort(in);
+                length = in.readUnsignedShort();
                 if ((remaining -= length) < 0)
                     throw AAbort.invalidPDUParameterValue();
                 relatedSOPClasses.add(readASCII(in, length));
@@ -662,28 +662,28 @@ public abstract class AAssociate {
         }
 
         @Override
-        void writeUserIdentityTo(OutputStream out) throws IOException {
+        void writeUserIdentityTo(DataOutputStream out) throws IOException {
             if (userIdentity != null) {
                 out.write(0x58);
                 out.write(0);
-                writeShort(out, userIdentity.itemLength());
+                out.writeShort(userIdentity.itemLength());
                 userIdentity.writeTo(out);
             }
         }
 
         @Override
-        void parseUserIdentityRQ(InputStream in, int subitemLength)
+        void parseUserIdentityRQ(DataInputStream in, int subitemLength)
                 throws IOException {
             int remaining = subitemLength - 6;
             if (remaining < 0)
                 throw AAbort.invalidPDUParameterValue();
-            int type = readUnsignedByte(in);
-            boolean responseRequested = readBoolean(in);
-            int length = readUnsignedShort(in);
+            int type = in.readUnsignedByte();
+            boolean responseRequested = in.readBoolean();
+            int length = in.readUnsignedShort();
             if ((remaining -= length) < 0)
                 throw AAbort.invalidPDUParameterValue();
             byte[] primaryField = in.readNBytes(length);
-            length = readUnsignedShort(in);
+            length = in.readUnsignedShort();
             if (remaining != length)
                 throw AAbort.invalidPDUParameterValue();
             byte[] secondaryField = in.readNBytes(length);
@@ -736,7 +736,7 @@ public abstract class AAssociate {
                 return l;
             }
 
-            void writeTo(OutputStream out) throws IOException {
+            void writeTo(DataOutputStream out) throws IOException {
                 out.write(0);
                 out.write(0);
                 out.write(0x30);
@@ -776,7 +776,7 @@ public abstract class AAssociate {
             super(callingAETitle, calledAETitle);
         }
 
-        public static AC readFrom(InputStream in, int pduLength) throws IOException {
+        public static AC readFrom(DataInputStream in, int pduLength) throws IOException {
             AC ac = new AC();
             ac.parse(in, pduLength);
             return ac;
@@ -847,16 +847,16 @@ public abstract class AAssociate {
         }
 
         @Override
-        void writeTo(OutputStream out) throws IOException {
+        void writeTo(DataOutputStream out) throws IOException {
             writeTo(out, 0x02);
         }
 
         @Override
-        void writePresentationContextTo(OutputStream out) throws IOException {
+        void writePresentationContextTo(DataOutputStream out) throws IOException {
             for (Map.Entry<Byte, PresentationContext> e : pcs.entrySet()) {
                 out.write(0x21);
                 out.write(0);
-                writeShort(out, e.getValue().itemLength());
+                out.writeShort(e.getValue().itemLength());
                 out.write(e.getKey());
                 out.write(0);
                 e.getValue().writeTo(out);
@@ -864,14 +864,14 @@ public abstract class AAssociate {
         }
 
         @Override
-        void parsePresentationContextAC(InputStream in, int itemLength)
+        void parsePresentationContextAC(DataInputStream in, int itemLength)
                 throws IOException {
             int remaining = itemLength - 4;
             if (remaining < 0)
                 throw AAbort.invalidPDUParameterValue();
-            byte pcid = (byte) readUnsignedByte(in);
+            byte pcid = (byte) in.readUnsignedByte();
             skipByte(in);
-            Result result = switch (readUnsignedByte(in)) {
+            Result result = switch (in.readUnsignedByte()) {
                     case 0 -> Result.ACCEPTANCE;
                     case 1 -> Result.USER_REJECTION;
                     case 2 -> Result.NO_REASON;
@@ -885,9 +885,9 @@ public abstract class AAssociate {
             while (remaining > 0) {
                 if ((remaining -= 4) < 0)
                     throw AAbort.invalidPDUParameterValue();
-                subitemType = readUnsignedByte(in);
+                subitemType = in.readUnsignedByte();
                 skipByte(in);
-                subitemLength = readUnsignedShort(in);
+                subitemLength = in.readUnsignedShort();
                 if ((remaining -= subitemLength) < 0)
                     throw AAbort.invalidPDUParameterValue();
                 transferSyntax = switch (subitemType) {
@@ -902,22 +902,22 @@ public abstract class AAssociate {
         }
 
         @Override
-        void writeUserIdentityTo(OutputStream out) throws IOException {
+        void writeUserIdentityTo(DataOutputStream out) throws IOException {
             if (userIdentityServerResponse != null) {
                 out.write(0x59);
                 out.write(0);
-                writeShort(out, 2 + userIdentityServerResponse.length);
-                writeShort(out, userIdentityServerResponse.length);
+                out.writeShort(2 + userIdentityServerResponse.length);
+                out.writeShort(userIdentityServerResponse.length);
                 out.write(userIdentityServerResponse);
             }
         }
 
         @Override
-        void parseUserIdentityAC(InputStream in, int subitemLength)
+        void parseUserIdentityAC(DataInputStream in, int subitemLength)
                 throws IOException {
             if (subitemLength < 2)
                 throw AAbort.invalidPDUParameterValue();
-            if (subitemLength != 2 + readUnsignedShort(in))
+            if (subitemLength != 2 + in.readUnsignedShort())
                 throw AAbort.invalidPDUParameterValue();
             userIdentityServerResponse = in.readNBytes(subitemLength - 2);
         }
@@ -949,7 +949,7 @@ public abstract class AAssociate {
                         .append(System.lineSeparator());
             }
 
-            void writeTo(OutputStream out) throws IOException {
+            void writeTo(DataOutputStream out) throws IOException {
                 out.write(result.code());
                 out.write(0);
                 out.write(0x40);
@@ -1033,9 +1033,9 @@ public abstract class AAssociate {
             return map.get(serviceClass);
         }
 
-        void writeTo(OutputStream out) throws IOException {
+        void writeTo(DataOutputStream out) throws IOException {
             writeLengthASCII(out, serviceClass);
-            writeShort(out, relatedSOPClassesLength());
+            out.writeShort(relatedSOPClassesLength());
             for (String uid : relatedSOPClasses) {
                 writeLengthASCII(out, uid);
             }
@@ -1108,12 +1108,12 @@ public abstract class AAssociate {
             return 6 + primaryField.length + secondaryField.length;
         }
 
-        void writeTo(OutputStream out) throws IOException {
+        void writeTo(DataOutputStream out) throws IOException {
             out.write(type);
-            writeBoolean(out, positiveResponseRequested);
-            writeShort(out, primaryField.length);
+            out.writeBoolean(positiveResponseRequested);
+            out.writeShort(primaryField.length);
             out.write(primaryField);
-            writeShort(out, secondaryField.length);
+            out.writeShort(secondaryField.length);
             out.write(secondaryField);
         }
 

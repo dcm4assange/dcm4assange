@@ -41,7 +41,6 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class Association implements Runnable {
     static final Logger LOG = LoggerFactory.getLogger(Association.class);
-    public static final int MAX_SEND_PDU_LENGTH = 65536;
     private static final AtomicInteger prevSerialNo = new AtomicInteger();
     private static final int COMMAND = 0b01;
     private static final int LAST = 0b10;
@@ -54,8 +53,8 @@ public class Association implements Runnable {
     private final Role role;
     private final Connection conn;
     private final Socket sock;
-    private final InputStream in;
-    private final OutputStream out;
+    private final DataInputStream in;
+    private final DataOutputStream out;
     private final ReentrantLock writeLock = new ReentrantLock();
     private final CompletableFuture<Association> aaacReceived = new CompletableFuture<>();
     private final CompletableFuture<Association> arrpReceived = new CompletableFuture<>();
@@ -75,8 +74,8 @@ public class Association implements Runnable {
         this.deviceRuntime = deviceRuntime;
         this.conn = conn;
         this.sock = sock;
-        this.in = new BufferedInputStream(sock.getInputStream());
-        this.out = new BufferedOutputStream(sock.getOutputStream());
+        this.in = new DataInputStream(new BufferedInputStream(sock.getInputStream()));
+        this.out = new DataOutputStream(new BufferedOutputStream(sock.getOutputStream()));
         this.role = role;
     }
 
@@ -138,9 +137,9 @@ public class Association implements Runnable {
 
     private int nextPDU() throws IOException {
         LOG.trace("{}: waiting for PDU", name);
-        int pduType = Utils.readUnsignedByte(in);
+        int pduType = in.readUnsignedByte();
         Utils.skipByte(in);
-        int pduLength = Utils.readInt(in);
+        int pduLength = in.readInt();
         LOG.trace("{} >> PDU[type={}, len={}]", name, pduType, pduLength & 0xFFFFFFFFL);
         switch (pduType) {
             case 0x01 -> state.onAAssociateRQ(this, pduType, pduLength);
@@ -352,8 +351,7 @@ public class Association implements Runnable {
     }
 
     private void established(int maxPDULength, int maxOpsInvoked) {
-        pdvOut = new PDVOutputStream(minZeroAsMax(maxPDULength,
-                minZeroAsMax(conn.getSendPDULength(), MAX_SEND_PDU_LENGTH)));
+        pdvOut = new PDVOutputStream(minZeroAsMax(maxPDULength, conn.getSendPDULength()));
         outstandingRSPs = newBlockingQueue(maxOpsInvoked);
         state = State.EXPECT_PDATA_TF;
     }
@@ -451,7 +449,7 @@ public class Association implements Runnable {
         LOG.info("{} >> A-RELEASE-RQ[len={}]", name, pduLength);
         if (pduLength != 4)
             throw AAbort.invalidPDUParameterValue();
-        Utils.readInt(in);
+        in.readInt();
         sock.shutdownInput();
         writeAReleaseRP();
         deviceRuntime.closeSocketDelayed(conn, sock);
@@ -461,7 +459,7 @@ public class Association implements Runnable {
         LOG.info("{} >> A-RELEASE-RP[len={}]", name, pduLength);
         if (pduLength != 4)
             throw AAbort.invalidPDUParameterValue();
-        Utils.readInt(in);
+        in.readInt();
         deviceRuntime.closeSocket(conn, sock);
         arrpReceived.complete(this);
     }
@@ -557,7 +555,7 @@ public class Association implements Runnable {
         public int read() throws IOException {
             if (!nextPDV()) return -1;
             pdvRemaining--;
-            return Utils.readUnsignedByte(in);
+            return in.readUnsignedByte();
         }
 
         @Override
@@ -625,9 +623,9 @@ public class Association implements Runnable {
         private int parsePDVHeader() throws IOException {
             if ((pduRemaining -= 6) < 0)
                 throw AAbort.invalidPDUParameterValue();
-            int pdvlen = Utils.readInt(in);
-            int pcid = Utils.readUnsignedByte(in);
-            int mch = Utils.readUnsignedByte(in);
+            int pdvlen = in.readInt();
+            int pcid = in.readUnsignedByte();
+            int mch = in.readUnsignedByte();
             LOG.trace("{} >> PDV[len={}, pcid={}, mch={}]", name, pdvlen, pcid, mch);
             if ((pdvRemaining = pdvlen - 2) < 0)
                 throw AAbort.invalidPDUParameterValue();
@@ -686,7 +684,7 @@ public class Association implements Runnable {
             synchronized (out) {
                 out.write(0x04);
                 out.write(0);
-                Utils.writeInt(out, len);
+                out.writeInt(len);
                 out.write(pdu, 0, len);
                 out.flush();
             }
