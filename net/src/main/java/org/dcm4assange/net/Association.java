@@ -231,7 +231,6 @@ public class Association implements Runnable {
                 pdvOut.setPDVHeader();
             } else {
                 pdvOut.flush();
-                pdvOut.len = 0;
             }
             pdvOut.writeDataset(dataWriter, transferSyntax);
             pdvOut.flush();
@@ -659,6 +658,8 @@ public class Association implements Runnable {
         public void write(int b) throws IOException {
             if (len == pdu.length) {
                 flush();
+                this.pos = 0;
+                this.len = 6;
             }
             pdu[len++] = (byte) b;
         }
@@ -670,6 +671,8 @@ public class Association implements Runnable {
                 System.arraycopy(b, off, pdu, this.len, d);
                 this.len = pdu.length;
                 flush();
+                this.pos = 0;
+                this.len = 6;
                 len -= d;
             }
             System.arraycopy(b, off, pdu, this.len, len);
@@ -687,8 +690,7 @@ public class Association implements Runnable {
                 out.write(pdu, 0, len);
                 out.flush();
             }
-            pos = 0;
-            len = 6;
+            len = 0;
         }
 
         void writeCommandSet(Byte pcid, Dimse dimse, DicomObject commandSet) throws IOException {
