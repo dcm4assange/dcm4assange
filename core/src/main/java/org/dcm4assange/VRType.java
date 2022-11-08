@@ -53,6 +53,9 @@ interface VRType {
         @Override
         public Optional<String> stringValue(DicomObject dcmobj, int i, int index) {
             if (index != 0) return Optional.empty();
+            if (dcmobj.values[i] instanceof byte[] b)
+                return Optional.of(promptValueTo(b, new StringBuilder()).toString());
+
             long header = dcmobj.headers[i];
             return Optional.of(
                             promptValueTo(
@@ -63,19 +66,29 @@ interface VRType {
                                     .toString());
         }
 
-        private StringBuilder promptValueTo(DicomInput input, long valpos, int vallen, StringBuilder sb) {
-            for (int i = 0; i < vallen; i++) {
-                int c = input.byteAt(valpos + i);
-                if (c < ' ' || c == '\\' || c == 127) {
-                    sb.append('\\');
-                    sb.append((char) ('0' + ((c >> 6) & 7)));
-                    sb.append((char) ('0' + ((c >> 3) & 7)));
-                    sb.append((char) ('0' + (c & 7)));
-                } else {
-                    sb.append((char) c);
-                }
+        private StringBuilder promptValueTo(byte[] b, StringBuilder sb) {
+            for (int i = 0; i < b.length; i++) {
+                appendTo(sb, b[i]);
             }
             return sb;
+        }
+
+        private StringBuilder promptValueTo(DicomInput input, long valpos, int vallen, StringBuilder sb) {
+            for (int i = 0; i < vallen; i++) {
+                appendTo(sb, input.byteAt(valpos + i));
+            }
+            return sb;
+        }
+
+        private void appendTo(StringBuilder sb, int c) {
+            if (c < ' ' || c == '\\' || c == 127) {
+                sb.append('\\');
+                sb.append((char) ('0' + ((c >> 6) & 7)));
+                sb.append((char) ('0' + ((c >> 3) & 7)));
+                sb.append((char) ('0' + (c & 7)));
+            } else {
+                sb.append((char) c);
+            }
         }
 
         @Override
@@ -128,6 +141,15 @@ interface VRType {
     }
 
     default Object valueOf(int[] vals) {
+        throw new UnsupportedOperationException();
+    }
+    default Object valueOf(long[] vals) {
+        throw new UnsupportedOperationException();
+    }
+    default Object valueOf(float[] vals) {
+        throw new UnsupportedOperationException();
+    }
+    default Object valueOf(double[] vals) {
         throw new UnsupportedOperationException();
     }
 }

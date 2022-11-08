@@ -260,6 +260,18 @@ public class DicomObject implements Serializable {
         add(tag, vr, vr.type.valueOf(vals));
     }
 
+    public void setLong(int tag, VR vr, long... vals) {
+        add(tag, vr, vr.type.valueOf(vals));
+    }
+
+    public void setFloat(int tag, VR vr, float... vals) {
+        add(tag, vr, vr.type.valueOf(vals));
+    }
+
+    public void setDouble(int tag, VR vr, double... vals) {
+        add(tag, vr, vr.type.valueOf(vals));
+    }
+
     private int add(int tag, VR vr, Object value) {
         return add(vr.toHeader() | (tag & 0xffffffffL), value);
     }

@@ -22,12 +22,84 @@ enum StringVR implements VRType {
             Optional<String> s = stringValue(dcmobj, i, index);
             return s.isPresent() ? OptionalInt.of((int) Double.parseDouble(s.get())) : OptionalInt.empty();
         }
+
+        @Override
+        public Object valueOf(int[] vals) {
+            String[] ss = new String[vals.length];
+            for (int i = 0; i < vals.length; i++) {
+                ss[i] = Integer.toString(vals[i]);
+            }
+            return ss;
+        }
+
+        @Override
+        public Object valueOf(long[] vals) {
+            String[] ss = new String[vals.length];
+            for (int i = 0; i < vals.length; i++) {
+                ss[i] = Long.toString(vals[i]);
+            }
+            return ss;
+        }
+
+        @Override
+        public Object valueOf(float[] vals) {
+            String[] ss = new String[vals.length];
+            for (int i = 0; i < vals.length; i++) {
+                ss[i] = Float.toString(vals[i]);
+            }
+            return ss;
+        }
+
+        @Override
+        public Object valueOf(double[] vals) {
+            String[] ss = new String[vals.length];
+            for (int i = 0; i < vals.length; i++) {
+                ss[i] = Double.toString(vals[i]);
+            }
+            return ss;
+        }
     },
     IS("\\", VM.MULTI, Trim.LEADING_AND_TRAILING, StringVR::ascii) {
         @Override
         public OptionalInt intValue(DicomObject dcmobj, int i, int index) {
             Optional<String> s = stringValue(dcmobj, i, index);
             return s.isPresent() ? OptionalInt.of(Integer.parseInt(s.get())) : OptionalInt.empty();
+        }
+
+        @Override
+        public Object valueOf(int[] vals) {
+            String[] ss = new String[vals.length];
+            for (int i = 0; i < vals.length; i++) {
+                ss[i] = Integer.toString(vals[i]);
+            }
+            return ss;
+        }
+
+        @Override
+        public Object valueOf(long[] vals) {
+            String[] ss = new String[vals.length];
+            for (int i = 0; i < vals.length; i++) {
+                ss[i] = Integer.toString((int) vals[i]);
+            }
+            return ss;
+        }
+
+        @Override
+        public Object valueOf(float[] vals) {
+            String[] ss = new String[vals.length];
+            for (int i = 0; i < vals.length; i++) {
+                ss[i] = Integer.toString((int) vals[i]);
+            }
+            return ss;
+        }
+
+        @Override
+        public Object valueOf(double[] vals) {
+            String[] ss = new String[vals.length];
+            for (int i = 0; i < vals.length; i++) {
+                ss[i] = Integer.toString((int) vals[i]);
+            }
+            return ss;
         }
     },
     PN("\\^=", VM.MULTI, Trim.LEADING_AND_TRAILING, DicomObject::specificCharacterSet),

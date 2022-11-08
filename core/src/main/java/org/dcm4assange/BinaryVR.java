@@ -50,6 +50,11 @@ enum BinaryVR implements VRType {
         void intToBytes(int val, byte[] b, int off) {
             ByteOrder.LITTLE_ENDIAN.tagToBytes(val, b, off);
         }
+
+        @Override
+        int bytesToInt(byte[] b, int pos) {
+            return ByteOrder.LITTLE_ENDIAN.bytesToTag(b, pos);
+        }
     },
     FD(8, ToggleEndian.LONG){
         @Override
@@ -78,12 +83,44 @@ enum BinaryVR implements VRType {
         }
 
         @Override
+        int bytesToInt(byte[] b, int pos) {
+            return (int) bytesToDouble(b, pos);
+        }
+
+        @Override
+        long bytesToLong(byte[] b, int pos) {
+            return (long) bytesToDouble(b, pos);
+        }
+
+        @Override
+        float bytesToFloat(byte[] b, int pos) {
+            return (float) bytesToDouble(b, pos);
+        }
+
+        @Override
+        double bytesToDouble(byte[] b, int pos) {
+            return Double.longBitsToDouble(ByteOrder.LITTLE_ENDIAN.bytesToLong(b, pos));
+        }
+
+        @Override
         String bytesToString(byte[] b, int off) {
             return Double.toString(Double.longBitsToDouble(ByteOrder.LITTLE_ENDIAN.bytesToLong(b, off)));
         }
 
         @Override
         void intToBytes(int val, byte[] b, int off) {
+            doubleToBytes(val, b, off);
+        }
+
+        void longToBytes(long val, byte[] b, int off) {
+            doubleToBytes(val, b, off);
+        }
+
+        void floatToBytes(float val, byte[] b, int off) {
+            doubleToBytes(val, b, off);
+        }
+
+        void doubleToBytes(double val, byte[] b, int off) {
             ByteOrder.LITTLE_ENDIAN.longToBytes(Double.doubleToRawLongBits(val), b, off);
         }
     },
@@ -109,12 +146,41 @@ enum BinaryVR implements VRType {
         }
 
         @Override
+        int bytesToInt(byte[] b, int pos) {
+            return (int) bytesToFloat(b, pos);
+        }
+
+        @Override
+        long bytesToLong(byte[] b, int pos) {
+            return (long) bytesToFloat(b, pos);
+        }
+
+        @Override
+        float bytesToFloat(byte[] b, int pos) {
+            return Float.intBitsToFloat(ByteOrder.LITTLE_ENDIAN.bytesToInt(b, pos));
+        }
+
+        @Override
+        double bytesToDouble(byte[] b, int pos) {
+            return bytesToFloat(b, pos);
+        }
+
+        @Override
         String bytesToString(byte[] b, int pos) {
             return Float.toString(Float.intBitsToFloat(ByteOrder.LITTLE_ENDIAN.bytesToInt(b, pos)));
         }
 
         @Override
         void intToBytes(int val, byte[] b, int off) {
+            floatToBytes(val, b, off);
+        }
+
+        void longToBytes(long val, byte[] b, int off) {
+            floatToBytes(val, b, off);
+        }
+
+        @Override
+        void floatToBytes(float val, byte[] b, int off) {
             ByteOrder.LITTLE_ENDIAN.intToBytes(Float.floatToRawIntBits(val), b, off);
         }
     },
@@ -127,6 +193,11 @@ enum BinaryVR implements VRType {
         @Override
         int bytesToInt(byte[] b, int pos) {
             return b[pos];
+        }
+
+        @Override
+        void intToBytes(int val, byte[] b, int off) {
+            b[off] = (byte) val;
         }
     },
     SL(4, ToggleEndian.INT),
@@ -212,6 +283,10 @@ enum BinaryVR implements VRType {
         String bytesToString(byte[] b, int pos) {
             return Integer.toUnsignedString(bytesToInt(b, pos));
         }
+
+        long bytesToLong(byte[] b, int pos) {
+            return bytesToInt(b, pos) & 0xffffffffL;
+        }
     },
     US(2, ToggleEndian.SHORT) {
         @Override
@@ -226,7 +301,7 @@ enum BinaryVR implements VRType {
 
         @Override
         int bytesToInt(byte[] b, int pos) {
-            return ByteOrder.LITTLE_ENDIAN.bytesToShort(b, pos & 0xffff);
+            return ByteOrder.LITTLE_ENDIAN.bytesToShort(b, pos) & 0xffff;
         }
     },
     UV(8, ToggleEndian.LONG){
@@ -361,6 +436,42 @@ enum BinaryVR implements VRType {
         return b;
     }
 
+    @Override
+    public Object valueOf(long[] vals) {
+        if (vals.length == 0) {
+            return ByteOrder.EMPTY_BYTES;
+        }
+        byte[] b = new byte[vals.length * bytes];
+        for (int i = 0; i < vals.length; i++) {
+            longToBytes(vals[i], b, i * bytes);
+        }
+        return b;
+    }
+
+    @Override
+    public Object valueOf(float[] vals) {
+        if (vals.length == 0) {
+            return ByteOrder.EMPTY_BYTES;
+        }
+        byte[] b = new byte[vals.length * bytes];
+        for (int i = 0; i < vals.length; i++) {
+            floatToBytes(vals[i], b, i * bytes);
+        }
+        return b;
+    }
+
+    @Override
+    public Object valueOf(double[] vals) {
+        if (vals.length == 0) {
+            return ByteOrder.EMPTY_BYTES;
+        }
+        byte[] b = new byte[vals.length * bytes];
+        for (int i = 0; i < vals.length; i++) {
+            doubleToBytes(vals[i], b, i * bytes);
+        }
+        return b;
+    }
+
     int intAt(DicomInput input, long pos) {
         return input.intAt(pos);
     }
@@ -382,6 +493,18 @@ enum BinaryVR implements VRType {
 
     void intToBytes(int val, byte[] b, int off) {
         ByteOrder.LITTLE_ENDIAN.intToBytes(val, b, off);
+    }
+
+    void longToBytes(long val, byte[] b, int off) {
+        intToBytes((int) val, b, off);
+    }
+
+    void floatToBytes(float val, byte[] b, int off) {
+        intToBytes((int) val, b, off);
+    }
+
+    void doubleToBytes(double val, byte[] b, int off) {
+        floatToBytes((float) val, b, off);
     }
 
     int bytesToInt(byte[] b, int pos) {
