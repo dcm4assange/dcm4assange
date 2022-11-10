@@ -250,12 +250,17 @@ enum BinaryVR implements VRType {
 
         @Override
         void intToBytes(int val, byte[] b, int off) {
+            longToBytes(val, b, off);
+        }
+
+        @Override
+        void longToBytes(long val, byte[] b, int off) {
             ByteOrder.LITTLE_ENDIAN.longToBytes(val, b, off);
         }
 
         @Override
         int bytesToInt(byte[] b, int pos) {
-            return (int) ByteOrder.LITTLE_ENDIAN.bytesToLong(b, pos);
+            return (int) bytesToLong(b, pos);
         }
 
         @Override
@@ -334,7 +339,17 @@ enum BinaryVR implements VRType {
 
         @Override
         void intToBytes(int val, byte[] b, int off) {
-            ByteOrder.LITTLE_ENDIAN.longToBytes(val & 0xffffffffL, b, off);
+            longToBytes(val, b, off);
+        }
+
+        @Override
+        void longToBytes(long val, byte[] b, int off) {
+            ByteOrder.LITTLE_ENDIAN.longToBytes(val, b, off);
+        }
+
+        @Override
+        int bytesToInt(byte[] b, int pos) {
+            return (int) bytesToLong(b, pos);
         }
 
         @Override

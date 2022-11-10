@@ -52,7 +52,7 @@ public class DicomObjectTest {
 
     @Test
     public void setAndGet() {
-        DicomInputStreamTest.assertDataSet(dataset());
+        DicomInputStreamTest.assertDataSet(createDataset());
     }
 
     private Object bulkData() {
@@ -68,23 +68,23 @@ public class DicomObjectTest {
                 .getBulkDataURI(Tag.WaveformData).orElseGet(Assertions::fail));
     }
 
-    static DicomObject dataset() {
+    static DicomObject createDataset() {
         DicomObject dcmObj = new DicomObject();
         dcmObj.setString(Tag.SelectorAEValue, VR.AE, "TEXT");
         dcmObj.setString(Tag.SelectorASValue, VR.AS, "099Y");
         dcmObj.setInt(Tag.SelectorATValue, VR.AT, Tag.SelectorATValue);
         dcmObj.setString(Tag.SelectorDAValue, VR.DA, "20210403");
-        dcmObj.setString(Tag.SelectorCSValue, VR.AE, "TEXT");
-        dcmObj.setString(Tag.SelectorDTValue, VR.DA, "202104032321");
+        dcmObj.setString(Tag.SelectorCSValue, VR.CS, "TEXT");
+        dcmObj.setString(Tag.SelectorDTValue, VR.DT, "202104032321");
         dcmObj.setInt(Tag.SelectorISValue, VR.IS, 1);
         dcmObj.setInt(Tag.SelectorOBValue, VR.OB, -1);
         dcmObj.setString(Tag.SelectorLOValue, VR.LO, "TEXT");
         dcmObj.setFloat(Tag.SelectorOFValue, VR.OF, 1.f);
         dcmObj.setString(Tag.SelectorLTValue, VR.LT, "TEXT");
         dcmObj.setInt(Tag.SelectorOWValue, VR.OW, -1);
-        dcmObj.setString(Tag.SelectorPNValue, VR.LT, "TEXT");
+        dcmObj.setString(Tag.SelectorPNValue, VR.PN, "TEXT");
         dcmObj.setString(Tag.SelectorTMValue, VR.TM, "2321");
-        dcmObj.setString(Tag.SelectorSHValue, VR.LT, "TEXT");
+        dcmObj.setString(Tag.SelectorSHValue, VR.SH, "TEXT");
         dcmObj.setBytes(Tag.SelectorUNValue, VR.UN, TEXT);
         dcmObj.setString(Tag.SelectorSTValue, VR.ST, "TEXT");
         dcmObj.setString(Tag.SelectorUCValue, VR.UC, "TEXT");

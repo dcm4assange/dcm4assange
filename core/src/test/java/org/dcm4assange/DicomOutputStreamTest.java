@@ -52,28 +52,53 @@ public class DicomOutputStreamTest {
     };
 
     @Test
-    public void writeDataSetIVR_LE() throws IOException {
-        assertArrayEquals(DicomInputStreamTest.IVR_LE,
-                writeDataSet(DicomEncoding.IVR_LE, false, false, false,
-                DicomInputStreamTest.readDataset(DicomInputStreamTest.IVR_LE, DicomEncoding.IVR_LE)));
+    public void writeParsedDataSetIVR_LE() throws IOException {
+        writeDataSetIVR_LE(DicomInputStreamTest.readDataset(DicomInputStreamTest.IVR_LE, DicomEncoding.IVR_LE));
+    }
+    @Test
+    public void writeCreatedDataSetIVR_LE() throws IOException {
+        writeDataSetIVR_LE(DicomObjectTest.createDataset());
+    }
+
+    private void writeDataSetIVR_LE(DicomObject dataset) throws IOException {
+        assertWriteDataSet(DicomInputStreamTest.IVR_LE, dataset, DicomEncoding.IVR_LE);
     }
 
     @Test
-    public void writeDataSetEVR_LE() throws IOException {
-        assertArrayEquals(DicomInputStreamTest.EVR_LE,
-                writeDataSet(DicomEncoding.EVR_LE, false, false, false,
-                DicomInputStreamTest.readDataset(DicomInputStreamTest.EVR_BE, DicomEncoding.EVR_BE)));
+    public void writeParsedDataSetEVR_LE() throws IOException {
+        writeDataSetEVR_LE(DicomInputStreamTest.readDataset(DicomInputStreamTest.EVR_BE, DicomEncoding.EVR_BE));
     }
 
     @Test
-    public void writeDataSetEVR_BE() throws IOException {
-        assertArrayEquals(DicomInputStreamTest.EVR_BE,
-                writeDataSet(DicomEncoding.EVR_BE, false, false, false,
-                DicomInputStreamTest.readDataset(DicomInputStreamTest.EVR_LE, DicomEncoding.EVR_LE)));
+    public void writeCreatedDataSetEVR_LE() throws IOException {
+        writeDataSetEVR_LE(DicomObjectTest.createDataset());
+    }
+
+    private void writeDataSetEVR_LE(DicomObject dataset) throws IOException {
+        assertWriteDataSet(DicomInputStreamTest.EVR_LE, dataset, DicomEncoding.EVR_LE);
     }
 
     @Test
-    public void writeDataSetDEFL() throws IOException {
+    public void writeParsedDataSetEVR_BE() throws IOException {
+        writeDataSetEVR_BE(DicomInputStreamTest.readDataset(DicomInputStreamTest.EVR_LE, DicomEncoding.EVR_LE));
+    }
+
+    @Test
+    public void writeCreatedDataSetEVR_BE() throws IOException {
+        writeDataSetEVR_BE(DicomObjectTest.createDataset());
+    }
+
+    private void writeDataSetEVR_BE(DicomObject dataset) throws IOException {
+        assertWriteDataSet(DicomInputStreamTest.EVR_BE, dataset, DicomEncoding.EVR_BE);
+    }
+
+    private void assertWriteDataSet(byte[] expected, DicomObject dataset, DicomEncoding encoding) throws IOException {
+        assertArrayEquals(expected,
+                writeDataSet(encoding, false, false, false, dataset));
+    }
+
+    @Test
+    public void writeParsedDataSetDEFL() throws IOException {
         byte[] DEFL_EVR_LE = DicomInputStreamTest.DEFL_EVR_LE();
         DicomObject fmi;
         DicomObject data;

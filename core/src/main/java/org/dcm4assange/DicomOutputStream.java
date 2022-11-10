@@ -18,6 +18,7 @@
 package org.dcm4assange;
 
 import org.dcm4assange.util.StringUtils;
+import org.dcm4assange.util.ToggleEndian;
 
 import java.io.*;
 import java.net.URI;
@@ -207,9 +208,25 @@ public class DicomOutputStream extends OutputStream  {
 
     void write(int tag, VR vr, byte[] b) throws IOException {
         writeHeader(tag, vr, (b.length + 1) & ~1);
-        write(b);
+        if (encoding.byteOrder == ByteOrder.LITTLE_ENDIAN || vr.type.toggleEndian() == null)
+            write(b);
+        else
+            writeSwappedBytes(b, vr.type.toggleEndian(), buffer());
         if ((b.length & 1) != 0)
             write(vr.paddingByte);
+    }
+
+    private void writeSwappedBytes(byte[] b, ToggleEndian toggleEndian, byte[] buf) throws IOException {
+        int remaining = b.length;
+        int copy = 0;
+        int pos = 0;
+        while ((remaining -= copy) > 0) {
+            pos += copy;
+            copy = Math.min(remaining, buf.length);
+            System.arraycopy(b, pos, buf, 0, copy);
+            toggleEndian.apply(buf, copy);
+            write(buf, 0, copy);
+        }
     }
 
     void write(long header, MemoryCache.DicomInput dicomInput) throws IOException {
