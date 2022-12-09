@@ -688,7 +688,7 @@ public class Association implements Runnable {
                     case 0x8150 -> onDimseRSP(pcid, Dimse.N_DELETE_RSP, commandSet, this);
                     case 0x0150 -> onDimseRQ(pcid, Dimse.N_DELETE_RQ, commandSet, this);
                     case 0x0FFF -> onCancelRQ(pcid, Dimse.C_CANCEL_RQ, commandSet, this);
-                    default -> AAbort.userInitiated();
+                    default -> throw AAbort.userInitiated();
                 }
                 pcid = null;
             }
