@@ -151,7 +151,7 @@ public class StoreSCP implements Callable<Integer> {
     }
 
     private void onDimseRQ(Association as, Byte pcid, Dimse dimse, DicomObject commandSet, InputStream dataStream)
-            throws IOException {
+            throws IOException, DicomServiceException {
         if (dimse != Dimse.C_STORE_RQ) {
             throw new DicomServiceException(Status.UnrecognizedOperation);
         }

@@ -126,12 +126,16 @@ public class Association implements Runnable {
 
     @Override
     public void run() {
-        try {
-            while (!sock.isInputShutdown() && !sock.isClosed()) {
+        while (!sock.isInputShutdown() && !sock.isClosed()) {
+            try {
                 nextPDU();
+            } catch (AAssociateRJ aarj) {
+                write(aarj);
+            } catch (AAbort aa) {
+                write(aa);
+            } catch (IOException e) {
+                onIOException(e);
             }
-        } catch (IOException ex) {
-            state.onIOException(this, ex);
         }
     }
 
@@ -219,6 +223,15 @@ public class Association implements Runnable {
         } finally {
             writeLock.unlock();
         }
+    }
+
+    public void writeDimse(Byte pcid, Dimse dimse, DicomObject commandSet,
+                           DicomObject dataSet, String transferSyntax) throws IOException {
+        writeDimse(pcid, dimse, commandSet,((out, tsuid) ->
+                        new DicomOutputStream(out)
+                                .withEncoding(DicomEncoding.of(transferSyntax))
+                                .writeDataSet(dataSet)),
+                transferSyntax);
     }
 
     public void writeDimse(Byte pcid, Dimse dimse, DicomObject commandSet,
@@ -323,7 +336,7 @@ public class Association implements Runnable {
             as.onAAbort(pduLength);
         }
 
-        public void onUnrecognizedPDU(Association as, int pduType, int pduLength) {
+        public void onUnrecognizedPDU(Association as, int pduType, int pduLength) throws IOException {
             as.onUnrecognizedPDU(pduType, pduLength);
         }
 
@@ -343,10 +356,30 @@ public class Association implements Runnable {
             write(aaac);
             established(aarq.getMaxPDULength(), aaac.getMaxOpsPerformed());
         } catch (AAssociateRJ aarj) {
+            write(aarj);
+        }
+    }
+
+    private void write(AAssociateRJ aarj) {
+        try {
             LOG.info("{} << {}", name, aarj);
             aarj.writeTo(out);
             sock.shutdownInput();
             deviceRuntime.closeSocketDelayed(conn, sock);
+        } catch (IOException e) {
+            e.printStackTrace();
+            deviceRuntime.closeSocket(conn, sock);
+        }
+    }
+
+    private void write(AAbort aa) {
+        try {
+            LOG.info("{} << {}", name, aa);
+            aa.writeTo(out);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            deviceRuntime.closeSocket(conn, sock);
         }
     }
 
@@ -441,6 +474,9 @@ public class Association implements Runnable {
     private void onAAbort(int pduLength) throws IOException {
         AAbort aAbort = AAbort.readFrom(in, pduLength);
         deviceRuntime.closeSocket(conn, sock);
+        for (OutstandingRSP outstandingRSP : outstandingRSPs) {
+            outstandingRSP.futureDimseRSP.completeExceptionally(aAbort);
+        }
         aaacReceived.completeExceptionally(aAbort);
         arrpReceived.completeExceptionally(aAbort);
     }
@@ -467,12 +503,12 @@ public class Association implements Runnable {
     private void onIOException(IOException ex) {
     }
 
-    private void onUnrecognizedPDU(int pduType, int pduLength) {
-
+    private void onUnrecognizedPDU(int pduType, int pduLength) throws IOException {
+        throw AAbort.unrecognizedPDU();
     }
 
-    private void onUnexpectedPDU(int pduType, int pduLength) {
-
+    private void onUnexpectedPDU(int pduType, int pduLength) throws IOException {
+        throw AAbort.unexpectedPDU();
     }
 
     private void write(AAssociate rqac) throws IOException {
@@ -484,15 +520,23 @@ public class Association implements Runnable {
         }
     }
 
-    private void writeAReleaseRQ() throws IOException {
-        LOG.info("{} << A-RELEASE-RQ[len=4]", name);
-        blockingWrite(0x05, 0, 0, 0);
-        state = State.EXPECT_AR_RP;
+    private void writeAReleaseRQ() {
+        try {
+            LOG.info("{} << A-RELEASE-RQ[len=4]", name);
+            blockingWrite(0x05, 0, 0, 0);
+            state = State.EXPECT_AR_RP;
+        } catch (IOException e) {
+            deviceRuntime.closeSocket(conn, sock);
+        }
     }
 
-    private void writeAReleaseRP() throws IOException {
-        LOG.info("{} << A-RELEASE-RP[len=4]", name);
-        blockingWrite(0x06, 0, 0, 0);
+    private void writeAReleaseRP() {
+        try {
+            LOG.info("{} << A-RELEASE-RP[len=4]", name);
+            blockingWrite(0x06, 0, 0, 0);
+        } catch (IOException e) {
+            deviceRuntime.closeSocket(conn, sock);
+        }
     }
 
     private boolean tryWrite(int pdutype, int result, int source, int reason, long timeout, TimeUnit unit)
@@ -531,18 +575,45 @@ public class Association implements Runnable {
     }
 
     void onDimseRQ(Byte pcid, Dimse dimse, DicomObject commandSet, InputStream dataStream) throws IOException {
-        deviceRuntime.onDimseRQ(this, pcid, dimse, commandSet, dataStream);
+        logCommand(pcid, dimse, commandSet);
+        try {
+            deviceRuntime.onDimseRQ(this, pcid, dimse, commandSet, dataStream);
+        } catch (DicomServiceException e) {
+            DicomObject dataSet = e.getDataSet();
+            try {
+                if (dataSet == null)
+                    writeDimse(pcid, dimse.rsp, dimse.mkRSP(commandSet, Dimse.NO_DATASET, e.getStatus()));
+                else
+                    writeDimse(pcid, dimse.rsp, dimse.mkRSP(commandSet, Dimse.WITH_DATASET, e.getStatus()),
+                            dataSet, getTransferSyntax(pcid));
+            } catch (IOException ex) {
+                deviceRuntime.closeSocket(conn, sock);
+            }
+        }
     }
 
     void onCancelRQ(Byte pcid, Dimse dimse, DicomObject commandSet, InputStream dataStream) {
+        logCommand(pcid, dimse, commandSet);
     }
 
-    void onDimseRSP(Byte pcid, Dimse dimse, DicomObject commandSet, DicomObject dataSet) {
+    private void logCommand(Byte pcid, Dimse dimse, DicomObject commandSet) {
+        if (LOG.isInfoEnabled()) {
+            LOG.info("{} >> {}", name, dimse.toString(pcid, commandSet, getTransferSyntax(pcid)));
+            LOG.debug("{} >> Command:\n{}", name, commandSet);
+        }
+    }
+
+    void onDimseRSP(Byte pcid, Dimse dimse, DicomObject commandSet, InputStream dataStream) throws IOException {
+        logCommand(pcid, dimse, commandSet);
         int messageID = commandSet.getInt(Tag.MessageIDBeingRespondedTo).getAsInt();
         OutstandingRSP outstandingRSP =
                 outstandingRSPs.stream().filter(o -> o.messageID == messageID).findFirst().get();
         outstandingRSPs.remove(outstandingRSP);
-        outstandingRSP.futureDimseRSP.complete(new DimseRSP(dimse, commandSet, dataSet));
+        outstandingRSP.futureDimseRSP.complete(new DimseRSP(dimse, commandSet, Dimse.hasDataSet(commandSet)
+                ? new DicomInputStream(dataStream)
+                .withEncoding(DicomEncoding.of(getTransferSyntax(pcid)))
+                .readDataSet()
+                : null));
     }
 
     private class PDVInputStream extends InputStream {
@@ -591,13 +662,34 @@ public class Association implements Runnable {
                 if (pc.result != AAssociate.AC.Result.ACCEPTANCE)
                     throw AAbort.userInitiated();
                 DicomObject commandSet = new DicomInputStream(this).readCommandSet();
-                Dimse dimse = Dimse.of(commandSet);
-                if (LOG.isInfoEnabled()) {
-                    LOG.info("{} >> {}", name, dimse.toString(pcid, commandSet, getTransferSyntax(pcid)));
-                    LOG.debug("{} >> Command:\n{}", name, commandSet);
-                }
+                int commandField = commandSet.getInt(Tag.CommandField).orElseThrow(() -> AAbort.userInitiated());
                 mch = FIRST_DATA;
-                dimse.handler.accept(Association.this, pcid, dimse, commandSet, this);
+                switch (commandField) {
+                    case 0x8001 -> onDimseRSP(pcid, Dimse.C_STORE_RSP, commandSet, this);
+                    case 0x0001 -> onDimseRQ(pcid, Dimse.C_STORE_RQ, commandSet, this);
+                    case 0x8010 -> onDimseRSP(pcid, Dimse.C_GET_RSP, commandSet, this);
+                    case 0x0010 -> onDimseRQ(pcid, Dimse.C_GET_RQ, commandSet, this);
+                    case 0x8020 -> onDimseRSP(pcid, Dimse.C_FIND_RSP, commandSet, this);
+                    case 0x0020 -> onDimseRQ(pcid, Dimse.C_FIND_RQ, commandSet, this);
+                    case 0x8021 -> onDimseRSP(pcid, Dimse.C_MOVE_RSP, commandSet, this);
+                    case 0x0021 -> onDimseRQ(pcid, Dimse.C_MOVE_RQ, commandSet, this);
+                    case 0x8030 -> onDimseRSP(pcid, Dimse.C_ECHO_RSP, commandSet, this);
+                    case 0x0030 -> onDimseRQ(pcid, Dimse.C_ECHO_RQ, commandSet, this);
+                    case 0x8100 -> onDimseRSP(pcid, Dimse.N_EVENT_REPORT_RSP, commandSet, this);
+                    case 0x0100 -> onDimseRQ(pcid, Dimse.N_EVENT_REPORT_RQ, commandSet, this);
+                    case 0x8110 -> onDimseRSP(pcid, Dimse.N_GET_RSP, commandSet, this);
+                    case 0x0110 -> onDimseRQ(pcid, Dimse.N_GET_RQ, commandSet, this);
+                    case 0x8120 -> onDimseRSP(pcid, Dimse.N_SET_RSP, commandSet, this);
+                    case 0x0120 -> onDimseRQ(pcid, Dimse.N_SET_RQ, commandSet, this);
+                    case 0x8130 -> onDimseRSP(pcid, Dimse.N_ACTION_RSP, commandSet, this);
+                    case 0x0130 -> onDimseRQ(pcid, Dimse.N_ACTION_RQ, commandSet, this);
+                    case 0x8140 -> onDimseRSP(pcid, Dimse.N_CREATE_RSP, commandSet, this);
+                    case 0x0140 -> onDimseRQ(pcid, Dimse.N_CREATE_RQ, commandSet, this);
+                    case 0x8150 -> onDimseRSP(pcid, Dimse.N_DELETE_RSP, commandSet, this);
+                    case 0x0150 -> onDimseRQ(pcid, Dimse.N_DELETE_RQ, commandSet, this);
+                    case 0x0FFF -> onCancelRQ(pcid, Dimse.C_CANCEL_RQ, commandSet, this);
+                    default -> AAbort.userInitiated();
+                }
                 pcid = null;
             }
         }

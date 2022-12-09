@@ -10,8 +10,8 @@ import java.io.InputStream;
  * @since Nov 2019
  */
 @FunctionalInterface
-public interface DimseHandler {
+public interface DimseRQHandler {
     void accept(Association as, Byte pcid, Dimse dimse, DicomObject commandSet, InputStream dataStream)
-            throws IOException;
+            throws IOException, DicomServiceException;
 
 }

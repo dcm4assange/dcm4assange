@@ -11,102 +11,68 @@ import org.dcm4assange.util.UIDUtils;
  */
 public enum Dimse {
     C_STORE_RSP (0x8001, Tag.AffectedSOPClassUID, Tag.AffectedSOPInstanceUID, Tag.MessageIDBeingRespondedTo,
-            0, null, AbstractDimseHandler.onDimseRSP::accept),
+            0, null),
     C_STORE_RQ (0x0001, Tag.AffectedSOPClassUID, Tag.AffectedSOPInstanceUID, Tag.MessageID,
-            Status.SOPclassNotSupported, C_STORE_RSP, Association::onDimseRQ),
+            Status.SOPclassNotSupported, C_STORE_RSP),
     C_GET_RSP (0x8010, Tag.AffectedSOPClassUID, 0, Tag.MessageIDBeingRespondedTo,
-            0, null, AbstractDimseHandler.onDimseRSP::accept),
+            0, null),
     C_GET_RQ (0x0010, Tag.AffectedSOPClassUID, 0, Tag.MessageID,
-            Status.SOPclassNotSupported, C_GET_RSP, Association::onDimseRQ),
+            Status.SOPclassNotSupported, C_GET_RSP),
     C_FIND_RSP (0x8020, Tag.AffectedSOPClassUID, 0, Tag.MessageIDBeingRespondedTo,
-            0, null, AbstractDimseHandler.onDimseRSP::accept),
+            0, null),
     C_FIND_RQ (0x0020, Tag.AffectedSOPClassUID, 0, Tag.MessageID,
-            Status.SOPclassNotSupported, C_FIND_RSP, Association::onDimseRQ),
+            Status.SOPclassNotSupported, C_FIND_RSP),
     C_MOVE_RSP (0x8021, Tag.AffectedSOPClassUID, 0, Tag.MessageIDBeingRespondedTo,
-            0, null, AbstractDimseHandler.onDimseRSP::accept),
+            0, null),
     C_MOVE_RQ (0x0021, Tag.AffectedSOPClassUID, 0, Tag.MessageID,
-            Status.SOPclassNotSupported, C_MOVE_RSP, Association::onDimseRQ),
+            Status.SOPclassNotSupported, C_MOVE_RSP),
     C_ECHO_RSP (0x8030, Tag.AffectedSOPClassUID, 0, Tag.MessageIDBeingRespondedTo,
-            0, null, AbstractDimseHandler.onDimseRSP::accept),
+            0, null),
     C_ECHO_RQ (0x0030, Tag.AffectedSOPClassUID, 0, Tag.MessageID,
-            Status.SOPclassNotSupported, C_ECHO_RSP, Association::onDimseRQ),
+            Status.SOPclassNotSupported, C_ECHO_RSP),
     N_EVENT_REPORT_RSP (0x8100, Tag.AffectedSOPClassUID, Tag.AffectedSOPInstanceUID, Tag.MessageIDBeingRespondedTo,
-            0, null, AbstractDimseHandler.onDimseRSP::accept),
+            0, null),
     N_EVENT_REPORT_RQ (0x0100, Tag.AffectedSOPClassUID, Tag.AffectedSOPInstanceUID, Tag.MessageID,
-            Status.NoSuchSOPclass, N_EVENT_REPORT_RSP, Association::onDimseRQ),
+            Status.NoSuchSOPclass, N_EVENT_REPORT_RSP),
     N_GET_RSP (0x8110, Tag.AffectedSOPClassUID, Tag.AffectedSOPInstanceUID, Tag.MessageIDBeingRespondedTo,
-            0, null, AbstractDimseHandler.onDimseRSP::accept),
+            0, null),
     N_GET_RQ (0x0110, Tag.RequestedSOPClassUID, Tag.RequestedSOPInstanceUID, Tag.MessageID,
-            Status.NoSuchSOPclass, N_GET_RSP, Association::onDimseRQ),
+            Status.NoSuchSOPclass, N_GET_RSP),
     N_SET_RSP (0x8120, Tag.AffectedSOPClassUID, Tag.AffectedSOPInstanceUID, Tag.MessageIDBeingRespondedTo,
-            0, null, AbstractDimseHandler.onDimseRSP::accept),
+            0, null),
     N_SET_RQ (0x0120, Tag.RequestedSOPClassUID, Tag.RequestedSOPInstanceUID, Tag.MessageID,
-            Status.NoSuchSOPclass, N_SET_RSP, Association::onDimseRQ),
+            Status.NoSuchSOPclass, N_SET_RSP),
     N_ACTION_RSP (0x8130, Tag.AffectedSOPClassUID, Tag.AffectedSOPInstanceUID, Tag.MessageIDBeingRespondedTo,
-            0, null, AbstractDimseHandler.onDimseRSP::accept),
+            0, null),
     N_ACTION_RQ (0x0130, Tag.RequestedSOPClassUID, Tag.RequestedSOPInstanceUID, Tag.MessageID,
-            Status.NoSuchSOPclass, N_ACTION_RSP, Association::onDimseRQ),
+            Status.NoSuchSOPclass, N_ACTION_RSP),
     N_CREATE_RSP (0x8140, Tag.AffectedSOPClassUID, Tag.AffectedSOPInstanceUID, Tag.MessageIDBeingRespondedTo,
-            0, null, AbstractDimseHandler.onDimseRSP::accept),
+            0, null),
     N_CREATE_RQ (0x0140, Tag.AffectedSOPClassUID, Tag.AffectedSOPInstanceUID, Tag.MessageID,
-            Status.NoSuchSOPclass, N_CREATE_RSP, Association::onDimseRQ),
+            Status.NoSuchSOPclass, N_CREATE_RSP),
     N_DELETE_RSP (0x8150, Tag.AffectedSOPClassUID, Tag.AffectedSOPInstanceUID, Tag.MessageIDBeingRespondedTo,
-            0, null, AbstractDimseHandler.onDimseRSP::accept),
+            0, null),
     N_DELETE_RQ (0x0150, Tag.RequestedSOPClassUID, Tag.RequestedSOPInstanceUID, Tag.MessageID,
-            Status.NoSuchSOPclass, N_CREATE_RSP, Association::onDimseRQ),
+            Status.NoSuchSOPclass, N_CREATE_RSP),
     C_CANCEL_RQ (0x0FFF, 0, 0, Tag.MessageIDBeingRespondedTo,
-            0, null, Association::onCancelRQ);
+            0, null);
 
-    static int WITH_DATASET = 0;
-    public static int NO_DATASET = 0x0101;
+    public final static int WITH_DATASET = 0;
+    public final static int NO_DATASET = 0x0101;
     public final int commandField;
     public final int tagOfSOPClassUID;
     public final int tagOfSOPInstanceUID;
     public final int tagOfMessageID;
     public final int noSuchSOPClass;
     public final Dimse rsp;
-    public final DimseHandler handler;
 
-    Dimse(int commandField, int tagOfSOPClassUID, int tagOfSOPInstanceUID, int tagOfMessageID, int noSuchSOPClass, Dimse rsp,
-          DimseHandler handler) {
+    Dimse(int commandField, int tagOfSOPClassUID, int tagOfSOPInstanceUID, int tagOfMessageID, int noSuchSOPClass, Dimse rsp) {
         this.commandField = commandField;
         this.tagOfSOPClassUID = tagOfSOPClassUID;
         this.tagOfSOPInstanceUID = tagOfSOPInstanceUID;
         this.tagOfMessageID = tagOfMessageID;
         this.noSuchSOPClass = noSuchSOPClass;
         this.rsp = rsp;
-        this.handler = handler;
-    }
-
-    public static Dimse of(DicomObject commandSet) {
-        int commandField = commandSet.getIntOrElseThrow(Tag.CommandField);
-        return switch (commandField) {
-            case 0x8001 -> C_STORE_RSP;
-            case 0x0001 -> C_STORE_RQ;
-            case 0x8010 -> C_GET_RSP;
-            case 0x0010 -> C_GET_RQ;
-            case 0x8020 -> C_FIND_RSP;
-            case 0x0020 -> C_FIND_RQ;
-            case 0x8021 -> C_MOVE_RSP;
-            case 0x0021 -> C_MOVE_RQ;
-            case 0x8030 -> C_ECHO_RSP;
-            case 0x0030 -> C_ECHO_RQ;
-            case 0x8100 -> N_EVENT_REPORT_RSP;
-            case 0x0100 -> N_EVENT_REPORT_RQ;
-            case 0x8110 -> N_GET_RSP;
-            case 0x0110 -> N_GET_RQ;
-            case 0x8120 -> N_SET_RSP;
-            case 0x0120 -> N_SET_RQ;
-            case 0x8130 -> N_ACTION_RSP;
-            case 0x0130 -> N_ACTION_RQ;
-            case 0x8140 -> N_CREATE_RSP;
-            case 0x0140 -> N_CREATE_RQ;
-            case 0x8150 -> N_DELETE_RSP;
-            case 0x0150 -> N_DELETE_RQ;
-            case 0x0FFF -> C_CANCEL_RQ;
-            default -> throw new IllegalArgumentException(
-                    String.format("Invalid Command Field (0000,0100): %4XH", commandField));
-        };
     }
 
     DicomObject mkRQ(int msgID, String sopClassUID, String sopInstanceUID, int dataSetType) {
@@ -168,5 +134,9 @@ public enum Dimse {
         return sb.append(commandSet.getIntOrElseThrow(tagOfMessageID))
                 .append(':')
                 .append(name().replace('_', '-'));
+    }
+
+    static boolean hasDataSet(DicomObject commandSet) {
+        return commandSet.getIntOrElseThrow(Tag.CommandDataSetType) != NO_DATASET;
     }
 }

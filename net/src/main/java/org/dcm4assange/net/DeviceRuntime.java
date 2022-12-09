@@ -39,27 +39,27 @@ public class DeviceRuntime {
     final Device device;
     final ExecutorService executorService;
     final ScheduledExecutorService scheduledExecutorService;
-    final DimseHandler dimseHandler;
+    final DimseRQHandler dimseRQHandler;
     TCPConnectionMonitor monitor = TCPConnectionMonitor.DEFAULT;
     NegotiateUserIdentity negotiateUserIdentity = NegotiateUserIdentity.DEFAULT;
 
-    public DeviceRuntime(Device device, DimseHandler dimseHandler) {
-        this(device, dimseHandler,
+    public DeviceRuntime(Device device, DimseRQHandler dimseRQHandler) {
+        this(device, dimseRQHandler,
                 new DaemonThreadFactory("device-" + device.getDeviceName() + "-thread-"));
     }
 
-    private DeviceRuntime(Device device, DimseHandler dimseHandler, ThreadFactory threadFactory) {
-        this(device, dimseHandler,
+    private DeviceRuntime(Device device, DimseRQHandler dimseRQHandler, ThreadFactory threadFactory) {
+        this(device, dimseRQHandler,
                 Executors.newCachedThreadPool(threadFactory),
                 Executors.newSingleThreadScheduledExecutor(threadFactory));
     }
 
     public DeviceRuntime(Device device,
-                         DimseHandler dimseHandler,
+                         DimseRQHandler dimseRQHandler,
                          ExecutorService executorService,
                          ScheduledExecutorService scheduledExecutorService) {
         this.device = Objects.requireNonNull(device);
-        this.dimseHandler = dimseHandler;
+        this.dimseRQHandler = dimseRQHandler;
         this.executorService = Objects.requireNonNull(executorService);
         this.scheduledExecutorService = Objects.requireNonNull(scheduledExecutorService);
     }
@@ -118,8 +118,8 @@ public class DeviceRuntime {
     }
 
     void onDimseRQ(Association as, Byte pcid, Dimse dimse, DicomObject commandSet, InputStream dataStream)
-            throws IOException {
-        dimseHandler.accept(as, pcid, dimse, commandSet, dataStream);
+            throws IOException, DicomServiceException {
+        dimseRQHandler.accept(as, pcid, dimse, commandSet, dataStream);
     }
 
     private static class DaemonThreadFactory implements ThreadFactory {

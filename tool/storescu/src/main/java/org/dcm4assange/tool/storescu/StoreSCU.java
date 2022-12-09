@@ -16,7 +16,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 import java.util.concurrent.Callable;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 /**
@@ -33,7 +36,7 @@ import java.util.stream.Stream;
         optionListHeading = "%nOptions:%n",
         showDefaultValues = true,
         footerHeading = "%nExample:%n",
-        footer = { "$ storescu --called DCM4CHEE localhost 11112 image.dcm",
+        footer = { "$ storescu -c DCM4CHEE@localhost:11112 image.dcm",
                 "Sends image.dcm to Application Entity DCM4CHEE listening on port 11112 at localhost." }
 )
 public class StoreSCU implements Callable<Integer> {
@@ -44,30 +47,20 @@ public class StoreSCU implements Callable<Integer> {
         }
     }
 
-    @CommandLine.Parameters(
-            description = "Hostname of DICOM peer AE.",
-            index = "0")
-    String peer;
-
-    @CommandLine.Parameters(
-            description = "TCP/IP port number of peer AE.",
-            showDefaultValue = CommandLine.Help.Visibility.NEVER,
-            index = "1")
-    int port;
+    @CommandLine.Option(names = "-c", paramLabel = "<aet>@<host>:<port>",
+            description = "AE Title, Hostname and port of DICOM peer AE.",
+            required = true )
+    Peer peer;
 
     @CommandLine.Parameters(
             description = { "DICOM file or directory to be transmitted.",
                     "If absent, verifies the communication by sending a C-ECHO RQ."},
-            index = "2..*")
+            index = "0..*")
     List<Path> file;
 
-    @CommandLine.Option(names = "--calling", paramLabel = "<aetitle>",
+    @CommandLine.Option(names = "-b", paramLabel = "<aet>",
             description = "Set my calling AE title.")
     String calling = "STORESCU";
-
-    @CommandLine.Option(names = "--called", paramLabel = "<aetitle>",
-            description = "Set called AE title of peer AE.")
-    String called = "STORESCP";
 
     @CommandLine.Option(names = "--not-async",
             description = "Do not use asynchronous mode; equivalent to --max-ops-invoked=1 and --max-ops-performed=1.")
@@ -109,14 +102,38 @@ public class StoreSCU implements Callable<Integer> {
     private final List<FileInfo> fileInfos = new ArrayList<>();
 
     public static void main(String[] args) {
-        new CommandLine(new StoreSCU()).execute(args);
+        CommandLine.ITypeConverter<Peer> x;
+        new CommandLine(new StoreSCU())
+                .registerConverter(Peer.class, StoreSCU::parsePeer)
+                .execute(args);
+    }
+
+    static Peer parsePeer(String value) {
+        try {
+            int hostEnd = value.lastIndexOf(':');
+            int aetEnd = value.lastIndexOf('@', hostEnd - 1);
+            return new Peer(
+                    value.substring(0, aetEnd),
+                    value.substring(aetEnd + 1, hostEnd),
+                    Integer.parseInt(value.substring(hostEnd + 1)));
+        } catch (IllegalArgumentException e) {
+            throw new CommandLine.TypeConversionException(
+                    "Invalid format: must be '<aet>@<host>:<port>' but was '" + value + "'");
+        }
+    }
+
+    record Peer(String called, String host, int port) {
+        public Peer {
+            if (port <= 0 || port > 0xFFFF)
+                throw new CommandLine.TypeConversionException("port out of range: " + port);
+        }
     }
 
     @Override
     public Integer call() throws Exception {
         Connection remoteConn = new Connection()
-                .setHostname(peer)
-                .setPort(port);
+                .setHostname(peer.host)
+                .setPort(peer.port);
         Connection localConn = new Connection()
                 .setMaxOpsInvoked(notAsync ? 1 : maxOpsInvoked)
                 .setMaxOpsInvoked(notAsync ? 1 : maxOpsPerformed)
@@ -129,7 +146,7 @@ public class StoreSCU implements Callable<Integer> {
         ApplicationEntity ae = new ApplicationEntity().setAETitle(calling);
         Device device = new Device().setDeviceName(calling).addConnection(localConn).addApplicationEntity(ae);
         DeviceRuntime runtime = new DeviceRuntime(device, null);
-        AAssociate.RQ rq = new AAssociate.RQ(calling, called);
+        AAssociate.RQ rq = new AAssociate.RQ(calling, peer.called);
         rq.setAsyncOpsWindow(localConn);
         rq.setMaxPDULength(localConn);
         if (file == null) {

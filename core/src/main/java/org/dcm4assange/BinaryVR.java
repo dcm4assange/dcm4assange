@@ -353,6 +353,11 @@ enum BinaryVR implements VRType {
         }
 
         @Override
+        long bytesToLong(byte[] b, int pos) {
+            return ByteOrder.LITTLE_ENDIAN.bytesToLong(b, pos);
+        }
+
+        @Override
         String bytesToString(byte[] b, int pos) {
             return Long.toUnsignedString(ByteOrder.LITTLE_ENDIAN.bytesToLong(b, pos));
         }

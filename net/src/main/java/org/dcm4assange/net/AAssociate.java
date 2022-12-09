@@ -1024,9 +1024,9 @@ public abstract class AAssociate {
             return l;
         }
 
-        DimseHandler selectDimseHandler(Map<String, DimseHandler> map) {
+        DimseRQHandler selectDimseRQHandler(Map<String, DimseRQHandler> map) {
             for (String relatedSOPClass : relatedSOPClasses) {
-                DimseHandler handler = map.get(relatedSOPClass);
+                DimseRQHandler handler = map.get(relatedSOPClass);
                 if (handler != null)
                     return handler;
             }
