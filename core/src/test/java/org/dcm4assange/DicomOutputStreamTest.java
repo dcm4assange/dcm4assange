@@ -193,7 +193,7 @@ public class DicomOutputStreamTest {
         Path out = Files.createTempFile("out", ".dcm");
         try {
             Files.copy(dfs, file, StandardCopyOption.REPLACE_EXISTING);
-            try (DicomInputStream dis = new DicomInputStream(file, DicomInputStream::bulkDataPredicate)) {
+            try (DicomInputStream dis = new DicomInputStream(file).withoutBulkData()) {
                 fmi = dis.readFileMetaInformation();
                 data = dis.readDataSet();
             }

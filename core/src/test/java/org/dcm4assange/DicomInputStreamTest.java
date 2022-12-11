@@ -351,7 +351,7 @@ public class DicomInputStreamTest {
     static void parseBulkData(DicomFileStream dfs, String fragment) throws IOException {
         Path file =  Files.createTempFile("", ".dcm");
         Files.copy(dfs, file, StandardCopyOption.REPLACE_EXISTING);
-        try (DicomInputStream dis = new DicomInputStream(file, DicomInputStream::bulkDataPredicate)) {
+        try (DicomInputStream dis = new DicomInputStream(file).withoutBulkData()) {
             DicomObject dcmObj = dis.readDataSet();
             assertEquals(file.toUri() + fragment,
                     dcmObj.getBulkDataURI(Tag.PixelData).orElseGet(Assertions::fail));

@@ -66,6 +66,11 @@
     </dependency>
     <dependency>
       <groupId>org.dcm4assange.tool</groupId>
+      <artifactId>dcm4assange-tool-dcmbenchmark</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.dcm4assange.tool</groupId>
       <artifactId>dcm4assange-tool-dcmdump</artifactId>
       <version>${project.version}</version>
     </dependency>

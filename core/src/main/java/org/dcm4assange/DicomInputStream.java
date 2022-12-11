@@ -55,11 +55,9 @@ public class DicomInputStream extends InputStream {
     private Predicate<DicomObject.Sequence> parseItemsEagerPredicate = DicomInputStream::isWaveformSequence;
     private DicomObject fmi;
 
-    public DicomInputStream(Path path, DicomElementPredicate bulkDataPredicate)
-            throws IOException {
+    public DicomInputStream(Path path) throws IOException {
         this(Files.newInputStream(path));
         this.path = path;
-        this.bulkDataPredicate = Objects.requireNonNull(bulkDataPredicate);
     }
 
     public DicomInputStream(InputStream in) {
@@ -117,6 +115,20 @@ public class DicomInputStream extends InputStream {
 
     public DicomInputStream withDicomElementHandler(DicomElementHandler handler) {
         this.onElement = Objects.requireNonNull(handler);
+        return this;
+    }
+
+    public DicomInputStream stopBefore(int tag) {
+        DicomElementHandler onElement1 = this.onElement;
+        this.onElement = (dis, dcmobj, header) -> (header2tag(header) != tag || dcmobj.isItem())
+                && onElement1.apply(dis, dcmobj, header);
+        return this;
+    }
+
+    public DicomInputStream stopAfter(int tag) {
+        DicomElementHandler onElement1 = this.onElement;
+        this.onElement = (dis, dcmobj, header) -> onElement1.apply(dis, dcmobj, header)
+                && (header2tag(header) != tag || dcmobj.isItem());
         return this;
     }
 
