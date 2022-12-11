@@ -230,7 +230,7 @@ public class DicomOutputStream extends OutputStream  {
     }
 
     void write(long header, MemoryCache.DicomInput dicomInput) throws IOException {
-        int tag = dicomInput.tagAt(header & 0x007fffffffffffffL);
+        int tag = dicomInput.tagAt(header & MemoryCache.POS_MASK);
         VR vr = VR.fromHeader(header);
         int vlen = dicomInput.header2valueLength(header);
         writeHeader(tag, vr, vlen);

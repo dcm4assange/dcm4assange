@@ -278,7 +278,7 @@ public class DicomInputStream extends InputStream {
     }
 
     public static long header2position(long header) {
-        return header & 0x007fffffffffffffL;
+        return header & MemoryCache.POS_MASK;
     }
 
     public int header2valueLength(long header) {
@@ -286,7 +286,7 @@ public class DicomInputStream extends InputStream {
     }
 
     public int header2tag(long header) {
-        return input.tagAt(header & 0x007ffffffffffffL);
+        return input.tagAt(header & MemoryCache.POS_MASK);
     }
 
     public boolean onElement(DicomObject dcmObj, long header) throws IOException {

@@ -9,6 +9,14 @@ import java.io.*;
 import java.util.*;
 import java.util.function.ToIntBiFunction;
 
+/**
+ * Generic container of DICOM Elements, may either represent a DICOM Data Set containing DICOM Data Elements, or a
+ * DICOM Command Set containing DICOM Command Elements, or a DICOM File Meta Information containing DICOM File Meta
+ * Elements.
+ *
+ * @author Gunter Zeilinger (gunterze@protonmail.com)
+ * @since May 2021
+ */
 public class DicomObject implements Serializable {
     private static final int TO_STRING_LENGTH = 78;
     private static final int TO_STRING_LINES = 50;
@@ -17,7 +25,35 @@ public class DicomObject implements Serializable {
     final MemoryCache.DicomInput dicomInput;
     final long position;
     final Sequence seq;
+
+    /**
+     * Contains either position of Element in parsed DICOM stream or Element Tag for programmatically added Elements:
+     *
+     * <p> For programmatically added Elements, the 2 most significant bits (Bit 62 and 63) are set to 0, and the
+     * Element Tag is encoded in the 32 least significant bits (= (int) header).
+     *
+     * <p> For parsed Elements, its position in the DICOM stream is encoded in the 55 least significant bits
+     * (= header & 0x007fffffffffffffL). The 2 most significant bits specifies the encoding:
+     * <table>
+     *     <tr><th>header >>> 62</th><th>Element encoding</th></tr>
+     *     <tr><td>1</td><td>Explicit VR with 16 bit value length</td></tr>
+     *     <tr><td>2</td><td>Explicit VR with 8 bit value length</td></tr>
+     *     <tr><td>3</td><td>Implicit VR with 16 bit value length</td></tr>
+     * </table>
+     *
+     * <p> For parsed as for programmatically added Elements, Bits 56-61 ((header >>> 55) & 0x3f) encodes the
+     * Value Representation (VR) as ordinal value of the corresponding {@link VR} enumeration constant + 1
+     * (1->AE, 2->AS, 3->AT, ..., 34->UV).
+     */
     volatile long[] headers = {};
+
+    /**
+     * Contains the value of programmatically added (not empty) Elements, either {@code byte[]}, {@code String[]} or
+     * {@link DicomObject.Sequence}.
+     *
+     * For parsed Elements other than (not empty) Sequences, Data Fragments or Bulkdata, it contains {@code null}.
+     * Otherwise, it contains {@link DicomObject.Sequence}, {@link DicomObject.Fragments} or {@code String} (=Bulkdata URI).
+     */
     volatile Object[] values = {};
     volatile SpecificCharacterSet specificCharacterSet;
     volatile int size;
@@ -334,11 +370,11 @@ public class DicomObject implements Serializable {
     }
 
     int header2tag(long header) {
-        return ((int)(header >>> 62) == 0) ? (int) header : dicomInput.tagAt(header & 0x007fffffffffffffL);
+        return ((int)(header >>> 62) == 0) ? (int) header : dicomInput.tagAt(header & MemoryCache.POS_MASK);
     }
 
     static long header2valuePosition(long header) {
-        return (header & 0x007fffffffffffffL) + header2headerLength(header);
+        return (header & MemoryCache.POS_MASK) + header2headerLength(header);
     }
 
     public static int header2headerLength(long header) {
