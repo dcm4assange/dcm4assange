@@ -230,7 +230,7 @@ public class DicomOutputStream extends OutputStream  {
     }
 
     void write(long header, MemoryCache.DicomInput dicomInput) throws IOException {
-        int tag = dicomInput.tagAt(header & MemoryCache.POS_MASK);
+        int tag = dicomInput.tagAt(header & DicomInputStream.POSITION_HEADER_MASK);
         VR vr = VR.fromHeader(header);
         int vlen = dicomInput.header2valueLength(header);
         writeHeader(tag, vr, vlen);
@@ -254,7 +254,7 @@ public class DicomOutputStream extends OutputStream  {
         if (encoding == DicomEncoding.SERIALIZE) {
             byte[] b = bulkDataURI.getBytes(StandardCharsets.UTF_8);
             int hlen = fillHeader(tag, vr, b.length, b12);
-            b12[4] |= BULKDATA_VR_BIT;
+            b12[4] |= BULKDATA_VR_BIT; // set first bit of VR code to mark serialized Bulkdata URI
             write(b12, 0, hlen);
             write(b, 0, b.length);
         } else {

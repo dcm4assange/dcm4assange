@@ -13,7 +13,6 @@ import java.util.zip.InflaterInputStream;
  */
 class MemoryCache {
     private static final int MAX_BUFFER_SIZE = 2048;
-    public static final long POS_MASK = 0x007fffffffffffffL;
     private final ArrayList<byte[]> blocks = new ArrayList<>();
     private long limit;
     private boolean eof;
@@ -322,7 +321,7 @@ class MemoryCache {
         }
 
         int header2valueLength(long header) {
-            long pos = header & POS_MASK;
+            long pos = header & DicomInputStream.POSITION_HEADER_MASK;
             int type = (int)(header >>> 62);
             return type == 0 ? -1
                     : type == 1 ? intAt(pos + 4)

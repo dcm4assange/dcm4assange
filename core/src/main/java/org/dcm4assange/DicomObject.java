@@ -41,7 +41,7 @@ public class DicomObject implements Serializable {
      *     <tr><td>3</td><td>Implicit VR with 16 bit value length</td></tr>
      * </table>
      *
-     * <p> For parsed as for programmatically added Elements, Bits 56-61 ((header >>> 55) & 0x3f) encodes the
+     * <p> For parsed as for programmatically added Elements, Bits 55-60 ((header >>> 55) & 0x3f) encodes the
      * Value Representation (VR) as ordinal value of the corresponding {@link VR} enumeration constant + 1
      * (1->AE, 2->AS, 3->AT, ..., 34->UV).
      */
@@ -370,11 +370,11 @@ public class DicomObject implements Serializable {
     }
 
     int header2tag(long header) {
-        return ((int)(header >>> 62) == 0) ? (int) header : dicomInput.tagAt(header & MemoryCache.POS_MASK);
+        return ((int)(header >>> 62) == 0) ? (int) header : dicomInput.tagAt(header & DicomInputStream.POSITION_HEADER_MASK);
     }
 
     static long header2valuePosition(long header) {
-        return (header & MemoryCache.POS_MASK) + header2headerLength(header);
+        return (header & DicomInputStream.POSITION_HEADER_MASK) + header2headerLength(header);
     }
 
     public static int header2headerLength(long header) {

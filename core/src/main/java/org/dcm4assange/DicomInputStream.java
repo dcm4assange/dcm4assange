@@ -17,6 +17,7 @@ import java.util.function.Predicate;
  */
 public class DicomInputStream extends InputStream {
 
+    public static final long POSITION_HEADER_MASK = 0x007fffffffffffffL;
     private static final long BULKDATA_HEADER_BIT = 0x2000000000000000L;
 
     @FunctionalInterface
@@ -277,23 +278,19 @@ public class DicomInputStream extends InputStream {
         return fmi;
     }
 
-    public static long header2position(long header) {
-        return header & MemoryCache.POS_MASK;
-    }
-
     public int header2valueLength(long header) {
         return input.header2valueLength(header);
     }
 
     public int header2tag(long header) {
-        return input.tagAt(header & MemoryCache.POS_MASK);
+        return input.tagAt(header & POSITION_HEADER_MASK);
     }
 
     public boolean onElement(DicomObject dcmObj, long header) throws IOException {
         VR vr = VR.fromHeader(header);
         int tag = header2tag(header);
         int vallen = input.header2valueLength(header);
-        if ((header & BULKDATA_HEADER_BIT) != 0) {
+        if ((header & BULKDATA_HEADER_BIT) != 0) { // test for mark for serialized Bulkdata URI
             byte[] b = new byte[vallen];
             read(b);
             dcmObj.add(header, new String(b, StandardCharsets.UTF_8));
@@ -457,9 +454,9 @@ public class DicomInputStream extends InputStream {
         }
         int vrcode = cache.vrcode(pos0 + 4);
         long bulkdata = 0;
-        if (vrcode < 0 && encoding() == DicomEncoding.SERIALIZE) {
-            vrcode &= 0x7fff;
-            bulkdata = BULKDATA_HEADER_BIT;
+        if (vrcode < 0 && encoding() == DicomEncoding.SERIALIZE) { // negative vrcode marks serialized Bulkdata URI
+            vrcode &= 0x7fff; // clear mark and restore VR code
+            bulkdata = BULKDATA_HEADER_BIT; // set Bit 61 of header to mark serialized Bulkdata URI
         }
         VR vr = VR.of(vrcode);
         if (vr == null) vr = lookupVR(tag, dcmObj); // replace invalid vrcode

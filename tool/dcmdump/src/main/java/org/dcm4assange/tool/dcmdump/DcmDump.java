@@ -68,7 +68,7 @@ public class DcmDump implements Callable<Integer> {
 
     private boolean onElement(DicomInputStream dis, DicomObject dcmobj, long header)
             throws IOException {
-        long pos = DicomInputStream.header2position(header);
+        long pos = header & DicomInputStream.POSITION_HEADER_MASK;
         int tag = dis.header2tag(header);
         VR vr = VR.fromHeader(header);
         int headerLength = DicomObject.header2headerLength(header);
@@ -133,7 +133,7 @@ public class DcmDump implements Callable<Integer> {
     }
 
     private void promptPos(long header) {
-        long pos = DicomInputStream.header2position(header);
+        long pos = header & DicomInputStream.POSITION_HEADER_MASK;
         sb.setLength(0);
         sb.append(pos).append(": ");
     }
