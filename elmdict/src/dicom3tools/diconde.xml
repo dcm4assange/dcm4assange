@@ -24,6 +24,14 @@
 <el tag="00140106" keyword="MultipleComponentApprovalSequence" vr="SQ" vm="1">Multiple Component Approval Sequence</el>
 <el tag="00140107" keyword="OtherApprovalStatus" vr="CS" vm="1-n">Other Approval Status</el>
 <el tag="00140108" keyword="OtherSecondaryApprovalStatus" vr="CS" vm="1-n">Other Secondary Approval Status</el>
+<el tag="00140200" keyword="DataElementLabelSequence" vr="SQ" vm="1">Data Element Label Sequence</el>
+<el tag="00140201" keyword="DataElementLabelItemSequence" vr="SQ" vm="1">Data Element Label Item Sequence</el>
+<el tag="00140202" keyword="DataElement" vr="AT" vm="1">Data Element</el>
+<el tag="00140203" keyword="DataElementName" vr="LO" vm="1">Data Element Name</el>
+<el tag="00140204" keyword="DataElementDescription" vr="LO" vm="1">Data Element Description</el>
+<el tag="00140205" keyword="DataElementConditionality" vr="CS" vm="1">Data Element Conditionality</el>
+<el tag="00140206" keyword="DataElementMinimumCharacters" vr="IS" vm="1">Data Element Minimum Characters</el>
+<el tag="00140207" keyword="DataElementMaximumCharacters" vr="IS" vm="1">Data Element Maximum Characters</el>
 <el tag="00141010" keyword="ActualEnvironmentalConditions" vr="ST" vm="1">Actual Environmental Conditions</el>
 <el tag="00141020" keyword="ExpiryDate" vr="DA" vm="1">Expiry Date</el>
 <el tag="00141040" keyword="EnvironmentalConditions" vr="ST" vm="1">Environmental Conditions</el>
@@ -75,6 +83,8 @@
 <el tag="00143077" keyword="TimeOfGainCalibration" vr="TM" vm="1">Time of Gain Calibration</el>
 <el tag="00143080" keyword="BadPixelImage" vr="OB" vm="1">Bad Pixel Image</el>
 <el tag="00143099" keyword="CalibrationNotes" vr="LT" vm="1">Calibration Notes</el>
+<el tag="00143100" keyword="LinearityCorrectionTechnique" vr="LT" vm="1">Linearity Correction Technique</el>
+<el tag="00143101" keyword="BeamHardeningCorrectionTechnique" vr="LT" vm="1">Beam Hardening Correction Technique</el>
 <el tag="00144002" keyword="PulserEquipmentSequence" vr="SQ" vm="1">Pulser Equipment Sequence</el>
 <el tag="00144004" keyword="PulserType" vr="CS" vm="1">Pulser Type</el>
 <el tag="00144006" keyword="PulserNotes" vr="LT" vm="1">Pulser Notes</el>

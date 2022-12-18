@@ -601,6 +601,190 @@
                 </fileMapper>
               </fileMappers>
             </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>agfa.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>package</name>
+                  <value>org.dcm4assange.elmdict.agfa</value>
+                </parameter>
+                <parameter>
+                  <name>class</name>
+                  <value>MitraObjectAttributes</value>
+                </parameter>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>MITRA OBJECT ATTRIBUTES 1.0</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-sources/org/dcm4assange/elmdict/agfa</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>MitraObjectAttributes.java</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>agfa.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.properties.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>MITRA OBJECT ATTRIBUTES 1.0</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources/org/dcm4assange/elmdict/agfa</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>MitraObjectAttributes.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>agfa.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>package</name>
+                  <value>org.dcm4assange.elmdict.agfa</value>
+                </parameter>
+                <parameter>
+                  <name>class</name>
+                  <value>MitraObjectDocument</value>
+                </parameter>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>MITRA OBJECT DOCUMENT 1.0</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-sources/org/dcm4assange/elmdict/agfa</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>MitraObjectDocument.java</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>agfa.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.properties.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>MITRA OBJECT DOCUMENT 1.0</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources/org/dcm4assange/elmdict/agfa</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>MitraObjectDocument.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>agfa.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>package</name>
+                  <value>org.dcm4assange.elmdict.agfa</value>
+                </parameter>
+                <parameter>
+                  <name>class</name>
+                  <value>MitraObjectUTF8Attributes</value>
+                </parameter>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>MITRA OBJECT UTF8 ATTRIBUTES 1.0</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-sources/org/dcm4assange/elmdict/agfa</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>MitraObjectUTF8Attributes.java</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>agfa.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.properties.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>MITRA OBJECT UTF8 ATTRIBUTES 1.0</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources/org/dcm4assange/elmdict/agfa</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>MitraObjectUTF8Attributes.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>agfa.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>package</name>
+                  <value>org.dcm4assange.elmdict.agfa</value>
+                </parameter>
+                <parameter>
+                  <name>class</name>
+                  <value>MitraPresentation</value>
+                </parameter>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>MITRA PRESENTATION 1.0</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-sources/org/dcm4assange/elmdict/agfa</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>MitraPresentation.java</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>agfa.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.properties.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>MITRA PRESENTATION 1.0</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources/org/dcm4assange/elmdict/agfa</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>MitraPresentation.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
           </transformationSets>
         </configuration>
       </plugin>

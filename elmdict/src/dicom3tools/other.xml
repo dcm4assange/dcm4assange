@@ -1585,6 +1585,8 @@
 <el tag="00990003" owner="SYNARC_1.0" vr="LO" vm="1"/>
 <el tag="00990004" owner="SYNARC_1.0" vr="US" vm="1-n"/>
 <el tag="00990005" owner="SYNARC_1.0" vr="LO" vm="1"/>
+<el tag="00090001" owner="PixelMed Publishing" keyword="OriginalFileName" vr="UT" vm="1">Original File Name</el>
+<el tag="00090002" owner="PixelMed Publishing" keyword="OriginalTIFFIFDIndex" vr="US" vm="1">Original TIFF IFD Index</el>
 <el tag="00110002" owner="PixelMed Publishing" keyword="StrainDescription" vr="UC" vm="1">Strain Description</el>
 <el tag="00110003" owner="PixelMed Publishing" keyword="StrainNomenclature" vr="LO" vm="1">Strain Nomenclature</el>
 <el tag="00110004" owner="PixelMed Publishing" keyword="StrainStockNumber" vr="LO" vm="1">Strain Stock Number</el>
@@ -1619,6 +1621,7 @@
 <el tag="00610016" owner="PixelMed Publishing" keyword="AnnotationPropertyCategoryCodeSequence" vr="SQ" vm="1">Annotation Property Category Code Sequence</el>
 <el tag="00610017" owner="PixelMed Publishing" keyword="AnnotationPropertyTypeCodeSequence" vr="SQ" vm="1">Annotation Property Type Code Sequence</el>
 <el tag="00610018" owner="PixelMed Publishing" keyword="AnnotationPropertyTypeModifierCodeSequence" vr="SQ" vm="1">Annotation Property Type Modifier Code Sequence</el>
+<el tag="00610019" owner="PixelMed Publishing" keyword="AnnotationGroupUID" vr="UI" vm="1">Annotation Group UID</el>
 <el tag="7FDF0001" owner="PixelMed Publishing" keyword="PyramidData" vr="SQ" vm="1">Pyramid Data</el>
 <el tag="7FE10001" owner="PixelMed Publishing" keyword="FloatPixelData" vr="OF" vm="1">Float Pixel Data</el>
 <el tag="7FE10002" owner="PixelMed Publishing" keyword="DoublePixelData" vr="OD" vm="1">Double Pixel Data</el>
@@ -2408,4 +2411,7 @@
 <el tag="00330022" owner="S-Station" vr="UT" vm="1"/>
 <el tag="00330023" owner="S-Station" vr="UT" vm="1"/>
 <el tag="00330031" owner="S-Station" vr="UT" vm="1"/>
+<el tag="09250010" owner="APERIO" keyword="ImageHash" vr="LT" vm="1">Image Hash</el>
+<el tag="09250012" owner="APERIO" keyword="FileSize" vr="DS" vm="1">File Size</el>
+<el tag="09250014" owner="APERIO" vr="LO" vm="1"/>
 </elements>

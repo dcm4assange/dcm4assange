@@ -34,6 +34,7 @@
     <module>agfa</module>
     <module>camtron</module>
     <module>elscint</module>
+    <module>gems</module>
   </modules>
 
 </project>

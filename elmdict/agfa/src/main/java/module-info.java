@@ -19,5 +19,9 @@ module org.dcm4assange.elmdict.agfa {
             org.dcm4assange.elmdict.agfa.AgilityOverlay,
             org.dcm4assange.elmdict.agfa.AgilityRuntime,
             org.dcm4assange.elmdict.agfa.MitraLinkedAttributes,
-            org.dcm4assange.elmdict.agfa.MitraMarkup;
+            org.dcm4assange.elmdict.agfa.MitraMarkup,
+            org.dcm4assange.elmdict.agfa.MitraObjectAttributes,
+            org.dcm4assange.elmdict.agfa.MitraObjectDocument,
+            org.dcm4assange.elmdict.agfa.MitraObjectUTF8Attributes,
+            org.dcm4assange.elmdict.agfa.MitraPresentation;
 }

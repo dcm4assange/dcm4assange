@@ -936,6 +936,7 @@
 <el tag="20010075" owner="Philips Imaging DD 001" vr="DS" vm="1"/>
 <el tag="20010076" owner="PHILIPS IMAGING DD 001" keyword="NumberOfFrames" vr="UL" vm="1">Number of Frames</el>
 <el tag="20010076" owner="Philips Imaging DD 001" keyword="NumberOfFrames" vr="UL" vm="1">Number of Frames</el>
+<el tag="20010076" owner="Philips Imaging DD 002" vr="UI" vm="1"/>
 <el tag="20010077" owner="PHILIPS IMAGING DD 001" keyword="GLTrafoType" vr="CS" vm="1">GL Transform Type</el>
 <el tag="20010077" owner="Philips Imaging DD 001" keyword="GLTrafoType" vr="CS" vm="1">GL Transform Type</el>
 <el tag="2001007a" owner="PHILIPS IMAGING DD 001" keyword="WindowRoundingFactor" vr="FL" vm="1">Window Rounding Factor</el>

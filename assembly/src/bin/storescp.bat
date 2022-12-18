@@ -50,6 +50,7 @@ set MP=%MP%;%DCM4CHE_HOME%\lib\dcm4assange-elmdict-acuson-${project.version}.jar
 set MP=%MP%;%DCM4CHE_HOME%\lib\dcm4assange-elmdict-agfa-${project.version}.jar
 set MP=%MP%;%DCM4CHE_HOME%\lib\dcm4assange-elmdict-camtron-${project.version}.jar
 set MP=%MP%;%DCM4CHE_HOME%\lib\dcm4assange-elmdict-elscint-${project.version}.jar
+set MP=%MP%;%DCM4CHE_HOME%\lib\dcm4assange-elmdict-gems-${project.version}.jar
 set MP=%MP%;%DCM4CHE_HOME%\lib\slf4j-api-${slf4j.version}.jar
 set MP=%MP%;%DCM4CHE_HOME%\lib\logback-core-${logback.version}.jar
 set MP=%MP%;%DCM4CHE_HOME%\lib\logback-classic-${logback.version}.jar

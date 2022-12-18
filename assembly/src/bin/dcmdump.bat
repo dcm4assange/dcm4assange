@@ -46,6 +46,7 @@ set MP=%MP%;%DCM4CHE_HOME%\lib\dcm4assange-elmdict-acuson-${project.version}.jar
 set MP=%MP%;%DCM4CHE_HOME%\lib\dcm4assange-elmdict-agfa-${project.version}.jar
 set MP=%MP%;%DCM4CHE_HOME%\lib\dcm4assange-elmdict-camtron-${project.version}.jar
 set MP=%MP%;%DCM4CHE_HOME%\lib\dcm4assange-elmdict-elscint-${project.version}.jar
+set MP=%MP%;%DCM4CHE_HOME%\lib\dcm4assange-elmdict-gems-${project.version}.jar
 set MP=%MP%;%DCM4CHE_HOME%\lib\picocli-${picocli.version}.jar
 
 "%JAVA%" %JAVA_OPTS% -p "%MP%" -m %MAIN_MODULE% %ARGS%
