@@ -125,8 +125,8 @@
 <el tag="7005006c" owner="TOSHIBA_MEC_CT3" keyword="SOPInstanceUIDOf4DVolume" vr="UI" vm="1">SOP Instance UID of 4D-Volume</el>
 <el tag="7005006d" owner="TOSHIBA_MEC_CT3" keyword="SeriesInstanceUIDOf4DVolume" vr="UI" vm="1">Series Instance UID of 4D-Volume</el>
 <el tag="7005006e" owner="TOSHIBA_MEC_CT3" keyword="Stitching" vr="SH" vm="1">Stitching</el>
-<el tag="7005006f" owner="TOSHIBA_MEC_CT3" keyword="3DObjectFileHeader" vr="OB" vm="1">3D Object File Header</el>
-<el tag="70050070" owner="TOSHIBA_MEC_CT3" keyword="3DObjectOpacityData" vr="OB" vm="1">3D Object Opacity Data</el>
+<el tag="7005006f" owner="TOSHIBA_MEC_CT3" keyword="ThreeDObjectFileHeader" vr="OB" vm="1">3D Object File Header</el>
+<el tag="70050070" owner="TOSHIBA_MEC_CT3" keyword="ThreeDObjectOpacityData" vr="OB" vm="1">3D Object Opacity Data</el>
 <el tag="70050071" owner="TOSHIBA_MEC_CT3" keyword="RowsOfCapturedImageFor3DObject" vr="US" vm="1">Rows of Captured Image for 3D Object</el>
 <el tag="70050072" owner="TOSHIBA_MEC_CT3" keyword="ColumnsOfCapturedImageFor3DObject" vr="US" vm="1">Columns of Captured Image for 3D Object</el>
 <el tag="70050073" owner="TOSHIBA_MEC_CT3" keyword="AllocatedBitsOfCapturedImageFor3DObject" vr="US" vm="1">Allocated Bits of Captured Image for 3D Object</el>

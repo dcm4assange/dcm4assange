@@ -29,6 +29,9 @@ BEGIN	{
 		keyword=substr($0,RSTART+length("Keyword=\""),
 			RLENGTH-length("Keyword=\"")-1);
 		if (keyword != "?") {
+			if (keyword ~ /^3/) {
+				keyword="Three" substr(keyword,2)
+			}
 			keywordattr="\" keyword=\"" keyword
 		}
 	}
