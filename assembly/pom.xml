@@ -80,6 +80,11 @@
       <version>${project.version}</version>
     </dependency>
     <dependency>
+      <groupId>org.dcm4assange.elmdict</groupId>
+      <artifactId>dcm4assange-elmdict-picker</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
       <groupId>org.dcm4assange.tool</groupId>
       <artifactId>dcm4assange-tool-dcmbenchmark</artifactId>
       <version>${project.version}</version>

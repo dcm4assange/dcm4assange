@@ -663,6 +663,8 @@
 <el tag="002900a3" owner="SPI-P-Private_ICS Release 1;2" vr="SL" vm="1"/>
 <el tag="002900a5" owner="SPI-P-Private_ICS Release 1;2" vr="SQ" vm="1"/>
 <el tag="002900a6" owner="SPI-P-Private_ICS Release 1;2" vr="SL" vm="1"/>
+<el tag="002900AC" owner="CARDIO-D.R. 1.0" keyword="DisplayedAreaBottomRightHandCornerFractional" vr="FL" vm="1">Displayed Area Bottom Right Hand Corner Fractional</el>
+<el tag="002900AD" owner="CARDIO-D.R. 1.0" keyword="DisplayedAreaTopLeftHandCornerFractional" vr="FL" vm="1">Displayed Area Top Left Hand Corner Fractional</el>
 <el tag="002900af" owner="SPI-P Release 1" vr="CS" vm="1"/>
 <el tag="002900b0" owner="SPI-P Release 1" vr="DS" vm="1-n"/>
 <el tag="002900b1" owner="SPI-P Release 1" vr="US" vm="1"/>
@@ -2029,5 +2031,3 @@
 <el tag="705300c2" owner="Philips PET Private Group" vr="UI" vm="1"/>
 <el tag="7FE10010" owner="SPI-P Release 1" keyword="PixelData" vr="OB or OW" vm="1">Pixel Data</el>
 </elements>
-<el tag="002900AC" owner="CARDIO-D.R. 1.0" keyword="DisplayedAreaBottomRightHandCornerFractional" vr="FL" vm="1">Displayed Area Bottom Right Hand Corner Fractional</el>
-<el tag="002900AD" owner="CARDIO-D.R. 1.0" keyword="DisplayedAreaTopLeftHandCornerFractional" vr="FL" vm="1">Displayed Area Top Left Hand Corner Fractional</el>

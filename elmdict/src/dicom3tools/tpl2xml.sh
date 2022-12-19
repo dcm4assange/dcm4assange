@@ -20,9 +20,15 @@ ${DICOM3TOOLS}/libsrc/standard/elmdict/siemens.tpl \
 ${DICOM3TOOLS}/libsrc/standard/elmdict/spi.tpl \
 ${DICOM3TOOLS}/libsrc/standard/elmdict/toshiba.tpl
 # remove duplicates
-grep '"CARDIO-D.R. 1.0"' siemens.xml | grep DisplayedArea >> philips.xml
-grep '"SPI"' siemens.xml >> spi.xml
-grep '"SPI Release 1"' philips.xml | grep 00090008 >> spi.xml
+tag002900AC=$(grep 'tag="002900AC" owner="CARDIO-D.R. 1.0"' siemens.xml)
+tag002900AD=$(grep 'tag="002900AD" owner="CARDIO-D.R. 1.0"' siemens.xml)
+tag00290060=$(grep 'tag="00290060" owner="SPI"' siemens.xml)
+tag00090008=$(grep 'tag="00090008" owner="SPI Release 1"' philips.xml)
+sed -i '/tag="002900af" owner="SPI-P Release 1"/i'"${tag002900AC}\n${tag002900AD}" philips.xml
+sed -i \
+-e '/tag="00090010" owner="SPI"/i'"${tag00090008}" \
+-e '/tag="00290060" owner="SPI RELEASE 1"/i'"${tag00290060}" \
+spi.xml
 sed -i '/"1.2.840.113708.794.1.1.2.0"/d' other.xml
 sed -i '/"CARDIO-D.R. 1.0"/d' siemens.xml
 sed -i '/"SPI"/d' siemens.xml

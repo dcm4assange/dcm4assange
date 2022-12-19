@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <elements>
+<el tag="00090008" owner="SPI Release 1" vr="CS" vm="1"/>
 <el tag="00090010" owner="SPI" keyword="Comments" vr="LO" vm="1">Comments</el>
 <el tag="00090010" owner="SPI RELEASE 1" keyword="Comments" vr="LO" vm="1">Comments</el>
 <el tag="00090010" owner="SPI Release 1" keyword="Comments" vr="LO" vm="1">Comments</el>
@@ -21,8 +22,7 @@
 <el tag="00110020" owner="SPI" keyword="Pregnancy" vr="LO" vm="1">Pregnancy</el>
 <el tag="00110020" owner="SPI RELEASE 1" keyword="Pregnancy" vr="LO" vm="1">Pregnancy</el>
 <el tag="00110020" owner="SPI Release 1" keyword="Pregnancy" vr="LO" vm="1">Pregnancy</el>
+<el tag="00290060" owner="SPI" keyword="CompressionAlgorithm" vr="LO" vm="1">Compression Algorithm</el>
 <el tag="00290060" owner="SPI RELEASE 1" keyword="CompressionAlgorithm" vr="LO" vm="1">Compression Algorithm</el>
 <el tag="00290060" owner="SPI Release 1" keyword="CompressionAlgorithm" vr="LO" vm="1">Compression Algorithm</el>
 </elements>
-<el tag="00290060" owner="SPI" keyword="CompressionAlgorithm" vr="LO" vm="1">Compression Algorithm</el>
-<el tag="00090008" owner="SPI Release 1" vr="CS" vm="1"/>
