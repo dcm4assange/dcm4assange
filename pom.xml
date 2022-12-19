@@ -16,6 +16,7 @@
     <module>net</module>
     <module>tool</module>
     <module>assembly</module>
+    <module>elmdict/papyrus</module>
   </modules>
 
   <properties>
