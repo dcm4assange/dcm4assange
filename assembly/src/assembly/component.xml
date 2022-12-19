@@ -46,6 +46,7 @@
         <include>org.dcm4assange.elmdict:dcm4assange-elmdict-hitachi</include>
         <include>org.dcm4assange.elmdict:dcm4assange-elmdict-isg</include>
         <include>org.dcm4assange.elmdict:dcm4assange-elmdict-picker</include>
+        <include>org.dcm4assange.elmdict:dcm4assange-elmdict-spi</include>
         <include>org.dcm4assange.tool:dcm4assange-tool-dcmbenchmark</include>
         <include>org.dcm4assange.tool:dcm4assange-tool-dcmdump</include>
         <include>org.dcm4assange.tool:dcm4assange-tool-storescp</include>

@@ -47,6 +47,7 @@ MP="$MP:$DCM4CHE_HOME/lib/dcm4assange-elmdict-gems-${project.version}.jar"
 MP="$MP:$DCM4CHE_HOME/lib/dcm4assange-elmdict-hitachi-${project.version}.jar"
 MP="$MP:$DCM4CHE_HOME/lib/dcm4assange-elmdict-isg-${project.version}.jar"
 MP="$MP:$DCM4CHE_HOME/lib/dcm4assange-elmdict-picker-${project.version}.jar"
+MP="$MP:$DCM4CHE_HOME/lib/dcm4assange-elmdict-spi-${project.version}.jar"
 MP="$MP:$DCM4CHE_HOME/lib/picocli-${picocli.version}.jar"
 
 # For Cygwin, switch paths to Windows format before running java

@@ -38,6 +38,7 @@
     <module>hitachi</module>
     <module>isg</module>
     <module>picker</module>
+    <module>spi</module>
   </modules>
 
 </project>
