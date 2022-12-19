@@ -36,6 +36,7 @@
     <module>elscint</module>
     <module>gems</module>
     <module>hitachi</module>
+    <module>isg</module>
   </modules>
 
 </project>
