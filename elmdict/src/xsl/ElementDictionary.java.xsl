@@ -65,6 +65,11 @@ public class </xsl:text><xsl:value-of select="$class"/><xsl:text> extends Elemen
     <xsl:text> */
         public static final int </xsl:text>
     <xsl:value-of select="@keyword" />
+    <xsl:variable name="keyword" select="@keyword"/>
+    <xsl:if test="preceding-sibling::el[@keyword=$keyword]|following-sibling::el[@keyword=$keyword]">
+      <xsl:text>_</xsl:text>
+      <xsl:value-of select="translate(@tag,'xX','00')" />
+    </xsl:if>
     <xsl:text> = 0x</xsl:text>
     <xsl:value-of select="translate(@tag,'xX','00')" />
     <xsl:text>;
