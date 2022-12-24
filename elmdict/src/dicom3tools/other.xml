@@ -1707,7 +1707,7 @@
 <el tag="100100B6" owner="PRIVATE_CODE_STRING_1001" keyword="AbsoluteDoseFactor" vr="FD" vm="1">Absolute Dose Factor</el>
 <el tag="100100B7" owner="PRIVATE_CODE_STRING_1001" keyword="DecoupledSK" vr="SL" vm="1">Decoupled sk</el>
 <el tag="100100B8" owner="PRIVATE_CODE_STRING_1001" keyword="AbsoluteTimeFactor" vr="FD" vm="1">Absolute Time Factor</el>
-<el tag="100100B9" owner="PRIVATE_CODE_STRING_1001" keyword="Total Treatment Time" vr="FD" vm="1">Total Treatment Time</el>
+<el tag="100100B9" owner="PRIVATE_CODE_STRING_1001" keyword="TotalTreatmentTime" vr="FD" vm="1">Total Treatment Time</el>
 <el tag="100100BA" owner="PRIVATE_CODE_STRING_1001" keyword="TG43Model" vr="SL" vm="1">TG 43 Model</el>
 <el tag="100100BB" owner="PRIVATE_CODE_STRING_1001" keyword="ThreeDDoseGridSize" vr="SL" vm="1">3D Dose Grid Size</el>
 <el tag="100100BC" owner="PRIVATE_CODE_STRING_1001" keyword="DoseGridCorner1" vr="FD" vm="3">Dose Grid Corner 1</el>
@@ -1765,11 +1765,11 @@
 <el tag="100100F0" owner="PRIVATE_CODE_STRING_1001" keyword="WBTSurface" vr="FD" vm="4">WBT Surface</el>
 <el tag="100100F1" owner="PRIVATE_CODE_STRING_1001" keyword="WBTNoOfInteriorCatheters" vr="FD" vm="4">WBT No of Interior Catheters</el>
 <el tag="100100F2" owner="PRIVATE_CODE_STRING_1001" keyword="WBTRelativeRadius" vr="FD" vm="4">WBT Relative Radius</el>
-<el tag="100100F3" owner="PRIVATE_CODE_STRING_1001" keyword="Sorting Method" vr="SL" vm="1">Sorting Method</el>
+<el tag="100100F3" owner="PRIVATE_CODE_STRING_1001" keyword="SortingMethod" vr="SL" vm="1">Sorting Method</el>
 <el tag="10030001" owner="PRIVATE_CODE_STRING_1003" keyword="NumberOfProbes" vr="UN" vm="1">Number Of Probes</el>
-<el tag="10030010" owner="PRIVATE_CODE_STRING_1003" keyword="US Probe Sequence" vr="UN" vm="1">US Probe Sequence</el>
+<el tag="10030010" owner="PRIVATE_CODE_STRING_1003" keyword="USProbeSequence" vr="UN" vm="1">US Probe Sequence</el>
 <el tag="10030011" owner="PRIVATE_CODE_STRING_1003" keyword="Identifier" vr="UN" vm="1">Identifier</el>
-<el tag="10030012" owner="PRIVATE_CODE_STRING_1003" keyword="Probe Name" vr="UN" vm="1">Probe Name</el>
+<el tag="10030012" owner="PRIVATE_CODE_STRING_1003" keyword="ProbeName" vr="UN" vm="1">Probe Name</el>
 <el tag="10030013" owner="PRIVATE_CODE_STRING_1003" keyword="Depth" vr="UN" vm="1">Depth</el>
 <el tag="10030014" owner="PRIVATE_CODE_STRING_1003" keyword="Frequency" vr="UN" vm="1">Frequency</el>
 <el tag="10030015" owner="PRIVATE_CODE_STRING_1003" keyword="Gain	" vr="UN" vm="1">Gain</el>
@@ -1802,7 +1802,7 @@
 <el tag="300B0002" owner="PRIVATE_CODE_STRING_300B" keyword="NumberOfColumns" vr="SL" vm="1">Number of Columns</el>
 <el tag="300B0003" owner="PRIVATE_CODE_STRING_300B" keyword="ColumnDistance" vr="FD" vm="1">Column Distance</el>
 <el tag="300B0004" owner="PRIVATE_CODE_STRING_300B" keyword="NumberORows" vr="SL" vm="1">Number of Rows</el>
-<el tag="300B0005" owner="PRIVATE_CODE_STRING_300B" keyword="Row Distance" vr="FD" vm="1">Row Distance</el>
+<el tag="300B0005" owner="PRIVATE_CODE_STRING_300B" keyword="RowDistance" vr="FD" vm="1">Row Distance</el>
 <el tag="300B0006" owner="PRIVATE_CODE_STRING_300B" keyword="Origin" vr="SL" vm="1">Origin</el>
 <el tag="300B0007" owner="PRIVATE_CODE_STRING_300B" keyword="ColumnNumbering" vr="SH" vm="1-n">Column Numbering</el>
 <el tag="300B0008" owner="PRIVATE_CODE_STRING_300B" keyword="RowNumbering" vr="SH" vm="1-n">Row Numbering</el>

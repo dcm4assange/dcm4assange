@@ -86,6 +86,11 @@
     </dependency>
     <dependency>
       <groupId>org.dcm4assange.elmdict</groupId>
+      <artifactId>dcm4assange-elmdict-philips</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.dcm4assange.elmdict</groupId>
       <artifactId>dcm4assange-elmdict-picker</artifactId>
       <version>${project.version}</version>
     </dependency>

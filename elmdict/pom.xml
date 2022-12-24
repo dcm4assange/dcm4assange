@@ -37,6 +37,7 @@
     <module>gems</module>
     <module>hitachi</module>
     <module>isg</module>
+    <module>philips</module>
     <module>picker</module>
     <module>spi</module>
     <module>toshiba</module>

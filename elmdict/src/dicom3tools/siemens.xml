@@ -1681,7 +1681,7 @@
 <el tag="00290008" owner="SIEMENS CSA REPORT" keyword="ReportType" vr="CS" vm="1">Report Type</el>
 <el tag="00290009" owner="SIEMENS CSA REPORT" keyword="ReportVersion" vr="LO" vm="1">Report Version</el>
 <el tag="00290015" owner="SIEMENS CSA REPORT" keyword="SRVariant" vr="US" vm="1">SR Variant</el>
-<el tag="00290017" owner="SIEMENS CSA REPORT" keyword="SCSOP InstanceUID" vr="UI" vm="1">SC SOP Instance UID</el>
+<el tag="00290017" owner="SIEMENS CSA REPORT" keyword="SCSOPInstanceUID" vr="UI" vm="1">SC SOP Instance UID</el>
 <el tag="00290010" owner="SIEMENS CSA ENVELOPE" keyword="syngoReportData" vr="OB" vm="1">syngo Report Data</el>
 <el tag="00290011" owner="SIEMENS CSA ENVELOPE" keyword="syngoReportPresentation" vr="OB" vm="1">syngo Report Presentation</el>
 <el tag="00290008" owner="SIEMENS MED NM" keyword="ModalityImageHeaderType" vr="CS" vm="1">Modality Image Header Type</el>

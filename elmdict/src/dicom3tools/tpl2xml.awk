@@ -13,7 +13,11 @@ BEGIN	{
 	}
 	element=""
 	if (match($0,",[0-9a-fA-FxX][0-9a-fA-FxX][0-9a-fA-FxX][0-9a-fA-FxX]")) {
-		element=substr($0,RSTART+1,4)
+		element=substr($0,RSTART+3,2)
+	}
+	block=substr($0,RSTART+1,2)
+	if (match($0,"PrivateBlock=\"00")) {
+		block=substr($0,RSTART+length("PrivateBlock=\"00"),2)
 	}
 
 	ownerattr=""
@@ -32,6 +36,7 @@ BEGIN	{
 			if (keyword ~ /^3/) {
 				keyword="Three" substr(keyword,2)
 			}
+			gsub(" ","",keyword)
 			keywordattr="\" keyword=\"" keyword
 		}
 	}
@@ -54,7 +59,7 @@ BEGIN	{
 	match($0,"VM=\"[^\"]*\"");
 	vm=substr($0,RSTART+length("VM=\""),RLENGTH-length("VM=\"")-1);
 
-    print "<el tag=\"" group element ownerattr keywordattr "\" vr=\"" vr "\" vm=\"" vm end
+    print "<el tag=\"" group block element ownerattr keywordattr "\" vr=\"" vr "\" vm=\"" vm end
 }
 
 END {

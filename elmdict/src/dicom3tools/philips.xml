@@ -7,7 +7,7 @@
 <el tag="00090004" owner="SPI-P Release 1" keyword="ImageDataConsistency" vr="LO" vm="1">Image Data Consistency</el>
 <el tag="00090008" owner="SPI-P Release 1" vr="US" vm="1"/>
 <el tag="00090010" owner="PHILIPS MR" keyword="SPIRelease" vr="LO" vm="1">SPI Release</el>
-<el tag="00090010" owner="PHILIPS MR/PART 12" vr="US" vm="1"/>
+<el tag="00092110" owner="PHILIPS MR/PART 12" vr="US" vm="1"/>
 <el tag="00090010" owner="SPI-P Release 1" vr="LO" vm="1"/>
 <el tag="00090010" owner="SPI-P-GV-CT Release 1" vr="LO" vm="1"/>
 <el tag="00090012" owner="PHILIPS MR" vr="LO" vm="1"/>
@@ -50,31 +50,31 @@
 <el tag="00110031" owner="SPI-P Release 1" vr="UN" vm="1"/>
 <el tag="00110032" owner="SPI-P Release 1" vr="UN" vm="1"/>
 <el tag="00190000" owner="CARDIO-D.R. 1.0" keyword="ImageBlankingShape" vr="CS" vm="1">Image Blanking Shape</el>
-<el tag="00190000" owner="PHILIPS MR R5.5/PART" keyword="FieldOfView" vr="DS" vm="1">Field of View</el>
-<el tag="00190000" owner="PHILIPS MR R5.6/PART" keyword="FieldOfView" vr="DS" vm="1">Field of View</el>
+<el tag="00191000" owner="PHILIPS MR R5.5/PART" keyword="FieldOfView" vr="DS" vm="1">Field of View</el>
+<el tag="00191000" owner="PHILIPS MR R5.6/PART" keyword="FieldOfView" vr="DS" vm="1">Field of View</el>
 <el tag="00190000" owner="PHILIPS MR/PART 7" vr="IS" vm="1"/>
-<el tag="00190000" owner="PHILIPS MR/PART" keyword="FieldOfView" vr="DS" vm="1">Field of View</el>
-<el tag="00190000" owner="PHILIPS MR/PART" keyword="NumberOfStacks" vr="IS" vm="1">Number of Stacks</el>
+<el tag="00191000" owner="PHILIPS MR/PART" keyword="FieldOfView" vr="DS" vm="1">Field of View</el>
+<el tag="00191100" owner="PHILIPS MR/PART" keyword="NumberOfStacks" vr="IS" vm="1">Number of Stacks</el>
 <el tag="00190000" owner="SPI-P Release 1" vr="LO" vm="1"/>
 <el tag="00190000" owner="SPI-P Release 1;1" keyword="PhysiologicalDataType" vr="UN" vm="1">Physiological Data Type</el>
 <el tag="00190000" owner="SPI-P-CTBE Release 1" vr="IS" vm="1"/>
 <el tag="00190000" owner="SPI-P-Private-DiDi Release 1" keyword="PostModeString" vr="LT" vm="1">Post Mode String</el>
 <el tag="00190000" owner="SPI-P-XSB-VISUB Release 1" vr="UN" vm="1"/>
 <el tag="00190001" owner="PHILIPS MR SPECTRO;1" vr="US" vm="1"/>
-<el tag="00190001" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
-<el tag="00190001" owner="PHILIPS MR/PART" keyword="StackType" vr="IS" vm="1-n">Stack Type</el>
+<el tag="00191001" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
+<el tag="00191101" owner="PHILIPS MR/PART" keyword="StackType" vr="IS" vm="1-n">Stack Type</el>
 <el tag="00190001" owner="SPI-P Release 1" vr="LO" vm="1"/>
 <el tag="00190001" owner="SPI-P Release 1;1" keyword="PhysiologicalDataChannelAndKind" vr="UN" vm="1">Physiological Data Channel And Kind</el>
 <el tag="00190001" owner="SPI-P-Private-DiDi Release 1" keyword="PostData" vr="LT" vm="1">Post Data</el>
 <el tag="00190002" owner="CARDIO-D.R. 1.0" keyword="ImageBlankingLeftVerticalEdge" vr="IS" vm="1">Image Blanking Left Vertical Edge</el>
 <el tag="00190002" owner="PHILIPS MR SPECTRO;1" vr="US" vm="1"/>
-<el tag="00190002" owner="PHILIPS MR/PART" vr="IS" vm="1-n"/>
-<el tag="00190002" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
+<el tag="00191102" owner="PHILIPS MR/PART" vr="IS" vm="1-n"/>
+<el tag="00191002" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
 <el tag="00190002" owner="SPI-P Release 1" vr="UN" vm="1"/>
 <el tag="00190002" owner="SPI-P Release 1;1" keyword="SampleBitsAllocated" vr="US" vm="1">Sample Bits Allocated</el>
 <el tag="00190002" owner="SPI-P-CTBE Release 1" vr="IS" vm="1"/>
 <el tag="00190003" owner="PHILIPS MR SPECTRO;1" vr="US" vm="1"/>
-<el tag="00190003" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
+<el tag="00191003" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
 <el tag="00190003" owner="SPI-P Release 1;1" keyword="SampleBitsStored" vr="US" vm="1">Sample Bits Stored</el>
 <el tag="00190003" owner="SPI-P-CTBE Release 1" vr="DS" vm="1"/>
 <el tag="00190004" owner="CARDIO-D.R. 1.0" keyword="ImageBlankingRightVerticalEdge" vr="IS" vm="1">Image Blanking Right Vertical Edge</el>
@@ -82,45 +82,45 @@
 <el tag="00190004" owner="SPI-P Release 1;1" keyword="SampleHighBit" vr="US" vm="1">Sample High Bit</el>
 <el tag="00190004" owner="SPI-P-CTBE Release 1" vr="IS" vm="1"/>
 <el tag="00190005" owner="PHILIPS MR SPECTRO;1" vr="US" vm="1"/>
-<el tag="00190005" owner="PHILIPS MR/PART" keyword="CCAngulation" vr="DS" vm="1">CC Angulation</el>
+<el tag="00191005" owner="PHILIPS MR/PART" keyword="CCAngulation" vr="DS" vm="1">CC Angulation</el>
 <el tag="00190005" owner="SPI-P Release 1;1" keyword="SampleRepresentation" vr="US" vm="1">Sample Representation</el>
 <el tag="00190005" owner="SPI-P-CTBE Release 1" vr="DS" vm="1"/>
 <el tag="00190006" owner="CARDIO-D.R. 1.0" keyword="ImageBlankingUpperHorizontalEdge" vr="IS" vm="1">Image Blanking Upper Horizontal Edge</el>
 <el tag="00190006" owner="PHILIPS MR SPECTRO;1" vr="US" vm="1"/>
-<el tag="00190006" owner="PHILIPS MR/PART" keyword="APAngulation" vr="DS" vm="1">AP Angulation</el>
+<el tag="00191006" owner="PHILIPS MR/PART" keyword="APAngulation" vr="DS" vm="1">AP Angulation</el>
 <el tag="00190006" owner="SPI-P Release 1;1" keyword="SmallestSampleValue" vr="UN" vm="1">Smallest Sample Value</el>
 <el tag="00190007" owner="PHILIPS MR SPECTRO;1" vr="IS" vm="1"/>
-<el tag="00190007" owner="PHILIPS MR/PART" keyword="LRAngulation" vr="DS" vm="1">LR Angulation</el>
+<el tag="00191007" owner="PHILIPS MR/PART" keyword="LRAngulation" vr="DS" vm="1">LR Angulation</el>
 <el tag="00190007" owner="SPI-P Release 1;1" keyword="LargestSampleValue" vr="UN" vm="1">Largest Sample Value</el>
 <el tag="00190008" owner="CARDIO-D.R. 1.0" keyword="ImageBlankingLowerHorizontalEdge" vr="IS" vm="1">Image Blanking Lower Horizontal Edge</el>
 <el tag="00190008" owner="PHILIPS MR SPECTRO;1" vr="IS" vm="1"/>
-<el tag="00190008" owner="PHILIPS MR/PART" keyword="PatientOrientation1" vr="IS" vm="1">Patient Orientation 1</el>
-<el tag="00190008" owner="PHILIPS MR/PART" keyword="PatientPosition" vr="IS" vm="1">Patient Position</el>
+<el tag="00191008" owner="PHILIPS MR/PART" keyword="PatientOrientation1" vr="IS" vm="1">Patient Orientation 1</el>
+<el tag="00191008" owner="PHILIPS MR/PART" keyword="PatientPosition" vr="IS" vm="1">Patient Position</el>
 <el tag="00190008" owner="SPI-P Release 1;1" keyword="NumberOfSamples" vr="UN" vm="1">Number Of Samples</el>
 <el tag="00190008" owner="SPI-P-GV-CT Release 1" vr="IS" vm="1"/>
 <el tag="00190009" owner="PHILIPS MR SPECTRO;1" vr="IS" vm="1"/>
 <el tag="00190009" owner="PHILIPS MR/LAST" keyword="MainMagneticField" vr="DS" vm="1">Main Magnetic Field</el>
-<el tag="00190009" owner="PHILIPS MR/PART" keyword="PatientOrientation" vr="IS" vm="1">Patient Orientation</el>
+<el tag="00191009" owner="PHILIPS MR/PART" keyword="PatientOrientation" vr="IS" vm="1">Patient Orientation</el>
 <el tag="00190009" owner="SPI-P Release 1;1" keyword="SampleData" vr="UN" vm="1">Sample Data</el>
 <el tag="00190009" owner="SPI-P-GV-CT Release 1" vr="IS" vm="1"/>
-<el tag="0019000a" owner="PHILIPS MR/PART" keyword="SliceOrientation" vr="IS" vm="1">Slice Orientation</el>
+<el tag="0019100a" owner="PHILIPS MR/PART" keyword="SliceOrientation" vr="IS" vm="1">Slice Orientation</el>
 <el tag="0019000a" owner="SPI-P Release 1;1" keyword="SampleRate" vr="UN" vm="1">Sample Rate</el>
 <el tag="0019000a" owner="SPI-P-GV-CT Release 1" vr="IS" vm="1"/>
-<el tag="0019000b" owner="PHILIPS MR/PART" keyword="LROffcenter" vr="DS" vm="1">LR Offcenter</el>
-<el tag="0019000b" owner="PHILIPS MR/PART" keyword="LROffcenter" vr="DS" vm="1">LR Offcenter</el>
+<el tag="0019100b" owner="PHILIPS MR/PART" keyword="LROffcenter" vr="DS" vm="1">LR Offcenter</el>
+<el tag="0019110b" owner="PHILIPS MR/PART" keyword="LROffcenter" vr="DS" vm="1">LR Offcenter</el>
 <el tag="0019000b" owner="SPI-P-CTBE Release 1" vr="DS" vm="1"/>
-<el tag="0019000c" owner="PHILIPS MR/PART" keyword="CCOffcenter" vr="DS" vm="1">CC Offcenter</el>
-<el tag="0019000c" owner="PHILIPS MR/PART" keyword="CCOffcenter" vr="DS" vm="1">CC Offcenter</el>
+<el tag="0019100c" owner="PHILIPS MR/PART" keyword="CCOffcenter" vr="DS" vm="1">CC Offcenter</el>
+<el tag="0019110c" owner="PHILIPS MR/PART" keyword="CCOffcenter" vr="DS" vm="1">CC Offcenter</el>
 <el tag="0019000c" owner="SPI-P-CTBE Release 1" vr="IS" vm="1"/>
-<el tag="0019000d" owner="PHILIPS MR/PART" keyword="APOffcenter" vr="DS" vm="1">AP Offcenter</el>
-<el tag="0019000d" owner="PHILIPS MR/PART" keyword="APOffcenter" vr="DS" vm="1">AP Offcenter</el>
+<el tag="0019100d" owner="PHILIPS MR/PART" keyword="APOffcenter" vr="DS" vm="1">AP Offcenter</el>
+<el tag="0019110d" owner="PHILIPS MR/PART" keyword="APOffcenter" vr="DS" vm="1">AP Offcenter</el>
 <el tag="0019000e" owner="PHILIPS MR/LAST" keyword="FlowCompensation" vr="IS" vm="1">Flow Compensation</el>
-<el tag="0019000e" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
-<el tag="0019000f" owner="PHILIPS MR/PART" keyword="NumberOfSlices" vr="IS" vm="1">Number of Slices</el>
+<el tag="0019100e" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
+<el tag="0019100f" owner="PHILIPS MR/PART" keyword="NumberOfSlices" vr="IS" vm="1">Number of Slices</el>
 <el tag="00190010" owner="CARDIO-D.R. 1.0" keyword="CenterOfCircularImageBlanking" vr="IS" vm="1">Center of Circular Image Blanking</el>
 <el tag="00190010" owner="PHILIPS MR SPECTRO;1" vr="IS" vm="1"/>
 <el tag="00190010" owner="PHILIPS MR/PART 6" vr="IS" vm="1"/>
-<el tag="00190010" owner="PHILIPS MR/PART" keyword="SliceFactor" vr="DS" vm="1">Slice Factor</el>
+<el tag="00191010" owner="PHILIPS MR/PART" keyword="SliceFactor" vr="DS" vm="1">Slice Factor</el>
 <el tag="00190010" owner="SPI-P Release 1" keyword="MainsFrequency" vr="US" vm="1">Mains Frequency</el>
 <el tag="00190010" owner="SPI-P Release 1;1" keyword="PhysiologicalDataType2" vr="UN" vm="1">Physiological Data Type 2</el>
 <el tag="00190010" owner="SPI-P-GV-CT Release 1" vr="LO" vm="1"/>
@@ -129,7 +129,7 @@
 <el tag="00190010" owner="SPI-P-Private-DiDi Release 1" keyword="ImageHeader" vr="LT" vm="1">Image Header</el>
 <el tag="00190010" owner="SPI-P-XSB-DCI Release 1" keyword="VideoBeamBoost" vr="LT" vm="1">Video Beam Boost</el>
 <el tag="00190010" owner="SPI-P-XSB-VISUB Release 1" vr="UN" vm="1"/>
-<el tag="00190011" owner="PHILIPS MR/PART" keyword="EchoTimes" vr="DS" vm="1-n">Echo Times</el>
+<el tag="00191011" owner="PHILIPS MR/PART" keyword="EchoTimes" vr="DS" vm="1-n">Echo Times</el>
 <el tag="00190011" owner="PHILIPS-MR-1" keyword="ChemicalShiftNumber" vr="IS" vm="1">Chemical Shift Number</el>
 <el tag="00190011" owner="SPI-P Release 1;1" keyword="PhysiologicalDataChannelAndKind2" vr="UN" vm="1">Physiological Data Channel And Kind 2</el>
 <el tag="00190011" owner="SPI-P-Private-DCI Release 1" keyword="ECGTimeMapDataBitsStored" vr="UN" vm="1"/>
@@ -147,12 +147,12 @@
 <el tag="00190013" owner="SPI-P-Private-DCI Release 1" keyword="ECGTimeMapDataRepresentation" vr="UN" vm="1"/>
 <el tag="00190013" owner="SPI-P-XSB-DCI Release 1" keyword="VideoOffset" vr="US" vm="1">Video Offset</el>
 <el tag="00190014" owner="PHILIPS MR SPECTRO;1" vr="US" vm="1"/>
-<el tag="00190014" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
+<el tag="00191014" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
 <el tag="00190014" owner="SPI-P Release 1;1" keyword="SampleHighBit2" vr="US" vm="1">Sample High Bit 2</el>
 <el tag="00190014" owner="SPI-P-CTBE Release 1" vr="IS" vm="1"/>
 <el tag="00190014" owner="SPI-P-Private-DCI Release 1" keyword="ECGTimeMapDataSmallestDataValue" vr="UN" vm="1"/>
 <el tag="00190015" owner="PHILIPS MR SPECTRO;1" vr="US" vm="1-n"/>
-<el tag="00190015" owner="PHILIPS MR/PART" keyword="DynamicStudy" vr="IS" vm="1">Dynamic Study</el>
+<el tag="00191015" owner="PHILIPS MR/PART" keyword="DynamicStudy" vr="IS" vm="1">Dynamic Study</el>
 <el tag="00190015" owner="SPI-P Release 1;1" keyword="SampleRepresentation2" vr="US" vm="1">Sample Representation 2</el>
 <el tag="00190015" owner="SPI-P-Private-DCI Release 1" keyword="ECGTimeMapDataLargestDataValue" vr="UN" vm="1"/>
 <el tag="00190016" owner="PHILIPS MR SPECTRO;1" vr="IS" vm="1"/>
@@ -162,127 +162,127 @@
 <el tag="00190017" owner="SPI-P Release 1;1" keyword="LargestSampleValue2" vr="UN" vm="1">Largest Sample Value 2</el>
 <el tag="00190017" owner="SPI-P-Private-DCI Release 1" keyword="ECGTimeMapData" vr="UN" vm="1"/>
 <el tag="00190018" owner="PHILIPS MR SPECTRO;1" vr="UN" vm="1"/>
-<el tag="00190018" owner="PHILIPS MR/PART" keyword="HeartbeatInterval" vr="DS" vm="1">Heartbeat Interval</el>
+<el tag="00191018" owner="PHILIPS MR/PART" keyword="HeartbeatInterval" vr="DS" vm="1">Heartbeat Interval</el>
 <el tag="00190018" owner="SPI-P Release 1;1" keyword="NumberOfSamples2" vr="UN" vm="1">Number Of Samples 2</el>
 <el tag="00190018" owner="SPI-P-CTBE Release 1" vr="IS" vm="1"/>
-<el tag="00190019" owner="PHILIPS MR/PART" keyword="RepetitionTimeFFE" vr="DS" vm="1">Repetition Time FFE</el>
+<el tag="00191019" owner="PHILIPS MR/PART" keyword="RepetitionTimeFFE" vr="DS" vm="1">Repetition Time FFE</el>
 <el tag="00190019" owner="SPI-P Release 1;1" keyword="SampleData2" vr="UN" vm="1">Sample Data 2</el>
 <el tag="00190019" owner="SPI-P-CTBE Release 1" vr="IS" vm="1"/>
-<el tag="0019001a" owner="PHILIPS MR/PART" keyword="FFEFlipAngle" vr="DS" vm="1">FFE Flip Angle</el>
+<el tag="0019101a" owner="PHILIPS MR/PART" keyword="FFEFlipAngle" vr="DS" vm="1">FFE Flip Angle</el>
 <el tag="0019001a" owner="SPI-P Release 1;1" keyword="SampleRate2" vr="UN" vm="1">Sample Rate 2</el>
 <el tag="0019001a" owner="SPI-P-CTBE Release 1" vr="DS" vm="1"/>
-<el tag="0019001b" owner="PHILIPS MR/PART" keyword="NumberOfScans" vr="IS" vm="1">Number of Scans</el>
+<el tag="0019101b" owner="PHILIPS MR/PART" keyword="NumberOfScans" vr="IS" vm="1">Number of Scans</el>
 <el tag="0019001b" owner="SPI-P-CTBE Release 1" vr="IS" vm="1"/>
-<el tag="0019001c" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
+<el tag="0019101c" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
 <el tag="0019001c" owner="SPI-P-CTBE Release 1" vr="IS" vm="1"/>
-<el tag="0019001d" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
+<el tag="0019101d" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
 <el tag="0019001d" owner="SPI-P-CTBE Release 1" vr="DS" vm="1"/>
-<el tag="0019001e" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
+<el tag="0019101e" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
 <el tag="00190020" owner="PHILIPS MR SPECTRO;1" vr="IS" vm="1"/>
 <el tag="00190020" owner="SPI-P-GV-CT Release 1" vr="TM" vm="1"/>
 <el tag="00190020" owner="SPI-P-PCR Release 2" vr="IS" vm="1"/>
 <el tag="00190020" owner="SPI-P-XSB-DCI Release 1" keyword="RTDDataCompressionFactor" vr="DS" vm="1">RTD Data Compression Factor</el>
 <el tag="00190020" owner="SPI-P-XSB-VISUB Release 1" vr="LO" vm="1"/>
 <el tag="00190021" owner="PHILIPS MR SPECTRO;1" vr="IS" vm="1"/>
-<el tag="00190021" owner="PHILIPS MR/PART" vr="DS" vm="1-n"/>
-<el tag="00190021" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
+<el tag="00191021" owner="PHILIPS MR/PART" vr="DS" vm="1-n"/>
+<el tag="00191121" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
 <el tag="00190021" owner="SPI-P-PCR Release 2" vr="LO" vm="1"/>
 <el tag="00190022" owner="DIDI TO PCR 1.1" keyword="RouteAET" vr="LO" vm="1">Route AET</el>
 <el tag="00190022" owner="PHILIPS MR SPECTRO;1" vr="IS" vm="1"/>
-<el tag="00190022" owner="PHILIPS MR/PART" keyword="DynamicScanTimeBegin" vr="DS" vm="1">Dynamic Scan Time Begin</el>
+<el tag="00191022" owner="PHILIPS MR/PART" keyword="DynamicScanTimeBegin" vr="DS" vm="1">Dynamic Scan Time Begin</el>
 <el tag="00190023" owner="DIDI TO PCR 1.1" keyword="PCRPrintScale" vr="DS" vm="1">PCR Print Scale</el>
 <el tag="00190023" owner="PHILIPS MR SPECTRO;1" vr="IS" vm="1"/>
-<el tag="00190023" owner="PHILIPS MR/PART" vr="DS" vm="1-n"/>
+<el tag="00191123" owner="PHILIPS MR/PART" vr="DS" vm="1-n"/>
 <el tag="00190024" owner="DIDI TO PCR 1.1" keyword="PCRPrintJobEnd" vr="ST" vm="1">PCR Print Job End</el>
 <el tag="00190024" owner="PHILIPS MR SPECTRO;1" vr="IS" vm="1"/>
-<el tag="00190024" owner="PHILIPS MR/PART" vr="IS" vm="1"/>
-<el tag="00190024" owner="PHILIPS MR/PART" vr="DS" vm="1-n"/>
+<el tag="00191024" owner="PHILIPS MR/PART" vr="IS" vm="1"/>
+<el tag="00191124" owner="PHILIPS MR/PART" vr="DS" vm="1-n"/>
 <el tag="00190025" owner="DIDI TO PCR 1.1" keyword="PCRNoFilmCopies" vr="IS" vm="1">PCR No Film Copies</el>
 <el tag="00190025" owner="PHILIPS MR SPECTRO;1" vr="IS" vm="1"/>
-<el tag="00190025" owner="PHILIPS MR/PART" vr="DS" vm="1-n"/>
+<el tag="00191125" owner="PHILIPS MR/PART" vr="DS" vm="1-n"/>
 <el tag="00190025" owner="SPI-P Release 1" keyword="OriginalPixelDataQuality" vr="LO" vm="1-n">Original Pixel Data Quality</el>
 <el tag="00190026" owner="DIDI TO PCR 1.1" keyword="PCRFilmLayoutPosition" vr="IS" vm="1">PCR Film Layout Position</el>
 <el tag="00190026" owner="PHILIPS MR SPECTRO;1" vr="IS" vm="1"/>
-<el tag="00190026" owner="PHILIPS MR/PART" vr="DS" vm="1-n"/>
+<el tag="00191126" owner="PHILIPS MR/PART" vr="DS" vm="1-n"/>
 <el tag="00190027" owner="DIDI TO PCR 1.1" keyword="PCRPrintReportName" vr="ST" vm="1">PCR Print Report Name</el>
 <el tag="00190027" owner="PHILIPS MR SPECTRO;1" vr="IS" vm="1"/>
-<el tag="00190027" owner="PHILIPS MR/PART" vr="DS" vm="1-n"/>
+<el tag="00191127" owner="PHILIPS MR/PART" vr="DS" vm="1-n"/>
 <el tag="00190028" owner="PHILIPS MR SPECTRO;1" vr="IS" vm="1"/>
-<el tag="00190028" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
+<el tag="00191128" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
 <el tag="00190029" owner="PHILIPS MR SPECTRO;1" vr="IS" vm="1-n"/>
-<el tag="00190029" owner="PHILIPS MR/PART" vr="DS" vm="1-n"/>
+<el tag="00191129" owner="PHILIPS MR/PART" vr="DS" vm="1-n"/>
 <el tag="00190030" owner="CARDIO-D.R. 1.0" keyword="MaximumImageFrameSize" vr="UL" vm="1">Maximum Image Frame Size</el>
-<el tag="00190030" owner="PHILIPS MR/PART" vr="LO" vm="1-n"/>
+<el tag="00191130" owner="PHILIPS MR/PART" vr="LO" vm="1-n"/>
 <el tag="00190030" owner="SPI-P Release 1" keyword="ECGTriggering" vr="US" vm="1">ECG Triggering</el>
 <el tag="00190030" owner="SPI-P-PCR Release 2" vr="US" vm="1"/>
 <el tag="00190030" owner="SPI-P-Private_ICS Release 1" vr="DS" vm="1"/>
 <el tag="00190031" owner="PHILIPS MR SPECTRO;1" vr="US" vm="1"/>
-<el tag="00190031" owner="PHILIPS MR/PART" vr="DS" vm="1-n"/>
+<el tag="00191131" owner="PHILIPS MR/PART" vr="DS" vm="1-n"/>
 <el tag="00190031" owner="SPI-P Release 1" keyword="ECG1Offset" vr="UN" vm="1">ECG 1 Offset</el>
 <el tag="00190031" owner="SPI-P-Private_ICS Release 1" vr="LO" vm="1"/>
 <el tag="00190032" owner="PHILIPS MR SPECTRO;1" vr="US" vm="1"/>
 <el tag="00190032" owner="SPI-P Release 1" keyword="ECG2Offset1" vr="UN" vm="1">ECG 2 Offset 1</el>
 <el tag="00190033" owner="SPI-P Release 1" keyword="ECG2Offset2" vr="UN" vm="1">ECG 2 Offset 2</el>
-<el tag="00190040" owner="PHILIPS MR/PART" vr="US" vm="1"/>
+<el tag="00191040" owner="PHILIPS MR/PART" vr="US" vm="1"/>
 <el tag="00190040" owner="SPI-P-PCR Release 2" vr="DS" vm="1"/>
 <el tag="00190040" owner="SPI-P-XSB-VISUB Release 1" vr="UN" vm="1"/>
 <el tag="00190041" owner="PHILIPS MR SPECTRO;1" vr="LT" vm="1"/>
 <el tag="00190042" owner="PHILIPS MR SPECTRO;1" vr="IS" vm="2"/>
 <el tag="00190043" owner="PHILIPS MR SPECTRO;1" vr="IS" vm="2"/>
 <el tag="00190045" owner="PHILIPS MR SPECTRO;1" vr="US" vm="1"/>
-<el tag="00190045" owner="PHILIPS MR/PART" keyword="ReconstructionResolution" vr="IS" vm="1">Reconstruction Resolution</el>
+<el tag="00191145" owner="PHILIPS MR/PART" keyword="ReconstructionResolution" vr="IS" vm="1">Reconstruction Resolution</el>
 <el tag="00190046" owner="PHILIPS MR SPECTRO;1" vr="US" vm="1"/>
 <el tag="00190047" owner="PHILIPS MR SPECTRO;1" vr="IS" vm="1"/>
 <el tag="00190048" owner="PHILIPS MR SPECTRO;1" vr="IS" vm="1"/>
 <el tag="00190049" owner="PHILIPS MR SPECTRO;1" vr="US" vm="1"/>
 <el tag="00190050" owner="PHILIPS MR SPECTRO;1" vr="UN" vm="1"/>
-<el tag="00190050" owner="PHILIPS MR/PART" vr="IS" vm="1"/>
-<el tag="00190050" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
+<el tag="00191050" owner="PHILIPS MR/PART" vr="IS" vm="1"/>
+<el tag="00191150" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
 <el tag="00190050" owner="SPI-P Release 1" keyword="VideoScanMode" vr="US" vm="1">Video Scan Mode</el>
 <el tag="00190050" owner="SPI-P-GV-CT Release 1" vr="LO" vm="1"/>
 <el tag="00190050" owner="SPI-P-XSB-VISUB Release 1" vr="LO" vm="1"/>
-<el tag="00190051" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
+<el tag="00191151" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
 <el tag="00190051" owner="SPI-P Release 1" keyword="VideoLineRate" vr="US" vm="1">Video LineRate</el>
-<el tag="00190052" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
-<el tag="00190053" owner="PHILIPS MR/PART" vr="IS" vm="1"/>
-<el tag="00190054" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
-<el tag="00190055" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
-<el tag="00190056" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
-<el tag="00190057" owner="PHILIPS MR/PART" vr="US" vm="1"/>
-<el tag="00190058" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
-<el tag="00190059" owner="PHILIPS MR/PART" vr="US" vm="1"/>
+<el tag="00191152" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
+<el tag="00191153" owner="PHILIPS MR/PART" vr="IS" vm="1"/>
+<el tag="00191154" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
+<el tag="00191155" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
+<el tag="00191156" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
+<el tag="00191157" owner="PHILIPS MR/PART" vr="US" vm="1"/>
+<el tag="00191158" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
+<el tag="00191159" owner="PHILIPS MR/PART" vr="US" vm="1"/>
 <el tag="00190060" owner="PHILIPS MR SPECTRO;1" vr="US" vm="1"/>
-<el tag="00190060" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
+<el tag="00191160" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
 <el tag="00190060" owner="SPI-P Release 1" keyword="XrayTechnique" vr="US" vm="1">Xray Technique</el>
 <el tag="00190060" owner="SPI-P-GV-CT Release 1" vr="DS" vm="1"/>
 <el tag="00190060" owner="SPI-P-PCR Release 2" vr="LO" vm="1"/>
 <el tag="00190061" owner="PHILIPS MR SPECTRO;1" vr="US" vm="1"/>
-<el tag="00190061" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
+<el tag="00191161" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
 <el tag="00190061" owner="SPI-P Release 1" keyword="ImageIdentifierFromat" vr="DS" vm="1">Image Identifier Fromat</el>
 <el tag="00190061" owner="SPI-P-GV-CT Release 1" vr="US" vm="1"/>
-<el tag="00190062" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
+<el tag="00191162" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
 <el tag="00190062" owner="SPI-P Release 1" keyword="IrisDiaphragm" vr="US" vm="1">Iris Diaphragm</el>
-<el tag="00190063" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
+<el tag="00191163" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
 <el tag="00190063" owner="SPI-P Release 1" keyword="Filter" vr="CS" vm="1">Filter</el>
 <el tag="00190063" owner="SPI-P-GV-CT Release 1" vr="LO" vm="1"/>
-<el tag="00190064" owner="PHILIPS MR/PART" vr="IS" vm="1"/>
-<el tag="00190064" owner="PHILIPS MR/PART" keyword="RepetitionTimeSE" vr="DS" vm="1">Repetition Time SE</el>
+<el tag="00191164" owner="PHILIPS MR/PART" vr="IS" vm="1"/>
+<el tag="00191064" owner="PHILIPS MR/PART" keyword="RepetitionTimeSE" vr="DS" vm="1">Repetition Time SE</el>
 <el tag="00190064" owner="SPI-P Release 1" keyword="CineParallel" vr="CS" vm="1">Cine Parallel</el>
 <el tag="00190064" owner="SPI-P-GV-CT Release 1" vr="US" vm="1"/>
-<el tag="00190065" owner="PHILIPS MR/PART" keyword="RepetitionTimeIR" vr="DS" vm="1">Repetition Time IR</el>
+<el tag="00191065" owner="PHILIPS MR/PART" keyword="RepetitionTimeIR" vr="DS" vm="1">Repetition Time IR</el>
 <el tag="00190065" owner="SPI-P Release 1" keyword="CineMaster" vr="CS" vm="1">Cine Master</el>
 <el tag="00190065" owner="SPI-P-GV-CT Release 1" vr="IS" vm="1"/>
-<el tag="00190066" owner="PHILIPS MR/PART" vr="US" vm="1"/>
-<el tag="00190067" owner="PHILIPS MR/PART" vr="US" vm="1"/>
-<el tag="00190069" owner="PHILIPS MR/PART" keyword="NumberOfPhases" vr="IS" vm="1">Number of Phases</el>
-<el tag="0019006a" owner="PHILIPS MR/PART" keyword="CardiacFrequency" vr="IS" vm="1">Cardiac Frequency</el>
-<el tag="0019006b" owner="PHILIPS MR/PART" keyword="InversionDelay" vr="DS" vm="1">Inversion Delay</el>
-<el tag="0019006c" owner="PHILIPS MR/PART" keyword="GateDelay" vr="DS" vm="1">Gate Delay</el>
-<el tag="0019006d" owner="PHILIPS MR/PART" keyword="GateWidth" vr="DS" vm="1">Gate Width</el>
-<el tag="0019006e" owner="PHILIPS MR/PART" keyword="TriggerDelayTime" vr="DS" vm="1">Trigger Delay Time</el>
+<el tag="00191166" owner="PHILIPS MR/PART" vr="US" vm="1"/>
+<el tag="00191067" owner="PHILIPS MR/PART" vr="US" vm="1"/>
+<el tag="00191069" owner="PHILIPS MR/PART" keyword="NumberOfPhases" vr="IS" vm="1">Number of Phases</el>
+<el tag="0019106a" owner="PHILIPS MR/PART" keyword="CardiacFrequency" vr="IS" vm="1">Cardiac Frequency</el>
+<el tag="0019106b" owner="PHILIPS MR/PART" keyword="InversionDelay" vr="DS" vm="1">Inversion Delay</el>
+<el tag="0019106c" owner="PHILIPS MR/PART" keyword="GateDelay" vr="DS" vm="1">Gate Delay</el>
+<el tag="0019106d" owner="PHILIPS MR/PART" keyword="GateWidth" vr="DS" vm="1">Gate Width</el>
+<el tag="0019106e" owner="PHILIPS MR/PART" keyword="TriggerDelayTime" vr="DS" vm="1">Trigger Delay Time</el>
 <el tag="00190070" owner="DIDI TO PCR 1.1" keyword="RADProtocolPrinter" vr="ST" vm="1">RAD Protocol Printer</el>
 <el tag="00190070" owner="PHILIPS MR SPECTRO;1" vr="UN" vm="1"/>
-<el tag="00190070" owner="PHILIPS MR/PART" vr="DS" vm="1-n"/>
+<el tag="00191070" owner="PHILIPS MR/PART" vr="DS" vm="1-n"/>
 <el tag="00190070" owner="SPI-P Release 1" keyword="ExposureChannel" vr="US" vm="1">Exposure Channel</el>
 <el tag="00190070" owner="SPI-P-GV-CT Release 1" vr="LT" vm="1"/>
 <el tag="00190071" owner="DIDI TO PCR 1.1" keyword="RADProtocolMedium" vr="ST" vm="1">RAD Protocol Medium</el>
@@ -297,39 +297,39 @@
 <el tag="00190078" owner="PHILIPS MR SPECTRO;1" vr="US" vm="1"/>
 <el tag="00190079" owner="PHILIPS MR SPECTRO;1" vr="US" vm="1"/>
 <el tag="00190080" owner="PHILIPS MR SPECTRO;1" vr="IS" vm="1"/>
-<el tag="00190080" owner="PHILIPS MR/PART" keyword="NumberOfChemicalShifts" vr="IS" vm="1">Number of Chemical Shifts</el>
+<el tag="00191080" owner="PHILIPS MR/PART" keyword="NumberOfChemicalShifts" vr="IS" vm="1">Number of Chemical Shifts</el>
 <el tag="00190080" owner="SPI-P Release 1" keyword="AcquisitionDelay" vr="DS" vm="1">Acquisition Delay</el>
 <el tag="00190080" owner="SPI-P-GV-CT Release 1" vr="LO" vm="1"/>
 <el tag="00190080" owner="SPI-P-PCR Release 2" vr="US" vm="1"/>
-<el tag="00190081" owner="PHILIPS MR/PART" keyword="ChemicalShift" vr="DS" vm="1">Chemical Shift</el>
+<el tag="00191081" owner="PHILIPS MR/PART" keyword="ChemicalShift" vr="DS" vm="1">Chemical Shift</el>
 <el tag="00190081" owner="SPI-P Release 1" keyword="RelativeImageTime" vr="UN" vm="1">Relative Image Time</el>
 <el tag="00190081" owner="SPI-P-GV-CT Release 1" vr="LO" vm="1"/>
 <el tag="00190082" owner="DIDI TO PCR 1.1" vr="LO" vm="1"/>
-<el tag="00190084" owner="PHILIPS MR/PART" keyword="NumberOfRows" vr="IS" vm="1">Number of Rows</el>
-<el tag="00190085" owner="PHILIPS MR/PART" keyword="NumberOfSamples" vr="IS" vm="1">Number of Samples</el>
+<el tag="00191084" owner="PHILIPS MR/PART" keyword="NumberOfRows" vr="IS" vm="1">Number of Rows</el>
+<el tag="00191085" owner="PHILIPS MR/PART" keyword="NumberOfSamples" vr="IS" vm="1">Number of Samples</el>
 <el tag="00190089" owner="DIDI TO PCR 1.1" keyword="ExposureIndex" vr="IS" vm="1">Exposure Index</el>
 <el tag="0019008A" owner="DIDI TO PCR 1.1" keyword="CollimatorX" vr="IS" vm="1">Collimator X</el>
-<el tag="0019008A" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
+<el tag="0019108A" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
 <el tag="0019008B" owner="DIDI TO PCR 1.1" keyword="CollimatorY" vr="IS" vm="1">Collimator Y</el>
-<el tag="0019008B" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
+<el tag="0019108B" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
 <el tag="0019008C" owner="DIDI TO PCR 1.1" keyword="PrintMarker" vr="LO" vm="1">Print Marker</el>
-<el tag="0019008C" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
+<el tag="0019108C" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
 <el tag="0019008D" owner="DIDI TO PCR 1.1" keyword="RGDVName" vr="LO" vm="1">RGDV Name</el>
-<el tag="0019008D" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
+<el tag="0019108D" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
 <el tag="0019008E" owner="DIDI TO PCR 1.1" keyword="AcqdSensitivity" vr="LO" vm="1">Acqd Sensitivity</el>
-<el tag="0019008E" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
+<el tag="0019108E" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
 <el tag="0019008F" owner="DIDI TO PCR 1.1" keyword="ProcessingCategory" vr="LO" vm="1">Processing Category</el>
-<el tag="0019008F" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
+<el tag="0019108F" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
 <el tag="00190090" owner="DIDI TO PCR 1.1" keyword="UnprocessedFlag" vr="LO" vm="1">Unprocessed Flag</el>
 <el tag="00190090" owner="SPI-P Release 1" keyword="VideoWhiteCompression" vr="CS" vm="1">Video White Compression</el>
 <el tag="00190090" owner="SPI-P-GV-CT Release 1" vr="LO" vm="1"/>
 <el tag="00190090" owner="SPI-P-PCR Release 2" vr="LO" vm="1"/>
 <el tag="00190091" owner="DIDI TO PCR 1.1" keyword="KeyValues" vr="DS" vm="1-n">Key Values</el>
 <el tag="00190092" owner="DIDI TO PCR 1.1" keyword="DestinationPostprocessingFunction" vr="LO" vm="1">Destination Postprocessing Function</el>
-<el tag="00190094" owner="PHILIPS MR/PART" keyword="MagnetizationTransferContrast" vr="LO" vm="1">Magnetization Transfer Contrast</el>
-<el tag="00190095" owner="PHILIPS MR/PART" keyword="SpectralPresaturationWithInversionRecovery" vr="LO" vm="1">Spectral Presaturation With Inversion Recovery</el>
-<el tag="00190096" owner="PHILIPS MR/PART" vr="IS" vm="1"/>
-<el tag="00190097" owner="PHILIPS MR/PART" vr="LO" vm="1"/>
+<el tag="00191094" owner="PHILIPS MR/PART" keyword="MagnetizationTransferContrast" vr="LO" vm="1">Magnetization Transfer Contrast</el>
+<el tag="00191095" owner="PHILIPS MR/PART" keyword="SpectralPresaturationWithInversionRecovery" vr="LO" vm="1">Spectral Presaturation With Inversion Recovery</el>
+<el tag="00191096" owner="PHILIPS MR/PART" vr="IS" vm="1"/>
+<el tag="00191097" owner="PHILIPS MR/PART" vr="LO" vm="1"/>
 <el tag="001900A0" owner="DIDI TO PCR 1.1" keyword="Version" vr="LO" vm="1">Version</el>
 <el tag="001900A1" owner="DIDI TO PCR 1.1" keyword="RangingMode" vr="LO" vm="1">Ranging Mode</el>
 <el tag="001900A2" owner="DIDI TO PCR 1.1" keyword="AbdomenBrightness" vr="DS" vm="1">Abdomen Brightness</el>
@@ -351,36 +351,36 @@
 <el tag="001900B2" owner="DIDI TO PCR 1.1" keyword="KeyPercentile1" vr="IS" vm="1">Key Percentile 1</el>
 <el tag="001900B3" owner="DIDI TO PCR 1.1" keyword="KeyPercentile2" vr="IS" vm="1">Key Percentile 2</el>
 <el tag="001900B4" owner="DIDI TO PCR 1.1" keyword="DensityLUT" vr="IS" vm="1">Density LUT</el>
-<el tag="001900B4" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
+<el tag="001910B4" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
 <el tag="001900B5" owner="DIDI TO PCR 1.1" keyword="Brightness" vr="DS" vm="1">Brightness</el>
-<el tag="001900B5" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
+<el tag="001910B5" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
 <el tag="001900B6" owner="DIDI TO PCR 1.1" keyword="Gamma" vr="DS" vm="1">Gamma</el>
-<el tag="001900B6" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
+<el tag="001910B6" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
 <el tag="001900B7" owner="PHILIPS MR/LAST" vr="IS" vm="1"/>
-<el tag="001900D1" owner="PHILIPS MR/PART" vr="US" vm="1"/>
-<el tag="001900D3" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
+<el tag="001910D1" owner="PHILIPS MR/PART" vr="US" vm="1"/>
+<el tag="001910D3" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
 <el tag="001900E4" owner="PHILIPS MR/LAST" vr="IS" vm="1"/>
 <el tag="001900E5" owner="PHILIPS MR/LAST" vr="DS" vm="1"/>
-<el tag="001900F0" owner="PHILIPS MR/PART" vr="IS" vm="1"/>
-<el tag="001900F6" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
-<el tag="001900F7" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
-<el tag="001900F8" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
-<el tag="001900F9" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
-<el tag="001900FA" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
-<el tag="001900FB" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
-<el tag="001900FC" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
-<el tag="001900a0" owner="PHILIPS MR/PART" vr="IS" vm="1"/>
+<el tag="001910F0" owner="PHILIPS MR/PART" vr="IS" vm="1"/>
+<el tag="001910F6" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
+<el tag="001910F7" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
+<el tag="001910F8" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
+<el tag="001910F9" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
+<el tag="001910FA" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
+<el tag="001910FB" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
+<el tag="001910FC" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
+<el tag="001910a0" owner="PHILIPS MR/PART" vr="IS" vm="1"/>
 <el tag="001900a0" owner="SPI-P Release 1" keyword="Angulation" vr="US" vm="1">Angulation</el>
 <el tag="001900a0" owner="SPI-P-GV-CT Release 1" vr="LO" vm="1"/>
-<el tag="001900a1" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
+<el tag="001910a1" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
 <el tag="001900a1" owner="SPI-P Release 1" keyword="Rotation" vr="US" vm="1">Rotation</el>
 <el tag="001900a1" owner="SPI-P-GV-CT Release 1" vr="US" vm="1"/>
 <el tag="001900a1" owner="SPI-P-PCR Release 2" vr="ST" vm="1"/>
 <el tag="001900a2" owner="SPI-P-GV-CT Release 1" vr="US" vm="1"/>
-<el tag="001900a3" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
+<el tag="001910a3" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
 <el tag="001900a3" owner="SPI-P-GV-CT Release 1" vr="US" vm="1"/>
 <el tag="001900a3" owner="SPI-P-PCR Release 2" vr="DS" vm="1"/>
-<el tag="001900a4" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
+<el tag="001910a4" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
 <el tag="001900a4" owner="SPI-P-PCR Release 2" vr="DS" vm="1"/>
 <el tag="001900a5" owner="SPI-P-PCR Release 2" vr="DS" vm="1"/>
 <el tag="001900a6" owner="SPI-P-PCR Release 2" vr="DS" vm="1"/>
@@ -412,86 +412,86 @@
 <el tag="001900b9" owner="SPI-P-PCR Release 2" vr="ST" vm="1"/>
 <el tag="001900ba" owner="SPI-P-PCR Release 2" vr="ST" vm="1"/>
 <el tag="001900c0" owner="PHILIPS MR/LAST" vr="DS" vm="1-n"/>
-<el tag="001900c0" owner="PHILIPS MR/PART" keyword="TriggerDelayTimes" vr="DS" vm="1">Trigger Delay Times</el>
+<el tag="001912c0" owner="PHILIPS MR/PART" keyword="TriggerDelayTimes" vr="DS" vm="1">Trigger Delay Times</el>
 <el tag="001900c6" owner="PHILIPS MR/LAST" keyword="CycledMultipleSlice" vr="IS" vm="1">Cycled Multiple Slice</el>
-<el tag="001900c8" owner="PHILIPS MR/PART" vr="IS" vm="1"/>
-<el tag="001900c9" owner="PHILIPS MR/PART" keyword="FoldoverDirectionTransverse" vr="IS" vm="1">Foldover Direction Transverse</el>
-<el tag="001900ca" owner="PHILIPS MR/PART" keyword="FoldoverDirectionSagittal" vr="IS" vm="1">Foldover Direction Sagittal</el>
-<el tag="001900cb" owner="PHILIPS MR/PART" keyword="FoldoverDirectionCoronal" vr="IS" vm="1">Foldover Direction Coronal</el>
-<el tag="001900cc" owner="PHILIPS MR/PART" vr="IS" vm="1"/>
-<el tag="001900cd" owner="PHILIPS MR/PART" vr="IS" vm="1"/>
+<el tag="001910c8" owner="PHILIPS MR/PART" vr="IS" vm="1"/>
+<el tag="001910c9" owner="PHILIPS MR/PART" keyword="FoldoverDirectionTransverse" vr="IS" vm="1">Foldover Direction Transverse</el>
+<el tag="001910ca" owner="PHILIPS MR/PART" keyword="FoldoverDirectionSagittal" vr="IS" vm="1">Foldover Direction Sagittal</el>
+<el tag="001910cb" owner="PHILIPS MR/PART" keyword="FoldoverDirectionCoronal" vr="IS" vm="1">Foldover Direction Coronal</el>
+<el tag="001910cc" owner="PHILIPS MR/PART" vr="IS" vm="1"/>
+<el tag="001910cd" owner="PHILIPS MR/PART" vr="IS" vm="1"/>
 <el tag="001900ce" owner="PHILIPS MR/LAST" keyword="REST" vr="IS" vm="1">REST</el>
-<el tag="001900ce" owner="PHILIPS MR/PART" vr="IS" vm="1"/>
-<el tag="001900cf" owner="PHILIPS MR/PART" keyword="NumberOfEchoes" vr="IS" vm="1">Number of Echoes</el>
-<el tag="001900d0" owner="PHILIPS MR/PART" keyword="ScanResolution" vr="IS" vm="1">Scan Resolution</el>
-<el tag="001900d2" owner="PHILIPS MR/PART" keyword="WaterFatShift" vr="LO" vm="2">Water Fat Shift</el>
-<el tag="001900d4" owner="PHILIPS MR/PART" keyword="ArtifactReduction" vr="IS" vm="1">Artifact Reduction</el>
+<el tag="001910ce" owner="PHILIPS MR/PART" vr="IS" vm="1"/>
+<el tag="001910cf" owner="PHILIPS MR/PART" keyword="NumberOfEchoes" vr="IS" vm="1">Number of Echoes</el>
+<el tag="001910d0" owner="PHILIPS MR/PART" keyword="ScanResolution" vr="IS" vm="1">Scan Resolution</el>
+<el tag="001910d2" owner="PHILIPS MR/PART" keyword="WaterFatShift" vr="LO" vm="2">Water Fat Shift</el>
+<el tag="001910d4" owner="PHILIPS MR/PART" keyword="ArtifactReduction" vr="IS" vm="1">Artifact Reduction</el>
 <el tag="001900d5" owner="PHILIPS MR/LAST" vr="DS" vm="1"/>
-<el tag="001900d5" owner="PHILIPS MR/PART" vr="IS" vm="1"/>
+<el tag="001910d5" owner="PHILIPS MR/PART" vr="IS" vm="1"/>
 <el tag="001900d6" owner="PHILIPS MR/LAST" keyword="FourierInterpolation" vr="IS" vm="1">Fourier Interpolation</el>
-<el tag="001900d6" owner="PHILIPS MR/PART" vr="IS" vm="1"/>
-<el tag="001900d7" owner="PHILIPS MR/PART" keyword="ScanPercentage" vr="DS" vm="1">Scan Percentage</el>
-<el tag="001900d8" owner="PHILIPS MR/PART" keyword="Halfscan" vr="IS" vm="1">Halfscan</el>
+<el tag="001910d6" owner="PHILIPS MR/PART" vr="IS" vm="1"/>
+<el tag="001910d7" owner="PHILIPS MR/PART" keyword="ScanPercentage" vr="DS" vm="1">Scan Percentage</el>
+<el tag="001910d8" owner="PHILIPS MR/PART" keyword="Halfscan" vr="IS" vm="1">Halfscan</el>
 <el tag="001900d9" owner="PHILIPS MR/LAST" vr="IS" vm="1-n"/>
-<el tag="001900d9" owner="PHILIPS MR/PART" keyword="EPIFactor" vr="IS" vm="1">EPI Factor</el>
-<el tag="001900da" owner="PHILIPS MR/PART" keyword="TurboFactor" vr="IS" vm="1">Turbo Factor</el>
-<el tag="001900db" owner="PHILIPS MR/PART" vr="IS" vm="1"/>
+<el tag="001910d9" owner="PHILIPS MR/PART" keyword="EPIFactor" vr="IS" vm="1">EPI Factor</el>
+<el tag="001910da" owner="PHILIPS MR/PART" keyword="TurboFactor" vr="IS" vm="1">Turbo Factor</el>
+<el tag="001910db" owner="PHILIPS MR/PART" vr="IS" vm="1"/>
 <el tag="001900e0" owner="PHILIPS MR/LAST" keyword="Prepulse" vr="IS" vm="1">Prepulse</el>
-<el tag="001900e0" owner="PHILIPS MR/PART" keyword="PercentageOfScanCompleted" vr="IS" vm="1">Percentage of Scan Completed</el>
-<el tag="001900e0" owner="PHILIPS MR/PART" keyword="PrepulseType" vr="IS" vm="1">Prepulse Type</el>
+<el tag="001910e0" owner="PHILIPS MR/PART" keyword="PercentageOfScanCompleted" vr="IS" vm="1">Percentage of Scan Completed</el>
+<el tag="001912e0" owner="PHILIPS MR/PART" keyword="PrepulseType" vr="IS" vm="1">Prepulse Type</el>
 <el tag="001900e1" owner="PHILIPS MR/LAST" keyword="PrepulseDelay" vr="DS" vm="1">Prepulse Delay</el>
-<el tag="001900e1" owner="PHILIPS MR/PART" vr="IS" vm="1"/>
-<el tag="001900e1" owner="PHILIPS MR/PART" keyword="PrepulseDelay" vr="DS" vm="1">Prepulse Delay</el>
+<el tag="001910e1" owner="PHILIPS MR/PART" vr="IS" vm="1"/>
+<el tag="001912e1" owner="PHILIPS MR/PART" keyword="PrepulseDelay" vr="DS" vm="1">Prepulse Delay</el>
 <el tag="001900e2" owner="PHILIPS MR/LAST" vr="IS" vm="1"/>
 <el tag="001900e3" owner="PHILIPS MR/LAST" vr="DS" vm="1"/>
-<el tag="001900e3" owner="PHILIPS MR/PART" keyword="PhaseContrastVelocity" vr="DS" vm="1">Phase Contrast Velocity</el>
+<el tag="001912e3" owner="PHILIPS MR/PART" keyword="PhaseContrastVelocity" vr="DS" vm="1">Phase Contrast Velocity</el>
 <el tag="001900f0" owner="PHILIPS MR/LAST" keyword="WSProtocolString1" vr="LT" vm="1">WS Protocol String 1</el>
 <el tag="001900f1" owner="PHILIPS MR/LAST" keyword="WSProtocolString2" vr="LT" vm="1">WS Protocol String 2</el>
 <el tag="001900f2" owner="PHILIPS MR/LAST" keyword="WSProtocolString3" vr="LT" vm="1">WS Protocol String 3</el>
 <el tag="001900f3" owner="PHILIPS MR/LAST" keyword="WSProtocolString4" vr="LT" vm="1">WS Protocol String 4</el>
-<el tag="001900fc" owner="PHILIPS MR/PART" keyword="ResonanceFrequency" vr="IS" vm="1">Resonance Frequency</el>
+<el tag="001911fc" owner="PHILIPS MR/PART" keyword="ResonanceFrequency" vr="IS" vm="1">Resonance Frequency</el>
 <el tag="00210000" owner="PHILIPS MR/LAST" vr="IS" vm="1"/>
-<el tag="00210000" owner="PHILIPS MR/PART" keyword="ReconstructionNumber" vr="IS" vm="1">Reconstruction Number</el>
-<el tag="00210000" owner="PHILIPS MR/PART" keyword="ScanDate" vr="DA" vm="1">Scan Date</el>
-<el tag="00210000" owner="PHILIPS MR/PART" keyword="SeriesDate" vr="DA" vm="1">Series Date</el>
+<el tag="00211000" owner="PHILIPS MR/PART" keyword="ReconstructionNumber" vr="IS" vm="1">Reconstruction Number</el>
+<el tag="00211100" owner="PHILIPS MR/PART" keyword="ScanDate" vr="DA" vm="1">Scan Date</el>
+<el tag="00211100" owner="PHILIPS MR/PART" keyword="SeriesDate" vr="DA" vm="1">Series Date</el>
 <el tag="00210000" owner="SPI-P-CTBE-Private Release 1" vr="DS" vm="1"/>
 <el tag="00210000" owner="SPI-P-Private-CWS Release 1" keyword="WindowOfImagesID" vr="LT" vm="1">Window Of Images ID</el>
 <el tag="00210001" owner="PHILIPS-MR-1" keyword="ReconstructionNumber" vr="IS" vm="1">Reconstruction Number</el>
 <el tag="00210001" owner="SPI-P-Private-CWS Release 1" keyword="WindowOfImagesType" vr="CS" vm="1">Window Of Images Type</el>
 <el tag="00210002" owner="PHILIPS-MR-1" keyword="SliceNumber" vr="IS" vm="1">Slice Number</el>
 <el tag="00210002" owner="SPI-P-Private-CWS Release 1" keyword="WindowOfImagesScope" vr="IS" vm="1-n">WindowOfImagesScope</el>
-<el tag="00210006" owner="PHILIPS MR/PART" vr="LO" vm="1"/>
-<el tag="00210008" owner="PHILIPS MR/PART" vr="LO" vm="1"/>
-<el tag="00210009" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
-<el tag="0021000a" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
-<el tag="0021000f" owner="PHILIPS MR/PART" vr="LO" vm="1"/>
+<el tag="00211006" owner="PHILIPS MR/PART" vr="LO" vm="1"/>
+<el tag="00211008" owner="PHILIPS MR/PART" vr="LO" vm="1"/>
+<el tag="00211009" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
+<el tag="0021100a" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
+<el tag="0021100f" owner="PHILIPS MR/PART" vr="LO" vm="1"/>
 <el tag="00210010" owner="PHILIPS MR/LAST" vr="IS" vm="1"/>
-<el tag="00210010" owner="PHILIPS MR/PART" keyword="ImageType" vr="IS" vm="1">Image Type</el>
-<el tag="00210010" owner="PHILIPS MR/PART" keyword="ScanTime" vr="TM" vm="1">Scan Time</el>
+<el tag="00211010" owner="PHILIPS MR/PART" keyword="ImageType" vr="IS" vm="1">Image Type</el>
+<el tag="00211110" owner="PHILIPS MR/PART" keyword="ScanTime" vr="TM" vm="1">Scan Time</el>
 <el tag="00210012" owner="SPI-P Release 1" keyword="SeriesUniqueIdentifier" vr="LT" vm="1">Series Unique Identifier</el>
 <el tag="00210013" owner="CARDIO-D.R. 1.0" keyword="ImageSequenceNumber" vr="IS" vm="1">Image Sequence Number</el>
-<el tag="00210013" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
+<el tag="00211013" owner="PHILIPS MR/PART" vr="CS" vm="1"/>
 <el tag="00210014" owner="SPI-P Release 1" vr="LT" vm="1"/>
-<el tag="00210015" owner="PHILIPS MR/PART" vr="US" vm="1"/>
+<el tag="00211015" owner="PHILIPS MR/PART" vr="US" vm="1"/>
 <el tag="00210020" owner="PHILIPS MR/LAST" vr="IS" vm="1"/>
-<el tag="00210020" owner="PHILIPS MR/PART" keyword="SliceNumber" vr="IS" vm="1">Slice Number</el>
+<el tag="00211020" owner="PHILIPS MR/PART" keyword="SliceNumber" vr="IS" vm="1">Slice Number</el>
 <el tag="00210020" owner="SPI-P-GV-CT Release 1" vr="LO" vm="1"/>
 <el tag="00210021" owner="PHILIPS MR/LAST" keyword="SliceGap" vr="DS" vm="1">Slice Gap</el>
-<el tag="00210021" owner="PHILIPS MR/PART" keyword="SliceGap" vr="IS" vm="1">Slice Gap</el>
+<el tag="00211221" owner="PHILIPS MR/PART" keyword="SliceGap" vr="IS" vm="1">Slice Gap</el>
 <el tag="00210022" owner="PHILIPS MR/LAST" keyword="StackRadialAngle" vr="DS" vm="1">Stack Radial Angle</el>
-<el tag="00210030" owner="PHILIPS MR/PART" keyword="EchoNumber" vr="IS" vm="1">Echo Number</el>
+<el tag="00211030" owner="PHILIPS MR/PART" keyword="EchoNumber" vr="IS" vm="1">Echo Number</el>
 <el tag="00210030" owner="SPI-P-GV-CT Release 1" vr="DS" vm="1"/>
-<el tag="00210031" owner="PHILIPS MR/PART" keyword="PatientReferenceID" vr="DS" vm="1">Patient Reference ID</el>
-<el tag="00210035" owner="PHILIPS MR/PART" keyword="ChemicalShiftNumber" vr="IS" vm="1">Chemical Shift Number</el>
-<el tag="00210040" owner="PHILIPS MR/PART" keyword="PhaseNumber" vr="IS" vm="1">Phase Number</el>
+<el tag="00211031" owner="PHILIPS MR/PART" keyword="PatientReferenceID" vr="DS" vm="1">Patient Reference ID</el>
+<el tag="00211035" owner="PHILIPS MR/PART" keyword="ChemicalShiftNumber" vr="IS" vm="1">Chemical Shift Number</el>
+<el tag="00211040" owner="PHILIPS MR/PART" keyword="PhaseNumber" vr="IS" vm="1">Phase Number</el>
 <el tag="00210040" owner="SPI-P-GV-CT Release 1" vr="LO" vm="1"/>
 <el tag="00210040" owner="SPI-P-Private_CDS Release 1" vr="IS" vm="1"/>
-<el tag="00210050" owner="PHILIPS MR/PART" keyword="DynamicScanNumber" vr="IS" vm="1">Dynamic Scan Number</el>
+<el tag="00211050" owner="PHILIPS MR/PART" keyword="DynamicScanNumber" vr="IS" vm="1">Dynamic Scan Number</el>
 <el tag="00210050" owner="SPI-P-GV-CT Release 1" vr="LO" vm="1"/>
-<el tag="00210060" owner="PHILIPS MR/PART" keyword="NumberOfRowsInObject" vr="IS" vm="1">Number of Rows In Object</el>
+<el tag="00211060" owner="PHILIPS MR/PART" keyword="NumberOfRowsInObject" vr="IS" vm="1">Number of Rows In Object</el>
 <el tag="00210060" owner="SPI-P-GV-CT Release 1" vr="DS" vm="1"/>
-<el tag="00210061" owner="PHILIPS MR/PART" keyword="RowNumber" vr="IS" vm="1-n">Row Number</el>
-<el tag="00210062" owner="PHILIPS MR/PART" vr="IS" vm="1-n"/>
+<el tag="00211061" owner="PHILIPS MR/PART" keyword="RowNumber" vr="IS" vm="1-n">Row Number</el>
+<el tag="00211062" owner="PHILIPS MR/PART" vr="IS" vm="1-n"/>
 <el tag="00210070" owner="SPI-P-GV-CT Release 1" vr="DS" vm="1"/>
 <el tag="00210080" owner="SPI-P-GV-CT Release 1" vr="DS" vm="1"/>
 <el tag="00210090" owner="SPI-P-GV-CT Release 1" vr="DS" vm="1"/>
@@ -611,13 +611,13 @@
 <el tag="0029004f" owner="SPI-P Release 1;1" keyword="MagnifyingGlassSelectStatus" vr="CS" vm="1">Magnifying Glass Select Status</el>
 <el tag="0029004f" owner="SPI-P-Private_ICS Release 1" vr="FD" vm="1"/>
 <el tag="00290050" owner="PHILIPS MR/LAST" keyword="WindowMinimum" vr="DS" vm="1">Window Minimum</el>
-<el tag="00290050" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
+<el tag="00291050" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
 <el tag="00290050" owner="SPI-P-Private_ICS Release 1" vr="FD" vm="1"/>
 <el tag="00290050" owner="SPI-P-Private_ICS Release 1;5" vr="CS" vm="1"/>
-<el tag="00290051" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
+<el tag="00291051" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
 <el tag="00290051" owner="SPI-P-Private_ICS Release 1" vr="FD" vm="1"/>
-<el tag="00290052" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
-<el tag="00290053" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
+<el tag="00291052" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
+<el tag="00291053" owner="PHILIPS MR/PART" vr="DS" vm="1"/>
 <el tag="00290055" owner="SPI-P-Private_ICS Release 1;5" vr="CS" vm="1"/>
 <el tag="00290060" owner="PHILIPS MR/LAST" keyword="WindowMaximum" vr="DS" vm="1">Window Maximum</el>
 <el tag="00290060" owner="SPI-P Release 1" vr="LT" vm="1"/>
@@ -1513,7 +1513,7 @@
 <el tag="20050082" owner="Philips MR Imaging DD 006" keyword="SpatialGradient" vr="IS" vm="1">Spatial Gradient</el>
 <el tag="20050083" owner="PHILIPS MR IMAGING DD 001" keyword="SeriesSlab" vr="SQ" vm="1">Series Slab</el>
 <el tag="20050083" owner="Philips MR Imaging DD 001" keyword="SeriesSlab" vr="SQ" vm="1">Series Slab</el>
-<el tag="20050083" owner="Philips MR Imaging DD 004" keyword="Sort Attributes" vr="CS" vm="1-n">Sort Attributes</el>
+<el tag="20050083" owner="Philips MR Imaging DD 004" keyword="SortAttributes" vr="CS" vm="1-n">Sort Attributes</el>
 <el tag="20050083" owner="Philips MR Imaging DD 006" keyword="AdditionalConstraints" vr="LT" vm="1">Additional Constraints</el>
 <el tag="20050084" owner="PHILIPS MR IMAGING DD 001" keyword="SeriesReference" vr="SQ" vm="1">Series Reference</el>
 <el tag="20050084" owner="Philips MR Imaging DD 001" keyword="SeriesReference" vr="SQ" vm="1">Series Reference</el>
@@ -1524,7 +1524,7 @@
 <el tag="20050085" owner="Philips MR Imaging DD 006" keyword="GradientSlewRate" vr="DS" vm="1">Gradient Slew Rate</el>
 <el tag="20050086" owner="PHILIPS MR IMAGING DD 001" keyword="NumberOfGeometry" vr="SS" vm="1">Number of Geometry</el>
 <el tag="20050086" owner="Philips MR Imaging DD 001" keyword="NumberOfGeometry" vr="SS" vm="1">Number of Geometry</el>
-<el tag="20050086" owner="Philips MR Imaging DD 004" keyword="Inset Scanogram" vr="CS" vm="1">Inset Scanogram</el>
+<el tag="20050086" owner="Philips MR Imaging DD 004" keyword="InsetScanogram" vr="CS" vm="1">Inset Scanogram</el>
 <el tag="20050086" owner="Philips MR Imaging DD 006" vr="LT" vm="1"/>
 <el tag="20050087" owner="Philips MR Imaging DD 001" keyword="NumberOfGeometrySlices" vr="SL" vm="1-n">Number of Geometry Slices</el>
 <el tag="20050087" owner="Philips MR Imaging DD 004" keyword="DisplayLayoutNumberOfColumns" vr="SS" vm="1">Display Layout Number of Columns</el>
