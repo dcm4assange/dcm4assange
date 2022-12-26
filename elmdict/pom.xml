@@ -39,6 +39,7 @@
     <module>isg</module>
     <module>philips</module>
     <module>picker</module>
+    <module>siemens</module>
     <module>spi</module>
     <module>toshiba</module>
   </modules>

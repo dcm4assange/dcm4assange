@@ -96,6 +96,11 @@
     </dependency>
     <dependency>
       <groupId>org.dcm4assange.elmdict</groupId>
+      <artifactId>dcm4assange-elmdict-siemens</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.dcm4assange.elmdict</groupId>
       <artifactId>dcm4assange-elmdict-spi</artifactId>
       <version>${project.version}</version>
     </dependency>

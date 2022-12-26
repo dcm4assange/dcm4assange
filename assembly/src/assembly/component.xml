@@ -48,6 +48,7 @@
         <include>org.dcm4assange.elmdict:dcm4assange-elmdict-papyrus</include>
         <include>org.dcm4assange.elmdict:dcm4assange-elmdict-philips</include>
         <include>org.dcm4assange.elmdict:dcm4assange-elmdict-picker</include>
+        <include>org.dcm4assange.elmdict:dcm4assange-elmdict-siemens</include>
         <include>org.dcm4assange.elmdict:dcm4assange-elmdict-spi</include>
         <include>org.dcm4assange.elmdict:dcm4assange-elmdict-toshiba</include>
         <include>org.dcm4assange.tool:dcm4assange-tool-dcmbenchmark</include>

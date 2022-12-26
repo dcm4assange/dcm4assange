@@ -37,22 +37,23 @@ public class ElementDictionary {
 
     private static final ServiceLoader<ElementDictionary> loader = ServiceLoader.load(ElementDictionary.class);
     private static final Map<String, ElementDictionary> privateDictionaries = new HashMap<>();
-    private static final Object[] GroupLength = { VR.UL, "GroupLength" };
-    private static final Object[] PrivateCreatorID = { VR.LO, "PrivateCreatorID" };
-    private static final Object[] ZonalMap = { VR.US, "ZonalMap" };
-    private static final Object[] SourceImageIDs = { VR.CS, "SourceImageIDs" };
-    private static final Object[] Unknown = { VR.UN, "" };
+    private static final Element GroupLength = new Element(VR.UL, "GroupLength");
+    private static final Element PrivateCreatorID = new Element(VR.LO, "PrivateCreatorID");
+    private static final Element ZonalMap = new Element(VR.US, "ZonalMap");
+    private static final Element SourceImageIDs = new Element(VR.CS, "SourceImageIDs");
+    private static final Element Unknown = new Element(VR.UN, "");
 
     private final String privateCreator;
     private final ToIntFunction<String> tagOfKeyword;
-    private final IntFunction<Object[]> elementOfTag;
+    private final IntFunction<Element> elementOfTag;
+    private record Element(VR vr, String keyword){}
 
     public ElementDictionary(String privateCreator, ToIntFunction<String> tagOfKeyword, URL resource) {
         this(Objects.requireNonNull(privateCreator), tagOfKeyword, new PrivateElements(resource));
     }
 
     private ElementDictionary(String privateCreator, ToIntFunction<String> tagOfKeyword,
-                              IntFunction<Object[]> elementOfTag) {
+                              IntFunction<Element> elementOfTag) {
         this.privateCreator = privateCreator;
         this.tagOfKeyword = tagOfKeyword;
         this.elementOfTag = elementOfTag;
@@ -87,11 +88,11 @@ public class ElementDictionary {
     }
 
     public static VR vrOf(int tag) {
-        return (VR) DICOM.elementOfTag.apply(tag)[0];
+        return DICOM.elementOfTag.apply(tag).vr;
     }
 
     public static String keywordOf(int tag) {
-        return (String) DICOM.elementOfTag.apply(tag)[1];
+        return DICOM.elementOfTag.apply(tag).keyword;
     }
 
     public static int tagForKeyword(String keyword) {
@@ -99,44 +100,44 @@ public class ElementDictionary {
     }
 
     public static VR vrOf(String privateCreator, int tag) {
-        return (VR) (TagUtils.isPrivateTag(tag) ? privateDictionary(privateCreator) : DICOM)
-                .elementOfTag.apply(tag)[0];
+        return (TagUtils.isPrivateTag(tag) ? privateDictionary(privateCreator) : DICOM)
+                .elementOfTag.apply(tag).vr;
     }
 
     public static String keywordOf(String privateCreator, int tag) {
-        return (String) (TagUtils.isPrivateTag(tag) ? privateDictionary(privateCreator) : DICOM)
-                .elementOfTag.apply(tag)[1];
+        return (TagUtils.isPrivateTag(tag) ? privateDictionary(privateCreator) : DICOM)
+                .elementOfTag.apply(tag).keyword;
     }
 
     public static int tagForKeyword(String privateCreatorID, String keyword) {
         return privateDictionary(privateCreatorID).tagOfKeyword.applyAsInt(keyword);
     }
 
-    private static void parse(URL resource, BiConsumer<String, Object[]> action) {
+    private static void parse(URL resource, BiConsumer<String, Element> action) {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(resource.openStream()))) {
             reader.lines()
                     .filter(line -> line.length() >= 12 && line.charAt(0) != '#')
                     .forEach(line -> action.accept(
                         line.substring(0,8), line.charAt(11) == ':'
-                                ? new Object[]{VR.valueOf(line.substring(9,11)), line.substring(12)}
-                                : new Object[]{null, line.substring(10)}));
+                                ? new Element(VR.valueOf(line.substring(9,11)), line.substring(12))
+                                : new Element(null, line.substring(10))));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    private static class Elements implements IntFunction<Object[]>, BiConsumer<String, Object[]> {
-        private final Map<Integer, Object[]> map1 = new HashMap<>();
-        private final Map<Integer, Object[]> map2 = new HashMap<>();
-        private final Map<Integer, Object[]> map3 = new HashMap<>();
-        private final Map<Integer, Object[]> map4 = new HashMap<>();
+    private static class Elements implements IntFunction<Element>, BiConsumer<String, Element> {
+        private final Map<Integer, Element> map1 = new HashMap<>();
+        private final Map<Integer, Element> map2 = new HashMap<>();
+        private final Map<Integer, Element> map3 = new HashMap<>();
+        private final Map<Integer, Element> map4 = new HashMap<>();
 
         public Elements(URL resource) {
             parse(resource, this);
         }
 
         @Override
-        public void accept(String tagHexString, Object[] element) {
+        public void accept(String tagHexString, Element element) {
             Integer tag = (int) Long.parseLong(tagHexString.replace('x', '0'), 16);
             switch (tagHexString.lastIndexOf('x')) {
                 case -1 -> map1.put(tag, element);
@@ -146,7 +147,7 @@ public class ElementDictionary {
         }
 
         @Override
-        public Object[] apply(int tag) {
+        public Element apply(int tag) {
             return (tag & 0x0000FFFF) == 0 && tag != 0x00000000 && tag != 0x00020000 ? GroupLength
                 : (tag & 0x00010000) != 0 ?
                     ((tag & 0x0000FF00) == 0 && (tag & 0x000000F0) != 0 ? PrivateCreatorID : Unknown)
@@ -160,22 +161,23 @@ public class ElementDictionary {
         }
     }
 
-    private static class PrivateElements implements IntFunction<Object[]>, BiConsumer<String, Object[]> {
-        private final Map<Integer, Object[]> map = new HashMap<>();
+    private static class PrivateElements implements IntFunction<Element>, BiConsumer<String, Element> {
+        private final Map<Integer, Element> map = new HashMap<>();
 
         public PrivateElements(URL resource) {
             parse(resource, this);
         }
 
         @Override
-        public void accept(String tagHexString, Object[] element) {
+        public void accept(String tagHexString, Element element) {
             Integer tag = (int) Long.parseLong(tagHexString.replace('x', '0'), 16);
             map.put(tag, element);
         }
 
         @Override
-        public Object[] apply(int tag) {
-            return map.getOrDefault(tag & 0xFFFF00FF, Unknown);
+        public Element apply(int tag) {
+            Element value = map.get(tag);
+            return value != null ? value : map.getOrDefault(tag & 0xFFFF00FF, Unknown);
         }
     }
 }
