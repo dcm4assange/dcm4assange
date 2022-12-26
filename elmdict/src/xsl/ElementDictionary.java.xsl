@@ -16,18 +16,25 @@ package </xsl:text><xsl:value-of select="$package"/><xsl:text>;
 import org.dcm4assange.ElementDictionary;
 import org.dcm4assange.VR;
 
-/**
- * @author Gunter Zeilinger (gunterze@protonmail.com)
- * @since Jul 2021
- */
 public class </xsl:text><xsl:value-of select="$class"/><xsl:text> extends ElementDictionary {
 
     public static final String PRIVATE_CREATOR = "</xsl:text><xsl:value-of select="$PrivateCreatorID"/><xsl:text>";
 
-    public </xsl:text><xsl:value-of select="$class"/><xsl:text>() {
-        super(PRIVATE_CREATOR, Tag::of, </xsl:text>
+    private static class LazyHolder {
+        private static PrivateElements elements =
+                new PrivateElements(</xsl:text>
     <xsl:value-of select="$class"/>
-    <xsl:text>.class.getResource("</xsl:text><xsl:value-of select="$class"/><xsl:text>.properties"));
+    <xsl:text>.class.getResource("</xsl:text>
+    <xsl:value-of select="$class"/>
+    <xsl:text>.properties"));
+    }
+
+    public </xsl:text><xsl:value-of select="$class"/><xsl:text>() {
+        super(PRIVATE_CREATOR, Tag::of);
+    }
+
+    protected Element elementOfTag(int tag) {
+        return LazyHolder.elements.apply(tag);
     }
 
     public static class Tag {

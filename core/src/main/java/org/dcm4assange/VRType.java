@@ -95,9 +95,9 @@ interface VRType {
         public StringBuilder promptValueTo(DicomInput dicomInput, long valuePos, int valueLength,
                                            DicomObject dicomObject, StringBuilder sb, int maxLength) {
             sb.append(" [");
-            int truncate = Math.max(0, valueLength - sb.length() - maxLength);
+            int truncate = Math.max(0, valueLength + sb.length() - maxLength);
             promptValueTo(dicomInput, valuePos, valueLength - truncate, sb);
-            if (truncate < 0) {
+            if (truncate <= 0) {
                 sb.append(']');
             }
             if (sb.length() > maxLength) {

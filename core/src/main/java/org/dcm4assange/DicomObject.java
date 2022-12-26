@@ -422,7 +422,10 @@ public class DicomObject implements Serializable {
 
     public StringBuilder promptElementTo(long header, Object value, StringBuilder sb, int maxLength) {
         int tag = header2tag(header);
+        String privateCreator = privateCreatorOf(tag).orElse(null);
         VR vr = VR.fromHeader(header);
+        if (vr == VR.UN)
+            vr = ElementDictionary.vrOf(privateCreator, tag);
         promptLevelTo(sb).append(TagUtils.toCharArray(tag));
         if (vr != null) sb.append(' ').append(vr);
         if (value instanceof byte[] b) {
@@ -442,8 +445,7 @@ public class DicomObject implements Serializable {
                 vr.type.promptValueTo(dicomInput, header2valuePosition(header), valueLength, this, sb, maxLength);
         }
         if (sb.length() < maxLength) {
-            sb.append(" ").append(
-                    ElementDictionary.keywordOf(privateCreatorOf(tag).orElse(null), tag));
+            sb.append(" ").append(ElementDictionary.keywordOf(privateCreator, tag));
             if (sb.length() > maxLength) {
                 sb.setLength(maxLength);
             }

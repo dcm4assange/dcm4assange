@@ -32,8 +32,7 @@ import java.util.function.ToIntFunction;
  * @since Jul 2021
  */
 public class ElementDictionary {
-    private static final ElementDictionary DICOM = new ElementDictionary(null, Tag::of,
-            new Elements(ElementDictionary.class.getResource("ElementDictionary.properties")));
+    private static final ElementDictionary DICOM = new ElementDictionary(null, Tag::of);
 
     private static final ServiceLoader<ElementDictionary> loader = ServiceLoader.load(ElementDictionary.class);
     private static final Map<String, ElementDictionary> privateDictionaries = new HashMap<>();
@@ -45,18 +44,11 @@ public class ElementDictionary {
 
     private final String privateCreator;
     private final ToIntFunction<String> tagOfKeyword;
-    private final IntFunction<Element> elementOfTag;
-    private record Element(VR vr, String keyword){}
+    protected record Element(VR vr, String keyword){}
 
-    public ElementDictionary(String privateCreator, ToIntFunction<String> tagOfKeyword, URL resource) {
-        this(Objects.requireNonNull(privateCreator), tagOfKeyword, new PrivateElements(resource));
-    }
-
-    private ElementDictionary(String privateCreator, ToIntFunction<String> tagOfKeyword,
-                              IntFunction<Element> elementOfTag) {
+    protected ElementDictionary(String privateCreator, ToIntFunction<String> tagOfKeyword) {
         this.privateCreator = privateCreator;
         this.tagOfKeyword = tagOfKeyword;
-        this.elementOfTag = elementOfTag;
     }
 
     public final String getPrivateCreator() {
@@ -88,11 +80,11 @@ public class ElementDictionary {
     }
 
     public static VR vrOf(int tag) {
-        return DICOM.elementOfTag.apply(tag).vr;
+        return DICOM.elementOfTag(tag).vr;
     }
 
     public static String keywordOf(int tag) {
-        return DICOM.elementOfTag.apply(tag).keyword;
+        return DICOM.elementOfTag(tag).keyword;
     }
 
     public static int tagForKeyword(String keyword) {
@@ -101,12 +93,21 @@ public class ElementDictionary {
 
     public static VR vrOf(String privateCreator, int tag) {
         return (TagUtils.isPrivateTag(tag) ? privateDictionary(privateCreator) : DICOM)
-                .elementOfTag.apply(tag).vr;
+                .elementOfTag(tag).vr;
     }
 
     public static String keywordOf(String privateCreator, int tag) {
         return (TagUtils.isPrivateTag(tag) ? privateDictionary(privateCreator) : DICOM)
-                .elementOfTag.apply(tag).keyword;
+                .elementOfTag(tag).keyword;
+    }
+
+    private static class LazyHolder {
+        private static Elements elements =
+                new Elements(ElementDictionary.class.getResource("ElementDictionary.properties"));
+    }
+
+    protected Element elementOfTag(int tag) {
+        return LazyHolder.elements.apply(tag);
     }
 
     public static int tagForKeyword(String privateCreatorID, String keyword) {
@@ -161,7 +162,7 @@ public class ElementDictionary {
         }
     }
 
-    private static class PrivateElements implements IntFunction<Element>, BiConsumer<String, Element> {
+    protected static class PrivateElements implements IntFunction<Element>, BiConsumer<String, Element> {
         private final Map<Integer, Element> map = new HashMap<>();
 
         public PrivateElements(URL resource) {
