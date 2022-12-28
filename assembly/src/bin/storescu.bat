@@ -53,6 +53,7 @@ set MP=%MP%;%DCM4CHE_HOME%\lib\dcm4assange-elmdict-elscint-${project.version}.ja
 set MP=%MP%;%DCM4CHE_HOME%\lib\dcm4assange-elmdict-gems-${project.version}.jar
 set MP=%MP%;%DCM4CHE_HOME%\lib\dcm4assange-elmdict-hitachi-${project.version}.jar
 set MP=%MP%;%DCM4CHE_HOME%\lib\dcm4assange-elmdict-isg-${project.version}.jar
+set MP=%MP%;%DCM4CHE_HOME%\lib\dcm4assange-elmdict-other-${project.version}.jar
 set MP=%MP%;%DCM4CHE_HOME%\lib\dcm4assange-elmdict-papyrus-${project.version}.jar
 set MP=%MP%;%DCM4CHE_HOME%\lib\dcm4assange-elmdict-philips-${project.version}.jar
 set MP=%MP%;%DCM4CHE_HOME%\lib\dcm4assange-elmdict-picker-${project.version}.jar

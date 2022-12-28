@@ -27,6 +27,7 @@ org.dcm4assange.elmdict.philips.PhilipsMRPart7
 org.dcm4assange.elmdict.philips.PhilipsMR55Part
 org.dcm4assange.elmdict.philips.PhilipsMR56Part
 org.dcm4assange.elmdict.philips.PhilipsMRSpectro
+org.dcm4assange.elmdict.philips.PhilipsNMPrivate
 org.dcm4assange.elmdict.philips.PhilipsNMPrivateGroup
 org.dcm4assange.elmdict.philips.PhilipsPETPrivateGroup
 org.dcm4assange.elmdict.philips.PhilipsRADImagingDD001
@@ -58,6 +59,7 @@ org.dcm4assange.elmdict.philips.PMSThora
 org.dcm4assange.elmdict.philips.SPIPCTBEPrivate
 org.dcm4assange.elmdict.philips.SPIPCTBE
 org.dcm4assange.elmdict.philips.SPIPGVCT
+org.dcm4assange.elmdict.philips.SPIPPCR
 org.dcm4assange.elmdict.philips.SPIPPrivateCDS
 org.dcm4assange.elmdict.philips.SPIPPrivateCWS
 org.dcm4assange.elmdict.philips.SPIPPrivateDCI

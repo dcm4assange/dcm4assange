@@ -1749,10 +1749,6 @@
 <el tag="100100E0" owner="PRIVATE_CODE_STRING_1001" keyword="DepthDefinedOn" vr="SL" vm="1">Depth Defined On</el>
 <el tag="100100E1" owner="PRIVATE_CODE_STRING_1001" keyword="Depth" vr="FD" vm="1">Depth</el>
 <el tag="100100E2" owner="PRIVATE_CODE_STRING_1001" keyword="VOIBasedPlacementSettingsSequence" vr="SQ" vm="1">VOI Based Placement Settings Sequence</el>
-<el tag="100100C5" owner="PRIVATE_CODE_STRING_1001" keyword="VOINumber" vr="SL" vm="1">VOI Number</el>
-<el tag="100100C6" owner="PRIVATE_CODE_STRING_1001" keyword="VOIName" vr="LO" vm="1">VOI Name</el>
-<el tag="100100C7" owner="PRIVATE_CODE_STRING_1001" keyword="VOIType" vr="SL" vm="1">VOI Type</el>
-<el tag="100100C8" owner="PRIVATE_CODE_STRING_1001" keyword="VOIClass" vr="SL" vm="1">VOI Class</el>
 <el tag="100100E7" owner="PRIVATE_CODE_STRING_1001" keyword="VOISelected" vr="SL" vm="1">VOI Selected</el>
 <el tag="100100E8" owner="PRIVATE_CODE_STRING_1001" keyword="Margin" vr="FD" vm="1">Margin</el>
 <el tag="100100E9" owner="PRIVATE_CODE_STRING_1001" keyword="SelectionMethod" vr="SL" vm="1">Selection Method</el>
@@ -2142,35 +2138,6 @@
 <el tag="f001001c" owner="Sound Eklin" keyword="ExamCreatedByGuid" vr="LO" vm="1">Exam Created By Guid</el>
 <el tag="f001001d" owner="Sound Eklin" keyword="ClientNameGuid" vr="LO" vm="1">Client Name Guid</el>
 <el tag="f001001e" owner="Sound Eklin" keyword="ReceptorBitsPerPixel" vr="LO" vm="1">Receptor Bits Per Pixel</el>
-<el tag="f0010002" owner="Sound Technologies" keyword="PatientCategorySize" vr="LO" vm="1">Patient Category Size</el>
-<el tag="f0010003" owner="Sound Technologies" keyword="PatientSexExtended" vr="LO" vm="1">Patient Sex Extended</el>
-<el tag="f0010004" owner="Sound Technologies" keyword="ImageView" vr="LO" vm="1">Image View</el>
-<el tag="f0010005" owner="Sound Technologies" keyword="AnatomyImaged" vr="LO" vm="1">Anatomy Imaged</el>
-<el tag="f0010006" owner="Sound Technologies" keyword="ImageEnhancements" vr="LO" vm="1">Image Enhancements</el>
-<el tag="f0010007" owner="Sound Technologies" keyword="DetectorSettings" vr="LO" vm="1">Detector Settings</el>
-<el tag="f0010008" owner="Sound Technologies" keyword="ApplicationVersion" vr="LO" vm="1">Application Version</el>
-<el tag="f0010009" owner="Sound Technologies" keyword="ImageLateralityExtended" vr="LO" vm="1">Image Laterality Extended</el>
-<el tag="f001000a" owner="Sound Technologies" keyword="ClientName" vr="PN" vm="1">Client Name</el>
-<el tag="f001000b" owner="Sound Technologies" keyword="ReferenceStudyInstanceUID" vr="UI" vm="1">Reference Study Instance UID</el>
-<el tag="f001000c" owner="Sound Technologies" keyword="ReferenceSeriesInstanceUID" vr="UI" vm="1">Reference Series Instance UID</el>
-<el tag="f001000d" owner="Sound Technologies" keyword="ExamRefId" vr="LO" vm="1">Exam Ref Id</el>
-<el tag="f001000e" owner="Sound Technologies" keyword="PhysicianOfRecordAddress" vr="ST" vm="1">Physician of Record Address</el>
-<el tag="f001000f" owner="Sound Technologies" keyword="PhysicianOfRecordPhoneNumbers" vr="SH" vm="1-n">Physician of Record Phone Numbers</el>
-<el tag="f0010010" owner="Sound Technologies" keyword="ReasonForStudy" vr="LT" vm="1">Reason for Study</el>
-<el tag="f0010011" owner="Sound Technologies" keyword="Protocol" vr="LO" vm="1">Protocol</el>
-<el tag="f0010012" owner="Sound Technologies" keyword="CaptureInputType" vr="LO" vm="1">Capture Input Type</el>
-<el tag="f0010013" owner="Sound Technologies" keyword="ExamComplaint" vr="LT" vm="1">Exam Complaint</el>
-<el tag="f0010014" owner="Sound Technologies" keyword="ExamWebCode" vr="LO" vm="1">Exam Web Code</el>
-<el tag="f0010015" owner="Sound Technologies" keyword="ExamCategory" vr="LO" vm="1">Exam Category</el>
-<el tag="f0010016" owner="Sound Technologies" keyword="ExamDiagnosis" vr="SH" vm="1">Exam Diagnosis</el>
-<el tag="f0010017" owner="Sound Technologies" keyword="ExamCreatedBy" vr="PN" vm="1">Exam Created By</el>
-<el tag="f0010018" owner="Sound Technologies" keyword="ExamCreatedByGroup" vr="LO" vm="1">Exam Created By Group</el>
-<el tag="f0010019" owner="Sound Technologies" keyword="ExamRequiredByDateTime" vr="DT" vm="1">Exam Required By DateTime</el>
-<el tag="f001001a" owner="Sound Technologies" keyword="CaptureType" vr="LO" vm="1">Capture Type</el>
-<el tag="f001001b" owner="Sound Technologies" keyword="TelemedExamID" vr="IS" vm="1">Telemed Exam ID</el>
-<el tag="f001001c" owner="Sound Technologies" keyword="ExamCreatedByGuid" vr="LO" vm="1">Exam Created By Guid</el>
-<el tag="f001001d" owner="Sound Technologies" keyword="ClientNameGuid" vr="LO" vm="1">Client Name Guid</el>
-<el tag="f001001e" owner="Sound Technologies" keyword="ReceptorBitsPerPixel" vr="LO" vm="1">Receptor Bits Per Pixel</el>
 <el tag="00310003" owner="NUMACALC-INVENTORY" vr="LO" vm="1"/>
 <el tag="00310004" owner="NUMACALC-INVENTORY" vr="SH" vm="1"/>
 <el tag="00310005" owner="NUMACALC-INVENTORY" vr="SH" vm="1"/>

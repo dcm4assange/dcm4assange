@@ -45,6 +45,7 @@
         <include>org.dcm4assange.elmdict:dcm4assange-elmdict-gems</include>
         <include>org.dcm4assange.elmdict:dcm4assange-elmdict-hitachi</include>
         <include>org.dcm4assange.elmdict:dcm4assange-elmdict-isg</include>
+        <include>org.dcm4assange.elmdict:dcm4assange-elmdict-other</include>
         <include>org.dcm4assange.elmdict:dcm4assange-elmdict-papyrus</include>
         <include>org.dcm4assange.elmdict:dcm4assange-elmdict-philips</include>
         <include>org.dcm4assange.elmdict:dcm4assange-elmdict-picker</include>

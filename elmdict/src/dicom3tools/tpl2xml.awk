@@ -15,6 +15,12 @@ BEGIN	{
 	if (match($0,",[0-9a-fA-FxX][0-9a-fA-FxX][0-9a-fA-FxX][0-9a-fA-FxX]")) {
 		element=substr($0,RSTART+3,2)
 	}
+	if (keyword == "VOIBasedPlacementSettingsSequence" && element != "E7") {
+		next
+	}
+	if (keyword == "ReceptorBitsPerPixel" && owner == "Sound Eklin" && group != "0031") {
+		next
+	}
 	block=substr($0,RSTART+1,2)
 	if (match($0,"PrivateBlock=\"00")) {
 		block=substr($0,RSTART+length("PrivateBlock=\"00"),2)
@@ -23,9 +29,8 @@ BEGIN	{
 	ownerattr=""
 	if (match($0,"Owner=\"[^\"]*\"")) {
 		owner=substr($0,RSTART+length("Owner=\""),
-			RLENGTH-length("Owner=\"")-1);
-		ownerattr="\" owner=\"" substr($0,RSTART+length("Owner=\""),
 			RLENGTH-length("Owner=\"")-1)
+		ownerattr="\" owner=\"" owner
 	}
 
 	keywordattr=""
