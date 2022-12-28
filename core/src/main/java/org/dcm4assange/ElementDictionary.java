@@ -101,15 +101,6 @@ public class ElementDictionary {
                 .elementOfTag(tag).keyword;
     }
 
-    private static class LazyHolder {
-        private static Elements elements =
-                new Elements(ElementDictionary.class.getResource("ElementDictionary.properties"));
-    }
-
-    protected Element elementOfTag(int tag) {
-        return LazyHolder.elements.apply(tag);
-    }
-
     public static int tagForKeyword(String privateCreatorID, String keyword) {
         return privateDictionary(privateCreatorID).tagOfKeyword.applyAsInt(keyword);
     }
@@ -127,14 +118,20 @@ public class ElementDictionary {
         }
     }
 
-    private static class Elements implements IntFunction<Element>, BiConsumer<String, Element> {
+    protected Element elementOfTag(int tag) {
+        return Elements.INSTANCE.apply(tag);
+    }
+
+    private static final class Elements implements IntFunction<Element>, BiConsumer<String, Element> {
         private final Map<Integer, Element> map1 = new HashMap<>();
         private final Map<Integer, Element> map2 = new HashMap<>();
         private final Map<Integer, Element> map3 = new HashMap<>();
         private final Map<Integer, Element> map4 = new HashMap<>();
 
-        public Elements(URL resource) {
-            parse(resource, this);
+        private static final Elements INSTANCE = new Elements();
+
+        private Elements() {
+            parse(ElementDictionary.class.getResource("ElementDictionary.properties"), this);
         }
 
         @Override
@@ -162,7 +159,7 @@ public class ElementDictionary {
         }
     }
 
-    protected static class PrivateElements implements IntFunction<Element>, BiConsumer<String, Element> {
+    protected static final class PrivateElements implements IntFunction<Element>, BiConsumer<String, Element> {
         private final Map<Integer, Element> map = new HashMap<>();
 
         public PrivateElements(URL resource) {

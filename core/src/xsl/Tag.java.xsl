@@ -33,6 +33,7 @@ package org.dcm4assange;
  */
 public class Tag {
 </xsl:text>
+    private Tag() {}
     <xsl:apply-templates select="//el[@keyword!='']" mode="Tag"/>
     <xsl:text>
     /** (0008,0012) VR=DA VM=1 Instance Creation Date

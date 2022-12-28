@@ -16,12 +16,20 @@ package </xsl:text><xsl:value-of select="$package"/><xsl:text>;
 import org.dcm4assange.ElementDictionary;
 import org.dcm4assange.VR;
 
-public class </xsl:text><xsl:value-of select="$class"/><xsl:text> extends ElementDictionary {
+public final class </xsl:text><xsl:value-of select="$class"/><xsl:text> extends ElementDictionary {
 
     public static final String PRIVATE_CREATOR = "</xsl:text><xsl:value-of select="$PrivateCreatorID"/><xsl:text>";
 
-    private static class LazyHolder {
-        private static PrivateElements elements =
+    public </xsl:text><xsl:value-of select="$class"/><xsl:text>() {
+        super(PRIVATE_CREATOR, Tag::of);
+    }
+
+    protected Element elementOfTag(int tag) {
+        return LazyHolder.INSTANCE.apply(tag);
+    }
+
+    private static final class LazyHolder {
+        private static PrivateElements INSTANCE =
                 new PrivateElements(</xsl:text>
     <xsl:value-of select="$class"/>
     <xsl:text>.class.getResource("</xsl:text>
@@ -29,15 +37,9 @@ public class </xsl:text><xsl:value-of select="$class"/><xsl:text> extends Elemen
     <xsl:text>.properties"));
     }
 
-    public </xsl:text><xsl:value-of select="$class"/><xsl:text>() {
-        super(PRIVATE_CREATOR, Tag::of);
-    }
-
-    protected Element elementOfTag(int tag) {
-        return LazyHolder.elements.apply(tag);
-    }
-
     public static class Tag {
+
+        private Tag() {}
 
         public static int of(String keyword) {
             try {

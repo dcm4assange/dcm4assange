@@ -12,7 +12,7 @@ import java.util.ResourceBundle;
  * This file is generated from DICOM Standard Documents PS3.6 Data Dictionary in DocBook format
  * available at http://dicom.nema.org/medical/dicom/current/source/docbook/
  */
-public class UID {
+public final class UID {
 
     private static final ResourceBundle rb = ResourceBundle.getBundle("org.dcm4assange.UIDNames");
 
