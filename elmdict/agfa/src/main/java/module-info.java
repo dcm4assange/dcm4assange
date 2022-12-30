@@ -1,27 +1,26 @@
-/**
- * @author Gunter Zeilinger (gunterze@protonmail.com)
- * @since Jul 2021
- */
+// This file is generated from element dictionary template files included in
+// David Clunie's Dicom3tools Software (https://www.dclunie.com/dicom3tools.html)
+
 module org.dcm4assange.elmdict.agfa {
     exports org.dcm4assange.elmdict.agfa;
 
     requires org.dcm4assange.core;
 
     provides org.dcm4assange.ElementDictionary with
-            org.dcm4assange.elmdict.agfa.Agfa,
-            org.dcm4assange.elmdict.agfa.AgfaADC,
-            org.dcm4assange.elmdict.agfa.AgfaDisplayableImage,
-            org.dcm4assange.elmdict.agfa.AgfaHPState,
-            org.dcm4assange.elmdict.agfa.AgfaKOSD,
-            org.dcm4assange.elmdict.agfa.AgfaNX,
-            org.dcm4assange.elmdict.agfa.AgfaPACS,
-            org.dcm4assange.elmdict.agfa.AgfaXeroverse,
+            org.dcm4assange.elmdict.agfa.AGFA,
+            org.dcm4assange.elmdict.agfa.AGFA_ADC_Compact,
+            org.dcm4assange.elmdict.agfa.Agfa_ADC_NX,
+            org.dcm4assange.elmdict.agfa.AGFA_AG_HPState,
+            org.dcm4assange.elmdict.agfa.agfa_displayableImages,
+            org.dcm4assange.elmdict.agfa.AGFA_KOSD_1_0,
+            org.dcm4assange.elmdict.agfa.AGFA_PACS_Archive_Mirroring_1_0,
+            org.dcm4assange.elmdict.agfa.agfa_xeroverse,
             org.dcm4assange.elmdict.agfa.AgilityOverlay,
             org.dcm4assange.elmdict.agfa.AgilityRuntime,
-            org.dcm4assange.elmdict.agfa.MitraLinkedAttributes,
-            org.dcm4assange.elmdict.agfa.MitraMarkup,
-            org.dcm4assange.elmdict.agfa.MitraObjectAttributes,
-            org.dcm4assange.elmdict.agfa.MitraObjectDocument,
-            org.dcm4assange.elmdict.agfa.MitraObjectUTF8Attributes,
-            org.dcm4assange.elmdict.agfa.MitraPresentation;
+            org.dcm4assange.elmdict.agfa.MITRA_LINKED_ATTRIBUTES_1_0,
+            org.dcm4assange.elmdict.agfa.MITRA_MARKUP_1_0,
+            org.dcm4assange.elmdict.agfa.MITRA_OBJECT_ATTRIBUTES_1_0,
+            org.dcm4assange.elmdict.agfa.MITRA_OBJECT_DOCUMENT_1_0,
+            org.dcm4assange.elmdict.agfa.MITRA_OBJECT_UTF8_ATTRIBUTES_1_0,
+            org.dcm4assange.elmdict.agfa.MITRA_PRESENTATION_1_0;
 }

@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright 2021 the original author or authors.
-  ~
-  ~ Licensed under the Apache License, Version 2.0 (the "License");
-  ~ you may not use this file except in compliance with the License.
-  ~ You may obtain a copy of the License at
-  ~
-  ~ http://www.apache.org/licenses/LICENSE-2.0
-  ~
-  ~ Unless required by applicable law or agreed to in writing, software
-  ~ distributed under the License is distributed on an "AS IS" BASIS,
-  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  ~ See the License for the specific language governing permissions and
-  ~ limitations under the License.
-  -->
+  ~ This file is generated from element dictionary template files included in
+  ~ David Clunie's Dicom3tools Software (https://www.dclunie.com/dicom3tools.html)
+-->
 
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -62,7 +51,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>Agfa</value>
+                  <value>AGFA</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -72,7 +61,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/agfa</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>Agfa.java</targetName>
+                  <targetName>AGFA.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -91,7 +80,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/agfa</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>Agfa.properties</targetName>
+                  <targetName>AGFA.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -108,7 +97,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>AgfaADC</value>
+                  <value>AGFA_ADC_Compact</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -118,7 +107,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/agfa</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>AgfaADC.java</targetName>
+                  <targetName>AGFA_ADC_Compact.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -137,7 +126,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/agfa</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>AgfaADC.properties</targetName>
+                  <targetName>AGFA_ADC_Compact.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -154,7 +143,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>AgfaNX</value>
+                  <value>Agfa_ADC_NX</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -164,7 +153,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/agfa</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>AgfaNX.java</targetName>
+                  <targetName>Agfa_ADC_NX.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -183,7 +172,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/agfa</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>AgfaNX.properties</targetName>
+                  <targetName>Agfa_ADC_NX.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -200,7 +189,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>AgfaHPState</value>
+                  <value>AGFA_AG_HPState</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -210,7 +199,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/agfa</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>AgfaHPState.java</targetName>
+                  <targetName>AGFA_AG_HPState.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -229,7 +218,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/agfa</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>AgfaHPState.properties</targetName>
+                  <targetName>AGFA_AG_HPState.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -246,7 +235,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>AgfaDisplayableImage</value>
+                  <value>agfa_displayableImages</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -256,7 +245,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/agfa</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>AgfaDisplayableImage.java</targetName>
+                  <targetName>agfa_displayableImages.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -275,7 +264,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/agfa</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>AgfaDisplayableImage.properties</targetName>
+                  <targetName>agfa_displayableImages.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -292,7 +281,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>AgfaKOSD</value>
+                  <value>AGFA_KOSD_1_0</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -302,7 +291,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/agfa</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>AgfaKOSD.java</targetName>
+                  <targetName>AGFA_KOSD_1_0.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -321,7 +310,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/agfa</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>AgfaKOSD.properties</targetName>
+                  <targetName>AGFA_KOSD_1_0.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -338,7 +327,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>AgfaPACS</value>
+                  <value>AGFA_PACS_Archive_Mirroring_1_0</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -348,7 +337,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/agfa</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>AgfaPACS.java</targetName>
+                  <targetName>AGFA_PACS_Archive_Mirroring_1_0.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -367,7 +356,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/agfa</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>AgfaPACS.properties</targetName>
+                  <targetName>AGFA_PACS_Archive_Mirroring_1_0.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -384,7 +373,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>AgfaXeroverse</value>
+                  <value>agfa_xeroverse</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -394,7 +383,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/agfa</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>AgfaXeroverse.java</targetName>
+                  <targetName>agfa_xeroverse.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -413,7 +402,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/agfa</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>AgfaXeroverse.properties</targetName>
+                  <targetName>agfa_xeroverse.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -522,7 +511,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>MitraLinkedAttributes</value>
+                  <value>MITRA_LINKED_ATTRIBUTES_1_0</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -532,7 +521,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/agfa</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>MitraLinkedAttributes.java</targetName>
+                  <targetName>MITRA_LINKED_ATTRIBUTES_1_0.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -551,7 +540,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/agfa</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>MitraLinkedAttributes.properties</targetName>
+                  <targetName>MITRA_LINKED_ATTRIBUTES_1_0.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -568,7 +557,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>MitraMarkup</value>
+                  <value>MITRA_MARKUP_1_0</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -578,7 +567,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/agfa</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>MitraMarkup.java</targetName>
+                  <targetName>MITRA_MARKUP_1_0.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -597,7 +586,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/agfa</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>MitraMarkup.properties</targetName>
+                  <targetName>MITRA_MARKUP_1_0.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -614,7 +603,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>MitraObjectAttributes</value>
+                  <value>MITRA_OBJECT_ATTRIBUTES_1_0</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -624,7 +613,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/agfa</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>MitraObjectAttributes.java</targetName>
+                  <targetName>MITRA_OBJECT_ATTRIBUTES_1_0.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -643,7 +632,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/agfa</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>MitraObjectAttributes.properties</targetName>
+                  <targetName>MITRA_OBJECT_ATTRIBUTES_1_0.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -660,7 +649,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>MitraObjectDocument</value>
+                  <value>MITRA_OBJECT_DOCUMENT_1_0</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -670,7 +659,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/agfa</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>MitraObjectDocument.java</targetName>
+                  <targetName>MITRA_OBJECT_DOCUMENT_1_0.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -689,7 +678,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/agfa</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>MitraObjectDocument.properties</targetName>
+                  <targetName>MITRA_OBJECT_DOCUMENT_1_0.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -706,7 +695,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>MitraObjectUTF8Attributes</value>
+                  <value>MITRA_OBJECT_UTF8_ATTRIBUTES_1_0</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -716,7 +705,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/agfa</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>MitraObjectUTF8Attributes.java</targetName>
+                  <targetName>MITRA_OBJECT_UTF8_ATTRIBUTES_1_0.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -735,7 +724,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/agfa</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>MitraObjectUTF8Attributes.properties</targetName>
+                  <targetName>MITRA_OBJECT_UTF8_ATTRIBUTES_1_0.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -752,7 +741,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>MitraPresentation</value>
+                  <value>MITRA_PRESENTATION_1_0</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -762,7 +751,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/agfa</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>MitraPresentation.java</targetName>
+                  <targetName>MITRA_PRESENTATION_1_0.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -781,7 +770,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/agfa</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>MitraPresentation.properties</targetName>
+                  <targetName>MITRA_PRESENTATION_1_0.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>

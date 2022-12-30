@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright 2022 the original author or authors.
-  ~
-  ~  Licensed under the Apache License, Version 2.0 (the "License");
-  ~  you may not use this file except in compliance with the License.
-  ~  You may obtain a copy of the License at
-  ~
-  ~        https://www.apache.org/licenses/LICENSE-2.0
-  ~
-  ~  Unless required by applicable law or agreed to in writing, software
-  ~  distributed under the License is distributed on an "AS IS" BASIS,
-  ~  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  ~  See the License for the specific language governing permissions and
-  ~  limitations under the License.
-  ~
-  -->
+  ~ This file is generated from element dictionary template files included in
+  ~ David Clunie's Dicom3tools Software (https://www.dclunie.com/dicom3tools.html)
+-->
 
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -63,7 +51,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>CanonMecCT3</value>
+                  <value>CANON_MEC_CT3</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -73,7 +61,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/toshiba</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>CanonMecCT3.java</targetName>
+                  <targetName>CANON_MEC_CT3.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -92,7 +80,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/toshiba</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>CanonMecCT3.properties</targetName>
+                  <targetName>CANON_MEC_CT3.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -109,7 +97,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>PMTFInformationData</value>
+                  <value>PMTF_INFORMATION_DATA</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -119,7 +107,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/toshiba</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>PMTFInformationData.java</targetName>
+                  <targetName>PMTF_INFORMATION_DATA.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -138,7 +126,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/toshiba</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>PMTFInformationData.properties</targetName>
+                  <targetName>PMTF_INFORMATION_DATA.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -155,7 +143,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>ToshibaComaplHeader</value>
+                  <value>TOSHIBA_COMAPL_HEADER</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -165,7 +153,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/toshiba</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ToshibaComaplHeader.java</targetName>
+                  <targetName>TOSHIBA_COMAPL_HEADER.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -184,7 +172,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/toshiba</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ToshibaComaplHeader.properties</targetName>
+                  <targetName>TOSHIBA_COMAPL_HEADER.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -201,7 +189,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>ToshibaComaplOOG</value>
+                  <value>TOSHIBA_COMAPL_OOG</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -211,7 +199,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/toshiba</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ToshibaComaplOOG.java</targetName>
+                  <targetName>TOSHIBA_COMAPL_OOG.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -230,7 +218,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/toshiba</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ToshibaComaplOOG.properties</targetName>
+                  <targetName>TOSHIBA_COMAPL_OOG.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -247,7 +235,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>ToshibaEncryptedSRData</value>
+                  <value>TOSHIBA_ENCRYPTED_SR_DATA</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -257,7 +245,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/toshiba</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ToshibaEncryptedSRData.java</targetName>
+                  <targetName>TOSHIBA_ENCRYPTED_SR_DATA.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -276,7 +264,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/toshiba</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ToshibaEncryptedSRData.properties</targetName>
+                  <targetName>TOSHIBA_ENCRYPTED_SR_DATA.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -293,7 +281,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>ToshibaMDWHeader</value>
+                  <value>TOSHIBA_MDW_HEADER</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -303,7 +291,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/toshiba</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ToshibaMDWHeader.java</targetName>
+                  <targetName>TOSHIBA_MDW_HEADER.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -322,7 +310,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/toshiba</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ToshibaMDWHeader.properties</targetName>
+                  <targetName>TOSHIBA_MDW_HEADER.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -339,7 +327,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>ToshibaMDWNonImage</value>
+                  <value>TOSHIBA_MDW_NON_IMAGE</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -349,7 +337,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/toshiba</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ToshibaMDWNonImage.java</targetName>
+                  <targetName>TOSHIBA_MDW_NON_IMAGE.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -368,7 +356,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/toshiba</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ToshibaMDWNonImage.properties</targetName>
+                  <targetName>TOSHIBA_MDW_NON_IMAGE.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -385,7 +373,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>ToshibaMec</value>
+                  <value>TOSHIBA_MEC_1_0</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -395,7 +383,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/toshiba</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ToshibaMec.java</targetName>
+                  <targetName>TOSHIBA_MEC_1_0.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -414,7 +402,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/toshiba</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ToshibaMec.properties</targetName>
+                  <targetName>TOSHIBA_MEC_1_0.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -431,7 +419,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>ToshibaMecCT1</value>
+                  <value>TOSHIBA_MEC_CT_1_0</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -441,7 +429,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/toshiba</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ToshibaMecCT1.java</targetName>
+                  <targetName>TOSHIBA_MEC_CT_1_0.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -460,7 +448,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/toshiba</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ToshibaMecCT1.properties</targetName>
+                  <targetName>TOSHIBA_MEC_CT_1_0.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -477,7 +465,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>ToshibaMecCT3</value>
+                  <value>TOSHIBA_MEC_CT3</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -487,7 +475,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/toshiba</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ToshibaMecCT3.java</targetName>
+                  <targetName>TOSHIBA_MEC_CT3.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -506,7 +494,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/toshiba</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ToshibaMecCT3.properties</targetName>
+                  <targetName>TOSHIBA_MEC_CT3.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -523,7 +511,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>ToshibaMecMR3</value>
+                  <value>TOSHIBA_MEC_MR3</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -533,7 +521,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/toshiba</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ToshibaMecMR3.java</targetName>
+                  <targetName>TOSHIBA_MEC_MR3.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -552,7 +540,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/toshiba</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ToshibaMecMR3.properties</targetName>
+                  <targetName>TOSHIBA_MEC_MR3.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -569,7 +557,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>ToshibaMecOT3</value>
+                  <value>TOSHIBA_MEC_OT3</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -579,7 +567,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/toshiba</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ToshibaMecOT3.java</targetName>
+                  <targetName>TOSHIBA_MEC_OT3.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -598,7 +586,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/toshiba</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ToshibaMecOT3.properties</targetName>
+                  <targetName>TOSHIBA_MEC_OT3.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -615,7 +603,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>ToshibaMecXA3</value>
+                  <value>TOSHIBA_MEC_XA3</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -625,7 +613,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/toshiba</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ToshibaMecXA3.java</targetName>
+                  <targetName>TOSHIBA_MEC_XA3.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -644,7 +632,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/toshiba</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ToshibaMecXA3.properties</targetName>
+                  <targetName>TOSHIBA_MEC_XA3.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -661,7 +649,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>ToshibaSR</value>
+                  <value>TOSHIBA_SR</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -671,7 +659,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/toshiba</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ToshibaSR.java</targetName>
+                  <targetName>TOSHIBA_SR.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -690,7 +678,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/toshiba</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ToshibaSR.properties</targetName>
+                  <targetName>TOSHIBA_SR.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>

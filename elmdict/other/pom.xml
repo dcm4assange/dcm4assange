@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright 2022 the original author or authors.
-  ~
-  ~  Licensed under the Apache License, Version 2.0 (the "License");
-  ~  you may not use this file except in compliance with the License.
-  ~  You may obtain a copy of the License at
-  ~
-  ~        https://www.apache.org/licenses/LICENSE-2.0
-  ~
-  ~  Unless required by applicable law or agreed to in writing, software
-  ~  distributed under the License is distributed on an "AS IS" BASIS,
-  ~  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  ~  See the License for the specific language governing permissions and
-  ~  limitations under the License.
-  ~
-  -->
+  ~ This file is generated from element dictionary template files included in
+  ~ David Clunie's Dicom3tools Software (https://www.dclunie.com/dicom3tools.html)
+-->
 
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -63,7 +51,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>ATL_113663</value>
+                  <value>One_2_840_113663_1</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -73,7 +61,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ATL_113663.java</targetName>
+                  <targetName>One_2_840_113663_1.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -92,7 +80,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ATL_113663.properties</targetName>
+                  <targetName>One_2_840_113663_1.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -109,7 +97,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>Hologic_113681</value>
+                  <value>One_2_840_113681</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -119,7 +107,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>Hologic_113681.java</targetName>
+                  <targetName>One_2_840_113681.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -138,7 +126,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>Hologic_113681.properties</targetName>
+                  <targetName>One_2_840_113681.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -155,7 +143,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>US_ORG_114059</value>
+                  <value>Two_16_840_1_114059_1_1_6_1_50_1</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -165,7 +153,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>US_ORG_114059.java</targetName>
+                  <targetName>Two_16_840_1_114059_1_1_6_1_50_1.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -184,7 +172,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>US_ORG_114059.properties</targetName>
+                  <targetName>Two_16_840_1_114059_1_1_6_1_50_1.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -201,7 +189,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>HistechChannelProperties</value>
+                  <value>ThreeDHISTECH_CHANNEL_PROPERTIES</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -211,7 +199,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>HistechChannelProperties.java</targetName>
+                  <targetName>ThreeDHISTECH_CHANNEL_PROPERTIES.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -230,7 +218,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>HistechChannelProperties.properties</targetName>
+                  <targetName>ThreeDHISTECH_CHANNEL_PROPERTIES.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -247,7 +235,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>HistechGeneralProperties</value>
+                  <value>ThreeDHISTECH_GENERAL_PROPERTIES</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -257,7 +245,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>HistechGeneralProperties.java</targetName>
+                  <targetName>ThreeDHISTECH_GENERAL_PROPERTIES.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -276,7 +264,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>HistechGeneralProperties.properties</targetName>
+                  <targetName>ThreeDHISTECH_GENERAL_PROPERTIES.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -293,7 +281,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>HistechOverviewImageProperties</value>
+                  <value>ThreeDHISTECH_OVERVIEW_IMAGE_PROPERTIES</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -303,7 +291,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>HistechOverviewImageProperties.java</targetName>
+                  <targetName>ThreeDHISTECH_OVERVIEW_IMAGE_PROPERTIES.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -322,7 +310,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>HistechOverviewImageProperties.properties</targetName>
+                  <targetName>ThreeDHISTECH_OVERVIEW_IMAGE_PROPERTIES.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -339,7 +327,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>HistechPyramidProperties</value>
+                  <value>ThreeDHISTECH_PYRAMID_PROPERTIES</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -349,7 +337,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>HistechPyramidProperties.java</targetName>
+                  <targetName>ThreeDHISTECH_PYRAMID_PROPERTIES.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -368,7 +356,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>HistechPyramidProperties.properties</targetName>
+                  <targetName>ThreeDHISTECH_PYRAMID_PROPERTIES.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -385,17 +373,17 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>HistechRegionProperties</value>
+                  <value>ThreeDHISTECH_REGION_MAPS</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
-                  <value>3DHISTECH REGION PROPERTIES</value>
+                  <value>3DHISTECH REGION MAPS</value>
                 </parameter>
               </parameters>
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>HistechRegionProperties.java</targetName>
+                  <targetName>ThreeDHISTECH_REGION_MAPS.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -408,13 +396,13 @@
               <parameters>
                 <parameter>
                   <name>PrivateCreatorID</name>
-                  <value>3DHISTECH REGION PROPERTIES</value>
+                  <value>3DHISTECH REGION MAPS</value>
                 </parameter>
               </parameters>
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>HistechRegionProperties.properties</targetName>
+                  <targetName>ThreeDHISTECH_REGION_MAPS.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -431,7 +419,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>HistechScanInformationProperties</value>
+                  <value>ThreeDHISTECH_SCAN_INFORMATION_PROPERTIES</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -441,7 +429,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>HistechScanInformationProperties.java</targetName>
+                  <targetName>ThreeDHISTECH_SCAN_INFORMATION_PROPERTIES.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -460,7 +448,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>HistechScanInformationProperties.properties</targetName>
+                  <targetName>ThreeDHISTECH_SCAN_INFORMATION_PROPERTIES.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -477,7 +465,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>HistechZoomlevelRegionMap</value>
+                  <value>ThreeDHISTECH_ZOOMLEVEL_REGION_MAP</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -487,7 +475,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>HistechZoomlevelRegionMap.java</targetName>
+                  <targetName>ThreeDHISTECH_ZOOMLEVEL_REGION_MAP.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -506,7 +494,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>HistechZoomlevelRegionMap.properties</targetName>
+                  <targetName>ThreeDHISTECH_ZOOMLEVEL_REGION_MAP.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -523,7 +511,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>AdacImg</value>
+                  <value>ADAC_IMG</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -533,7 +521,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>AdacImg.java</targetName>
+                  <targetName>ADAC_IMG.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -552,7 +540,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>AdacImg.properties</targetName>
+                  <targetName>ADAC_IMG.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -569,7 +557,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>AegisDicom</value>
+                  <value>AEGIS_DICOM_2_00</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -579,7 +567,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>AegisDicom.java</targetName>
+                  <targetName>AEGIS_DICOM_2_00.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -598,7 +586,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>AegisDicom.properties</targetName>
+                  <targetName>AEGIS_DICOM_2_00.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -615,7 +603,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>ALITechnologiesInc</value>
+                  <value>A_L_I_Technologies_Inc_</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -625,7 +613,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ALITechnologiesInc.java</targetName>
+                  <targetName>A_L_I_Technologies_Inc_.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -644,7 +632,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ALITechnologiesInc.properties</targetName>
+                  <targetName>A_L_I_Technologies_Inc_.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -661,7 +649,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>Amicas</value>
+                  <value>AMICAS0</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -671,7 +659,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>Amicas.java</targetName>
+                  <targetName>AMICAS0.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -690,7 +678,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>Amicas.properties</targetName>
+                  <targetName>AMICAS0.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -707,7 +695,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>Aperio</value>
+                  <value>APERIO</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -717,7 +705,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>Aperio.java</targetName>
+                  <targetName>APERIO.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -736,7 +724,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>Aperio.properties</targetName>
+                  <targetName>APERIO.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -845,7 +833,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>BiospaceMedEOSTag</value>
+                  <value>Biospace_Med_EOS_Tag</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -855,7 +843,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>BiospaceMedEOSTag.java</targetName>
+                  <targetName>Biospace_Med_EOS_Tag.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -874,7 +862,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>BiospaceMedEOSTag.properties</targetName>
+                  <targetName>Biospace_Med_EOS_Tag.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -937,7 +925,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>BrainLabBeamProfile</value>
+                  <value>BrainLAB_BeamProfile</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -947,7 +935,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>BrainLabBeamProfile.java</targetName>
+                  <targetName>BrainLAB_BeamProfile.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -966,7 +954,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>BrainLabBeamProfile.properties</targetName>
+                  <targetName>BrainLAB_BeamProfile.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -983,7 +971,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>BrainLabConversion</value>
+                  <value>BrainLAB_Conversion</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -993,7 +981,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>BrainLabConversion.java</targetName>
+                  <targetName>BrainLAB_Conversion.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1012,7 +1000,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>BrainLabConversion.properties</targetName>
+                  <targetName>BrainLAB_Conversion.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1029,7 +1017,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>BrainLabPatientSetup</value>
+                  <value>BrainLAB_PatientSetup</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -1039,7 +1027,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>BrainLabPatientSetup.java</targetName>
+                  <targetName>BrainLAB_PatientSetup.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1058,7 +1046,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>BrainLabPatientSetup.properties</targetName>
+                  <targetName>BrainLAB_PatientSetup.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1075,7 +1063,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>BrainLabS14SSO</value>
+                  <value>Brainlab_S14_SSO</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -1085,7 +1073,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>BrainLabS14SSO.java</targetName>
+                  <targetName>Brainlab_S14_SSO.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1104,7 +1092,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>BrainLabS14SSO.properties</targetName>
+                  <targetName>Brainlab_S14_SSO.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1121,7 +1109,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>BrainLabS23ProjectiveFusion</value>
+                  <value>Brainlab_S23_ProjectiveFusion</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -1131,7 +1119,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>BrainLabS23ProjectiveFusion.java</targetName>
+                  <targetName>Brainlab_S23_ProjectiveFusion.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1150,7 +1138,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>BrainLabS23ProjectiveFusion.properties</targetName>
+                  <targetName>Brainlab_S23_ProjectiveFusion.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1167,7 +1155,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>BrainLabS32SO</value>
+                  <value>Brainlab_S32_SO</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -1177,7 +1165,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>BrainLabS32SO.java</targetName>
+                  <targetName>Brainlab_S32_SO.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1196,7 +1184,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>BrainLabS32SO.properties</targetName>
+                  <targetName>Brainlab_S32_SO.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1213,7 +1201,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>BrainLabS9History</value>
+                  <value>Brainlab_S9_History</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -1223,7 +1211,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>BrainLabS9History.java</targetName>
+                  <targetName>Brainlab_S9_History.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1242,7 +1230,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>BrainLabS9History.properties</targetName>
+                  <targetName>Brainlab_S9_History.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1259,7 +1247,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>BritSystemsInc</value>
+                  <value>BRIT_Systems_Inc_</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -1269,7 +1257,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>BritSystemsInc.java</targetName>
+                  <targetName>BRIT_Systems_Inc_.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1288,7 +1276,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>BritSystemsInc.properties</targetName>
+                  <targetName>BRIT_Systems_Inc_.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1305,7 +1293,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>CADSciences</value>
+                  <value>CAD_Sciences</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -1315,7 +1303,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>CADSciences.java</targetName>
+                  <targetName>CAD_Sciences.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1334,7 +1322,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>CADSciences.properties</targetName>
+                  <targetName>CAD_Sciences.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1351,7 +1339,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>CanonInc</value>
+                  <value>Canon_Inc_</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -1361,7 +1349,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>CanonInc.java</targetName>
+                  <targetName>Canon_Inc_.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1380,7 +1368,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>CanonInc.properties</targetName>
+                  <targetName>Canon_Inc_.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1397,7 +1385,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>CarestreamHealthTIFF</value>
+                  <value>Carestream_Health_TIFF</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -1407,7 +1395,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>CarestreamHealthTIFF.java</targetName>
+                  <targetName>Carestream_Health_TIFF.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1426,7 +1414,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>CarestreamHealthTIFF.properties</targetName>
+                  <targetName>Carestream_Health_TIFF.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1443,7 +1431,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>CarestreamImageInformation</value>
+                  <value>CARESTREAM_IMAGE_INFORMATION</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -1453,7 +1441,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>CarestreamImageInformation.java</targetName>
+                  <targetName>CARESTREAM_IMAGE_INFORMATION.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1472,7 +1460,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>CarestreamImageInformation.properties</targetName>
+                  <targetName>CARESTREAM_IMAGE_INFORMATION.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1489,7 +1477,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>CoActivPvtTags</value>
+                  <value>CoActiv_PvtTags</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -1499,7 +1487,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>CoActivPvtTags.java</targetName>
+                  <targetName>CoActiv_PvtTags.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1518,7 +1506,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>CoActivPvtTags.properties</targetName>
+                  <targetName>CoActiv_PvtTags.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1535,7 +1523,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>CTImgAcquisition</value>
+                  <value>CT_IMG_ACQUISITION</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -1545,7 +1533,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>CTImgAcquisition.java</targetName>
+                  <targetName>CT_IMG_ACQUISITION.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1564,7 +1552,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>CTImgAcquisition.properties</targetName>
+                  <targetName>CT_IMG_ACQUISITION.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1673,7 +1661,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>Dcm4cheArchive</value>
+                  <value>dcm4che_archive</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -1683,7 +1671,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>Dcm4cheArchive.java</targetName>
+                  <targetName>dcm4che_archive.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1702,7 +1690,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>Dcm4cheArchive.properties</targetName>
+                  <targetName>dcm4che_archive.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1719,7 +1707,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>DCMTKAnonymizer</value>
+                  <value>DCMTK_ANONYMIZER</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -1729,7 +1717,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>DCMTKAnonymizer.java</targetName>
+                  <targetName>DCMTK_ANONYMIZER.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1748,7 +1736,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>DCMTKAnonymizer.properties</targetName>
+                  <targetName>DCMTK_ANONYMIZER.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1765,7 +1753,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>DicomUtils20100512</value>
+                  <value>DicomUtils_20100512</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -1775,7 +1763,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>DicomUtils20100512.java</targetName>
+                  <targetName>DicomUtils_20100512.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1794,7 +1782,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>DicomUtils20100512.properties</targetName>
+                  <targetName>DicomUtils_20100512.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1811,7 +1799,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>DRSystemsInc</value>
+                  <value>DR_Systems_Inc_</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -1821,7 +1809,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>DRSystemsInc.java</targetName>
+                  <targetName>DR_Systems_Inc_.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1840,7 +1828,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>DRSystemsInc.properties</targetName>
+                  <targetName>DR_Systems_Inc_.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1857,7 +1845,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>DVMInsightReceiverTracking</value>
+                  <value>DVMInsight_Receiver_Tracking</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -1867,7 +1855,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>DVMInsightReceiverTracking.java</targetName>
+                  <targetName>DVMInsight_Receiver_Tracking.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1886,7 +1874,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>DVMInsightReceiverTracking.properties</targetName>
+                  <targetName>DVMInsight_Receiver_Tracking.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1903,7 +1891,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>DZDicom430</value>
+                  <value>DZDICOM_4_3_0</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -1913,7 +1901,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>DZDicom430.java</targetName>
+                  <targetName>DZDICOM_4_3_0.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1932,7 +1920,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>DZDicom430.properties</targetName>
+                  <targetName>DZDICOM_4_3_0.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1995,7 +1983,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>EigenArtemis</value>
+                  <value>Eigen_Artemis</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -2005,7 +1993,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>EigenArtemis.java</targetName>
+                  <targetName>Eigen_Artemis.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2024,7 +2012,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>EigenArtemis.properties</targetName>
+                  <targetName>Eigen_Artemis.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2041,7 +2029,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>EigenInc</value>
+                  <value>Eigen_Inc</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -2051,7 +2039,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>EigenInc.java</targetName>
+                  <targetName>Eigen_Inc.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2070,7 +2058,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>EigenInc.properties</targetName>
+                  <targetName>Eigen_Inc.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2087,7 +2075,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>EmageonJpeg2kInfo</value>
+                  <value>EMAGEON_JPEG2K_INFO</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -2097,7 +2085,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>EmageonJpeg2kInfo.java</targetName>
+                  <targetName>EMAGEON_JPEG2K_INFO.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2116,7 +2104,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>EmageonJpeg2kInfo.properties</targetName>
+                  <targetName>EMAGEON_JPEG2K_INFO.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2133,7 +2121,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>EmageonStudyHome</value>
+                  <value>EMAGEON_STUDY_HOME</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -2143,7 +2131,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>EmageonStudyHome.java</targetName>
+                  <targetName>EMAGEON_STUDY_HOME.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2162,7 +2150,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>EmageonStudyHome.properties</targetName>
+                  <targetName>EMAGEON_STUDY_HOME.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2179,7 +2167,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>EtiamDICOMDIR</value>
+                  <value>ETIAM_DICOMDIR</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -2189,7 +2177,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>EtiamDICOMDIR.java</targetName>
+                  <targetName>ETIAM_DICOMDIR.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2208,7 +2196,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>EtiamDICOMDIR.properties</targetName>
+                  <targetName>ETIAM_DICOMDIR.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2225,7 +2213,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>FDMS10</value>
+                  <value>FDMS_1_0</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -2235,7 +2223,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>FDMS10.java</targetName>
+                  <targetName>FDMS_1_0.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2254,7 +2242,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>FDMS10.properties</targetName>
+                  <targetName>FDMS_1_0.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2271,7 +2259,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>FOEM10</value>
+                  <value>FOEM_1_0</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -2281,7 +2269,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>FOEM10.java</targetName>
+                  <targetName>FOEM_1_0.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2300,7 +2288,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>FOEM10.properties</targetName>
+                  <targetName>FOEM_1_0.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2317,7 +2305,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>HipaaPrivateCreator</value>
+                  <value>Hipaa_Private_Creator</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -2327,7 +2315,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>HipaaPrivateCreator.java</targetName>
+                  <targetName>Hipaa_Private_Creator.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2346,7 +2334,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>HipaaPrivateCreator.properties</targetName>
+                  <targetName>Hipaa_Private_Creator.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2363,7 +2351,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>HMCCTID</value>
+                  <value>HMC_CT_ID</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -2373,7 +2361,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>HMCCTID.java</targetName>
+                  <targetName>HMC_CT_ID.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2392,7 +2380,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>HMCCTID.properties</targetName>
+                  <targetName>HMC_CT_ID.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2501,7 +2489,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>HOLOGICInc</value>
+                  <value>HOLOGIC_Inc_</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -2511,7 +2499,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>HOLOGICInc.java</targetName>
+                  <targetName>HOLOGIC_Inc_.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2530,7 +2518,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>HOLOGICInc.properties</targetName>
+                  <targetName>HOLOGIC_Inc_.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2547,7 +2535,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>ICADPk</value>
+                  <value>iCAD_PK</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -2557,7 +2545,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ICADPk.java</targetName>
+                  <targetName>iCAD_PK.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2576,7 +2564,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ICADPk.properties</targetName>
+                  <targetName>iCAD_PK.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2593,7 +2581,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>ICADPkStudy</value>
+                  <value>iCAD_PK_Study</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -2603,7 +2591,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ICADPkStudy.java</targetName>
+                  <targetName>iCAD_PK_Study.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2622,7 +2610,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ICADPkStudy.properties</targetName>
+                  <targetName>iCAD_PK_Study.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2685,7 +2673,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>ImageIDVersionSizeDumpGUID</value>
+                  <value>Image_ID_Version_Size_Dump_GUID_</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -2695,7 +2683,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ImageIDVersionSizeDumpGUID.java</targetName>
+                  <targetName>Image_ID_Version_Size_Dump_GUID_.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2714,7 +2702,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ImageIDVersionSizeDumpGUID.properties</targetName>
+                  <targetName>Image_ID_Version_Size_Dump_GUID_.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2731,7 +2719,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>ImagingDynamicsCompanyLtd</value>
+                  <value>Imaging_Dynamics_Company_Ltd_</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -2741,7 +2729,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ImagingDynamicsCompanyLtd.java</targetName>
+                  <targetName>Imaging_Dynamics_Company_Ltd_.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2760,7 +2748,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ImagingDynamicsCompanyLtd.properties</targetName>
+                  <targetName>Imaging_Dynamics_Company_Ltd_.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2777,7 +2765,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>IMSsrlBiopsyPrivateCode</value>
+                  <value>IMS_s_r_l_Biopsy_Private_Code</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -2787,7 +2775,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>IMSsrlBiopsyPrivateCode.java</targetName>
+                  <targetName>IMS_s_r_l_Biopsy_Private_Code.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2806,7 +2794,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>IMSsrlBiopsyPrivateCode.properties</targetName>
+                  <targetName>IMS_s_r_l_Biopsy_Private_Code.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2823,7 +2811,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>IMSsrlMammographyPrivateCode</value>
+                  <value>IMS_s_r_l_Mammography_Private_Code</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -2833,7 +2821,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>IMSsrlMammographyPrivateCode.java</targetName>
+                  <targetName>IMS_s_r_l_Mammography_Private_Code.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2852,7 +2840,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>IMSsrlMammographyPrivateCode.properties</targetName>
+                  <targetName>IMS_s_r_l_Mammography_Private_Code.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2869,7 +2857,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>InfinittFMX</value>
+                  <value>INFINITT_FMX</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -2879,7 +2867,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>InfinittFMX.java</targetName>
+                  <targetName>INFINITT_FMX.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2898,7 +2886,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>InfinittFMX.properties</targetName>
+                  <targetName>INFINITT_FMX.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2915,7 +2903,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>InstruPrivateIdentCode</value>
+                  <value>INSTRU_PRIVATE_IDENT_CODE</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -2925,7 +2913,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>InstruPrivateIdentCode.java</targetName>
+                  <targetName>INSTRU_PRIVATE_IDENT_CODE.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2944,7 +2932,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>InstruPrivateIdentCode.properties</targetName>
+                  <targetName>INSTRU_PRIVATE_IDENT_CODE.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2961,7 +2949,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>InteleradMedicalSystems</value>
+                  <value>INTELERAD_MEDICAL_SYSTEMS</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -2971,7 +2959,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>InteleradMedicalSystems.java</targetName>
+                  <targetName>INTELERAD_MEDICAL_SYSTEMS.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2990,7 +2978,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>InteleradMedicalSystems.properties</targetName>
+                  <targetName>INTELERAD_MEDICAL_SYSTEMS.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3007,7 +2995,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>InteleradMedicalSystemsInteleviewer</value>
+                  <value>INTELERAD_MEDICAL_SYSTEMS_INTELEVIEWER</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -3017,7 +3005,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>InteleradMedicalSystemsInteleviewer.java</targetName>
+                  <targetName>INTELERAD_MEDICAL_SYSTEMS_INTELEVIEWER.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3036,7 +3024,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>InteleradMedicalSystemsInteleviewer.properties</targetName>
+                  <targetName>INTELERAD_MEDICAL_SYSTEMS_INTELEVIEWER.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3053,7 +3041,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>KodakImageInformation</value>
+                  <value>Kodak_Image_Information</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -3063,7 +3051,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>KodakImageInformation.java</targetName>
+                  <targetName>Kodak_Image_Information.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3082,7 +3070,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>KodakImageInformation.properties</targetName>
+                  <targetName>Kodak_Image_Information.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3099,7 +3087,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>Konica10</value>
+                  <value>KONICA1_0</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -3109,7 +3097,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>Konica10.java</targetName>
+                  <targetName>KONICA1_0.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3128,7 +3116,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>Konica10.properties</targetName>
+                  <targetName>KONICA1_0.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3145,7 +3133,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>LodoxStatscan</value>
+                  <value>LODOX_STATSCAN</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -3155,7 +3143,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>LodoxStatscan.java</targetName>
+                  <targetName>LODOX_STATSCAN.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3174,7 +3162,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>LodoxStatscan.properties</targetName>
+                  <targetName>LODOX_STATSCAN.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3191,7 +3179,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>LoradSelenia</value>
+                  <value>LORAD_Selenia</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -3201,7 +3189,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>LoradSelenia.java</targetName>
+                  <targetName>LORAD_Selenia.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3220,7 +3208,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>LoradSelenia.properties</targetName>
+                  <targetName>LORAD_Selenia.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3237,7 +3225,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>MarotechInc</value>
+                  <value>MAROTECH_Inc_</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -3247,7 +3235,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>MarotechInc.java</targetName>
+                  <targetName>MAROTECH_Inc_.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3266,7 +3254,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>MarotechInc.properties</targetName>
+                  <targetName>MAROTECH_Inc_.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3283,7 +3271,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>Matakina10</value>
+                  <value>MATAKINA_10</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -3293,7 +3281,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>Matakina10.java</targetName>
+                  <targetName>MATAKINA_10.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3312,7 +3300,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>Matakina10.properties</targetName>
+                  <targetName>MATAKINA_10.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3375,7 +3363,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>MDSNordionOTPAnatomyModelling</value>
+                  <value>MDS_NORDION_OTP_ANATOMY_MODELLING</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -3385,7 +3373,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>MDSNordionOTPAnatomyModelling.java</targetName>
+                  <targetName>MDS_NORDION_OTP_ANATOMY_MODELLING.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3404,7 +3392,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>MDSNordionOTPAnatomyModelling.properties</targetName>
+                  <targetName>MDS_NORDION_OTP_ANATOMY_MODELLING.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3421,7 +3409,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>Medcon</value>
+                  <value>MEDCON</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -3431,7 +3419,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>Medcon.java</targetName>
+                  <targetName>MEDCON.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3450,7 +3438,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>Medcon.properties</targetName>
+                  <targetName>MEDCON.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3467,7 +3455,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>Mediface</value>
+                  <value>MEDIFACE</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -3477,7 +3465,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>Mediface.java</targetName>
+                  <targetName>MEDIFACE.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3496,7 +3484,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>Mediface.properties</targetName>
+                  <targetName>MEDIFACE.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3513,7 +3501,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>MedInsHPExtensions</value>
+                  <value>MedIns_HP_Extensions</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -3523,7 +3511,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>MedInsHPExtensions.java</targetName>
+                  <targetName>MedIns_HP_Extensions.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3542,7 +3530,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>MedInsHPExtensions.properties</targetName>
+                  <targetName>MedIns_HP_Extensions.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3559,7 +3547,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>Mediso1</value>
+                  <value>MEDISO_1</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -3569,7 +3557,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>Mediso1.java</targetName>
+                  <targetName>MEDISO_1.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3588,7 +3576,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>Mediso1.properties</targetName>
+                  <targetName>MEDISO_1.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3605,7 +3593,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>MergeTechnologiesInc</value>
+                  <value>MERGE_TECHNOLOGIES_INC_</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -3615,7 +3603,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>MergeTechnologiesInc.java</targetName>
+                  <targetName>MERGE_TECHNOLOGIES_INC_.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3634,7 +3622,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>MergeTechnologiesInc.properties</targetName>
+                  <targetName>MERGE_TECHNOLOGIES_INC_.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3651,7 +3639,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>MetaemotionGinkgo</value>
+                  <value>METAEMOTION_GINKGO</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -3661,7 +3649,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>MetaemotionGinkgo.java</targetName>
+                  <targetName>METAEMOTION_GINKGO.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3680,7 +3668,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>MetaemotionGinkgo.properties</targetName>
+                  <targetName>METAEMOTION_GINKGO.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3697,7 +3685,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>MetaemotionGinkgoRetinal</value>
+                  <value>METAEMOTION_GINKGO_RETINAL</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -3707,7 +3695,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>MetaemotionGinkgoRetinal.java</targetName>
+                  <targetName>METAEMOTION_GINKGO_RETINAL.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3726,7 +3714,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>MetaemotionGinkgoRetinal.properties</targetName>
+                  <targetName>METAEMOTION_GINKGO_RETINAL.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3743,7 +3731,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>MeVisBreastCare</value>
+                  <value>MeVis_BreastCare</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -3753,7 +3741,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>MeVisBreastCare.java</targetName>
+                  <targetName>MeVis_BreastCare.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3772,7 +3760,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>MeVisBreastCare.properties</targetName>
+                  <targetName>MeVis_BreastCare.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3789,7 +3777,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>MeVisEatDicom</value>
+                  <value>MeVis_eatDicom</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -3799,7 +3787,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>MeVisEatDicom.java</targetName>
+                  <targetName>MeVis_eatDicom.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3818,7 +3806,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>MeVisEatDicom.properties</targetName>
+                  <targetName>MeVis_eatDicom.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3835,7 +3823,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>MeVisEDAbsoluteTemporalPositions</value>
+                  <value>MeVis_eD_Absolute_Temporal_Positions</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -3845,7 +3833,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>MeVisEDAbsoluteTemporalPositions.java</targetName>
+                  <targetName>MeVis_eD_Absolute_Temporal_Positions.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3864,7 +3852,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>MeVisEDAbsoluteTemporalPositions.properties</targetName>
+                  <targetName>MeVis_eD_Absolute_Temporal_Positions.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3881,7 +3869,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>MeVisEDGeometryInformation</value>
+                  <value>MeVis_eD_Geometry_Information</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -3891,7 +3879,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>MeVisEDGeometryInformation.java</targetName>
+                  <targetName>MeVis_eD_Geometry_Information.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3910,7 +3898,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>MeVisEDGeometryInformation.properties</targetName>
+                  <targetName>MeVis_eD_Geometry_Information.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3927,7 +3915,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>MeVisEDSliceInformation</value>
+                  <value>MeVis_eD_Slice_Information</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -3937,7 +3925,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>MeVisEDSliceInformation.java</targetName>
+                  <targetName>MeVis_eD_Slice_Information.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3956,7 +3944,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>MeVisEDSliceInformation.properties</targetName>
+                  <targetName>MeVis_eD_Slice_Information.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3973,7 +3961,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>MeVisEDTimepointInformation</value>
+                  <value>MeVis_eD_Timepoint_Information</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -3983,7 +3971,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>MeVisEDTimepointInformation.java</targetName>
+                  <targetName>MeVis_eD_Timepoint_Information.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -4002,7 +3990,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>MeVisEDTimepointInformation.properties</targetName>
+                  <targetName>MeVis_eD_Timepoint_Information.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -4065,7 +4053,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>MortaraInc</value>
+                  <value>Mortara_Inc</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -4075,7 +4063,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>MortaraInc.java</targetName>
+                  <targetName>Mortara_Inc.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -4094,7 +4082,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>MortaraInc.properties</targetName>
+                  <targetName>Mortara_Inc.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -4111,7 +4099,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>NautilusMedical</value>
+                  <value>Nautilus_Medical</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -4121,7 +4109,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>NautilusMedical.java</targetName>
+                  <targetName>Nautilus_Medical.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -4140,7 +4128,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>NautilusMedical.properties</targetName>
+                  <targetName>Nautilus_Medical.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -4341,7 +4329,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>NUDPrivate</value>
+                  <value>NUD_PRIVATE</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -4351,7 +4339,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>NUDPrivate.java</targetName>
+                  <targetName>NUD_PRIVATE.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -4370,7 +4358,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>NUDPrivate.properties</targetName>
+                  <targetName>NUD_PRIVATE.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -4387,7 +4375,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>NumacalcInventory</value>
+                  <value>NUMACALC_INVENTORY</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -4397,7 +4385,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>NumacalcInventory.java</targetName>
+                  <targetName>NUMACALC_INVENTORY.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -4416,7 +4404,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>NumacalcInventory.properties</targetName>
+                  <targetName>NUMACALC_INVENTORY.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -4433,7 +4421,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>ObjectModelIDVersionPlacePlaceDescription</value>
+                  <value>ObjectModel_ID_Version_Place_PlaceDescription_</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -4443,7 +4431,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ObjectModelIDVersionPlacePlaceDescription.java</targetName>
+                  <targetName>ObjectModel_ID_Version_Place_PlaceDescription_.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -4462,7 +4450,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ObjectModelIDVersionPlacePlaceDescription.properties</targetName>
+                  <targetName>ObjectModel_ID_Version_Place_PlaceDescription_.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -4479,7 +4467,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>PIPrivateBlock</value>
+                  <value>PI_Private_Block_0781_3000_0781_30FF_</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -4489,7 +4477,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>PIPrivateBlock.java</targetName>
+                  <targetName>PI_Private_Block_0781_3000_0781_30FF_.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -4508,7 +4496,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>PIPrivateBlock.properties</targetName>
+                  <targetName>PI_Private_Block_0781_3000_0781_30FF_.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -4525,7 +4513,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>PixelMedPublishing</value>
+                  <value>PixelMed_Publishing</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -4535,7 +4523,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>PixelMedPublishing.java</targetName>
+                  <targetName>PixelMed_Publishing.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -4554,7 +4542,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>PixelMedPublishing.properties</targetName>
+                  <targetName>PixelMed_Publishing.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -4617,7 +4605,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>PMod1</value>
+                  <value>PMOD_1</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -4627,7 +4615,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>PMod1.java</targetName>
+                  <targetName>PMOD_1.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -4646,7 +4634,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>PMod1.properties</targetName>
+                  <targetName>PMOD_1.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -4663,7 +4651,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>PModGENPET</value>
+                  <value>PMOD_GENPET</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -4673,7 +4661,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>PModGENPET.java</targetName>
+                  <targetName>PMOD_GENPET.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -4692,7 +4680,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>PModGENPET.properties</targetName>
+                  <targetName>PMOD_GENPET.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -4709,7 +4697,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>PrivateCodeString0019</value>
+                  <value>PRIVATE_CODE_STRING_0019</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -4719,7 +4707,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>PrivateCodeString0019.java</targetName>
+                  <targetName>PRIVATE_CODE_STRING_0019.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -4738,7 +4726,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>PrivateCodeString0019.properties</targetName>
+                  <targetName>PRIVATE_CODE_STRING_0019.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -4755,7 +4743,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>PrivateCodeString0021</value>
+                  <value>PRIVATE_CODE_STRING_0021</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -4765,7 +4753,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>PrivateCodeString0021.java</targetName>
+                  <targetName>PRIVATE_CODE_STRING_0021.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -4784,7 +4772,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>PrivateCodeString0021.properties</targetName>
+                  <targetName>PRIVATE_CODE_STRING_0021.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -4801,7 +4789,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>PrivateCodeString1001</value>
+                  <value>PRIVATE_CODE_STRING_1001</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -4811,7 +4799,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>PrivateCodeString1001.java</targetName>
+                  <targetName>PRIVATE_CODE_STRING_1001.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -4830,7 +4818,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>PrivateCodeString1001.properties</targetName>
+                  <targetName>PRIVATE_CODE_STRING_1001.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -4847,7 +4835,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>PrivateCodeString1003</value>
+                  <value>PRIVATE_CODE_STRING_1003</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -4857,7 +4845,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>PrivateCodeString1003.java</targetName>
+                  <targetName>PRIVATE_CODE_STRING_1003.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -4876,7 +4864,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>PrivateCodeString1003.properties</targetName>
+                  <targetName>PRIVATE_CODE_STRING_1003.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -4893,7 +4881,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>PrivateCodeString3007</value>
+                  <value>PRIVATE_CODE_STRING_3007</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -4903,7 +4891,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>PrivateCodeString3007.java</targetName>
+                  <targetName>PRIVATE_CODE_STRING_3007.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -4922,7 +4910,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>PrivateCodeString3007.properties</targetName>
+                  <targetName>PRIVATE_CODE_STRING_3007.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -4939,7 +4927,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>PrivateCodeString300B</value>
+                  <value>PRIVATE_CODE_STRING_300B</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -4949,7 +4937,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>PrivateCodeString300B.java</targetName>
+                  <targetName>PRIVATE_CODE_STRING_300B.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -4968,7 +4956,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>PrivateCodeString300B.properties</targetName>
+                  <targetName>PRIVATE_CODE_STRING_300B.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -5077,7 +5065,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>RamSoftCustomReportIdentifier</value>
+                  <value>RamSoft_Custom_Report_Identifier</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -5087,7 +5075,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>RamSoftCustomReportIdentifier.java</targetName>
+                  <targetName>RamSoft_Custom_Report_Identifier.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -5106,7 +5094,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>RamSoftCustomReportIdentifier.properties</targetName>
+                  <targetName>RamSoft_Custom_Report_Identifier.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -5123,7 +5111,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>RamSoftFileKindIdentifier</value>
+                  <value>RamSoft_File_Kind_Identifier</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -5133,7 +5121,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>RamSoftFileKindIdentifier.java</targetName>
+                  <targetName>RamSoft_File_Kind_Identifier.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -5152,7 +5140,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>RamSoftFileKindIdentifier.properties</targetName>
+                  <targetName>RamSoft_File_Kind_Identifier.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -5169,7 +5157,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>RamSoftRaceIdentifier</value>
+                  <value>RamSoft_Race_Identifier</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -5179,7 +5167,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>RamSoftRaceIdentifier.java</targetName>
+                  <targetName>RamSoft_Race_Identifier.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -5198,7 +5186,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>RamSoftRaceIdentifier.properties</targetName>
+                  <targetName>RamSoft_Race_Identifier.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -5215,7 +5203,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>RiverainMedical</value>
+                  <value>Riverain_Medical</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -5225,7 +5213,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>RiverainMedical.java</targetName>
+                  <targetName>Riverain_Medical.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -5244,7 +5232,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>RiverainMedical.properties</targetName>
+                  <targetName>Riverain_Medical.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -5261,7 +5249,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>ScanoraPrivateIdentCode</value>
+                  <value>SCANORA_PRIVATE_IDENT_CODE</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -5271,7 +5259,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ScanoraPrivateIdentCode.java</targetName>
+                  <targetName>SCANORA_PRIVATE_IDENT_CODE.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -5290,7 +5278,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ScanoraPrivateIdentCode.properties</targetName>
+                  <targetName>SCANORA_PRIVATE_IDENT_CODE.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -5307,7 +5295,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>SchickTechnologiesChangeItemCreatorID</value>
+                  <value>SCHICK_TECHNOLOGIES_Change_Item_Creator_ID</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -5317,7 +5305,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>SchickTechnologiesChangeItemCreatorID.java</targetName>
+                  <targetName>SCHICK_TECHNOLOGIES_Change_Item_Creator_ID.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -5336,7 +5324,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>SchickTechnologiesChangeItemCreatorID.properties</targetName>
+                  <targetName>SCHICK_TECHNOLOGIES_Change_Item_Creator_ID.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -5353,7 +5341,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>SchickTechnologiesChangeListCreatorID</value>
+                  <value>SCHICK_TECHNOLOGIES_Change_List_Creator_ID</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -5363,7 +5351,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>SchickTechnologiesChangeListCreatorID.java</targetName>
+                  <targetName>SCHICK_TECHNOLOGIES_Change_List_Creator_ID.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -5382,7 +5370,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>SchickTechnologiesChangeListCreatorID.properties</targetName>
+                  <targetName>SCHICK_TECHNOLOGIES_Change_List_Creator_ID.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -5399,7 +5387,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>SchickTechnologiesImageSecurityCreatorID</value>
+                  <value>SCHICK_TECHNOLOGIES_Image_Security_Creator_ID</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -5409,7 +5397,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>SchickTechnologiesImageSecurityCreatorID.java</targetName>
+                  <targetName>SCHICK_TECHNOLOGIES_Image_Security_Creator_ID.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -5428,7 +5416,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>SchickTechnologiesImageSecurityCreatorID.properties</targetName>
+                  <targetName>SCHICK_TECHNOLOGIES_Image_Security_Creator_ID.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -5445,7 +5433,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>SchickTechnologiesNoteListCreatorID</value>
+                  <value>SCHICK_TECHNOLOGIES_Note_List_Creator_ID</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -5455,7 +5443,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>SchickTechnologiesNoteListCreatorID.java</targetName>
+                  <targetName>SCHICK_TECHNOLOGIES_Note_List_Creator_ID.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -5474,7 +5462,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>SchickTechnologiesNoteListCreatorID.properties</targetName>
+                  <targetName>SCHICK_TECHNOLOGIES_Note_List_Creator_ID.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -5491,7 +5479,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>SciVis1</value>
+                  <value>SCIVIS_1</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -5501,7 +5489,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>SciVis1.java</targetName>
+                  <targetName>SCIVIS_1.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -5520,7 +5508,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>SciVis1.properties</targetName>
+                  <targetName>SCIVIS_1.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -5537,7 +5525,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>SectraIdent</value>
+                  <value>SECTRA_Ident_01</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -5547,7 +5535,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>SectraIdent.java</targetName>
+                  <targetName>SECTRA_Ident_01.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -5566,7 +5554,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>SectraIdent.properties</targetName>
+                  <targetName>SECTRA_Ident_01.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -5583,7 +5571,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>SectraImageInfo</value>
+                  <value>SECTRA_ImageInfo_01</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -5593,7 +5581,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>SectraImageInfo.java</targetName>
+                  <targetName>SECTRA_ImageInfo_01.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -5612,7 +5600,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>SectraImageInfo.properties</targetName>
+                  <targetName>SECTRA_ImageInfo_01.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -5629,7 +5617,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>SectraOverlayInfo</value>
+                  <value>SECTRA_OverlayInfo_01</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -5639,7 +5627,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>SectraOverlayInfo.java</targetName>
+                  <targetName>SECTRA_OverlayInfo_01.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -5658,7 +5646,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>SectraOverlayInfo.properties</targetName>
+                  <targetName>SECTRA_OverlayInfo_01.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -5675,7 +5663,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>SegamiHeader</value>
+                  <value>SEGAMI_HEADER</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -5685,7 +5673,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>SegamiHeader.java</targetName>
+                  <targetName>SEGAMI_HEADER.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -5704,7 +5692,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>SegamiHeader.properties</targetName>
+                  <targetName>SEGAMI_HEADER.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -5721,7 +5709,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>SegamiMemo</value>
+                  <value>SEGAMI__MEMO</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -5731,7 +5719,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>SegamiMemo.java</targetName>
+                  <targetName>SEGAMI__MEMO.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -5750,7 +5738,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>SegamiMemo.properties</targetName>
+                  <targetName>SEGAMI__MEMO.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -5767,7 +5755,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>SegamiMiml</value>
+                  <value>SEGAMI_MIML</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -5777,7 +5765,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>SegamiMiml.java</targetName>
+                  <targetName>SEGAMI_MIML.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -5796,7 +5784,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>SegamiMiml.properties</targetName>
+                  <targetName>SEGAMI_MIML.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -5813,7 +5801,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>SegamiPage</value>
+                  <value>SEGAMI__PAGE</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -5823,7 +5811,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>SegamiPage.java</targetName>
+                  <targetName>SEGAMI__PAGE.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -5842,7 +5830,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>SegamiPage.properties</targetName>
+                  <targetName>SEGAMI__PAGE.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -5859,7 +5847,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>SetWindow</value>
+                  <value>SET_WINDOW</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -5869,7 +5857,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>SetWindow.java</targetName>
+                  <targetName>SET_WINDOW.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -5888,7 +5876,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>SetWindow.properties</targetName>
+                  <targetName>SET_WINDOW.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -5951,7 +5939,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>SilhouetteVRS30</value>
+                  <value>Silhouette_VRS_3_0</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -5961,7 +5949,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>SilhouetteVRS30.java</targetName>
+                  <targetName>Silhouette_VRS_3_0.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -5980,7 +5968,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>SilhouetteVRS30.properties</targetName>
+                  <targetName>Silhouette_VRS_3_0.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -5997,7 +5985,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>SoundEklin</value>
+                  <value>Sound_Eklin</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -6007,7 +5995,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>SoundEklin.java</targetName>
+                  <targetName>Sound_Eklin.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -6026,7 +6014,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>SoundEklin.properties</targetName>
+                  <targetName>Sound_Eklin.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -6043,7 +6031,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>SoundTechnologies</value>
+                  <value>Sound_Technologies</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -6053,7 +6041,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>SoundTechnologies.java</targetName>
+                  <targetName>Sound_Technologies.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -6072,7 +6060,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>SoundTechnologies.properties</targetName>
+                  <targetName>Sound_Technologies.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -6089,7 +6077,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>SStation</value>
+                  <value>S_Station</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -6099,7 +6087,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>SStation.java</targetName>
+                  <targetName>S_Station.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -6118,7 +6106,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>SStation.properties</targetName>
+                  <targetName>S_Station.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -6135,7 +6123,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>Stentor</value>
+                  <value>STENTOR</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -6145,7 +6133,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>Stentor.java</targetName>
+                  <targetName>STENTOR.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -6164,7 +6152,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>Stentor.properties</targetName>
+                  <targetName>STENTOR.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -6181,7 +6169,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>SVision</value>
+                  <value>SVISION</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -6191,7 +6179,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>SVision.java</targetName>
+                  <targetName>SVISION.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -6210,7 +6198,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>SVision.properties</targetName>
+                  <targetName>SVISION.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -6227,7 +6215,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>Synarc10</value>
+                  <value>SYNARC_1_0</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -6237,7 +6225,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>Synarc10.java</targetName>
+                  <targetName>SYNARC_1_0.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -6256,7 +6244,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>Synarc10.properties</targetName>
+                  <targetName>SYNARC_1_0.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -6273,7 +6261,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>Telemis</value>
+                  <value>TELEMIS</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -6283,7 +6271,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>Telemis.java</targetName>
+                  <targetName>TELEMIS.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -6302,7 +6290,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>Telemis.properties</targetName>
+                  <targetName>TELEMIS.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -6319,7 +6307,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>TerareconAquarius</value>
+                  <value>TERARECON_AQUARIUS</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -6329,7 +6317,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>TerareconAquarius.java</targetName>
+                  <targetName>TERARECON_AQUARIUS.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -6348,7 +6336,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>TerareconAquarius.properties</targetName>
+                  <targetName>TERARECON_AQUARIUS.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -6411,7 +6399,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>UCSFBIRPPrivateCreator</value>
+                  <value>UCSF_BIRP_PRIVATE_CREATOR_011710xx</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -6421,7 +6409,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>UCSFBIRPPrivateCreator.java</targetName>
+                  <targetName>UCSF_BIRP_PRIVATE_CREATOR_011710xx.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -6440,7 +6428,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>UCSFBIRPPrivateCreator.properties</targetName>
+                  <targetName>UCSF_BIRP_PRIVATE_CREATOR_011710xx.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -6549,7 +6537,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>UltravisualTagSet1</value>
+                  <value>ULTRAVISUAL_TAG_SET1</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -6559,7 +6547,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>UltravisualTagSet1.java</targetName>
+                  <targetName>ULTRAVISUAL_TAG_SET1.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -6578,7 +6566,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>UltravisualTagSet1.properties</targetName>
+                  <targetName>ULTRAVISUAL_TAG_SET1.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -6641,7 +6629,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>VeproBroker10</value>
+                  <value>VEPRO_BROKER_1_0</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -6651,7 +6639,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>VeproBroker10.java</targetName>
+                  <targetName>VEPRO_BROKER_1_0.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -6670,7 +6658,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>VeproBroker10.properties</targetName>
+                  <targetName>VEPRO_BROKER_1_0.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -6687,7 +6675,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>VeproBroker10DataReplace</value>
+                  <value>VEPRO_BROKER_1_0_DATA_REPLACE</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -6697,7 +6685,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>VeproBroker10DataReplace.java</targetName>
+                  <targetName>VEPRO_BROKER_1_0_DATA_REPLACE.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -6716,7 +6704,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>VeproBroker10DataReplace.properties</targetName>
+                  <targetName>VEPRO_BROKER_1_0_DATA_REPLACE.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -6733,7 +6721,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>VeproDicomReceiveData10</value>
+                  <value>VEPRO_DICOM_RECEIVE_DATA_1_0</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -6743,7 +6731,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>VeproDicomReceiveData10.java</targetName>
+                  <targetName>VEPRO_DICOM_RECEIVE_DATA_1_0.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -6762,7 +6750,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>VeproDicomReceiveData10.properties</targetName>
+                  <targetName>VEPRO_DICOM_RECEIVE_DATA_1_0.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -6779,7 +6767,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>VeproDicomTransfer10</value>
+                  <value>VEPRO_DICOM_TRANSFER_1_0</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -6789,7 +6777,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>VeproDicomTransfer10.java</targetName>
+                  <targetName>VEPRO_DICOM_TRANSFER_1_0.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -6808,7 +6796,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>VeproDicomTransfer10.properties</targetName>
+                  <targetName>VEPRO_DICOM_TRANSFER_1_0.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -6825,7 +6813,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>VeproVIF30Data</value>
+                  <value>VEPRO_VIF_3_0_DATA</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -6835,7 +6823,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>VeproVIF30Data.java</targetName>
+                  <targetName>VEPRO_VIF_3_0_DATA.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -6854,7 +6842,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>VeproVIF30Data.properties</targetName>
+                  <targetName>VEPRO_VIF_3_0_DATA.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -6871,7 +6859,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>VeproVIM50Data</value>
+                  <value>VEPRO_VIM_5_0_DATA</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -6881,7 +6869,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>VeproVIM50Data.java</targetName>
+                  <targetName>VEPRO_VIM_5_0_DATA.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -6900,7 +6888,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>VeproVIM50Data.properties</targetName>
+                  <targetName>VEPRO_VIM_5_0_DATA.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -6917,7 +6905,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>ViewingProtocol</value>
+                  <value>Viewing_Protocol</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -6927,7 +6915,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ViewingProtocol.java</targetName>
+                  <targetName>Viewing_Protocol.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -6946,7 +6934,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>ViewingProtocol.properties</targetName>
+                  <targetName>Viewing_Protocol.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -6963,7 +6951,53 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>VitalImagesSW34</value>
+                  <value>Visus_Change</value>
+                </parameter>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Visus Change</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Visus_Change.java</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>other.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.properties.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Visus Change</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Visus_Change.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>other.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>package</name>
+                  <value>org.dcm4assange.elmdict.other</value>
+                </parameter>
+                <parameter>
+                  <name>class</name>
+                  <value>Vital_Images_SW_3_4</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -6973,7 +7007,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>VitalImagesSW34.java</targetName>
+                  <targetName>Vital_Images_SW_3_4.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -6992,7 +7026,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>VitalImagesSW34.properties</targetName>
+                  <targetName>Vital_Images_SW_3_4.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -7009,7 +7043,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>Voxar_113543</value>
+                  <value>Voxar_2_16_124_113543_6003_1999_12_20_12_5_0</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -7019,7 +7053,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>Voxar_113543.java</targetName>
+                  <targetName>Voxar_2_16_124_113543_6003_1999_12_20_12_5_0.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -7038,7 +7072,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>Voxar_113543.properties</targetName>
+                  <targetName>Voxar_2_16_124_113543_6003_1999_12_20_12_5_0.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -7055,7 +7089,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>WG12Supplement43</value>
+                  <value>WG12_Supplement_43</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -7065,7 +7099,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>WG12Supplement43.java</targetName>
+                  <targetName>WG12_Supplement_43.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -7084,7 +7118,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>WG12Supplement43.properties</targetName>
+                  <targetName>WG12_Supplement_43.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>

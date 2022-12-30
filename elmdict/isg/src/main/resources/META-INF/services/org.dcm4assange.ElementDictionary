@@ -1,7 +1,7 @@
-org.dcm4assange.elmdict.isg.ISGShadow
-org.dcm4assange.elmdict.isg.SilhouetteAnnot
-org.dcm4assange.elmdict.isg.SilhouetteGraphicsExport
-org.dcm4assange.elmdict.isg.SilhouetteLine
-org.dcm4assange.elmdict.isg.SilhouetteROI
-org.dcm4assange.elmdict.isg.SilhouetteSequenceIds
-org.dcm4assange.elmdict.isg.Silhouette
+org.dcm4assange.elmdict.isg.ISG_shadow
+org.dcm4assange.elmdict.isg.Silhouette_Annot_V1_0
+org.dcm4assange.elmdict.isg.Silhouette_Graphics_Export_V1_0
+org.dcm4assange.elmdict.isg.Silhouette_Line_V1_0
+org.dcm4assange.elmdict.isg.Silhouette_ROI_V1_0
+org.dcm4assange.elmdict.isg.Silhouette_Sequence_Ids_V1_0
+org.dcm4assange.elmdict.isg.Silhouette_V1_0

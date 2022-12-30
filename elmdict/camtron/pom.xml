@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright 2021 the original author or authors.
-  ~
-  ~ Licensed under the Apache License, Version 2.0 (the "License");
-  ~ you may not use this file except in compliance with the License.
-  ~ You may obtain a copy of the License at
-  ~
-  ~ http://www.apache.org/licenses/LICENSE-2.0
-  ~
-  ~ Unless required by applicable law or agreed to in writing, software
-  ~ distributed under the License is distributed on an "AS IS" BASIS,
-  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  ~ See the License for the specific language governing permissions and
-  ~ limitations under the License.
-  -->
+  ~ This file is generated from element dictionary template files included in
+  ~ David Clunie's Dicom3tools Software (https://www.dclunie.com/dicom3tools.html)
+-->
 
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -62,7 +51,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>Camtronics</value>
+                  <value>CAMTRONICS</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -72,7 +61,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/camtron</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>Camtronics.java</targetName>
+                  <targetName>CAMTRONICS.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -91,7 +80,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/camtron</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>Camtronics.properties</targetName>
+                  <targetName>CAMTRONICS.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -108,7 +97,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>CamtronicsImageLevelData</value>
+                  <value>Camtronics_image_level_data</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -118,7 +107,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/camtron</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>CamtronicsImageLevelData.java</targetName>
+                  <targetName>Camtronics_image_level_data.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -137,7 +126,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/camtron</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>CamtronicsImageLevelData.properties</targetName>
+                  <targetName>Camtronics_image_level_data.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -154,7 +143,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>CamtronicsIP</value>
+                  <value>CAMTRONICS_IP</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -164,7 +153,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/camtron</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>CamtronicsIP.java</targetName>
+                  <targetName>CAMTRONICS_IP.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -183,7 +172,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/camtron</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>CamtronicsIP.properties</targetName>
+                  <targetName>CAMTRONICS_IP.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -200,7 +189,7 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
-                  <value>CamtronicsQCA</value>
+                  <value>QCA_Results</value>
                 </parameter>
                 <parameter>
                   <name>PrivateCreatorID</name>
@@ -210,7 +199,7 @@
               <outputDir>target/generated-sources/org/dcm4assange/elmdict/camtron</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>CamtronicsQCA.java</targetName>
+                  <targetName>QCA_Results.java</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -229,7 +218,7 @@
               <outputDir>target/generated-resources/org/dcm4assange/elmdict/camtron</outputDir>
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                  <targetName>CamtronicsQCA.properties</targetName>
+                  <targetName>QCA_Results.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>

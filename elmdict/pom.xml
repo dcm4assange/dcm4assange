@@ -29,6 +29,13 @@
   <artifactId>dcm4assange-elmdict</artifactId>
   <packaging>pom</packaging>
 
+  <dependencies>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+    </dependency>
+  </dependencies>
+
   <modules>
     <module>acuson</module>
     <module>agfa</module>
