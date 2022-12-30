@@ -36,7 +36,6 @@ sed -i '/"SPI Release 1"/d' philips.xml
 
 function generate_sources
 {
-  PACKAGE=org.dcm4assange.elmdict.$1
   grep owner $1.xml \
   | cut -d\"  -f4 \
   | sort \
@@ -49,9 +48,9 @@ function generate_sources
   gsub("^3","Three",name)
   print name "|" $0}' \
   | tee $1.tmp \
-  | awk -v package=$PACKAGE 'BEGIN { FS = "|" } { print package "." $1 }' \
+  | awk -v name=$1 'BEGIN { FS = "|" } { print "org.dcm4assange.elmdict." name "." $1 }' \
   | tee ../../$1/src/main/resources/META-INF/services/org.dcm4assange.ElementDictionary \
-  | awk -v package=$PACKAGE -f module-info.java.awk > ../../$1/src/main/java/module-info.java
+  | awk -v name=$1 -f module-info.java.awk > ../../$1/src/main/java/module-info.java
   awk -v name=$1 -f pom.xml.awk $1.tmp > ../../$1/pom.xml
   rm $1.tmp
 }
