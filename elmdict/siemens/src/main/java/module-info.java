@@ -8,6 +8,7 @@ module org.dcm4assange.elmdict.siemens {
 
     provides org.dcm4assange.ElementDictionary with
             org.dcm4assange.elmdict.siemens.BioPri3D,
+            org.dcm4assange.elmdict.siemens.CARDIO_D_R_1_0,
             org.dcm4assange.elmdict.siemens.DIGISCAN_IMAGE,
             org.dcm4assange.elmdict.siemens.ESOFT_DICOM_ECAT_OWNERCODE,
             org.dcm4assange.elmdict.siemens.FFP_DATA,
@@ -128,6 +129,7 @@ module org.dcm4assange.elmdict.siemens {
             org.dcm4assange.elmdict.siemens.SMIL_PB79,
             org.dcm4assange.elmdict.siemens.SMIO_PB7B,
             org.dcm4assange.elmdict.siemens.SMIO_PB7D,
+            org.dcm4assange.elmdict.siemens.SPI,
             org.dcm4assange.elmdict.siemens.syngoDynamics,
             org.dcm4assange.elmdict.siemens.syngoDynamics_Reporting;
 }

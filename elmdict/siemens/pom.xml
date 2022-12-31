@@ -97,6 +97,52 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
+                  <value>CARDIO_D_R_1_0</value>
+                </parameter>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>CARDIO-D.R. 1.0</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-sources/org/dcm4assange/elmdict/siemens</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>CARDIO_D_R_1_0.java</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>siemens.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.properties.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>CARDIO-D.R. 1.0</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources/org/dcm4assange/elmdict/siemens</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>CARDIO_D_R_1_0.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>siemens.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>package</name>
+                  <value>org.dcm4assange.elmdict.siemens</value>
+                </parameter>
+                <parameter>
+                  <name>class</name>
                   <value>DIGISCAN_IMAGE</value>
                 </parameter>
                 <parameter>
@@ -5601,6 +5647,52 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>SMIO_PB7D.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>siemens.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>package</name>
+                  <value>org.dcm4assange.elmdict.siemens</value>
+                </parameter>
+                <parameter>
+                  <name>class</name>
+                  <value>SPI</value>
+                </parameter>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>SPI</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-sources/org/dcm4assange/elmdict/siemens</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>SPI.java</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>siemens.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.properties.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>SPI</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources/org/dcm4assange/elmdict/siemens</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>SPI.properties</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>

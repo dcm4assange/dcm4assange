@@ -143,6 +143,52 @@
                 </parameter>
                 <parameter>
                   <name>class</name>
+                  <value>One_2_840_113708_794_1_1_2_0</value>
+                </parameter>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>1.2.840.113708.794.1.1.2.0</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-sources/org/dcm4assange/elmdict/other</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>One_2_840_113708_794_1_1_2_0.java</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>other.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.properties.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>1.2.840.113708.794.1.1.2.0</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources/org/dcm4assange/elmdict/other</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>One_2_840_113708_794_1_1_2_0.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>other.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>package</name>
+                  <value>org.dcm4assange.elmdict.other</value>
+                </parameter>
+                <parameter>
+                  <name>class</name>
                   <value>Two_16_840_1_114059_1_1_6_1_50_1</value>
                 </parameter>
                 <parameter>

@@ -3672,6 +3672,52 @@
                 </fileMapper>
               </fileMappers>
             </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>package</name>
+                  <value>org.dcm4assange.elmdict.philips</value>
+                </parameter>
+                <parameter>
+                  <name>class</name>
+                  <value>SPI_Release_1</value>
+                </parameter>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>SPI Release 1</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-sources/org/dcm4assange/elmdict/philips</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>SPI_Release_1.java</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.properties.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>SPI Release 1</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources/org/dcm4assange/elmdict/philips</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>SPI_Release_1.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
           </transformationSets>
         </configuration>
       </plugin>
