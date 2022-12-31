@@ -3,9 +3,7 @@ BEGIN	{
     print "<elements>"
 }
 
-/^[ 	]*[#]/	{}
-
-/^[ 	]*[(]/  {
+/^[(]/  {
 
 	group=""
 	if (match($0,"[(][0-9a-fA-FxX][0-9a-fA-FxX][0-9a-fA-FxX][0-9a-fA-FxX],")) {
