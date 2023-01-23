@@ -4,6 +4,8 @@
     exclude-result-prefixes="doc">
   <xsl:output method="xml" indent="yes"/>
 
+  <xsl:include href="uidsEx.xsl"/>
+
   <xsl:variable name="LOWER">abcdefghijklmnopqrstuvwxyz</xsl:variable>
   <xsl:variable name="UPPER">ABCDEFGHIJKLMNOPQRSTUVWXYZ</xsl:variable>
 
