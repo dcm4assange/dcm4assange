@@ -15,6 +15,7 @@ function generate_sources
   | awk -v name=$1 'BEGIN { FS = "|" } { print "org.dcm4assange.elmdict." name "." $1 }' \
   | tee ../../$1/src/main/resources/META-INF/services/org.dcm4assange.ElementDictionary \
   | awk -v name=$1 -f module-info.java.awk > ../../$1/src/main/java/module-info.java
+  awk -f remote-resources.xml.awk $1.tmp > ../../$1/src/main/resources/META-INF/maven/remote-resources.xml
   awk -v name=$1 -f pom.xml.awk $1.tmp > ../../$1/pom.xml
   rm $1.tmp
 }

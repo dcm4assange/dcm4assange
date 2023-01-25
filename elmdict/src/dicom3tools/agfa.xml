@@ -9,11 +9,11 @@
 <el tag="00110021" owner="AgilityRuntime" vr="LO" vm="1"/>
 <el tag="00110022" owner="AgilityRuntime" vr="LO" vm="1"/>
 <el tag="00110011" owner="AGFA-AG_HPState" vr="SH" vm="1"/>
-<el tag="001900a0" owner="AGFA-AG_HPState" vr="SQ" vm="1"/>
-<el tag="001900a1" owner="AGFA-AG_HPState" vr="FL" vm="1"/>
-<el tag="001900a2" owner="AGFA-AG_HPState" vr="FL" vm="1"/>
-<el tag="001900a3" owner="AGFA-AG_HPState" vr="FL" vm="1"/>
-<el tag="001900a4" owner="AGFA-AG_HPState" vr="FL" vm="1"/>
+<el tag="001900A0" owner="AGFA-AG_HPState" vr="SQ" vm="1"/>
+<el tag="001900A1" owner="AGFA-AG_HPState" vr="FL" vm="1"/>
+<el tag="001900A2" owner="AGFA-AG_HPState" vr="FL" vm="1"/>
+<el tag="001900A3" owner="AGFA-AG_HPState" vr="FL" vm="1"/>
+<el tag="001900A4" owner="AGFA-AG_HPState" vr="FL" vm="1"/>
 <el tag="00190005" owner="AGFA" keyword="CassetteDataStream" vr="ST" vm="1">Cassette Data Stream</el>
 <el tag="00190010" owner="AGFA" keyword="ImageProcessingParameters" vr="ST" vm="1">Image Processing Parameters</el>
 <el tag="00190011" owner="AGFA" keyword="IdentificationData" vr="LO" vm="1">Identification Data</el>
@@ -21,8 +21,8 @@
 <el tag="00190014" owner="AGFA" keyword="WindowLevelList" vr="ST" vm="1">Window Level List</el>
 <el tag="00190015" owner="AGFA" keyword="DoseMonitoring" vr="LO" vm="1">Dose Monitoring</el>
 <el tag="00190016" owner="AGFA" keyword="OtherInfo" vr="LO" vm="1">Other Info</el>
-<el tag="0019001a" owner="AGFA" keyword="ClippedExposureDeviation" vr="LO" vm="1">Clipped Exposure Deviation</el>
-<el tag="0019001b" owner="AGFA" keyword="LogarithmicPLTFullScale" vr="LO" vm="1">Logarithmic PLT Full Scale</el>
+<el tag="0019001A" owner="AGFA" keyword="ClippedExposureDeviation" vr="LO" vm="1">Clipped Exposure Deviation</el>
+<el tag="0019001B" owner="AGFA" keyword="LogarithmicPLTFullScale" vr="LO" vm="1">Logarithmic PLT Full Scale</el>
 <el tag="00190060" owner="AGFA" keyword="TotalNumberSeries" vr="US" vm="1">Total Number Series</el>
 <el tag="00190061" owner="AGFA" keyword="SessionNumber" vr="SH" vm="1">Session Number</el>
 <el tag="00190062" owner="AGFA" keyword="IDStationName" vr="SH" vm="1">ID Station Name</el>
@@ -49,19 +49,19 @@
 <el tag="00190009" owner="Agfa ADC NX" vr="SQ" vm="1"/>
 <el tag="00190021" owner="Agfa ADC NX" vr="FL" vm="1"/>
 <el tag="00190028" owner="Agfa ADC NX" vr="CS" vm="1"/>
-<el tag="001900f0" owner="Agfa ADC NX" keyword="UserDefinedField1" vr="LO" vm="1">User Defined field 1</el>
-<el tag="001900f1" owner="Agfa ADC NX" keyword="UserDefinedField2" vr="LO" vm="1">User Defined field 2</el>
-<el tag="001900f2" owner="Agfa ADC NX" keyword="UserDefinedField3" vr="LO" vm="1">User Defined field 3</el>
-<el tag="001900f3" owner="Agfa ADC NX" keyword="UserDefinedField4" vr="LO" vm="1">User Defined field 4</el>
-<el tag="001900f4" owner="Agfa ADC NX" keyword="UserDefinedField5" vr="LO" vm="1">User Defined field 5</el>
-<el tag="001900f5" owner="Agfa ADC NX" keyword="CassetteOrientation" vr="CS" vm="1">Cassette Orientation</el>
-<el tag="001900f6" owner="Agfa ADC NX" keyword="PlateSensitivity" vr="DS" vm="1">Plate Sensitivity</el>
-<el tag="001900f7" owner="Agfa ADC NX" keyword="PlateErasability" vr="DS" vm="1">Plate Erasability</el>
-<el tag="001900f8" owner="Agfa ADC NX" vr="IS" vm="1"/>
-<el tag="001900fa" owner="Agfa ADC NX" vr="IS" vm="1"/>
-<el tag="001900fc" owner="Agfa ADC NX" vr="IS" vm="1"/>
-<el tag="001900fd" owner="Agfa ADC NX" vr="CS" vm="1"/>
-<el tag="001900fe" owner="Agfa ADC NX" vr="CS" vm="1"/>
+<el tag="001900F0" owner="Agfa ADC NX" keyword="UserDefinedField1" vr="LO" vm="1">User Defined field 1</el>
+<el tag="001900F1" owner="Agfa ADC NX" keyword="UserDefinedField2" vr="LO" vm="1">User Defined field 2</el>
+<el tag="001900F2" owner="Agfa ADC NX" keyword="UserDefinedField3" vr="LO" vm="1">User Defined field 3</el>
+<el tag="001900F3" owner="Agfa ADC NX" keyword="UserDefinedField4" vr="LO" vm="1">User Defined field 4</el>
+<el tag="001900F4" owner="Agfa ADC NX" keyword="UserDefinedField5" vr="LO" vm="1">User Defined field 5</el>
+<el tag="001900F5" owner="Agfa ADC NX" keyword="CassetteOrientation" vr="CS" vm="1">Cassette Orientation</el>
+<el tag="001900F6" owner="Agfa ADC NX" keyword="PlateSensitivity" vr="DS" vm="1">Plate Sensitivity</el>
+<el tag="001900F7" owner="Agfa ADC NX" keyword="PlateErasability" vr="DS" vm="1">Plate Erasability</el>
+<el tag="001900F8" owner="Agfa ADC NX" vr="IS" vm="1"/>
+<el tag="001900FA" owner="Agfa ADC NX" vr="IS" vm="1"/>
+<el tag="001900FC" owner="Agfa ADC NX" vr="IS" vm="1"/>
+<el tag="001900FD" owner="Agfa ADC NX" vr="CS" vm="1"/>
+<el tag="001900FE" owner="Agfa ADC NX" vr="CS" vm="1"/>
 <el tag="00310000" owner="AGFA PACS Archive Mirroring 1.0" vr="CS" vm="1"/>
 <el tag="00310001" owner="AGFA PACS Archive Mirroring 1.0" vr="UL" vm="1"/>
 <el tag="00290000" owner="MITRA PRESENTATION 1.0" keyword="Rotation" vr="CS" vm="1">Rotation</el>
@@ -95,15 +95,15 @@
 <el tag="00290012" owner="AgilityRuntime" vr="US" vm="1"/>
 <el tag="00290013" owner="AgilityRuntime" vr="US" vm="1"/>
 <el tag="00290014" owner="AgilityRuntime" vr="US" vm="1"/>
-<el tag="0029001f" owner="AgilityRuntime" vr="US" vm="1"/>
+<el tag="0029001F" owner="AgilityRuntime" vr="US" vm="1"/>
 <el tag="00310020" owner="MITRA LINKED ATTRIBUTES 1.0" vr="IS" vm="1"/>
 <el tag="00330002" owner="MITRA OBJECT UTF8 ATTRIBUTES 1.0" vr="OB" vm="1"/>
 <el tag="00330004" owner="MITRA OBJECT UTF8 ATTRIBUTES 1.0" vr="CS" vm="1"/>
 <el tag="00330006" owner="MITRA OBJECT UTF8 ATTRIBUTES 1.0" vr="OB" vm="1"/>
 <el tag="00330008" owner="MITRA OBJECT UTF8 ATTRIBUTES 1.0" vr="OB" vm="1"/>
-<el tag="0033000a" owner="MITRA OBJECT UTF8 ATTRIBUTES 1.0" vr="OB" vm="1"/>
-<el tag="0033000c" owner="MITRA OBJECT UTF8 ATTRIBUTES 1.0" vr="LO" vm="1"/>
-<el tag="0033000e" owner="MITRA OBJECT UTF8 ATTRIBUTES 1.0" vr="OB" vm="1"/>
+<el tag="0033000A" owner="MITRA OBJECT UTF8 ATTRIBUTES 1.0" vr="OB" vm="1"/>
+<el tag="0033000C" owner="MITRA OBJECT UTF8 ATTRIBUTES 1.0" vr="LO" vm="1"/>
+<el tag="0033000E" owner="MITRA OBJECT UTF8 ATTRIBUTES 1.0" vr="OB" vm="1"/>
 <el tag="00330013" owner="MITRA OBJECT UTF8 ATTRIBUTES 1.0" vr="PN" vm="1"/>
 <el tag="00330014" owner="MITRA OBJECT UTF8 ATTRIBUTES 1.0" vr="OB" vm="1"/>
 <el tag="00330015" owner="MITRA OBJECT UTF8 ATTRIBUTES 1.0" vr="OB" vm="1"/>
@@ -113,20 +113,20 @@
 <el tag="00330004" owner="MITRA OBJECT ATTRIBUTES 1.0" vr="LO" vm="1"/>
 <el tag="00330006" owner="MITRA OBJECT ATTRIBUTES 1.0" vr="LO" vm="1"/>
 <el tag="00330008" owner="MITRA OBJECT ATTRIBUTES 1.0" vr="LO" vm="1"/>
-<el tag="0033000a" owner="MITRA OBJECT ATTRIBUTES 1.0" vr="LO" vm="1"/>
+<el tag="0033000A" owner="MITRA OBJECT ATTRIBUTES 1.0" vr="LO" vm="1"/>
 <el tag="00710018" owner="AGFA-AG_HPState" vr="SQ" vm="1"/>
 <el tag="00710019" owner="AGFA-AG_HPState" vr="SQ" vm="1"/>
-<el tag="0071001a" owner="AGFA-AG_HPState" vr="SQ" vm="1"/>
-<el tag="0071001c" owner="AGFA-AG_HPState" vr="SQ" vm="1"/>
-<el tag="0071001e" owner="AGFA-AG_HPState" vr="SQ" vm="1"/>
+<el tag="0071001A" owner="AGFA-AG_HPState" vr="SQ" vm="1"/>
+<el tag="0071001C" owner="AGFA-AG_HPState" vr="SQ" vm="1"/>
+<el tag="0071001E" owner="AGFA-AG_HPState" vr="SQ" vm="1"/>
 <el tag="00710020" owner="AGFA-AG_HPState" vr="FL" vm="1-n"/>
 <el tag="00710021" owner="AGFA-AG_HPState" vr="FD" vm="1-n"/>
 <el tag="00710022" owner="AGFA-AG_HPState" vr="FD" vm="1-n"/>
 <el tag="00710023" owner="AGFA-AG_HPState" vr="FD" vm="1-n"/>
 <el tag="00710024" owner="AGFA-AG_HPState" vr="FD" vm="1"/>
-<el tag="0071002b" owner="AGFA-AG_HPState" vr="FD" vm="1-n"/>
-<el tag="0071002c" owner="AGFA-AG_HPState" vr="FD" vm="3"/>
-<el tag="0071002d" owner="AGFA-AG_HPState" vr="FD" vm="1"/>
+<el tag="0071002B" owner="AGFA-AG_HPState" vr="FD" vm="1-n"/>
+<el tag="0071002C" owner="AGFA-AG_HPState" vr="FD" vm="3"/>
+<el tag="0071002D" owner="AGFA-AG_HPState" vr="FD" vm="1"/>
 <el tag="00710001" owner="AgilityOverlay" vr="ST" vm="1"/>
 <el tag="00710002" owner="AgilityOverlay" vr="ST" vm="1"/>
 <el tag="00710003" owner="AgilityOverlay" vr="ST" vm="1"/>
@@ -135,7 +135,7 @@
 <el tag="00710007" owner="AgilityOverlay" vr="ST" vm="1"/>
 <el tag="00710008" owner="AgilityOverlay" vr="CS" vm="1"/>
 <el tag="00710009" owner="AgilityOverlay" vr="ST" vm="1"/>
-<el tag="0071000a" owner="AgilityOverlay" vr="CS" vm="1"/>
+<el tag="0071000A" owner="AgilityOverlay" vr="CS" vm="1"/>
 <el tag="00710010" owner="AgilityOverlay" vr="FL" vm="1"/>
 <el tag="00710011" owner="AgilityOverlay" vr="ST" vm="1"/>
 <el tag="00710012" owner="AgilityOverlay" vr="CS" vm="1"/>
@@ -146,13 +146,13 @@
 <el tag="00710017" owner="AgilityOverlay" vr="ST" vm="1"/>
 <el tag="00710018" owner="AgilityOverlay" vr="CS" vm="1"/>
 <el tag="00710019" owner="AgilityOverlay" vr="ST" vm="1"/>
-<el tag="0071001b" owner="AgilityOverlay" vr="ST" vm="1"/>
-<el tag="0071001c" owner="AgilityOverlay" vr="ST" vm="1"/>
-<el tag="0071001d" owner="AgilityOverlay" vr="ST" vm="1"/>
+<el tag="0071001B" owner="AgilityOverlay" vr="ST" vm="1"/>
+<el tag="0071001C" owner="AgilityOverlay" vr="ST" vm="1"/>
+<el tag="0071001D" owner="AgilityOverlay" vr="ST" vm="1"/>
 <el tag="00710022" owner="AgilityOverlay" vr="ST" vm="1"/>
-<el tag="0071002c" owner="AgilityOverlay" vr="ST" vm="1"/>
-<el tag="0071002d" owner="AgilityOverlay" vr="SQ" vm="1"/>
-<el tag="0071002e" owner="AgilityOverlay" vr="US" vm="1"/>
+<el tag="0071002C" owner="AgilityOverlay" vr="ST" vm="1"/>
+<el tag="0071002D" owner="AgilityOverlay" vr="SQ" vm="1"/>
+<el tag="0071002E" owner="AgilityOverlay" vr="US" vm="1"/>
 <el tag="00710050" owner="AgilityOverlay" vr="CS" vm="1"/>
 <el tag="00710051" owner="AgilityOverlay" vr="CS" vm="1"/>
 <el tag="00710052" owner="AgilityOverlay" vr="LT" vm="1"/>
@@ -162,10 +162,10 @@
 <el tag="00710056" owner="AgilityOverlay" vr="CS" vm="1"/>
 <el tag="00710057" owner="AgilityOverlay" vr="CS" vm="1"/>
 <el tag="00710059" owner="AgilityOverlay" vr="FL" vm="1"/>
-<el tag="0071005a" owner="AgilityOverlay" vr="FL" vm="1"/>
-<el tag="0071005b" owner="AgilityOverlay" vr="FL" vm="2"/>
-<el tag="0071005c" owner="AgilityOverlay" vr="FL" vm="4"/>
-<el tag="0071005d" owner="AgilityOverlay" vr="CS" vm="1"/>
+<el tag="0071005A" owner="AgilityOverlay" vr="FL" vm="1"/>
+<el tag="0071005B" owner="AgilityOverlay" vr="FL" vm="2"/>
+<el tag="0071005C" owner="AgilityOverlay" vr="FL" vm="4"/>
+<el tag="0071005D" owner="AgilityOverlay" vr="CS" vm="1"/>
 <el tag="00710060" owner="AgilityOverlay" vr="FD" vm="1"/>
 <el tag="00730023" owner="AGFA-AG_HPState" vr="SH" vm="1"/>
 <el tag="00730024" owner="AGFA-AG_HPState" vr="SQ" vm="1"/>
@@ -182,7 +182,7 @@
 <el tag="00870008" owner="AGFA-AG_HPState" vr="FD" vm="2"/>
 <el tag="00350000" owner="AGFA KOSD 1.0" vr="SH" vm="1"/>
 <el tag="00350003" owner="AGFA KOSD 1.0" vr="LT" vm="1"/>
-<el tag="2e130010" owner="agfa/displayableImages" vr="IS" vm="1"/>
-<el tag="2e130011" owner="agfa/displayableImages" vr="IS" vm="1"/>
-<el tag="7fdb0099" owner="agfa/xeroverse" vr="LO" vm="1"/>
+<el tag="2E130010" owner="agfa/displayableImages" vr="IS" vm="1"/>
+<el tag="2E130011" owner="agfa/displayableImages" vr="IS" vm="1"/>
+<el tag="7FDB0099" owner="agfa/xeroverse" vr="LO" vm="1"/>
 </elements>

@@ -89,6 +89,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>1.2.840.113708.794.1.1.2.0</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>One_2_840_113708_794_1_1_2_0.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -127,6 +146,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>AMI_Annotations_01.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>AMI Annotations_01</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>AMI_Annotations_01.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -181,6 +219,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>AMI Annotations_02</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>AMI_Annotations_02.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -219,6 +276,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>AMI_ImageContext_01.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>AMI ImageContext_01</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>AMI_ImageContext_01.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -273,6 +349,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>AMI ImageContextExt_01</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>AMI_ImageContextExt_01.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -311,6 +406,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>AMI_ImageTransform_01.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>AMI ImageTransform_01</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>AMI_ImageTransform_01.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -365,6 +479,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>AMI Sequence Annotations_01</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>AMI_Sequence_Annotations_01.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -403,6 +536,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>AMI_Sequence_Annotations_02.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>AMI Sequence Annotations_02</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>AMI_Sequence_Annotations_02.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -457,6 +609,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>AMI Sequence AnnotElements_01</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>AMI_Sequence_AnnotElements_01.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -495,6 +666,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>AMI_StudyExtensions_01.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>AMI StudyExtensions_01</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>AMI_StudyExtensions_01.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -549,6 +739,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>APEX_PRIVATE</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>APEX_PRIVATE.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -587,6 +796,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>Applicare_Centricity_Radiology_Web_Version_1_0.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Applicare/Centricity Radiology Web/Version 1.0</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Applicare_Centricity_Radiology_Web_Version_1_0.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -641,6 +869,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Applicare/Centricity Radiology Web/Version 2.0</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Applicare_Centricity_Radiology_Web_Version_2_0.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -679,6 +926,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>Applicare_Print_Version_5_1.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Applicare/Print/Version 5.1</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Applicare_Print_Version_5_1.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -733,6 +999,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Applicare/RadStore/Version 1.0</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Applicare_RadStore_Version_1_0.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -771,6 +1056,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>Applicare_RadWorks_Version_5_0.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Applicare/RadWorks/Version 5.0</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Applicare_RadWorks_Version_5_0.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -825,6 +1129,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Applicare/RadWorks/Version 6.0</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Applicare_RadWorks_Version_6_0.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -863,6 +1186,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>Applicare_RadWorks_Version_6_0_Summary.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Applicare/RadWorks/Version 6.0/Summary</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Applicare_RadWorks_Version_6_0_Summary.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -917,6 +1259,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Applicare/Workflow/Version 1.0</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Applicare_Workflow_Version_1_0.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -955,6 +1316,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>DL_INTERNAL_USE.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>DL_INTERNAL_USE</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>DL_INTERNAL_USE.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1009,6 +1389,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>DLX_ANNOT_01</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>DLX_ANNOT_01.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -1047,6 +1446,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>DLX_EXAMS_01.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>DLX_EXAMS_01</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>DLX_EXAMS_01.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1101,6 +1519,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>DLX_LKUP_01</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>DLX_LKUP_01.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -1139,6 +1576,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>DLX_PATNT_01.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>DLX_PATNT_01</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>DLX_PATNT_01.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1193,6 +1649,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>DLX_SERIE_01</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>DLX_SERIE_01.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -1231,6 +1706,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>GE_From_Adantage_Review_CS.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GE ??? From Adantage Review CS</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GE_From_Adantage_Review_CS.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1285,6 +1779,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GE Generic Data</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GE_Generic_Data.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -1323,6 +1836,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>GE_GENESIS_REV3_0.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GE_GENESIS_REV3.0</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GE_GENESIS_REV3_0.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1377,6 +1909,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GE_GROUP</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GE_GROUP.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -1415,6 +1966,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>GEHC_CT_ADVAPP_001.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEHC_CT_ADVAPP_001</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEHC_CT_ADVAPP_001.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1469,6 +2039,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEIIS</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEIIS.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -1507,6 +2096,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>GEIIS_IW.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEIIS_IW</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEIIS_IW.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1561,6 +2169,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEIIS PACS</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEIIS_PACS.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -1599,6 +2226,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>GEIIS_RA1000.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEIIS_RA1000</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEIIS_RA1000.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1653,6 +2299,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GE Informatics Data</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GE_Informatics_Data.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -1691,6 +2356,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>GE_LUT_Asymmetry_Parameter.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GE LUT Asymmetry Parameter</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GE_LUT_Asymmetry_Parameter.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1745,6 +2429,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_0039</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_0039.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -1783,6 +2486,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>GEMS_3D_INTVL_01.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_3D_INTVL_01</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_3D_INTVL_01.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1837,6 +2559,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_3DSTATE_001</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_3DSTATE_001.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -1875,6 +2616,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>GEMS_ACQU_01.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_ACQU_01</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_ACQU_01.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1929,6 +2689,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_ACRQA_1.0 BLOCK1</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_ACRQA_1_0_BLOCK1.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -1967,6 +2746,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>GEMS_ACRQA_1_0_BLOCK2.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_ACRQA_1.0 BLOCK2</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_ACRQA_1_0_BLOCK2.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2021,6 +2819,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_ACRQA_1.0 BLOCK3</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_ACRQA_1_0_BLOCK3.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -2059,6 +2876,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>GEMS_ACRQA_2_0_BLOCK1.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_ACRQA_2.0 BLOCK1</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_ACRQA_2_0_BLOCK1.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2113,6 +2949,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_ACRQA_2.0 BLOCK2</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_ACRQA_2_0_BLOCK2.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -2151,6 +3006,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>GEMS_ACRQA_2_0_BLOCK3.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_ACRQA_2.0 BLOCK3</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_ACRQA_2_0_BLOCK3.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2205,6 +3079,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_ADWSoft_3D1</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_ADWSoft_3D1.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -2243,6 +3136,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>GEMS_ADWSoft_DPO.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_ADWSoft_DPO</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_ADWSoft_DPO.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2297,6 +3209,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_ADWSoft_DPO1</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_ADWSoft_DPO1.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -2335,6 +3266,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>GEMS_AWSOFT_CD1.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_AWSOFT_CD1</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_AWSOFT_CD1.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2389,6 +3339,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_AWSoft_SB1</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_AWSoft_SB1.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -2427,6 +3396,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>GEMS_CT_CARDIAC_001.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_CT_CARDIAC_001</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_CT_CARDIAC_001.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2481,6 +3469,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_CTHD_01</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_CTHD_01.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -2519,6 +3526,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>GEMS_CT_HINO_01.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_CT_HINO_01</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_CT_HINO_01.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2573,6 +3599,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_CT_VES_01</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_CT_VES_01.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -2611,6 +3656,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>GEMS_DL_FRAME_01.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_DL_FRAME_01</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_DL_FRAME_01.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2665,6 +3729,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_DL_IMG_01</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_DL_IMG_01.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -2703,6 +3786,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>GEMS_DL_PATNT_01.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_DL_PATNT_01</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_DL_PATNT_01.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2757,6 +3859,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_DL_SERIES_01</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_DL_SERIES_01.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -2795,6 +3916,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>GEMS_DL_STUDY_01.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_DL_STUDY_01</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_DL_STUDY_01.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2849,6 +3989,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_DRS_1</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_DRS_1.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -2887,6 +4046,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>GEMS_FALCON_03.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_FALCON_03</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_FALCON_03.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2941,6 +4119,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_FUNCTOOL_01</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_FUNCTOOL_01.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -2979,6 +4176,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>GEMS_GDXE_ATHENAV2_INTERNAL_USE.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_GDXE_ATHENAV2_INTERNAL_USE</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_GDXE_ATHENAV2_INTERNAL_USE.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3033,6 +4249,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_GDXE_FALCON_04</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_GDXE_FALCON_04.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -3071,6 +4306,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>GEMS_GENIE_1.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_GENIE_1</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_GENIE_1.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3125,6 +4379,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_GNHD_01</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_GNHD_01.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -3163,6 +4436,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>GEMS_HELIOS_01.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_HELIOS_01</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_HELIOS_01.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3217,6 +4509,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_IDEN_01</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_IDEN_01.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -3255,6 +4566,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>GEMS_IDI_01.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_IDI_01</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_IDI_01.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3309,6 +4639,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_IMAG_01</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_IMAG_01.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -3347,6 +4696,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>GEMS_IMPS_01.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_IMPS_01</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_IMPS_01.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3401,6 +4769,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_IQTB_IDEN_47</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_IQTB_IDEN_47.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -3439,6 +4826,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>GEMS_IT_Centricity_RA600_7_0.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS-IT/Centricity RA600/7.0</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_IT_Centricity_RA600_7_0.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3493,6 +4899,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_IT_US_REPORT</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_IT_US_REPORT.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -3531,6 +4956,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>GEMS_LUNAR_RAW.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_LUNAR_RAW</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_LUNAR_RAW.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3585,6 +5029,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_PARM_01</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_PARM_01.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -3623,6 +5086,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>GEMS_PATI_01.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_PATI_01</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_PATI_01.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3677,6 +5159,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_PETD_01</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_PETD_01.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -3715,6 +5216,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>GEMS_RELA_01.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_RELA_01</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_RELA_01.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3769,6 +5289,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_SEND_02</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_SEND_02.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -3807,6 +5346,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>GEMS_SENO_02.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_SENO_02</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_SENO_02.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3861,6 +5419,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_SENOCRYSTAL_V1</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_SENOCRYSTAL_V1.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -3899,6 +5476,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>GEMS_SERS_01.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_SERS_01</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_SERS_01.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3953,6 +5549,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_STDY_01</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_STDY_01.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -3991,6 +5606,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>GEMS_Ultrasound_ExamGroup_001.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_Ultrasound_ExamGroup_001</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_Ultrasound_ExamGroup_001.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -4045,6 +5679,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_Ultrasound_ImageGroup_001</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_Ultrasound_ImageGroup_001.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -4083,6 +5736,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>GEMS_Ultrasound_MovieGroup_001.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_Ultrasound_MovieGroup_001</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_Ultrasound_MovieGroup_001.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -4137,6 +5809,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_VXTL_USERDATA_01</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_VXTL_USERDATA_01.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -4175,6 +5866,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>GEMS_XELPRV_01.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_XELPRV_01</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_XELPRV_01.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -4229,6 +5939,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_XR3DCAL_01</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_XR3DCAL_01.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -4267,6 +5996,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>GEMS_YMHD_01.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>GEMS_YMHD_01</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>GEMS_YMHD_01.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -4321,6 +6069,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>http://www.gemedicalsystems.com/it_solutions/bamwallthickness/1.0</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>http_www_gemedicalsystems_com_it_solutions_bamwallthickness_1_0.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -4359,6 +6126,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>http_www_gemedicalsystems_com_it_solutions_orthoview_2_1.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>http://www.gemedicalsystems.com/it_solutions/orthoview/2.1</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>http_www_gemedicalsystems_com_it_solutions_orthoview_2_1.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -4413,6 +6199,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>http://www.gemedicalsystems.com/it_solutions/rad_pacs/</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>http_www_gemedicalsystems_com_it_solutions_rad_pacs_.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -4451,6 +6256,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>KRETZ_US.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>KRETZ_US</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>KRETZ_US.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -4505,6 +6329,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Mayo/IBM Archive Project</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Mayo_IBM_Archive_Project.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -4543,6 +6386,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>QUASAR_INTERNAL_USE.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>QUASAR_INTERNAL_USE</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>QUASAR_INTERNAL_USE.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -4597,6 +6459,25 @@
               <includes>
                 <include>gems.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>RadWorksTBR</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>RadWorksTBR.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -4638,6 +6519,25 @@
                 </fileMapper>
               </fileMappers>
             </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>gems.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>REPORT_FROM_APP</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>REPORT_FROM_APP.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
           </transformationSets>
         </configuration>
       </plugin>
@@ -4667,6 +6567,38 @@
                   <directory>target/generated-resources</directory>
                 </resource>
               </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-jar-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>default-jar</id>
+            <phase>package</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <configuration>
+              <excludes>
+                <exclude>META-INF/maven/remote-resources.xml</exclude>
+                <exclude>*.json</exclude>
+              </excludes>
+            </configuration>
+          </execution>
+          <execution>
+            <id>json-jar</id>
+            <phase>package</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <configuration>
+              <classifier>json</classifier>
+              <includes>
+                <include>META-INF/maven/remote-resources.xml</include>
+                <include>*.json</include>
+              </includes>
             </configuration>
           </execution>
         </executions>

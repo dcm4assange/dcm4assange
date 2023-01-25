@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<remoteResourcesBundle xmlns="http://maven.apache.org/remote-resources/1.1.0"
+                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                       xsi:schemaLocation="http://maven.apache.org/remote-resources/1.1.0
+                       https://maven.apache.org/xsd/remote-resources-1.1.0.xsd">
+  <remoteResources>
+    <remoteResource>ISG_shadow.json</remoteResource>
+    <remoteResource>Silhouette_Annot_V1_0.json</remoteResource>
+    <remoteResource>Silhouette_Graphics_Export_V1_0.json</remoteResource>
+    <remoteResource>Silhouette_Line_V1_0.json</remoteResource>
+    <remoteResource>Silhouette_ROI_V1_0.json</remoteResource>
+    <remoteResource>Silhouette_Sequence_Ids_V1_0.json</remoteResource>
+    <remoteResource>Silhouette_V1_0.json</remoteResource>
+  </remoteResources>
+  <sourceEncoding>UTF-8</sourceEncoding>
+</remoteResourcesBundle>

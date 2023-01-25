@@ -89,6 +89,25 @@
               <includes>
                 <include>camtron.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>CAMTRONICS</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>CAMTRONICS.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>camtron.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -127,6 +146,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>Camtronics_image_level_data.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>camtron.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Camtronics image level data</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Camtronics_image_level_data.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -181,6 +219,25 @@
               <includes>
                 <include>camtron.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>CAMTRONICS IP</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>CAMTRONICS_IP.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>camtron.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -222,6 +279,25 @@
                 </fileMapper>
               </fileMappers>
             </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>camtron.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>QCA Results</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>QCA_Results.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
           </transformationSets>
         </configuration>
       </plugin>
@@ -251,6 +327,38 @@
                   <directory>target/generated-resources</directory>
                 </resource>
               </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-jar-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>default-jar</id>
+            <phase>package</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <configuration>
+              <excludes>
+                <exclude>META-INF/maven/remote-resources.xml</exclude>
+                <exclude>*.json</exclude>
+              </excludes>
+            </configuration>
+          </execution>
+          <execution>
+            <id>json-jar</id>
+            <phase>package</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <configuration>
+              <classifier>json</classifier>
+              <includes>
+                <include>META-INF/maven/remote-resources.xml</include>
+                <include>*.json</include>
+              </includes>
             </configuration>
           </execution>
         </executions>

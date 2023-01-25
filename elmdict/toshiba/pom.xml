@@ -89,6 +89,25 @@
               <includes>
                 <include>toshiba.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>CANON_MEC_CT3</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>CANON_MEC_CT3.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>toshiba.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -127,6 +146,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>PMTF_INFORMATION_DATA.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>toshiba.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>PMTF INFORMATION DATA</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>PMTF_INFORMATION_DATA.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -181,6 +219,25 @@
               <includes>
                 <include>toshiba.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>TOSHIBA COMAPL HEADER</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>TOSHIBA_COMAPL_HEADER.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>toshiba.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -219,6 +276,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>TOSHIBA_COMAPL_OOG.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>toshiba.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>TOSHIBA COMAPL OOG</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>TOSHIBA_COMAPL_OOG.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -273,6 +349,25 @@
               <includes>
                 <include>toshiba.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>TOSHIBA ENCRYPTED SR DATA</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>TOSHIBA_ENCRYPTED_SR_DATA.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>toshiba.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -311,6 +406,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>TOSHIBA_MDW_HEADER.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>toshiba.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>TOSHIBA MDW HEADER</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>TOSHIBA_MDW_HEADER.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -365,6 +479,25 @@
               <includes>
                 <include>toshiba.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>TOSHIBA MDW NON-IMAGE</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>TOSHIBA_MDW_NON_IMAGE.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>toshiba.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -403,6 +536,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>TOSHIBA_MEC_1_0.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>toshiba.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>TOSHIBA_MEC_1.0</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>TOSHIBA_MEC_1_0.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -457,6 +609,25 @@
               <includes>
                 <include>toshiba.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>TOSHIBA_MEC_CT_1.0</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>TOSHIBA_MEC_CT_1_0.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>toshiba.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -495,6 +666,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>TOSHIBA_MEC_CT3.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>toshiba.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>TOSHIBA_MEC_CT3</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>TOSHIBA_MEC_CT3.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -549,6 +739,25 @@
               <includes>
                 <include>toshiba.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>TOSHIBA_MEC_MR3</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>TOSHIBA_MEC_MR3.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>toshiba.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -587,6 +796,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>TOSHIBA_MEC_OT3.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>toshiba.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>TOSHIBA_MEC_OT3</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>TOSHIBA_MEC_OT3.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -641,6 +869,25 @@
               <includes>
                 <include>toshiba.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>TOSHIBA_MEC_XA3</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>TOSHIBA_MEC_XA3.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>toshiba.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -682,6 +929,25 @@
                 </fileMapper>
               </fileMappers>
             </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>toshiba.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>TOSHIBA_SR</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>TOSHIBA_SR.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
           </transformationSets>
         </configuration>
       </plugin>
@@ -711,6 +977,38 @@
                   <directory>target/generated-resources</directory>
                 </resource>
               </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-jar-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>default-jar</id>
+            <phase>package</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <configuration>
+              <excludes>
+                <exclude>META-INF/maven/remote-resources.xml</exclude>
+                <exclude>*.json</exclude>
+              </excludes>
+            </configuration>
+          </execution>
+          <execution>
+            <id>json-jar</id>
+            <phase>package</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <configuration>
+              <classifier>json</classifier>
+              <includes>
+                <include>META-INF/maven/remote-resources.xml</include>
+                <include>*.json</include>
+              </includes>
             </configuration>
           </execution>
         </executions>

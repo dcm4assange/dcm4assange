@@ -89,6 +89,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>CARDIO-D.R. 1.0</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>CARDIO_D_R_1_0.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -127,6 +146,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>DIDI_TO_PCR_1_1.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>DIDI TO PCR 1.1</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>DIDI_TO_PCR_1_1.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -181,6 +219,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips EV Imaging DD 022</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_EV_Imaging_DD_022.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -219,6 +276,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>Philips_Imaging_DD_001.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips Imaging DD 001</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_Imaging_DD_001.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -273,6 +349,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>PHILIPS IMAGING DD 001</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>PHILIPS_IMAGING_DD_001.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -311,6 +406,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>Philips_Imaging_DD_002.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips Imaging DD 002</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_Imaging_DD_002.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -365,6 +479,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips Imaging DD 065</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_Imaging_DD_065.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -403,6 +536,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>Philips_Imaging_DD_067.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips Imaging DD 067</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_Imaging_DD_067.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -457,6 +609,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips Imaging DD 070</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_Imaging_DD_070.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -495,6 +666,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>Philips_Imaging_DD_073.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips Imaging DD 073</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_Imaging_DD_073.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -549,6 +739,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips Imaging DD 124</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_Imaging_DD_124.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -587,6 +796,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>Philips_Imaging_DD_129.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips Imaging DD 129</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_Imaging_DD_129.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -641,6 +869,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>PHILIPS MR</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>PHILIPS_MR.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -679,6 +926,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>PHILIPS_MR_1.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>PHILIPS-MR-1</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>PHILIPS_MR_1.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -733,6 +999,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips MR Imaging DD 001</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_MR_Imaging_DD_001.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -771,6 +1056,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>PHILIPS_MR_IMAGING_DD_001.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>PHILIPS MR IMAGING DD 001</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>PHILIPS_MR_IMAGING_DD_001.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -825,6 +1129,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips MR Imaging DD 002</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_MR_Imaging_DD_002.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -863,6 +1186,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>Philips_MR_Imaging_DD_003.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips MR Imaging DD 003</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_MR_Imaging_DD_003.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -917,6 +1259,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips MR Imaging DD 004</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_MR_Imaging_DD_004.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -955,6 +1316,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>Philips_MR_Imaging_DD_005.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips MR Imaging DD 005</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_MR_Imaging_DD_005.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1009,6 +1389,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips MR Imaging DD 006</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_MR_Imaging_DD_006.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -1047,6 +1446,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>PHILIPS_MR_LAST.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>PHILIPS MR/LAST</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>PHILIPS_MR_LAST.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1101,6 +1519,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>PHILIPS MR/PART</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>PHILIPS_MR_PART.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -1139,6 +1576,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>PHILIPS_MR_PART_12.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>PHILIPS MR/PART 12</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>PHILIPS_MR_PART_12.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1193,6 +1649,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>PHILIPS MR/PART 6</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>PHILIPS_MR_PART_6.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -1231,6 +1706,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>PHILIPS_MR_PART_7.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>PHILIPS MR/PART 7</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>PHILIPS_MR_PART_7.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1285,6 +1779,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>PHILIPS MR R5.5/PART</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>PHILIPS_MR_R5_5_PART.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -1323,6 +1836,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>PHILIPS_MR_R5_6_PART.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>PHILIPS MR R5.6/PART</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>PHILIPS_MR_R5_6_PART.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1377,6 +1909,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>PHILIPS MR SPECTRO;1</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>PHILIPS_MR_SPECTRO_1.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -1415,6 +1966,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>PHILIPS_NM_Private.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>PHILIPS NM -Private</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>PHILIPS_NM_Private.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1469,6 +2039,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips NM Private Group</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_NM_Private_Group.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -1507,6 +2096,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>Philips_PET_Private_Group.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips PET Private Group</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_PET_Private_Group.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1561,6 +2169,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips RAD Imaging DD 001</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_RAD_Imaging_DD_001.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -1599,6 +2226,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>Philips_RAD_Imaging_DD_097.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips RAD Imaging DD 097</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_RAD_Imaging_DD_097.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1653,6 +2299,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips US Imaging DD 017</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_US_Imaging_DD_017.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -1691,6 +2356,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>Philips_US_Imaging_DD_021.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips US Imaging DD 021</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_US_Imaging_DD_021.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1745,6 +2429,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips US Imaging DD 023</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_US_Imaging_DD_023.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -1783,6 +2486,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>Philips_US_Imaging_DD_033.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips US Imaging DD 033</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_US_Imaging_DD_033.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1837,6 +2559,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips US Imaging DD 034</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_US_Imaging_DD_034.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -1875,6 +2616,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>Philips_US_Imaging_DD_035.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips US Imaging DD 035</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_US_Imaging_DD_035.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -1929,6 +2689,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips US Imaging DD 036</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_US_Imaging_DD_036.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -1967,6 +2746,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>Philips_US_Imaging_DD_037.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips US Imaging DD 037</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_US_Imaging_DD_037.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2021,6 +2819,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips US Imaging DD 038</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_US_Imaging_DD_038.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -2059,6 +2876,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>Philips_US_Imaging_DD_039.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips US Imaging DD 039</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_US_Imaging_DD_039.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2113,6 +2949,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips US Imaging DD 040</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_US_Imaging_DD_040.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -2151,6 +3006,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>Philips_US_Imaging_DD_041.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips US Imaging DD 041</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_US_Imaging_DD_041.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2205,6 +3079,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips US Imaging DD 042</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_US_Imaging_DD_042.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -2243,6 +3136,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>Philips_US_Imaging_DD_043.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips US Imaging DD 043</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_US_Imaging_DD_043.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2297,6 +3209,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips US Imaging DD 045</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_US_Imaging_DD_045.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -2335,6 +3266,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>Philips_US_Imaging_DD_046.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips US Imaging DD 046</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_US_Imaging_DD_046.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2389,6 +3339,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips US Imaging DD 048</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_US_Imaging_DD_048.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -2427,6 +3396,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>Philips_US_Imaging_DD_065.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips US Imaging DD 065</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_US_Imaging_DD_065.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2481,6 +3469,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips US Imaging DD 066</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_US_Imaging_DD_066.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -2519,6 +3526,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>Philips_US_Imaging_DD_109.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips US Imaging DD 109</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_US_Imaging_DD_109.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2573,6 +3599,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips US Imaging DD 113</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_US_Imaging_DD_113.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -2611,6 +3656,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>PHILIPS_XCT_Private.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>PHILIPS XCT -Private</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>PHILIPS_XCT_Private.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2665,6 +3729,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Philips X-ray Imaging DD 001</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Philips_X_ray_Imaging_DD_001.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -2703,6 +3786,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>PMS_THORA_5_1.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>PMS-THORA-5.1</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>PMS_THORA_5_1.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2757,6 +3859,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>SPI-P-CTBE-Private Release 1</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>SPI_P_CTBE_Private_Release_1.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -2795,6 +3916,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>SPI_P_CTBE_Release_1.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>SPI-P-CTBE Release 1</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>SPI_P_CTBE_Release_1.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2849,6 +3989,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>SPI-P-GV-CT Release 1</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>SPI_P_GV_CT_Release_1.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -2887,6 +4046,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>SPI_P_PCR_Release_2.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>SPI-P-PCR Release 2</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>SPI_P_PCR_Release_2.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -2941,6 +4119,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>SPI-P-Private_CDS Release 1</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>SPI_P_Private_CDS_Release_1.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -2979,6 +4176,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>SPI_P_Private_CWS_Release_1.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>SPI-P-Private-CWS Release 1</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>SPI_P_Private_CWS_Release_1.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3033,6 +4249,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>SPI-P-Private-DCI Release 1</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>SPI_P_Private_DCI_Release_1.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -3071,6 +4306,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>SPI_P_Private_DiDi_Release_1.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>SPI-P-Private-DiDi Release 1</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>SPI_P_Private_DiDi_Release_1.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3125,6 +4379,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>SPI-P-Private_ICS Release 1</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>SPI_P_Private_ICS_Release_1.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -3163,6 +4436,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>SPI_P_Private_ICS_Release_1_1.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>SPI-P-Private_ICS Release 1;1</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>SPI_P_Private_ICS_Release_1_1.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3217,6 +4509,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>SPI-P-Private_ICS Release 1;2</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>SPI_P_Private_ICS_Release_1_2.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -3255,6 +4566,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>SPI_P_Private_ICS_Release_1_3.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>SPI-P-Private_ICS Release 1;3</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>SPI_P_Private_ICS_Release_1_3.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3309,6 +4639,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>SPI-P-Private_ICS Release 1;4</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>SPI_P_Private_ICS_Release_1_4.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -3347,6 +4696,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>SPI_P_Private_ICS_Release_1_5.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>SPI-P-Private_ICS Release 1;5</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>SPI_P_Private_ICS_Release_1_5.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3401,6 +4769,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>SPI-P Release 1</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>SPI_P_Release_1.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -3439,6 +4826,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>SPI_P_Release_1_1.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>SPI-P Release 1;1</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>SPI_P_Release_1_1.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3493,6 +4899,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>SPI-P Release 1;2</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>SPI_P_Release_1_2.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -3531,6 +4956,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>SPI_P_Release_1_3.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>SPI-P Release 1;3</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>SPI_P_Release_1_3.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3585,6 +5029,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>SPI-P Release 2;1</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>SPI_P_Release_2_1.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -3623,6 +5086,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>SPI_P_XSB_DCI_Release_1.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>SPI-P-XSB-DCI Release 1</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>SPI_P_XSB_DCI_Release_1.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -3677,6 +5159,25 @@
               <includes>
                 <include>philips.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>SPI-P-XSB-VISUB Release 1</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>SPI_P_XSB_VISUB_Release_1.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -3718,6 +5219,25 @@
                 </fileMapper>
               </fileMappers>
             </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>philips.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>SPI Release 1</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>SPI_Release_1.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
           </transformationSets>
         </configuration>
       </plugin>
@@ -3747,6 +5267,38 @@
                   <directory>target/generated-resources</directory>
                 </resource>
               </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-jar-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>default-jar</id>
+            <phase>package</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <configuration>
+              <excludes>
+                <exclude>META-INF/maven/remote-resources.xml</exclude>
+                <exclude>*.json</exclude>
+              </excludes>
+            </configuration>
+          </execution>
+          <execution>
+            <id>json-jar</id>
+            <phase>package</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <configuration>
+              <classifier>json</classifier>
+              <includes>
+                <include>META-INF/maven/remote-resources.xml</include>
+                <include>*.json</include>
+              </includes>
             </configuration>
           </execution>
         </executions>

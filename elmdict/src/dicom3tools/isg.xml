@@ -8,11 +8,11 @@
 <el tag="00290017" owner="Silhouette V1.0" vr="UN" vm="1"/>
 <el tag="00290018" owner="Silhouette V1.0" vr="UN" vm="1"/>
 <el tag="00290019" owner="Silhouette V1.0" vr="UL" vm="1"/>
-<el tag="0029001a" owner="Silhouette V1.0" vr="UN" vm="1"/>
-<el tag="0029001b" owner="Silhouette V1.0" vr="UL" vm="1"/>
-<el tag="0029001c" owner="Silhouette V1.0" vr="UL" vm="1"/>
-<el tag="0029001d" owner="Silhouette V1.0" vr="UN" vm="1"/>
-<el tag="0029001e" owner="Silhouette V1.0" vr="UN" vm="1"/>
+<el tag="0029001A" owner="Silhouette V1.0" vr="UN" vm="1"/>
+<el tag="0029001B" owner="Silhouette V1.0" vr="UL" vm="1"/>
+<el tag="0029001C" owner="Silhouette V1.0" vr="UL" vm="1"/>
+<el tag="0029001D" owner="Silhouette V1.0" vr="UN" vm="1"/>
+<el tag="0029001E" owner="Silhouette V1.0" vr="UN" vm="1"/>
 <el tag="00290021" owner="Silhouette V1.0" vr="US" vm="1"/>
 <el tag="00290022" owner="Silhouette V1.0" vr="US" vm="1"/>
 <el tag="00290023" owner="Silhouette V1.0" vr="US" vm="1"/>

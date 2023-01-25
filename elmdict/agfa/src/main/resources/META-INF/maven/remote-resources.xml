@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<remoteResourcesBundle xmlns="http://maven.apache.org/remote-resources/1.1.0"
+                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                       xsi:schemaLocation="http://maven.apache.org/remote-resources/1.1.0
+                       https://maven.apache.org/xsd/remote-resources-1.1.0.xsd">
+  <remoteResources>
+    <remoteResource>AGFA.json</remoteResource>
+    <remoteResource>AGFA_ADC_Compact.json</remoteResource>
+    <remoteResource>Agfa_ADC_NX.json</remoteResource>
+    <remoteResource>AGFA_AG_HPState.json</remoteResource>
+    <remoteResource>agfa_displayableImages.json</remoteResource>
+    <remoteResource>AGFA_KOSD_1_0.json</remoteResource>
+    <remoteResource>AGFA_PACS_Archive_Mirroring_1_0.json</remoteResource>
+    <remoteResource>agfa_xeroverse.json</remoteResource>
+    <remoteResource>AgilityOverlay.json</remoteResource>
+    <remoteResource>AgilityRuntime.json</remoteResource>
+    <remoteResource>MITRA_LINKED_ATTRIBUTES_1_0.json</remoteResource>
+    <remoteResource>MITRA_MARKUP_1_0.json</remoteResource>
+    <remoteResource>MITRA_OBJECT_ATTRIBUTES_1_0.json</remoteResource>
+    <remoteResource>MITRA_OBJECT_DOCUMENT_1_0.json</remoteResource>
+    <remoteResource>MITRA_OBJECT_UTF8_ATTRIBUTES_1_0.json</remoteResource>
+    <remoteResource>MITRA_PRESENTATION_1_0.json</remoteResource>
+  </remoteResources>
+  <sourceEncoding>UTF-8</sourceEncoding>
+</remoteResourcesBundle>

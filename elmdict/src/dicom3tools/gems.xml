@@ -9,12 +9,12 @@
 <el tag="00090007" owner="GEMS_PETD_01" keyword="ExamID" vr="UI" vm="1">Exam ID</el>
 <el tag="00090008" owner="GEMS_PETD_01" keyword="ExamCompatibleVersion" vr="SH" vm="1">Exam Compatible Version</el>
 <el tag="00090009" owner="GEMS_PETD_01" keyword="ExamSoftwareVersion" vr="SH" vm="1">Exam Software Version</el>
-<el tag="0009000a" owner="GEMS_PETD_01" keyword="ScanID" vr="UI" vm="1">Scan ID</el>
-<el tag="0009000b" owner="GEMS_PETD_01" keyword="ScanCompatibleVersion" vr="SH" vm="1">Scan Compatible Version</el>
-<el tag="0009000c" owner="GEMS_PETD_01" keyword="ScanSoftwareVersion" vr="SH" vm="1">Scan Software Version</el>
-<el tag="0009000d" owner="GEMS_PETD_01" keyword="ScanDateTime" vr="DT" vm="1">Scan Date Time</el>
-<el tag="0009000e" owner="GEMS_PETD_01" keyword="ScanReady" vr="DT" vm="1">Scan Ready</el>
-<el tag="0009000f" owner="GEMS_PETD_01" keyword="ScanDescription" vr="ST" vm="1">Scan Description</el>
+<el tag="0009000A" owner="GEMS_PETD_01" keyword="ScanID" vr="UI" vm="1">Scan ID</el>
+<el tag="0009000B" owner="GEMS_PETD_01" keyword="ScanCompatibleVersion" vr="SH" vm="1">Scan Compatible Version</el>
+<el tag="0009000C" owner="GEMS_PETD_01" keyword="ScanSoftwareVersion" vr="SH" vm="1">Scan Software Version</el>
+<el tag="0009000D" owner="GEMS_PETD_01" keyword="ScanDateTime" vr="DT" vm="1">Scan Date Time</el>
+<el tag="0009000E" owner="GEMS_PETD_01" keyword="ScanReady" vr="DT" vm="1">Scan Ready</el>
+<el tag="0009000F" owner="GEMS_PETD_01" keyword="ScanDescription" vr="ST" vm="1">Scan Description</el>
 <el tag="00090010" owner="GEMS_PETD_01" keyword="HospitalName" vr="LO" vm="1">Hospital Name</el>
 <el tag="00090011" owner="GEMS_PETD_01" keyword="ScannerDescription" vr="LO" vm="1">Scanner Description</el>
 <el tag="00090012" owner="GEMS_PETD_01" keyword="Manufacturer" vr="LO" vm="1">Manufacturer</el>
@@ -25,12 +25,12 @@
 <el tag="00090017" owner="GEMS_PETD_01" keyword="ScanPerspective" vr="SL" vm="1">Scan Perspective</el>
 <el tag="00090018" owner="GEMS_PETD_01" keyword="ScanType" vr="SL" vm="1">Scan Type</el>
 <el tag="00090019" owner="GEMS_PETD_01" keyword="ScanMode" vr="SL" vm="1">Scan Mode</el>
-<el tag="0009001a" owner="GEMS_PETD_01" keyword="StartCondition" vr="SL" vm="1">Start Condition</el>
-<el tag="0009001b" owner="GEMS_PETD_01" keyword="StartConditionData" vr="SL" vm="1">Start Condition Data</el>
-<el tag="0009001c" owner="GEMS_PETD_01" keyword="SelStopCondition" vr="SL" vm="1">Sel Stop Condition</el>
-<el tag="0009001d" owner="GEMS_PETD_01" keyword="SelStopConditionData" vr="SL" vm="1">Sel Stop Condition Data</el>
-<el tag="0009001e" owner="GEMS_PETD_01" keyword="CollectDeadtime" vr="SL" vm="1">Collect Deadtime</el>
-<el tag="0009001f" owner="GEMS_PETD_01" keyword="CollectSingles" vr="SL" vm="1">Collect Singles</el>
+<el tag="0009001A" owner="GEMS_PETD_01" keyword="StartCondition" vr="SL" vm="1">Start Condition</el>
+<el tag="0009001B" owner="GEMS_PETD_01" keyword="StartConditionData" vr="SL" vm="1">Start Condition Data</el>
+<el tag="0009001C" owner="GEMS_PETD_01" keyword="SelStopCondition" vr="SL" vm="1">Sel Stop Condition</el>
+<el tag="0009001D" owner="GEMS_PETD_01" keyword="SelStopConditionData" vr="SL" vm="1">Sel Stop Condition Data</el>
+<el tag="0009001E" owner="GEMS_PETD_01" keyword="CollectDeadtime" vr="SL" vm="1">Collect Deadtime</el>
+<el tag="0009001F" owner="GEMS_PETD_01" keyword="CollectSingles" vr="SL" vm="1">Collect Singles</el>
 <el tag="00090020" owner="GEMS_PETD_01" keyword="CollectCountRate" vr="SL" vm="1">Collect Count Rate</el>
 <el tag="00090021" owner="GEMS_PETD_01" keyword="CountRatePeriod" vr="SL" vm="1">Count Rate Period</el>
 <el tag="00090022" owner="GEMS_PETD_01" keyword="DelayedEvents" vr="SL" vm="1">Delayed Events</el>
@@ -41,12 +41,12 @@
 <el tag="00090027" owner="GEMS_PETD_01" keyword="ThetaCompression" vr="SL" vm="1">Theta Compression</el>
 <el tag="00090028" owner="GEMS_PETD_01" keyword="AxialCompression" vr="SL" vm="1">Axial Compression</el>
 <el tag="00090029" owner="GEMS_PETD_01" keyword="GantryTiltAngle" vr="FL" vm="1">Gantry Tilt Angle</el>
-<el tag="0009002a" owner="GEMS_PETD_01" keyword="Collimation" vr="SL" vm="1">Collimation</el>
-<el tag="0009002b" owner="GEMS_PETD_01" keyword="ScanFOV" vr="SL" vm="1">Scan FOV</el>
-<el tag="0009002c" owner="GEMS_PETD_01" keyword="AxialFOV" vr="SL" vm="1">Axial FOV</el>
-<el tag="0009002d" owner="GEMS_PETD_01" keyword="EventSeparation" vr="SL" vm="1">Event Separation</el>
-<el tag="0009002e" owner="GEMS_PETD_01" keyword="MaskWidth" vr="SL" vm="1">Mask Width</el>
-<el tag="0009002f" owner="GEMS_PETD_01" keyword="BinningMode" vr="SL" vm="1">Binning Mode</el>
+<el tag="0009002A" owner="GEMS_PETD_01" keyword="Collimation" vr="SL" vm="1">Collimation</el>
+<el tag="0009002B" owner="GEMS_PETD_01" keyword="ScanFOV" vr="SL" vm="1">Scan FOV</el>
+<el tag="0009002C" owner="GEMS_PETD_01" keyword="AxialFOV" vr="SL" vm="1">Axial FOV</el>
+<el tag="0009002D" owner="GEMS_PETD_01" keyword="EventSeparation" vr="SL" vm="1">Event Separation</el>
+<el tag="0009002E" owner="GEMS_PETD_01" keyword="MaskWidth" vr="SL" vm="1">Mask Width</el>
+<el tag="0009002F" owner="GEMS_PETD_01" keyword="BinningMode" vr="SL" vm="1">Binning Mode</el>
 <el tag="00090030" owner="GEMS_PETD_01" keyword="TrigRejMethod" vr="SL" vm="1">Trig Rej Method</el>
 <el tag="00090031" owner="GEMS_PETD_01" keyword="NumberForReject" vr="SL" vm="1">Number For Reject</el>
 <el tag="00090032" owner="GEMS_PETD_01" keyword="LowerRejectLimit" vr="SL" vm="1">Lower Reject Limit</el>
@@ -57,12 +57,12 @@
 <el tag="00090037" owner="GEMS_PETD_01" keyword="BatchDescription" vr="LO" vm="1">Batch Description</el>
 <el tag="00090038" owner="GEMS_PETD_01" keyword="TracerActivity" vr="FL" vm="1">Tracer Activity</el>
 <el tag="00090039" owner="GEMS_PETD_01" keyword="MeasuredDateTime" vr="DT" vm="1">Measured Date Time</el>
-<el tag="0009003a" owner="GEMS_PETD_01" keyword="PreInjVolume" vr="FL" vm="1">Pre Inj Volume</el>
-<el tag="0009003b" owner="GEMS_PETD_01" keyword="AdministeredDateTime" vr="DT" vm="1">Administered Date Time</el>
-<el tag="0009003c" owner="GEMS_PETD_01" keyword="PostInjectedActivity" vr="FL" vm="1">Post Injected Activity</el>
-<el tag="0009003d" owner="GEMS_PETD_01" keyword="PostInjectedDateTime" vr="DT" vm="1">Post Injected Date Time</el>
-<el tag="0009003e" owner="GEMS_PETD_01" keyword="RadioNuclideName" vr="SH" vm="1">Radio Nuclide Name</el>
-<el tag="0009003f" owner="GEMS_PETD_01" keyword="HalfLife" vr="FL" vm="1">Half Life</el>
+<el tag="0009003A" owner="GEMS_PETD_01" keyword="PreInjVolume" vr="FL" vm="1">Pre Inj Volume</el>
+<el tag="0009003B" owner="GEMS_PETD_01" keyword="AdministeredDateTime" vr="DT" vm="1">Administered Date Time</el>
+<el tag="0009003C" owner="GEMS_PETD_01" keyword="PostInjectedActivity" vr="FL" vm="1">Post Injected Activity</el>
+<el tag="0009003D" owner="GEMS_PETD_01" keyword="PostInjectedDateTime" vr="DT" vm="1">Post Injected Date Time</el>
+<el tag="0009003E" owner="GEMS_PETD_01" keyword="RadioNuclideName" vr="SH" vm="1">Radio Nuclide Name</el>
+<el tag="0009003F" owner="GEMS_PETD_01" keyword="HalfLife" vr="FL" vm="1">Half Life</el>
 <el tag="00090040" owner="GEMS_PETD_01" keyword="PositronFraction" vr="FL" vm="1">Positron Fraction</el>
 <el tag="00090041" owner="GEMS_PETD_01" keyword="Source1Holder" vr="SL" vm="1">Source 1 Holder</el>
 <el tag="00090042" owner="GEMS_PETD_01" keyword="Source1Activity" vr="FL" vm="1">Source 1 Activity</el>
@@ -73,12 +73,12 @@
 <el tag="00090047" owner="GEMS_PETD_01" keyword="Source2Activity" vr="FL" vm="1">Source 2 Activity</el>
 <el tag="00090048" owner="GEMS_PETD_01" keyword="Source2MeasDT" vr="DT" vm="1">Source 2 Meas DT</el>
 <el tag="00090049" owner="GEMS_PETD_01" keyword="Source2RadioNuclide" vr="SH" vm="1">Source 2 Radio Nuclide</el>
-<el tag="0009004a" owner="GEMS_PETD_01" keyword="Source2HalfLife" vr="FL" vm="1">Source 2 Half Life</el>
-<el tag="0009004b" owner="GEMS_PETD_01" keyword="SourceSpeed" vr="SL" vm="1">Source Speed</el>
-<el tag="0009004c" owner="GEMS_PETD_01" keyword="SourceLocation" vr="FL" vm="1">Source Location</el>
-<el tag="0009004d" owner="GEMS_PETD_01" keyword="EmissionPresent" vr="SL" vm="1">Emission Present</el>
-<el tag="0009004e" owner="GEMS_PETD_01" keyword="LowerAxialAcc" vr="SL" vm="1">Lower Axial Acc</el>
-<el tag="0009004f" owner="GEMS_PETD_01" keyword="UpperAxialAcc" vr="SL" vm="1">Upper Axial Acc</el>
+<el tag="0009004A" owner="GEMS_PETD_01" keyword="Source2HalfLife" vr="FL" vm="1">Source 2 Half Life</el>
+<el tag="0009004B" owner="GEMS_PETD_01" keyword="SourceSpeed" vr="SL" vm="1">Source Speed</el>
+<el tag="0009004C" owner="GEMS_PETD_01" keyword="SourceLocation" vr="FL" vm="1">Source Location</el>
+<el tag="0009004D" owner="GEMS_PETD_01" keyword="EmissionPresent" vr="SL" vm="1">Emission Present</el>
+<el tag="0009004E" owner="GEMS_PETD_01" keyword="LowerAxialAcc" vr="SL" vm="1">Lower Axial Acc</el>
+<el tag="0009004F" owner="GEMS_PETD_01" keyword="UpperAxialAcc" vr="SL" vm="1">Upper Axial Acc</el>
 <el tag="00090050" owner="GEMS_PETD_01" keyword="LowerCoincLimit" vr="SL" vm="1">Lower Coinc Limit</el>
 <el tag="00090051" owner="GEMS_PETD_01" keyword="UpperCoincLimit" vr="SL" vm="1">Upper Coinc Limit</el>
 <el tag="00090052" owner="GEMS_PETD_01" keyword="CoincDelayOffset" vr="SL" vm="1">Coinc Delay Offset</el>
@@ -89,12 +89,12 @@
 <el tag="00090057" owner="GEMS_PETD_01" keyword="Normal2DCalID" vr="UI" vm="1">Normal 2D Cal ID</el>
 <el tag="00090058" owner="GEMS_PETD_01" keyword="BlankCalID" vr="UI" vm="1">Blank Cal ID</el>
 <el tag="00090059" owner="GEMS_PETD_01" keyword="WCCalID" vr="UI" vm="1">WC Cal ID</el>
-<el tag="0009005a" owner="GEMS_PETD_01" keyword="Derived" vr="SL" vm="1">Derived</el>
-<el tag="0009005b" owner="GEMS_PETD_01" keyword="ContrastAgent" vr="LO" vm="1">Contrast Agent</el>
-<el tag="0009005c" owner="GEMS_PETD_01" keyword="frame_id" vr="UI" vm="1">frame_id</el>
-<el tag="0009005d" owner="GEMS_PETD_01" keyword="scan_id" vr="UI" vm="1">scan_id</el>
-<el tag="0009005e" owner="GEMS_PETD_01" keyword="exam_id" vr="UI" vm="1">exam_id</el>
-<el tag="0009005f" owner="GEMS_PETD_01" keyword="patient_id" vr="LO" vm="1">patient_id</el>
+<el tag="0009005A" owner="GEMS_PETD_01" keyword="Derived" vr="SL" vm="1">Derived</el>
+<el tag="0009005B" owner="GEMS_PETD_01" keyword="ContrastAgent" vr="LO" vm="1">Contrast Agent</el>
+<el tag="0009005C" owner="GEMS_PETD_01" keyword="frame_id" vr="UI" vm="1">frame_id</el>
+<el tag="0009005D" owner="GEMS_PETD_01" keyword="scan_id" vr="UI" vm="1">scan_id</el>
+<el tag="0009005E" owner="GEMS_PETD_01" keyword="exam_id" vr="UI" vm="1">exam_id</el>
+<el tag="0009005F" owner="GEMS_PETD_01" keyword="patient_id" vr="LO" vm="1">patient_id</el>
 <el tag="00090060" owner="GEMS_PETD_01" keyword="compatible_version" vr="SH" vm="1">compatible_version</el>
 <el tag="00090061" owner="GEMS_PETD_01" keyword="software_version" vr="SH" vm="1">software_version</el>
 <el tag="00090062" owner="GEMS_PETD_01" keyword="where_is_frame" vr="ST" vm="1">where_is_frame</el>
@@ -105,12 +105,12 @@
 <el tag="00090067" owner="GEMS_PETD_01" keyword="table_z_position" vr="FL" vm="1">table_z_position</el>
 <el tag="00090068" owner="GEMS_PETD_01" keyword="landmark_datetime" vr="DT" vm="1">landmark_datetime</el>
 <el tag="00090069" owner="GEMS_PETD_01" keyword="slice_count" vr="SL" vm="1">slice_count</el>
-<el tag="0009006a" owner="GEMS_PETD_01" keyword="start_location" vr="FL" vm="1">start_location</el>
-<el tag="0009006b" owner="GEMS_PETD_01" keyword="acq_delay" vr="SL" vm="1">acq_delay</el>
-<el tag="0009006c" owner="GEMS_PETD_01" keyword="acq_start" vr="DT" vm="1">acq_start</el>
-<el tag="0009006d" owner="GEMS_PETD_01" keyword="acq_duration" vr="SL" vm="1">acq_duration</el>
-<el tag="0009006e" owner="GEMS_PETD_01" keyword="acq_bin_dur" vr="SL" vm="1">acq_bin_dur</el>
-<el tag="0009006f" owner="GEMS_PETD_01" keyword="acq_bin_start" vr="SL" vm="1">acq_bin_start</el>
+<el tag="0009006A" owner="GEMS_PETD_01" keyword="start_location" vr="FL" vm="1">start_location</el>
+<el tag="0009006B" owner="GEMS_PETD_01" keyword="acq_delay" vr="SL" vm="1">acq_delay</el>
+<el tag="0009006C" owner="GEMS_PETD_01" keyword="acq_start" vr="DT" vm="1">acq_start</el>
+<el tag="0009006D" owner="GEMS_PETD_01" keyword="acq_duration" vr="SL" vm="1">acq_duration</el>
+<el tag="0009006E" owner="GEMS_PETD_01" keyword="acq_bin_dur" vr="SL" vm="1">acq_bin_dur</el>
+<el tag="0009006F" owner="GEMS_PETD_01" keyword="acq_bin_start" vr="SL" vm="1">acq_bin_start</el>
 <el tag="00090070" owner="GEMS_PETD_01" keyword="actual_stop_cond" vr="SL" vm="1">actual_stop_cond</el>
 <el tag="00090071" owner="GEMS_PETD_01" keyword="total_prompts" vr="FD" vm="1">total_prompts</el>
 <el tag="00090072" owner="GEMS_PETD_01" keyword="total_delays" vr="FD" vm="1">total_delays</el>
@@ -121,12 +121,12 @@
 <el tag="00090077" owner="GEMS_PETD_01" keyword="uncompressed_size" vr="SL" vm="1">uncompressed_size</el>
 <el tag="00090078" owner="GEMS_PETD_01" keyword="accum_bin_dur" vr="SL" vm="1">accum_bin_dur</el>
 <el tag="00090079" owner="GEMS_PETD_01" keyword="ImageSetCompatibleVersion" vr="SH" vm="1">Image Set Compatible Version</el>
-<el tag="0009007a" owner="GEMS_PETD_01" keyword="ImageSetSoftwareVersion" vr="SH" vm="1">Image Set Software Version</el>
-<el tag="0009007b" owner="GEMS_PETD_01" keyword="ImageSetDateTime" vr="DT" vm="1">Image Set Date Time</el>
-<el tag="0009007c" owner="GEMS_PETD_01" keyword="ImageSetSource" vr="SL" vm="1">Image Set Source</el>
-<el tag="0009007d" owner="GEMS_PETD_01" keyword="ImageSetContents" vr="SL" vm="1">Image Set Contents</el>
-<el tag="0009007e" owner="GEMS_PETD_01" keyword="ImageSetType" vr="SL" vm="1">Image Set Type</el>
-<el tag="0009007f" owner="GEMS_PETD_01" keyword="ImageSetReference" vr="DS" vm="1">Image Set Reference</el>
+<el tag="0009007A" owner="GEMS_PETD_01" keyword="ImageSetSoftwareVersion" vr="SH" vm="1">Image Set Software Version</el>
+<el tag="0009007B" owner="GEMS_PETD_01" keyword="ImageSetDateTime" vr="DT" vm="1">Image Set Date Time</el>
+<el tag="0009007C" owner="GEMS_PETD_01" keyword="ImageSetSource" vr="SL" vm="1">Image Set Source</el>
+<el tag="0009007D" owner="GEMS_PETD_01" keyword="ImageSetContents" vr="SL" vm="1">Image Set Contents</el>
+<el tag="0009007E" owner="GEMS_PETD_01" keyword="ImageSetType" vr="SL" vm="1">Image Set Type</el>
+<el tag="0009007F" owner="GEMS_PETD_01" keyword="ImageSetReference" vr="DS" vm="1">Image Set Reference</el>
 <el tag="00090080" owner="GEMS_PETD_01" keyword="MultiPatient" vr="SL" vm="1">Multi Patient</el>
 <el tag="00090081" owner="GEMS_PETD_01" keyword="NumberOfNormals" vr="SL" vm="1">Number of Normals</el>
 <el tag="00090082" owner="GEMS_PETD_01" keyword="ColorMapID" vr="UI" vm="1">Color Map ID</el>
@@ -137,12 +137,12 @@
 <el tag="00090087" owner="GEMS_PETD_01" keyword="PanX" vr="SL" vm="1">PanX</el>
 <el tag="00090088" owner="GEMS_PETD_01" keyword="PanY" vr="SL" vm="1">PanY</el>
 <el tag="00090089" owner="GEMS_PETD_01" keyword="WindowLevelMin" vr="FL" vm="1">Window Level Min</el>
-<el tag="0009008a" owner="GEMS_PETD_01" keyword="WindowLevelMax" vr="FL" vm="1">Window Level Max</el>
-<el tag="0009008b" owner="GEMS_PETD_01" keyword="ReconMethod" vr="SL" vm="1">ReconMethod</el>
-<el tag="0009008c" owner="GEMS_PETD_01" keyword="Attenuation" vr="SL" vm="1">Attenuation</el>
-<el tag="0009008d" owner="GEMS_PETD_01" keyword="AttenuationCoefficient" vr="FL" vm="1">Attenuation Coefficient</el>
-<el tag="0009008e" owner="GEMS_PETD_01" keyword="BPFilter" vr="SL" vm="1">BP Filter</el>
-<el tag="0009008f" owner="GEMS_PETD_01" keyword="BPFilterCutoff" vr="FL" vm="1">BP Filter Cutoff</el>
+<el tag="0009008A" owner="GEMS_PETD_01" keyword="WindowLevelMax" vr="FL" vm="1">Window Level Max</el>
+<el tag="0009008B" owner="GEMS_PETD_01" keyword="ReconMethod" vr="SL" vm="1">ReconMethod</el>
+<el tag="0009008C" owner="GEMS_PETD_01" keyword="Attenuation" vr="SL" vm="1">Attenuation</el>
+<el tag="0009008D" owner="GEMS_PETD_01" keyword="AttenuationCoefficient" vr="FL" vm="1">Attenuation Coefficient</el>
+<el tag="0009008E" owner="GEMS_PETD_01" keyword="BPFilter" vr="SL" vm="1">BP Filter</el>
+<el tag="0009008F" owner="GEMS_PETD_01" keyword="BPFilterCutoff" vr="FL" vm="1">BP Filter Cutoff</el>
 <el tag="00090090" owner="GEMS_PETD_01" keyword="BPFilterOrder" vr="SL" vm="1">BP Filter Order</el>
 <el tag="00090091" owner="GEMS_PETD_01" keyword="BPFilterCenterI" vr="FL" vm="1">BP Filter Center I</el>
 <el tag="00090092" owner="GEMS_PETD_01" keyword="BPFilterCenterP" vr="FL" vm="1">BP Filter Center P</el>
@@ -153,87 +153,87 @@
 <el tag="00090097" owner="GEMS_PETD_01" keyword="TransScanID" vr="UI" vm="1">Trans Scan ID</el>
 <el tag="00090098" owner="GEMS_PETD_01" keyword="NormCalID" vr="UI" vm="1">Norm Cal ID</el>
 <el tag="00090099" owner="GEMS_PETD_01" keyword="BlnkCalID" vr="UI" vm="1">Blnk Cal ID</el>
-<el tag="0009009a" owner="GEMS_PETD_01" keyword="CACEdgeThreshold" vr="FL" vm="1">CAC Edge Threshold</el>
-<el tag="0009009b" owner="GEMS_PETD_01" keyword="CACSkullOffset" vr="FL" vm="1">CAC Skull Offset</el>
-<el tag="0009009c" owner="GEMS_PETD_01" keyword="EmissSubID" vr="UI" vm="1">Emiss Sub ID</el>
-<el tag="0009009d" owner="GEMS_PETD_01" keyword="RadialFilter3D" vr="SS" vm="1">Radial Filter 3D</el>
-<el tag="0009009e" owner="GEMS_PETD_01" keyword="RadialCutoff3D" vr="FL" vm="1">Radial Cutoff 3D</el>
-<el tag="0009009f" owner="GEMS_PETD_01" keyword="AxialFilter3D" vr="SL" vm="1">Axial Filter 3D</el>
-<el tag="000900a0" owner="GEMS_PETD_01" keyword="AxialCutoff3D" vr="FL" vm="1">Axial Cutoff 3D</el>
-<el tag="000900a1" owner="GEMS_PETD_01" keyword="AxialStart" vr="FL" vm="1">Axial Start</el>
-<el tag="000900a2" owner="GEMS_PETD_01" keyword="AxialSpacing" vr="FL" vm="1">Axial Spacing</el>
-<el tag="000900a3" owner="GEMS_PETD_01" keyword="AxialAnglesUsed" vr="SL" vm="1">Axial Angles Used</el>
-<el tag="000900a4" owner="GEMS_PETD_01" keyword="compatible_version" vr="SH" vm="1">compatible_version</el>
-<el tag="000900a5" owner="GEMS_PETD_01" keyword="software_version" vr="SH" vm="1">software_version</el>
-<el tag="000900a6" owner="GEMS_PETD_01" keyword="slice_number" vr="SL" vm="1">slice_number</el>
-<el tag="000900a7" owner="GEMS_PETD_01" keyword="total_counts" vr="FL" vm="1">total_counts</el>
-<el tag="000900a8" owner="GEMS_PETD_01" keyword="other_atts" vr="OB" vm="1">other_atts</el>
-<el tag="000900a9" owner="GEMS_PETD_01" keyword="other_atts_size" vr="SL" vm="1">other_atts_size</el>
-<el tag="000900aa" owner="GEMS_PETD_01" keyword="archived" vr="SL" vm="1">archived</el>
-<el tag="000900ab" owner="GEMS_PETD_01" keyword="bp_center_x" vr="FL" vm="1">bp_center_x</el>
-<el tag="000900ac" owner="GEMS_PETD_01" keyword="bp_center_y" vr="FL" vm="1">bp_center_y</el>
-<el tag="000900ad" owner="GEMS_PETD_01" keyword="trans_frame_id" vr="UI" vm="1">trans_frame_id</el>
-<el tag="000900ae" owner="GEMS_PETD_01" keyword="tpluse_frame_id" vr="UI" vm="1">tpluse_frame_id</el>
-<el tag="000900b1" owner="GEMS_PETD_01" keyword="profile_spacing" vr="FL" vm="1">profile_spacing</el>
-<el tag="000900b2" owner="GEMS_PETD_01" keyword="IRNumIterations" vr="SS" vm="1">IR Num Iterations</el>
-<el tag="000900b3" owner="GEMS_PETD_01" keyword="IRNumSubsets" vr="SS" vm="1">IR Num Subsets</el>
-<el tag="000900b4" owner="GEMS_PETD_01" keyword="IRReconFOV" vr="FL" vm="1">IR Recon FOV</el>
-<el tag="000900b5" owner="GEMS_PETD_01" keyword="IRCorrModel" vr="SS" vm="1">IR Corr Model</el>
-<el tag="000900b6" owner="GEMS_PETD_01" keyword="IRLoopFilter" vr="SS" vm="1">IR Loop Filter</el>
-<el tag="000900b7" owner="GEMS_PETD_01" keyword="IRPreFiltParam" vr="FL" vm="1">IR Pre Filt Param</el>
-<el tag="000900b8" owner="GEMS_PETD_01" keyword="IRLoopFiltParam" vr="FL" vm="1">IR Loop Filt Param</el>
-<el tag="000900b9" owner="GEMS_PETD_01" keyword="ResponseFiltParam" vr="FL" vm="1">Response Filt Param</el>
-<el tag="000900ba" owner="GEMS_PETD_01" keyword="PostFilter" vr="SS" vm="1">Post Filter</el>
-<el tag="000900bb" owner="GEMS_PETD_01" keyword="PostFilterParam" vr="FL" vm="1">Post Filter Param</el>
-<el tag="000900bc" owner="GEMS_PETD_01" keyword="IRRegularize" vr="SS" vm="1">IR Regularize</el>
-<el tag="000900bd" owner="GEMS_PETD_01" keyword="IRRegularizeParam" vr="FL" vm="1">IR Regularize Param</el>
-<el tag="000900be" owner="GEMS_PETD_01" keyword="ACBPFilter" vr="SS" vm="1">AC BP Filter</el>
-<el tag="000900bf" owner="GEMS_PETD_01" keyword="ACBPFiltCutoff" vr="FL" vm="1">AC BP Filt Cutoff</el>
-<el tag="000900c0" owner="GEMS_PETD_01" keyword="ACBPFiltOrder" vr="SL" vm="1">AC BP Filt Order</el>
-<el tag="000900c1" owner="GEMS_PETD_01" keyword="ACImgSmooth" vr="SS" vm="1">AC Img Smooth</el>
-<el tag="000900c2" owner="GEMS_PETD_01" keyword="ACImgSmoothParm" vr="FL" vm="1">AC Img Smooth Parm</el>
-<el tag="000900c3" owner="GEMS_PETD_01" keyword="ScatterMethod" vr="SL" vm="1">Scatter Method</el>
-<el tag="000900c4" owner="GEMS_PETD_01" keyword="ScatterNumIter" vr="SS" vm="1">Scatter Num Iter</el>
-<el tag="000900c5" owner="GEMS_PETD_01" keyword="ScatterParm" vr="FL" vm="1">Scatter Parm</el>
-<el tag="000900c6" owner="GEMS_PETD_01" keyword="seg_qc_parm" vr="FL" vm="1">seg_qc_parm</el>
-<el tag="000900c7" owner="GEMS_PETD_01" keyword="overlap" vr="SL" vm="1">overlap</el>
-<el tag="000900c8" owner="GEMS_PETD_01" keyword="ovlp_frm_id" vr="UI" vm="1">ovlp_frm_id</el>
-<el tag="000900c9" owner="GEMS_PETD_01" keyword="ovlp_trans_frm_id" vr="UI" vm="1">ovlp_trans_frm_id</el>
-<el tag="000900ca" owner="GEMS_PETD_01" keyword="ovlp_tpulse_frm_id" vr="UI" vm="1">ovlp_tpulse_frm_id</el>
-<el tag="000900cb" owner="GEMS_PETD_01" keyword="vqc_x_axis_trans" vr="FL" vm="1">vqc_x_axis_trans</el>
-<el tag="000900cc" owner="GEMS_PETD_01" keyword="vqc_x_axis_tilt" vr="FL" vm="1">vqc_x_axis_tilt</el>
-<el tag="000900cd" owner="GEMS_PETD_01" keyword="vqc_y_axis_trans" vr="FL" vm="1">vqc_y_axis_trans</el>
-<el tag="000900ce" owner="GEMS_PETD_01" keyword="vqc_y_axis_swivel" vr="FL" vm="1">vqc_y_axis_swivel</el>
-<el tag="000900cf" owner="GEMS_PETD_01" keyword="vqc_z_axis_trans" vr="FL" vm="1">vqc_z_axis_trans</el>
-<el tag="000900d0" owner="GEMS_PETD_01" keyword="vqc_z_axis_roll" vr="FL" vm="1">vqc_z_axis_roll</el>
-<el tag="000900d1" owner="GEMS_PETD_01" keyword="ctac_conv_scale" vr="LO" vm="1">ctac_conv_scale</el>
-<el tag="000900d2" owner="GEMS_PETD_01" keyword="image_set_id" vr="UI" vm="1">image_set_id</el>
-<el tag="000900d3" owner="GEMS_PETD_01" keyword="contrast_route" vr="SL" vm="1">contrast_route</el>
-<el tag="000900d4" owner="GEMS_PETD_01" keyword="ctac_conv_scale" vr="LO" vm="1">ctac_conv_scale</el>
-<el tag="000900d5" owner="GEMS_PETD_01" keyword="loop_filter_parm" vr="FL" vm="1">loop_filter_parm</el>
-<el tag="000900d6" owner="GEMS_PETD_01" keyword="image_one_loc" vr="FL" vm="1">image_one_loc</el>
-<el tag="000900d7" owner="GEMS_PETD_01" keyword="image_index_loc" vr="FL" vm="1">image_index_loc</el>
-<el tag="000900d8" owner="GEMS_PETD_01" keyword="frame_number" vr="SL" vm="1">frame_number</el>
-<el tag="000900d9" owner="GEMS_PETD_01" keyword="list_file_exists" vr="SL" vm="1">list_file_exists</el>
-<el tag="000900da" owner="GEMS_PETD_01" keyword="where_is_list_frame" vr="ST" vm="1">where_is_list_frame</el>
-<el tag="000900db" owner="GEMS_PETD_01" keyword="ir_z_filter_flag" vr="SL" vm="1">ir_z_filter_flag</el>
-<el tag="000900dc" owner="GEMS_PETD_01" keyword="ir_z_filter_ratio" vr="FL" vm="1">ir_z_filter_ratio</el>
-<el tag="000900dd" owner="GEMS_PETD_01" keyword="num_of_rr_interval" vr="US" vm="1">num_of_rr_interval</el>
-<el tag="000900de" owner="GEMS_PETD_01" keyword="num_of_time_slots" vr="US" vm="1">num_of_time_slots</el>
-<el tag="000900df" owner="GEMS_PETD_01" keyword="num_of_slices" vr="US" vm="1">num_of_slices</el>
-<el tag="000900e0" owner="GEMS_PETD_01" keyword="num_of_time_slices" vr="US" vm="1">num_of_time_slices</el>
-<el tag="000900e1" owner="GEMS_PETD_01" keyword="unlisted_scan" vr="SL" vm="1">unlisted_scan</el>
-<el tag="000900e2" owner="GEMS_PETD_01" keyword="rest_stress" vr="SL" vm="1">rest_stress</el>
-<el tag="000900e3" owner="GEMS_PETD_01" keyword="phase_percentage" vr="FL" vm="1">phase percentage</el>
-<el tag="000900e4" owner="GEMS_PETD_01" vr="ST" vm="1"/>
-<el tag="000900e5" owner="GEMS_PETD_01" keyword="left_shift" vr="FL" vm="1">left shift</el>
-<el tag="000900e6" owner="GEMS_PETD_01" keyword="posterior_shift" vr="FL" vm="1">posterior shift</el>
-<el tag="000900e7" owner="GEMS_PETD_01" keyword="superior_shift" vr="FL" vm="1">superior shift</el>
-<el tag="000900e8" owner="GEMS_PETD_01" keyword="acq_bin_num" vr="SL" vm="1">acq_bin_num</el>
-<el tag="000900e9" owner="GEMS_PETD_01" keyword="acq_bin_dur_percent" vr="FL" vm="1">acq_bin_dur_percent</el>
-<el tag="000900ea" owner="GEMS_PETD_01" vr="SL" vm="1"/>
-<el tag="000900eb" owner="GEMS_PETD_01" vr="FL" vm="1"/>
-<el tag="000900ec" owner="GEMS_PETD_01" vr="SL" vm="1"/>
+<el tag="0009009A" owner="GEMS_PETD_01" keyword="CACEdgeThreshold" vr="FL" vm="1">CAC Edge Threshold</el>
+<el tag="0009009B" owner="GEMS_PETD_01" keyword="CACSkullOffset" vr="FL" vm="1">CAC Skull Offset</el>
+<el tag="0009009C" owner="GEMS_PETD_01" keyword="EmissSubID" vr="UI" vm="1">Emiss Sub ID</el>
+<el tag="0009009D" owner="GEMS_PETD_01" keyword="RadialFilter3D" vr="SS" vm="1">Radial Filter 3D</el>
+<el tag="0009009E" owner="GEMS_PETD_01" keyword="RadialCutoff3D" vr="FL" vm="1">Radial Cutoff 3D</el>
+<el tag="0009009F" owner="GEMS_PETD_01" keyword="AxialFilter3D" vr="SL" vm="1">Axial Filter 3D</el>
+<el tag="000900A0" owner="GEMS_PETD_01" keyword="AxialCutoff3D" vr="FL" vm="1">Axial Cutoff 3D</el>
+<el tag="000900A1" owner="GEMS_PETD_01" keyword="AxialStart" vr="FL" vm="1">Axial Start</el>
+<el tag="000900A2" owner="GEMS_PETD_01" keyword="AxialSpacing" vr="FL" vm="1">Axial Spacing</el>
+<el tag="000900A3" owner="GEMS_PETD_01" keyword="AxialAnglesUsed" vr="SL" vm="1">Axial Angles Used</el>
+<el tag="000900A4" owner="GEMS_PETD_01" keyword="compatible_version" vr="SH" vm="1">compatible_version</el>
+<el tag="000900A5" owner="GEMS_PETD_01" keyword="software_version" vr="SH" vm="1">software_version</el>
+<el tag="000900A6" owner="GEMS_PETD_01" keyword="slice_number" vr="SL" vm="1">slice_number</el>
+<el tag="000900A7" owner="GEMS_PETD_01" keyword="total_counts" vr="FL" vm="1">total_counts</el>
+<el tag="000900A8" owner="GEMS_PETD_01" keyword="other_atts" vr="OB" vm="1">other_atts</el>
+<el tag="000900A9" owner="GEMS_PETD_01" keyword="other_atts_size" vr="SL" vm="1">other_atts_size</el>
+<el tag="000900AA" owner="GEMS_PETD_01" keyword="archived" vr="SL" vm="1">archived</el>
+<el tag="000900AB" owner="GEMS_PETD_01" keyword="bp_center_x" vr="FL" vm="1">bp_center_x</el>
+<el tag="000900AC" owner="GEMS_PETD_01" keyword="bp_center_y" vr="FL" vm="1">bp_center_y</el>
+<el tag="000900AD" owner="GEMS_PETD_01" keyword="trans_frame_id" vr="UI" vm="1">trans_frame_id</el>
+<el tag="000900AE" owner="GEMS_PETD_01" keyword="tpluse_frame_id" vr="UI" vm="1">tpluse_frame_id</el>
+<el tag="000900B1" owner="GEMS_PETD_01" keyword="profile_spacing" vr="FL" vm="1">profile_spacing</el>
+<el tag="000900B2" owner="GEMS_PETD_01" keyword="IRNumIterations" vr="SS" vm="1">IR Num Iterations</el>
+<el tag="000900B3" owner="GEMS_PETD_01" keyword="IRNumSubsets" vr="SS" vm="1">IR Num Subsets</el>
+<el tag="000900B4" owner="GEMS_PETD_01" keyword="IRReconFOV" vr="FL" vm="1">IR Recon FOV</el>
+<el tag="000900B5" owner="GEMS_PETD_01" keyword="IRCorrModel" vr="SS" vm="1">IR Corr Model</el>
+<el tag="000900B6" owner="GEMS_PETD_01" keyword="IRLoopFilter" vr="SS" vm="1">IR Loop Filter</el>
+<el tag="000900B7" owner="GEMS_PETD_01" keyword="IRPreFiltParam" vr="FL" vm="1">IR Pre Filt Param</el>
+<el tag="000900B8" owner="GEMS_PETD_01" keyword="IRLoopFiltParam" vr="FL" vm="1">IR Loop Filt Param</el>
+<el tag="000900B9" owner="GEMS_PETD_01" keyword="ResponseFiltParam" vr="FL" vm="1">Response Filt Param</el>
+<el tag="000900BA" owner="GEMS_PETD_01" keyword="PostFilter" vr="SS" vm="1">Post Filter</el>
+<el tag="000900BB" owner="GEMS_PETD_01" keyword="PostFilterParam" vr="FL" vm="1">Post Filter Param</el>
+<el tag="000900BC" owner="GEMS_PETD_01" keyword="IRRegularize" vr="SS" vm="1">IR Regularize</el>
+<el tag="000900BD" owner="GEMS_PETD_01" keyword="IRRegularizeParam" vr="FL" vm="1">IR Regularize Param</el>
+<el tag="000900BE" owner="GEMS_PETD_01" keyword="ACBPFilter" vr="SS" vm="1">AC BP Filter</el>
+<el tag="000900BF" owner="GEMS_PETD_01" keyword="ACBPFiltCutoff" vr="FL" vm="1">AC BP Filt Cutoff</el>
+<el tag="000900C0" owner="GEMS_PETD_01" keyword="ACBPFiltOrder" vr="SL" vm="1">AC BP Filt Order</el>
+<el tag="000900C1" owner="GEMS_PETD_01" keyword="ACImgSmooth" vr="SS" vm="1">AC Img Smooth</el>
+<el tag="000900C2" owner="GEMS_PETD_01" keyword="ACImgSmoothParm" vr="FL" vm="1">AC Img Smooth Parm</el>
+<el tag="000900C3" owner="GEMS_PETD_01" keyword="ScatterMethod" vr="SL" vm="1">Scatter Method</el>
+<el tag="000900C4" owner="GEMS_PETD_01" keyword="ScatterNumIter" vr="SS" vm="1">Scatter Num Iter</el>
+<el tag="000900C5" owner="GEMS_PETD_01" keyword="ScatterParm" vr="FL" vm="1">Scatter Parm</el>
+<el tag="000900C6" owner="GEMS_PETD_01" keyword="seg_qc_parm" vr="FL" vm="1">seg_qc_parm</el>
+<el tag="000900C7" owner="GEMS_PETD_01" keyword="overlap" vr="SL" vm="1">overlap</el>
+<el tag="000900C8" owner="GEMS_PETD_01" keyword="ovlp_frm_id" vr="UI" vm="1">ovlp_frm_id</el>
+<el tag="000900C9" owner="GEMS_PETD_01" keyword="ovlp_trans_frm_id" vr="UI" vm="1">ovlp_trans_frm_id</el>
+<el tag="000900CA" owner="GEMS_PETD_01" keyword="ovlp_tpulse_frm_id" vr="UI" vm="1">ovlp_tpulse_frm_id</el>
+<el tag="000900CB" owner="GEMS_PETD_01" keyword="vqc_x_axis_trans" vr="FL" vm="1">vqc_x_axis_trans</el>
+<el tag="000900CC" owner="GEMS_PETD_01" keyword="vqc_x_axis_tilt" vr="FL" vm="1">vqc_x_axis_tilt</el>
+<el tag="000900CD" owner="GEMS_PETD_01" keyword="vqc_y_axis_trans" vr="FL" vm="1">vqc_y_axis_trans</el>
+<el tag="000900CE" owner="GEMS_PETD_01" keyword="vqc_y_axis_swivel" vr="FL" vm="1">vqc_y_axis_swivel</el>
+<el tag="000900CF" owner="GEMS_PETD_01" keyword="vqc_z_axis_trans" vr="FL" vm="1">vqc_z_axis_trans</el>
+<el tag="000900D0" owner="GEMS_PETD_01" keyword="vqc_z_axis_roll" vr="FL" vm="1">vqc_z_axis_roll</el>
+<el tag="000900D1" owner="GEMS_PETD_01" keyword="ctac_conv_scale" vr="LO" vm="1">ctac_conv_scale</el>
+<el tag="000900D2" owner="GEMS_PETD_01" keyword="image_set_id" vr="UI" vm="1">image_set_id</el>
+<el tag="000900D3" owner="GEMS_PETD_01" keyword="contrast_route" vr="SL" vm="1">contrast_route</el>
+<el tag="000900D4" owner="GEMS_PETD_01" keyword="ctac_conv_scale" vr="LO" vm="1">ctac_conv_scale</el>
+<el tag="000900D5" owner="GEMS_PETD_01" keyword="loop_filter_parm" vr="FL" vm="1">loop_filter_parm</el>
+<el tag="000900D6" owner="GEMS_PETD_01" keyword="image_one_loc" vr="FL" vm="1">image_one_loc</el>
+<el tag="000900D7" owner="GEMS_PETD_01" keyword="image_index_loc" vr="FL" vm="1">image_index_loc</el>
+<el tag="000900D8" owner="GEMS_PETD_01" keyword="frame_number" vr="SL" vm="1">frame_number</el>
+<el tag="000900D9" owner="GEMS_PETD_01" keyword="list_file_exists" vr="SL" vm="1">list_file_exists</el>
+<el tag="000900DA" owner="GEMS_PETD_01" keyword="where_is_list_frame" vr="ST" vm="1">where_is_list_frame</el>
+<el tag="000900DB" owner="GEMS_PETD_01" keyword="ir_z_filter_flag" vr="SL" vm="1">ir_z_filter_flag</el>
+<el tag="000900DC" owner="GEMS_PETD_01" keyword="ir_z_filter_ratio" vr="FL" vm="1">ir_z_filter_ratio</el>
+<el tag="000900DD" owner="GEMS_PETD_01" keyword="num_of_rr_interval" vr="US" vm="1">num_of_rr_interval</el>
+<el tag="000900DE" owner="GEMS_PETD_01" keyword="num_of_time_slots" vr="US" vm="1">num_of_time_slots</el>
+<el tag="000900DF" owner="GEMS_PETD_01" keyword="num_of_slices" vr="US" vm="1">num_of_slices</el>
+<el tag="000900E0" owner="GEMS_PETD_01" keyword="num_of_time_slices" vr="US" vm="1">num_of_time_slices</el>
+<el tag="000900E1" owner="GEMS_PETD_01" keyword="unlisted_scan" vr="SL" vm="1">unlisted_scan</el>
+<el tag="000900E2" owner="GEMS_PETD_01" keyword="rest_stress" vr="SL" vm="1">rest_stress</el>
+<el tag="000900E3" owner="GEMS_PETD_01" keyword="phase_percentage" vr="FL" vm="1">phase percentage</el>
+<el tag="000900E4" owner="GEMS_PETD_01" vr="ST" vm="1"/>
+<el tag="000900E5" owner="GEMS_PETD_01" keyword="left_shift" vr="FL" vm="1">left shift</el>
+<el tag="000900E6" owner="GEMS_PETD_01" keyword="posterior_shift" vr="FL" vm="1">posterior shift</el>
+<el tag="000900E7" owner="GEMS_PETD_01" keyword="superior_shift" vr="FL" vm="1">superior shift</el>
+<el tag="000900E8" owner="GEMS_PETD_01" keyword="acq_bin_num" vr="SL" vm="1">acq_bin_num</el>
+<el tag="000900E9" owner="GEMS_PETD_01" keyword="acq_bin_dur_percent" vr="FL" vm="1">acq_bin_dur_percent</el>
+<el tag="000900EA" owner="GEMS_PETD_01" vr="SL" vm="1"/>
+<el tag="000900EB" owner="GEMS_PETD_01" vr="FL" vm="1"/>
+<el tag="000900EC" owner="GEMS_PETD_01" vr="SL" vm="1"/>
 <el tag="00110001" owner="GEMS_PETD_01" vr="SQ" vm="1"/>
 <el tag="00110018" owner="GEMS_PETD_01" vr="OB" vm="1"/>
 <el tag="00130001" owner="GEMS_PETD_01" vr="SQ" vm="1"/>
@@ -246,10 +246,10 @@
 <el tag="00170007" owner="GEMS_PETD_01" keyword="where_is_corr" vr="ST" vm="1">where_is_corr</el>
 <el tag="00170008" owner="GEMS_PETD_01" keyword="corr_file_size" vr="SL" vm="1">corr_file_size</el>
 <el tag="00170009" owner="GEMS_PETD_01" keyword="scan_id" vr="LO" vm="1">scan_id</el>
-<el tag="0017000a" owner="GEMS_PETD_01" keyword="scan_datetime" vr="DT" vm="1">scan_datetime</el>
-<el tag="0017000b" owner="GEMS_PETD_01" keyword="norm_2d_cal_id" vr="LO" vm="1">norm_2d_cal_id</el>
-<el tag="0017000c" owner="GEMS_PETD_01" keyword="hosp_identifier" vr="SH" vm="1">hosp_identifier</el>
-<el tag="0017000d" owner="GEMS_PETD_01" keyword="archived" vr="SL" vm="1">archived</el>
+<el tag="0017000A" owner="GEMS_PETD_01" keyword="scan_datetime" vr="DT" vm="1">scan_datetime</el>
+<el tag="0017000B" owner="GEMS_PETD_01" keyword="norm_2d_cal_id" vr="LO" vm="1">norm_2d_cal_id</el>
+<el tag="0017000C" owner="GEMS_PETD_01" keyword="hosp_identifier" vr="SH" vm="1">hosp_identifier</el>
+<el tag="0017000D" owner="GEMS_PETD_01" keyword="archived" vr="SL" vm="1">archived</el>
 <el tag="00190001" owner="GEMS_PETD_01" keyword="wc_cal_id" vr="UI" vm="1">wc_cal_id</el>
 <el tag="00190002" owner="GEMS_PETD_01" keyword="compatible_version" vr="SH" vm="1">compatible_version</el>
 <el tag="00190003" owner="GEMS_PETD_01" keyword="software_version" vr="SH" vm="1">software_version</el>
@@ -259,12 +259,12 @@
 <el tag="00190007" owner="GEMS_PETD_01" keyword="cal_hardware" vr="LO" vm="1">cal_hardware</el>
 <el tag="00190008" owner="GEMS_PETD_01" keyword="coefficients" vr="OB" vm="1">coefficients</el>
 <el tag="00190009" owner="GEMS_PETD_01" keyword="activity_factor_hr" vr="FL" vm="1">activity_factor_hr</el>
-<el tag="0019000a" owner="GEMS_PETD_01" keyword="activity_factor_hs" vr="FL" vm="1">activity_factor_hs</el>
-<el tag="0019000b" owner="GEMS_PETD_01" keyword="activity_factor_3d" vr="FL" vm="1">activity_factor_3d</el>
-<el tag="0019000c" owner="GEMS_PETD_01" keyword="scan_id" vr="LO" vm="1">scan_id</el>
-<el tag="0019000d" owner="GEMS_PETD_01" keyword="scan_datetime" vr="DT" vm="1">scan_datetime</el>
-<el tag="0019000e" owner="GEMS_PETD_01" keyword="hosp_identifier" vr="SH" vm="1">hosp_identifier</el>
-<el tag="0019000f" owner="GEMS_PETD_01" keyword="meas_activity" vr="FL" vm="1">meas_activity</el>
+<el tag="0019000A" owner="GEMS_PETD_01" keyword="activity_factor_hs" vr="FL" vm="1">activity_factor_hs</el>
+<el tag="0019000B" owner="GEMS_PETD_01" keyword="activity_factor_3d" vr="FL" vm="1">activity_factor_3d</el>
+<el tag="0019000C" owner="GEMS_PETD_01" keyword="scan_id" vr="LO" vm="1">scan_id</el>
+<el tag="0019000D" owner="GEMS_PETD_01" keyword="scan_datetime" vr="DT" vm="1">scan_datetime</el>
+<el tag="0019000E" owner="GEMS_PETD_01" keyword="hosp_identifier" vr="SH" vm="1">hosp_identifier</el>
+<el tag="0019000F" owner="GEMS_PETD_01" keyword="meas_activity" vr="FL" vm="1">meas_activity</el>
 <el tag="00190010" owner="GEMS_PETD_01" keyword="meas_datetime" vr="DT" vm="1">meas_datetime</el>
 <el tag="00190011" owner="GEMS_PETD_01" keyword="axial_filter_3d" vr="SL" vm="1">axial_filter_3d</el>
 <el tag="00190012" owner="GEMS_PETD_01" keyword="axial_cutoff_3d" vr="FL" vm="1">axial_cutoff_3d</el>
@@ -293,12 +293,12 @@
 <el tag="50030007" owner="GEMS_PETD_01" keyword="GraphDescription" vr="ST" vm="1">Graph Description</el>
 <el tag="50030008" owner="GEMS_PETD_01" keyword="TitleFontName" vr="LO" vm="1">Title Font Name</el>
 <el tag="50030009" owner="GEMS_PETD_01" keyword="TitleFontSize" vr="SH" vm="1">Title Font Size</el>
-<el tag="5003000a" owner="GEMS_PETD_01" keyword="Footer" vr="LO" vm="1">Footer</el>
-<el tag="5003000b" owner="GEMS_PETD_01" keyword="FooterFontSize" vr="SH" vm="1">Footer Font Size</el>
-<el tag="5003000c" owner="GEMS_PETD_01" keyword="ForegroundColor" vr="LO" vm="1">Foreground Color</el>
-<el tag="5003000d" owner="GEMS_PETD_01" keyword="BackgroundColor" vr="LO" vm="1">Background Color</el>
-<el tag="5003000e" owner="GEMS_PETD_01" keyword="GraphBorder" vr="SL" vm="1">Graph Border</el>
-<el tag="5003000f" owner="GEMS_PETD_01" keyword="GraphWidth" vr="SL" vm="1">Graph Width</el>
+<el tag="5003000A" owner="GEMS_PETD_01" keyword="Footer" vr="LO" vm="1">Footer</el>
+<el tag="5003000B" owner="GEMS_PETD_01" keyword="FooterFontSize" vr="SH" vm="1">Footer Font Size</el>
+<el tag="5003000C" owner="GEMS_PETD_01" keyword="ForegroundColor" vr="LO" vm="1">Foreground Color</el>
+<el tag="5003000D" owner="GEMS_PETD_01" keyword="BackgroundColor" vr="LO" vm="1">Background Color</el>
+<el tag="5003000E" owner="GEMS_PETD_01" keyword="GraphBorder" vr="SL" vm="1">Graph Border</el>
+<el tag="5003000F" owner="GEMS_PETD_01" keyword="GraphWidth" vr="SL" vm="1">Graph Width</el>
 <el tag="50030010" owner="GEMS_PETD_01" keyword="GraphHeight" vr="SL" vm="1">Graph Height</el>
 <el tag="50030011" owner="GEMS_PETD_01" keyword="Grid" vr="SL" vm="1">Grid</el>
 <el tag="50030012" owner="GEMS_PETD_01" keyword="LabelFontName" vr="LO" vm="1">Label Font Name</el>
@@ -309,12 +309,12 @@
 <el tag="50030017" owner="GEMS_PETD_01" keyword="XMajorTics" vr="FL" vm="1">X Major Tics</el>
 <el tag="50030018" owner="GEMS_PETD_01" keyword="XAxisMin" vr="FL" vm="1">X Axis Min</el>
 <el tag="50030019" owner="GEMS_PETD_01" keyword="XAxisMax" vr="FL" vm="1">X Axis Max</el>
-<el tag="5003001a" owner="GEMS_PETD_01" keyword="YAxisLabel" vr="LO" vm="1">Y Axis Label</el>
-<el tag="5003001b" owner="GEMS_PETD_01" keyword="YAxisUnits" vr="SL" vm="1">Y Axis Units</el>
-<el tag="5003001c" owner="GEMS_PETD_01" keyword="YMajorTics" vr="FL" vm="1">Y Major Tics</el>
-<el tag="5003001d" owner="GEMS_PETD_01" keyword="YAxisMin" vr="FL" vm="1">Y Axis Min</el>
-<el tag="5003001e" owner="GEMS_PETD_01" keyword="YAxisMax" vr="FL" vm="1">Y Axis Max</el>
-<el tag="5003001f" owner="GEMS_PETD_01" keyword="LegendFontName" vr="LO" vm="1">Legend Font Name</el>
+<el tag="5003001A" owner="GEMS_PETD_01" keyword="YAxisLabel" vr="LO" vm="1">Y Axis Label</el>
+<el tag="5003001B" owner="GEMS_PETD_01" keyword="YAxisUnits" vr="SL" vm="1">Y Axis Units</el>
+<el tag="5003001C" owner="GEMS_PETD_01" keyword="YMajorTics" vr="FL" vm="1">Y Major Tics</el>
+<el tag="5003001D" owner="GEMS_PETD_01" keyword="YAxisMin" vr="FL" vm="1">Y Axis Min</el>
+<el tag="5003001E" owner="GEMS_PETD_01" keyword="YAxisMax" vr="FL" vm="1">Y Axis Max</el>
+<el tag="5003001F" owner="GEMS_PETD_01" keyword="LegendFontName" vr="LO" vm="1">Legend Font Name</el>
 <el tag="50030020" owner="GEMS_PETD_01" keyword="LegendFontSize" vr="SH" vm="1">Legend Font Size</el>
 <el tag="50030021" owner="GEMS_PETD_01" keyword="LegendLocationX" vr="SL" vm="1">Legend Location X</el>
 <el tag="50030022" owner="GEMS_PETD_01" keyword="LegendLocationY" vr="SL" vm="1">Legend Location Y</el>
@@ -331,10 +331,10 @@
 <el tag="50050007" owner="GEMS_PETD_01" keyword="CurveLabel" vr="LO" vm="1">Curve Label</el>
 <el tag="50050008" owner="GEMS_PETD_01" keyword="Color" vr="LO" vm="1">Color</el>
 <el tag="50050009" owner="GEMS_PETD_01" keyword="LineType" vr="SL" vm="1">Line Type</el>
-<el tag="5005000a" owner="GEMS_PETD_01" keyword="LineWidth" vr="SL" vm="1">Line Width</el>
-<el tag="5005000b" owner="GEMS_PETD_01" keyword="PointSymbol" vr="SL" vm="1">Point Symbol</el>
-<el tag="5005000c" owner="GEMS_PETD_01" keyword="PointSymbolDim" vr="SL" vm="1">Point Symbol Dim</el>
-<el tag="5005000d" owner="GEMS_PETD_01" keyword="PointColor" vr="LO" vm="1">Point Color</el>
+<el tag="5005000A" owner="GEMS_PETD_01" keyword="LineWidth" vr="SL" vm="1">Line Width</el>
+<el tag="5005000B" owner="GEMS_PETD_01" keyword="PointSymbol" vr="SL" vm="1">Point Symbol</el>
+<el tag="5005000C" owner="GEMS_PETD_01" keyword="PointSymbolDim" vr="SL" vm="1">Point Symbol Dim</el>
+<el tag="5005000D" owner="GEMS_PETD_01" keyword="PointColor" vr="LO" vm="1">Point Color</el>
 <el tag="00090001" owner="GEMS_GENIE_1" vr="SH" vm="1"/>
 <el tag="00090001" owner="GEMS_IDEN_01" keyword="FullFidelity" vr="LO" vm="1">Full Fidelity</el>
 <el tag="00090002" owner="GEMS_IDEN_01" keyword="SuiteId" vr="SH" vm="1">Suite Id</el>
@@ -343,8 +343,8 @@
 <el tag="00090011" owner="GEMS_GENIE_1" keyword="StudyFlags" vr="SL" vm="1">Study Flags</el>
 <el tag="00090012" owner="GEMS_GENIE_1" keyword="StudyType" vr="SL" vm="1">Study Type</el>
 <el tag="00090017" owner="GEMS_IDEN_01" vr="LT" vm="1"/>
-<el tag="0009001a" owner="GEMS_IDEN_01" vr="US" vm="1"/>
-<el tag="0009001e" owner="GEMS_GENIE_1" keyword="DatasetUID" vr="UI" vm="1">Dataset UID</el>
+<el tag="0009001A" owner="GEMS_IDEN_01" vr="US" vm="1"/>
+<el tag="0009001E" owner="GEMS_GENIE_1" keyword="DatasetUID" vr="UI" vm="1">Dataset UID</el>
 <el tag="00090020" owner="GEMS_GENIE_1" keyword="SeriesObjectName" vr="LO" vm="1">Series Object Name</el>
 <el tag="00090020" owner="GEMS_IDEN_01" vr="US" vm="1"/>
 <el tag="00090021" owner="GEMS_GENIE_1" keyword="SeriesFlags" vr="SL" vm="1">Series Flags</el>
@@ -359,13 +359,13 @@
 <el tag="00090027" owner="GEMS_GENIE_1" keyword="NumberDetectors" vr="SL" vm="1">Number Detectors</el>
 <el tag="00090028" owner="GEMS_GENIE_1" keyword="NumberRRWindows" vr="SL" vm="1">Number RR Windows</el>
 <el tag="00090029" owner="GEMS_GENIE_1" keyword="NumberMGTimeSlots" vr="SL" vm="1">Number MG Time Slots</el>
-<el tag="0009002a" owner="GEMS_GENIE_1" keyword="NumberViewSets" vr="SL" vm="1">Number View Sets</el>
-<el tag="0009002b" owner="GEMS_GENIE_1" keyword="TriggerHistoryUID" vr="LO" vm="1">Trigger History UID</el>
-<el tag="0009002c" owner="GEMS_GENIE_1" keyword="SeriesComments" vr="LO" vm="1">Series Comments</el>
-<el tag="0009002d" owner="GEMS_GENIE_1" keyword="TrackBeatAverage" vr="SL" vm="1">Track Beat Average</el>
-<el tag="0009002e" owner="GEMS_GENIE_1" keyword="DistancePrescribed" vr="FD" vm="1">Distance Prescribed</el>
-<el tag="0009002f" owner="GEMS_GENIE_1" keyword="TableDirection" vr="SL" vm="1">Table Direction</el>
-<el tag="0009002f" owner="GEMS_IDEN_01" vr="SH" vm="1"/>
+<el tag="0009002A" owner="GEMS_GENIE_1" keyword="NumberViewSets" vr="SL" vm="1">Number View Sets</el>
+<el tag="0009002B" owner="GEMS_GENIE_1" keyword="TriggerHistoryUID" vr="LO" vm="1">Trigger History UID</el>
+<el tag="0009002C" owner="GEMS_GENIE_1" keyword="SeriesComments" vr="LO" vm="1">Series Comments</el>
+<el tag="0009002D" owner="GEMS_GENIE_1" keyword="TrackBeatAverage" vr="SL" vm="1">Track Beat Average</el>
+<el tag="0009002E" owner="GEMS_GENIE_1" keyword="DistancePrescribed" vr="FD" vm="1">Distance Prescribed</el>
+<el tag="0009002F" owner="GEMS_GENIE_1" keyword="TableDirection" vr="SL" vm="1">Table Direction</el>
+<el tag="0009002F" owner="GEMS_IDEN_01" vr="SH" vm="1"/>
 <el tag="00090030" owner="GEMS_GENIE_1" vr="LO" vm="1"/>
 <el tag="00090030" owner="GEMS_IDEN_01" keyword="ServiceId" vr="SH" vm="1">Service Id</el>
 <el tag="00090031" owner="GEMS_IDEN_01" keyword="MobileLocationNumber" vr="SH" vm="1">Mobile Location Number</el>
@@ -375,9 +375,9 @@
 <el tag="00090037" owner="GEMS_GENIE_1" keyword="StartingHeartRate" vr="SL" vm="1">Starting Heart Rate</el>
 <el tag="00090038" owner="GEMS_GENIE_1" keyword="RRWindowWidth" vr="SL" vm="1">RR Window Width</el>
 <el tag="00090039" owner="GEMS_GENIE_1" keyword="RRWindowOffset" vr="SL" vm="1">RR Window Offset</el>
-<el tag="0009003a" owner="GEMS_GENIE_1" keyword="PercentCycleImaged" vr="SL" vm="1">Percent Cycle Imaged</el>
-<el tag="0009003e" owner="GEMS_ACQU_01" vr="US" vm="1"/>
-<el tag="0009003f" owner="GEMS_ACQU_01" vr="US" vm="1"/>
+<el tag="0009003A" owner="GEMS_GENIE_1" keyword="PercentCycleImaged" vr="SL" vm="1">Percent Cycle Imaged</el>
+<el tag="0009003E" owner="GEMS_ACQU_01" vr="US" vm="1"/>
+<el tag="0009003F" owner="GEMS_ACQU_01" vr="US" vm="1"/>
 <el tag="00090040" owner="GEMS_GENIE_1" keyword="PatientObjectName" vr="PN" vm="1">Patient Object Name</el>
 <el tag="00090041" owner="GEMS_GENIE_1" keyword="PatientFlags" vr="SL" vm="1">Patient Flags</el>
 <el tag="00090042" owner="GEMS_GENIE_1" keyword="PatientCreationDate" vr="DA" vm="1">Patient Creation Date</el>
@@ -387,19 +387,19 @@
 <el tag="00090044" owner="GEMS_GENIE_1" keyword="NumViewsAcquiredRetired" vr="SL" vm="1">Num Views Acquired (Retired)</el>
 <el tag="00090045" owner="GEMS_GENIE_1" vr="LT" vm="1"/>
 <el tag="00090046" owner="GEMS_GENIE_1" vr="UI" vm="1"/>
-<el tag="000900e2" owner="GEMS_IDEN_01" vr="LT" vm="1"/>
-<el tag="000900e3" owner="GEMS_IDEN_01" keyword="EquipmentUID" vr="UI" vm="1">Equipment UID</el>
-<el tag="000900e6" owner="GEMS_IDEN_01" keyword="GenesisVersionNow" vr="SH" vm="1">Genesis Version Now</el>
-<el tag="000900e7" owner="GEMS_IDEN_01" keyword="ExamRecordChecksum" vr="UL" vm="1">Exam Record Checksum</el>
-<el tag="000900e8" owner="GEMS_IDEN_01" keyword="SeriesSuiteID" vr="UL" vm="1">Series Suite ID</el>
-<el tag="000900e9" owner="GEMS_IDEN_01" keyword="ActualSeriesDataTimeStamp" vr="SL" vm="1">Actual Series Data Time Stamp</el>
-<el tag="000900f8" owner="GEMS_ACQU_01" vr="US" vm="1"/>
-<el tag="000900fb" owner="GEMS_ACQU_01" vr="IS" vm="1"/>
+<el tag="000900E2" owner="GEMS_IDEN_01" vr="LT" vm="1"/>
+<el tag="000900E3" owner="GEMS_IDEN_01" keyword="EquipmentUID" vr="UI" vm="1">Equipment UID</el>
+<el tag="000900E6" owner="GEMS_IDEN_01" keyword="GenesisVersionNow" vr="SH" vm="1">Genesis Version Now</el>
+<el tag="000900E7" owner="GEMS_IDEN_01" keyword="ExamRecordChecksum" vr="UL" vm="1">Exam Record Checksum</el>
+<el tag="000900E8" owner="GEMS_IDEN_01" keyword="SeriesSuiteID" vr="UL" vm="1">Series Suite ID</el>
+<el tag="000900E9" owner="GEMS_IDEN_01" keyword="ActualSeriesDataTimeStamp" vr="SL" vm="1">Actual Series Data Time Stamp</el>
+<el tag="000900F8" owner="GEMS_ACQU_01" vr="US" vm="1"/>
+<el tag="000900FB" owner="GEMS_ACQU_01" vr="IS" vm="1"/>
 <el tag="00110001" owner="DLX_PATNT_01" keyword="PatientDOB" vr="LT" vm="1">Patient DOB</el>
-<el tag="0011000a" owner="GEMS_GENIE_1" keyword="SeriesType" vr="SL" vm="1">Series Type</el>
-<el tag="0011000b" owner="GEMS_GENIE_1" keyword="EffectiveSeriesDuration" vr="SL" vm="1">Effective Series Duration</el>
-<el tag="0011000c" owner="GEMS_GENIE_1" keyword="NumBeats" vr="SL" vm="1">Num Beats</el>
-<el tag="0011000d" owner="GEMS_GENIE_1" keyword="RadioNuclideName" vr="LO" vm="1">Radio Nuclide Name</el>
+<el tag="0011000A" owner="GEMS_GENIE_1" keyword="SeriesType" vr="SL" vm="1">Series Type</el>
+<el tag="0011000B" owner="GEMS_GENIE_1" keyword="EffectiveSeriesDuration" vr="SL" vm="1">Effective Series Duration</el>
+<el tag="0011000C" owner="GEMS_GENIE_1" keyword="NumBeats" vr="SL" vm="1">Num Beats</el>
+<el tag="0011000D" owner="GEMS_GENIE_1" keyword="RadioNuclideName" vr="LO" vm="1">Radio Nuclide Name</el>
 <el tag="00110010" owner="GEMS_GENIE_1" keyword="DatasetObjectName" vr="LO" vm="1">Dataset Object Name</el>
 <el tag="00110010" owner="GEMS_PATI_01" keyword="PatientStatus" vr="SS" vm="1">Patient Status</el>
 <el tag="00110011" owner="GEMS_GENIE_1" keyword="DatasetModified" vr="SL" vm="1">Dataset Modified</el>
@@ -411,12 +411,12 @@
 <el tag="00110017" owner="GEMS_GENIE_1" keyword="RRIntervalWindowNumber" vr="SL" vm="1">RR Interval Window Number</el>
 <el tag="00110018" owner="GEMS_GENIE_1" keyword="MGBinNumber" vr="SL" vm="1">MG Bin Number</el>
 <el tag="00110019" owner="GEMS_GENIE_1" keyword="RadiusOfRotation" vr="FD" vm="1">Radius Of Rotation</el>
-<el tag="0011001a" owner="GEMS_GENIE_1" keyword="DetectorCountZone" vr="SL" vm="1">Detector Count Zone</el>
-<el tag="0011001b" owner="GEMS_GENIE_1" keyword="NumEnergyWindows" vr="SL" vm="1">Num Energy Windows</el>
-<el tag="0011001c" owner="GEMS_GENIE_1" keyword="EnergyOffset" vr="SL" vm="4">Energy Offset</el>
-<el tag="0011001d" owner="GEMS_GENIE_1" keyword="EnergyRange" vr="SL" vm="1">Energy Range</el>
-<el tag="0011001e" owner="GEMS_GENIE_1" keyword="EnergyWidthRetired" vr="SL" vm="4">Energy Width (Retired)</el>
-<el tag="0011001f" owner="GEMS_GENIE_1" keyword="ImageOrientation" vr="SL" vm="1">Image Orientation</el>
+<el tag="0011001A" owner="GEMS_GENIE_1" keyword="DetectorCountZone" vr="SL" vm="1">Detector Count Zone</el>
+<el tag="0011001B" owner="GEMS_GENIE_1" keyword="NumEnergyWindows" vr="SL" vm="1">Num Energy Windows</el>
+<el tag="0011001C" owner="GEMS_GENIE_1" keyword="EnergyOffset" vr="SL" vm="4">Energy Offset</el>
+<el tag="0011001D" owner="GEMS_GENIE_1" keyword="EnergyRange" vr="SL" vm="1">Energy Range</el>
+<el tag="0011001E" owner="GEMS_GENIE_1" keyword="EnergyWidthRetired" vr="SL" vm="4">Energy Width (Retired)</el>
+<el tag="0011001F" owner="GEMS_GENIE_1" keyword="ImageOrientation" vr="SL" vm="1">Image Orientation</el>
 <el tag="00110021" owner="GEMS_GENIE_1" keyword="AcqZoomRetired" vr="DS" vm="1">Acq Zoom (Retired)</el>
 <el tag="00110022" owner="GEMS_GENIE_1" keyword="AcqPanRetired" vr="DS" vm="1">Acq Pan (Retired)</el>
 <el tag="00110023" owner="GEMS_GENIE_1" keyword="UseFOVMask" vr="SL" vm="1">Use FOV Mask</el>
@@ -426,11 +426,11 @@
 <el tag="00110027" owner="GEMS_GENIE_1" keyword="ROITopLeft" vr="SL" vm="2">ROI Top Left</el>
 <el tag="00110028" owner="GEMS_GENIE_1" keyword="ROIBottomRight" vr="SL" vm="2">ROI Bottom Right</el>
 <el tag="00110029" owner="GEMS_GENIE_1" keyword="UniformityMean" vr="SL" vm="1">Uniformity Mean</el>
-<el tag="0011002a" owner="GEMS_GENIE_1" keyword="PhaseDurationRetired" vr="FD" vm="1">Phase Duration (Retired)</el>
-<el tag="0011002c" owner="GEMS_GENIE_1" keyword="ViewXAdjustment" vr="FD" vm="1">View X Adjustment</el>
-<el tag="0011002d" owner="GEMS_GENIE_1" keyword="ViewYAdjustment" vr="FD" vm="1">View Y Adjustment</el>
-<el tag="0011002e" owner="GEMS_GENIE_1" keyword="PixelOverflowFlag" vr="SL" vm="1">Pixel Overflow Flag</el>
-<el tag="0011002f" owner="GEMS_GENIE_1" keyword="OverflowLevel" vr="SL" vm="1">Overflow Level</el>
+<el tag="0011002A" owner="GEMS_GENIE_1" keyword="PhaseDurationRetired" vr="FD" vm="1">Phase Duration (Retired)</el>
+<el tag="0011002C" owner="GEMS_GENIE_1" keyword="ViewXAdjustment" vr="FD" vm="1">View X Adjustment</el>
+<el tag="0011002D" owner="GEMS_GENIE_1" keyword="ViewYAdjustment" vr="FD" vm="1">View Y Adjustment</el>
+<el tag="0011002E" owner="GEMS_GENIE_1" keyword="PixelOverflowFlag" vr="SL" vm="1">Pixel Overflow Flag</el>
+<el tag="0011002F" owner="GEMS_GENIE_1" keyword="OverflowLevel" vr="SL" vm="1">Overflow Level</el>
 <el tag="00110030" owner="GEMS_GENIE_1" keyword="PictureObjectName" vr="LO" vm="1">Picture Object Name</el>
 <el tag="00110031" owner="GEMS_GENIE_1" keyword="AcquisitionParentUID" vr="LO" vm="1">Acquisition Parent UID</el>
 <el tag="00110032" owner="GEMS_GENIE_1" keyword="ProcessingParentUID" vr="LO" vm="1">Processing Parent UID</el>
@@ -441,12 +441,12 @@
 <el tag="00110037" owner="GEMS_GENIE_1" keyword="AcquisitionSpecificCorrectName" vr="LT" vm="1">Acquisition Specific Correct Name</el>
 <el tag="00110038" owner="GEMS_GENIE_1" keyword="ByteOrder" vr="SL" vm="1">Byte Order</el>
 <el tag="00110039" owner="GEMS_GENIE_1" keyword="CompressionType" vr="SL" vm="1">Compression Type</el>
-<el tag="0011003a" owner="GEMS_GENIE_1" keyword="PictureFormat" vr="SL" vm="1">Picture Format</el>
-<el tag="0011003b" owner="GEMS_GENIE_1" keyword="PixelScale" vr="FD" vm="1">Pixel Scale</el>
-<el tag="0011003c" owner="GEMS_GENIE_1" keyword="PixelOffset" vr="FD" vm="1">Pixel Offset</el>
-<el tag="0011003d" owner="GEMS_GENIE_1" keyword="EnergyPeakRetired" vr="SL" vm="4">Energy Peak (Retired)</el>
-<el tag="0011003e" owner="GEMS_GENIE_1" keyword="FOVShape" vr="SL" vm="1">FOV Shape</el>
-<el tag="0011003f" owner="GEMS_GENIE_1" keyword="DatasetFlags" vr="SL" vm="1">Dataset Flags</el>
+<el tag="0011003A" owner="GEMS_GENIE_1" keyword="PictureFormat" vr="SL" vm="1">Picture Format</el>
+<el tag="0011003B" owner="GEMS_GENIE_1" keyword="PixelScale" vr="FD" vm="1">Pixel Scale</el>
+<el tag="0011003C" owner="GEMS_GENIE_1" keyword="PixelOffset" vr="FD" vm="1">Pixel Offset</el>
+<el tag="0011003D" owner="GEMS_GENIE_1" keyword="EnergyPeakRetired" vr="SL" vm="4">Energy Peak (Retired)</el>
+<el tag="0011003E" owner="GEMS_GENIE_1" keyword="FOVShape" vr="SL" vm="1">FOV Shape</el>
+<el tag="0011003F" owner="GEMS_GENIE_1" keyword="DatasetFlags" vr="SL" vm="1">Dataset Flags</el>
 <el tag="00110040" owner="GEMS_GENIE_1" keyword="ViewingObjectName" vr="LO" vm="1">Viewing Object Name</el>
 <el tag="00110041" owner="GEMS_GENIE_1" keyword="OrientationAngle" vr="SL" vm="1">Orientation Angle</el>
 <el tag="00110042" owner="GEMS_GENIE_1" keyword="RotationAngle" vr="FD" vm="1">Rotation Angle</el>
@@ -467,12 +467,12 @@
 <el tag="00110067" owner="GEMS_GENIE_1" keyword="ReferenceFrameNumber" vr="SL" vm="1">Reference Frame Number</el>
 <el tag="00110068" owner="GEMS_GENIE_1" keyword="CursorLength" vr="SL" vm="1">Cursor Length</el>
 <el tag="00110069" owner="GEMS_GENIE_1" keyword="NumberOfCursors" vr="SL" vm="1">Number of Cursors</el>
-<el tag="0011006a" owner="GEMS_GENIE_1" keyword="CursorCoordinates" vr="SL" vm="1">Cursor Coordinates</el>
-<el tag="0011006b" owner="GEMS_GENIE_1" keyword="ReconOptionsFlag" vr="SL" vm="1">Recon Options Flag</el>
-<el tag="0011006c" owner="GEMS_GENIE_1" keyword="MotionThreshold" vr="FD" vm="1">Motion Threshold</el>
-<el tag="0011006d" owner="GEMS_GENIE_1" keyword="MotionCurveUID" vr="UI" vm="1">Motion Curve UID</el>
-<el tag="0011006e" owner="GEMS_GENIE_1" keyword="ReconType" vr="SL" vm="1">Recon Type</el>
-<el tag="0011006f" owner="GEMS_GENIE_1" keyword="PreFilterType" vr="SL" vm="1">Pre Filter Type</el>
+<el tag="0011006A" owner="GEMS_GENIE_1" keyword="CursorCoordinates" vr="SL" vm="1">Cursor Coordinates</el>
+<el tag="0011006B" owner="GEMS_GENIE_1" keyword="ReconOptionsFlag" vr="SL" vm="1">Recon Options Flag</el>
+<el tag="0011006C" owner="GEMS_GENIE_1" keyword="MotionThreshold" vr="FD" vm="1">Motion Threshold</el>
+<el tag="0011006D" owner="GEMS_GENIE_1" keyword="MotionCurveUID" vr="UI" vm="1">Motion Curve UID</el>
+<el tag="0011006E" owner="GEMS_GENIE_1" keyword="ReconType" vr="SL" vm="1">Recon Type</el>
+<el tag="0011006F" owner="GEMS_GENIE_1" keyword="PreFilterType" vr="SL" vm="1">Pre Filter Type</el>
 <el tag="00110071" owner="GEMS_GENIE_1" keyword="BackProjFilterType" vr="SL" vm="1">Back Proj Filter Type</el>
 <el tag="00110072" owner="GEMS_GENIE_1" keyword="ReconArc" vr="SL" vm="1">Recon Arc</el>
 <el tag="00110073" owner="GEMS_GENIE_1" keyword="ReconPanAPOffset" vr="FD" vm="1">Recon Pan AP Offset</el>
@@ -482,12 +482,12 @@
 <el tag="00110077" owner="GEMS_GENIE_1" keyword="AttenuationType" vr="SL" vm="1">Attenuation Type</el>
 <el tag="00110078" owner="GEMS_GENIE_1" keyword="DualEnergyProcessing" vr="SL" vm="1">Dua lEnergy Processing</el>
 <el tag="00110079" owner="GEMS_GENIE_1" keyword="PreFilterParam" vr="SH" vm="1">Pre Filter Param</el>
-<el tag="0011007a" owner="GEMS_GENIE_1" keyword="PreFilterParam2" vr="SH" vm="1">Pre Filter Param 2</el>
-<el tag="0011007b" owner="GEMS_GENIE_1" keyword="BackProjFilterParam" vr="SH" vm="1">Back Proj Filter Param</el>
-<el tag="0011007c" owner="GEMS_GENIE_1" keyword="BackProjFilterParam2" vr="SH" vm="1">Back Proj Filter Param 2</el>
-<el tag="0011007d" owner="GEMS_GENIE_1" keyword="AttenuationCoef" vr="SH" vm="1">Attenuation Coef</el>
-<el tag="0011007e" owner="GEMS_GENIE_1" keyword="RefSliceWidth" vr="SL" vm="1">Ref Slice Width</el>
-<el tag="0011007f" owner="GEMS_GENIE_1" keyword="RefTransPixelVolume" vr="FD" vm="1">Ref Trans Pixel Volume</el>
+<el tag="0011007A" owner="GEMS_GENIE_1" keyword="PreFilterParam2" vr="SH" vm="1">Pre Filter Param 2</el>
+<el tag="0011007B" owner="GEMS_GENIE_1" keyword="BackProjFilterParam" vr="SH" vm="1">Back Proj Filter Param</el>
+<el tag="0011007C" owner="GEMS_GENIE_1" keyword="BackProjFilterParam2" vr="SH" vm="1">Back Proj Filter Param 2</el>
+<el tag="0011007D" owner="GEMS_GENIE_1" keyword="AttenuationCoef" vr="SH" vm="1">Attenuation Coef</el>
+<el tag="0011007E" owner="GEMS_GENIE_1" keyword="RefSliceWidth" vr="SL" vm="1">Ref Slice Width</el>
+<el tag="0011007F" owner="GEMS_GENIE_1" keyword="RefTransPixelVolume" vr="FD" vm="1">Ref Trans Pixel Volume</el>
 <el tag="00110081" owner="GEMS_GENIE_1" keyword="AttenuationThreshold" vr="SH" vm="1">Attenuation Threshold</el>
 <el tag="00110082" owner="GEMS_GENIE_1" keyword="InterpolationDistance" vr="FD" vm="1">Interpolation Distance</el>
 <el tag="00110083" owner="GEMS_GENIE_1" keyword="InterpolationCenterX" vr="FD" vm="1">Interpolation Center X</el>
@@ -497,10 +497,10 @@
 <el tag="00110087" owner="GEMS_GENIE_1" keyword="SliceWidthPixels" vr="SL" vm="1">Slice Width Pixels</el>
 <el tag="00110088" owner="GEMS_GENIE_1" keyword="RfmtrTransRef" vr="SL" vm="1">Rfmtr Trans Ref</el>
 <el tag="00110089" owner="GEMS_GENIE_1" keyword="RfmtrTransRefmm" vr="FD" vm="1">Rfmtr Trans Ref mm</el>
-<el tag="0011008a" owner="GEMS_GENIE_1" keyword="TwoLineTransRef" vr="SL" vm="1">Two Line Trans Ref</el>
-<el tag="0011008b" owner="GEMS_GENIE_1" keyword="ThreeDZero" vr="SL" vm="1">Three-D Zero</el>
-<el tag="0011008c" owner="GEMS_GENIE_1" keyword="ThreeDZeroLength" vr="SL" vm="1">Three-D Zero Length</el>
-<el tag="0011008d" owner="GEMS_GENIE_1" keyword="ThreeDZeroIn" vr="SL" vm="1">Three-D Zero In</el>
+<el tag="0011008A" owner="GEMS_GENIE_1" keyword="TwoLineTransRef" vr="SL" vm="1">Two Line Trans Ref</el>
+<el tag="0011008B" owner="GEMS_GENIE_1" keyword="ThreeDZero" vr="SL" vm="1">Three-D Zero</el>
+<el tag="0011008C" owner="GEMS_GENIE_1" keyword="ThreeDZeroLength" vr="SL" vm="1">Three-D Zero Length</el>
+<el tag="0011008D" owner="GEMS_GENIE_1" keyword="ThreeDZeroIn" vr="SL" vm="1">Three-D Zero In</el>
 <el tag="00110080" owner="GEMS_DL_PATNT_01" keyword="PatientInstanceUid" vr="UI" vm="1">Patient Instance Uid</el>
 <el tag="00110081" owner="GEMS_DL_PATNT_01" keyword="LastStudyNumber" vr="IS" vm="1">Last Study Number</el>
 <el tag="00110082" owner="GEMS_DL_PATNT_01" keyword="PatientRepaired" vr="CS" vm="1">Patient Repaired</el>
@@ -515,11 +515,11 @@
 <el tag="00130017" owner="GEMS_GENIE_1" keyword="AutoTrackWidth" vr="SL" vm="1">AutoTrack Width</el>
 <el tag="00130018" owner="GEMS_GENIE_1" keyword="TransmissionScanTime" vr="FD" vm="1">Transmission Scan Time</el>
 <el tag="00130019" owner="GEMS_GENIE_1" keyword="TransmissionMaskWidth" vr="FD" vm="1">Transmission Mask Width</el>
-<el tag="0013001a" owner="GEMS_GENIE_1" keyword="CopperAttenuatorThickness" vr="FD" vm="1">Copper Attenuator Thickness</el>
-<el tag="0013001b" owner="GEMS_GENIE_1" keyword="DetAngSeparation" vr="FD" vm="1">Det Ang Separation</el>
-<el tag="0013001c" owner="GEMS_GENIE_1" keyword="AxialAcceptanceAngle" vr="SL" vm="1">Axial Acceptance Angle</el>
-<el tag="0013001d" owner="GEMS_GENIE_1" keyword="ThetaAcceptanceValue" vr="SL" vm="1">Theta Acceptance Value</el>
-<el tag="0013001e" owner="GEMS_GENIE_1" keyword="TomoViewOffset" vr="FD" vm="1-n">Tomo View Offset</el>
+<el tag="0013001A" owner="GEMS_GENIE_1" keyword="CopperAttenuatorThickness" vr="FD" vm="1">Copper Attenuator Thickness</el>
+<el tag="0013001B" owner="GEMS_GENIE_1" keyword="DetAngSeparation" vr="FD" vm="1">Det Ang Separation</el>
+<el tag="0013001C" owner="GEMS_GENIE_1" keyword="AxialAcceptanceAngle" vr="SL" vm="1">Axial Acceptance Angle</el>
+<el tag="0013001D" owner="GEMS_GENIE_1" keyword="ThetaAcceptanceValue" vr="SL" vm="1">Theta Acceptance Value</el>
+<el tag="0013001E" owner="GEMS_GENIE_1" keyword="TomoViewOffset" vr="FD" vm="1-n">Tomo View Offset</el>
 <el tag="00130020" owner="GEMS_GENIE_1" keyword="AcceptedBeatsTime" vr="FD" vm="1">Accepted Beats Time</el>
 <el tag="00130021" owner="GEMS_GENIE_1" keyword="Threshold" vr="FD" vm="2">Threshold</el>
 <el tag="00130022" owner="GEMS_GENIE_1" keyword="LinearDepth" vr="FD" vm="2">Linear Depth</el>
@@ -559,10 +559,10 @@
 <el tag="00150097" owner="GEMS_DL_STUDY_01" vr="IS" vm="1"/>
 <el tag="00150098" owner="GEMS_DL_STUDY_01" vr="FL" vm="1"/>
 <el tag="00150099" owner="GEMS_DL_STUDY_01" vr="FL" vm="1"/>
-<el tag="0015009a" owner="GEMS_DL_STUDY_01" vr="FL" vm="1"/>
-<el tag="0015009b" owner="GEMS_DL_STUDY_01" vr="IS" vm="1"/>
-<el tag="0015009c" owner="GEMS_DL_STUDY_01" vr="FL" vm="1"/>
-<el tag="0015009d" owner="GEMS_DL_STUDY_01" vr="IS" vm="1"/>
+<el tag="0015009A" owner="GEMS_DL_STUDY_01" vr="FL" vm="1"/>
+<el tag="0015009B" owner="GEMS_DL_STUDY_01" vr="IS" vm="1"/>
+<el tag="0015009C" owner="GEMS_DL_STUDY_01" vr="FL" vm="1"/>
+<el tag="0015009D" owner="GEMS_DL_STUDY_01" vr="IS" vm="1"/>
 <el tag="00150085" owner="GEMS_DL_SERIES_01" keyword="SeriesFileName" vr="LO" vm="1">Series File Name</el>
 <el tag="00150087" owner="GEMS_DL_SERIES_01" keyword="NumberOfImages" vr="IS" vm="1">Number of Images</el>
 <el tag="0015008C" owner="GEMS_DL_SERIES_01" keyword="SentFlag" vr="CS" vm="1">Sent Flag</el>
@@ -573,8 +573,8 @@
 <el tag="00190004" owner="GEMS_ACQU_01" keyword="CellSpacing" vr="DS" vm="1">Cell Spacing</el>
 <el tag="00190005" owner="GEMS_ACQU_01" vr="LT" vm="1"/>
 <el tag="00190006" owner="GEMS_ACQU_01" vr="UN" vm="1"/>
-<el tag="0019000e" owner="GEMS_ACQU_01" vr="US" vm="1"/>
-<el tag="0019000f" owner="GEMS_ACQU_01" keyword="HorizontalFrameOfReference" vr="DS" vm="1">Horizontal Frame Of Reference</el>
+<el tag="0019000E" owner="GEMS_ACQU_01" vr="US" vm="1"/>
+<el tag="0019000F" owner="GEMS_ACQU_01" keyword="HorizontalFrameOfReference" vr="DS" vm="1">Horizontal Frame Of Reference</el>
 <el tag="00190011" owner="GEMS_ACQU_01" keyword="SeriesContrast" vr="SS" vm="1">Series Contrast</el>
 <el tag="00190012" owner="GEMS_ACQU_01" keyword="LastPseq" vr="SS" vm="1">Last Pseq</el>
 <el tag="00190013" owner="GEMS_ACQU_01" keyword="StartNumberForBaseline" vr="SS" vm="1">Start Number For Baseline</el>
@@ -584,9 +584,9 @@
 <el tag="00190017" owner="GEMS_ACQU_01" keyword="SeriesPlane" vr="SS" vm="1">Series Plane</el>
 <el tag="00190018" owner="GEMS_ACQU_01" keyword="FirstScanRAS" vr="LO" vm="1">First Scan RAS</el>
 <el tag="00190019" owner="GEMS_ACQU_01" keyword="FirstScanLocation" vr="DS" vm="1">First Scan Location</el>
-<el tag="0019001a" owner="GEMS_ACQU_01" keyword="LastScanRAS" vr="LO" vm="1">Last Scan RAS</el>
-<el tag="0019001b" owner="GEMS_ACQU_01" keyword="LastScanLocation" vr="DS" vm="1">Last Scan Location</el>
-<el tag="0019001e" owner="GEMS_ACQU_01" keyword="DisplayFieldOfView" vr="DS" vm="1">Display Field Of View</el>
+<el tag="0019001A" owner="GEMS_ACQU_01" keyword="LastScanRAS" vr="LO" vm="1">Last Scan RAS</el>
+<el tag="0019001B" owner="GEMS_ACQU_01" keyword="LastScanLocation" vr="DS" vm="1">Last Scan Location</el>
+<el tag="0019001E" owner="GEMS_ACQU_01" keyword="DisplayFieldOfView" vr="DS" vm="1">Display Field Of View</el>
 <el tag="00190020" owner="GEMS_ACQU_01" vr="DS" vm="1"/>
 <el tag="00190022" owner="GEMS_ACQU_01" vr="DS" vm="1"/>
 <el tag="00190023" owner="GEMS_ACQU_01" keyword="TableSpeed" vr="DS" vm="1">Table Speed [mm/rotation]</el>
@@ -594,20 +594,20 @@
 <el tag="00190025" owner="GEMS_ACQU_01" keyword="MidScanFlag" vr="SS" vm="1">Mid Scan Flag</el>
 <el tag="00190026" owner="GEMS_ACQU_01" keyword="TubeAzimuth" vr="SL" vm="1">Tube Azimuth [degrees]</el>
 <el tag="00190027" owner="GEMS_ACQU_01" keyword="RotationSpeed" vr="DS" vm="1">Rotation Speed (Gantry Period)</el>
-<el tag="0019002a" owner="GEMS_ACQU_01" keyword="XrayOnPosition" vr="DS" vm="1">Xray On Position</el>
-<el tag="0019002b" owner="GEMS_ACQU_01" keyword="XrayOffPosition" vr="DS" vm="1">Xray Off Position</el>
-<el tag="0019002c" owner="GEMS_ACQU_01" keyword="NumberOfTriggers" vr="SL" vm="1">Number of Triggers</el>
-<el tag="0019002d" owner="GEMS_ACQU_01" vr="US" vm="1"/>
-<el tag="0019002e" owner="GEMS_ACQU_01" keyword="AngleOfFirstView" vr="DS" vm="1">Angle Of First View</el>
-<el tag="0019002f" owner="GEMS_ACQU_01" keyword="TriggerFrequency" vr="DS" vm="1">Trigger Frequency</el>
+<el tag="0019002A" owner="GEMS_ACQU_01" keyword="XrayOnPosition" vr="DS" vm="1">Xray On Position</el>
+<el tag="0019002B" owner="GEMS_ACQU_01" keyword="XrayOffPosition" vr="DS" vm="1">Xray Off Position</el>
+<el tag="0019002C" owner="GEMS_ACQU_01" keyword="NumberOfTriggers" vr="SL" vm="1">Number of Triggers</el>
+<el tag="0019002D" owner="GEMS_ACQU_01" vr="US" vm="1"/>
+<el tag="0019002E" owner="GEMS_ACQU_01" keyword="AngleOfFirstView" vr="DS" vm="1">Angle Of First View</el>
+<el tag="0019002F" owner="GEMS_ACQU_01" keyword="TriggerFrequency" vr="DS" vm="1">Trigger Frequency</el>
 <el tag="00190030" owner="GE ??? From Adantage Review CS" keyword="CREDRMode" vr="LO" vm="1">CR EDR Mode</el>
 <el tag="00190039" owner="GEMS_ACQU_01" keyword="ScanFOVType" vr="SS" vm="1">Scan FOV Type</el>
 <el tag="00190039" owner="GE_GENESIS_REV3.0" keyword="AxialType" vr="SS" vm="1">Axial Type</el>
-<el tag="0019003a" owner="GEMS_ACQU_01" vr="IS" vm="1"/>
-<el tag="0019003b" owner="GEMS_ACQU_01" vr="LT" vm="1"/>
-<el tag="0019003c" owner="GEMS_ACQU_01" vr="UN" vm="1"/>
-<el tag="0019003e" owner="GEMS_ACQU_01" vr="UN" vm="1"/>
-<el tag="0019003f" owner="GEMS_ACQU_01" vr="UN" vm="1"/>
+<el tag="0019003A" owner="GEMS_ACQU_01" vr="IS" vm="1"/>
+<el tag="0019003B" owner="GEMS_ACQU_01" vr="LT" vm="1"/>
+<el tag="0019003C" owner="GEMS_ACQU_01" vr="UN" vm="1"/>
+<el tag="0019003E" owner="GEMS_ACQU_01" vr="UN" vm="1"/>
+<el tag="0019003F" owner="GEMS_ACQU_01" vr="UN" vm="1"/>
 <el tag="00190040" owner="GE ??? From Adantage Review CS" keyword="CRLatitude" vr="LO" vm="1">CR Latitude</el>
 <el tag="00190040" owner="GEMS_ACQU_01" keyword="StatReconFlag" vr="SS" vm="1">Stat Recon Flag</el>
 <el tag="00190041" owner="GEMS_ACQU_01" keyword="ComputeType" vr="SS" vm="1">Compute Type</el>
@@ -617,23 +617,23 @@
 <el tag="00190047" owner="GEMS_ACQU_01" keyword="ViewCompressionFactor" vr="SS" vm="1">View Compression Factor</el>
 <el tag="00190048" owner="GEMS_ACQU_01" vr="US" vm="1"/>
 <el tag="00190049" owner="GEMS_ACQU_01" vr="US" vm="1"/>
-<el tag="0019004a" owner="GEMS_ACQU_01" keyword="TotalNumberOfRefChannels" vr="SS" vm="1">Total Number Of Ref Channels</el>
-<el tag="0019004b" owner="GEMS_ACQU_01" keyword="DataSizeForScanData" vr="SL" vm="1">Data Size For Scan Data</el>
+<el tag="0019004A" owner="GEMS_ACQU_01" keyword="TotalNumberOfRefChannels" vr="SS" vm="1">Total Number Of Ref Channels</el>
+<el tag="0019004B" owner="GEMS_ACQU_01" keyword="DataSizeForScanData" vr="SL" vm="1">Data Size For Scan Data</el>
 <el tag="00190050" owner="GE ??? From Adantage Review CS" keyword="CRGroupNumber" vr="LO" vm="1">CR Group Number</el>
 <el tag="00190052" owner="GEMS_ACQU_01" keyword="ReconPostProcessingFlag" vr="SS" vm="1">Recon Post Processing Flag</el>
 <el tag="00190054" owner="GEMS_ACQU_01" vr="UN" vm="1"/>
 <el tag="00190057" owner="GEMS_ACQU_01" keyword="CTWaterNumber" vr="SS" vm="1">CT Water Number</el>
 <el tag="00190058" owner="GEMS_ACQU_01" keyword="CTBoneNumber" vr="SS" vm="1">CT Bone Number</el>
-<el tag="0019005a" owner="GEMS_ACQU_01" keyword="AcquisitionDuration" vr="FL" vm="1">Acquisition Duration</el>
-<el tag="0019005d" owner="GEMS_ACQU_01" vr="US" vm="1"/>
-<el tag="0019005e" owner="GEMS_ACQU_01" keyword="NumberOfChannels1To512" vr="SL" vm="1">Number Of Channels 1 To 512</el>
-<el tag="0019005f" owner="GEMS_GENIE_1" vr="SQ" vm="1"/>
-<el tag="0019005f" owner="GEMS_ACQU_01" keyword="IncrementBetweenChannels" vr="SL" vm="1">Increment Between Channels</el>
+<el tag="0019005A" owner="GEMS_ACQU_01" keyword="AcquisitionDuration" vr="FL" vm="1">Acquisition Duration</el>
+<el tag="0019005D" owner="GEMS_ACQU_01" vr="US" vm="1"/>
+<el tag="0019005E" owner="GEMS_ACQU_01" keyword="NumberOfChannels1To512" vr="SL" vm="1">Number Of Channels 1 To 512</el>
+<el tag="0019005F" owner="GEMS_GENIE_1" vr="SQ" vm="1"/>
+<el tag="0019005F" owner="GEMS_ACQU_01" keyword="IncrementBetweenChannels" vr="SL" vm="1">Increment Between Channels</el>
 <el tag="00190060" owner="GEMS_ACQU_01" keyword="StartingView" vr="SL" vm="1">Starting View</el>
 <el tag="00190061" owner="GEMS_ACQU_01" keyword="NumberOfViews" vr="SL" vm="1">Number Of Views</el>
 <el tag="00190062" owner="GEMS_ACQU_01" keyword="IncrementBetweenViews" vr="SL" vm="1">Increment Between Views</el>
-<el tag="0019006a" owner="GEMS_ACQU_01" keyword="DependantOnNumberOfViewsProcessed" vr="SS" vm="1">Dependant On Number Of Views Processed</el>
-<el tag="0019006b" owner="GEMS_ACQU_01" keyword="FieldOfViewInDetectorCells" vr="SS" vm="1">Field Of View In Detector Cells</el>
+<el tag="0019006A" owner="GEMS_ACQU_01" keyword="DependantOnNumberOfViewsProcessed" vr="SS" vm="1">Dependant On Number Of Views Processed</el>
+<el tag="0019006B" owner="GEMS_ACQU_01" keyword="FieldOfViewInDetectorCells" vr="SS" vm="1">Field Of View In Detector Cells</el>
 <el tag="00190070" owner="GE ??? From Adantage Review CS" keyword="CRImageSerialNumber" vr="LO" vm="1">CR Image Serial Number</el>
 <el tag="00190070" owner="GEMS_ACQU_01" keyword="ValueOfBackProjectionButton" vr="SS" vm="1">Value Of Back Projection Button</el>
 <el tag="00190071" owner="GEMS_ACQU_01" keyword="SetIfFatqEstimatesWereUsed" vr="SS" vm="1">Set If Fatq Estimates Were Used</el>
@@ -642,9 +642,9 @@
 <el tag="00190074" owner="GEMS_ACQU_01" keyword="MaxLeftChannelOverViews" vr="DS" vm="1">Max Left Channel Over Views</el>
 <el tag="00190075" owner="GEMS_ACQU_01" keyword="AvgOfRightRefChannelsOverViews" vr="DS" vm="1">Avg Of Right Ref Channels Over Views</el>
 <el tag="00190076" owner="GEMS_ACQU_01" keyword="MaxRightChannelOverViews" vr="DS" vm="1">Max Right Channel Over Views</el>
-<el tag="0019007d" owner="GEMS_ACQU_01" keyword="SecondEcho" vr="DS" vm="1">Second Echo</el>
-<el tag="0019007e" owner="GEMS_ACQU_01" keyword="NumberOfEchos" vr="SS" vm="1">Number Of Echos</el>
-<el tag="0019007f" owner="GEMS_ACQU_01" keyword="TableDelta" vr="DS" vm="1">Table Delta</el>
+<el tag="0019007D" owner="GEMS_ACQU_01" keyword="SecondEcho" vr="DS" vm="1">Second Echo</el>
+<el tag="0019007E" owner="GEMS_ACQU_01" keyword="NumberOfEchos" vr="SS" vm="1">Number Of Echos</el>
+<el tag="0019007F" owner="GEMS_ACQU_01" keyword="TableDelta" vr="DS" vm="1">Table Delta</el>
 <el tag="00190080" owner="GE ??? From Adantage Review CS" keyword="CRBarCodeNumber" vr="LO" vm="1">CR Bar Code Number</el>
 <el tag="00190081" owner="GEMS_ACQU_01" keyword="Contiguous" vr="SS" vm="1">Contiguous</el>
 <el tag="00190082" owner="GEMS_ACQU_01" vr="US" vm="1"/>
@@ -654,11 +654,11 @@
 <el tag="00190086" owner="GEMS_ACQU_01" vr="US" vm="1"/>
 <el tag="00190087" owner="GEMS_ACQU_01" keyword="CardiacRepetitionTime" vr="DS" vm="1">Cardiac Repetition Time</el>
 <el tag="00190088" owner="GEMS_ACQU_01" keyword="ImagesPerCardiacCycle" vr="SS" vm="1">Images Per Cardiac Cycle</el>
-<el tag="0019008a" owner="GEMS_ACQU_01" keyword="ActualReceiveGainAnalog" vr="SS" vm="1">Actual Receive Gain Analog</el>
-<el tag="0019008b" owner="GEMS_ACQU_01" keyword="ActualReceiveGainDigital" vr="SS" vm="1">Actual Receive Gain Digital</el>
-<el tag="0019008d" owner="GEMS_ACQU_01" keyword="DelayAfterTrigger" vr="DS" vm="1">Delay After Trigger</el>
-<el tag="0019008f" owner="GEMS_ACQU_01" keyword="SwapPhaseFrequency" vr="SS" vm="1">Swap Phase Frequency</el>
-<el tag="0019008f" owner="GE_GENESIS_REV3.0" keyword="SwapPhaseFrequency" vr="SS" vm="1">Swap Phase Frequency</el>
+<el tag="0019008A" owner="GEMS_ACQU_01" keyword="ActualReceiveGainAnalog" vr="SS" vm="1">Actual Receive Gain Analog</el>
+<el tag="0019008B" owner="GEMS_ACQU_01" keyword="ActualReceiveGainDigital" vr="SS" vm="1">Actual Receive Gain Digital</el>
+<el tag="0019008D" owner="GEMS_ACQU_01" keyword="DelayAfterTrigger" vr="DS" vm="1">Delay After Trigger</el>
+<el tag="0019008F" owner="GEMS_ACQU_01" keyword="SwapPhaseFrequency" vr="SS" vm="1">Swap Phase Frequency</el>
+<el tag="0019008F" owner="GE_GENESIS_REV3.0" keyword="SwapPhaseFrequency" vr="SS" vm="1">Swap Phase Frequency</el>
 <el tag="00190090" owner="GE ??? From Adantage Review CS" keyword="CRFilmOutputExposures" vr="LO" vm="1">CR Film Output Exposures</el>
 <el tag="00190090" owner="GEMS_ACQU_01" keyword="PauseInterval" vr="SS" vm="1">Pause Interval</el>
 <el tag="00190091" owner="GEMS_ACQU_01" keyword="PauseTime" vr="DS" vm="1">Pause Time</el>
@@ -670,100 +670,100 @@
 <el tag="00190097" owner="GEMS_ACQU_01" keyword="BitmapDefiningCVs" vr="SL" vm="1">Bitmap Defining CVs</el>
 <el tag="00190098" owner="GEMS_ACQU_01" keyword="CenterFrequencyMethod" vr="SS" vm="1">Center Frequency Method</el>
 <el tag="00190099" owner="GEMS_ACQU_01" vr="US" vm="1"/>
-<el tag="0019009b" owner="GEMS_ACQU_01" keyword="PulseSequenceMode" vr="SS" vm="1">Pulse Sequence Mode</el>
-<el tag="0019009c" owner="GEMS_ACQU_01" keyword="PulseSequenceName" vr="LO" vm="1">Pulse Sequence Name</el>
-<el tag="0019009c" owner="GE_GENESIS_REV3.0" keyword="PulseSequenceName" vr="SS" vm="1">Pulse Sequence Name</el>
-<el tag="0019009d" owner="GEMS_ACQU_01" keyword="PulseSequenceDate" vr="DT" vm="1">Pulse Sequence Date</el>
-<el tag="0019009e" owner="GEMS_ACQU_01" keyword="InternalPulseSequenceName" vr="LO" vm="1">Internal Pulse Sequence Name</el>
-<el tag="0019009f" owner="GEMS_ACQU_01" keyword="TransmittingCoil" vr="SS" vm="1">Transmitting Coil</el>
-<el tag="0019009f" owner="GE_GENESIS_REV3.0" keyword="CoilType" vr="SS" vm="1">Coil Type</el>
-<el tag="001900a0" owner="GEMS_ACQU_01" keyword="SurfaceCoilType" vr="SS" vm="1">Surface Coil Type</el>
-<el tag="001900a1" owner="GEMS_ACQU_01" keyword="ExtremityCoilFlag" vr="SS" vm="1">Extremity Coil Flag</el>
-<el tag="001900a2" owner="GEMS_ACQU_01" keyword="RawDataRunNumber" vr="SL" vm="1">Raw Data Run Number</el>
-<el tag="001900a3" owner="GEMS_ACQU_01" keyword="CalibratedFieldStrength" vr="UL" vm="1">Calibrated Field Strength</el>
-<el tag="001900a4" owner="GEMS_ACQU_01" keyword="SATFatWaterBone" vr="SS" vm="1">SAT Fat Water Bone</el>
-<el tag="001900a4" owner="GE_GENESIS_REV3.0" keyword="SATFatWaterBone" vr="SS" vm="1">SAT Fat Water Bone</el>
-<el tag="001900a5" owner="GEMS_ACQU_01" keyword="ReceiveBandwidth" vr="DS" vm="1">Receive Bandwidth</el>
-<el tag="001900a7" owner="GEMS_ACQU_01" keyword="UserData0" vr="DS" vm="1">User Data 0</el>
-<el tag="001900a8" owner="GEMS_ACQU_01" keyword="UserData1" vr="DS" vm="1">User Data 1</el>
-<el tag="001900a9" owner="GEMS_ACQU_01" keyword="UserData2" vr="DS" vm="1">User Data 2</el>
-<el tag="001900aa" owner="GEMS_ACQU_01" keyword="UserData3" vr="DS" vm="1">User Data 3</el>
-<el tag="001900ab" owner="GEMS_ACQU_01" keyword="UserData4" vr="DS" vm="1">User Data 4</el>
-<el tag="001900ac" owner="GEMS_ACQU_01" keyword="UserData5" vr="DS" vm="1">User Data 5</el>
-<el tag="001900ad" owner="GEMS_ACQU_01" keyword="UserData6" vr="DS" vm="1">User Data 6</el>
-<el tag="001900ae" owner="GEMS_ACQU_01" keyword="UserData7" vr="DS" vm="1">User Data 7</el>
-<el tag="001900af" owner="GEMS_ACQU_01" keyword="UserData8" vr="DS" vm="1">User Data 8</el>
-<el tag="001900b0" owner="GEMS_ACQU_01" keyword="UserData9" vr="DS" vm="1">User Data 9</el>
-<el tag="001900b1" owner="GEMS_ACQU_01" keyword="UserData10" vr="DS" vm="1">User Data 10</el>
-<el tag="001900b2" owner="GEMS_ACQU_01" keyword="UserData11" vr="DS" vm="1">User Data 11</el>
-<el tag="001900b3" owner="GEMS_ACQU_01" keyword="UserData12" vr="DS" vm="1">User Data 12</el>
-<el tag="001900b4" owner="GEMS_ACQU_01" keyword="UserData13" vr="DS" vm="1">User Data 13</el>
-<el tag="001900b5" owner="GEMS_ACQU_01" keyword="UserData14" vr="DS" vm="1">User Data 14</el>
-<el tag="001900b6" owner="GEMS_ACQU_01" keyword="UserData15" vr="DS" vm="1">User Data 15</el>
-<el tag="001900b7" owner="GEMS_ACQU_01" keyword="UserData16" vr="DS" vm="1">User Data 16</el>
-<el tag="001900b8" owner="GEMS_ACQU_01" keyword="UserData17" vr="DS" vm="1">User Data 17</el>
-<el tag="001900b9" owner="GEMS_ACQU_01" keyword="UserData18" vr="DS" vm="1">User Data 18</el>
-<el tag="001900ba" owner="GEMS_ACQU_01" keyword="UserData19" vr="DS" vm="1">User Data 19</el>
-<el tag="001900bb" owner="GEMS_ACQU_01" keyword="UserData20" vr="DS" vm="1">User Data 20</el>
-<el tag="001900bc" owner="GEMS_ACQU_01" keyword="UserData21" vr="DS" vm="1">User Data 21</el>
-<el tag="001900bd" owner="GEMS_ACQU_01" keyword="UserData22" vr="DS" vm="1">User Data 22</el>
-<el tag="001900be" owner="GEMS_ACQU_01" keyword="ProjectionAngle" vr="DS" vm="1">Projection Angle</el>
-<el tag="001900c0" owner="GEMS_ACQU_01" keyword="SaturationPlanes" vr="SS" vm="1">Saturation Planes</el>
-<el tag="001900c0" owner="GE_GENESIS_REV3.0" keyword="BitmapOfSATSelections" vr="SS" vm="1">Bitmap Of SAT Selections</el>
-<el tag="001900c1" owner="GEMS_ACQU_01" keyword="SurfaceCoilIntensityCorrectionFlag" vr="SS" vm="1">Surface Coil Intensity Correction Flag</el>
-<el tag="001900c1" owner="GE_GENESIS_REV3.0" keyword="SurfaceCoilIntensityCorrectionFlag" vr="SS" vm="1">Surface Coil Intensity Correction Flag</el>
-<el tag="001900c2" owner="GEMS_ACQU_01" keyword="SATLocationR" vr="SS" vm="1">SAT Location R</el>
-<el tag="001900c3" owner="GEMS_ACQU_01" keyword="SATLocationL" vr="SS" vm="1">SAT Location L</el>
-<el tag="001900c4" owner="GEMS_ACQU_01" keyword="SATLocationA" vr="SS" vm="1">SAT Location A</el>
-<el tag="001900c5" owner="GEMS_ACQU_01" keyword="SATLocationP" vr="SS" vm="1">SAT Location P</el>
-<el tag="001900c6" owner="GEMS_ACQU_01" keyword="SATLocationH" vr="SS" vm="1">SAT Location H</el>
-<el tag="001900c7" owner="GEMS_ACQU_01" keyword="SATLocationF" vr="SS" vm="1">SAT Location F</el>
-<el tag="001900c8" owner="GEMS_ACQU_01" keyword="SATThicknessRL" vr="SS" vm="1">SAT Thickness R L</el>
-<el tag="001900c9" owner="GEMS_ACQU_01" keyword="SATThicknessAP" vr="SS" vm="1">SAT Thickness A P</el>
-<el tag="001900ca" owner="GEMS_ACQU_01" keyword="SATThicknessHF" vr="SS" vm="1">SAT Thickness H F</el>
-<el tag="001900cb" owner="GEMS_ACQU_01" keyword="PhaseContrastFlowAxis" vr="SS" vm="1">PhaseContrast Flow Axis</el>
-<el tag="001900cb" owner="GE_GENESIS_REV3.0" keyword="PhaseContrastFlowAxis" vr="SS" vm="1">Phase Contrast Flow Axis</el>
-<el tag="001900cc" owner="GEMS_ACQU_01" keyword="VelocityEncoding" vr="SS" vm="1">Velocity Encoding</el>
-<el tag="001900cc" owner="GE_GENESIS_REV3.0" keyword="PhaseContrastVelocityEncoding" vr="SS" vm="1">Phase Contrast Velocity Encoding</el>
-<el tag="001900cd" owner="GEMS_ACQU_01" keyword="ThicknessDisclaimer" vr="SS" vm="1">Thickness Disclaimer</el>
-<el tag="001900ce" owner="GEMS_ACQU_01" keyword="PrescanType" vr="SS" vm="1">Prescan Type</el>
-<el tag="001900cf" owner="GEMS_ACQU_01" keyword="PrescanStatus" vr="SS" vm="1">Prescan Status</el>
-<el tag="001900d0" owner="GEMS_ACQU_01" keyword="RawDataType" vr="SH" vm="1">Raw Data Type</el>
-<el tag="001900d2" owner="GEMS_ACQU_01" keyword="ProjectionAlgorithm" vr="SS" vm="1">Projection Algorithm</el>
-<el tag="001900d3" owner="GEMS_ACQU_01" keyword="ProjectionAlgorithmName" vr="SH" vm="1">Projection Algorithm Name</el>
-<el tag="001900d4" owner="GEMS_ACQU_01" vr="US" vm="1"/>
-<el tag="001900d5" owner="GEMS_ACQU_01" keyword="FractionalEcho" vr="SS" vm="1">Fractional Echo</el>
-<el tag="001900d5" owner="GE_GENESIS_REV3.0" keyword="FractionalEcho" vr="SS" vm="1">Fractional Echo</el>
-<el tag="001900d6" owner="GEMS_ACQU_01" keyword="PrepPulse" vr="SS" vm="1">Prep Pulse</el>
-<el tag="001900d7" owner="GEMS_ACQU_01" keyword="CardiacPhases" vr="SS" vm="1">Cardiac Phases</el>
-<el tag="001900d8" owner="GEMS_ACQU_01" keyword="VariableEchoFlag" vr="SS" vm="1">Variable Echo Flag</el>
-<el tag="001900d8" owner="GE_GENESIS_REV3.0" keyword="VariableEchoFlag" vr="SS" vm="1">Variable Echo Flag</el>
-<el tag="001900d9" owner="GEMS_ACQU_01" keyword="ConcatenatedSatOrDTIDiffusionDirection" vr="DS" vm="1">Concatenated Sat or DTI Diffusion Direction</el>
-<el tag="001900d9" owner="GE_GENESIS_REV3.0" keyword="ConcatenatedSat" vr="DS" vm="1">Concatenated Sat</el>
-<el tag="001900da" owner="GEMS_ACQU_01" keyword="ReferenceChannelUsed" vr="SS" vm="1">Reference Channel Used</el>
-<el tag="001900db" owner="GEMS_ACQU_01" keyword="BackProjectorCoefficient" vr="DS" vm="1">Back Projector Coefficient</el>
-<el tag="001900dc" owner="GEMS_ACQU_01" keyword="PrimarySpeedCorrectionUsed" vr="SS" vm="1">Primary Speed Correction Used</el>
-<el tag="001900dd" owner="GEMS_ACQU_01" keyword="OverrangeCorrectionUsed" vr="SS" vm="1">Overrange Correction Used</el>
-<el tag="001900de" owner="GEMS_ACQU_01" keyword="DynamicZAlphaValue" vr="DS" vm="1">Dynamic Z Alpha Value</el>
-<el tag="001900df" owner="GEMS_ACQU_01" keyword="UserData23" vr="DS" vm="1">User Data 23 or DTI Diffusion Direction</el>
-<el tag="001900e0" owner="GEMS_ACQU_01" keyword="UserData24" vr="DS" vm="1">User Data 24 or DTI Diffusion Direction</el>
-<el tag="001900e1" owner="GEMS_ACQU_01" vr="DS" vm="1"/>
-<el tag="001900e2" owner="GEMS_ACQU_01" keyword="VelocityEncodeScale" vr="DS" vm="1">Velocity Encode Scale</el>
-<el tag="001900e3" owner="GEMS_ACQU_01" vr="LT" vm="1"/>
-<el tag="001900e4" owner="GEMS_ACQU_01" vr="LT" vm="1"/>
-<el tag="001900e5" owner="GEMS_ACQU_01" vr="IS" vm="1"/>
-<el tag="001900e6" owner="GEMS_ACQU_01" vr="US" vm="1"/>
-<el tag="001900e8" owner="GEMS_ACQU_01" vr="DS" vm="1"/>
-<el tag="001900e9" owner="GEMS_ACQU_01" vr="DS" vm="1"/>
-<el tag="001900eb" owner="GEMS_ACQU_01" vr="DS" vm="1"/>
-<el tag="001900ec" owner="GEMS_ACQU_01" vr="US" vm="1"/>
-<el tag="001900f0" owner="GEMS_ACQU_01" vr="UN" vm="1"/>
-<el tag="001900f1" owner="GEMS_ACQU_01" vr="LT" vm="1"/>
-<el tag="001900f2" owner="GEMS_ACQU_01" keyword="FastPhases" vr="SS" vm="1">Fast Phases</el>
-<el tag="001900f2" owner="GE_GENESIS_REV3.0" keyword="NumberOfPhases" vr="SS" vm="1">Number Of Phases</el>
-<el tag="001900f3" owner="GEMS_ACQU_01" vr="LT" vm="1"/>
-<el tag="001900f4" owner="GEMS_ACQU_01" vr="LT" vm="1"/>
-<el tag="001900f9" owner="GEMS_ACQU_01" keyword="TransmitGain" vr="DS" vm="1">Transmit Gain</el>
+<el tag="0019009B" owner="GEMS_ACQU_01" keyword="PulseSequenceMode" vr="SS" vm="1">Pulse Sequence Mode</el>
+<el tag="0019009C" owner="GEMS_ACQU_01" keyword="PulseSequenceName" vr="LO" vm="1">Pulse Sequence Name</el>
+<el tag="0019009C" owner="GE_GENESIS_REV3.0" keyword="PulseSequenceName" vr="SS" vm="1">Pulse Sequence Name</el>
+<el tag="0019009D" owner="GEMS_ACQU_01" keyword="PulseSequenceDate" vr="DT" vm="1">Pulse Sequence Date</el>
+<el tag="0019009E" owner="GEMS_ACQU_01" keyword="InternalPulseSequenceName" vr="LO" vm="1">Internal Pulse Sequence Name</el>
+<el tag="0019009F" owner="GEMS_ACQU_01" keyword="TransmittingCoil" vr="SS" vm="1">Transmitting Coil</el>
+<el tag="0019009F" owner="GE_GENESIS_REV3.0" keyword="CoilType" vr="SS" vm="1">Coil Type</el>
+<el tag="001900A0" owner="GEMS_ACQU_01" keyword="SurfaceCoilType" vr="SS" vm="1">Surface Coil Type</el>
+<el tag="001900A1" owner="GEMS_ACQU_01" keyword="ExtremityCoilFlag" vr="SS" vm="1">Extremity Coil Flag</el>
+<el tag="001900A2" owner="GEMS_ACQU_01" keyword="RawDataRunNumber" vr="SL" vm="1">Raw Data Run Number</el>
+<el tag="001900A3" owner="GEMS_ACQU_01" keyword="CalibratedFieldStrength" vr="UL" vm="1">Calibrated Field Strength</el>
+<el tag="001900A4" owner="GEMS_ACQU_01" keyword="SATFatWaterBone" vr="SS" vm="1">SAT Fat Water Bone</el>
+<el tag="001900A4" owner="GE_GENESIS_REV3.0" keyword="SATFatWaterBone" vr="SS" vm="1">SAT Fat Water Bone</el>
+<el tag="001900A5" owner="GEMS_ACQU_01" keyword="ReceiveBandwidth" vr="DS" vm="1">Receive Bandwidth</el>
+<el tag="001900A7" owner="GEMS_ACQU_01" keyword="UserData0" vr="DS" vm="1">User Data 0</el>
+<el tag="001900A8" owner="GEMS_ACQU_01" keyword="UserData1" vr="DS" vm="1">User Data 1</el>
+<el tag="001900A9" owner="GEMS_ACQU_01" keyword="UserData2" vr="DS" vm="1">User Data 2</el>
+<el tag="001900AA" owner="GEMS_ACQU_01" keyword="UserData3" vr="DS" vm="1">User Data 3</el>
+<el tag="001900AB" owner="GEMS_ACQU_01" keyword="UserData4" vr="DS" vm="1">User Data 4</el>
+<el tag="001900AC" owner="GEMS_ACQU_01" keyword="UserData5" vr="DS" vm="1">User Data 5</el>
+<el tag="001900AD" owner="GEMS_ACQU_01" keyword="UserData6" vr="DS" vm="1">User Data 6</el>
+<el tag="001900AE" owner="GEMS_ACQU_01" keyword="UserData7" vr="DS" vm="1">User Data 7</el>
+<el tag="001900AF" owner="GEMS_ACQU_01" keyword="UserData8" vr="DS" vm="1">User Data 8</el>
+<el tag="001900B0" owner="GEMS_ACQU_01" keyword="UserData9" vr="DS" vm="1">User Data 9</el>
+<el tag="001900B1" owner="GEMS_ACQU_01" keyword="UserData10" vr="DS" vm="1">User Data 10</el>
+<el tag="001900B2" owner="GEMS_ACQU_01" keyword="UserData11" vr="DS" vm="1">User Data 11</el>
+<el tag="001900B3" owner="GEMS_ACQU_01" keyword="UserData12" vr="DS" vm="1">User Data 12</el>
+<el tag="001900B4" owner="GEMS_ACQU_01" keyword="UserData13" vr="DS" vm="1">User Data 13</el>
+<el tag="001900B5" owner="GEMS_ACQU_01" keyword="UserData14" vr="DS" vm="1">User Data 14</el>
+<el tag="001900B6" owner="GEMS_ACQU_01" keyword="UserData15" vr="DS" vm="1">User Data 15</el>
+<el tag="001900B7" owner="GEMS_ACQU_01" keyword="UserData16" vr="DS" vm="1">User Data 16</el>
+<el tag="001900B8" owner="GEMS_ACQU_01" keyword="UserData17" vr="DS" vm="1">User Data 17</el>
+<el tag="001900B9" owner="GEMS_ACQU_01" keyword="UserData18" vr="DS" vm="1">User Data 18</el>
+<el tag="001900BA" owner="GEMS_ACQU_01" keyword="UserData19" vr="DS" vm="1">User Data 19</el>
+<el tag="001900BB" owner="GEMS_ACQU_01" keyword="UserData20" vr="DS" vm="1">User Data 20</el>
+<el tag="001900BC" owner="GEMS_ACQU_01" keyword="UserData21" vr="DS" vm="1">User Data 21</el>
+<el tag="001900BD" owner="GEMS_ACQU_01" keyword="UserData22" vr="DS" vm="1">User Data 22</el>
+<el tag="001900BE" owner="GEMS_ACQU_01" keyword="ProjectionAngle" vr="DS" vm="1">Projection Angle</el>
+<el tag="001900C0" owner="GEMS_ACQU_01" keyword="SaturationPlanes" vr="SS" vm="1">Saturation Planes</el>
+<el tag="001900C0" owner="GE_GENESIS_REV3.0" keyword="BitmapOfSATSelections" vr="SS" vm="1">Bitmap Of SAT Selections</el>
+<el tag="001900C1" owner="GEMS_ACQU_01" keyword="SurfaceCoilIntensityCorrectionFlag" vr="SS" vm="1">Surface Coil Intensity Correction Flag</el>
+<el tag="001900C1" owner="GE_GENESIS_REV3.0" keyword="SurfaceCoilIntensityCorrectionFlag" vr="SS" vm="1">Surface Coil Intensity Correction Flag</el>
+<el tag="001900C2" owner="GEMS_ACQU_01" keyword="SATLocationR" vr="SS" vm="1">SAT Location R</el>
+<el tag="001900C3" owner="GEMS_ACQU_01" keyword="SATLocationL" vr="SS" vm="1">SAT Location L</el>
+<el tag="001900C4" owner="GEMS_ACQU_01" keyword="SATLocationA" vr="SS" vm="1">SAT Location A</el>
+<el tag="001900C5" owner="GEMS_ACQU_01" keyword="SATLocationP" vr="SS" vm="1">SAT Location P</el>
+<el tag="001900C6" owner="GEMS_ACQU_01" keyword="SATLocationH" vr="SS" vm="1">SAT Location H</el>
+<el tag="001900C7" owner="GEMS_ACQU_01" keyword="SATLocationF" vr="SS" vm="1">SAT Location F</el>
+<el tag="001900C8" owner="GEMS_ACQU_01" keyword="SATThicknessRL" vr="SS" vm="1">SAT Thickness R L</el>
+<el tag="001900C9" owner="GEMS_ACQU_01" keyword="SATThicknessAP" vr="SS" vm="1">SAT Thickness A P</el>
+<el tag="001900CA" owner="GEMS_ACQU_01" keyword="SATThicknessHF" vr="SS" vm="1">SAT Thickness H F</el>
+<el tag="001900CB" owner="GEMS_ACQU_01" keyword="PhaseContrastFlowAxis" vr="SS" vm="1">PhaseContrast Flow Axis</el>
+<el tag="001900CB" owner="GE_GENESIS_REV3.0" keyword="PhaseContrastFlowAxis" vr="SS" vm="1">Phase Contrast Flow Axis</el>
+<el tag="001900CC" owner="GEMS_ACQU_01" keyword="VelocityEncoding" vr="SS" vm="1">Velocity Encoding</el>
+<el tag="001900CC" owner="GE_GENESIS_REV3.0" keyword="PhaseContrastVelocityEncoding" vr="SS" vm="1">Phase Contrast Velocity Encoding</el>
+<el tag="001900CD" owner="GEMS_ACQU_01" keyword="ThicknessDisclaimer" vr="SS" vm="1">Thickness Disclaimer</el>
+<el tag="001900CE" owner="GEMS_ACQU_01" keyword="PrescanType" vr="SS" vm="1">Prescan Type</el>
+<el tag="001900CF" owner="GEMS_ACQU_01" keyword="PrescanStatus" vr="SS" vm="1">Prescan Status</el>
+<el tag="001900D0" owner="GEMS_ACQU_01" keyword="RawDataType" vr="SH" vm="1">Raw Data Type</el>
+<el tag="001900D2" owner="GEMS_ACQU_01" keyword="ProjectionAlgorithm" vr="SS" vm="1">Projection Algorithm</el>
+<el tag="001900D3" owner="GEMS_ACQU_01" keyword="ProjectionAlgorithmName" vr="SH" vm="1">Projection Algorithm Name</el>
+<el tag="001900D4" owner="GEMS_ACQU_01" vr="US" vm="1"/>
+<el tag="001900D5" owner="GEMS_ACQU_01" keyword="FractionalEcho" vr="SS" vm="1">Fractional Echo</el>
+<el tag="001900D5" owner="GE_GENESIS_REV3.0" keyword="FractionalEcho" vr="SS" vm="1">Fractional Echo</el>
+<el tag="001900D6" owner="GEMS_ACQU_01" keyword="PrepPulse" vr="SS" vm="1">Prep Pulse</el>
+<el tag="001900D7" owner="GEMS_ACQU_01" keyword="CardiacPhases" vr="SS" vm="1">Cardiac Phases</el>
+<el tag="001900D8" owner="GEMS_ACQU_01" keyword="VariableEchoFlag" vr="SS" vm="1">Variable Echo Flag</el>
+<el tag="001900D8" owner="GE_GENESIS_REV3.0" keyword="VariableEchoFlag" vr="SS" vm="1">Variable Echo Flag</el>
+<el tag="001900D9" owner="GEMS_ACQU_01" keyword="ConcatenatedSatOrDTIDiffusionDirection" vr="DS" vm="1">Concatenated Sat or DTI Diffusion Direction</el>
+<el tag="001900D9" owner="GE_GENESIS_REV3.0" keyword="ConcatenatedSat" vr="DS" vm="1">Concatenated Sat</el>
+<el tag="001900DA" owner="GEMS_ACQU_01" keyword="ReferenceChannelUsed" vr="SS" vm="1">Reference Channel Used</el>
+<el tag="001900DB" owner="GEMS_ACQU_01" keyword="BackProjectorCoefficient" vr="DS" vm="1">Back Projector Coefficient</el>
+<el tag="001900DC" owner="GEMS_ACQU_01" keyword="PrimarySpeedCorrectionUsed" vr="SS" vm="1">Primary Speed Correction Used</el>
+<el tag="001900DD" owner="GEMS_ACQU_01" keyword="OverrangeCorrectionUsed" vr="SS" vm="1">Overrange Correction Used</el>
+<el tag="001900DE" owner="GEMS_ACQU_01" keyword="DynamicZAlphaValue" vr="DS" vm="1">Dynamic Z Alpha Value</el>
+<el tag="001900DF" owner="GEMS_ACQU_01" keyword="UserData23" vr="DS" vm="1">User Data 23 or DTI Diffusion Direction</el>
+<el tag="001900E0" owner="GEMS_ACQU_01" keyword="UserData24" vr="DS" vm="1">User Data 24 or DTI Diffusion Direction</el>
+<el tag="001900E1" owner="GEMS_ACQU_01" vr="DS" vm="1"/>
+<el tag="001900E2" owner="GEMS_ACQU_01" keyword="VelocityEncodeScale" vr="DS" vm="1">Velocity Encode Scale</el>
+<el tag="001900E3" owner="GEMS_ACQU_01" vr="LT" vm="1"/>
+<el tag="001900E4" owner="GEMS_ACQU_01" vr="LT" vm="1"/>
+<el tag="001900E5" owner="GEMS_ACQU_01" vr="IS" vm="1"/>
+<el tag="001900E6" owner="GEMS_ACQU_01" vr="US" vm="1"/>
+<el tag="001900E8" owner="GEMS_ACQU_01" vr="DS" vm="1"/>
+<el tag="001900E9" owner="GEMS_ACQU_01" vr="DS" vm="1"/>
+<el tag="001900EB" owner="GEMS_ACQU_01" vr="DS" vm="1"/>
+<el tag="001900EC" owner="GEMS_ACQU_01" vr="US" vm="1"/>
+<el tag="001900F0" owner="GEMS_ACQU_01" vr="UN" vm="1"/>
+<el tag="001900F1" owner="GEMS_ACQU_01" vr="LT" vm="1"/>
+<el tag="001900F2" owner="GEMS_ACQU_01" keyword="FastPhases" vr="SS" vm="1">Fast Phases</el>
+<el tag="001900F2" owner="GE_GENESIS_REV3.0" keyword="NumberOfPhases" vr="SS" vm="1">Number Of Phases</el>
+<el tag="001900F3" owner="GEMS_ACQU_01" vr="LT" vm="1"/>
+<el tag="001900F4" owner="GEMS_ACQU_01" vr="LT" vm="1"/>
+<el tag="001900F9" owner="GEMS_ACQU_01" keyword="TransmitGain" vr="DS" vm="1">Transmit Gain</el>
 <el tag="0019000B" owner="GEMS_DL_IMG_01" keyword="FOVDimensionDouble" vr="DS" vm="1-2">FOV Dimension Double</el>
 <el tag="0019002B" owner="GEMS_DL_IMG_01" keyword="DistanceToTableTop" vr="FL" vm="1">Distance to table top</el>
 <el tag="00190030" owner="GEMS_DL_IMG_01" keyword="ImageFileName" vr="LO" vm="1">Image File Name</el>
@@ -841,7 +841,7 @@
 <el tag="00190097" owner="GEMS_DL_IMG_01" keyword="Angle1Increment" vr="DS" vm="1-n">Angle 1 increment</el>
 <el tag="00190098" owner="GEMS_DL_IMG_01" keyword="Angle2Increment" vr="DS" vm="1-n">Angle 2 increment</el>
 <el tag="00190099" owner="GEMS_DL_IMG_01" keyword="Angle3Increment" vr="DS" vm="1-n">Angle 3 increment</el>
-<el tag="0019009a" owner="GEMS_DL_IMG_01" keyword="SensorFeedback" vr="DS" vm="1-n">Sensor Feedback</el>
+<el tag="0019009A" owner="GEMS_DL_IMG_01" keyword="SensorFeedback" vr="DS" vm="1-n">Sensor Feedback</el>
 <el tag="0019009B" owner="GEMS_DL_IMG_01" keyword="Grid" vr="CS" vm="1">Grid</el>
 <el tag="0019009C" owner="GEMS_DL_IMG_01" keyword="DefaultMaskPixelShift" vr="FL" vm="1">Default Mask Pixel Shift</el>
 <el tag="0019009D" owner="GEMS_DL_IMG_01" keyword="ApplicableReviewMode" vr="CS" vm="1">Applicable Review Mode</el>
@@ -862,35 +862,35 @@
 <el tag="001900AC" owner="GEMS_DL_IMG_01" keyword="BrightnessSensitivity" vr="DS" vm="1">Brightness Sensitivity</el>
 <el tag="001900AD" owner="GEMS_DL_IMG_01" keyword="ExpLUTNOSUBControlPoints" vr="DS" vm="1-n">Exp LUT NOSUB Control Points</el>
 <el tag="001900AF" owner="GEMS_DL_IMG_01" vr="DS" vm="1-n"/>
-<el tag="001900b0" owner="GEMS_DL_IMG_01" vr="DS" vm="1-n"/>
-<el tag="001900b1" owner="GEMS_DL_IMG_01" keyword="AcquisitionModeDescription" vr="LO" vm="1">Acquisition Mode Description</el>
-<el tag="001900b2" owner="GEMS_DL_IMG_01" keyword="AcquisitionModeDescriptionLabel" vr="LO" vm="1">Acquisition Mode Description Label</el>
-<el tag="001900b3" owner="GEMS_DL_IMG_01" vr="LO" vm="1"/>
-<el tag="001900b8" owner="GEMS_DL_IMG_01" vr="FL" vm="1"/>
-<el tag="001900ba" owner="GEMS_DL_IMG_01" keyword="AcquisitionRegion" vr="CS" vm="1">Acquisition Region</el>
-<el tag="001900bb" owner="GEMS_DL_IMG_01" keyword="AcquisitionSUBMode" vr="CS" vm="1">Acquisition SUB Mode</el>
-<el tag="001900bc" owner="GEMS_DL_IMG_01" keyword="TableCradleAngle" vr="FL" vm="1">Table Cradle Angle</el>
-<el tag="001900bd" owner="GEMS_DL_IMG_01" keyword="TableRotationStatusVector" vr="CS" vm="1-n">Table Rotation Status Vector</el>
-<el tag="001900be" owner="GEMS_DL_IMG_01" keyword="SourceToImageDistancePerFrameVector" vr="FL" vm="1-n">Source to Image Distance per Frame Vector</el>
-<el tag="001900c2" owner="GEMS_DL_IMG_01" vr="DS" vm="1-n"/>
-<el tag="001900c3" owner="GEMS_DL_IMG_01" keyword="TableRotationAngleIncrement" vr="FL" vm="1-n">Table Rotation Angle Increment</el>
-<el tag="001900c4" owner="GEMS_DL_IMG_01" vr="IS" vm="1"/>
-<el tag="001900c7" owner="GEMS_DL_IMG_01" keyword="PatientPositionPerImage" vr="CS" vm="1">Patient Position per Image</el>
-<el tag="001900d7" owner="GEMS_DL_IMG_01" keyword="TableXPositionToIsocenterIncrement" vr="FL" vm="1-n">Table X Position to Iso‐center Increment</el>
-<el tag="001900d8" owner="GEMS_DL_IMG_01" keyword="TableYPositionToIsocenterIncrement" vr="FL" vm="1-n">Table Y Position to Iso‐center Increment</el>
-<el tag="001900d9" owner="GEMS_DL_IMG_01" keyword="TableZPositionToIsocenterIncrement" vr="FL" vm="1-n">Table Z Position to Iso‐center Increment</el>
-<el tag="001900da" owner="GEMS_DL_IMG_01" keyword="TableHeadTiltAngleIncrement" vr="FL" vm="1-n">Table Head Tilt Angle Increment</el>
-<el tag="001900dc" owner="GEMS_DL_IMG_01" vr="LO" vm="1"/>
-<el tag="001900de" owner="GEMS_DL_IMG_01" keyword="AcquisitionPlane" vr="CS" vm="1">Acquisition Plane</el>
-<el tag="001900dd" owner="GEMS_DL_IMG_01" vr="DS" vm="1"/>
-<el tag="001900e0" owner="GEMS_DL_IMG_01" vr="FL" vm="1"/>
-<el tag="001900e9" owner="GEMS_DL_IMG_01" keyword="SourceToDetectorDistancePerFrameVector" vr="FL" vm="1-n">Source to Detector Distance per Frame Vector</el>
-<el tag="001900ea" owner="GEMS_DL_IMG_01" keyword="TableRotationAngle" vr="FL" vm="1">Table Rotation Angle</el>
-<el tag="001900eb" owner="GEMS_DL_IMG_01" keyword="TableXPositionToIsocenter" vr="FL" vm="1">Table X Position to Iso‐center</el>
-<el tag="001900ec" owner="GEMS_DL_IMG_01" keyword="TableYPositionToIsocenter" vr="FL" vm="1">Table Y Position to Iso‐center</el>
-<el tag="001900ed" owner="GEMS_DL_IMG_01" keyword="TableZPositionToIsocenter" vr="FL" vm="1">Table Z Position to Iso‐center</el>
-<el tag="001900ee" owner="GEMS_DL_IMG_01" keyword="TableHeadTiltAngle" vr="FL" vm="1">Table Head Tilt Angle</el>
-<el tag="001900ef" owner="GEMS_DL_IMG_01" vr="FL" vm="1"/>
+<el tag="001900B0" owner="GEMS_DL_IMG_01" vr="DS" vm="1-n"/>
+<el tag="001900B1" owner="GEMS_DL_IMG_01" keyword="AcquisitionModeDescription" vr="LO" vm="1">Acquisition Mode Description</el>
+<el tag="001900B2" owner="GEMS_DL_IMG_01" keyword="AcquisitionModeDescriptionLabel" vr="LO" vm="1">Acquisition Mode Description Label</el>
+<el tag="001900B3" owner="GEMS_DL_IMG_01" vr="LO" vm="1"/>
+<el tag="001900B8" owner="GEMS_DL_IMG_01" vr="FL" vm="1"/>
+<el tag="001900BA" owner="GEMS_DL_IMG_01" keyword="AcquisitionRegion" vr="CS" vm="1">Acquisition Region</el>
+<el tag="001900BB" owner="GEMS_DL_IMG_01" keyword="AcquisitionSUBMode" vr="CS" vm="1">Acquisition SUB Mode</el>
+<el tag="001900BC" owner="GEMS_DL_IMG_01" keyword="TableCradleAngle" vr="FL" vm="1">Table Cradle Angle</el>
+<el tag="001900BD" owner="GEMS_DL_IMG_01" keyword="TableRotationStatusVector" vr="CS" vm="1-n">Table Rotation Status Vector</el>
+<el tag="001900BE" owner="GEMS_DL_IMG_01" keyword="SourceToImageDistancePerFrameVector" vr="FL" vm="1-n">Source to Image Distance per Frame Vector</el>
+<el tag="001900C2" owner="GEMS_DL_IMG_01" vr="DS" vm="1-n"/>
+<el tag="001900C3" owner="GEMS_DL_IMG_01" keyword="TableRotationAngleIncrement" vr="FL" vm="1-n">Table Rotation Angle Increment</el>
+<el tag="001900C4" owner="GEMS_DL_IMG_01" vr="IS" vm="1"/>
+<el tag="001900C7" owner="GEMS_DL_IMG_01" keyword="PatientPositionPerImage" vr="CS" vm="1">Patient Position per Image</el>
+<el tag="001900D7" owner="GEMS_DL_IMG_01" keyword="TableXPositionToIsocenterIncrement" vr="FL" vm="1-n">Table X Position to Iso‐center Increment</el>
+<el tag="001900D8" owner="GEMS_DL_IMG_01" keyword="TableYPositionToIsocenterIncrement" vr="FL" vm="1-n">Table Y Position to Iso‐center Increment</el>
+<el tag="001900D9" owner="GEMS_DL_IMG_01" keyword="TableZPositionToIsocenterIncrement" vr="FL" vm="1-n">Table Z Position to Iso‐center Increment</el>
+<el tag="001900DA" owner="GEMS_DL_IMG_01" keyword="TableHeadTiltAngleIncrement" vr="FL" vm="1-n">Table Head Tilt Angle Increment</el>
+<el tag="001900DC" owner="GEMS_DL_IMG_01" vr="LO" vm="1"/>
+<el tag="001900DE" owner="GEMS_DL_IMG_01" keyword="AcquisitionPlane" vr="CS" vm="1">Acquisition Plane</el>
+<el tag="001900DD" owner="GEMS_DL_IMG_01" vr="DS" vm="1"/>
+<el tag="001900E0" owner="GEMS_DL_IMG_01" vr="FL" vm="1"/>
+<el tag="001900E9" owner="GEMS_DL_IMG_01" keyword="SourceToDetectorDistancePerFrameVector" vr="FL" vm="1-n">Source to Detector Distance per Frame Vector</el>
+<el tag="001900EA" owner="GEMS_DL_IMG_01" keyword="TableRotationAngle" vr="FL" vm="1">Table Rotation Angle</el>
+<el tag="001900EB" owner="GEMS_DL_IMG_01" keyword="TableXPositionToIsocenter" vr="FL" vm="1">Table X Position to Iso‐center</el>
+<el tag="001900EC" owner="GEMS_DL_IMG_01" keyword="TableYPositionToIsocenter" vr="FL" vm="1">Table Y Position to Iso‐center</el>
+<el tag="001900ED" owner="GEMS_DL_IMG_01" keyword="TableZPositionToIsocenter" vr="FL" vm="1">Table Z Position to Iso‐center</el>
+<el tag="001900EE" owner="GEMS_DL_IMG_01" keyword="TableHeadTiltAngle" vr="FL" vm="1">Table Head Tilt Angle</el>
+<el tag="001900EF" owner="GEMS_DL_IMG_01" vr="FL" vm="1"/>
 <el tag="00190001" owner="DLX_SERIE_01" keyword="AngleValueLArm" vr="DS" vm="1">Angle Value L Arm</el>
 <el tag="00190002" owner="DLX_SERIE_01" keyword="AngleValuePArm" vr="DS" vm="1">Angle Value P Arm</el>
 <el tag="00190003" owner="DLX_SERIE_01" keyword="AngleValueCArm" vr="DS" vm="1">Angle Value C Arm</el>
@@ -924,8 +924,8 @@
 <el tag="00190026" owner="DLX_SERIE_01" keyword="RegressionIntercept" vr="DS" vm="1">LV Regression Intercept Coefficient</el>
 <el tag="00191027" owner="DLX_SERIE_01" keyword="ImageChainFWHMPsfMmMin" vr="DS" vm="1">Image chain FWHM psf mm min</el>
 <el tag="00191028" owner="DLX_SERIE_01" keyword="ImageChainFWHMPsfMmMax" vr="DS" vm="1">Image chain FWHM psf mm max</el>
-<el tag="0019004c" owner="GEMS_DL_SERIES_01" keyword="InternalLabel" vr="CS" vm="1">Internal Label</el>
-<el tag="0019004d" owner="GEMS_DL_SERIES_01" keyword="BrowserHide" vr="CS" vm="1">Browser Hide</el>
+<el tag="0019004C" owner="GEMS_DL_SERIES_01" keyword="InternalLabel" vr="CS" vm="1">Internal Label</el>
+<el tag="0019004D" owner="GEMS_DL_SERIES_01" keyword="BrowserHide" vr="CS" vm="1">Browser Hide</el>
 <el tag="00210003" owner="GEMS_RELA_01" keyword="SeriesFromWhichPrescribed" vr="SS" vm="1">Series From Which Prescribed</el>
 <el tag="00210005" owner="GEMS_RELA_01" keyword="GenesisVersionNow" vr="SH" vm="1">Genesis Version Now</el>
 <el tag="00210007" owner="GEMS_RELA_01" keyword="SeriesRecordChecksum" vr="UL" vm="1">Series Record Checksum</el>
@@ -937,9 +937,9 @@
 <el tag="00210035" owner="GEMS_RELA_01" keyword="SeriesFromWhichPrescribed" vr="SS" vm="1">Series From Which Prescribed</el>
 <el tag="00210036" owner="GEMS_RELA_01" keyword="ImageFromWhichPrescribed" vr="SS" vm="1">Image From Which Prescribed</el>
 <el tag="00210037" owner="GEMS_RELA_01" keyword="ScreenFormat" vr="SS" vm="1">Screen Format</el>
-<el tag="0021004a" owner="GEMS_RELA_01" keyword="AnatomicalReferenceForScout" vr="LO" vm="1">Anatomical Reference For Scout</el>
-<el tag="0021004e" owner="GEMS_RELA_01" vr="US" vm="1"/>
-<el tag="0021004f" owner="GEMS_RELA_01" keyword="LocationsInAcquisition" vr="SS" vm="1">Locations In Acquisition</el>
+<el tag="0021004A" owner="GEMS_RELA_01" keyword="AnatomicalReferenceForScout" vr="LO" vm="1">Anatomical Reference For Scout</el>
+<el tag="0021004E" owner="GEMS_RELA_01" vr="US" vm="1"/>
+<el tag="0021004F" owner="GEMS_RELA_01" keyword="LocationsInAcquisition" vr="SS" vm="1">Locations In Acquisition</el>
 <el tag="00210050" owner="GEMS_RELA_01" keyword="GraphicallyPrescribed" vr="SS" vm="1">Graphically Prescribed</el>
 <el tag="00210051" owner="GEMS_RELA_01" keyword="RotationFromSourceXRot" vr="DS" vm="1">Rotation From Source X Rot</el>
 <el tag="00210052" owner="GEMS_RELA_01" keyword="RotationFromSourceYRot" vr="DS" vm="1">Rotation From Source Y Rot</el>
@@ -950,12 +950,12 @@
 <el tag="00210057" owner="GEMS_RELA_01" keyword="LocsPer3DSlab" vr="SL" vm="1">Locs per 3D slab</el>
 <el tag="00210058" owner="GEMS_RELA_01" keyword="Overlaps" vr="SL" vm="1">Overlaps</el>
 <el tag="00210059" owner="GEMS_RELA_01" keyword="ImageFiltering" vr="SL" vm="1">Image Filtering 0.5/0.2T</el>
-<el tag="0021005a" owner="GEMS_RELA_01" keyword="DiffusionDirection" vr="SL" vm="1">Diffusion direction</el>
-<el tag="0021005b" owner="GEMS_RELA_01" keyword="TaggingFlipAngle" vr="DS" vm="1">Tagging Flip Angle</el>
-<el tag="0021005c" owner="GEMS_RELA_01" keyword="TaggingOrientation" vr="DS" vm="1">Tagging Orientation</el>
-<el tag="0021005d" owner="GEMS_RELA_01" keyword="TagSpacing" vr="DS" vm="1">Tag Spacing</el>
-<el tag="0021005e" owner="GEMS_RELA_01" keyword="RTIATimer" vr="DS" vm="1">RTIA_timer</el>
-<el tag="0021005f" owner="GEMS_RELA_01" keyword="Fps" vr="DS" vm="1">Fps</el>
+<el tag="0021005A" owner="GEMS_RELA_01" keyword="DiffusionDirection" vr="SL" vm="1">Diffusion direction</el>
+<el tag="0021005B" owner="GEMS_RELA_01" keyword="TaggingFlipAngle" vr="DS" vm="1">Tagging Flip Angle</el>
+<el tag="0021005C" owner="GEMS_RELA_01" keyword="TaggingOrientation" vr="DS" vm="1">Tagging Orientation</el>
+<el tag="0021005D" owner="GEMS_RELA_01" keyword="TagSpacing" vr="DS" vm="1">Tag Spacing</el>
+<el tag="0021005E" owner="GEMS_RELA_01" keyword="RTIATimer" vr="DS" vm="1">RTIA_timer</el>
+<el tag="0021005F" owner="GEMS_RELA_01" keyword="Fps" vr="DS" vm="1">Fps</el>
 <el tag="00210070" owner="GEMS_RELA_01" vr="LT" vm="1"/>
 <el tag="00210071" owner="GEMS_RELA_01" vr="LT" vm="1"/>
 <el tag="00210081" owner="GEMS_RELA_01" keyword="AutoWindowLevelAlpha" vr="DS" vm="1">Auto Window Level Alpha</el>
@@ -978,12 +978,12 @@
 <el tag="00210017" owner="Mayo/IBM Archive Project" vr="UN" vm="1"/>
 <el tag="00210018" owner="Mayo/IBM Archive Project" vr="UN" vm="1"/>
 <el tag="00210019" owner="Mayo/IBM Archive Project" vr="UN" vm="1"/>
-<el tag="0021001a" owner="Mayo/IBM Archive Project" vr="UN" vm="1"/>
-<el tag="0021001b" owner="Mayo/IBM Archive Project" vr="UN" vm="1"/>
-<el tag="0021001c" owner="Mayo/IBM Archive Project" vr="UN" vm="1"/>
-<el tag="0021001d" owner="Mayo/IBM Archive Project" vr="UN" vm="1"/>
-<el tag="0021001e" owner="Mayo/IBM Archive Project" vr="UN" vm="1"/>
-<el tag="0021001f" owner="Mayo/IBM Archive Project" vr="UN" vm="1"/>
+<el tag="0021001A" owner="Mayo/IBM Archive Project" vr="UN" vm="1"/>
+<el tag="0021001B" owner="Mayo/IBM Archive Project" vr="UN" vm="1"/>
+<el tag="0021001C" owner="Mayo/IBM Archive Project" vr="UN" vm="1"/>
+<el tag="0021001D" owner="Mayo/IBM Archive Project" vr="UN" vm="1"/>
+<el tag="0021001E" owner="Mayo/IBM Archive Project" vr="UN" vm="1"/>
+<el tag="0021001F" owner="Mayo/IBM Archive Project" vr="UN" vm="1"/>
 <el tag="00210020" owner="Mayo/IBM Archive Project" vr="UN" vm="1"/>
 <el tag="00210040" owner="Mayo/IBM Archive Project" vr="UN" vm="1"/>
 <el tag="00210041" owner="Mayo/IBM Archive Project" vr="UN" vm="1"/>
@@ -1044,7 +1044,7 @@
 <el tag="00230070" owner="GEMS_ACRQA_2.0 BLOCK1" keyword="CRFilmOutputExposure" vr="LO" vm="1">CR Film Output Exposure</el>
 <el tag="00230070" owner="GEMS_ACRQA_2.0 BLOCK3" keyword="CRMachineType" vr="LO" vm="1">CR Machine Type</el>
 <el tag="00230074" owner="GEMS_STDY_01" keyword="NumberOfUpdatesToHeader" vr="SL" vm="1">Number Of Updates To Header</el>
-<el tag="0023007d" owner="GEMS_STDY_01" keyword="IndicatesIfStudyHasCompleteInfo" vr="SS" vm="1">Indicates If Study Has Complete Info</el>
+<el tag="0023007D" owner="GEMS_STDY_01" keyword="IndicatesIfStudyHasCompleteInfo" vr="SS" vm="1">Indicates If Study Has Complete Info</el>
 <el tag="00230080" owner="GEMS_STDY_01" keyword="HasMPPSRelatedTags" vr="SQ" vm="1">Has MPPS Related Tags</el>
 <el tag="00230080" owner="GEMS_ACRQA_1.0 BLOCK1" keyword="CRFilmFormat" vr="LO" vm="1">CR Film Format</el>
 <el tag="00230080" owner="GEMS_ACRQA_1.0 BLOCK3" keyword="CRTechnicianCode" vr="LO" vm="1">CR Technician Code</el>
@@ -1058,8 +1058,8 @@
 <el tag="00230090" owner="GEMS_ACRQA_1.0 BLOCK3" keyword="CREnergySubtractionParameters" vr="LO" vm="1">CR Energy Subtraction Parameters</el>
 <el tag="00230090" owner="GEMS_ACRQA_2.0 BLOCK1" keyword="CRSShiftString" vr="LO" vm="1">CR S Shift String</el>
 <el tag="00230090" owner="GEMS_ACRQA_2.0 BLOCK3" keyword="CREnergySubtractionParameters" vr="LO" vm="1">CR Energy Subtraction Parameters</el>
-<el tag="002300f0" owner="GEMS_ACRQA_2.0 BLOCK3" keyword="CRDistributionCode" vr="LO" vm="1">CR Distribution Code</el>
-<el tag="002300ff" owner="GEMS_ACRQA_2.0 BLOCK3" keyword="CRShuttersApplied" vr="US" vm="1">CR Shutters Applied</el>
+<el tag="002300F0" owner="GEMS_ACRQA_2.0 BLOCK3" keyword="CRDistributionCode" vr="LO" vm="1">CR Distribution Code</el>
+<el tag="002300FF" owner="GEMS_ACRQA_2.0 BLOCK3" keyword="CRShuttersApplied" vr="US" vm="1">CR Shutters Applied</el>
 <el tag="00230001" owner="GEMS_3D_INTVL_01" keyword="XRayMarkerSequence" vr="SQ" vm="1">X-Ray Marker Sequence</el>
 <el tag="00230002" owner="GEMS_3D_INTVL_01" keyword="MarkerID" vr="SH" vm="1">Marker ID</el>
 <el tag="00230003" owner="GEMS_3D_INTVL_01" keyword="MarkerType" vr="CS" vm="1">Marker Type</el>
@@ -1105,8 +1105,8 @@
 <el tag="00250017" owner="GEMS_SERS_01" keyword="SeriesCompleteFlag" vr="SL" vm="1">Series Complete Flag</el>
 <el tag="00250018" owner="GEMS_SERS_01" keyword="NumberOfImagesArchived" vr="SL" vm="1">Number Of Images Archived</el>
 <el tag="00250019" owner="GEMS_SERS_01" keyword="LastInstanceNumberUsed" vr="SL" vm="1">Last Instance Number Used</el>
-<el tag="0025001a" owner="GEMS_SERS_01" keyword="PrimaryReceiverSuiteAndHost" vr="SH" vm="1">Primary Receiver Suite And Host</el>
-<el tag="0025001b" owner="GEMS_SERS_01" keyword="ProtocolDataBlockCompressed" vr="OB" vm="1">Protocol Data Block (compressed)</el>
+<el tag="0025001A" owner="GEMS_SERS_01" keyword="PrimaryReceiverSuiteAndHost" vr="SH" vm="1">Primary Receiver Suite And Host</el>
+<el tag="0025001B" owner="GEMS_SERS_01" keyword="ProtocolDataBlockCompressed" vr="OB" vm="1">Protocol Data Block (compressed)</el>
 <el tag="00250002" owner="GEMS_DL_FRAME_01" keyword="FrameID" vr="IS" vm="1">Frame ID</el>
 <el tag="00250003" owner="GEMS_DL_FRAME_01" keyword="DistanceSourceToDetector" vr="DS" vm="1">Distance Source to Detector</el>
 <el tag="00250004" owner="GEMS_DL_FRAME_01" keyword="DistanceSourceToPatient" vr="DS" vm="1">Distance Source to Patient</el>
@@ -1152,10 +1152,10 @@
 <el tag="0025003C" owner="GEMS_DL_FRAME_01" keyword="InternalLabelFrame" vr="CS" vm="1">Internal Label Frame</el>
 <el tag="00270006" owner="GEMS_IMAG_01" keyword="ImageArchiveFlag" vr="SL" vm="1">Image Archive Flag</el>
 <el tag="00270010" owner="GEMS_IMAG_01" keyword="ScoutType" vr="SS" vm="1">Scout Type</el>
-<el tag="0027001c" owner="GEMS_IMAG_01" keyword="VmaMamp" vr="SL" vm="1">Vma Mamp</el>
-<el tag="0027001d" owner="GEMS_IMAG_01" keyword="VmaPhase" vr="SS" vm="1">Vma Phase</el>
-<el tag="0027001e" owner="GEMS_IMAG_01" keyword="VmaMod" vr="SL" vm="1">Vma Mod</el>
-<el tag="0027001f" owner="GEMS_IMAG_01" keyword="VmaClipOrNoiseIndexBy10" vr="SL" vm="1">Vma Clip or Noise Index by 10</el>
+<el tag="0027001C" owner="GEMS_IMAG_01" keyword="VmaMamp" vr="SL" vm="1">Vma Mamp</el>
+<el tag="0027001D" owner="GEMS_IMAG_01" keyword="VmaPhase" vr="SS" vm="1">Vma Phase</el>
+<el tag="0027001E" owner="GEMS_IMAG_01" keyword="VmaMod" vr="SL" vm="1">Vma Mod</el>
+<el tag="0027001F" owner="GEMS_IMAG_01" keyword="VmaClipOrNoiseIndexBy10" vr="SL" vm="1">Vma Clip or Noise Index by 10</el>
 <el tag="00270020" owner="GEMS_IMAG_01" keyword="SmartScanOnOffFlag" vr="SS" vm="1">Smart Scan On Off Flag</el>
 <el tag="00270030" owner="GEMS_IMAG_01" keyword="ForeignImageRevision" vr="SH" vm="1">Foreign Image Revision</el>
 <el tag="00270031" owner="GEMS_IMAG_01" keyword="ImagingMode" vr="SS" vm="1">Imaging Mode</el>
@@ -1173,10 +1173,10 @@
 <el tag="00270047" owner="GEMS_IMAG_01" keyword="NormalSCoord" vr="FL" vm="1">Normal S Coord</el>
 <el tag="00270048" owner="GEMS_IMAG_01" keyword="RCoordOfTopRightCorner" vr="FL" vm="1">R Coord Of Top Right Corner</el>
 <el tag="00270049" owner="GEMS_IMAG_01" keyword="ACoordOfTopRightCorner" vr="FL" vm="1">A Coord Of Top Right Corner</el>
-<el tag="0027004a" owner="GEMS_IMAG_01" keyword="SCoordOfTopRightCorner" vr="FL" vm="1">S Coord Of Top Right Corner</el>
-<el tag="0027004b" owner="GEMS_IMAG_01" keyword="RCoordOfBottomRightCorner" vr="FL" vm="1">R Coord Of Bottom Right Corner</el>
-<el tag="0027004c" owner="GEMS_IMAG_01" keyword="ACoordOfBottomRightCorner" vr="FL" vm="1">A Coord Of Bottom Right Corner</el>
-<el tag="0027004d" owner="GEMS_IMAG_01" keyword="SCoordOfBottomRightCorner" vr="FL" vm="1">S Coord Of Bottom Right Corner</el>
+<el tag="0027004A" owner="GEMS_IMAG_01" keyword="SCoordOfTopRightCorner" vr="FL" vm="1">S Coord Of Top Right Corner</el>
+<el tag="0027004B" owner="GEMS_IMAG_01" keyword="RCoordOfBottomRightCorner" vr="FL" vm="1">R Coord Of Bottom Right Corner</el>
+<el tag="0027004C" owner="GEMS_IMAG_01" keyword="ACoordOfBottomRightCorner" vr="FL" vm="1">A Coord Of Bottom Right Corner</el>
+<el tag="0027004D" owner="GEMS_IMAG_01" keyword="SCoordOfBottomRightCorner" vr="FL" vm="1">S Coord Of Bottom Right Corner</el>
 <el tag="00270050" owner="GEMS_IMAG_01" keyword="TableStartLocation" vr="FL" vm="1">Table Start Location (Scout)</el>
 <el tag="00270051" owner="GEMS_IMAG_01" keyword="TableEndLocation" vr="FL" vm="1">Table End Location (Scout)</el>
 <el tag="00270052" owner="GEMS_IMAG_01" keyword="RASLetterForSideOfImage" vr="SH" vm="1">RAS Letter For Side Of Image</el>
@@ -1192,12 +1192,12 @@
 <el tag="00290007" owner="GEMS_IMPS_01" vr="SL" vm="1"/>
 <el tag="00290008" owner="GEMS_IMPS_01" vr="SH" vm="1"/>
 <el tag="00290009" owner="GEMS_IMPS_01" vr="SH" vm="1"/>
-<el tag="0029000a" owner="GEMS_IMPS_01" vr="SS" vm="1"/>
+<el tag="0029000A" owner="GEMS_IMPS_01" vr="SS" vm="1"/>
 <el tag="00290015" owner="GEMS_IMPS_01" keyword="LowerRangeOfPixels1" vr="SL" vm="1">Lower Range Of Pixels1</el>
 <el tag="00290016" owner="GEMS_IMPS_01" keyword="UpperRangeOfPixels1" vr="SL" vm="1">Upper Range Of Pixels1</el>
 <el tag="00290017" owner="GEMS_IMPS_01" keyword="LowerRangeOfPixels2" vr="SL" vm="1">Lower Range Of Pixels2</el>
 <el tag="00290018" owner="GEMS_IMPS_01" keyword="UpperRangeOfPixels2" vr="SL" vm="1">Upper Range Of Pixels2</el>
-<el tag="0029001a" owner="GEMS_IMPS_01" keyword="LengthOfTotalHeaderInBytes" vr="SL" vm="1">Length Of Total Header In Bytes</el>
+<el tag="0029001A" owner="GEMS_IMPS_01" keyword="LengthOfTotalHeaderInBytes" vr="SL" vm="1">Length Of Total Header In Bytes</el>
 <el tag="00290026" owner="GEMS_IMPS_01" keyword="VersionOfHeaderStructure" vr="SS" vm="1">Version Of Header Structure</el>
 <el tag="00290034" owner="GEMS_IMPS_01" keyword="AdvantageCompOverflow" vr="SL" vm="1">Advantage Comp Overflow</el>
 <el tag="00290035" owner="GEMS_IMPS_01" keyword="AdvantageCompUnderflow" vr="SL" vm="1">Advantage Comp Underflow</el>
@@ -1214,12 +1214,12 @@
 <el tag="00330017" owner="GEMS_GENIE_1" keyword="Date" vr="SH" vm="1">Date</el>
 <el tag="00330018" owner="GEMS_GENIE_1" keyword="Time" vr="SH" vm="1">Time</el>
 <el tag="00330019" owner="GEMS_GENIE_1" keyword="ProtocolDataFlags" vr="UL" vm="1">Protocol Data Flags</el>
-<el tag="0033001a" owner="GEMS_GENIE_1" keyword="ProtocolName" vr="UL" vm="1">Protocol Name</el>
-<el tag="0033001b" owner="GEMS_GENIE_1" keyword="RelevantDataUID" vr="LO" vm="1">Relevant Data UID</el>
-<el tag="0033001c" owner="GEMS_GENIE_1" keyword="BulkData" vr="LO" vm="1">Bulk Data</el>
-<el tag="0033001d" owner="GEMS_GENIE_1" keyword="IntData" vr="SL" vm="1-n">Int Data</el>
-<el tag="0033001e" owner="GEMS_GENIE_1" keyword="DoubleData" vr="FD" vm="1-n">Double Data</el>
-<el tag="0033001f" owner="GEMS_GENIE_1" keyword="StringData" vr="OB" vm="1">String Data</el>
+<el tag="0033001A" owner="GEMS_GENIE_1" keyword="ProtocolName" vr="UL" vm="1">Protocol Name</el>
+<el tag="0033001B" owner="GEMS_GENIE_1" keyword="RelevantDataUID" vr="LO" vm="1">Relevant Data UID</el>
+<el tag="0033001C" owner="GEMS_GENIE_1" keyword="BulkData" vr="LO" vm="1">Bulk Data</el>
+<el tag="0033001D" owner="GEMS_GENIE_1" keyword="IntData" vr="SL" vm="1-n">Int Data</el>
+<el tag="0033001E" owner="GEMS_GENIE_1" keyword="DoubleData" vr="FD" vm="1-n">Double Data</el>
+<el tag="0033001F" owner="GEMS_GENIE_1" keyword="StringData" vr="OB" vm="1">String Data</el>
 <el tag="00330020" owner="GEMS_GENIE_1" keyword="BulkDataFormat" vr="LT" vm="1-n">Bulk Data Format</el>
 <el tag="00330021" owner="GEMS_GENIE_1" keyword="IntDataFormat" vr="LT" vm="1-n">Int Data Format</el>
 <el tag="00330022" owner="GEMS_GENIE_1" keyword="DoubleDataFormat" vr="LT" vm="1-n">Double Data Format</el>
@@ -1265,12 +1265,12 @@
 <el tag="00430007" owner="GEMS_PARM_01" keyword="ViewsPerSegment" vr="SS" vm="1">Views Per Segment</el>
 <el tag="00430008" owner="GEMS_PARM_01" keyword="RespiratoryRateInBPM" vr="SS" vm="1">Respiratory Rate In BPM</el>
 <el tag="00430009" owner="GEMS_PARM_01" keyword="RespiratoryTriggerPoint" vr="SS" vm="1">Respiratory Trigger Point</el>
-<el tag="0043000a" owner="GEMS_PARM_01" keyword="TypeOfReceiverUsed" vr="SS" vm="1">Type Of Receiver Used</el>
-<el tag="0043000b" owner="GEMS_PARM_01" keyword="PeakRateOfChangeOfGradientField" vr="DS" vm="1">dB/dt Peak Rate Of Change Of Gradient Field</el>
-<el tag="0043000c" owner="GEMS_PARM_01" keyword="LimitsInUnitsOfPercent" vr="DS" vm="1">dB/dt Limits In Units Of Percent</el>
-<el tag="0043000d" owner="GEMS_PARM_01" keyword="PSDEstimatedLimit" vr="DS" vm="1">PSD Estimated Limit</el>
-<el tag="0043000e" owner="GEMS_PARM_01" keyword="PSDEstimatedLimitInTeslaPerSecond" vr="DS" vm="1">PSD Estimated Limit In Tesla Per Second</el>
-<el tag="0043000f" owner="GEMS_PARM_01" keyword="SARAvgHead" vr="DS" vm="1">SAR Avg Head</el>
+<el tag="0043000A" owner="GEMS_PARM_01" keyword="TypeOfReceiverUsed" vr="SS" vm="1">Type Of Receiver Used</el>
+<el tag="0043000B" owner="GEMS_PARM_01" keyword="PeakRateOfChangeOfGradientField" vr="DS" vm="1">dB/dt Peak Rate Of Change Of Gradient Field</el>
+<el tag="0043000C" owner="GEMS_PARM_01" keyword="LimitsInUnitsOfPercent" vr="DS" vm="1">dB/dt Limits In Units Of Percent</el>
+<el tag="0043000D" owner="GEMS_PARM_01" keyword="PSDEstimatedLimit" vr="DS" vm="1">PSD Estimated Limit</el>
+<el tag="0043000E" owner="GEMS_PARM_01" keyword="PSDEstimatedLimitInTeslaPerSecond" vr="DS" vm="1">PSD Estimated Limit In Tesla Per Second</el>
+<el tag="0043000F" owner="GEMS_PARM_01" keyword="SARAvgHead" vr="DS" vm="1">SAR Avg Head</el>
 <el tag="00430010" owner="GEMS_PARM_01" keyword="WindowValue" vr="US" vm="1">Window Value</el>
 <el tag="00430011" owner="GEMS_PARM_01" keyword="TotalInputViews" vr="US" vm="1">Total Input Views</el>
 <el tag="00430012" owner="GEMS_PARM_01" keyword="XrayChain" vr="SS" vm="3">Xray Chain</el>
@@ -1281,13 +1281,13 @@
 <el tag="00430017" owner="GEMS_PARM_01" keyword="IBHImageScaleFactors" vr="DS" vm="1">IBH Image Scale Factors</el>
 <el tag="00430018" owner="GEMS_PARM_01" keyword="BBHCoefficients" vr="DS" vm="3">BBH Coefficients</el>
 <el tag="00430019" owner="GEMS_PARM_01" keyword="NumberOfBBHChainsToBlend" vr="SS" vm="1">Number Of BBH Chains To Blend</el>
-<el tag="0043001a" owner="GEMS_PARM_01" keyword="StartingChannelNumber" vr="SL" vm="1">Starting Channel Number</el>
-<el tag="0043001b" owner="GEMS_PARM_01" keyword="PPScanParameters" vr="SS" vm="1">PPScan Parameters</el>
-<el tag="0043001c" owner="GEMS_PARM_01" keyword="GEImageIntegrity" vr="SS" vm="1">GE Image Integrity</el>
-<el tag="0043001d" owner="GEMS_PARM_01" keyword="LevelValue" vr="SS" vm="1">Level Value</el>
-<el tag="0043001e" owner="GEMS_PARM_01" keyword="DeltaStartTime" vr="DS" vm="1">Delta Start Time</el>
-<el tag="0043001e" owner="GE_GENESIS_REV3.0" keyword="DeltaStartTime" vr="DS" vm="1">Delta Start Time</el>
-<el tag="0043001f" owner="GEMS_PARM_01" keyword="MaxOverrangesInAView" vr="SL" vm="1">Max Overranges In A View</el>
+<el tag="0043001A" owner="GEMS_PARM_01" keyword="StartingChannelNumber" vr="SL" vm="1">Starting Channel Number</el>
+<el tag="0043001B" owner="GEMS_PARM_01" keyword="PPScanParameters" vr="SS" vm="1">PPScan Parameters</el>
+<el tag="0043001C" owner="GEMS_PARM_01" keyword="GEImageIntegrity" vr="SS" vm="1">GE Image Integrity</el>
+<el tag="0043001D" owner="GEMS_PARM_01" keyword="LevelValue" vr="SS" vm="1">Level Value</el>
+<el tag="0043001E" owner="GEMS_PARM_01" keyword="DeltaStartTime" vr="DS" vm="1">Delta Start Time</el>
+<el tag="0043001E" owner="GE_GENESIS_REV3.0" keyword="DeltaStartTime" vr="DS" vm="1">Delta Start Time</el>
+<el tag="0043001F" owner="GEMS_PARM_01" keyword="MaxOverrangesInAView" vr="SL" vm="1">Max Overranges In A View</el>
 <el tag="00430020" owner="GEMS_PARM_01" keyword="AvgOverrangesAllViews" vr="DS" vm="1">Avg Overranges All Views</el>
 <el tag="00430021" owner="GEMS_PARM_01" keyword="CorrectedAfterglowTerms" vr="SS" vm="1">Corrected Afterglow Terms</el>
 <el tag="00430025" owner="GEMS_PARM_01" keyword="ReferenceChannels" vr="SS" vm="6">Reference Channels</el>
@@ -1296,12 +1296,12 @@
 <el tag="00430027" owner="GE_GENESIS_REV3.0" keyword="ScanPitchRatio" vr="SH" vm="1">Scan Pitch Ratio</el>
 <el tag="00430028" owner="GEMS_PARM_01" keyword="UniqueImageIdentifier" vr="OB" vm="1">Unique Image Identifier</el>
 <el tag="00430029" owner="GEMS_PARM_01" keyword="HistogramTables" vr="OB" vm="1">Histogram Tables</el>
-<el tag="0043002a" owner="GEMS_PARM_01" keyword="UserDefinedData" vr="OB" vm="1">User Defined Data</el>
-<el tag="0043002b" owner="GEMS_PARM_01" keyword="PrivateScanOptions" vr="SS" vm="4">Private Scan Options</el>
-<el tag="0043002c" owner="GEMS_PARM_01" keyword="EffectiveEchoSpacing" vr="SS" vm="1">Effective Echo Spacing</el>
-<el tag="0043002d" owner="GEMS_PARM_01" keyword="FilterMode" vr="SH" vm="1">Filter Mode</el>
-<el tag="0043002e" owner="GEMS_PARM_01" keyword="StringSlopField2" vr="SH" vm="1">String Slop Field 2</el>
-<el tag="0043002f" owner="GEMS_PARM_01" keyword="ImageType" vr="SS" vm="1">Image Type (Real,Imaginary,Phase,Magnitude)</el>
+<el tag="0043002A" owner="GEMS_PARM_01" keyword="UserDefinedData" vr="OB" vm="1">User Defined Data</el>
+<el tag="0043002B" owner="GEMS_PARM_01" keyword="PrivateScanOptions" vr="SS" vm="4">Private Scan Options</el>
+<el tag="0043002C" owner="GEMS_PARM_01" keyword="EffectiveEchoSpacing" vr="SS" vm="1">Effective Echo Spacing</el>
+<el tag="0043002D" owner="GEMS_PARM_01" keyword="FilterMode" vr="SH" vm="1">Filter Mode</el>
+<el tag="0043002E" owner="GEMS_PARM_01" keyword="StringSlopField2" vr="SH" vm="1">String Slop Field 2</el>
+<el tag="0043002F" owner="GEMS_PARM_01" keyword="ImageType" vr="SS" vm="1">Image Type (Real,Imaginary,Phase,Magnitude)</el>
 <el tag="00430030" owner="GEMS_PARM_01" keyword="VasCollapseFlag" vr="SS" vm="1">Vas Collapse Flag</el>
 <el tag="00430031" owner="GEMS_PARM_01" keyword="ReconCenterCoordinates" vr="DS" vm="2">Recon Center Coordinates</el>
 <el tag="00430032" owner="GEMS_PARM_01" keyword="VasFlags" vr="SS" vm="1">Vas Flags</el>
@@ -1322,11 +1322,11 @@
 <el tag="00430047" owner="GEMS_PARM_01" keyword="DASCalFrequency" vr="SL" vm="4">DAS Cal Frequency</el>
 <el tag="00430048" owner="GEMS_PARM_01" keyword="DASRegXm" vr="SL" vm="4">DAS Reg Xm</el>
 <el tag="00430049" owner="GEMS_PARM_01" keyword="DASAutoZero" vr="SL" vm="4">DAS Auto Zero</el>
-<el tag="0043004a" owner="GEMS_PARM_01" keyword="StartingChannelOfView" vr="SS" vm="4">Starting Channel Of View</el>
-<el tag="0043004b" owner="GEMS_PARM_01" keyword="DASXmPattern" vr="SL" vm="4">DAS Xm Pattern</el>
-<el tag="0043004c" owner="GEMS_PARM_01" keyword="TGGCTriggerMode" vr="SS" vm="4">TGGC Trigger Mode</el>
-<el tag="0043004d" owner="GEMS_PARM_01" keyword="StartScanToXrayOnDelay" vr="FL" vm="4">Start Scan To Xray On Delay</el>
-<el tag="0043004e" owner="GEMS_PARM_01" keyword="DurationOfXrayOn" vr="FL" vm="4">Duration Of Xray On</el>
+<el tag="0043004A" owner="GEMS_PARM_01" keyword="StartingChannelOfView" vr="SS" vm="4">Starting Channel Of View</el>
+<el tag="0043004B" owner="GEMS_PARM_01" keyword="DASXmPattern" vr="SL" vm="4">DAS Xm Pattern</el>
+<el tag="0043004C" owner="GEMS_PARM_01" keyword="TGGCTriggerMode" vr="SS" vm="4">TGGC Trigger Mode</el>
+<el tag="0043004D" owner="GEMS_PARM_01" keyword="StartScanToXrayOnDelay" vr="FL" vm="4">Start Scan To Xray On Delay</el>
+<el tag="0043004E" owner="GEMS_PARM_01" keyword="DurationOfXrayOn" vr="FL" vm="4">Duration Of Xray On</el>
 <el tag="00430060" owner="GEMS_PARM_01" keyword="SlopInteger10ToSlopInteger17" vr="IS" vm="8">Slop Integer 10 To Slop Integer 17</el>
 <el tag="00430061" owner="GEMS_PARM_01" keyword="ScannerStudyEntityUID" vr="UI" vm="1">Scanner Study Entity UID</el>
 <el tag="00430062" owner="GEMS_PARM_01" keyword="ScannerStudyID" vr="SH" vm="1">Scanner Study ID</el>
@@ -1337,12 +1337,12 @@
 <el tag="00430067" owner="GEMS_PARM_01" keyword="IBOCorrectionIndicator" vr="US" vm="1">IBO Correction Indicator</el>
 <el tag="00430068" owner="GEMS_PARM_01" keyword="IXTCorrectionIndicator" vr="US" vm="1">XT Correction Indicator</el>
 <el tag="00430069" owner="GEMS_PARM_01" keyword="QcalCorrectionIndicator" vr="US" vm="1">Q-cal Correction Indicator</el>
-<el tag="0043006a" owner="GEMS_PARM_01" keyword="AVCorrectionIndicator" vr="US" vm="1">AV Correction Indicator</el>
-<el tag="0043006b" owner="GEMS_PARM_01" keyword="LMDKCorrectionIndicator" vr="US" vm="1">L-MDK Correction Indicator</el>
-<el tag="0043006c" owner="GEMS_PARM_01" keyword="DetectorRow" vr="IS" vm="1">Detector Row</el>
-<el tag="0043006d" owner="GEMS_PARM_01" keyword="AreaSize" vr="US" vm="1">Area Size</el>
-<el tag="0043006e" owner="GEMS_PARM_01" keyword="AutoMAMode" vr="SH" vm="1">Auto mA Mode</el>
-<el tag="0043006f" owner="GEMS_PARM_01" keyword="ScannerTableEntry" vr="DS" vm="3-4">Scanner Table Entry + Gradient Coil Selected</el>
+<el tag="0043006A" owner="GEMS_PARM_01" keyword="AVCorrectionIndicator" vr="US" vm="1">AV Correction Indicator</el>
+<el tag="0043006B" owner="GEMS_PARM_01" keyword="LMDKCorrectionIndicator" vr="US" vm="1">L-MDK Correction Indicator</el>
+<el tag="0043006C" owner="GEMS_PARM_01" keyword="DetectorRow" vr="IS" vm="1">Detector Row</el>
+<el tag="0043006D" owner="GEMS_PARM_01" keyword="AreaSize" vr="US" vm="1">Area Size</el>
+<el tag="0043006E" owner="GEMS_PARM_01" keyword="AutoMAMode" vr="SH" vm="1">Auto mA Mode</el>
+<el tag="0043006F" owner="GEMS_PARM_01" keyword="ScannerTableEntry" vr="DS" vm="3-4">Scanner Table Entry + Gradient Coil Selected</el>
 <el tag="00430070" owner="GEMS_PARM_01" keyword="ParadigmName" vr="LO" vm="1">Paradigm Name</el>
 <el tag="00430071" owner="GEMS_PARM_01" keyword="ParadigmDescription" vr="ST" vm="1">Paradigm Description</el>
 <el tag="00430072" owner="GEMS_PARM_01" keyword="ParadigmUID" vr="UI" vm="1">Paradigm UID</el>
@@ -1353,12 +1353,12 @@
 <el tag="00430077" owner="GEMS_PARM_01" keyword="ApplicationName" vr="SH" vm="1">Application Name</el>
 <el tag="00430078" owner="GEMS_PARM_01" keyword="ApplicationVersion" vr="SH" vm="1">Application Version</el>
 <el tag="00430079" owner="GEMS_PARM_01" keyword="SlicesPerVolume" vr="US" vm="1">Slices Per Volume</el>
-<el tag="0043007a" owner="GEMS_PARM_01" keyword="ExpectedTimePoints" vr="US" vm="1">Expected Time Points</el>
-<el tag="0043007b" owner="GEMS_PARM_01" keyword="RegressorValues" vr="FL" vm="1-n">Regressor Values</el>
-<el tag="0043007c" owner="GEMS_PARM_01" keyword="DelayAfterSliceGroup" vr="FL" vm="1">Delay After Slice Group</el>
-<el tag="0043007d" owner="GEMS_PARM_01" keyword="ReconModeFlagWord" vr="US" vm="1">Recon Mode Flag Word</el>
-<el tag="0043007e" owner="GEMS_PARM_01" keyword="PACCSpecificInformation" vr="LO" vm="1-n">PACC Specific Information</el>
-<el tag="0043007f" owner="GEMS_PARM_01" keyword="Reserved" vr="DS" vm="1-n">Reserved</el>
+<el tag="0043007A" owner="GEMS_PARM_01" keyword="ExpectedTimePoints" vr="US" vm="1">Expected Time Points</el>
+<el tag="0043007B" owner="GEMS_PARM_01" keyword="RegressorValues" vr="FL" vm="1-n">Regressor Values</el>
+<el tag="0043007C" owner="GEMS_PARM_01" keyword="DelayAfterSliceGroup" vr="FL" vm="1">Delay After Slice Group</el>
+<el tag="0043007D" owner="GEMS_PARM_01" keyword="ReconModeFlagWord" vr="US" vm="1">Recon Mode Flag Word</el>
+<el tag="0043007E" owner="GEMS_PARM_01" keyword="PACCSpecificInformation" vr="LO" vm="1-n">PACC Specific Information</el>
+<el tag="0043007F" owner="GEMS_PARM_01" keyword="Reserved" vr="DS" vm="1-n">Reserved</el>
 <el tag="00430080" owner="GEMS_PARM_01" keyword="CoilIDData" vr="LO" vm="1-n">Coil ID Data</el>
 <el tag="00430081" owner="GEMS_PARM_01" keyword="GECoilName" vr="LO" vm="1">GE Coil Name</el>
 <el tag="00430082" owner="GEMS_PARM_01" keyword="SystemConfigurationInformation" vr="LO" vm="1-n">System Configuration Information</el>
@@ -1369,12 +1369,12 @@
 <el tag="00430087" owner="GEMS_PARM_01" keyword="Reserved" vr="UT" vm="1">Reserved</el>
 <el tag="00430088" owner="GEMS_PARM_01" keyword="PUREAcquisitionCalibrationSeriesUID" vr="UI" vm="1">PURE Acquisition Calibration Series UID</el>
 <el tag="00430089" owner="GEMS_PARM_01" keyword="GoverningBodyDBdtSARDefinition" vr="LO" vm="3">Governing Body, dB/dt, and SAR definition</el>
-<el tag="0043008a" owner="GEMS_PARM_01" keyword="PrivateInPlanePhaseEncodingDirection" vr="CS" vm="1">Private In-Plane Phase Encoding Direction</el>
-<el tag="0043008b" owner="GEMS_PARM_01" keyword="FMRIBinaryDataBlock" vr="OB" vm="1">FMRI Binary Data Block</el>
-<el tag="0043008c" owner="GEMS_PARM_01" keyword="VoxelLocation" vr="DS" vm="1">Voxel Location</el>
-<el tag="0043008d" owner="GEMS_PARM_01" keyword="SATBandLocations" vr="DS" vm="1-n">SAT Band Locations</el>
-<el tag="0043008e" owner="GEMS_PARM_01" keyword="SpectroPrescanValues" vr="DS" vm="3">Spectro Prescan Values</el>
-<el tag="0043008f" owner="GEMS_PARM_01" keyword="SpectroParameters" vr="DS" vm="3">Spectro Parameters</el>
+<el tag="0043008A" owner="GEMS_PARM_01" keyword="PrivateInPlanePhaseEncodingDirection" vr="CS" vm="1">Private In-Plane Phase Encoding Direction</el>
+<el tag="0043008B" owner="GEMS_PARM_01" keyword="FMRIBinaryDataBlock" vr="OB" vm="1">FMRI Binary Data Block</el>
+<el tag="0043008C" owner="GEMS_PARM_01" keyword="VoxelLocation" vr="DS" vm="1">Voxel Location</el>
+<el tag="0043008D" owner="GEMS_PARM_01" keyword="SATBandLocations" vr="DS" vm="1-n">SAT Band Locations</el>
+<el tag="0043008E" owner="GEMS_PARM_01" keyword="SpectroPrescanValues" vr="DS" vm="3">Spectro Prescan Values</el>
+<el tag="0043008F" owner="GEMS_PARM_01" keyword="SpectroParameters" vr="DS" vm="3">Spectro Parameters</el>
 <el tag="00430090" owner="GEMS_PARM_01" keyword="SARDefinition" vr="LO" vm="1-n">SAR Definition</el>
 <el tag="00430091" owner="GEMS_PARM_01" keyword="SARValue" vr="DS" vm="1-n">SAR Value</el>
 <el tag="00430092" owner="GEMS_PARM_01" keyword="ImageErrorText" vr="LO" vm="1">Image Error Text</el>
@@ -1385,7 +1385,7 @@
 <el tag="00430097" owner="GEMS_PARM_01" keyword="ImageFilteringParameters" vr="LO" vm="8">Image Filtering Parameters</el>
 <el tag="00430098" owner="GEMS_PARM_01" keyword="ASSETAcquisitionCalibrationSeriesUID" vr="UI" vm="1">ASSET Acquisition Calibration Series UID</el>
 <el tag="00430099" owner="GEMS_PARM_01" keyword="ExtendedOptions" vr="LO" vm="1-n">Extended Options</el>
-<el tag="0043009a" owner="GEMS_PARM_01" keyword="RxStackIdentification" vr="IS" vm="1">Rx Stack Identification</el>
+<el tag="0043009A" owner="GEMS_PARM_01" keyword="RxStackIdentification" vr="IS" vm="1">Rx Stack Identification</el>
 <el tag="0043009B" owner="GEMS_PARM_01" keyword="NPWFactor" vr="DS" vm="1">NPW factor</el>
 <el tag="0043009C" owner="GEMS_PARM_01" keyword="ResearchTag1" vr="OB" vm="1">Research Tag 1</el>
 <el tag="0043009D" owner="GEMS_PARM_01" keyword="ResearchTag2" vr="OB" vm="1">Research Tag 2</el>
@@ -1430,12 +1430,12 @@
 <el tag="00450007" owner="GEMS_SENO_02" keyword="CompressionThickness" vr="DS" vm="1">Compression Thickness</el>
 <el tag="00450008" owner="GEMS_SENO_02" keyword="CompressionForce" vr="DS" vm="1">Compression Force</el>
 <el tag="00450009" owner="GEMS_SENO_02" keyword="RealMagnificationFactor" vr="DS" vm="1">Real Magnification Factor</el>
-<el tag="0045000a" owner="GEMS_SENO_02" keyword="DisplayedMagnificationFactor" vr="DS" vm="1">Displayed Magnification Factor</el>
-<el tag="0045000b" owner="GEMS_SENO_02" keyword="SenographType" vr="CS" vm="1">Senograph Type</el>
-<el tag="0045000c" owner="GEMS_SENO_02" keyword="IntegrationTime" vr="DS" vm="1">Integration Time</el>
-<el tag="0045000d" owner="GEMS_SENO_02" keyword="ROIOriginXY" vr="DS" vm="1">ROI Origin X and Y</el>
-<el tag="0045000e" owner="GEMS_SENO_02" keyword="CorrectionType" vr="CS" vm="1">Correction Type</el>
-<el tag="0045000f" owner="GEMS_SENO_02" keyword="AcquisitionType" vr="CS" vm="1">Acquisition Type</el>
+<el tag="0045000A" owner="GEMS_SENO_02" keyword="DisplayedMagnificationFactor" vr="DS" vm="1">Displayed Magnification Factor</el>
+<el tag="0045000B" owner="GEMS_SENO_02" keyword="SenographType" vr="CS" vm="1">Senograph Type</el>
+<el tag="0045000C" owner="GEMS_SENO_02" keyword="IntegrationTime" vr="DS" vm="1">Integration Time</el>
+<el tag="0045000D" owner="GEMS_SENO_02" keyword="ROIOriginXY" vr="DS" vm="1">ROI Origin X and Y</el>
+<el tag="0045000E" owner="GEMS_SENO_02" keyword="CorrectionType" vr="CS" vm="1">Correction Type</el>
+<el tag="0045000F" owner="GEMS_SENO_02" keyword="AcquisitionType" vr="CS" vm="1">Acquisition Type</el>
 <el tag="00450010" owner="GEMS_SENO_02" keyword="CCDTemperature" vr="DS" vm="2">CCD Temperature</el>
 <el tag="00450011" owner="GEMS_SENO_02" keyword="ReceptorSizeCmXY" vr="DS" vm="2">Receptor Size cm X and Y</el>
 <el tag="00450012" owner="GEMS_SENO_02" keyword="ReceptorSizePixelsXY" vr="IS" vm="2">Receptor Size Pixels X and Y</el>
@@ -1462,12 +1462,12 @@
 <el tag="00450027" owner="GEMS_SENO_02" keyword="SetNumber" vr="IS" vm="1">Set Number</el>
 <el tag="00450028" owner="GEMS_SENO_02" keyword="WindowingType" vr="CS" vm="1">WindowingType (LINEAR or GAMMA)</el>
 <el tag="00450029" owner="GEMS_SENO_02" keyword="WindowingParameters" vr="DS" vm="1-n">WindowingParameters</el>
-<el tag="0045002a" owner="GEMS_SENO_02" keyword="CrosshairCursorXCoordinates" vr="IS" vm="1">Crosshair Cursor X Coordinates</el>
-<el tag="0045002b" owner="GEMS_SENO_02" keyword="CrosshairCursorYCoordinates" vr="IS" vm="1">Crosshair Cursor Y Coordinates</el>
-<el tag="0045002c" owner="GEMS_SENO_02" keyword="ReferenceLandmarkAX3DCoordinates" vr="DS" vm="1">Reference Landmark A X 3D Coordinates</el>
-<el tag="0045002d" owner="GEMS_SENO_02" keyword="ReferenceLandmarkAY3DCoordinates" vr="DS" vm="1">Reference Landmark A Y 3D Coordinates</el>
-<el tag="0045002e" owner="GEMS_SENO_02" keyword="ReferenceLandmarkAZ3DCoordinates" vr="DS" vm="1">Reference Landmark A Z 3D Coordinates</el>
-<el tag="0045002f" owner="GEMS_SENO_02" keyword="ReferenceLandmarkAXImageCoordinates" vr="IS" vm="1">Reference Landmark A X Image Coordinates</el>
+<el tag="0045002A" owner="GEMS_SENO_02" keyword="CrosshairCursorXCoordinates" vr="IS" vm="1">Crosshair Cursor X Coordinates</el>
+<el tag="0045002B" owner="GEMS_SENO_02" keyword="CrosshairCursorYCoordinates" vr="IS" vm="1">Crosshair Cursor Y Coordinates</el>
+<el tag="0045002C" owner="GEMS_SENO_02" keyword="ReferenceLandmarkAX3DCoordinates" vr="DS" vm="1">Reference Landmark A X 3D Coordinates</el>
+<el tag="0045002D" owner="GEMS_SENO_02" keyword="ReferenceLandmarkAY3DCoordinates" vr="DS" vm="1">Reference Landmark A Y 3D Coordinates</el>
+<el tag="0045002E" owner="GEMS_SENO_02" keyword="ReferenceLandmarkAZ3DCoordinates" vr="DS" vm="1">Reference Landmark A Z 3D Coordinates</el>
+<el tag="0045002F" owner="GEMS_SENO_02" keyword="ReferenceLandmarkAXImageCoordinates" vr="IS" vm="1">Reference Landmark A X Image Coordinates</el>
 <el tag="00450030" owner="GEMS_SENO_02" keyword="ReferenceLandmarkAYImageCoordinates" vr="IS" vm="1">Reference Landmark A Y Image Coordinates</el>
 <el tag="00450031" owner="GEMS_SENO_02" keyword="ReferenceLandmarkBX3DCoordinates" vr="DS" vm="1">Reference Landmark B X 3D Coordinates</el>
 <el tag="00450032" owner="GEMS_SENO_02" keyword="ReferenceLandmarkBY3DCoordinates" vr="DS" vm="1">Reference Landmark B Y 3D Coordinates</el>
@@ -1478,12 +1478,12 @@
 <el tag="00450037" owner="GEMS_SENO_02" keyword="XRaySourceYLocation" vr="DS" vm="1">X-Ray Source Y Locatio</el>
 <el tag="00450038" owner="GEMS_SENO_02" keyword="XRaySourceZLocation" vr="DS" vm="1">X-Ray Source Z Locatio</el>
 <el tag="00450039" owner="GEMS_SENO_02" keyword="VignetteRows" vr="US" vm="1">Vignette Rows</el>
-<el tag="0045003a" owner="GEMS_SENO_02" keyword="VignetteColumns" vr="US" vm="1">Vignette Columns</el>
-<el tag="0045003b" owner="GEMS_SENO_02" keyword="VignetteBitsAllocated" vr="US" vm="1">Vignette Bits Allocated</el>
-<el tag="0045003c" owner="GEMS_SENO_02" keyword="VignetteBitsStored" vr="US" vm="1">Vignette Bits Stored</el>
-<el tag="0045003d" owner="GEMS_SENO_02" keyword="VignetteHighBit" vr="US" vm="1">Vignette High Bit</el>
-<el tag="0045003e" owner="GEMS_SENO_02" keyword="VignettePixelRepresentation" vr="US" vm="1">Vignette Pixel Representation</el>
-<el tag="0045003f" owner="GEMS_SENO_02" keyword="VignettePixelData" vr="OB" vm="1">Vignette Pixel Data</el>
+<el tag="0045003A" owner="GEMS_SENO_02" keyword="VignetteColumns" vr="US" vm="1">Vignette Columns</el>
+<el tag="0045003B" owner="GEMS_SENO_02" keyword="VignetteBitsAllocated" vr="US" vm="1">Vignette Bits Allocated</el>
+<el tag="0045003C" owner="GEMS_SENO_02" keyword="VignetteBitsStored" vr="US" vm="1">Vignette Bits Stored</el>
+<el tag="0045003D" owner="GEMS_SENO_02" keyword="VignetteHighBit" vr="US" vm="1">Vignette High Bit</el>
+<el tag="0045003E" owner="GEMS_SENO_02" keyword="VignettePixelRepresentation" vr="US" vm="1">Vignette Pixel Representation</el>
+<el tag="0045003F" owner="GEMS_SENO_02" keyword="VignettePixelData" vr="OB" vm="1">Vignette Pixel Data</el>
 <el tag="00450049" owner="GEMS_SENO_02" keyword="RadiologicalThickness" vr="DS" vm="1">Radiological Thickness</el>
 <el tag="00450050" owner="GEMS_SENO_02" keyword="FallbackInstanceUID" vr="UI" vm="1">Fallback Instance UID (CR or SC)</el>
 <el tag="00450051" owner="GEMS_SENO_02" keyword="FallbackSeriesUID" vr="UI" vm="1">Fallback Series UID (CR or SC)</el>
@@ -1634,11 +1634,11 @@
 <el tag="004700D3" owner="GEMS_ADWSoft_3D1" keyword="VolumeDensityList" vr="OB" vm="1">Volume Density List</el>
 <el tag="004700D4" owner="GEMS_ADWSoft_3D1" keyword="VolumeZPositionList" vr="OB" vm="1">Volume Z Position List</el>
 <el tag="004700D5" owner="GEMS_ADWSoft_3D1" keyword="VolumeOriginalIndexList" vr="OB" vm="1">Volume Original Index List</el>
-<el tag="004700e9" owner="GEMS_3DSTATE_001" vr="FL" vm="3"/>
-<el tag="004700ea" owner="GEMS_3DSTATE_001" vr="DS" vm="3"/>
-<el tag="004700eb" owner="GEMS_3DSTATE_001" vr="DS" vm="3"/>
-<el tag="004700ec" owner="GEMS_3DSTATE_001" vr="FL" vm="1"/>
-<el tag="004700ed" owner="GEMS_3DSTATE_001" vr="CS" vm="1"/>
+<el tag="004700E9" owner="GEMS_3DSTATE_001" vr="FL" vm="3"/>
+<el tag="004700EA" owner="GEMS_3DSTATE_001" vr="DS" vm="3"/>
+<el tag="004700EB" owner="GEMS_3DSTATE_001" vr="DS" vm="3"/>
+<el tag="004700EC" owner="GEMS_3DSTATE_001" vr="FL" vm="1"/>
+<el tag="004700ED" owner="GEMS_3DSTATE_001" vr="CS" vm="1"/>
 <el tag="00470002" owner="GEMS_IQTB_IDEN_47" vr="UL" vm="1"/>
 <el tag="00490001" owner="GEMS_CT_CARDIAC_001" keyword="CTCardiacSequence" vr="SQ" vm="1">CT Cardiac Sequence</el>
 <el tag="00490002" owner="GEMS_CT_CARDIAC_001" keyword="HeartRateAtConfirm" vr="CS" vm="1">Heart Rate At Confirm</el>
@@ -1653,7 +1653,7 @@
 <el tag="0049000B" owner="GEMS_CT_CARDIAC_001" keyword="NumReconSectors" vr="CS" vm="1">Num Recon Sectors</el>
 <el tag="0049000C" owner="GEMS_CT_CARDIAC_001" keyword="RpeakTimeStamps" vr="FL" vm="256">Rpeak Time Stamps</el>
 <el tag="00490016" owner="GEMS_CT_CARDIAC_001" keyword="EkgGatingType" vr="SH" vm="1">Ekg Gating Type</el>
-<el tag="0049001b" owner="GEMS_CT_CARDIAC_001" keyword="EkgWaveTimeOffFirstDataPoint" vr="FL" vm="1">Ekg Wave Time Off First Data Point</el>
+<el tag="0049001B" owner="GEMS_CT_CARDIAC_001" keyword="EkgWaveTimeOffFirstDataPoint" vr="FL" vm="1">Ekg Wave Time Off First Data Point</el>
 <el tag="00490022" owner="GEMS_CT_CARDIAC_001" keyword="TemporalAlg" vr="CS" vm="1">Temporal Alg</el>
 <el tag="00490023" owner="GEMS_CT_CARDIAC_001" keyword="PhaseLocation" vr="CS" vm="1">Phase Location</el>
 <el tag="00490024" owner="GEMS_CT_CARDIAC_001" keyword="PreBlendedCycle1" vr="OW" vm="1">Pre Blended Cycle 1</el>
@@ -1684,8 +1684,8 @@
 <el tag="00750016" owner="GEIIS_IW" vr="OB" vm="1"/>
 <el tag="00750017" owner="GEIIS_IW" vr="SQ" vm="1"/>
 <el tag="00750019" owner="GEIIS_IW" vr="IS" vm="1"/>
-<el tag="0075001b" owner="GEIIS_IW" vr="LT" vm="1"/>
-<el tag="0075001a" owner="GEIIS_IW" vr="IS" vm="1"/>
+<el tag="0075001B" owner="GEIIS_IW" vr="LT" vm="1"/>
+<el tag="0075001A" owner="GEIIS_IW" vr="IS" vm="1"/>
 <el tag="00750060" owner="GEIIS_IW" vr="ST" vm="1"/>
 <el tag="00750061" owner="GEIIS_IW" vr="IS" vm="1"/>
 <el tag="00750062" owner="GEIIS_IW" vr="IS" vm="1"/>
@@ -1700,12 +1700,12 @@
 <el tag="00750076" owner="GEIIS_IW" vr="IS" vm="1"/>
 <el tag="00750077" owner="GEIIS_IW" vr="IS" vm="1"/>
 <el tag="00750079" owner="GEIIS_IW" vr="CS" vm="1"/>
-<el tag="0075007a" owner="GEIIS_IW" vr="DS" vm="1"/>
-<el tag="0075007b" owner="GEIIS_IW" vr="DS" vm="1"/>
-<el tag="0075007c" owner="GEIIS_IW" vr="CS" vm="1"/>
-<el tag="0075007d" owner="GEIIS_IW" vr="IS" vm="1"/>
-<el tag="0075007e" owner="GEIIS_IW" vr="DS" vm="1-n"/>
-<el tag="0075007f" owner="GEIIS_IW" vr="FD" vm="1-n"/>
+<el tag="0075007A" owner="GEIIS_IW" vr="DS" vm="1"/>
+<el tag="0075007B" owner="GEIIS_IW" vr="DS" vm="1"/>
+<el tag="0075007C" owner="GEIIS_IW" vr="CS" vm="1"/>
+<el tag="0075007D" owner="GEIIS_IW" vr="IS" vm="1"/>
+<el tag="0075007E" owner="GEIIS_IW" vr="DS" vm="1-n"/>
+<el tag="0075007F" owner="GEIIS_IW" vr="FD" vm="1-n"/>
 <el tag="00750081" owner="GEIIS_IW" vr="DS" vm="2"/>
 <el tag="00750082" owner="GEIIS_IW" vr="DS" vm="2"/>
 <el tag="00750083" owner="GEIIS_IW" vr="DS" vm="2"/>
@@ -1715,17 +1715,17 @@
 <el tag="00750087" owner="GEIIS_IW" vr="LT" vm="1"/>
 <el tag="00750088" owner="GEIIS_IW" vr="LT" vm="1"/>
 <el tag="00750089" owner="GEIIS_IW" vr="IS" vm="1"/>
-<el tag="0075008a" owner="GEIIS_IW" vr="IS" vm="1"/>
-<el tag="0075008f" owner="GEIIS_IW" vr="CS" vm="1"/>
+<el tag="0075008A" owner="GEIIS_IW" vr="IS" vm="1"/>
+<el tag="0075008F" owner="GEIIS_IW" vr="CS" vm="1"/>
 <el tag="00750090" owner="GEIIS_IW" vr="IS" vm="1"/>
 <el tag="00750091" owner="GEIIS_IW" vr="CS" vm="1"/>
 <el tag="00750093" owner="GEIIS_IW" vr="CS" vm="1"/>
 <el tag="00750094" owner="GEIIS_IW" vr="CS" vm="1"/>
 <el tag="00750095" owner="GEIIS_IW" vr="LO" vm="1"/>
-<el tag="007500b5" owner="GEIIS_IW" vr="LT" vm="1"/>
-<el tag="007500b6" owner="GEIIS_IW" vr="SQ" vm="1"/>
-<el tag="007500c0" owner="GEIIS_IW" vr="UI" vm="1"/>
-<el tag="007500c1" owner="GEIIS_IW" vr="UI" vm="1"/>
+<el tag="007500B5" owner="GEIIS_IW" vr="LT" vm="1"/>
+<el tag="007500B6" owner="GEIIS_IW" vr="SQ" vm="1"/>
+<el tag="007500C0" owner="GEIIS_IW" vr="UI" vm="1"/>
+<el tag="007500C1" owner="GEIIS_IW" vr="UI" vm="1"/>
 <el tag="30030000" owner="GE Informatics Data" vr="SQ" vm="1"/>
 <el tag="30030001" owner="GE Informatics Data" vr="SH" vm="1"/>
 <el tag="30030002" owner="GE Informatics Data" vr="SH" vm="1"/>
@@ -1862,12 +1862,12 @@
 <el tag="50010007" owner="GEMS_GENIE_1" keyword="CurveType" vr="SL" vm="1">Curve Type</el>
 <el tag="50010008" owner="GEMS_GENIE_1" keyword="GraphType" vr="SL" vm="1">Graph Type</el>
 <el tag="50010009" owner="GEMS_GENIE_1" keyword="Legend" vr="LO" vm="1">Legend</el>
-<el tag="5001000a" owner="GEMS_GENIE_1" keyword="XUnits" vr="LO" vm="1">X Units</el>
-<el tag="5001000b" owner="GEMS_GENIE_1" keyword="YUnits" vr="LO" vm="1">Y Units</el>
-<el tag="5001000c" owner="GEMS_GENIE_1" keyword="Edit" vr="SL" vm="1">Edit</el>
-<el tag="5001000d" owner="GEMS_GENIE_1" keyword="Suspend" vr="SL" vm="1">Suspend</el>
-<el tag="5001000e" owner="GEMS_GENIE_1" keyword="StyleLine" vr="SL" vm="1">Style Line</el>
-<el tag="5001000f" owner="GEMS_GENIE_1" keyword="StyleFill" vr="SL" vm="1">Style Fill</el>
+<el tag="5001000A" owner="GEMS_GENIE_1" keyword="XUnits" vr="LO" vm="1">X Units</el>
+<el tag="5001000B" owner="GEMS_GENIE_1" keyword="YUnits" vr="LO" vm="1">Y Units</el>
+<el tag="5001000C" owner="GEMS_GENIE_1" keyword="Edit" vr="SL" vm="1">Edit</el>
+<el tag="5001000D" owner="GEMS_GENIE_1" keyword="Suspend" vr="SL" vm="1">Suspend</el>
+<el tag="5001000E" owner="GEMS_GENIE_1" keyword="StyleLine" vr="SL" vm="1">Style Line</el>
+<el tag="5001000F" owner="GEMS_GENIE_1" keyword="StyleFill" vr="SL" vm="1">Style Fill</el>
 <el tag="50010010" owner="GEMS_GENIE_1" keyword="StyleColour" vr="LO" vm="1">Style Colour</el>
 <el tag="50010011" owner="GEMS_GENIE_1" keyword="StyleWidth" vr="SL" vm="1">Style Width</el>
 <el tag="50010012" owner="GEMS_GENIE_1" keyword="StylePoint" vr="SL" vm="1">Style Point</el>
@@ -1878,12 +1878,12 @@
 <el tag="50010017" owner="GEMS_GENIE_1" keyword="SegStart" vr="FD" vm="1-n">Seg Start</el>
 <el tag="50010018" owner="GEMS_GENIE_1" keyword="SegEnd" vr="FD" vm="1-n">Seg End</el>
 <el tag="50010019" owner="GEMS_GENIE_1" keyword="SegStyleLine" vr="SL" vm="1-n">Seg Style Line</el>
-<el tag="5001001a" owner="GEMS_GENIE_1" keyword="SegStyleFill" vr="SL" vm="1-n">SegStyleFill</el>
-<el tag="5001001b" owner="GEMS_GENIE_1" keyword="SegStyleColour" vr="LO" vm="1">Seg Style Colour</el>
-<el tag="5001001c" owner="GEMS_GENIE_1" keyword="SegStyleWidth" vr="SL" vm="1-n">Seg Style Width</el>
-<el tag="5001001d" owner="GEMS_GENIE_1" keyword="SegStylePoint" vr="SL" vm="1-n">Seg Style Point</el>
-<el tag="5001001e" owner="GEMS_GENIE_1" keyword="SegStylePColour" vr="SL" vm="1">Seg Style P Colour</el>
-<el tag="5001001f" owner="GEMS_GENIE_1" keyword="SegStylePSize" vr="SL" vm="1">Seg Style P Size</el>
+<el tag="5001001A" owner="GEMS_GENIE_1" keyword="SegStyleFill" vr="SL" vm="1-n">SegStyleFill</el>
+<el tag="5001001B" owner="GEMS_GENIE_1" keyword="SegStyleColour" vr="LO" vm="1">Seg Style Colour</el>
+<el tag="5001001C" owner="GEMS_GENIE_1" keyword="SegStyleWidth" vr="SL" vm="1-n">Seg Style Width</el>
+<el tag="5001001D" owner="GEMS_GENIE_1" keyword="SegStylePoint" vr="SL" vm="1-n">Seg Style Point</el>
+<el tag="5001001E" owner="GEMS_GENIE_1" keyword="SegStylePColour" vr="SL" vm="1">Seg Style P Colour</el>
+<el tag="5001001F" owner="GEMS_GENIE_1" keyword="SegStylePSize" vr="SL" vm="1">Seg Style P Size</el>
 <el tag="50010020" owner="GEMS_GENIE_1" keyword="SegName" vr="LO" vm="1">Seg Name</el>
 <el tag="50010021" owner="GEMS_GENIE_1" keyword="SegAllowDirInt" vr="SL" vm="1-n">Seg Allow Dir Int</el>
 <el tag="50010022" owner="GEMS_GENIE_1" keyword="TextAnnots" vr="SL" vm="1">Text Annots</el>
@@ -1901,10 +1901,10 @@
 <el tag="50010037" owner="GEMS_GENIE_1" keyword="ROIArea" vr="FD" vm="1">ROI Area</el>
 <el tag="50010038" owner="GEMS_GENIE_1" keyword="Modified" vr="LO" vm="1">Modified</el>
 <el tag="50010039" owner="GEMS_GENIE_1" keyword="Name" vr="LO" vm="1">Name</el>
-<el tag="5001003a" owner="GEMS_GENIE_1" keyword="SoftwareVersion" vr="LO" vm="1">Software Version</el>
-<el tag="5001003b" owner="GEMS_GENIE_1" keyword="StartDate" vr="SH" vm="1">Start Date</el>
-<el tag="5001003c" owner="GEMS_GENIE_1" keyword="CompletionDate" vr="SH" vm="1">Completion Date</el>
-<el tag="5001003d" owner="GEMS_GENIE_1" keyword="DetectorName" vr="LO" vm="1">Detector Name</el>
+<el tag="5001003A" owner="GEMS_GENIE_1" keyword="SoftwareVersion" vr="LO" vm="1">Software Version</el>
+<el tag="5001003B" owner="GEMS_GENIE_1" keyword="StartDate" vr="SH" vm="1">Start Date</el>
+<el tag="5001003C" owner="GEMS_GENIE_1" keyword="CompletionDate" vr="SH" vm="1">Completion Date</el>
+<el tag="5001003D" owner="GEMS_GENIE_1" keyword="DetectorName" vr="LO" vm="1">Detector Name</el>
 <el tag="50010041" owner="GEMS_GENIE_1" keyword="Modified" vr="SL" vm="1">Modified</el>
 <el tag="50010042" owner="GEMS_GENIE_1" keyword="Name" vr="LO" vm="1">Name</el>
 <el tag="50010043" owner="GEMS_GENIE_1" keyword="Name" vr="SL" vm="1">Name</el>
@@ -1914,12 +1914,12 @@
 <el tag="50010047" owner="GEMS_GENIE_1" keyword="NormalColor" vr="LO" vm="1">Normal Color</el>
 <el tag="50010048" owner="GEMS_GENIE_1" keyword="NameFont" vr="LT" vm="1">Name Font</el>
 <el tag="50010049" owner="GEMS_GENIE_1" keyword="FillPattern" vr="SL" vm="1">Fill Pattern</el>
-<el tag="5001004a" owner="GEMS_GENIE_1" keyword="LineStyle" vr="SL" vm="1">Line Style</el>
-<el tag="5001004b" owner="GEMS_GENIE_1" keyword="LineDashLength" vr="SL" vm="1">Line Dash Length</el>
-<el tag="5001004c" owner="GEMS_GENIE_1" keyword="LineThickness" vr="SL" vm="1">Line Thickness</el>
-<el tag="5001004d" owner="GEMS_GENIE_1" keyword="Interactivity" vr="SL" vm="1">Interactivity</el>
-<el tag="5001004e" owner="GEMS_GENIE_1" keyword="NamePos" vr="SL" vm="1">Name Pos</el>
-<el tag="5001004f" owner="GEMS_GENIE_1" keyword="NameDisplay" vr="SL" vm="1">Name Display</el>
+<el tag="5001004A" owner="GEMS_GENIE_1" keyword="LineStyle" vr="SL" vm="1">Line Style</el>
+<el tag="5001004B" owner="GEMS_GENIE_1" keyword="LineDashLength" vr="SL" vm="1">Line Dash Length</el>
+<el tag="5001004C" owner="GEMS_GENIE_1" keyword="LineThickness" vr="SL" vm="1">Line Thickness</el>
+<el tag="5001004D" owner="GEMS_GENIE_1" keyword="Interactivity" vr="SL" vm="1">Interactivity</el>
+<el tag="5001004E" owner="GEMS_GENIE_1" keyword="NamePos" vr="SL" vm="1">Name Pos</el>
+<el tag="5001004F" owner="GEMS_GENIE_1" keyword="NameDisplay" vr="SL" vm="1">Name Display</el>
 <el tag="50010050" owner="GEMS_GENIE_1" keyword="Label" vr="LO" vm="1">Label</el>
 <el tag="50010051" owner="GEMS_GENIE_1" keyword="BpSeg" vr="SL" vm="1-n">Bp Seg</el>
 <el tag="50010052" owner="GEMS_GENIE_1" keyword="BpSegPairs" vr="US" vm="1-n">Bp Seg Pairs</el>
@@ -1928,18 +1928,18 @@
 <el tag="50010055" owner="GEMS_GENIE_1" keyword="Shape" vr="SL" vm="1-n">Shape</el>
 <el tag="50010056" owner="GEMS_GENIE_1" keyword="ShapeTilt" vr="FD" vm="1-n">Shape Tilt</el>
 <el tag="50010059" owner="GEMS_GENIE_1" keyword="ShapePtsSpace" vr="SL" vm="1-n">Shape Pts Space</el>
-<el tag="5001005a" owner="GEMS_GENIE_1" keyword="ShapeCtrlPtsCounts" vr="SL" vm="1-n">Shape Ctrl Pts Counts</el>
-<el tag="5001005b" owner="GEMS_GENIE_1" keyword="ShapeCtrlPts" vr="FD" vm="1-n">Shape Ctrl Pts</el>
-<el tag="5001005c" owner="GEMS_GENIE_1" keyword="ShapeCtrlPSpace" vr="SL" vm="1">Shape Ctrl P Space</el>
-<el tag="5001005d" owner="GEMS_GENIE_1" keyword="ROIFlags" vr="SL" vm="1">ROI Flags</el>
-<el tag="5001005e" owner="GEMS_GENIE_1" keyword="FrameNumber" vr="SL" vm="1">Frame Number</el>
-<el tag="5001005f" owner="GEMS_GENIE_1" keyword="ID" vr="SL" vm="1">ID</el>
+<el tag="5001005A" owner="GEMS_GENIE_1" keyword="ShapeCtrlPtsCounts" vr="SL" vm="1-n">Shape Ctrl Pts Counts</el>
+<el tag="5001005B" owner="GEMS_GENIE_1" keyword="ShapeCtrlPts" vr="FD" vm="1-n">Shape Ctrl Pts</el>
+<el tag="5001005C" owner="GEMS_GENIE_1" keyword="ShapeCtrlPSpace" vr="SL" vm="1">Shape Ctrl P Space</el>
+<el tag="5001005D" owner="GEMS_GENIE_1" keyword="ROIFlags" vr="SL" vm="1">ROI Flags</el>
+<el tag="5001005E" owner="GEMS_GENIE_1" keyword="FrameNumber" vr="SL" vm="1">Frame Number</el>
+<el tag="5001005F" owner="GEMS_GENIE_1" keyword="ID" vr="SL" vm="1">ID</el>
 <el tag="50010060" owner="GEMS_GENIE_1" keyword="DatasetROIMapping" vr="LO" vm="1-n">Dataset ROI Mapping</el>
-<el tag="60xx0001" owner="DLX_LKUP_01" keyword="GrayPaletteColorLookupTableDescriptor" vr="US" vm="3">Gray Palette Color Lookup Table Descriptor</el>
-<el tag="60xx0002" owner="DLX_LKUP_01" keyword="GrayPaletteColorLookupTableData" vr="US" vm="1">Gray Palette Color Lookup Table Data</el>
-<el tag="70xx0004" owner="DLX_ANNOT_01" keyword="TextAnnotation" vr="ST" vm="1">TextAnnotation</el>
-<el tag="70xx0005" owner="DLX_ANNOT_01" keyword="Box" vr="IS" vm="2">Box</el>
-<el tag="70xx0007" owner="DLX_ANNOT_01" keyword="ArrowEnd" vr="IS" vm="2">ArrowEnd</el>
+<el tag="60XX0001" owner="DLX_LKUP_01" keyword="GrayPaletteColorLookupTableDescriptor" vr="US" vm="3">Gray Palette Color Lookup Table Descriptor</el>
+<el tag="60XX0002" owner="DLX_LKUP_01" keyword="GrayPaletteColorLookupTableData" vr="US" vm="1">Gray Palette Color Lookup Table Data</el>
+<el tag="70XX0004" owner="DLX_ANNOT_01" keyword="TextAnnotation" vr="ST" vm="1">TextAnnotation</el>
+<el tag="70XX0005" owner="DLX_ANNOT_01" keyword="Box" vr="IS" vm="2">Box</el>
+<el tag="70XX0007" owner="DLX_ANNOT_01" keyword="ArrowEnd" vr="IS" vm="2">ArrowEnd</el>
 <el tag="00090010" owner="GEIIS" keyword="GEPrivateImageThumbnailSequence" vr="SQ" vm="1">GE Private Image Thumbnail Sequence</el>
 <el tag="00090012" owner="GEIIS" vr="IS" vm="1"/>
 <el tag="00290010" owner="GEIIS" keyword="ShiftCount" vr="UL" vm="1">Shift Count</el>
@@ -1958,12 +1958,12 @@
 <el tag="09070024" owner="GEIIS PACS" keyword="LimitRecentMonths" vr="US" vm="1">Limit Recent Months</el>
 <el tag="09070030" owner="GEIIS" keyword="OriginalSOPInstanceUID" vr="UI" vm="1">Original SOP Instance UID</el>
 <el tag="09070031" owner="GEIIS PACS" keyword="ExcludeStudyUIDs" vr="UI" vm="1-n">Exclude Study UIDs</el>
-<el tag="7fd10010" owner="GEIIS" keyword="CompressionType" vr="UL" vm="1">Compression Type</el>
-<el tag="7fd10020" owner="GEIIS" keyword="MultiframeOffsets" vr="UL" vm="1-n">Multiframe Offsets</el>
-<el tag="7fd10030" owner="GEIIS" keyword="MultiResolutionLevels" vr="UL" vm="1">Multi-Resolution Levels</el>
-<el tag="7fd10040" owner="GEIIS" keyword="SubbandRows" vr="UL" vm="1-n">Subband Rows</el>
-<el tag="7fd10050" owner="GEIIS" keyword="SubbandColumns" vr="UL" vm="1-n">Subband Columns</el>
-<el tag="7fd10060" owner="GEIIS" keyword="SubbandBytecounts" vr="UL" vm="1-n">Subband Bytecounts</el>
+<el tag="7FD10010" owner="GEIIS" keyword="CompressionType" vr="UL" vm="1">Compression Type</el>
+<el tag="7FD10020" owner="GEIIS" keyword="MultiframeOffsets" vr="UL" vm="1-n">Multiframe Offsets</el>
+<el tag="7FD10030" owner="GEIIS" keyword="MultiResolutionLevels" vr="UL" vm="1">Multi-Resolution Levels</el>
+<el tag="7FD10040" owner="GEIIS" keyword="SubbandRows" vr="UL" vm="1-n">Subband Rows</el>
+<el tag="7FD10050" owner="GEIIS" keyword="SubbandColumns" vr="UL" vm="1-n">Subband Columns</el>
+<el tag="7FD10060" owner="GEIIS" keyword="SubbandBytecounts" vr="UL" vm="1-n">Subband Bytecounts</el>
 <el tag="00110003" owner="GEMS_GDXE_FALCON_04" keyword="ProcessedSeriesUID" vr="UI" vm="1">Processed Series UID</el>
 <el tag="00110004" owner="GEMS_GDXE_FALCON_04" keyword="AcquisitionType" vr="CS" vm="1">Acquisition Type</el>
 <el tag="00110005" owner="GEMS_GDXE_FALCON_04" keyword="AcquisitionUID" vr="UI" vm="1">Acquisition UID</el>
@@ -2002,7 +2002,7 @@
 <el tag="00110047" owner="GEMS_GDXE_FALCON_04" vr="DS" vm="1"/>
 <el tag="00110059" owner="GEMS_GDXE_FALCON_04" vr="CS" vm="1"/>
 <el tag="00110060" owner="GEMS_GDXE_FALCON_04" vr="CS" vm="1"/>
-<el tag="0011006d" owner="GEMS_GDXE_FALCON_04" vr="DS" vm="1"/>
+<el tag="0011006D" owner="GEMS_GDXE_FALCON_04" vr="DS" vm="1"/>
 <el tag="00450055" owner="GEMS_FALCON_03" keyword="A_Coefficients" vr="DS" vm="8">A_Coefficients used in Multiresolution Algorithm</el>
 <el tag="00450062" owner="GEMS_FALCON_03" keyword="UserWindowCenter" vr="IS" vm="1">User Window Center</el>
 <el tag="00450063" owner="GEMS_FALCON_03" keyword="UserWindowWidth" vr="IS" vm="1">User Window Width</el>
@@ -2029,50 +2029,50 @@
 <el tag="60030015" owner="GEMS_Ultrasound_ImageGroup_001" vr="LT" vm="1-n"/>
 <el tag="60050010" owner="GEMS_Ultrasound_ExamGroup_001" vr="UT" vm="1"/>
 <el tag="60050020" owner="GEMS_Ultrasound_ExamGroup_001" vr="UT" vm="1"/>
-<el tag="7fe10001" owner="GEMS_Ultrasound_MovieGroup_001" vr="SQ" vm="1"/>
-<el tag="7fe10002" owner="GEMS_Ultrasound_MovieGroup_001" vr="LO" vm="1"/>
-<el tag="7fe10003" owner="GEMS_Ultrasound_MovieGroup_001" vr="UL" vm="1"/>
-<el tag="7fe10008" owner="GEMS_Ultrasound_MovieGroup_001" vr="SQ" vm="1"/>
-<el tag="7fe10010" owner="GEMS_Ultrasound_MovieGroup_001" vr="SQ" vm="1"/>
-<el tag="7fe10012" owner="GEMS_Ultrasound_MovieGroup_001" vr="LO" vm="1"/>
-<el tag="7fe10018" owner="GEMS_Ultrasound_MovieGroup_001" vr="SQ" vm="1"/>
-<el tag="7fe10020" owner="GEMS_Ultrasound_MovieGroup_001" vr="SQ" vm="1"/>
-<el tag="7fe10024" owner="GEMS_Ultrasound_MovieGroup_001" vr="SH" vm="1"/>
-<el tag="7fe10026" owner="GEMS_Ultrasound_MovieGroup_001" vr="SQ" vm="1"/>
-<el tag="7fe10030" owner="GEMS_Ultrasound_MovieGroup_001" vr="LO" vm="1"/>
-<el tag="7fe10032" owner="GEMS_Ultrasound_MovieGroup_001" vr="UL" vm="1"/>
-<el tag="7fe10036" owner="GEMS_Ultrasound_MovieGroup_001" vr="SQ" vm="1"/>
-<el tag="7fe10037" owner="GEMS_Ultrasound_MovieGroup_001" vr="UL" vm="1"/>
-<el tag="7fe1003a" owner="GEMS_Ultrasound_MovieGroup_001" vr="SQ" vm="1"/>
-<el tag="7fe1003c" owner="GEMS_Ultrasound_MovieGroup_001" vr="FD" vm="1"/>
-<el tag="7fe10043" owner="GEMS_Ultrasound_MovieGroup_001" vr="OB" vm="1"/>
-<el tag="7fe10048" owner="GEMS_Ultrasound_MovieGroup_001" vr="FD" vm="1"/>
-<el tag="7fe10049" owner="GEMS_Ultrasound_MovieGroup_001" vr="UL" vm="1"/>
-<el tag="7fe10051" owner="GEMS_Ultrasound_MovieGroup_001" vr="FL" vm="1"/>
-<el tag="7fe10052" owner="GEMS_Ultrasound_MovieGroup_001" vr="FD" vm="1"/>
-<el tag="7fe10053" owner="GEMS_Ultrasound_MovieGroup_001" vr="UL" vm="1"/>
-<el tag="7fe10054" owner="GEMS_Ultrasound_MovieGroup_001" vr="SL" vm="1"/>
-<el tag="7fe10055" owner="GEMS_Ultrasound_MovieGroup_001" vr="OB" vm="1"/>
-<el tag="7fe10057" owner="GEMS_Ultrasound_MovieGroup_001" vr="LT" vm="1"/>
-<el tag="7fe10060" owner="GEMS_Ultrasound_MovieGroup_001" vr="OB" vm="1"/>
-<el tag="7fe10061" owner="GEMS_Ultrasound_MovieGroup_001" vr="OW" vm="1"/>
-<el tag="7fe10062" owner="GEMS_Ultrasound_MovieGroup_001" vr="SQ" vm="1"/>
-<el tag="7fe10069" owner="GEMS_Ultrasound_MovieGroup_001" vr="OW" vm="1"/>
-<el tag="7fe10070" owner="GEMS_Ultrasound_MovieGroup_001" vr="SQ" vm="1"/>
-<el tag="7fe10071" owner="GEMS_Ultrasound_MovieGroup_001" vr="UL" vm="1"/>
-<el tag="7fe10072" owner="GEMS_Ultrasound_MovieGroup_001" vr="LO" vm="1"/>
-<el tag="7fe10073" owner="GEMS_Ultrasound_MovieGroup_001" vr="SQ" vm="1"/>
-<el tag="7fe10074" owner="GEMS_Ultrasound_MovieGroup_001" vr="LO" vm="1"/>
-<el tag="7fe10075" owner="GEMS_Ultrasound_MovieGroup_001" vr="SQ" vm="1"/>
-<el tag="7fe10077" owner="GEMS_Ultrasound_MovieGroup_001" vr="FD" vm="1"/>
-<el tag="7fe10079" owner="GEMS_Ultrasound_MovieGroup_001" vr="SL" vm="1"/>
-<el tag="7fe10083" owner="GEMS_Ultrasound_MovieGroup_001" vr="SQ" vm="1"/>
-<el tag="7fe10084" owner="GEMS_Ultrasound_MovieGroup_001" vr="LO" vm="1"/>
-<el tag="7fe10085" owner="GEMS_Ultrasound_MovieGroup_001" vr="SQ" vm="1"/>
-<el tag="7fe10086" owner="GEMS_Ultrasound_MovieGroup_001" vr="SL" vm="1"/>
-<el tag="7fe10087" owner="GEMS_Ultrasound_MovieGroup_001" vr="FD" vm="1"/>
-<el tag="7fe10088" owner="GEMS_Ultrasound_MovieGroup_001" vr="FD" vm="1"/>
-<el tag="7fe10001" owner="KRETZ_US" vr="OB" vm="1"/>
+<el tag="7FE10001" owner="GEMS_Ultrasound_MovieGroup_001" vr="SQ" vm="1"/>
+<el tag="7FE10002" owner="GEMS_Ultrasound_MovieGroup_001" vr="LO" vm="1"/>
+<el tag="7FE10003" owner="GEMS_Ultrasound_MovieGroup_001" vr="UL" vm="1"/>
+<el tag="7FE10008" owner="GEMS_Ultrasound_MovieGroup_001" vr="SQ" vm="1"/>
+<el tag="7FE10010" owner="GEMS_Ultrasound_MovieGroup_001" vr="SQ" vm="1"/>
+<el tag="7FE10012" owner="GEMS_Ultrasound_MovieGroup_001" vr="LO" vm="1"/>
+<el tag="7FE10018" owner="GEMS_Ultrasound_MovieGroup_001" vr="SQ" vm="1"/>
+<el tag="7FE10020" owner="GEMS_Ultrasound_MovieGroup_001" vr="SQ" vm="1"/>
+<el tag="7FE10024" owner="GEMS_Ultrasound_MovieGroup_001" vr="SH" vm="1"/>
+<el tag="7FE10026" owner="GEMS_Ultrasound_MovieGroup_001" vr="SQ" vm="1"/>
+<el tag="7FE10030" owner="GEMS_Ultrasound_MovieGroup_001" vr="LO" vm="1"/>
+<el tag="7FE10032" owner="GEMS_Ultrasound_MovieGroup_001" vr="UL" vm="1"/>
+<el tag="7FE10036" owner="GEMS_Ultrasound_MovieGroup_001" vr="SQ" vm="1"/>
+<el tag="7FE10037" owner="GEMS_Ultrasound_MovieGroup_001" vr="UL" vm="1"/>
+<el tag="7FE1003A" owner="GEMS_Ultrasound_MovieGroup_001" vr="SQ" vm="1"/>
+<el tag="7FE1003C" owner="GEMS_Ultrasound_MovieGroup_001" vr="FD" vm="1"/>
+<el tag="7FE10043" owner="GEMS_Ultrasound_MovieGroup_001" vr="OB" vm="1"/>
+<el tag="7FE10048" owner="GEMS_Ultrasound_MovieGroup_001" vr="FD" vm="1"/>
+<el tag="7FE10049" owner="GEMS_Ultrasound_MovieGroup_001" vr="UL" vm="1"/>
+<el tag="7FE10051" owner="GEMS_Ultrasound_MovieGroup_001" vr="FL" vm="1"/>
+<el tag="7FE10052" owner="GEMS_Ultrasound_MovieGroup_001" vr="FD" vm="1"/>
+<el tag="7FE10053" owner="GEMS_Ultrasound_MovieGroup_001" vr="UL" vm="1"/>
+<el tag="7FE10054" owner="GEMS_Ultrasound_MovieGroup_001" vr="SL" vm="1"/>
+<el tag="7FE10055" owner="GEMS_Ultrasound_MovieGroup_001" vr="OB" vm="1"/>
+<el tag="7FE10057" owner="GEMS_Ultrasound_MovieGroup_001" vr="LT" vm="1"/>
+<el tag="7FE10060" owner="GEMS_Ultrasound_MovieGroup_001" vr="OB" vm="1"/>
+<el tag="7FE10061" owner="GEMS_Ultrasound_MovieGroup_001" vr="OW" vm="1"/>
+<el tag="7FE10062" owner="GEMS_Ultrasound_MovieGroup_001" vr="SQ" vm="1"/>
+<el tag="7FE10069" owner="GEMS_Ultrasound_MovieGroup_001" vr="OW" vm="1"/>
+<el tag="7FE10070" owner="GEMS_Ultrasound_MovieGroup_001" vr="SQ" vm="1"/>
+<el tag="7FE10071" owner="GEMS_Ultrasound_MovieGroup_001" vr="UL" vm="1"/>
+<el tag="7FE10072" owner="GEMS_Ultrasound_MovieGroup_001" vr="LO" vm="1"/>
+<el tag="7FE10073" owner="GEMS_Ultrasound_MovieGroup_001" vr="SQ" vm="1"/>
+<el tag="7FE10074" owner="GEMS_Ultrasound_MovieGroup_001" vr="LO" vm="1"/>
+<el tag="7FE10075" owner="GEMS_Ultrasound_MovieGroup_001" vr="SQ" vm="1"/>
+<el tag="7FE10077" owner="GEMS_Ultrasound_MovieGroup_001" vr="FD" vm="1"/>
+<el tag="7FE10079" owner="GEMS_Ultrasound_MovieGroup_001" vr="SL" vm="1"/>
+<el tag="7FE10083" owner="GEMS_Ultrasound_MovieGroup_001" vr="SQ" vm="1"/>
+<el tag="7FE10084" owner="GEMS_Ultrasound_MovieGroup_001" vr="LO" vm="1"/>
+<el tag="7FE10085" owner="GEMS_Ultrasound_MovieGroup_001" vr="SQ" vm="1"/>
+<el tag="7FE10086" owner="GEMS_Ultrasound_MovieGroup_001" vr="SL" vm="1"/>
+<el tag="7FE10087" owner="GEMS_Ultrasound_MovieGroup_001" vr="FD" vm="1"/>
+<el tag="7FE10088" owner="GEMS_Ultrasound_MovieGroup_001" vr="FD" vm="1"/>
+<el tag="7FE10001" owner="KRETZ_US" vr="OB" vm="1"/>
 <el tag="00090001" owner="QUASAR_INTERNAL_USE" keyword="RateVector" vr="UL" vm="1-n">Rate Vector</el>
 <el tag="00090002" owner="QUASAR_INTERNAL_USE" keyword="CountVector" vr="UL" vm="1-n">Count Vector</el>
 <el tag="00090003" owner="QUASAR_INTERNAL_USE" keyword="TimeVector" vr="UL" vm="1-n">Time Vector</el>
@@ -2088,10 +2088,10 @@
 <el tag="00090017" owner="QUASAR_INTERNAL_USE" keyword="HighLimitVector" vr="UL" vm="1-n">High Limit Vector</el>
 <el tag="00090018" owner="QUASAR_INTERNAL_USE" keyword="BeginIndexVector" vr="UL" vm="1-n">Begin Index Vector</el>
 <el tag="00090019" owner="QUASAR_INTERNAL_USE" keyword="EndIndexVector" vr="UL" vm="1-n">End Index Vector</el>
-<el tag="0009001a" owner="QUASAR_INTERNAL_USE" keyword="RawTimeVector" vr="UL" vm="1-n">Raw Time Vector</el>
-<el tag="0009001b" owner="QUASAR_INTERNAL_USE" keyword="ImageTypeString" vr="LO" vm="1">Image Type String</el>
-<el tag="0009001d" owner="QUASAR_INTERNAL_USE" vr="US" vm="1"/>
-<el tag="0009001e" owner="QUASAR_INTERNAL_USE" vr="ST" vm="1"/>
+<el tag="0009001A" owner="QUASAR_INTERNAL_USE" keyword="RawTimeVector" vr="UL" vm="1-n">Raw Time Vector</el>
+<el tag="0009001B" owner="QUASAR_INTERNAL_USE" keyword="ImageTypeString" vr="LO" vm="1">Image Type String</el>
+<el tag="0009001D" owner="QUASAR_INTERNAL_USE" vr="US" vm="1"/>
+<el tag="0009001E" owner="QUASAR_INTERNAL_USE" vr="ST" vm="1"/>
 <el tag="00090022" owner="QUASAR_INTERNAL_USE" vr="FL" vm="1"/>
 <el tag="00090023" owner="QUASAR_INTERNAL_USE" vr="US" vm="1"/>
 <el tag="00090039" owner="QUASAR_INTERNAL_USE" vr="UI" vm="1"/>
@@ -2102,7 +2102,7 @@
 <el tag="00090045" owner="QUASAR_INTERNAL_USE" vr="LO" vm="1"/>
 <el tag="00090048" owner="QUASAR_INTERNAL_USE" vr="LO" vm="1"/>
 <el tag="00370010" owner="QUASAR_INTERNAL_USE" vr="SQ" vm="1"/>
-<el tag="0037001b" owner="QUASAR_INTERNAL_USE" vr="LO" vm="1"/>
+<el tag="0037001B" owner="QUASAR_INTERNAL_USE" vr="LO" vm="1"/>
 <el tag="00370030" owner="QUASAR_INTERNAL_USE" vr="LO" vm="1"/>
 <el tag="00370040" owner="QUASAR_INTERNAL_USE" vr="LO" vm="1"/>
 <el tag="00370050" owner="QUASAR_INTERNAL_USE" vr="LO" vm="1"/>
@@ -2123,12 +2123,12 @@
 <el tag="00330017" owner="GEMS_XELPRV_01" vr="DA" vm="1"/>
 <el tag="00330018" owner="GEMS_XELPRV_01" vr="TM" vm="1"/>
 <el tag="00330019" owner="GEMS_XELPRV_01" vr="UL" vm="1"/>
-<el tag="0033001a" owner="GEMS_XELPRV_01" vr="LO" vm="1"/>
-<el tag="0033001b" owner="GEMS_XELPRV_01" vr="LO" vm="1"/>
-<el tag="0033001c" owner="GEMS_XELPRV_01" vr="OB" vm="1"/>
-<el tag="0033001d" owner="GEMS_XELPRV_01" vr="UL" vm="1"/>
-<el tag="0033001e" owner="GEMS_XELPRV_01" vr="FD" vm="1"/>
-<el tag="0033001f" owner="GEMS_XELPRV_01" vr="OB" vm="1"/>
+<el tag="0033001A" owner="GEMS_XELPRV_01" vr="LO" vm="1"/>
+<el tag="0033001B" owner="GEMS_XELPRV_01" vr="LO" vm="1"/>
+<el tag="0033001C" owner="GEMS_XELPRV_01" vr="OB" vm="1"/>
+<el tag="0033001D" owner="GEMS_XELPRV_01" vr="UL" vm="1"/>
+<el tag="0033001E" owner="GEMS_XELPRV_01" vr="FD" vm="1"/>
+<el tag="0033001F" owner="GEMS_XELPRV_01" vr="OB" vm="1"/>
 <el tag="00330020" owner="GEMS_XELPRV_01" vr="OB" vm="1"/>
 <el tag="00330021" owner="GEMS_XELPRV_01" vr="OB" vm="1"/>
 <el tag="00330022" owner="GEMS_XELPRV_01" vr="OB" vm="1"/>
@@ -2139,7 +2139,7 @@
 <el tag="00330072" owner="GEMS_XELPRV_01" vr="UI" vm="1"/>
 <el tag="00390095" owner="REPORT_FROM_APP" vr="LO" vm="1"/>
 <el tag="00470011" owner="GEMS_VXTL_USERDATA_01" vr="LT" vm="1"/>
-<el tag="0015008f" owner="DL_INTERNAL_USE" vr="IS" vm="1"/>
+<el tag="0015008F" owner="DL_INTERNAL_USE" vr="IS" vm="1"/>
 <el tag="70030001" owner="GEMS_LUNAR_RAW" keyword="enCOREFileName" vr="ST" vm="1">enCORE File Name</el>
 <el tag="70030002" owner="GEMS_LUNAR_RAW" keyword="enCOREFileData" vr="OB" vm="1">enCORE File Data</el>
 <el tag="70030003" owner="GEMS_LUNAR_RAW" keyword="enCOREFileLength" vr="UL" vm="1">enCORE File Length</el>
@@ -2158,11 +2158,11 @@
 <el tag="00530066" owner="GEHC_CT_ADVAPP_001" keyword="ImageBrowserAnnotation" vr="LO" vm="1">Image Browser Annotation</el>
 <el tag="00530067" owner="GEHC_CT_ADVAPP_001" keyword="OverlappedReconFlag" vr="IS" vm="1">Overlapped Recon Flag</el>
 <el tag="00530068" owner="GEHC_CT_ADVAPP_001" keyword="RowNumberAnotationFlag" vr="IS" vm="1">Row Number Anotation Flag</el>
-<el tag="0053006a" owner="GEHC_CT_ADVAPP_001" keyword="ODMFlag" vr="IS" vm="1">ODM Flag</el>
-<el tag="0053006b" owner="GEHC_CT_ADVAPP_001" keyword="ODMReductionPercent" vr="IS" vm="1">ODM Reduction Percent</el>
-<el tag="0053006f" owner="GEHC_CT_ADVAPP_001" keyword="ASiRAutoGuidanceDoseReductionPercent" vr="IS" vm="1">ASiR Auto Guidance Dose Reduction Percent</el>
-<el tag="0053007d" owner="GEHC_CT_ADVAPP_001" keyword="SubOptimalIQString" vr="LO" vm="1">SubOptimal IQ String</el>
-<el tag="0053009d" owner="GEHC_CT_ADVAPP_001" keyword="MARsAnnotation" vr="LO" vm="1">MARs Annotation</el>
+<el tag="0053006A" owner="GEHC_CT_ADVAPP_001" keyword="ODMFlag" vr="IS" vm="1">ODM Flag</el>
+<el tag="0053006B" owner="GEHC_CT_ADVAPP_001" keyword="ODMReductionPercent" vr="IS" vm="1">ODM Reduction Percent</el>
+<el tag="0053006F" owner="GEHC_CT_ADVAPP_001" keyword="ASiRAutoGuidanceDoseReductionPercent" vr="IS" vm="1">ASiR Auto Guidance Dose Reduction Percent</el>
+<el tag="0053007D" owner="GEHC_CT_ADVAPP_001" keyword="SubOptimalIQString" vr="LO" vm="1">SubOptimal IQ String</el>
+<el tag="0053009D" owner="GEHC_CT_ADVAPP_001" keyword="MARsAnnotation" vr="LO" vm="1">MARs Annotation</el>
 <el tag="60050010" owner="GE_GROUP" vr="UT" vm="1"/>
 <el tag="00390095" owner="GEMS_0039" keyword="SRApplicationName" vr="LO" vm="1">SR Application Name</el>
 <el tag="00870010" owner="1.2.840.113708.794.1.1.2.0" keyword="MediaType" vr="CS" vm="1">Media Type</el>
@@ -2274,11 +2274,11 @@
 <el tag="00510007" owner="GEMS_FUNCTOOL_01" keyword="Version" vr="LO" vm="1">Version</el>
 <el tag="00510008" owner="GEMS_FUNCTOOL_01" keyword="ColorRampIndex" vr="SL" vm="1">Color Ramp Index</el>
 <el tag="00510009" owner="GEMS_FUNCTOOL_01" keyword="WindowWidth" vr="SL" vm="1">Window Width</el>
-<el tag="0051000a" owner="GEMS_FUNCTOOL_01" keyword="WindowLevel" vr="SL" vm="1">Window Level</el>
-<el tag="0051000b" owner="GEMS_FUNCTOOL_01" keyword="BValue" vr="FL" vm="1">B-Value</el>
-<el tag="0051000c" owner="GEMS_FUNCTOOL_01" keyword="WizardStateDataSize" vr="SL" vm="1">Wizard State Data Size</el>
-<el tag="0051000d" owner="GEMS_FUNCTOOL_01" keyword="WizardState" vr="OB" vm="1">Wizard State</el>
-<el tag="0051000e" owner="GEMS_FUNCTOOL_01" vr="SL" vm="1"/>
+<el tag="0051000A" owner="GEMS_FUNCTOOL_01" keyword="WindowLevel" vr="SL" vm="1">Window Level</el>
+<el tag="0051000B" owner="GEMS_FUNCTOOL_01" keyword="BValue" vr="FL" vm="1">B-Value</el>
+<el tag="0051000C" owner="GEMS_FUNCTOOL_01" keyword="WizardStateDataSize" vr="SL" vm="1">Wizard State Data Size</el>
+<el tag="0051000D" owner="GEMS_FUNCTOOL_01" keyword="WizardState" vr="OB" vm="1">Wizard State</el>
+<el tag="0051000E" owner="GEMS_FUNCTOOL_01" vr="SL" vm="1"/>
 <el tag="00730020" owner="GEMS_IDI_01" keyword="HeightMapPlaneDistance" vr="DS" vm="1">Height Map Plane Distance</el>
 <el tag="00730021" owner="GEMS_IDI_01" keyword="HeightMapPlaneOffset" vr="DS" vm="1">Height Map Plane Offset</el>
 <el tag="00730030" owner="GEMS_IDI_01" keyword="HeightMapPlaneIndices" vr="OW" vm="1">Height Map Plane Indices</el>

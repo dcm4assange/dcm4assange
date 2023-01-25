@@ -89,6 +89,25 @@
               <includes>
                 <include>agfa.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>AGFA</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>AGFA.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>agfa.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -127,6 +146,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>AGFA_ADC_Compact.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>agfa.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>AGFA_ADC_Compact</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>AGFA_ADC_Compact.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -181,6 +219,25 @@
               <includes>
                 <include>agfa.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>Agfa ADC NX</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>Agfa_ADC_NX.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>agfa.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -219,6 +276,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>AGFA_AG_HPState.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>agfa.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>AGFA-AG_HPState</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>AGFA_AG_HPState.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -273,6 +349,25 @@
               <includes>
                 <include>agfa.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>agfa/displayableImages</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>agfa_displayableImages.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>agfa.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -311,6 +406,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>AGFA_KOSD_1_0.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>agfa.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>AGFA KOSD 1.0</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>AGFA_KOSD_1_0.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -365,6 +479,25 @@
               <includes>
                 <include>agfa.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>AGFA PACS Archive Mirroring 1.0</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>AGFA_PACS_Archive_Mirroring_1_0.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>agfa.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -403,6 +536,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>agfa_xeroverse.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>agfa.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>agfa/xeroverse</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>agfa_xeroverse.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -457,6 +609,25 @@
               <includes>
                 <include>agfa.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>AgilityOverlay</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>AgilityOverlay.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>agfa.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -495,6 +666,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>AgilityRuntime.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>agfa.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>AgilityRuntime</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>AgilityRuntime.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -549,6 +739,25 @@
               <includes>
                 <include>agfa.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>MITRA LINKED ATTRIBUTES 1.0</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>MITRA_LINKED_ATTRIBUTES_1_0.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>agfa.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -587,6 +796,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>MITRA_MARKUP_1_0.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>agfa.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>MITRA MARKUP 1.0</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>MITRA_MARKUP_1_0.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -641,6 +869,25 @@
               <includes>
                 <include>agfa.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>MITRA OBJECT ATTRIBUTES 1.0</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>MITRA_OBJECT_ATTRIBUTES_1_0.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>agfa.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -679,6 +926,25 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>MITRA_OBJECT_DOCUMENT_1_0.properties</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>agfa.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>MITRA OBJECT DOCUMENT 1.0</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>MITRA_OBJECT_DOCUMENT_1_0.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -733,6 +999,25 @@
               <includes>
                 <include>agfa.xml</include>
               </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>MITRA OBJECT UTF8 ATTRIBUTES 1.0</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>MITRA_OBJECT_UTF8_ATTRIBUTES_1_0.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>agfa.xml</include>
+              </includes>
               <stylesheet>../src/xsl/ElementDictionary.java.xsl</stylesheet>
               <parameters>
                 <parameter>
@@ -774,6 +1059,25 @@
                 </fileMapper>
               </fileMappers>
             </transformationSet>
+            <transformationSet>
+              <dir>../src/dicom3tools</dir>
+              <includes>
+                <include>agfa.xml</include>
+              </includes>
+              <stylesheet>../src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <parameters>
+                <parameter>
+                  <name>PrivateCreatorID</name>
+                  <value>MITRA PRESENTATION 1.0</value>
+                </parameter>
+              </parameters>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>MITRA_PRESENTATION_1_0.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
           </transformationSets>
         </configuration>
       </plugin>
@@ -803,6 +1107,38 @@
                   <directory>target/generated-resources</directory>
                 </resource>
               </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-jar-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>default-jar</id>
+            <phase>package</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <configuration>
+              <excludes>
+                <exclude>META-INF/maven/remote-resources.xml</exclude>
+                <exclude>*.json</exclude>
+              </excludes>
+            </configuration>
+          </execution>
+          <execution>
+            <id>json-jar</id>
+            <phase>package</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <configuration>
+              <classifier>json</classifier>
+              <includes>
+                <include>META-INF/maven/remote-resources.xml</include>
+                <include>*.json</include>
+              </includes>
             </configuration>
           </execution>
         </executions>

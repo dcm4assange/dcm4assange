@@ -7,11 +7,11 @@ BEGIN	{
 
 	group=""
 	if (match($0,"[(][0-9a-fA-FxX][0-9a-fA-FxX][0-9a-fA-FxX][0-9a-fA-FxX],")) {
-		group=substr($0,RSTART+1,4)
+		group=toupper(substr($0,RSTART+1,4))
 	}
 	element=""
 	if (match($0,",[0-9a-fA-FxX][0-9a-fA-FxX][0-9a-fA-FxX][0-9a-fA-FxX]")) {
-		element=substr($0,RSTART+3,2)
+		element=toupper(substr($0,RSTART+3,2))
 	}
 	if (keyword == "VOIBasedPlacementSettingsSequence" && element != "E7") {
 		next

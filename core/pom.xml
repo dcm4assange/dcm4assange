@@ -99,6 +99,19 @@
             <transformationSet>
               <dir>${project.build.directory}/maven-shared-archive-resources</dir>
               <includes>
+                <include>elements.xml</include>
+              </includes>
+              <stylesheet>src/xsl/ElementDictionary.json.xsl</stylesheet>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>ElementDictionary.json</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>${project.build.directory}/maven-shared-archive-resources</dir>
+              <includes>
                 <include>uids.xml</include>
               </includes>
               <stylesheet>src/xsl/UIDNames.properties.xsl</stylesheet>
@@ -119,6 +132,19 @@
               <fileMappers>
                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                   <targetName>UID.java</targetName>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+            <transformationSet>
+              <dir>${project.build.directory}/maven-shared-archive-resources</dir>
+              <includes>
+                <include>uids.xml</include>
+              </includes>
+              <stylesheet>src/xsl/UIDNames.json.xsl</stylesheet>
+              <outputDir>target/generated-resources</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                  <targetName>UIDNames.json</targetName>
                 </fileMapper>
               </fileMappers>
             </transformationSet>
@@ -151,6 +177,38 @@
                   <directory>target/generated-resources</directory>
                 </resource>
               </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-jar-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>default-jar</id>
+            <phase>package</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <configuration>
+              <excludes>
+                <exclude>META-INF/maven/remote-resources.xml</exclude>
+                <exclude>*.json</exclude>
+              </excludes>
+            </configuration>
+          </execution>
+          <execution>
+            <id>json-jar</id>
+            <phase>package</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <configuration>
+              <classifier>json</classifier>
+              <includes>
+                <include>META-INF/maven/remote-resources.xml</include>
+                <include>*.json</include>
+              </includes>
             </configuration>
           </execution>
         </executions>

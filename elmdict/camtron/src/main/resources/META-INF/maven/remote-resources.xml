@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<remoteResourcesBundle xmlns="http://maven.apache.org/remote-resources/1.1.0"
+                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                       xsi:schemaLocation="http://maven.apache.org/remote-resources/1.1.0
+                       https://maven.apache.org/xsd/remote-resources-1.1.0.xsd">
+  <remoteResources>
+    <remoteResource>CAMTRONICS.json</remoteResource>
+    <remoteResource>Camtronics_image_level_data.json</remoteResource>
+    <remoteResource>CAMTRONICS_IP.json</remoteResource>
+    <remoteResource>QCA_Results.json</remoteResource>
+  </remoteResources>
+  <sourceEncoding>UTF-8</sourceEncoding>
+</remoteResourcesBundle>

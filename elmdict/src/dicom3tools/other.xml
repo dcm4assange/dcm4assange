@@ -65,8 +65,8 @@
 <el tag="00730003" owner="STENTOR" vr="ST" vm="1"/>
 <el tag="00730004" owner="STENTOR" vr="ST" vm="1"/>
 <el tag="00730006" owner="STENTOR" vr="LO" vm="1"/>
-<el tag="0073001e" owner="STENTOR" vr="UT" vm="1"/>
-<el tag="0073001f" owner="STENTOR" vr="UT" vm="1"/>
+<el tag="0073001E" owner="STENTOR" vr="UT" vm="1"/>
+<el tag="0073001F" owner="STENTOR" vr="UT" vm="1"/>
 <el tag="00730030" owner="STENTOR" vr="UT" vm="1"/>
 <el tag="13690000" owner="AEGIS_DICOM_2.00" vr="US" vm="1-n"/>
 <el tag="00090004" owner="FDMS 1.0" keyword="ImageControlUnit" vr="SH" vm="1">Image Control Unit</el>
@@ -154,15 +154,15 @@
 <el tag="00250094" owner="FDMS 1.0" vr="US" vm="1"/>
 <el tag="00250095" owner="FDMS 1.0" vr="US" vm="1"/>
 <el tag="00250096" owner="FDMS 1.0" vr="CS" vm="1"/>
-<el tag="002500a0" owner="FDMS 1.0" vr="US" vm="1"/>
-<el tag="002500a0" owner="FDMS 1.0" vr="US" vm="1"/>
-<el tag="002500a0" owner="FDMS 1.0" vr="US" vm="1"/>
-<el tag="002500a1" owner="FDMS 1.0" vr="SS" vm="1"/>
-<el tag="002500a1" owner="FDMS 1.0" vr="SS" vm="1"/>
-<el tag="002500a2" owner="FDMS 1.0" vr="US" vm="1"/>
-<el tag="002500a2" owner="FDMS 1.0" vr="US" vm="1"/>
-<el tag="002500a3" owner="FDMS 1.0" vr="SS" vm="1"/>
-<el tag="002500a3" owner="FDMS 1.0" vr="SS" vm="1"/>
+<el tag="002500A0" owner="FDMS 1.0" vr="US" vm="1"/>
+<el tag="002500A0" owner="FDMS 1.0" vr="US" vm="1"/>
+<el tag="002500A0" owner="FDMS 1.0" vr="US" vm="1"/>
+<el tag="002500A1" owner="FDMS 1.0" vr="SS" vm="1"/>
+<el tag="002500A1" owner="FDMS 1.0" vr="SS" vm="1"/>
+<el tag="002500A2" owner="FDMS 1.0" vr="US" vm="1"/>
+<el tag="002500A2" owner="FDMS 1.0" vr="US" vm="1"/>
+<el tag="002500A3" owner="FDMS 1.0" vr="SS" vm="1"/>
+<el tag="002500A3" owner="FDMS 1.0" vr="SS" vm="1"/>
 <el tag="00270010" owner="FDMS 1.0" vr="SQ" vm="1"/>
 <el tag="00270020" owner="FDMS 1.0" vr="SQ" vm="1"/>
 <el tag="00270030" owner="FDMS 1.0" vr="SQ" vm="1"/>
@@ -171,24 +171,24 @@
 <el tag="00270060" owner="FDMS 1.0" vr="SQ" vm="1"/>
 <el tag="00270070" owner="FDMS 1.0" vr="SQ" vm="1"/>
 <el tag="00270080" owner="FDMS 1.0" vr="SQ" vm="1"/>
-<el tag="002700a0" owner="FDMS 1.0" vr="IS" vm="1"/>
-<el tag="002700a0" owner="FDMS 1.0" vr="IS" vm="1"/>
-<el tag="002700a0" owner="FDMS 1.0" vr="IS" vm="1"/>
-<el tag="002700a0" owner="FDMS 1.0" vr="IS" vm="1"/>
-<el tag="002700a0" owner="FDMS 1.0" vr="IS" vm="1"/>
-<el tag="002700a0" owner="FDMS 1.0" vr="IS" vm="1"/>
-<el tag="002700a1" owner="FDMS 1.0" vr="CS" vm="2"/>
-<el tag="002700a1" owner="FDMS 1.0" vr="CS" vm="2"/>
-<el tag="002700a2" owner="FDMS 1.0" vr="CS" vm="2"/>
-<el tag="002700a2" owner="FDMS 1.0" vr="CS" vm="2"/>
-<el tag="002700a2" owner="FDMS 1.0" vr="CS" vm="2"/>
-<el tag="002700a3" owner="FDMS 1.0" vr="SS" vm="1-n"/>
-<el tag="002700a3" owner="FDMS 1.0" vr="SS" vm="1-n"/>
-<el tag="002700a3" owner="FDMS 1.0" vr="SS" vm="1-n"/>
-<el tag="002700a3" owner="FDMS 1.0" vr="SS" vm="1-n"/>
-<el tag="002700a3" owner="FDMS 1.0" vr="SS" vm="1-n"/>
-<el tag="002700a3" owner="FDMS 1.0" vr="SS" vm="1-n"/>
-<el tag="002700a3" owner="FDMS 1.0" vr="SS" vm="1-n"/>
+<el tag="002700A0" owner="FDMS 1.0" vr="IS" vm="1"/>
+<el tag="002700A0" owner="FDMS 1.0" vr="IS" vm="1"/>
+<el tag="002700A0" owner="FDMS 1.0" vr="IS" vm="1"/>
+<el tag="002700A0" owner="FDMS 1.0" vr="IS" vm="1"/>
+<el tag="002700A0" owner="FDMS 1.0" vr="IS" vm="1"/>
+<el tag="002700A0" owner="FDMS 1.0" vr="IS" vm="1"/>
+<el tag="002700A1" owner="FDMS 1.0" vr="CS" vm="2"/>
+<el tag="002700A1" owner="FDMS 1.0" vr="CS" vm="2"/>
+<el tag="002700A2" owner="FDMS 1.0" vr="CS" vm="2"/>
+<el tag="002700A2" owner="FDMS 1.0" vr="CS" vm="2"/>
+<el tag="002700A2" owner="FDMS 1.0" vr="CS" vm="2"/>
+<el tag="002700A3" owner="FDMS 1.0" vr="SS" vm="1-n"/>
+<el tag="002700A3" owner="FDMS 1.0" vr="SS" vm="1-n"/>
+<el tag="002700A3" owner="FDMS 1.0" vr="SS" vm="1-n"/>
+<el tag="002700A3" owner="FDMS 1.0" vr="SS" vm="1-n"/>
+<el tag="002700A3" owner="FDMS 1.0" vr="SS" vm="1-n"/>
+<el tag="002700A3" owner="FDMS 1.0" vr="SS" vm="1-n"/>
+<el tag="002700A3" owner="FDMS 1.0" vr="SS" vm="1-n"/>
 <el tag="00290020" owner="FDMS 1.0" keyword="ImageScanningDirection" vr="CS" vm="1">Image Scanning Direction</el>
 <el tag="00290025" owner="FDMS 1.0" keyword="ImageRotationReversalInformation" vr="CS" vm="1">Image Rotation/Reversal Information</el>
 <el tag="00290030" owner="FDMS 1.0" keyword="ExtendedReadingSizeValue" vr="CS" vm="1">Extended Reading Size Value</el>
@@ -217,11 +217,11 @@
 <el tag="00190017" owner="Canon Inc." vr="DS" vm="1"/>
 <el tag="00190018" owner="Canon Inc." vr="UN" vm="1"/>
 <el tag="00190019" owner="Canon Inc." vr="UN" vm="1"/>
-<el tag="0019001a" owner="Canon Inc." vr="UN" vm="1"/>
-<el tag="0019001b" owner="Canon Inc." vr="LO" vm="1"/>
-<el tag="0019001c" owner="Canon Inc." vr="IS" vm="1"/>
-<el tag="0019001e" owner="Canon Inc." vr="IS" vm="1"/>
-<el tag="0019001f" owner="Canon Inc." vr="UN" vm="1"/>
+<el tag="0019001A" owner="Canon Inc." vr="UN" vm="1"/>
+<el tag="0019001B" owner="Canon Inc." vr="LO" vm="1"/>
+<el tag="0019001C" owner="Canon Inc." vr="IS" vm="1"/>
+<el tag="0019001E" owner="Canon Inc." vr="IS" vm="1"/>
+<el tag="0019001F" owner="Canon Inc." vr="UN" vm="1"/>
 <el tag="00190021" owner="Canon Inc." vr="IS" vm="1"/>
 <el tag="00190002" owner="ADAC_IMG" keyword="ADACPegasysFileSize" vr="IS" vm="1">ADAC Pegasys File Size</el>
 <el tag="00190021" owner="ADAC_IMG" keyword="NumberOfADACHeaders" vr="US" vm="1">Number of ADAC Headers</el>
@@ -253,11 +253,11 @@
 <el tag="00290017" owner="Silhouette VRS 3.0" vr="UN" vm="1"/>
 <el tag="00290018" owner="Silhouette VRS 3.0" vr="UN" vm="1"/>
 <el tag="00290019" owner="Silhouette VRS 3.0" vr="UN" vm="1"/>
-<el tag="0029001a" owner="Silhouette VRS 3.0" vr="UN" vm="1"/>
-<el tag="0029001b" owner="Silhouette VRS 3.0" vr="UN" vm="1"/>
-<el tag="0029001c" owner="Silhouette VRS 3.0" vr="UN" vm="1"/>
-<el tag="0029001d" owner="Silhouette VRS 3.0" vr="UN" vm="1"/>
-<el tag="0029001e" owner="Silhouette VRS 3.0" vr="UN" vm="1"/>
+<el tag="0029001A" owner="Silhouette VRS 3.0" vr="UN" vm="1"/>
+<el tag="0029001B" owner="Silhouette VRS 3.0" vr="UN" vm="1"/>
+<el tag="0029001C" owner="Silhouette VRS 3.0" vr="UN" vm="1"/>
+<el tag="0029001D" owner="Silhouette VRS 3.0" vr="UN" vm="1"/>
+<el tag="0029001E" owner="Silhouette VRS 3.0" vr="UN" vm="1"/>
 <el tag="00290027" owner="Silhouette VRS 3.0" vr="US" vm="1"/>
 <el tag="00290028" owner="Silhouette VRS 3.0" vr="UN" vm="1"/>
 <el tag="00290030" owner="Silhouette VRS 3.0" vr="UN" vm="1"/>
@@ -378,24 +378,24 @@
 <el tag="00190090" owner="HOLOGIC, Inc." keyword="ConventionalTomoAngle" vr="DS" vm="1">Conventional Tomo Angle</el>
 <el tag="00190097" owner="HOLOGIC, Inc." keyword="MarkersBurnedIntoImage" vr="SH" vm="1">Markers Burned Into Image</el>
 <el tag="00190098" owner="HOLOGIC, Inc." keyword="GridLineCorrection" vr="LO" vm="1">Grid Line Correction</el>
-<el tag="7e010001" owner="HOLOGIC, Inc." keyword="CodecVersion" vr="LO" vm="1">Codec Version</el>
-<el tag="7e010002" owner="HOLOGIC, Inc." keyword="CodecContentType" vr="SH" vm="1">Codec Content Type</el>
-<el tag="7e010010" owner="HOLOGIC, Inc." keyword="HighResolutionDataSeqence" vr="SQ" vm="1">High Resolution Data Sequence</el>
-<el tag="7e010011" owner="HOLOGIC, Inc." keyword="LowResolutionDataSeqence" vr="SQ" vm="1">Low Resolution Data Sequence</el>
-<el tag="7e010012" owner="HOLOGIC, Inc." keyword="CodecContent" vr="OB" vm="1">Codec Content</el>
-<el tag="7f010001" owner="HOLOGIC, Inc." keyword="CodecVersion" vr="LO" vm="1">Codec Version</el>
-<el tag="7f010002" owner="HOLOGIC, Inc." keyword="CodecContentType" vr="SH" vm="1">Codec Content Type</el>
-<el tag="7f010010" owner="HOLOGIC, Inc." keyword="HighResolutionDataSeqence" vr="SQ" vm="1">High Resolution Data Sequence</el>
-<el tag="7f010011" owner="HOLOGIC, Inc." keyword="LowResolutionDataSeqence" vr="SQ" vm="1">Low Resolution Data Sequence</el>
-<el tag="7f010012" owner="HOLOGIC, Inc." keyword="CodecContent" vr="OB" vm="1">Codec Content</el>
+<el tag="7E010001" owner="HOLOGIC, Inc." keyword="CodecVersion" vr="LO" vm="1">Codec Version</el>
+<el tag="7E010002" owner="HOLOGIC, Inc." keyword="CodecContentType" vr="SH" vm="1">Codec Content Type</el>
+<el tag="7E010010" owner="HOLOGIC, Inc." keyword="HighResolutionDataSeqence" vr="SQ" vm="1">High Resolution Data Sequence</el>
+<el tag="7E010011" owner="HOLOGIC, Inc." keyword="LowResolutionDataSeqence" vr="SQ" vm="1">Low Resolution Data Sequence</el>
+<el tag="7E010012" owner="HOLOGIC, Inc." keyword="CodecContent" vr="OB" vm="1">Codec Content</el>
+<el tag="7F010001" owner="HOLOGIC, Inc." keyword="CodecVersion" vr="LO" vm="1">Codec Version</el>
+<el tag="7F010002" owner="HOLOGIC, Inc." keyword="CodecContentType" vr="SH" vm="1">Codec Content Type</el>
+<el tag="7F010010" owner="HOLOGIC, Inc." keyword="HighResolutionDataSeqence" vr="SQ" vm="1">High Resolution Data Sequence</el>
+<el tag="7F010011" owner="HOLOGIC, Inc." keyword="LowResolutionDataSeqence" vr="SQ" vm="1">Low Resolution Data Sequence</el>
+<el tag="7F010012" owner="HOLOGIC, Inc." keyword="CodecContent" vr="OB" vm="1">Codec Content</el>
 <el tag="00290000" owner="1.2.840.113663.1" vr="US" vm="1"/>
 <el tag="00290001" owner="1.2.840.113663.1" vr="US" vm="1"/>
 <el tag="00090001" owner="MMCPrivate" keyword="Technologist" vr="LO" vm="1">Technologist</el>
 <el tag="00090002" owner="MMCPrivate" keyword="ScheduledStudyDateTime" vr="LO" vm="1">Scheduled Study DateTime</el>
 <el tag="00090003" owner="MMCPrivate" keyword="StudyAppData" vr="OB" vm="1">Study App Data</el>
 <el tag="00090048" owner="MMCPrivate" keyword="ProtocolName" vr="LO" vm="1">Protocol Name</el>
-<el tag="0009004e" owner="MMCPrivate" keyword="Cms_BodyPartExamined" vr="LO" vm="1">CMS Body Part Examined</el>
-<el tag="0009004f" owner="MMCPrivate" keyword="IsProtected" vr="LO" vm="1">Is Protected</el>
+<el tag="0009004E" owner="MMCPrivate" keyword="Cms_BodyPartExamined" vr="LO" vm="1">CMS Body Part Examined</el>
+<el tag="0009004F" owner="MMCPrivate" keyword="IsProtected" vr="LO" vm="1">Is Protected</el>
 <el tag="00090050" owner="MMCPrivate" keyword="Cms_PatientPosition" vr="CS" vm="1">CMS Patient Position</el>
 <el tag="00090051" owner="MMCPrivate" keyword="Cmi_contrastBolusAgent" vr="LO" vm="1">CMI Contrast Bolus Agent</el>
 <el tag="00090052" owner="MMCPrivate" keyword="Cms_institutionName" vr="LO" vm="1">CMS institution Name</el>
@@ -426,12 +426,12 @@
 <el tag="00190007" owner="MMCPrivate" keyword="ImageContrastBolusAgent" vr="LO" vm="1">Image Contrast Bolus Agent</el>
 <el tag="00190008" owner="MMCPrivate" keyword="ImageSliceThickness" vr="DS" vm="1">Image Slice Thickness</el>
 <el tag="00190009" owner="MMCPrivate" keyword="ImageReconstructionDiameter" vr="DS" vm="1">Image Reconstruction Diameter</el>
-<el tag="0019000a" owner="MMCPrivate" keyword="ImageEchoTime" vr="LO" vm="1">Image Echo Time</el>
-<el tag="0019000b" owner="MMCPrivate" keyword="ImageRepetitionTime" vr="DS" vm="1">Image Repetition Time</el>
-<el tag="0019000c" owner="MMCPrivate" keyword="SequenceType" vr="LO" vm="1">Sequence Type</el>
-<el tag="0019000d" owner="MMCPrivate" keyword="TaskUID" vr="LO" vm="1">Task UID</el>
-<el tag="0019000e" owner="MMCPrivate" keyword="SeriesAppData" vr="OB" vm="1">Series App Data</el>
-<el tag="0019000f" owner="MMCPrivate" keyword="MultiSliceNumber" vr="IS" vm="1">Multi Slice Number</el>
+<el tag="0019000A" owner="MMCPrivate" keyword="ImageEchoTime" vr="LO" vm="1">Image Echo Time</el>
+<el tag="0019000B" owner="MMCPrivate" keyword="ImageRepetitionTime" vr="DS" vm="1">Image Repetition Time</el>
+<el tag="0019000C" owner="MMCPrivate" keyword="SequenceType" vr="LO" vm="1">Sequence Type</el>
+<el tag="0019000D" owner="MMCPrivate" keyword="TaskUID" vr="LO" vm="1">Task UID</el>
+<el tag="0019000E" owner="MMCPrivate" keyword="SeriesAppData" vr="OB" vm="1">Series App Data</el>
+<el tag="0019000F" owner="MMCPrivate" keyword="MultiSliceNumber" vr="IS" vm="1">Multi Slice Number</el>
 <el tag="00190010" owner="MMCPrivate" keyword="ImageScanTime" vr="LO" vm="1">Image Scan Time</el>
 <el tag="00190011" owner="MMCPrivate" keyword="IsProtected" vr="LO" vm="1">Is Protected</el>
 <el tag="00190012" owner="MMCPrivate" keyword="ImageIncrement" vr="IS" vm="1">Image Increment</el>
@@ -455,12 +455,12 @@
 <el tag="00290006" owner="MMCPrivate" keyword="ScanTime" vr="LO" vm="1">Scan Time</el>
 <el tag="00290008" owner="MMCPrivate" keyword="DualSliceFlag" vr="LO" vm="1">Dual Slice Flag</el>
 <el tag="00290009" owner="MMCPrivate" keyword="SSPRatio" vr="LO" vm="1">SSP Ratio</el>
-<el tag="0029000a" owner="MMCPrivate" keyword="GatingSignalSource" vr="LO" vm="1">Gating Signal Source</el>
-<el tag="0029000b" owner="MMCPrivate" keyword="Rephase" vr="LO" vm="1">Rephase</el>
-<el tag="0029000c" owner="MMCPrivate" keyword="HalfEcho" vr="LO" vm="1">Half Echo</el>
-<el tag="0029000d" owner="MMCPrivate" keyword="RectFOVRatio" vr="LO" vm="1">Rect FOV Ratio</el>
-<el tag="0029000e" owner="MMCPrivate" keyword="HalfScan" vr="LO" vm="1">Half Scan</el>
-<el tag="0029000f" owner="MMCPrivate" keyword="NumShots" vr="LO" vm="1">Num Shots</el>
+<el tag="0029000A" owner="MMCPrivate" keyword="GatingSignalSource" vr="LO" vm="1">Gating Signal Source</el>
+<el tag="0029000B" owner="MMCPrivate" keyword="Rephase" vr="LO" vm="1">Rephase</el>
+<el tag="0029000C" owner="MMCPrivate" keyword="HalfEcho" vr="LO" vm="1">Half Echo</el>
+<el tag="0029000D" owner="MMCPrivate" keyword="RectFOVRatio" vr="LO" vm="1">Rect FOV Ratio</el>
+<el tag="0029000E" owner="MMCPrivate" keyword="HalfScan" vr="LO" vm="1">Half Scan</el>
+<el tag="0029000F" owner="MMCPrivate" keyword="NumShots" vr="LO" vm="1">Num Shots</el>
 <el tag="00290010" owner="MMCPrivate" keyword="ContrastAgent" vr="LO" vm="1">Contrast Agent</el>
 <el tag="00290011" owner="MMCPrivate" keyword="EchoAllocation" vr="LO" vm="1">Echo Allocation</el>
 <el tag="00290012" owner="MMCPrivate" keyword="NumEchoShift" vr="LO" vm="1">Num Echo Shift</el>
@@ -470,10 +470,10 @@
 <el tag="00290016" owner="MMCPrivate" keyword="TargetVelocity" vr="LO" vm="1">Target Velocity</el>
 <el tag="00290017" owner="MMCPrivate" keyword="VENCAxis" vr="LO" vm="1">VENC Axis</el>
 <el tag="00290018" owner="MMCPrivate" keyword="NumVENCDirection" vr="LO" vm="1">Num VENC Direction</el>
-<el tag="0029001c" owner="MMCPrivate" keyword="IsScalableWindowLevel" vr="LO" vm="1">Is Scalable Window Level</el>
-<el tag="0029001d" owner="MMCPrivate" keyword="ThreeDSettingLineAngle" vr="LO" vm="1">Three D Setting Line Angle</el>
-<el tag="0029001e" owner="MMCPrivate" keyword="MPGTotalAxis" vr="LO" vm="1">MPG Total Axis</el>
-<el tag="0029001f" owner="MMCPrivate" keyword="MPGAxisNumber" vr="LO" vm="1">MPG Axis Number</el>
+<el tag="0029001C" owner="MMCPrivate" keyword="IsScalableWindowLevel" vr="LO" vm="1">Is Scalable Window Level</el>
+<el tag="0029001D" owner="MMCPrivate" keyword="ThreeDSettingLineAngle" vr="LO" vm="1">Three D Setting Line Angle</el>
+<el tag="0029001E" owner="MMCPrivate" keyword="MPGTotalAxis" vr="LO" vm="1">MPG Total Axis</el>
+<el tag="0029001F" owner="MMCPrivate" keyword="MPGAxisNumber" vr="LO" vm="1">MPG Axis Number</el>
 <el tag="00290020" owner="MMCPrivate" keyword="MultiEchoNumber" vr="IS" vm="1">Multi Echo Number</el>
 <el tag="00290021" owner="MMCPrivate" keyword="NaviAverageGateWidth" vr="DS" vm="1">Navi Average Gate Width</el>
 <el tag="00290022" owner="MMCPrivate" keyword="ShimCompensateValue" vr="ST" vm="1">Shim Compensate Value</el>
@@ -484,12 +484,12 @@
 <el tag="00290027" owner="MMCPrivate" keyword="NaviMinGatePosition" vr="DS" vm="1">Navi Min Gate Position</el>
 <el tag="00290028" owner="MMCPrivate" keyword="TimeDuration" vr="DS" vm="1">Time Duration</el>
 <el tag="00290029" owner="MMCPrivate" keyword="TablePosition" vr="DS" vm="1">Table Position</el>
-<el tag="0029002a" owner="MMCPrivate" keyword="NaviInitialGateWidth" vr="DS" vm="1">Navi Initial Gate Width</el>
-<el tag="0029002b" owner="MMCPrivate" keyword="NaviFinalGateWidth" vr="DS" vm="1">Navi Final Gate Width</el>
-<el tag="0029002c" owner="MMCPrivate" keyword="NaviInitialGatePosition" vr="DS" vm="1">Navi Initial Gate Position</el>
-<el tag="0029002d" owner="MMCPrivate" keyword="NaviFinalGatePosition" vr="DS" vm="1">Navi Final Gate Position</el>
-<el tag="0029002e" owner="MMCPrivate" keyword="NaviAverageGatePosition" vr="DS" vm="1">Navi Average Gate Position</el>
-<el tag="0029002f" owner="MMCPrivate" keyword="ImageAppData" vr="OB" vm="1">Image App Data</el>
+<el tag="0029002A" owner="MMCPrivate" keyword="NaviInitialGateWidth" vr="DS" vm="1">Navi Initial Gate Width</el>
+<el tag="0029002B" owner="MMCPrivate" keyword="NaviFinalGateWidth" vr="DS" vm="1">Navi Final Gate Width</el>
+<el tag="0029002C" owner="MMCPrivate" keyword="NaviInitialGatePosition" vr="DS" vm="1">Navi Initial Gate Position</el>
+<el tag="0029002D" owner="MMCPrivate" keyword="NaviFinalGatePosition" vr="DS" vm="1">Navi Final Gate Position</el>
+<el tag="0029002E" owner="MMCPrivate" keyword="NaviAverageGatePosition" vr="DS" vm="1">Navi Average Gate Position</el>
+<el tag="0029002F" owner="MMCPrivate" keyword="ImageAppData" vr="OB" vm="1">Image App Data</el>
 <el tag="00290030" owner="MMCPrivate" keyword="DiffusionBValue" vr="FD" vm="1">Diffusion BValue</el>
 <el tag="00290031" owner="MMCPrivate" keyword="SharedFunctionalGroupsSequence" vr="SQ" vm="1">Shared Functional Groups Sequence</el>
 <el tag="00290032" owner="MMCPrivate" keyword="PerFrameFunctionalGroupsSequence" vr="SQ" vm="1">Per Frame Functional Groups Sequence</el>
@@ -500,12 +500,12 @@
 <el tag="00290037" owner="MMCPrivate" keyword="TimezoneOffsetFromUTC" vr="SH" vm="1">Timezone Offset From UTC</el>
 <el tag="00290038" owner="MMCPrivate" keyword="SOPInstanceStatus" vr="CS" vm="1">SOPInstance Status</el>
 <el tag="00290039" owner="MMCPrivate" keyword="SOPAuthorizationDateandTime" vr="DT" vm="1">SOPAuthorization Dateand Time</el>
-<el tag="0029003a" owner="MMCPrivate" keyword="SOPAuthorizationComment" vr="LT" vm="1">SOPAuthorization Comment</el>
-<el tag="0029003b" owner="MMCPrivate" keyword="AuthorizationEquipmentCertificationNumber" vr="LO" vm="1">Authorization Equipment Certification Number</el>
-<el tag="0029003c" owner="MMCPrivate" keyword="ConcatenationFrameOffsetNumber" vr="UL" vm="1">Concatenation Frame Offset Number</el>
-<el tag="0029003d" owner="MMCPrivate" keyword="RepresentativeFrameNumber" vr="US" vm="1">Representative Frame Number</el>
-<el tag="0029003e" owner="MMCPrivate" keyword="ConcatenationUID" vr="UI" vm="1">Concatenation UID</el>
-<el tag="0029003f" owner="MMCPrivate" keyword="InConcatenationNumber" vr="US" vm="1">In Concatenation Number</el>
+<el tag="0029003A" owner="MMCPrivate" keyword="SOPAuthorizationComment" vr="LT" vm="1">SOPAuthorization Comment</el>
+<el tag="0029003B" owner="MMCPrivate" keyword="AuthorizationEquipmentCertificationNumber" vr="LO" vm="1">Authorization Equipment Certification Number</el>
+<el tag="0029003C" owner="MMCPrivate" keyword="ConcatenationFrameOffsetNumber" vr="UL" vm="1">Concatenation Frame Offset Number</el>
+<el tag="0029003D" owner="MMCPrivate" keyword="RepresentativeFrameNumber" vr="US" vm="1">Representative Frame Number</el>
+<el tag="0029003E" owner="MMCPrivate" keyword="ConcatenationUID" vr="UI" vm="1">Concatenation UID</el>
+<el tag="0029003F" owner="MMCPrivate" keyword="InConcatenationNumber" vr="US" vm="1">In Concatenation Number</el>
 <el tag="00290040" owner="MMCPrivate" keyword="CardiacSynchronizationTechnique" vr="CS" vm="1">Cardiac Synchronization Technique</el>
 <el tag="00290041" owner="MMCPrivate" keyword="CardiacSignalSource" vr="CS" vm="1">Cardiac Signal Source</el>
 <el tag="00290042" owner="MMCPrivate" keyword="CardiacRRIntervalSpecified" vr="FD" vm="1">Cardiac RRInterval Specified</el>
@@ -516,12 +516,12 @@
 <el tag="00290047" owner="MMCPrivate" keyword="IntervalsRejected" vr="IS" vm="1">Intervals Rejected</el>
 <el tag="00290048" owner="MMCPrivate" keyword="RespiratoryMotionCompensationTechnique" vr="CS" vm="1">Respiratory Motion Compensation Technique</el>
 <el tag="00290049" owner="MMCPrivate" keyword="RespiratorySignalSource" vr="CS" vm="1">Respiratory Signal Source</el>
-<el tag="0029004a" owner="MMCPrivate" keyword="BulkMotionCompensationTechnique" vr="CS" vm="1">Bulk Motion Compensation Technique</el>
-<el tag="0029004b" owner="MMCPrivate" keyword="BulkMotionSignalSource" vr="CS" vm="1">Bulk Motion Signal Source</el>
-<el tag="0029004c" owner="MMCPrivate" keyword="PixelPresentation" vr="CS" vm="1">Pixel Presentation</el>
-<el tag="0029004d" owner="MMCPrivate" keyword="VolumetricProperties" vr="CS" vm="1">Volumetric Properties</el>
-<el tag="0029004e" owner="MMCPrivate" keyword="VolumeBasedCalculationTechnique" vr="CS" vm="1">Volume Based Calculation Technique</el>
-<el tag="0029004f" owner="MMCPrivate" keyword="AcquisitionContextDescription" vr="ST" vm="1">Acquisition Context Description</el>
+<el tag="0029004A" owner="MMCPrivate" keyword="BulkMotionCompensationTechnique" vr="CS" vm="1">Bulk Motion Compensation Technique</el>
+<el tag="0029004B" owner="MMCPrivate" keyword="BulkMotionSignalSource" vr="CS" vm="1">Bulk Motion Signal Source</el>
+<el tag="0029004C" owner="MMCPrivate" keyword="PixelPresentation" vr="CS" vm="1">Pixel Presentation</el>
+<el tag="0029004D" owner="MMCPrivate" keyword="VolumetricProperties" vr="CS" vm="1">Volumetric Properties</el>
+<el tag="0029004E" owner="MMCPrivate" keyword="VolumeBasedCalculationTechnique" vr="CS" vm="1">Volume Based Calculation Technique</el>
+<el tag="0029004F" owner="MMCPrivate" keyword="AcquisitionContextDescription" vr="ST" vm="1">Acquisition Context Description</el>
 <el tag="00290050" owner="MMCPrivate" vr="SQ" vm="1"/>
 <el tag="00290051" owner="MMCPrivate" keyword="LUTDescriptor" vr="LO" vm="1">LUTDescriptor</el>
 <el tag="00290052" owner="MMCPrivate" keyword="LUTExplanation" vr="LO" vm="1">LUTExplanation</el>
@@ -532,12 +532,12 @@
 <el tag="00290057" owner="MMCPrivate" keyword="AnatomicRegionSequence" vr="SQ" vm="1">Anatomic Region Sequence</el>
 <el tag="00290058" owner="MMCPrivate" keyword="AnatomicRegionCodeValue" vr="SH" vm="1">Anatomic Region Code Value</el>
 <el tag="00290059" owner="MMCPrivate" keyword="AnatomicRegionCodingSchemeDesignator" vr="SH" vm="1">Anatomic Region Coding Scheme Designator</el>
-<el tag="0029005a" owner="MMCPrivate" keyword="AnatomicRegionCodingSchemeVersion" vr="SH" vm="1">Anatomic Region Coding Scheme Version</el>
-<el tag="0029005b" owner="MMCPrivate" keyword="AnatomicRegionCodeMeaning" vr="LO" vm="1">Anatomic Region Code Meaning</el>
-<el tag="0029005c" owner="MMCPrivate" keyword="PixelValueTransformationSequence" vr="SQ" vm="1">Pixel Value Transformation Sequence</el>
-<el tag="0029005d" owner="MMCPrivate" keyword="RescaleType" vr="LO" vm="1">Rescale Type</el>
-<el tag="0029005e" owner="MMCPrivate" keyword="CardiacSynchronizationSequence" vr="SQ" vm="1">Cardiac Synchronization Sequence</el>
-<el tag="0029005f" owner="MMCPrivate" keyword="TriggerDelayTime" vr="FD" vm="1">Trigger Delay Time</el>
+<el tag="0029005A" owner="MMCPrivate" keyword="AnatomicRegionCodingSchemeVersion" vr="SH" vm="1">Anatomic Region Coding Scheme Version</el>
+<el tag="0029005B" owner="MMCPrivate" keyword="AnatomicRegionCodeMeaning" vr="LO" vm="1">Anatomic Region Code Meaning</el>
+<el tag="0029005C" owner="MMCPrivate" keyword="PixelValueTransformationSequence" vr="SQ" vm="1">Pixel Value Transformation Sequence</el>
+<el tag="0029005D" owner="MMCPrivate" keyword="RescaleType" vr="LO" vm="1">Rescale Type</el>
+<el tag="0029005E" owner="MMCPrivate" keyword="CardiacSynchronizationSequence" vr="SQ" vm="1">Cardiac Synchronization Sequence</el>
+<el tag="0029005F" owner="MMCPrivate" keyword="TriggerDelayTime" vr="FD" vm="1">Trigger Delay Time</el>
 <el tag="00290060" owner="MMCPrivate" keyword="FrameVOILUTSequence" vr="SQ" vm="1">Frame VOILUTSequence</el>
 <el tag="00290061" owner="MMCPrivate" keyword="WindowCenterAndWidthExplanation" vr="LO" vm="1">Window Center and Width Explanation</el>
 <el tag="00290062" owner="MMCPrivate" vr="CS" vm="1"/>
@@ -548,8 +548,8 @@
 <el tag="00290067" owner="MMCPrivate" keyword="FlowCompensation" vr="CS" vm="1">Flow Compensation</el>
 <el tag="00290068" owner="MMCPrivate" keyword="FlowCompensationDirection" vr="CS" vm="1">Flow Compensation Direction</el>
 <el tag="00290069" owner="MMCPrivate" keyword="SpatialPreSaturation" vr="CS" vm="1">Spatial PreSaturation</el>
-<el tag="0029006a" owner="MMCPrivate" keyword="PartialFourier" vr="CS" vm="1">Partial Fourier</el>
-<el tag="0029006b" owner="MMCPrivate" keyword="PartialFourierDirection" vr="CS" vm="1">Partial Fourier Direction</el>
+<el tag="0029006A" owner="MMCPrivate" keyword="PartialFourier" vr="CS" vm="1">Partial Fourier</el>
+<el tag="0029006B" owner="MMCPrivate" keyword="PartialFourierDirection" vr="CS" vm="1">Partial Fourier Direction</el>
 <el tag="00290070" owner="MMCPrivate" keyword="MRReceiveCoilSequence" vr="SQ" vm="1">MR Receive Coil Sequence</el>
 <el tag="00290071" owner="MMCPrivate" keyword="ReceiveCoilManufacturerName" vr="LO" vm="1">Receive Coil Manufacturer Name</el>
 <el tag="00290072" owner="MMCPrivate" keyword="ReceiveCoilType" vr="CS" vm="1">Receive Coil Type</el>
@@ -560,12 +560,12 @@
 <el tag="00290077" owner="MMCPrivate" keyword="EchoPulseSequence" vr="CS" vm="1">Echo Pulse Sequence</el>
 <el tag="00290078" owner="MMCPrivate" keyword="MultipleSpinEcho" vr="CS" vm="1">Multiple Spin Echo</el>
 <el tag="00290079" owner="MMCPrivate" keyword="MultiPlanarExcitation" vr="CS" vm="1">Multi Planar Excitation</el>
-<el tag="0029007a" owner="MMCPrivate" keyword="PhaseContrast" vr="CS" vm="1">Phase Contrast</el>
-<el tag="0029007b" owner="MMCPrivate" keyword="TimeOfFlightContrast" vr="CS" vm="1">Time of Flight Contrast</el>
-<el tag="0029007c" owner="MMCPrivate" keyword="SteadyStatePulseSequence" vr="CS" vm="1">Steady State Pulse Sequence</el>
-<el tag="0029007d" owner="MMCPrivate" keyword="EchoPlanarPulseSequence" vr="CS" vm="1">Echo Planar Pulse Sequence</el>
-<el tag="0029007e" owner="MMCPrivate" keyword="SpectrallySelectedSuppression" vr="CS" vm="1">Spectrally Selected Suppression</el>
-<el tag="0029007f" owner="MMCPrivate" keyword="OversamplingPhase" vr="CS" vm="1">Oversampling Phase</el>
+<el tag="0029007A" owner="MMCPrivate" keyword="PhaseContrast" vr="CS" vm="1">Phase Contrast</el>
+<el tag="0029007B" owner="MMCPrivate" keyword="TimeOfFlightContrast" vr="CS" vm="1">Time of Flight Contrast</el>
+<el tag="0029007C" owner="MMCPrivate" keyword="SteadyStatePulseSequence" vr="CS" vm="1">Steady State Pulse Sequence</el>
+<el tag="0029007D" owner="MMCPrivate" keyword="EchoPlanarPulseSequence" vr="CS" vm="1">Echo Planar Pulse Sequence</el>
+<el tag="0029007E" owner="MMCPrivate" keyword="SpectrallySelectedSuppression" vr="CS" vm="1">Spectrally Selected Suppression</el>
+<el tag="0029007F" owner="MMCPrivate" keyword="OversamplingPhase" vr="CS" vm="1">Oversampling Phase</el>
 <el tag="00290080" owner="MMCPrivate" keyword="SegmentedKSpaceTraversal" vr="CS" vm="1">Segmented KSpace Traversal</el>
 <el tag="00290081" owner="MMCPrivate" keyword="CoverageOfKSpace" vr="CS" vm="1">Coverage of KSpace</el>
 <el tag="00290082" owner="MMCPrivate" keyword="MRTimingAndRelatedParametersSequence" vr="SQ" vm="1">MR Timing and Related Parameters Sequence</el>
@@ -576,12 +576,12 @@
 <el tag="00290087" owner="MMCPrivate" keyword="MRFOVGeometrySequence" vr="SQ" vm="1">MRFOVGeometry Sequence</el>
 <el tag="00290088" owner="MMCPrivate" keyword="MRAcquisitionFrequencyEncodingSteps" vr="US" vm="1">MRAcquisition Frequency Encoding Steps</el>
 <el tag="00290089" owner="MMCPrivate" keyword="MRAcquisitionPhaseEncodingStepsInPlane" vr="US" vm="1">MRAcquisition Phase Encoding Steps In Plane</el>
-<el tag="0029008a" owner="MMCPrivate" keyword="MRAcquisitionPhaseEncodingStepsOutOfPlane" vr="US" vm="1">MRAcquisitionPhase Encoding Steps Out of Plane</el>
-<el tag="0029008b" owner="MMCPrivate" keyword="MRTransmitCoilSequence" vr="SQ" vm="1">MR Transmit Coil Sequence</el>
-<el tag="0029008c" owner="MMCPrivate" keyword="TransmitCoilName" vr="SH" vm="1">Transmit Coil Name</el>
-<el tag="0029008d" owner="MMCPrivate" keyword="TransmitCoilManufacturerName" vr="LO" vm="1">Transmit Coil Manufacturer Name</el>
-<el tag="0029008e" owner="MMCPrivate" keyword="TransmitCoilType" vr="CS" vm="1">Transmit Coil Type</el>
-<el tag="0029008f" owner="MMCPrivate" keyword="MREchoSequence" vr="SQ" vm="1">MR Echo Sequence</el>
+<el tag="0029008A" owner="MMCPrivate" keyword="MRAcquisitionPhaseEncodingStepsOutOfPlane" vr="US" vm="1">MRAcquisitionPhase Encoding Steps Out of Plane</el>
+<el tag="0029008B" owner="MMCPrivate" keyword="MRTransmitCoilSequence" vr="SQ" vm="1">MR Transmit Coil Sequence</el>
+<el tag="0029008C" owner="MMCPrivate" keyword="TransmitCoilName" vr="SH" vm="1">Transmit Coil Name</el>
+<el tag="0029008D" owner="MMCPrivate" keyword="TransmitCoilManufacturerName" vr="LO" vm="1">Transmit Coil Manufacturer Name</el>
+<el tag="0029008E" owner="MMCPrivate" keyword="TransmitCoilType" vr="CS" vm="1">Transmit Coil Type</el>
+<el tag="0029008F" owner="MMCPrivate" keyword="MREchoSequence" vr="SQ" vm="1">MR Echo Sequence</el>
 <el tag="00290090" owner="MMCPrivate" keyword="EffectiveEchoTime" vr="FD" vm="1">Effective Echo Time</el>
 <el tag="00290091" owner="MMCPrivate" keyword="MRMetaboliteMapSequence" vr="SQ" vm="1">MR Metabolite Map Sequence</el>
 <el tag="00290092" owner="MMCPrivate" keyword="MetaboliteMapDescription" vr="ST" vm="1">Metabolite Map Description</el>
@@ -592,55 +592,55 @@
 <el tag="00290097" owner="MMCPrivate" keyword="MetaboliteMapCodeMeaning" vr="LO" vm="1">Metabolite Map Code Meaning</el>
 <el tag="00290098" owner="MMCPrivate" keyword="MRImagingModifierSequence" vr="SQ" vm="1">MR Imaging Modifier Sequence</el>
 <el tag="00290099" owner="MMCPrivate" keyword="MagnetizationTransfer" vr="CS" vm="1">Magnetization Transfer</el>
-<el tag="0029009a" owner="MMCPrivate" keyword="BloodSignalNulling" vr="CS" vm="1">Blood Signal Nulling</el>
-<el tag="0029009b" owner="MMCPrivate" keyword="Tagging" vr="CS" vm="1">Tagging</el>
-<el tag="0029009c" owner="MMCPrivate" keyword="TagSpacingFirstDimension" vr="FD" vm="1">Tag Spacing First Dimension</el>
-<el tag="0029009d" owner="MMCPrivate" keyword="TagSpacingSecondDimension" vr="FD" vm="1">Tag Spacing Second Dimension</el>
-<el tag="0029009e" owner="MMCPrivate" keyword="TagAngleFirstAxis" vr="FD" vm="1">Tag Angle First Axis</el>
-<el tag="0029009f" owner="MMCPrivate" keyword="TagAngleSecondAxis" vr="SS" vm="1">Tag Angle Second Axis</el>
-<el tag="002900a0" owner="MMCPrivate" keyword="TagThickness" vr="FD" vm="1">Tag Thickness</el>
-<el tag="002900a1" owner="MMCPrivate" keyword="TaggingDelay" vr="FD" vm="1">Tagging Delay</el>
-<el tag="002900a2" owner="MMCPrivate" keyword="TransmitterFrequency" vr="FD" vm="1">Transmitter Frequency</el>
-<el tag="002900a3" owner="MMCPrivate" keyword="PixelBandwidth" vr="DS" vm="1">Pixel Bandwidth</el>
-<el tag="002900a4" owner="MMCPrivate" keyword="MRVelocityEncodingSequence" vr="SQ" vm="1">MRVelocity Encoding Sequence</el>
-<el tag="002900a5" owner="MMCPrivate" keyword="VelocityEncodingDirection" vr="FD" vm="1">Velocity Encoding Direction</el>
-<el tag="002900a6" owner="MMCPrivate" keyword="VelocityEncodingMinimumValue" vr="FD" vm="1">Velocity Encoding Minimum Value</el>
-<el tag="002900a7" owner="MMCPrivate" keyword="VelocityEncodingMaximumValue" vr="FD" vm="1">Velocity Encoding Maximum Value</el>
-<el tag="002900a8" owner="MMCPrivate" keyword="MRImageFrameTypeSequence" vr="SQ" vm="1">MR Image Frame Type Sequence</el>
-<el tag="002900a9" owner="MMCPrivate" keyword="FrameType" vr="CS" vm="1">Frame Type</el>
-<el tag="002900aa" owner="MMCPrivate" keyword="PixelPresentation" vr="CS" vm="1">Pixel Presentation</el>
-<el tag="002900ab" owner="MMCPrivate" keyword="VolumetricProperties" vr="CS" vm="1">Volumetric Properties</el>
-<el tag="002900ac" owner="MMCPrivate" keyword="VolumeBasedCalculationTechnique" vr="CS" vm="1">Volume Based Calculation Technique</el>
-<el tag="002900ad" owner="MMCPrivate" keyword="FilmedCount" vr="IS" vm="1">Filmed Count</el>
-<el tag="002900ae" owner="MMCPrivate" keyword="IsTransferred" vr="LO" vm="1">Is Transferred</el>
-<el tag="002900af" owner="MMCPrivate" keyword="IsArchived" vr="LO" vm="1">Is Archived</el>
-<el tag="002900b0" owner="MMCPrivate" keyword="MPPSStepStatus" vr="LO" vm="1">MPPS Step Status</el>
-<el tag="002900b1" owner="MMCPrivate" keyword="CommitmentStatus" vr="LO" vm="1">Commitment Status</el>
-<el tag="002900b2" owner="MMCPrivate" keyword="IsStorageCommitted" vr="LO" vm="1">Is Storage Committed</el>
-<el tag="002900b3" owner="MMCPrivate" keyword="IsDicom" vr="LO" vm="1">Is Dicom</el>
-<el tag="002900b4" owner="MMCPrivate" keyword="IsAllowCascadeSave" vr="LO" vm="1">Is Allow Cascade Save</el>
-<el tag="002900b5" owner="MMCPrivate" keyword="IsAllowCascadeProtect" vr="LO" vm="1">Is Allow Cascade Protect</el>
-<el tag="002900b6" owner="MMCPrivate" keyword="IsDeleted" vr="LO" vm="1">Is Deleted</el>
-<el tag="002900b7" owner="MMCPrivate" keyword="ApplicationData" vr="OB" vm="1">Application Data</el>
-<el tag="002900b8" owner="MMCPrivate" keyword="IsAllowCascadeSave" vr="LO" vm="1">Is Allow Cascade Save</el>
-<el tag="002900b9" owner="MMCPrivate" keyword="IsAllowCascadeProtect" vr="LO" vm="1">Is Allow Cascade Protect</el>
-<el tag="002900ba" owner="MMCPrivate" keyword="IsDeleted" vr="LO" vm="1">Is Deleted</el>
-<el tag="002900bb" owner="MMCPrivate" keyword="VOI1" vr="IS" vm="1">VOI 1</el>
-<el tag="002900bc" owner="MMCPrivate" keyword="VOI2" vr="IS" vm="1">VOI 2</el>
-<el tag="002900bd" owner="MMCPrivate" keyword="MixingTime" vr="DS" vm="1">Mixing Time</el>
-<el tag="002900be" owner="MMCPrivate" keyword="SelectiveIRPosition" vr="FD" vm="1">Selective IR Position</el>
-<el tag="002900bf" owner="MMCPrivate" keyword="SelectiveIRRow" vr="FD" vm="1">Selective IR Row</el>
-<el tag="002900c0" owner="MMCPrivate" keyword="SelectiveIRColumn" vr="FD" vm="1">Selective IR Column</el>
-<el tag="002900c1" owner="MMCPrivate" keyword="SelectiveIROrientation" vr="FD" vm="1">Selective IR Orientation</el>
-<el tag="002900c2" owner="MMCPrivate" keyword="SelectiveIRThickness" vr="DS" vm="1">Selective IR Thickness</el>
-<el tag="002900c3" owner="MMCPrivate" keyword="RephaseOrderSlice" vr="CS" vm="1">Rephase Order Slice</el>
-<el tag="002900c4" owner="MMCPrivate" keyword="RephaseOrderPhase" vr="CS" vm="1">Rephase Order Phase</el>
-<el tag="002900c5" owner="MMCPrivate" keyword="RephaseOrderFreq" vr="CS" vm="1">Rephase Order Freq</el>
-<el tag="002900d0" owner="MMCPrivate" vr="LO" vm="1"/>
-<el tag="002900d3" owner="MMCPrivate" vr="LO" vm="1"/>
-<el tag="002900d5" owner="MMCPrivate" vr="UI" vm="1"/>
-<el tag="002900d6" owner="MMCPrivate" vr="LO" vm="1"/>
-<el tag="002900d7" owner="MMCPrivate" vr="OB" vm="1"/>
+<el tag="0029009A" owner="MMCPrivate" keyword="BloodSignalNulling" vr="CS" vm="1">Blood Signal Nulling</el>
+<el tag="0029009B" owner="MMCPrivate" keyword="Tagging" vr="CS" vm="1">Tagging</el>
+<el tag="0029009C" owner="MMCPrivate" keyword="TagSpacingFirstDimension" vr="FD" vm="1">Tag Spacing First Dimension</el>
+<el tag="0029009D" owner="MMCPrivate" keyword="TagSpacingSecondDimension" vr="FD" vm="1">Tag Spacing Second Dimension</el>
+<el tag="0029009E" owner="MMCPrivate" keyword="TagAngleFirstAxis" vr="FD" vm="1">Tag Angle First Axis</el>
+<el tag="0029009F" owner="MMCPrivate" keyword="TagAngleSecondAxis" vr="SS" vm="1">Tag Angle Second Axis</el>
+<el tag="002900A0" owner="MMCPrivate" keyword="TagThickness" vr="FD" vm="1">Tag Thickness</el>
+<el tag="002900A1" owner="MMCPrivate" keyword="TaggingDelay" vr="FD" vm="1">Tagging Delay</el>
+<el tag="002900A2" owner="MMCPrivate" keyword="TransmitterFrequency" vr="FD" vm="1">Transmitter Frequency</el>
+<el tag="002900A3" owner="MMCPrivate" keyword="PixelBandwidth" vr="DS" vm="1">Pixel Bandwidth</el>
+<el tag="002900A4" owner="MMCPrivate" keyword="MRVelocityEncodingSequence" vr="SQ" vm="1">MRVelocity Encoding Sequence</el>
+<el tag="002900A5" owner="MMCPrivate" keyword="VelocityEncodingDirection" vr="FD" vm="1">Velocity Encoding Direction</el>
+<el tag="002900A6" owner="MMCPrivate" keyword="VelocityEncodingMinimumValue" vr="FD" vm="1">Velocity Encoding Minimum Value</el>
+<el tag="002900A7" owner="MMCPrivate" keyword="VelocityEncodingMaximumValue" vr="FD" vm="1">Velocity Encoding Maximum Value</el>
+<el tag="002900A8" owner="MMCPrivate" keyword="MRImageFrameTypeSequence" vr="SQ" vm="1">MR Image Frame Type Sequence</el>
+<el tag="002900A9" owner="MMCPrivate" keyword="FrameType" vr="CS" vm="1">Frame Type</el>
+<el tag="002900AA" owner="MMCPrivate" keyword="PixelPresentation" vr="CS" vm="1">Pixel Presentation</el>
+<el tag="002900AB" owner="MMCPrivate" keyword="VolumetricProperties" vr="CS" vm="1">Volumetric Properties</el>
+<el tag="002900AC" owner="MMCPrivate" keyword="VolumeBasedCalculationTechnique" vr="CS" vm="1">Volume Based Calculation Technique</el>
+<el tag="002900AD" owner="MMCPrivate" keyword="FilmedCount" vr="IS" vm="1">Filmed Count</el>
+<el tag="002900AE" owner="MMCPrivate" keyword="IsTransferred" vr="LO" vm="1">Is Transferred</el>
+<el tag="002900AF" owner="MMCPrivate" keyword="IsArchived" vr="LO" vm="1">Is Archived</el>
+<el tag="002900B0" owner="MMCPrivate" keyword="MPPSStepStatus" vr="LO" vm="1">MPPS Step Status</el>
+<el tag="002900B1" owner="MMCPrivate" keyword="CommitmentStatus" vr="LO" vm="1">Commitment Status</el>
+<el tag="002900B2" owner="MMCPrivate" keyword="IsStorageCommitted" vr="LO" vm="1">Is Storage Committed</el>
+<el tag="002900B3" owner="MMCPrivate" keyword="IsDicom" vr="LO" vm="1">Is Dicom</el>
+<el tag="002900B4" owner="MMCPrivate" keyword="IsAllowCascadeSave" vr="LO" vm="1">Is Allow Cascade Save</el>
+<el tag="002900B5" owner="MMCPrivate" keyword="IsAllowCascadeProtect" vr="LO" vm="1">Is Allow Cascade Protect</el>
+<el tag="002900B6" owner="MMCPrivate" keyword="IsDeleted" vr="LO" vm="1">Is Deleted</el>
+<el tag="002900B7" owner="MMCPrivate" keyword="ApplicationData" vr="OB" vm="1">Application Data</el>
+<el tag="002900B8" owner="MMCPrivate" keyword="IsAllowCascadeSave" vr="LO" vm="1">Is Allow Cascade Save</el>
+<el tag="002900B9" owner="MMCPrivate" keyword="IsAllowCascadeProtect" vr="LO" vm="1">Is Allow Cascade Protect</el>
+<el tag="002900BA" owner="MMCPrivate" keyword="IsDeleted" vr="LO" vm="1">Is Deleted</el>
+<el tag="002900BB" owner="MMCPrivate" keyword="VOI1" vr="IS" vm="1">VOI 1</el>
+<el tag="002900BC" owner="MMCPrivate" keyword="VOI2" vr="IS" vm="1">VOI 2</el>
+<el tag="002900BD" owner="MMCPrivate" keyword="MixingTime" vr="DS" vm="1">Mixing Time</el>
+<el tag="002900BE" owner="MMCPrivate" keyword="SelectiveIRPosition" vr="FD" vm="1">Selective IR Position</el>
+<el tag="002900BF" owner="MMCPrivate" keyword="SelectiveIRRow" vr="FD" vm="1">Selective IR Row</el>
+<el tag="002900C0" owner="MMCPrivate" keyword="SelectiveIRColumn" vr="FD" vm="1">Selective IR Column</el>
+<el tag="002900C1" owner="MMCPrivate" keyword="SelectiveIROrientation" vr="FD" vm="1">Selective IR Orientation</el>
+<el tag="002900C2" owner="MMCPrivate" keyword="SelectiveIRThickness" vr="DS" vm="1">Selective IR Thickness</el>
+<el tag="002900C3" owner="MMCPrivate" keyword="RephaseOrderSlice" vr="CS" vm="1">Rephase Order Slice</el>
+<el tag="002900C4" owner="MMCPrivate" keyword="RephaseOrderPhase" vr="CS" vm="1">Rephase Order Phase</el>
+<el tag="002900C5" owner="MMCPrivate" keyword="RephaseOrderFreq" vr="CS" vm="1">Rephase Order Freq</el>
+<el tag="002900D0" owner="MMCPrivate" vr="LO" vm="1"/>
+<el tag="002900D3" owner="MMCPrivate" vr="LO" vm="1"/>
+<el tag="002900D5" owner="MMCPrivate" vr="UI" vm="1"/>
+<el tag="002900D6" owner="MMCPrivate" vr="LO" vm="1"/>
+<el tag="002900D7" owner="MMCPrivate" vr="OB" vm="1"/>
 <el tag="00190001" owner="MeVis BreastCare" keyword="AnnotationVersion" vr="LO" vm="1">Annotation Version</el>
 <el tag="00710001" owner="MeVis BreastCare" keyword="XMLFormattedTextValue" vr="LO" vm="1">XML Formatted Text Value</el>
 <el tag="00650093" owner="Viewing Protocol" vr="CS" vm="1"/>
@@ -714,7 +714,7 @@
 <el tag="00290017" owner="Kodak Image Information" vr="LO" vm="1"/>
 <el tag="00290018" owner="Kodak Image Information" vr="UT" vm="1"/>
 <el tag="00290019" owner="Kodak Image Information" vr="IS" vm="1"/>
-<el tag="0029001a" owner="Kodak Image Information" vr="IS" vm="1"/>
+<el tag="0029001A" owner="Kodak Image Information" vr="IS" vm="1"/>
 <el tag="00370001" owner="MAROTECH Inc." vr="LO" vm="1"/>
 <el tag="00370021" owner="MAROTECH Inc." vr="US" vm="1"/>
 <el tag="00370022" owner="MAROTECH Inc." vr="US" vm="1"/>
@@ -763,66 +763,66 @@
 <el tag="00210091" owner="BRIT Systems, Inc." keyword="SoftwareTitle" vr="LO" vm="1">Software Title</el>
 <el tag="00210092" owner="BRIT Systems, Inc." keyword="SoftwareVersion" vr="SH" vm="1">Software Version</el>
 <el tag="00210093" owner="BRIT Systems, Inc." keyword="SerialNumber" vr="LO" vm="1">Serial Number</el>
-<el tag="002100a0" owner="BRIT Systems, Inc." keyword="ObjectActionSequence" vr="SQ" vm="1">Object Action Sequence</el>
-<el tag="002100a1" owner="BRIT Systems, Inc." keyword="ObjectAction" vr="ST" vm="1">Object Action</el>
-<el tag="002100a2" owner="BRIT Systems, Inc." keyword="ObjectActionDate" vr="DA" vm="1">Object Action Date</el>
-<el tag="002100a3" owner="BRIT Systems, Inc." keyword="ObjectActionTime" vr="TM" vm="1">Object Action Time</el>
-<el tag="002100a5" owner="BRIT Systems, Inc." keyword="LocalAETitle" vr="AE" vm="1">Local AE Title</el>
-<el tag="002100a6" owner="BRIT Systems, Inc." keyword="LocalIPAddress" vr="SH" vm="1">Local IP Address</el>
-<el tag="002100a7" owner="BRIT Systems, Inc." keyword="RemoteAETitle" vr="AE" vm="1">Remote AE Title</el>
-<el tag="002100a8" owner="BRIT Systems, Inc." keyword="RemoteIPAddress" vr="SH" vm="1">Remote IP Address</el>
-<el tag="002100b0" owner="BRIT Systems, Inc." vr="ST" vm="1"/>
-<el tag="002100b1" owner="BRIT Systems, Inc." vr="ST" vm="1"/>
-<el tag="002100b2" owner="BRIT Systems, Inc." vr="ST" vm="1"/>
-<el tag="002100b3" owner="BRIT Systems, Inc." vr="ST" vm="1"/>
-<el tag="002100b4" owner="BRIT Systems, Inc." vr="ST" vm="1"/>
-<el tag="002100b5" owner="BRIT Systems, Inc." vr="ST" vm="1"/>
-<el tag="002100b6" owner="BRIT Systems, Inc." vr="ST" vm="1"/>
-<el tag="002100b7" owner="BRIT Systems, Inc." vr="ST" vm="1"/>
+<el tag="002100A0" owner="BRIT Systems, Inc." keyword="ObjectActionSequence" vr="SQ" vm="1">Object Action Sequence</el>
+<el tag="002100A1" owner="BRIT Systems, Inc." keyword="ObjectAction" vr="ST" vm="1">Object Action</el>
+<el tag="002100A2" owner="BRIT Systems, Inc." keyword="ObjectActionDate" vr="DA" vm="1">Object Action Date</el>
+<el tag="002100A3" owner="BRIT Systems, Inc." keyword="ObjectActionTime" vr="TM" vm="1">Object Action Time</el>
+<el tag="002100A5" owner="BRIT Systems, Inc." keyword="LocalAETitle" vr="AE" vm="1">Local AE Title</el>
+<el tag="002100A6" owner="BRIT Systems, Inc." keyword="LocalIPAddress" vr="SH" vm="1">Local IP Address</el>
+<el tag="002100A7" owner="BRIT Systems, Inc." keyword="RemoteAETitle" vr="AE" vm="1">Remote AE Title</el>
+<el tag="002100A8" owner="BRIT Systems, Inc." keyword="RemoteIPAddress" vr="SH" vm="1">Remote IP Address</el>
+<el tag="002100B0" owner="BRIT Systems, Inc." vr="ST" vm="1"/>
+<el tag="002100B1" owner="BRIT Systems, Inc." vr="ST" vm="1"/>
+<el tag="002100B2" owner="BRIT Systems, Inc." vr="ST" vm="1"/>
+<el tag="002100B3" owner="BRIT Systems, Inc." vr="ST" vm="1"/>
+<el tag="002100B4" owner="BRIT Systems, Inc." vr="ST" vm="1"/>
+<el tag="002100B5" owner="BRIT Systems, Inc." vr="ST" vm="1"/>
+<el tag="002100B6" owner="BRIT Systems, Inc." vr="ST" vm="1"/>
+<el tag="002100B7" owner="BRIT Systems, Inc." vr="ST" vm="1"/>
 <el tag="30050000" owner="MDS NORDION OTP ANATOMY MODELLING" vr="SQ" vm="1"/>
 <el tag="30050002" owner="MDS NORDION OTP ANATOMY MODELLING" vr="CS" vm="1"/>
 <el tag="30050004" owner="MDS NORDION OTP ANATOMY MODELLING" vr="DS" vm="1"/>
 <el tag="30050006" owner="MDS NORDION OTP ANATOMY MODELLING" vr="DS" vm="1"/>
 <el tag="30050008" owner="MDS NORDION OTP ANATOMY MODELLING" vr="DS" vm="1"/>
-<el tag="3005000a" owner="MDS NORDION OTP ANATOMY MODELLING" vr="CS" vm="1"/>
-<el tag="3005000c" owner="MDS NORDION OTP ANATOMY MODELLING" vr="CS" vm="1"/>
-<el tag="3005000e" owner="MDS NORDION OTP ANATOMY MODELLING" vr="CS" vm="1"/>
+<el tag="3005000A" owner="MDS NORDION OTP ANATOMY MODELLING" vr="CS" vm="1"/>
+<el tag="3005000C" owner="MDS NORDION OTP ANATOMY MODELLING" vr="CS" vm="1"/>
+<el tag="3005000E" owner="MDS NORDION OTP ANATOMY MODELLING" vr="CS" vm="1"/>
 <el tag="30050010" owner="MDS NORDION OTP ANATOMY MODELLING" vr="DS" vm="1"/>
 <el tag="30050012" owner="MDS NORDION OTP ANATOMY MODELLING" vr="DS" vm="1"/>
 <el tag="43210041" owner="Imaging Dynamics Company Ltd." vr="CS" vm="1"/>
 <el tag="43210042" owner="Imaging Dynamics Company Ltd." vr="US" vm="1"/>
 <el tag="43210064" owner="Imaging Dynamics Company Ltd." keyword="PODMode" vr="LO" vm="1">POD Mode</el>
-<el tag="f0010000" owner="Sound Technologies" keyword="PatientSpecies" vr="LO" vm="1">Patient Species</el>
-<el tag="f0010001" owner="Sound Technologies" keyword="PatientBreed" vr="LO" vm="1">Patient Breed</el>
-<el tag="f0010002" owner="Sound Technologies" keyword="PatientCategorySize" vr="LO" vm="1">Patient Category Size</el>
-<el tag="f0010003" owner="Sound Technologies" keyword="PatientSexExtended" vr="CS" vm="1">Patient Sex Extended</el>
-<el tag="f0010004" owner="Sound Technologies" keyword="ImageView" vr="LO" vm="1">Image View</el>
-<el tag="f0010005" owner="Sound Technologies" keyword="AnatomyImaged" vr="LO" vm="1">Anatomy Imaged</el>
-<el tag="f0010006" owner="Sound Technologies" keyword="ImageEnhancements" vr="LT" vm="1">Image Enhancements</el>
-<el tag="f0010007" owner="Sound Technologies" keyword="DetectorSettings" vr="LO" vm="1">Detector Settings</el>
-<el tag="f0010008" owner="Sound Technologies" keyword="ApplicationVersion" vr="LO" vm="1">Application Version</el>
-<el tag="f0010009" owner="Sound Technologies" keyword="ImageLateralityExtended" vr="LO" vm="1">Image Laterality Extended</el>
-<el tag="f001000a" owner="Sound Technologies" keyword="ClientName" vr="PN" vm="1">Client Name</el>
-<el tag="f001000b" owner="Sound Technologies" keyword="ReferenceStudyInstanceUID" vr="UI" vm="1">Reference Study Instance UID</el>
-<el tag="f001000c" owner="Sound Technologies" keyword="ReferenceStudyInstanceUID" vr="UI" vm="1">Reference Study Instance UID</el>
-<el tag="f001000d" owner="Sound Technologies" keyword="ExamRefID" vr="LO" vm="1">Exam Ref ID</el>
-<el tag="f001000e" owner="Sound Technologies" keyword="PhysicianOfRecordAddress" vr="ST" vm="1">Physician of Record Address</el>
-<el tag="f001000f" owner="Sound Technologies" keyword="PhysicianOfRecordPhoneNumbers" vr="SH" vm="1">Physician of Record Phone Numbers</el>
-<el tag="f0010010" owner="Sound Technologies" keyword="ReasonForStudy" vr="LT" vm="1">Reason For Study</el>
-<el tag="f0010011" owner="Sound Technologies" keyword="Protocol" vr="LO" vm="1">Protocol</el>
-<el tag="f0010012" owner="Sound Technologies" keyword="CaptureInputType" vr="LO" vm="1">Capture Input Type</el>
-<el tag="f0010013" owner="Sound Technologies" keyword="ExamComplaint" vr="LT" vm="1">Exam Complaint</el>
-<el tag="f0010014" owner="Sound Technologies" keyword="ExamWebCode" vr="LO" vm="1">Exam Web Code</el>
-<el tag="f0010015" owner="Sound Technologies" keyword="ExamCategory" vr="LO" vm="1">Exam Category</el>
-<el tag="f0010016" owner="Sound Technologies" keyword="ExamDiagnosis" vr="SH" vm="1">Exam Diagnosis</el>
-<el tag="f0010017" owner="Sound Technologies" keyword="ExamCreatedBy" vr="PN" vm="1">Exam Created By</el>
-<el tag="f0010018" owner="Sound Technologies" keyword="ExamCreatedByGroup" vr="LO" vm="1">Exam Created By Group</el>
-<el tag="f0010019" owner="Sound Technologies" keyword="ExamRequiredByDateTime" vr="DT" vm="1">Exam Required By DateTime</el>
-<el tag="f001001a" owner="Sound Technologies" keyword="CaptureType" vr="LO" vm="1">Capture Type</el>
-<el tag="f001001b" owner="Sound Technologies" keyword="TelemedExamID" vr="IS" vm="1">Telemed Exam ID</el>
-<el tag="f001001c" owner="Sound Technologies" keyword="ExamCreatedByGuid" vr="LO" vm="1">Exam Created By Guid</el>
-<el tag="f001001d" owner="Sound Technologies" keyword="ClientNameGuid" vr="LO" vm="1">Client Name Guid</el>
-<el tag="f001001e" owner="Sound Technologies" keyword="ReceptorBitsPerPixel" vr="LO" vm="1">Receptor Bits Per Pixel</el>
+<el tag="F0010000" owner="Sound Technologies" keyword="PatientSpecies" vr="LO" vm="1">Patient Species</el>
+<el tag="F0010001" owner="Sound Technologies" keyword="PatientBreed" vr="LO" vm="1">Patient Breed</el>
+<el tag="F0010002" owner="Sound Technologies" keyword="PatientCategorySize" vr="LO" vm="1">Patient Category Size</el>
+<el tag="F0010003" owner="Sound Technologies" keyword="PatientSexExtended" vr="CS" vm="1">Patient Sex Extended</el>
+<el tag="F0010004" owner="Sound Technologies" keyword="ImageView" vr="LO" vm="1">Image View</el>
+<el tag="F0010005" owner="Sound Technologies" keyword="AnatomyImaged" vr="LO" vm="1">Anatomy Imaged</el>
+<el tag="F0010006" owner="Sound Technologies" keyword="ImageEnhancements" vr="LT" vm="1">Image Enhancements</el>
+<el tag="F0010007" owner="Sound Technologies" keyword="DetectorSettings" vr="LO" vm="1">Detector Settings</el>
+<el tag="F0010008" owner="Sound Technologies" keyword="ApplicationVersion" vr="LO" vm="1">Application Version</el>
+<el tag="F0010009" owner="Sound Technologies" keyword="ImageLateralityExtended" vr="LO" vm="1">Image Laterality Extended</el>
+<el tag="F001000A" owner="Sound Technologies" keyword="ClientName" vr="PN" vm="1">Client Name</el>
+<el tag="F001000B" owner="Sound Technologies" keyword="ReferenceStudyInstanceUID" vr="UI" vm="1">Reference Study Instance UID</el>
+<el tag="F001000C" owner="Sound Technologies" keyword="ReferenceStudyInstanceUID" vr="UI" vm="1">Reference Study Instance UID</el>
+<el tag="F001000D" owner="Sound Technologies" keyword="ExamRefID" vr="LO" vm="1">Exam Ref ID</el>
+<el tag="F001000E" owner="Sound Technologies" keyword="PhysicianOfRecordAddress" vr="ST" vm="1">Physician of Record Address</el>
+<el tag="F001000F" owner="Sound Technologies" keyword="PhysicianOfRecordPhoneNumbers" vr="SH" vm="1">Physician of Record Phone Numbers</el>
+<el tag="F0010010" owner="Sound Technologies" keyword="ReasonForStudy" vr="LT" vm="1">Reason For Study</el>
+<el tag="F0010011" owner="Sound Technologies" keyword="Protocol" vr="LO" vm="1">Protocol</el>
+<el tag="F0010012" owner="Sound Technologies" keyword="CaptureInputType" vr="LO" vm="1">Capture Input Type</el>
+<el tag="F0010013" owner="Sound Technologies" keyword="ExamComplaint" vr="LT" vm="1">Exam Complaint</el>
+<el tag="F0010014" owner="Sound Technologies" keyword="ExamWebCode" vr="LO" vm="1">Exam Web Code</el>
+<el tag="F0010015" owner="Sound Technologies" keyword="ExamCategory" vr="LO" vm="1">Exam Category</el>
+<el tag="F0010016" owner="Sound Technologies" keyword="ExamDiagnosis" vr="SH" vm="1">Exam Diagnosis</el>
+<el tag="F0010017" owner="Sound Technologies" keyword="ExamCreatedBy" vr="PN" vm="1">Exam Created By</el>
+<el tag="F0010018" owner="Sound Technologies" keyword="ExamCreatedByGroup" vr="LO" vm="1">Exam Created By Group</el>
+<el tag="F0010019" owner="Sound Technologies" keyword="ExamRequiredByDateTime" vr="DT" vm="1">Exam Required By DateTime</el>
+<el tag="F001001A" owner="Sound Technologies" keyword="CaptureType" vr="LO" vm="1">Capture Type</el>
+<el tag="F001001B" owner="Sound Technologies" keyword="TelemedExamID" vr="IS" vm="1">Telemed Exam ID</el>
+<el tag="F001001C" owner="Sound Technologies" keyword="ExamCreatedByGuid" vr="LO" vm="1">Exam Created By Guid</el>
+<el tag="F001001D" owner="Sound Technologies" keyword="ClientNameGuid" vr="LO" vm="1">Client Name Guid</el>
+<el tag="F001001E" owner="Sound Technologies" keyword="ReceptorBitsPerPixel" vr="LO" vm="1">Receptor Bits Per Pixel</el>
 <el tag="37110001" owner="A.L.I. Technologies, Inc." keyword="Filename" vr="LO" vm="1">Filename</el>
 <el tag="37110002" owner="A.L.I. Technologies, Inc." keyword="DataBlobOfAVisit" vr="OB" vm="1">Data Blob of a Visit</el>
 <el tag="37110003" owner="A.L.I. Technologies, Inc." keyword="RevisionNumber" vr="US" vm="1">Revision Number</el>
@@ -889,8 +889,8 @@
 <el tag="00170000" owner="SVISION" keyword="ExtendedBodyPart" vr="LO" vm="1">Extended Body Part</el>
 <el tag="00170010" owner="SVISION" keyword="ExtendedViewPosition" vr="LO" vm="1">Extended View Position</el>
 <el tag="00170020" owner="SVISION" keyword="ScheduledProcedureStepList" vr="SQ" vm="1">Scheduled Procedure Step List</el>
-<el tag="001700a0" owner="SVISION" keyword="FixedGridSystem" vr="IS" vm="1">Fixed Grid System</el>
-<el tag="001700f0" owner="SVISION" keyword="ImagesSOPClass" vr="IS" vm="1">Images SOP Class</el>
+<el tag="001700A0" owner="SVISION" keyword="FixedGridSystem" vr="IS" vm="1">Fixed Grid System</el>
+<el tag="001700F0" owner="SVISION" keyword="ImagesSOPClass" vr="IS" vm="1">Images SOP Class</el>
 <el tag="00190000" owner="SVISION" vr="IS" vm="1">AEC Field</el>
 <el tag="00190001" owner="SVISION" vr="IS" vm="1">AEC Film Screen</el>
 <el tag="00190002" owner="SVISION" vr="IS" vm="1">AEC Density</el>
@@ -920,12 +920,12 @@
 <el tag="00190092" owner="SVISION" vr="IS" vm="1">Central Beam Y</el>
 <el tag="00190093" owner="SVISION" vr="IS" vm="1">Tube Turn Angle</el>
 <el tag="00190094" owner="SVISION" vr="IS" vm="1">Stand Drive Level</el>
-<el tag="001900a0" owner="SVISION" vr="DS" vm="1">Extended Exposure Time</el>
-<el tag="001900a1" owner="SVISION" vr="DS" vm="1">Actual Exposure Time</el>
-<el tag="001900a8" owner="SVISION" vr="DS" vm="1">Extended X-ray Tube Current</el>
-<el tag="001900b0" owner="SVISION" vr="IS" vm="1">Dose Indicator</el>
-<el tag="001900b1" owner="SVISION" vr="IS" vm="1">Shift Reference Value</el>
-<el tag="001900f0" owner="SVISION" vr="IS" vm="1"/>
+<el tag="001900A0" owner="SVISION" vr="DS" vm="1">Extended Exposure Time</el>
+<el tag="001900A1" owner="SVISION" vr="DS" vm="1">Actual Exposure Time</el>
+<el tag="001900A8" owner="SVISION" vr="DS" vm="1">Extended X-ray Tube Current</el>
+<el tag="001900B0" owner="SVISION" vr="IS" vm="1">Dose Indicator</el>
+<el tag="001900B1" owner="SVISION" vr="IS" vm="1">Shift Reference Value</el>
+<el tag="001900F0" owner="SVISION" vr="IS" vm="1"/>
 <el tag="00210000" owner="SVISION" vr="DS" vm="1">Noise Reduction</el>
 <el tag="00210001" owner="SVISION" vr="DS" vm="1">Contrast Amplification</el>
 <el tag="00210002" owner="SVISION" vr="DS" vm="1">Edge Contrast Boosting</el>
@@ -948,7 +948,7 @@
 <el tag="00230001" owner="SVISION" vr="IS" vm="1">Letter Position</el>
 <el tag="00230002" owner="SVISION" vr="IS" vm="1">Burned In Annotation</el>
 <el tag="00230003" owner="SVISION" vr="LO" vm="1"/>
-<el tag="002300f0" owner="SVISION" vr="IS" vm="1">Image SOP Class</el>
+<el tag="002300F0" owner="SVISION" vr="IS" vm="1">Image SOP Class</el>
 <el tag="00250000" owner="SVISION" vr="IS" vm="1">Original Image</el>
 <el tag="00250001" owner="SVISION" vr="IS" vm="1">Not Processed Image</el>
 <el tag="00250002" owner="SVISION" vr="IS" vm="1">Cut Out Image</el>
@@ -959,7 +959,7 @@
 <el tag="00250007" owner="SVISION" vr="IS" vm="1">Media Stored Image</el>
 <el tag="00250008" owner="SVISION" vr="IS" vm="1">Image State</el>
 <el tag="00250009" owner="SVISION" vr="IS" vm="1">Image Stitched Manually</el>
-<el tag="0025000a" owner="SVISION" vr="IS" vm="1">Image Stitched Automatically</el>
+<el tag="0025000A" owner="SVISION" vr="IS" vm="1">Image Stitched Automatically</el>
 <el tag="00250020" owner="SVISION" vr="LO" vm="1">Source Image File</el>
 <el tag="00250021" owner="SVISION" vr="LO" vm="1">Source UID</el>
 <el tag="00270000" owner="SVISION" vr="IS" vm="1">Number of Series</el>
@@ -999,8 +999,8 @@
 <el tag="02030002" owner="Riverain Medical" vr="LO" vm="1"/>
 <el tag="02030003" owner="Riverain Medical" vr="LO" vm="1"/>
 <el tag="02030010" owner="Riverain Medical" vr="LO" vm="1"/>
-<el tag="020300f0" owner="Riverain Medical" vr="UI" vm="1"/>
-<el tag="020300f1" owner="Riverain Medical" vr="UI" vm="1"/>
+<el tag="020300F0" owner="Riverain Medical" vr="UI" vm="1"/>
+<el tag="020300F1" owner="Riverain Medical" vr="UI" vm="1"/>
 <el tag="00290001" owner="INTELERAD MEDICAL SYSTEMS" keyword="ImageCompressionFraction" vr="FD" vm="1">Image Compression Fraction</el>
 <el tag="00290002" owner="INTELERAD MEDICAL SYSTEMS" keyword="ImageQuality" vr="FD" vm="1">Image Quality</el>
 <el tag="00290003" owner="INTELERAD MEDICAL SYSTEMS" keyword="ImageBytesTransferred" vr="FD" vm="1">Image Bytes Transferred</el>
@@ -1126,12 +1126,12 @@
 <el tag="01990007" owner="NQLeft" keyword="LeftInferiorLateralVentricle" vr="FL" vm="1">Left Inferior Lateral Ventricle</el>
 <el tag="01990008" owner="NQLeft" keyword="LeftInferiorCSF" vr="FL" vm="1">Left Inferior CSF</el>
 <el tag="01990009" owner="NQLeft" keyword="LeftCerebellarWhiteMatter" vr="FL" vm="1">Left Cerebellar White Matter</el>
-<el tag="0199000a" owner="NQLeft" keyword="LeftCerebellarGrayMatter" vr="FL" vm="1">Left Cerebellar Gray Matter</el>
-<el tag="0199000b" owner="NQLeft" keyword="LeftHippocampus" vr="FL" vm="1">Left Hippocampus</el>
-<el tag="0199000c" owner="NQLeft" keyword="LeftAmygdala" vr="FL" vm="1">Left Amygdala</el>
-<el tag="0199000d" owner="NQLeft" keyword="LeftThalamus" vr="FL" vm="1">Left Thalamus</el>
-<el tag="0199000e" owner="NQLeft" keyword="LeftCaudate" vr="FL" vm="1">Left Caudate</el>
-<el tag="0199000f" owner="NQLeft" keyword="LeftPutamen" vr="FL" vm="1">Left Putamen</el>
+<el tag="0199000A" owner="NQLeft" keyword="LeftCerebellarGrayMatter" vr="FL" vm="1">Left Cerebellar Gray Matter</el>
+<el tag="0199000B" owner="NQLeft" keyword="LeftHippocampus" vr="FL" vm="1">Left Hippocampus</el>
+<el tag="0199000C" owner="NQLeft" keyword="LeftAmygdala" vr="FL" vm="1">Left Amygdala</el>
+<el tag="0199000D" owner="NQLeft" keyword="LeftThalamus" vr="FL" vm="1">Left Thalamus</el>
+<el tag="0199000E" owner="NQLeft" keyword="LeftCaudate" vr="FL" vm="1">Left Caudate</el>
+<el tag="0199000F" owner="NQLeft" keyword="LeftPutamen" vr="FL" vm="1">Left Putamen</el>
 <el tag="01990010" owner="NQLeft" keyword="LeftPallidum" vr="FL" vm="1">Left Pallidum</el>
 <el tag="01990011" owner="NQLeft" keyword="LeftVentralDiencephalon" vr="FL" vm="1">Left Ventral Diencephalon</el>
 <el tag="01990012" owner="NQLeft" keyword="LeftNucleusAccumbens" vr="FL" vm="1">Left Nucleus Accumbens</el>
@@ -1142,12 +1142,12 @@
 <el tag="01990017" owner="NQLeft" keyword="LeftCortexUnkown" vr="FL" vm="1">Left Cortex Unkown</el>
 <el tag="01990018" owner="NQLeft" keyword="LeftCortexBankssts" vr="FL" vm="1">Left Cortex Bankssts</el>
 <el tag="01990019" owner="NQLeft" keyword="LeftCortexCaudalAnteriorCingulate" vr="FL" vm="1">Left Cortex Caudal Anterior Cingulate</el>
-<el tag="0199001a" owner="NQLeft" keyword="LeftCortexCaudalMiddleFrontal" vr="FL" vm="1">Left Cortex Caudal Middle Frontal</el>
-<el tag="0199001b" owner="NQLeft" keyword="LeftCortexCorpusCallosum" vr="FL" vm="1">Left Cortex Corpus Callosum</el>
-<el tag="0199001c" owner="NQLeft" keyword="LeftCortexCuneus" vr="FL" vm="1">Left Cortex Cuneus</el>
-<el tag="0199001d" owner="NQLeft" keyword="LeftCortexEntorhinal" vr="FL" vm="1">Left Cortex Entorhinal</el>
-<el tag="0199001e" owner="NQLeft" keyword="LeftCortexFusiform" vr="FL" vm="1">Left Cortex Fusiform</el>
-<el tag="0199001f" owner="NQLeft" keyword="LeftCortexInferiorParietal" vr="FL" vm="1">Left Cortex Inferior Parietal</el>
+<el tag="0199001A" owner="NQLeft" keyword="LeftCortexCaudalMiddleFrontal" vr="FL" vm="1">Left Cortex Caudal Middle Frontal</el>
+<el tag="0199001B" owner="NQLeft" keyword="LeftCortexCorpusCallosum" vr="FL" vm="1">Left Cortex Corpus Callosum</el>
+<el tag="0199001C" owner="NQLeft" keyword="LeftCortexCuneus" vr="FL" vm="1">Left Cortex Cuneus</el>
+<el tag="0199001D" owner="NQLeft" keyword="LeftCortexEntorhinal" vr="FL" vm="1">Left Cortex Entorhinal</el>
+<el tag="0199001E" owner="NQLeft" keyword="LeftCortexFusiform" vr="FL" vm="1">Left Cortex Fusiform</el>
+<el tag="0199001F" owner="NQLeft" keyword="LeftCortexInferiorParietal" vr="FL" vm="1">Left Cortex Inferior Parietal</el>
 <el tag="01990020" owner="NQLeft" keyword="LeftCortexInferiorTemporal" vr="FL" vm="1">Left Cortex Inferior Temporal</el>
 <el tag="01990021" owner="NQLeft" keyword="LeftCortexIsthmusCingulate" vr="FL" vm="1">Left Cortex Isthmus Cingulate</el>
 <el tag="01990022" owner="NQLeft" keyword="LeftCortexLateralOccipital" vr="FL" vm="1">Left Cortex Lateral Occipital</el>
@@ -1158,12 +1158,12 @@
 <el tag="01990027" owner="NQLeft" keyword="LeftCortexParahippocampal" vr="FL" vm="1">Left Cortex Parahippocampal</el>
 <el tag="01990028" owner="NQLeft" keyword="LeftCortexParacentral" vr="FL" vm="1">Left Cortex Paracentral</el>
 <el tag="01990029" owner="NQLeft" keyword="LeftCortexParsOpercularis" vr="FL" vm="1">Left Cortex Pars Opercularis</el>
-<el tag="0199002a" owner="NQLeft" keyword="LeftCortexParsOrbitalis" vr="FL" vm="1">Left Cortex Pars Orbitalis</el>
-<el tag="0199002b" owner="NQLeft" keyword="LeftCortexParsTriangularis" vr="FL" vm="1">Left Cortex Pars Triangularis</el>
-<el tag="0199002c" owner="NQLeft" keyword="LeftCortexPericalcarine" vr="FL" vm="1">Left Cortex Pericalcarine</el>
-<el tag="0199002d" owner="NQLeft" keyword="LeftCortexPostcentral" vr="FL" vm="1">Left Cortex Postcentral</el>
-<el tag="0199002e" owner="NQLeft" keyword="LeftCortexPosteriorCingulate" vr="FL" vm="1">Left Cortex Posterior Cingulate</el>
-<el tag="0199002f" owner="NQLeft" keyword="LeftCortexPrecentral" vr="FL" vm="1">Left Cortex Precentral</el>
+<el tag="0199002A" owner="NQLeft" keyword="LeftCortexParsOrbitalis" vr="FL" vm="1">Left Cortex Pars Orbitalis</el>
+<el tag="0199002B" owner="NQLeft" keyword="LeftCortexParsTriangularis" vr="FL" vm="1">Left Cortex Pars Triangularis</el>
+<el tag="0199002C" owner="NQLeft" keyword="LeftCortexPericalcarine" vr="FL" vm="1">Left Cortex Pericalcarine</el>
+<el tag="0199002D" owner="NQLeft" keyword="LeftCortexPostcentral" vr="FL" vm="1">Left Cortex Postcentral</el>
+<el tag="0199002E" owner="NQLeft" keyword="LeftCortexPosteriorCingulate" vr="FL" vm="1">Left Cortex Posterior Cingulate</el>
+<el tag="0199002F" owner="NQLeft" keyword="LeftCortexPrecentral" vr="FL" vm="1">Left Cortex Precentral</el>
 <el tag="01990030" owner="NQLeft" keyword="LeftCortexPrecuneus" vr="FL" vm="1">Left Cortex Precuneus</el>
 <el tag="01990031" owner="NQLeft" keyword="LeftCortexRostralAnteriorCingulate" vr="FL" vm="1">Left Cortex Rostral Anterior Cingulate</el>
 <el tag="01990032" owner="NQLeft" keyword="LeftCortexRostralMiddleFrontal" vr="FL" vm="1">Left Cortex Rostral Middle Frontal</el>
@@ -1174,7 +1174,7 @@
 <el tag="01990037" owner="NQLeft" keyword="LeftCortexFrontalPole" vr="FL" vm="1">Left Cortex Frontal Pole</el>
 <el tag="01990038" owner="NQLeft" keyword="LeftCortexTemporalPole" vr="FL" vm="1">Left Cortex Temporal Pole</el>
 <el tag="01990039" owner="NQLeft" keyword="LeftCortexTransvereTemporal" vr="FL" vm="1">Left Cortex Transvere Temporal</el>
-<el tag="0199003a" owner="NQLeft" keyword="LeftMeningie" vr="FL" vm="1">Left Meningie</el>
+<el tag="0199003A" owner="NQLeft" keyword="LeftMeningie" vr="FL" vm="1">Left Meningie</el>
 <el tag="02990001" owner="NQRight" keyword="RightCorticalWhiteMatter" vr="FL" vm="1">Right Cortical White Matter</el>
 <el tag="02990002" owner="NQRight" keyword="RightCorticalGrayMatter" vr="FL" vm="1">Right Cortical Gray Matter</el>
 <el tag="02990003" owner="NQRight" keyword="Right3rdVentricle" vr="FL" vm="1">Right 3rd Ventricle</el>
@@ -1184,12 +1184,12 @@
 <el tag="02990007" owner="NQRight" keyword="RightInferiorLateralVentricle" vr="FL" vm="1">Right Inferior Lateral Ventricle</el>
 <el tag="02990008" owner="NQRight" keyword="RightInferiorCSF" vr="FL" vm="1">Right Inferior CSF</el>
 <el tag="02990009" owner="NQRight" keyword="RightCerebellarWhiteMatter" vr="FL" vm="1">Right Cerebellar White Matter</el>
-<el tag="0299000a" owner="NQRight" keyword="RightCerebellarGrayMatter" vr="FL" vm="1">Right Cerebellar Gray Matter</el>
-<el tag="0299000b" owner="NQRight" keyword="RightHippocampus" vr="FL" vm="1">Right Hippocampus</el>
-<el tag="0299000c" owner="NQRight" keyword="RightAmygdala" vr="FL" vm="1">Right Amygdala</el>
-<el tag="0299000d" owner="NQRight" keyword="RightThalamus" vr="FL" vm="1">Right Thalamus</el>
-<el tag="0299000e" owner="NQRight" keyword="RightCaudate" vr="FL" vm="1">Right Caudate</el>
-<el tag="0299000f" owner="NQRight" keyword="RightPutamen" vr="FL" vm="1">Right Putamen</el>
+<el tag="0299000A" owner="NQRight" keyword="RightCerebellarGrayMatter" vr="FL" vm="1">Right Cerebellar Gray Matter</el>
+<el tag="0299000B" owner="NQRight" keyword="RightHippocampus" vr="FL" vm="1">Right Hippocampus</el>
+<el tag="0299000C" owner="NQRight" keyword="RightAmygdala" vr="FL" vm="1">Right Amygdala</el>
+<el tag="0299000D" owner="NQRight" keyword="RightThalamus" vr="FL" vm="1">Right Thalamus</el>
+<el tag="0299000E" owner="NQRight" keyword="RightCaudate" vr="FL" vm="1">Right Caudate</el>
+<el tag="0299000F" owner="NQRight" keyword="RightPutamen" vr="FL" vm="1">Right Putamen</el>
 <el tag="02990010" owner="NQRight" keyword="RightPallidum" vr="FL" vm="1">Right Pallidum</el>
 <el tag="02990011" owner="NQRight" keyword="RightVentralDiencephalon" vr="FL" vm="1">Right Ventral Diencephalon</el>
 <el tag="02990012" owner="NQRight" keyword="RightNucleusAccumbens" vr="FL" vm="1">Right Nucleus Accumbens</el>
@@ -1200,12 +1200,12 @@
 <el tag="02990017" owner="NQRight" keyword="RightCortexUnkown" vr="FL" vm="1">Right Cortex Unkown</el>
 <el tag="02990018" owner="NQRight" keyword="RightCortexBankssts" vr="FL" vm="1">Right Cortex Bankssts</el>
 <el tag="02990019" owner="NQRight" keyword="RightCortexCaudalAnteriorCingulate" vr="FL" vm="1">Right Cortex Caudal Anterior Cingulate</el>
-<el tag="0299001a" owner="NQRight" keyword="RightCortexCaudalMiddleFrontal" vr="FL" vm="1">Right Cortex Caudal Middle Frontal</el>
-<el tag="0299001b" owner="NQRight" keyword="RightCortexCorpusCallosum" vr="FL" vm="1">Right Cortex Corpus Callosum</el>
-<el tag="0299001c" owner="NQRight" keyword="RightCortexCuneus" vr="FL" vm="1">Right Cortex Cuneus</el>
-<el tag="0299001d" owner="NQRight" keyword="RightCortexEntorhinal" vr="FL" vm="1">Right Cortex Entorhinal</el>
-<el tag="0299001e" owner="NQRight" keyword="RightCortexFusiform" vr="FL" vm="1">Right Cortex Fusiform</el>
-<el tag="0299001f" owner="NQRight" keyword="RightCortexInferiorParietal" vr="FL" vm="1">Right Cortex Inferior Parietal</el>
+<el tag="0299001A" owner="NQRight" keyword="RightCortexCaudalMiddleFrontal" vr="FL" vm="1">Right Cortex Caudal Middle Frontal</el>
+<el tag="0299001B" owner="NQRight" keyword="RightCortexCorpusCallosum" vr="FL" vm="1">Right Cortex Corpus Callosum</el>
+<el tag="0299001C" owner="NQRight" keyword="RightCortexCuneus" vr="FL" vm="1">Right Cortex Cuneus</el>
+<el tag="0299001D" owner="NQRight" keyword="RightCortexEntorhinal" vr="FL" vm="1">Right Cortex Entorhinal</el>
+<el tag="0299001E" owner="NQRight" keyword="RightCortexFusiform" vr="FL" vm="1">Right Cortex Fusiform</el>
+<el tag="0299001F" owner="NQRight" keyword="RightCortexInferiorParietal" vr="FL" vm="1">Right Cortex Inferior Parietal</el>
 <el tag="02990020" owner="NQRight" keyword="RightCortexInferiorTemporal" vr="FL" vm="1">Right Cortex Inferior Temporal</el>
 <el tag="02990021" owner="NQRight" keyword="RightCortexIsthmusCingulate" vr="FL" vm="1">Right Cortex Isthmus Cingulate</el>
 <el tag="02990022" owner="NQRight" keyword="RightCortexLateralOccipital" vr="FL" vm="1">Right Cortex Lateral Occipital</el>
@@ -1216,12 +1216,12 @@
 <el tag="02990027" owner="NQRight" keyword="RightCortexParahippocampal" vr="FL" vm="1">Right Cortex Parahippocampal</el>
 <el tag="02990028" owner="NQRight" keyword="RightCortexParacentral" vr="FL" vm="1">Right Cortex Paracentral</el>
 <el tag="02990029" owner="NQRight" keyword="RightCortexParsOpercularis" vr="FL" vm="1">Right Cortex Pars Opercularis</el>
-<el tag="0299002a" owner="NQRight" keyword="RightCortexParsOrbitalis" vr="FL" vm="1">Right Cortex Pars Orbitalis</el>
-<el tag="0299002b" owner="NQRight" keyword="RightCortexParsTriangularis" vr="FL" vm="1">Right Cortex Pars Triangularis</el>
-<el tag="0299002c" owner="NQRight" keyword="RightCortexPericalcarine" vr="FL" vm="1">Right Cortex Pericalcarine</el>
-<el tag="0299002d" owner="NQRight" keyword="RightCortexPostcentral" vr="FL" vm="1">Right Cortex Postcentral</el>
-<el tag="0299002e" owner="NQRight" keyword="RightCortexPosteriorCingulate" vr="FL" vm="1">Right Cortex Posterior Cingulate</el>
-<el tag="0299002f" owner="NQRight" keyword="RightCortexPrecentral" vr="FL" vm="1">Right Cortex Precentral</el>
+<el tag="0299002A" owner="NQRight" keyword="RightCortexParsOrbitalis" vr="FL" vm="1">Right Cortex Pars Orbitalis</el>
+<el tag="0299002B" owner="NQRight" keyword="RightCortexParsTriangularis" vr="FL" vm="1">Right Cortex Pars Triangularis</el>
+<el tag="0299002C" owner="NQRight" keyword="RightCortexPericalcarine" vr="FL" vm="1">Right Cortex Pericalcarine</el>
+<el tag="0299002D" owner="NQRight" keyword="RightCortexPostcentral" vr="FL" vm="1">Right Cortex Postcentral</el>
+<el tag="0299002E" owner="NQRight" keyword="RightCortexPosteriorCingulate" vr="FL" vm="1">Right Cortex Posterior Cingulate</el>
+<el tag="0299002F" owner="NQRight" keyword="RightCortexPrecentral" vr="FL" vm="1">Right Cortex Precentral</el>
 <el tag="02990030" owner="NQRight" keyword="RightCortexPrecuneus" vr="FL" vm="1">Right Cortex Precuneus</el>
 <el tag="02990031" owner="NQRight" keyword="RightCortexRostralAnteriorCingulate" vr="FL" vm="1">Right Cortex Rostral Anterior Cingulate</el>
 <el tag="02990032" owner="NQRight" keyword="RightCortexRostralMiddleFrontal" vr="FL" vm="1">Right Cortex Rostral Middle Frontal</el>
@@ -1232,7 +1232,7 @@
 <el tag="02990037" owner="NQRight" keyword="RightCortexFrontalPole" vr="FL" vm="1">Right Cortex Frontal Pole</el>
 <el tag="02990038" owner="NQRight" keyword="RightCortexTemporalPole" vr="FL" vm="1">Right Cortex Temporal Pole</el>
 <el tag="02990039" owner="NQRight" keyword="RightCortexTransvereTemporal" vr="FL" vm="1">Right Cortex Transvere Temporal</el>
-<el tag="0299003a" owner="NQRight" keyword="RightMeningie" vr="FL" vm="1">Right Meningie</el>
+<el tag="0299003A" owner="NQRight" keyword="RightMeningie" vr="FL" vm="1">Right Meningie</el>
 <el tag="00130010" owner="CTP" keyword="ProjectName" vr="LO" vm="1">Project Name</el>
 <el tag="00130011" owner="CTP" keyword="TrialName" vr="LO" vm="1">Trial Name</el>
 <el tag="00130012" owner="CTP" keyword="SiteName" vr="LO" vm="1">Site Name</el>
@@ -1347,24 +1347,24 @@
 <el tag="12710097" owner="IMS s.r.l. Mammography Private Code" vr="IS" vm="1"/>
 <el tag="12710098" owner="IMS s.r.l. Mammography Private Code" vr="IS" vm="1"/>
 <el tag="12710099" owner="IMS s.r.l. Mammography Private Code" vr="IS" vm="1"/>
-<el tag="1271009a" owner="IMS s.r.l. Mammography Private Code" vr="IS" vm="1"/>
-<el tag="1271009b" owner="IMS s.r.l. Mammography Private Code" vr="IS" vm="1"/>
-<el tag="127100a1" owner="IMS s.r.l. Mammography Private Code" vr="US" vm="1"/>
-<el tag="127100a2" owner="IMS s.r.l. Mammography Private Code" vr="US" vm="2"/>
-<el tag="127100a3" owner="IMS s.r.l. Mammography Private Code" vr="US" vm="2"/>
-<el tag="127100a4" owner="IMS s.r.l. Mammography Private Code" vr="LO" vm="1"/>
-<el tag="127100a5" owner="IMS s.r.l. Mammography Private Code" vr="SS" vm="1"/>
+<el tag="1271009A" owner="IMS s.r.l. Mammography Private Code" vr="IS" vm="1"/>
+<el tag="1271009B" owner="IMS s.r.l. Mammography Private Code" vr="IS" vm="1"/>
+<el tag="127100A1" owner="IMS s.r.l. Mammography Private Code" vr="US" vm="1"/>
+<el tag="127100A2" owner="IMS s.r.l. Mammography Private Code" vr="US" vm="2"/>
+<el tag="127100A3" owner="IMS s.r.l. Mammography Private Code" vr="US" vm="2"/>
+<el tag="127100A4" owner="IMS s.r.l. Mammography Private Code" vr="LO" vm="1"/>
+<el tag="127100A5" owner="IMS s.r.l. Mammography Private Code" vr="SS" vm="1"/>
 <el tag="00310000" owner="KONICA1.0" vr="LO" vm="1"/>
 <el tag="00310001" owner="KONICA1.0" vr="US" vm="1"/>
 <el tag="00310005" owner="KONICA1.0" vr="US" vm="1"/>
 <el tag="00310006" owner="KONICA1.0" vr="LO" vm="1"/>
 <el tag="00310008" owner="KONICA1.0" vr="LO" vm="1"/>
 <el tag="00310009" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="0031000a" owner="KONICA1.0" vr="LO" vm="1"/>
-<el tag="0031000b" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="0031000c" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="0031000d" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="0031000e" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="0031000A" owner="KONICA1.0" vr="LO" vm="1"/>
+<el tag="0031000B" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="0031000C" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="0031000D" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="0031000E" owner="KONICA1.0" vr="US" vm="1"/>
 <el tag="00310010" owner="KONICA1.0" vr="US" vm="1"/>
 <el tag="00310011" owner="KONICA1.0" vr="US" vm="1"/>
 <el tag="00310012" owner="KONICA1.0" vr="US" vm="1"/>
@@ -1375,11 +1375,11 @@
 <el tag="00310017" owner="KONICA1.0" vr="US" vm="1"/>
 <el tag="00310018" owner="KONICA1.0" vr="US" vm="1"/>
 <el tag="00310019" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="0031001a" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="0031001b" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="0031001c" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="0031001d" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="0031001e" owner="KONICA1.0" vr="LO" vm="1"/>
+<el tag="0031001A" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="0031001B" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="0031001C" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="0031001D" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="0031001E" owner="KONICA1.0" vr="LO" vm="1"/>
 <el tag="00310020" owner="KONICA1.0" vr="SQ" vm="1"/>
 <el tag="00310021" owner="KONICA1.0" vr="SQ" vm="1"/>
 <el tag="00310022" owner="KONICA1.0" vr="SQ" vm="1"/>
@@ -1390,12 +1390,12 @@
 <el tag="00310027" owner="KONICA1.0" vr="SQ" vm="1"/>
 <el tag="00310028" owner="KONICA1.0" vr="SQ" vm="1"/>
 <el tag="00310029" owner="KONICA1.0" vr="SQ" vm="1"/>
-<el tag="0031002a" owner="KONICA1.0" vr="SQ" vm="1"/>
-<el tag="0031002b" owner="KONICA1.0" vr="SQ" vm="1"/>
-<el tag="0031002c" owner="KONICA1.0" vr="SQ" vm="1"/>
-<el tag="0031002d" owner="KONICA1.0" vr="SQ" vm="1"/>
-<el tag="0031002e" owner="KONICA1.0" vr="SQ" vm="1"/>
-<el tag="0031002f" owner="KONICA1.0" vr="SQ" vm="1"/>
+<el tag="0031002A" owner="KONICA1.0" vr="SQ" vm="1"/>
+<el tag="0031002B" owner="KONICA1.0" vr="SQ" vm="1"/>
+<el tag="0031002C" owner="KONICA1.0" vr="SQ" vm="1"/>
+<el tag="0031002D" owner="KONICA1.0" vr="SQ" vm="1"/>
+<el tag="0031002E" owner="KONICA1.0" vr="SQ" vm="1"/>
+<el tag="0031002F" owner="KONICA1.0" vr="SQ" vm="1"/>
 <el tag="00310030" owner="KONICA1.0" vr="US" vm="1"/>
 <el tag="00310031" owner="KONICA1.0" vr="US" vm="1"/>
 <el tag="00310032" owner="KONICA1.0" vr="US" vm="1"/>
@@ -1406,12 +1406,12 @@
 <el tag="00310037" owner="KONICA1.0" vr="US" vm="1"/>
 <el tag="00310038" owner="KONICA1.0" vr="US" vm="1"/>
 <el tag="00310039" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="0031003a" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="0031003b" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="0031003c" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="0031003d" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="0031003e" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="0031003f" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="0031003A" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="0031003B" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="0031003C" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="0031003D" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="0031003E" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="0031003F" owner="KONICA1.0" vr="US" vm="1"/>
 <el tag="00310040" owner="KONICA1.0" vr="US" vm="1"/>
 <el tag="00310041" owner="KONICA1.0" vr="US" vm="1"/>
 <el tag="00310042" owner="KONICA1.0" vr="US" vm="1"/>
@@ -1421,12 +1421,12 @@
 <el tag="00310047" owner="KONICA1.0" vr="US" vm="1"/>
 <el tag="00310048" owner="KONICA1.0" vr="US" vm="1"/>
 <el tag="00310049" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="0031004a" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="0031004b" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="0031004c" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="0031004d" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="0031004e" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="0031004f" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="0031004A" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="0031004B" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="0031004C" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="0031004D" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="0031004E" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="0031004F" owner="KONICA1.0" vr="US" vm="1"/>
 <el tag="00310050" owner="KONICA1.0" vr="US" vm="1"/>
 <el tag="00310051" owner="KONICA1.0" vr="US" vm="1"/>
 <el tag="00310052" owner="KONICA1.0" vr="US" vm="1"/>
@@ -1437,12 +1437,12 @@
 <el tag="00310057" owner="KONICA1.0" vr="US" vm="1"/>
 <el tag="00310058" owner="KONICA1.0" vr="US" vm="1"/>
 <el tag="00310059" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="0031005a" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="0031005b" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="0031005c" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="0031005A" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="0031005B" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="0031005C" owner="KONICA1.0" vr="UN" vm="1"/>
 <el tag="00310062" owner="KONICA1.0" vr="US" vm="1"/>
 <el tag="00310063" owner="KONICA1.0" vr="US" vm="3"/>
-<el tag="0031006b" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="0031006B" owner="KONICA1.0" vr="US" vm="1"/>
 <el tag="00310070" owner="KONICA1.0" vr="US" vm="1"/>
 <el tag="00310071" owner="KONICA1.0" vr="LO" vm="1"/>
 <el tag="00310072" owner="KONICA1.0" vr="US" vm="1"/>
@@ -1452,12 +1452,12 @@
 <el tag="00310077" owner="KONICA1.0" vr="UN" vm="1"/>
 <el tag="00310078" owner="KONICA1.0" vr="UN" vm="1"/>
 <el tag="00310079" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="0031007a" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="0031007b" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="0031007c" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="0031007d" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="0031007e" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="0031007f" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="0031007A" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="0031007B" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="0031007C" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="0031007D" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="0031007E" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="0031007F" owner="KONICA1.0" vr="UN" vm="1"/>
 <el tag="00310080" owner="KONICA1.0" vr="UN" vm="1"/>
 <el tag="00310081" owner="KONICA1.0" vr="UN" vm="1"/>
 <el tag="00310082" owner="KONICA1.0" vr="UN" vm="1"/>
@@ -1468,84 +1468,84 @@
 <el tag="00310087" owner="KONICA1.0" vr="UN" vm="1"/>
 <el tag="00310088" owner="KONICA1.0" vr="UN" vm="1"/>
 <el tag="00310089" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="0031008a" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="0031008b" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="0031008c" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="0031008d" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="0031008e" owner="KONICA1.0" vr="LO" vm="1"/>
-<el tag="0031008f" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="0031008A" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="0031008B" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="0031008C" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="0031008D" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="0031008E" owner="KONICA1.0" vr="LO" vm="1"/>
+<el tag="0031008F" owner="KONICA1.0" vr="UN" vm="1"/>
 <el tag="00310090" owner="KONICA1.0" vr="UN" vm="1"/>
 <el tag="00310091" owner="KONICA1.0" vr="US" vm="1"/>
 <el tag="00310092" owner="KONICA1.0" vr="UN" vm="1"/>
 <el tag="00310093" owner="KONICA1.0" vr="UN" vm="1"/>
 <el tag="00310094" owner="KONICA1.0" vr="UN" vm="1"/>
 <el tag="00310095" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="003100a1" owner="KONICA1.0" vr="IS" vm="2"/>
-<el tag="003100a2" owner="KONICA1.0" vr="IS" vm="1"/>
-<el tag="003100a5" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="003100a6" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="003100a7" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="003100a8" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="003100aa" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="003100ab" owner="KONICA1.0" vr="DA" vm="1"/>
-<el tag="003100ac" owner="KONICA1.0" vr="TM" vm="1"/>
-<el tag="003100ad" owner="KONICA1.0" vr="DA" vm="1"/>
-<el tag="003100ae" owner="KONICA1.0" vr="TM" vm="1"/>
-<el tag="003100b0" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="003100b1" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="003100b2" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="003100b3" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="003100b4" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="003100b5" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="003100b6" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="003100b7" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="003100b8" owner="KONICA1.0" vr="LO" vm="1"/>
-<el tag="003100b9" owner="KONICA1.0" vr="LO" vm="1"/>
-<el tag="003100ba" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="003100bc" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="003100be" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="003100bf" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="003100c0" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="003100c1" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="003100c2" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="003100c3" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="003100c4" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="003100c5" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="003100c6" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="003100c7" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="003100c8" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="003100c9" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="003100ca" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="003100cb" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="003100cc" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="003100cd" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="003100ce" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="003100cf" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="003100d0" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="003100d1" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="003100d2" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="003100d3" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="003100d4" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="003100d5" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="003100d6" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="003100d7" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="003100d8" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="003100d9" owner="KONICA1.0" vr="LO" vm="1"/>
-<el tag="003100da" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="003100db" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="003100dc" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="003100dd" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="003100de" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="003100df" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="003100e0" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="003100e1" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="003100e2" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="003100e3" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="003100e4" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="003100e5" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="003100e6" owner="KONICA1.0" vr="UN" vm="1"/>
-<el tag="003100f0" owner="KONICA1.0" vr="US" vm="1"/>
-<el tag="003100ff" owner="KONICA1.0" keyword="PrivateDataSequence" vr="SQ" vm="1">Private Data Sequence</el>
+<el tag="003100A1" owner="KONICA1.0" vr="IS" vm="2"/>
+<el tag="003100A2" owner="KONICA1.0" vr="IS" vm="1"/>
+<el tag="003100A5" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="003100A6" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="003100A7" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="003100A8" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="003100AA" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="003100AB" owner="KONICA1.0" vr="DA" vm="1"/>
+<el tag="003100AC" owner="KONICA1.0" vr="TM" vm="1"/>
+<el tag="003100AD" owner="KONICA1.0" vr="DA" vm="1"/>
+<el tag="003100AE" owner="KONICA1.0" vr="TM" vm="1"/>
+<el tag="003100B0" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="003100B1" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="003100B2" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="003100B3" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="003100B4" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="003100B5" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="003100B6" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="003100B7" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="003100B8" owner="KONICA1.0" vr="LO" vm="1"/>
+<el tag="003100B9" owner="KONICA1.0" vr="LO" vm="1"/>
+<el tag="003100BA" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="003100BC" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="003100BE" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="003100BF" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="003100C0" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="003100C1" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="003100C2" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="003100C3" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="003100C4" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="003100C5" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="003100C6" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="003100C7" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="003100C8" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="003100C9" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="003100CA" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="003100CB" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="003100CC" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="003100CD" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="003100CE" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="003100CF" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="003100D0" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="003100D1" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="003100D2" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="003100D3" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="003100D4" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="003100D5" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="003100D6" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="003100D7" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="003100D8" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="003100D9" owner="KONICA1.0" vr="LO" vm="1"/>
+<el tag="003100DA" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="003100DB" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="003100DC" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="003100DD" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="003100DE" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="003100DF" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="003100E0" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="003100E1" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="003100E2" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="003100E3" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="003100E4" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="003100E5" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="003100E6" owner="KONICA1.0" vr="UN" vm="1"/>
+<el tag="003100F0" owner="KONICA1.0" vr="US" vm="1"/>
+<el tag="003100FF" owner="KONICA1.0" keyword="PrivateDataSequence" vr="SQ" vm="1">Private Data Sequence</el>
 <el tag="00090001" owner="DZDICOM 4.3.0" vr="UI" vm="1"/>
 <el tag="00090002" owner="DZDICOM 4.3.0" vr="LO" vm="1"/>
 <el tag="00090003" owner="DZDICOM 4.3.0" vr="LO" vm="1"/>
@@ -1565,12 +1565,12 @@
 <el tag="00090071" owner="DZDICOM 4.3.0" vr="IS" vm="1"/>
 <el tag="00090072" owner="DZDICOM 4.3.0" vr="IS" vm="1"/>
 <el tag="00090074" owner="DZDICOM 4.3.0" vr="IS" vm="1"/>
-<el tag="0009007a" owner="DZDICOM 4.3.0" vr="IS" vm="1"/>
-<el tag="000900a1" owner="DZDICOM 4.3.0" vr="LO" vm="1"/>
-<el tag="000900a2" owner="DZDICOM 4.3.0" vr="IS" vm="1"/>
-<el tag="000900f1" owner="DZDICOM 4.3.0" vr="LO" vm="1"/>
-<el tag="000900f7" owner="DZDICOM 4.3.0" vr="IS" vm="1"/>
-<el tag="000900f9" owner="DZDICOM 4.3.0" vr="IS" vm="1"/>
+<el tag="0009007A" owner="DZDICOM 4.3.0" vr="IS" vm="1"/>
+<el tag="000900A1" owner="DZDICOM 4.3.0" vr="LO" vm="1"/>
+<el tag="000900A2" owner="DZDICOM 4.3.0" vr="IS" vm="1"/>
+<el tag="000900F1" owner="DZDICOM 4.3.0" vr="LO" vm="1"/>
+<el tag="000900F7" owner="DZDICOM 4.3.0" vr="IS" vm="1"/>
+<el tag="000900F9" owner="DZDICOM 4.3.0" vr="IS" vm="1"/>
 <el tag="00190050" owner="FOEM 1.0" vr="IS" vm="1"/>
 <el tag="00250010" owner="FOEM 1.0" vr="US" vm="1"/>
 <el tag="00250012" owner="FOEM 1.0" vr="US" vm="1"/>
@@ -1579,7 +1579,7 @@
 <el tag="55330035" owner="Visus Change" keyword="SaveDate" vr="DA" vm="1">Save Date</el>
 <el tag="55330037" owner="Visus Change" keyword="SaveOriginator" vr="LO" vm="1">Save Originator</el>
 <el tag="55330039" owner="Visus Change" keyword="SaveID" vr="FD" vm="1">Save ID</el>
-<el tag="5533003b" owner="Visus Change" keyword="SaveTime" vr="TM" vm="1">Save Time</el>
+<el tag="5533003B" owner="Visus Change" keyword="SaveTime" vr="TM" vm="1">Save Time</el>
 <el tag="00990001" owner="SYNARC_1.0" vr="OB" vm="1"/>
 <el tag="00990002" owner="SYNARC_1.0" vr="OB" vm="1"/>
 <el tag="00990003" owner="SYNARC_1.0" vr="LO" vm="1"/>
@@ -1635,9 +1635,9 @@
 <el tag="00550003" owner="PMOD_1" keyword="FrameOrientationsVector" vr="FD" vm="6-6n">Frame Orientations Vector</el>
 <el tag="00550004" owner="PMOD_1" keyword="FrameDurationsVector" vr="FD" vm="1-n">Frame Durations Vector</el>
 <el tag="00550005" owner="PMOD_1" keyword="FrameRescaleSlopeVector" vr="FD" vm="1-n">Frame Rescale Slope Vector</el>
-<el tag="7fe10001" owner="PMOD_GENPET" keyword="SlicesNames" vr="UT" vm="1">Slices Names</el>
-<el tag="7fe10002" owner="PMOD_GENPET" keyword="GeneCodes" vr="UT" vm="1">Gene Codes</el>
-<el tag="7fe10003" owner="PMOD_GENPET" keyword="GeneLabels" vr="UT" vm="1">Gene Labels</el>
+<el tag="7FE10001" owner="PMOD_GENPET" keyword="SlicesNames" vr="UT" vm="1">Slices Names</el>
+<el tag="7FE10002" owner="PMOD_GENPET" keyword="GeneCodes" vr="UT" vm="1">Gene Codes</el>
+<el tag="7FE10003" owner="PMOD_GENPET" keyword="GeneLabels" vr="UT" vm="1">Gene Labels</el>
 <el tag="00110001" owner="ULTRAVISUAL_TAG_SET1" vr="CS" vm="1"/>
 <el tag="00110002" owner="ULTRAVISUAL_TAG_SET1" vr="UN" vm="1"/>
 <el tag="00110003" owner="ULTRAVISUAL_TAG_SET1" vr="UN" vm="1"/>
@@ -1647,10 +1647,10 @@
 <el tag="00110012" owner="ULTRAVISUAL_TAG_SET1" vr="UI" vm="1"/>
 <el tag="00110018" owner="ULTRAVISUAL_TAG_SET1" vr="UL" vm="1"/>
 <el tag="00110019" owner="ULTRAVISUAL_TAG_SET1" vr="UN" vm="1"/>
-<el tag="0011001a" owner="ULTRAVISUAL_TAG_SET1" vr="CS" vm="1"/>
-<el tag="0011001b" owner="ULTRAVISUAL_TAG_SET1" vr="IS" vm="1"/>
-<el tag="0011001c" owner="ULTRAVISUAL_TAG_SET1" vr="IS" vm="1"/>
-<el tag="0011001d" owner="ULTRAVISUAL_TAG_SET1" vr="LO" vm="1"/>
+<el tag="0011001A" owner="ULTRAVISUAL_TAG_SET1" vr="CS" vm="1"/>
+<el tag="0011001B" owner="ULTRAVISUAL_TAG_SET1" vr="IS" vm="1"/>
+<el tag="0011001C" owner="ULTRAVISUAL_TAG_SET1" vr="IS" vm="1"/>
+<el tag="0011001D" owner="ULTRAVISUAL_TAG_SET1" vr="LO" vm="1"/>
 <el tag="00290010" owner="ShowcaseAppearance" vr="DS" vm="1"/>
 <el tag="00290011" owner="ShowcaseAppearance" vr="DS" vm="1"/>
 <el tag="00290012" owner="ShowcaseAppearance" vr="DS" vm="1"/>
@@ -1817,16 +1817,16 @@
 <el tag="00190006" owner="NNT" vr="DS" vm="1"/>
 <el tag="00190007" owner="NNT" vr="DS" vm="1"/>
 <el tag="00190009" owner="NNT" vr="DS" vm="1"/>
-<el tag="0019000a" owner="NNT" vr="DS" vm="1"/>
-<el tag="0019000b" owner="NNT" vr="DS" vm="1"/>
-<el tag="0019000c" owner="NNT" vr="DS" vm="1"/>
-<el tag="0019000d" owner="NNT" vr="DS" vm="1"/>
-<el tag="0019000e" owner="NNT" vr="DS" vm="1"/>
-<el tag="0019000f" owner="NNT" vr="DS" vm="1"/>
+<el tag="0019000A" owner="NNT" vr="DS" vm="1"/>
+<el tag="0019000B" owner="NNT" vr="DS" vm="1"/>
+<el tag="0019000C" owner="NNT" vr="DS" vm="1"/>
+<el tag="0019000D" owner="NNT" vr="DS" vm="1"/>
+<el tag="0019000E" owner="NNT" vr="DS" vm="1"/>
+<el tag="0019000F" owner="NNT" vr="DS" vm="1"/>
 <el tag="00190012" owner="NNT" vr="DS" vm="1"/>
 <el tag="00190013" owner="NNT" vr="DS" vm="1"/>
-<el tag="0019001e" owner="NNT" vr="DS" vm="3"/>
-<el tag="0019001f" owner="NNT" vr="DS" vm="1"/>
+<el tag="0019001E" owner="NNT" vr="DS" vm="3"/>
+<el tag="0019001F" owner="NNT" vr="DS" vm="1"/>
 <el tag="00190020" owner="NNT" vr="DS" vm="1"/>
 <el tag="00190021" owner="NNT" vr="DS" vm="1"/>
 <el tag="00190022" owner="NNT" vr="IS" vm="1"/>
@@ -1849,10 +1849,10 @@
 <el tag="33350016" owner="iCAD PK" vr="LO" vm="1"/>
 <el tag="33350017" owner="iCAD PK" vr="LO" vm="1"/>
 <el tag="33350018" owner="iCAD PK" vr="LO" vm="1"/>
-<el tag="3335002a" owner="iCAD PK" vr="LO" vm="1"/>
+<el tag="3335002A" owner="iCAD PK" vr="LO" vm="1"/>
 <el tag="33350034" owner="iCAD PK" vr="LO" vm="1"/>
 <el tag="33350035" owner="iCAD PK" vr="LO" vm="1"/>
-<el tag="3335003b" owner="iCAD PK" vr="LO" vm="1"/>
+<el tag="3335003B" owner="iCAD PK" vr="LO" vm="1"/>
 <el tag="33350040" owner="iCAD PK" vr="LO" vm="1"/>
 <el tag="33350050" owner="iCAD PK" vr="LO" vm="1"/>
 <el tag="33350051" owner="iCAD PK" vr="LO" vm="1"/>
@@ -1878,37 +1878,37 @@
 <el tag="33350087" owner="iCAD PK" vr="LO" vm="1"/>
 <el tag="33350088" owner="iCAD PK" vr="LO" vm="1"/>
 <el tag="33350089" owner="iCAD PK" vr="LO" vm="1"/>
-<el tag="3335008a" owner="iCAD PK" vr="LO" vm="1"/>
-<el tag="3335008b" owner="iCAD PK" vr="LO" vm="1"/>
-<el tag="3335008c" owner="iCAD PK" vr="LO" vm="1"/>
-<el tag="3335008d" owner="iCAD PK" vr="LO" vm="1"/>
-<el tag="3335008e" owner="iCAD PK" vr="LO" vm="1"/>
-<el tag="3335008f" owner="iCAD PK" vr="LO" vm="1"/>
+<el tag="3335008A" owner="iCAD PK" vr="LO" vm="1"/>
+<el tag="3335008B" owner="iCAD PK" vr="LO" vm="1"/>
+<el tag="3335008C" owner="iCAD PK" vr="LO" vm="1"/>
+<el tag="3335008D" owner="iCAD PK" vr="LO" vm="1"/>
+<el tag="3335008E" owner="iCAD PK" vr="LO" vm="1"/>
+<el tag="3335008F" owner="iCAD PK" vr="LO" vm="1"/>
 <el tag="33350090" owner="iCAD PK" vr="LO" vm="1"/>
 <el tag="33350091" owner="iCAD PK" vr="LO" vm="1"/>
 <el tag="33350092" owner="iCAD PK" vr="LO" vm="1"/>
 <el tag="33350093" owner="iCAD PK" vr="LO" vm="1"/>
 <el tag="33350094" owner="iCAD PK" vr="LO" vm="1"/>
 <el tag="33350095" owner="iCAD PK" vr="LO" vm="1"/>
-<el tag="333500a0" owner="iCAD PK" vr="LO" vm="1"/>
-<el tag="333500a1" owner="iCAD PK" vr="LO" vm="1"/>
-<el tag="333500a2" owner="iCAD PK" vr="LO" vm="1"/>
-<el tag="333500a3" owner="iCAD PK" vr="LO" vm="1"/>
-<el tag="333500a4" owner="iCAD PK" vr="LO" vm="1"/>
-<el tag="333500a5" owner="iCAD PK" vr="LO" vm="1"/>
-<el tag="333500a6" owner="iCAD PK" vr="LO" vm="1"/>
-<el tag="333500a7" owner="iCAD PK" vr="LO" vm="1"/>
-<el tag="333500a8" owner="iCAD PK" vr="LO" vm="1"/>
-<el tag="333500a9" owner="iCAD PK" vr="LO" vm="1"/>
-<el tag="333500aa" owner="iCAD PK" vr="LO" vm="1"/>
-<el tag="333500ab" owner="iCAD PK" vr="LO" vm="1"/>
-<el tag="333500ac" owner="iCAD PK" vr="LO" vm="1"/>
-<el tag="333500ad" owner="iCAD PK" vr="LO" vm="1"/>
-<el tag="333500ae" owner="iCAD PK" vr="LO" vm="1"/>
-<el tag="333500af" owner="iCAD PK" vr="LO" vm="1"/>
-<el tag="333500b0" owner="iCAD PK" vr="LO" vm="1"/>
-<el tag="333500b1" owner="iCAD PK" vr="LO" vm="1"/>
-<el tag="333500c0" owner="iCAD PK" vr="LO" vm="1"/>
+<el tag="333500A0" owner="iCAD PK" vr="LO" vm="1"/>
+<el tag="333500A1" owner="iCAD PK" vr="LO" vm="1"/>
+<el tag="333500A2" owner="iCAD PK" vr="LO" vm="1"/>
+<el tag="333500A3" owner="iCAD PK" vr="LO" vm="1"/>
+<el tag="333500A4" owner="iCAD PK" vr="LO" vm="1"/>
+<el tag="333500A5" owner="iCAD PK" vr="LO" vm="1"/>
+<el tag="333500A6" owner="iCAD PK" vr="LO" vm="1"/>
+<el tag="333500A7" owner="iCAD PK" vr="LO" vm="1"/>
+<el tag="333500A8" owner="iCAD PK" vr="LO" vm="1"/>
+<el tag="333500A9" owner="iCAD PK" vr="LO" vm="1"/>
+<el tag="333500AA" owner="iCAD PK" vr="LO" vm="1"/>
+<el tag="333500AB" owner="iCAD PK" vr="LO" vm="1"/>
+<el tag="333500AC" owner="iCAD PK" vr="LO" vm="1"/>
+<el tag="333500AD" owner="iCAD PK" vr="LO" vm="1"/>
+<el tag="333500AE" owner="iCAD PK" vr="LO" vm="1"/>
+<el tag="333500AF" owner="iCAD PK" vr="LO" vm="1"/>
+<el tag="333500B0" owner="iCAD PK" vr="LO" vm="1"/>
+<el tag="333500B1" owner="iCAD PK" vr="LO" vm="1"/>
+<el tag="333500C0" owner="iCAD PK" vr="LO" vm="1"/>
 <el tag="33350000" owner="iCAD PK Study" vr="LO" vm="1"/>
 <el tag="33350001" owner="iCAD PK Study" vr="LO" vm="1"/>
 <el tag="33350002" owner="iCAD PK Study" vr="LO" vm="1"/>
@@ -1919,12 +1919,12 @@
 <el tag="33350007" owner="iCAD PK Study" vr="LO" vm="1"/>
 <el tag="33350008" owner="iCAD PK Study" vr="LO" vm="1"/>
 <el tag="33350009" owner="iCAD PK Study" vr="LO" vm="1"/>
-<el tag="3335000a" owner="iCAD PK Study" vr="LO" vm="1"/>
-<el tag="3335000b" owner="iCAD PK Study" vr="LO" vm="1"/>
-<el tag="3335000c" owner="iCAD PK Study" vr="LO" vm="1"/>
-<el tag="3335000d" owner="iCAD PK Study" vr="LO" vm="1"/>
-<el tag="3335000e" owner="iCAD PK Study" vr="LO" vm="1"/>
-<el tag="3335000f" owner="iCAD PK Study" vr="LO" vm="1"/>
+<el tag="3335000A" owner="iCAD PK Study" vr="LO" vm="1"/>
+<el tag="3335000B" owner="iCAD PK Study" vr="LO" vm="1"/>
+<el tag="3335000C" owner="iCAD PK Study" vr="LO" vm="1"/>
+<el tag="3335000D" owner="iCAD PK Study" vr="LO" vm="1"/>
+<el tag="3335000E" owner="iCAD PK Study" vr="LO" vm="1"/>
+<el tag="3335000F" owner="iCAD PK Study" vr="LO" vm="1"/>
 <el tag="33350010" owner="iCAD PK Study" vr="LO" vm="1"/>
 <el tag="33350011" owner="iCAD PK Study" vr="LO" vm="1"/>
 <el tag="33350012" owner="iCAD PK Study" vr="LO" vm="1"/>
@@ -1935,18 +1935,18 @@
 <el tag="33350017" owner="iCAD PK Study" vr="LO" vm="1"/>
 <el tag="33350018" owner="iCAD PK Study" vr="LO" vm="1"/>
 <el tag="33350019" owner="iCAD PK Study" vr="LO" vm="1"/>
-<el tag="3335001a" owner="iCAD PK Study" vr="LO" vm="1"/>
-<el tag="3335001b" owner="iCAD PK Study" vr="LO" vm="1"/>
-<el tag="7fdf0050" owner="TomTec" vr="OB" vm="1"/>
-<el tag="7fdf0051" owner="TomTec" vr="OB" vm="1"/>
+<el tag="3335001A" owner="iCAD PK Study" vr="LO" vm="1"/>
+<el tag="3335001B" owner="iCAD PK Study" vr="LO" vm="1"/>
+<el tag="7FDF0050" owner="TomTec" vr="OB" vm="1"/>
+<el tag="7FDF0051" owner="TomTec" vr="OB" vm="1"/>
 <el tag="00290015" owner="CARESTREAM IMAGE INFORMATION" vr="LO" vm="1"/>
 <el tag="00290016" owner="CARESTREAM IMAGE INFORMATION" vr="LO" vm="1"/>
 <el tag="00290017" owner="CARESTREAM IMAGE INFORMATION" vr="LO" vm="1"/>
 <el tag="00290018" owner="CARESTREAM IMAGE INFORMATION" vr="UT" vm="1"/>
 <el tag="00290019" owner="CARESTREAM IMAGE INFORMATION" vr="IS" vm="1"/>
-<el tag="0029001a" owner="CARESTREAM IMAGE INFORMATION" vr="IS" vm="1"/>
-<el tag="0029001b" owner="CARESTREAM IMAGE INFORMATION" vr="IS" vm="1"/>
-<el tag="ffff00ff" owner="Carestream Health TIFF" vr="UN" vm="1"/>
+<el tag="0029001A" owner="CARESTREAM IMAGE INFORMATION" vr="IS" vm="1"/>
+<el tag="0029001B" owner="CARESTREAM IMAGE INFORMATION" vr="IS" vm="1"/>
+<el tag="FFFF00FF" owner="Carestream Health TIFF" vr="UN" vm="1"/>
 <el tag="31110010" owner="RamSoft File Kind Identifier" keyword="BinaryDocumentKind" vr="CS" vm="1">Binary Document Type</el>
 <el tag="31130010" owner="RamSoft Custom Report Identifier" keyword="BinaryDocument" vr="OB" vm="1">Binary Document</el>
 <el tag="31130020" owner="RamSoft Custom Report Identifier" keyword="BinaryDocumentSize" vr="UL" vm="1">Binary Document Size</el>
@@ -1954,47 +1954,47 @@
 <el tag="00110001" owner="MDDX" keyword="AESEncryptedValues" vr="UT" vm="1">AES Encrypted Values</el>
 <el tag="00110002" owner="MDDX" keyword="AllupVersionDetails" vr="LO" vm="1">Allup Version Details</el>
 <el tag="00110003" owner="MDDX" keyword="MaskID" vr="LO" vm="1">Mask Id</el>
-<el tag="7fe10001" owner="MDDX" keyword="AESEncryptedValues" vr="UT" vm="1">AES Encrypted Values</el>
-<el tag="7fe10002" owner="MDDX" keyword="AllupVersionDetails" vr="LO" vm="1">Allup Version Details</el>
-<el tag="7fe10003" owner="MDDX" keyword="MaskID" vr="LO" vm="1">Mask Id</el>
+<el tag="7FE10001" owner="MDDX" keyword="AESEncryptedValues" vr="UT" vm="1">AES Encrypted Values</el>
+<el tag="7FE10002" owner="MDDX" keyword="AllupVersionDetails" vr="LO" vm="1">Allup Version Details</el>
+<el tag="7FE10003" owner="MDDX" keyword="MaskID" vr="LO" vm="1">Mask Id</el>
 <el tag="00990000" owner="QTUltrasound" keyword="BreastDensityValue" vr="SS" vm="1">Breast Density Value</el>
 <el tag="00090035" owner="BioscanMedisoScivisNanoSPECT" vr="DS" vm="1"/>
 <el tag="00090030" owner="MEDISO-1" vr="DT" vm="1"/>
 <el tag="00090036" owner="MEDISO-1" vr="FD" vm="1"/>
-<el tag="000900c0" owner="MEDISO-1" vr="FD" vm="1"/>
-<el tag="000900c1" owner="MEDISO-1" vr="OB" vm="1"/>
-<el tag="000900c4" owner="MEDISO-1" vr="OB" vm="1"/>
-<el tag="000900d2" owner="MEDISO-1" vr="LO" vm="1"/>
-<el tag="000900d5" owner="MEDISO-1" vr="LO" vm="1"/>
-<el tag="000900dc" owner="MEDISO-1" vr="SQ" vm="1"/>
-<el tag="000900de" owner="MEDISO-1" vr="UL" vm="1"/>
-<el tag="000900df" owner="MEDISO-1" vr="UL" vm="1"/>
-<el tag="000900e0" owner="MEDISO-1" vr="US" vm="1"/>
-<el tag="000900e1" owner="MEDISO-1" vr="FD" vm="1"/>
-<el tag="000900e6" owner="MEDISO-1" vr="OB" vm="1"/>
-<el tag="000900e9" owner="MEDISO-1" vr="UI" vm="1-n"/>
-<el tag="000900ee" owner="MEDISO-1" vr="DT" vm="1"/>
-<el tag="000900ef" owner="MEDISO-1" vr="DT" vm="1"/>
-<el tag="000900f0" owner="MEDISO-1" vr="FD" vm="1"/>
-<el tag="000900f1" owner="MEDISO-1" vr="FD" vm="1"/>
-<el tag="000900f2" owner="MEDISO-1" vr="FD" vm="1"/>
-<el tag="000900f3" owner="MEDISO-1" vr="FD" vm="1"/>
-<el tag="000900fa" owner="MEDISO-1" vr="ST" vm="1"/>
-<el tag="000900fb" owner="MEDISO-1" vr="US" vm="1"/>
-<el tag="000900fb" owner="MEDISO-1" vr="US" vm="1"/>
+<el tag="000900C0" owner="MEDISO-1" vr="FD" vm="1"/>
+<el tag="000900C1" owner="MEDISO-1" vr="OB" vm="1"/>
+<el tag="000900C4" owner="MEDISO-1" vr="OB" vm="1"/>
+<el tag="000900D2" owner="MEDISO-1" vr="LO" vm="1"/>
+<el tag="000900D5" owner="MEDISO-1" vr="LO" vm="1"/>
+<el tag="000900DC" owner="MEDISO-1" vr="SQ" vm="1"/>
+<el tag="000900DE" owner="MEDISO-1" vr="UL" vm="1"/>
+<el tag="000900DF" owner="MEDISO-1" vr="UL" vm="1"/>
+<el tag="000900E0" owner="MEDISO-1" vr="US" vm="1"/>
+<el tag="000900E1" owner="MEDISO-1" vr="FD" vm="1"/>
+<el tag="000900E6" owner="MEDISO-1" vr="OB" vm="1"/>
+<el tag="000900E9" owner="MEDISO-1" vr="UI" vm="1-n"/>
+<el tag="000900EE" owner="MEDISO-1" vr="DT" vm="1"/>
+<el tag="000900EF" owner="MEDISO-1" vr="DT" vm="1"/>
+<el tag="000900F0" owner="MEDISO-1" vr="FD" vm="1"/>
+<el tag="000900F1" owner="MEDISO-1" vr="FD" vm="1"/>
+<el tag="000900F2" owner="MEDISO-1" vr="FD" vm="1"/>
+<el tag="000900F3" owner="MEDISO-1" vr="FD" vm="1"/>
+<el tag="000900FA" owner="MEDISO-1" vr="ST" vm="1"/>
+<el tag="000900FB" owner="MEDISO-1" vr="US" vm="1"/>
+<el tag="000900FB" owner="MEDISO-1" vr="US" vm="1"/>
 <el tag="00110006" owner="MEDISO-1" vr="LO" vm="1"/>
-<el tag="600100a0" owner="SCIVIS-1" vr="DS" vm="1"/>
-<el tag="600100a1" owner="SCIVIS-1" vr="DS" vm="1"/>
-<el tag="600100a2" owner="SCIVIS-1" vr="US" vm="1"/>
-<el tag="600100a3" owner="SCIVIS-1" vr="DS" vm="1"/>
-<el tag="600100a4" owner="SCIVIS-1" vr="IS" vm="1"/>
-<el tag="600100a5" owner="SCIVIS-1" vr="ST" vm="1"/>
-<el tag="600100a6" owner="SCIVIS-1" vr="ST" vm="1"/>
-<el tag="600100a7" owner="SCIVIS-1" vr="FL" vm="1"/>
-<el tag="600100a8" owner="SCIVIS-1" vr="FL" vm="1"/>
-<el tag="600100a9" owner="SCIVIS-1" vr="IS" vm="1"/>
-<el tag="600100aa" owner="SCIVIS-1" vr="IS" vm="1"/>
-<el tag="600100ab" owner="SCIVIS-1" vr="ST" vm="1"/>
+<el tag="600100A0" owner="SCIVIS-1" vr="DS" vm="1"/>
+<el tag="600100A1" owner="SCIVIS-1" vr="DS" vm="1"/>
+<el tag="600100A2" owner="SCIVIS-1" vr="US" vm="1"/>
+<el tag="600100A3" owner="SCIVIS-1" vr="DS" vm="1"/>
+<el tag="600100A4" owner="SCIVIS-1" vr="IS" vm="1"/>
+<el tag="600100A5" owner="SCIVIS-1" vr="ST" vm="1"/>
+<el tag="600100A6" owner="SCIVIS-1" vr="ST" vm="1"/>
+<el tag="600100A7" owner="SCIVIS-1" vr="FL" vm="1"/>
+<el tag="600100A8" owner="SCIVIS-1" vr="FL" vm="1"/>
+<el tag="600100A9" owner="SCIVIS-1" vr="IS" vm="1"/>
+<el tag="600100AA" owner="SCIVIS-1" vr="IS" vm="1"/>
+<el tag="600100AB" owner="SCIVIS-1" vr="ST" vm="1"/>
 <el tag="00090021" owner="Brainlab-S9-History" vr="UL" vm="1"/>
 <el tag="00090024" owner="Brainlab-S9-History" vr="UL" vm="1"/>
 <el tag="00090030" owner="Brainlab-S9-History" vr="SQ" vm="1"/>
@@ -2068,7 +2068,7 @@
 <el tag="01170016" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="ParameterDescription" vr="LO" vm="1">Parameter Description</el>
 <el tag="01170018" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="FloatingParameterValue" vr="DS" vm="1-n">Floating Parameter Value</el>
 <el tag="01170019" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="IntegerParameterValue" vr="IS" vm="1-n">Integer Parameter Value</el>
-<el tag="0117001a" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="StringParameterValue" vr="LO" vm="1-n">String Parameter Value</el>
+<el tag="0117001A" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="StringParameterValue" vr="LO" vm="1-n">String Parameter Value</el>
 <el tag="01170020" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="VOILPS" vr="SQ" vm="1">VOILPS</el>
 <el tag="01170022" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="OMITRegionSequence" vr="SQ" vm="1">OMIT Region Sequence</el>
 <el tag="01170024" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="QCSequence" vr="SQ" vm="1">QC Sequence</el>
@@ -2078,8 +2078,8 @@
 <el tag="01170033" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="InjectionTime" vr="TM" vm="1">Injection Time</el>
 <el tag="01170034" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="EffectiveAcquisitionDelay" vr="DS" vm="1-n">Effective Acquisition Delay</el>
 <el tag="01170035" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="SERTimingIndices" vr="IS" vm="3">Signal Enhancement Ratio (SER) Timing Indices</el>
-<el tag="0117003a" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="TimingInformationMethod" vr="LO" vm="1">Timing Information Method</el>
-<el tag="0117003b" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="TimingInformationComments" vr="LT" vm="1">Timing Information Comments</el>
+<el tag="0117003A" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="TimingInformationMethod" vr="LO" vm="1">Timing Information Method</el>
+<el tag="0117003B" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="TimingInformationComments" vr="LT" vm="1">Timing Information Comments</el>
 <el tag="01170041" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="VOILPSROIFlag" vr="IS" vm="1">VOILPS ROI Flag</el>
 <el tag="01170042" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="VOILPSCenter" vr="DS" vm="3">VOILPS Center</el>
 <el tag="01170043" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="VOILPSHalfWidth" vr="DS" vm="3">VOILPS HalfWidth</el>
@@ -2094,50 +2094,50 @@
 <el tag="01170055" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="ProjectedROIZRange" vr="US" vm="2">Projected ROI Z Range</el>
 <el tag="01170056" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="ProjectedROIType" vr="CS" vm="1">Projected ROI Type</el>
 <el tag="01170057" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="ProjectedROILabel" vr="LO" vm="1">Projected ROI Label</el>
-<el tag="011700a1" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="VOIPixelStart" vr="US" vm="3">VOI Pixel Start</el>
-<el tag="011700a2" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="VOIPixelEnd" vr="US" vm="3">VOI Pixel End</el>
-<el tag="011700b0" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="FTVResultsSequence" vr="SQ" vm="1">Functional Tumor Volume (FTV) Results Sequence</el>
-<el tag="011700b1" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="SERMinimum" vr="DS" vm="1">Signal Enhancement Ratio (SER) Minimum</el>
-<el tag="011700b2" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="SERMaximum" vr="DS" vm="1">Signal Enhancement Ratio (SER) Maximum</el>
-<el tag="011700b3" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="VoxelCount" vr="IS" vm="1">Voxel Count</el>
-<el tag="011700b4" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="Volume" vr="DS" vm="1">Volume (cc)</el>
-<el tag="011700b5" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="Label" vr="LO" vm="1">Label</el>
-<el tag="011700c0" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="QCType" vr="CS" vm="1">QC Type</el>
-<el tag="011700c1" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="QCFactor" vr="LO" vm="1">QC Factor</el>
-<el tag="011700c2" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="QCValue" vr="DS" vm="1">QC Value</el>
-<el tag="011700c3" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="QCMeaning" vr="CS" vm="1">QC Meaning</el>
-<el tag="011700c4" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="QCComment" vr="LT" vm="1">QC Comment</el>
-<el tag="011700c5" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="ProtocolCompliance" vr="CS" vm="1">Protocol Compliance</el>
-<el tag="011700c6" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="ProtocolNonComplianceReasons" vr="LO" vm="1-n">Protocol Non-compliance Reasons</el>
-<el tag="f0010002" owner="Sound Eklin" keyword="PatientCategorySize" vr="LO" vm="1">Patient Category Size</el>
-<el tag="f0010003" owner="Sound Eklin" keyword="PatientSexExtended" vr="LO" vm="1">Patient Sex Extended</el>
-<el tag="f0010004" owner="Sound Eklin" keyword="ImageView" vr="LO" vm="1">Image View</el>
-<el tag="f0010005" owner="Sound Eklin" keyword="AnatomyImaged" vr="LO" vm="1">Anatomy Imaged</el>
-<el tag="f0010006" owner="Sound Eklin" keyword="ImageEnhancements" vr="LO" vm="1">Image Enhancements</el>
-<el tag="f0010007" owner="Sound Eklin" keyword="DetectorSettings" vr="LO" vm="1">Detector Settings</el>
-<el tag="f0010008" owner="Sound Eklin" keyword="ApplicationVersion" vr="LO" vm="1">Application Version</el>
-<el tag="f0010009" owner="Sound Eklin" keyword="ImageLateralityExtended" vr="LO" vm="1">Image Laterality Extended</el>
-<el tag="f001000a" owner="Sound Eklin" keyword="ClientName" vr="PN" vm="1">Client Name</el>
-<el tag="f001000b" owner="Sound Eklin" keyword="ReferenceStudyInstanceUID" vr="UI" vm="1">Reference Study Instance UID</el>
-<el tag="f001000c" owner="Sound Eklin" keyword="ReferenceSeriesInstanceUID" vr="UI" vm="1">Reference Series Instance UID</el>
-<el tag="f001000d" owner="Sound Eklin" keyword="ExamRefId" vr="LO" vm="1">Exam Ref Id</el>
-<el tag="f001000e" owner="Sound Eklin" keyword="PhysicianOfRecordAddress" vr="ST" vm="1">Physician of Record Address</el>
-<el tag="f001000f" owner="Sound Eklin" keyword="PhysicianOfRecordPhoneNumbers" vr="SH" vm="1-n">Physician of Record Phone Numbers</el>
-<el tag="f0010010" owner="Sound Eklin" keyword="ReasonForStudy" vr="LT" vm="1">Reason for Study</el>
-<el tag="f0010011" owner="Sound Eklin" keyword="Protocol" vr="LO" vm="1">Protocol</el>
-<el tag="f0010012" owner="Sound Eklin" keyword="CaptureInputType" vr="LO" vm="1">Capture Input Type</el>
-<el tag="f0010013" owner="Sound Eklin" keyword="ExamComplaint" vr="LT" vm="1">Exam Complaint</el>
-<el tag="f0010014" owner="Sound Eklin" keyword="ExamWebCode" vr="LO" vm="1">Exam Web Code</el>
-<el tag="f0010015" owner="Sound Eklin" keyword="ExamCategory" vr="LO" vm="1">Exam Category</el>
-<el tag="f0010016" owner="Sound Eklin" keyword="ExamDiagnosis" vr="SH" vm="1">Exam Diagnosis</el>
-<el tag="f0010017" owner="Sound Eklin" keyword="ExamCreatedBy" vr="PN" vm="1">Exam Created By</el>
-<el tag="f0010018" owner="Sound Eklin" keyword="ExamCreatedByGroup" vr="LO" vm="1">Exam Created By Group</el>
-<el tag="f0010019" owner="Sound Eklin" keyword="ExamRequiredByDateTime" vr="DT" vm="1">Exam Required By DateTime</el>
-<el tag="f001001a" owner="Sound Eklin" keyword="CaptureType" vr="LO" vm="1">Capture Type</el>
-<el tag="f001001b" owner="Sound Eklin" keyword="TelemedExamID" vr="IS" vm="1">Telemed Exam ID</el>
-<el tag="f001001c" owner="Sound Eklin" keyword="ExamCreatedByGuid" vr="LO" vm="1">Exam Created By Guid</el>
-<el tag="f001001d" owner="Sound Eklin" keyword="ClientNameGuid" vr="LO" vm="1">Client Name Guid</el>
-<el tag="f001001e" owner="Sound Eklin" keyword="ReceptorBitsPerPixel" vr="LO" vm="1">Receptor Bits Per Pixel</el>
+<el tag="011700A1" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="VOIPixelStart" vr="US" vm="3">VOI Pixel Start</el>
+<el tag="011700A2" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="VOIPixelEnd" vr="US" vm="3">VOI Pixel End</el>
+<el tag="011700B0" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="FTVResultsSequence" vr="SQ" vm="1">Functional Tumor Volume (FTV) Results Sequence</el>
+<el tag="011700B1" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="SERMinimum" vr="DS" vm="1">Signal Enhancement Ratio (SER) Minimum</el>
+<el tag="011700B2" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="SERMaximum" vr="DS" vm="1">Signal Enhancement Ratio (SER) Maximum</el>
+<el tag="011700B3" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="VoxelCount" vr="IS" vm="1">Voxel Count</el>
+<el tag="011700B4" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="Volume" vr="DS" vm="1">Volume (cc)</el>
+<el tag="011700B5" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="Label" vr="LO" vm="1">Label</el>
+<el tag="011700C0" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="QCType" vr="CS" vm="1">QC Type</el>
+<el tag="011700C1" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="QCFactor" vr="LO" vm="1">QC Factor</el>
+<el tag="011700C2" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="QCValue" vr="DS" vm="1">QC Value</el>
+<el tag="011700C3" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="QCMeaning" vr="CS" vm="1">QC Meaning</el>
+<el tag="011700C4" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="QCComment" vr="LT" vm="1">QC Comment</el>
+<el tag="011700C5" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="ProtocolCompliance" vr="CS" vm="1">Protocol Compliance</el>
+<el tag="011700C6" owner="UCSF BIRP PRIVATE CREATOR 011710xx" keyword="ProtocolNonComplianceReasons" vr="LO" vm="1-n">Protocol Non-compliance Reasons</el>
+<el tag="F0010002" owner="Sound Eklin" keyword="PatientCategorySize" vr="LO" vm="1">Patient Category Size</el>
+<el tag="F0010003" owner="Sound Eklin" keyword="PatientSexExtended" vr="LO" vm="1">Patient Sex Extended</el>
+<el tag="F0010004" owner="Sound Eklin" keyword="ImageView" vr="LO" vm="1">Image View</el>
+<el tag="F0010005" owner="Sound Eklin" keyword="AnatomyImaged" vr="LO" vm="1">Anatomy Imaged</el>
+<el tag="F0010006" owner="Sound Eklin" keyword="ImageEnhancements" vr="LO" vm="1">Image Enhancements</el>
+<el tag="F0010007" owner="Sound Eklin" keyword="DetectorSettings" vr="LO" vm="1">Detector Settings</el>
+<el tag="F0010008" owner="Sound Eklin" keyword="ApplicationVersion" vr="LO" vm="1">Application Version</el>
+<el tag="F0010009" owner="Sound Eklin" keyword="ImageLateralityExtended" vr="LO" vm="1">Image Laterality Extended</el>
+<el tag="F001000A" owner="Sound Eklin" keyword="ClientName" vr="PN" vm="1">Client Name</el>
+<el tag="F001000B" owner="Sound Eklin" keyword="ReferenceStudyInstanceUID" vr="UI" vm="1">Reference Study Instance UID</el>
+<el tag="F001000C" owner="Sound Eklin" keyword="ReferenceSeriesInstanceUID" vr="UI" vm="1">Reference Series Instance UID</el>
+<el tag="F001000D" owner="Sound Eklin" keyword="ExamRefId" vr="LO" vm="1">Exam Ref Id</el>
+<el tag="F001000E" owner="Sound Eklin" keyword="PhysicianOfRecordAddress" vr="ST" vm="1">Physician of Record Address</el>
+<el tag="F001000F" owner="Sound Eklin" keyword="PhysicianOfRecordPhoneNumbers" vr="SH" vm="1-n">Physician of Record Phone Numbers</el>
+<el tag="F0010010" owner="Sound Eklin" keyword="ReasonForStudy" vr="LT" vm="1">Reason for Study</el>
+<el tag="F0010011" owner="Sound Eklin" keyword="Protocol" vr="LO" vm="1">Protocol</el>
+<el tag="F0010012" owner="Sound Eklin" keyword="CaptureInputType" vr="LO" vm="1">Capture Input Type</el>
+<el tag="F0010013" owner="Sound Eklin" keyword="ExamComplaint" vr="LT" vm="1">Exam Complaint</el>
+<el tag="F0010014" owner="Sound Eklin" keyword="ExamWebCode" vr="LO" vm="1">Exam Web Code</el>
+<el tag="F0010015" owner="Sound Eklin" keyword="ExamCategory" vr="LO" vm="1">Exam Category</el>
+<el tag="F0010016" owner="Sound Eklin" keyword="ExamDiagnosis" vr="SH" vm="1">Exam Diagnosis</el>
+<el tag="F0010017" owner="Sound Eklin" keyword="ExamCreatedBy" vr="PN" vm="1">Exam Created By</el>
+<el tag="F0010018" owner="Sound Eklin" keyword="ExamCreatedByGroup" vr="LO" vm="1">Exam Created By Group</el>
+<el tag="F0010019" owner="Sound Eklin" keyword="ExamRequiredByDateTime" vr="DT" vm="1">Exam Required By DateTime</el>
+<el tag="F001001A" owner="Sound Eklin" keyword="CaptureType" vr="LO" vm="1">Capture Type</el>
+<el tag="F001001B" owner="Sound Eklin" keyword="TelemedExamID" vr="IS" vm="1">Telemed Exam ID</el>
+<el tag="F001001C" owner="Sound Eklin" keyword="ExamCreatedByGuid" vr="LO" vm="1">Exam Created By Guid</el>
+<el tag="F001001D" owner="Sound Eklin" keyword="ClientNameGuid" vr="LO" vm="1">Client Name Guid</el>
+<el tag="F001001E" owner="Sound Eklin" keyword="ReceptorBitsPerPixel" vr="LO" vm="1">Receptor Bits Per Pixel</el>
 <el tag="00310003" owner="NUMACALC-INVENTORY" vr="LO" vm="1"/>
 <el tag="00310004" owner="NUMACALC-INVENTORY" vr="SH" vm="1"/>
 <el tag="00310005" owner="NUMACALC-INVENTORY" vr="SH" vm="1"/>
@@ -2145,18 +2145,18 @@
 <el tag="00310007" owner="NUMACALC-INVENTORY" vr="LO" vm="1"/>
 <el tag="00310008" owner="NUMACALC-INVENTORY" vr="SH" vm="1"/>
 <el tag="00310009" owner="NUMACALC-INVENTORY" vr="SH" vm="1"/>
-<el tag="0031000a" owner="NUMACALC-INVENTORY" vr="LO" vm="1"/>
-<el tag="0031000c" owner="NUMACALC-INVENTORY" vr="UI" vm="1"/>
-<el tag="0031000e" owner="NUMACALC-INVENTORY" vr="DT" vm="1"/>
-<el tag="0031000f" owner="NUMACALC-INVENTORY" vr="DT" vm="1"/>
+<el tag="0031000A" owner="NUMACALC-INVENTORY" vr="LO" vm="1"/>
+<el tag="0031000C" owner="NUMACALC-INVENTORY" vr="UI" vm="1"/>
+<el tag="0031000E" owner="NUMACALC-INVENTORY" vr="DT" vm="1"/>
+<el tag="0031000F" owner="NUMACALC-INVENTORY" vr="DT" vm="1"/>
 <el tag="00310010" owner="NUMACALC-INVENTORY" vr="FD" vm="1"/>
 <el tag="00310011" owner="NUMACALC-INVENTORY" vr="PN" vm="1"/>
 <el tag="00310012" owner="NUMACALC-INVENTORY" vr="LO" vm="1"/>
 <el tag="00310014" owner="NUMACALC-INVENTORY" vr="FD" vm="1"/>
 <el tag="00310015" owner="NUMACALC-INVENTORY" vr="DT" vm="1"/>
-<el tag="0031001a" owner="NUMACALC-INVENTORY" vr="PN" vm="1"/>
-<el tag="0031001b" owner="NUMACALC-INVENTORY" vr="FD" vm="1"/>
-<el tag="0031001c" owner="NUMACALC-INVENTORY" vr="DT" vm="1"/>
+<el tag="0031001A" owner="NUMACALC-INVENTORY" vr="PN" vm="1"/>
+<el tag="0031001B" owner="NUMACALC-INVENTORY" vr="FD" vm="1"/>
+<el tag="0031001C" owner="NUMACALC-INVENTORY" vr="DT" vm="1"/>
 <el tag="00310021" owner="NUMACALC-INVENTORY" vr="PN" vm="1"/>
 <el tag="00310022" owner="NUMACALC-INVENTORY" vr="LO" vm="1"/>
 <el tag="00310023" owner="NUMACALC-INVENTORY" vr="SH" vm="1"/>
@@ -2166,14 +2166,14 @@
 <el tag="00310027" owner="NUMACALC-INVENTORY" vr="SH" vm="1"/>
 <el tag="00310028" owner="NUMACALC-INVENTORY" vr="SH" vm="1"/>
 <el tag="00310029" owner="NUMACALC-INVENTORY" vr="LO" vm="1"/>
-<el tag="0031002a" owner="NUMACALC-INVENTORY" vr="LO" vm="1"/>
-<el tag="0031002b" owner="NUMACALC-INVENTORY" vr="SH" vm="1"/>
-<el tag="0031002c" owner="NUMACALC-INVENTORY" vr="SH" vm="1"/>
-<el tag="0031002d" owner="NUMACALC-INVENTORY" vr="LO" vm="1"/>
+<el tag="0031002A" owner="NUMACALC-INVENTORY" vr="LO" vm="1"/>
+<el tag="0031002B" owner="NUMACALC-INVENTORY" vr="SH" vm="1"/>
+<el tag="0031002C" owner="NUMACALC-INVENTORY" vr="SH" vm="1"/>
+<el tag="0031002D" owner="NUMACALC-INVENTORY" vr="LO" vm="1"/>
 <el tag="00310032" owner="NUMACALC-INVENTORY" vr="LO" vm="1"/>
-<el tag="000d0002" owner="MEDCON" vr="SQ" vm="1"/>
-<el tag="000d0007" owner="MEDCON" vr="LO" vm="1"/>
-<el tag="000d0063" owner="MEDCON" vr="LT" vm="1"/>
+<el tag="000D0002" owner="MEDCON" vr="SQ" vm="1"/>
+<el tag="000D0007" owner="MEDCON" vr="LO" vm="1"/>
+<el tag="000D0063" owner="MEDCON" vr="LT" vm="1"/>
 <el tag="08630010" owner="Biospace Med : EOS Tag" vr="SL" vm="1"/>
 <el tag="08630023" owner="Biospace Med : EOS Tag" vr="SL" vm="1"/>
 <el tag="08630026" owner="Biospace Med : EOS Tag" vr="UL" vm="1"/>
@@ -2223,41 +2223,41 @@
 <el tag="00290050" owner="3DHISTECH ZOOMLEVEL REGION MAP" vr="UL" vm="1"/>
 <el tag="00290061" owner="3DHISTECH ZOOMLEVEL REGION MAP" vr="SQ" vm="1"/>
 <el tag="00290070" owner="3DHISTECH ZOOMLEVEL REGION MAP" vr="OB" vm="1"/>
-<el tag="002b0011" owner="3DHISTECH GENERAL PROPERTIES" vr="SH" vm="1"/>
-<el tag="002b0021" owner="3DHISTECH GENERAL PROPERTIES" vr="IS" vm="1"/>
-<el tag="002b0031" owner="3DHISTECH GENERAL PROPERTIES" vr="IS" vm="1"/>
-<el tag="002b0041" owner="3DHISTECH GENERAL PROPERTIES" vr="LT" vm="1"/>
-<el tag="002b0051" owner="3DHISTECH GENERAL PROPERTIES" vr="LT" vm="1"/>
-<el tag="002b0052" owner="3DHISTECH GENERAL PROPERTIES" vr="IS" vm="1"/>
-<el tag="002b0053" owner="3DHISTECH GENERAL PROPERTIES" vr="IS" vm="1"/>
-<el tag="002b0061" owner="3DHISTECH GENERAL PROPERTIES" vr="LT" vm="1"/>
-<el tag="002b0081" owner="3DHISTECH GENERAL PROPERTIES" vr="LT" vm="1"/>
-<el tag="002b0091" owner="3DHISTECH GENERAL PROPERTIES" vr="SH" vm="1"/>
-<el tag="002d0002" owner="3DHISTECH PYRAMID PROPERTIES" vr="LT" vm="1"/>
-<el tag="002f0001" owner="3DHISTECH CHANNEL PROPERTIES" vr="SQ" vm="1"/>
-<el tag="002f0011" owner="3DHISTECH CHANNEL PROPERTIES" vr="DS" vm="1"/>
-<el tag="002f0012" owner="3DHISTECH CHANNEL PROPERTIES" vr="DS" vm="1"/>
-<el tag="002f0013" owner="3DHISTECH CHANNEL PROPERTIES" vr="DS" vm="1"/>
-<el tag="002f0021" owner="3DHISTECH CHANNEL PROPERTIES" vr="IS" vm="1"/>
-<el tag="002f0022" owner="3DHISTECH CHANNEL PROPERTIES" vr="SH" vm="1"/>
-<el tag="002f0022" owner="3DHISTECH CHANNEL PROPERTIES" vr="SH" vm="1"/>
-<el tag="002f0023" owner="3DHISTECH CHANNEL PROPERTIES" vr="IS" vm="1"/>
-<el tag="002f0023" owner="3DHISTECH CHANNEL PROPERTIES" vr="IS" vm="1"/>
-<el tag="002f0023" owner="3DHISTECH CHANNEL PROPERTIES" vr="IS" vm="1"/>
-<el tag="002f0031" owner="3DHISTECH CHANNEL PROPERTIES" vr="IS" vm="1"/>
-<el tag="002f0041" owner="3DHISTECH CHANNEL PROPERTIES" vr="IS" vm="1"/>
-<el tag="002f0051" owner="3DHISTECH CHANNEL PROPERTIES" vr="IS" vm="1"/>
-<el tag="002f0052" owner="3DHISTECH CHANNEL PROPERTIES" vr="IS" vm="1"/>
-<el tag="002f0053" owner="3DHISTECH CHANNEL PROPERTIES" vr="IS" vm="1"/>
-<el tag="002f0054" owner="3DHISTECH CHANNEL PROPERTIES" vr="IS" vm="1"/>
-<el tag="002f0071" owner="3DHISTECH CHANNEL PROPERTIES" vr="IS" vm="1"/>
-<el tag="002f0072" owner="3DHISTECH CHANNEL PROPERTIES" vr="IS" vm="1"/>
-<el tag="002f0081" owner="3DHISTECH CHANNEL PROPERTIES" vr="SH" vm="1"/>
-<el tag="002f0082" owner="3DHISTECH CHANNEL PROPERTIES" vr="SH" vm="1"/>
-<el tag="002f0091" owner="3DHISTECH CHANNEL PROPERTIES" vr="IS" vm="1"/>
-<el tag="002f00a1" owner="3DHISTECH CHANNEL PROPERTIES" vr="DS" vm="1"/>
-<el tag="002f00a2" owner="3DHISTECH CHANNEL PROPERTIES" vr="DS" vm="1"/>
-<el tag="002f00a3" owner="3DHISTECH CHANNEL PROPERTIES" vr="DS" vm="1"/>
+<el tag="002B0011" owner="3DHISTECH GENERAL PROPERTIES" vr="SH" vm="1"/>
+<el tag="002B0021" owner="3DHISTECH GENERAL PROPERTIES" vr="IS" vm="1"/>
+<el tag="002B0031" owner="3DHISTECH GENERAL PROPERTIES" vr="IS" vm="1"/>
+<el tag="002B0041" owner="3DHISTECH GENERAL PROPERTIES" vr="LT" vm="1"/>
+<el tag="002B0051" owner="3DHISTECH GENERAL PROPERTIES" vr="LT" vm="1"/>
+<el tag="002B0052" owner="3DHISTECH GENERAL PROPERTIES" vr="IS" vm="1"/>
+<el tag="002B0053" owner="3DHISTECH GENERAL PROPERTIES" vr="IS" vm="1"/>
+<el tag="002B0061" owner="3DHISTECH GENERAL PROPERTIES" vr="LT" vm="1"/>
+<el tag="002B0081" owner="3DHISTECH GENERAL PROPERTIES" vr="LT" vm="1"/>
+<el tag="002B0091" owner="3DHISTECH GENERAL PROPERTIES" vr="SH" vm="1"/>
+<el tag="002D0002" owner="3DHISTECH PYRAMID PROPERTIES" vr="LT" vm="1"/>
+<el tag="002F0001" owner="3DHISTECH CHANNEL PROPERTIES" vr="SQ" vm="1"/>
+<el tag="002F0011" owner="3DHISTECH CHANNEL PROPERTIES" vr="DS" vm="1"/>
+<el tag="002F0012" owner="3DHISTECH CHANNEL PROPERTIES" vr="DS" vm="1"/>
+<el tag="002F0013" owner="3DHISTECH CHANNEL PROPERTIES" vr="DS" vm="1"/>
+<el tag="002F0021" owner="3DHISTECH CHANNEL PROPERTIES" vr="IS" vm="1"/>
+<el tag="002F0022" owner="3DHISTECH CHANNEL PROPERTIES" vr="SH" vm="1"/>
+<el tag="002F0022" owner="3DHISTECH CHANNEL PROPERTIES" vr="SH" vm="1"/>
+<el tag="002F0023" owner="3DHISTECH CHANNEL PROPERTIES" vr="IS" vm="1"/>
+<el tag="002F0023" owner="3DHISTECH CHANNEL PROPERTIES" vr="IS" vm="1"/>
+<el tag="002F0023" owner="3DHISTECH CHANNEL PROPERTIES" vr="IS" vm="1"/>
+<el tag="002F0031" owner="3DHISTECH CHANNEL PROPERTIES" vr="IS" vm="1"/>
+<el tag="002F0041" owner="3DHISTECH CHANNEL PROPERTIES" vr="IS" vm="1"/>
+<el tag="002F0051" owner="3DHISTECH CHANNEL PROPERTIES" vr="IS" vm="1"/>
+<el tag="002F0052" owner="3DHISTECH CHANNEL PROPERTIES" vr="IS" vm="1"/>
+<el tag="002F0053" owner="3DHISTECH CHANNEL PROPERTIES" vr="IS" vm="1"/>
+<el tag="002F0054" owner="3DHISTECH CHANNEL PROPERTIES" vr="IS" vm="1"/>
+<el tag="002F0071" owner="3DHISTECH CHANNEL PROPERTIES" vr="IS" vm="1"/>
+<el tag="002F0072" owner="3DHISTECH CHANNEL PROPERTIES" vr="IS" vm="1"/>
+<el tag="002F0081" owner="3DHISTECH CHANNEL PROPERTIES" vr="SH" vm="1"/>
+<el tag="002F0082" owner="3DHISTECH CHANNEL PROPERTIES" vr="SH" vm="1"/>
+<el tag="002F0091" owner="3DHISTECH CHANNEL PROPERTIES" vr="IS" vm="1"/>
+<el tag="002F00A1" owner="3DHISTECH CHANNEL PROPERTIES" vr="DS" vm="1"/>
+<el tag="002F00A2" owner="3DHISTECH CHANNEL PROPERTIES" vr="DS" vm="1"/>
+<el tag="002F00A3" owner="3DHISTECH CHANNEL PROPERTIES" vr="DS" vm="1"/>
 <el tag="00310001" owner="3DHISTECH SCAN INFORMATION PROPERTIES" vr="LT" vm="1"/>
 <el tag="00310002" owner="3DHISTECH SCAN INFORMATION PROPERTIES" vr="LT" vm="1"/>
 <el tag="00310011" owner="3DHISTECH SCAN INFORMATION PROPERTIES" vr="LT" vm="1"/>
@@ -2266,16 +2266,16 @@
 <el tag="00310022" owner="3DHISTECH SCAN INFORMATION PROPERTIES" vr="IS" vm="1"/>
 <el tag="00310031" owner="3DHISTECH SCAN INFORMATION PROPERTIES" vr="IS" vm="1"/>
 <el tag="00310032" owner="3DHISTECH SCAN INFORMATION PROPERTIES" vr="IS" vm="1"/>
-<el tag="003100b1" owner="3DHISTECH SCAN INFORMATION PROPERTIES" vr="LT" vm="1"/>
-<el tag="003100c1" owner="3DHISTECH SCAN INFORMATION PROPERTIES" vr="IS" vm="1"/>
-<el tag="003100f1" owner="3DHISTECH SCAN INFORMATION PROPERTIES" vr="IS" vm="1"/>
-<el tag="003100f2" owner="3DHISTECH SCAN INFORMATION PROPERTIES" vr="LT" vm="1"/>
-<el tag="003100f3" owner="3DHISTECH SCAN INFORMATION PROPERTIES" vr="IS" vm="1"/>
-<el tag="003100f4" owner="3DHISTECH SCAN INFORMATION PROPERTIES" vr="IS" vm="1"/>
-<el tag="003100f5" owner="3DHISTECH SCAN INFORMATION PROPERTIES" vr="DS" vm="1"/>
-<el tag="003100f6" owner="3DHISTECH SCAN INFORMATION PROPERTIES" vr="IS" vm="1"/>
-<el tag="003100f7" owner="3DHISTECH SCAN INFORMATION PROPERTIES" vr="IS" vm="1"/>
-<el tag="003100f8" owner="3DHISTECH SCAN INFORMATION PROPERTIES" vr="IS" vm="1"/>
+<el tag="003100B1" owner="3DHISTECH SCAN INFORMATION PROPERTIES" vr="LT" vm="1"/>
+<el tag="003100C1" owner="3DHISTECH SCAN INFORMATION PROPERTIES" vr="IS" vm="1"/>
+<el tag="003100F1" owner="3DHISTECH SCAN INFORMATION PROPERTIES" vr="IS" vm="1"/>
+<el tag="003100F2" owner="3DHISTECH SCAN INFORMATION PROPERTIES" vr="LT" vm="1"/>
+<el tag="003100F3" owner="3DHISTECH SCAN INFORMATION PROPERTIES" vr="IS" vm="1"/>
+<el tag="003100F4" owner="3DHISTECH SCAN INFORMATION PROPERTIES" vr="IS" vm="1"/>
+<el tag="003100F5" owner="3DHISTECH SCAN INFORMATION PROPERTIES" vr="DS" vm="1"/>
+<el tag="003100F6" owner="3DHISTECH SCAN INFORMATION PROPERTIES" vr="IS" vm="1"/>
+<el tag="003100F7" owner="3DHISTECH SCAN INFORMATION PROPERTIES" vr="IS" vm="1"/>
+<el tag="003100F8" owner="3DHISTECH SCAN INFORMATION PROPERTIES" vr="IS" vm="1"/>
 <el tag="00330001" owner="3DHISTECH OVERVIEW IMAGE PROPERTIES" vr="IS" vm="1"/>
 <el tag="00330002" owner="3DHISTECH OVERVIEW IMAGE PROPERTIES" vr="IS" vm="1"/>
 <el tag="00330003" owner="3DHISTECH OVERVIEW IMAGE PROPERTIES" vr="IS" vm="1"/>
@@ -2305,14 +2305,14 @@
 <el tag="00630040" owner="UIH_CT_MISC" vr="DS" vm="1"/>
 <el tag="00630041" owner="UIH_CT_MISC" vr="DS" vm="1"/>
 <el tag="00630049" owner="UIH_CT_MISC" vr="CS" vm="1"/>
-<el tag="0063004b" owner="UIH_CT_MISC" vr="DS" vm="1"/>
-<el tag="0063004c" owner="UIH_CT_MISC" vr="DS" vm="1"/>
+<el tag="0063004B" owner="UIH_CT_MISC" vr="DS" vm="1"/>
+<el tag="0063004C" owner="UIH_CT_MISC" vr="DS" vm="1"/>
 <el tag="00630078" owner="UIH_CT_MISC" vr="SS" vm="1"/>
 <el tag="00630084" owner="UIH_CT_MISC" vr="SS" vm="1"/>
 <el tag="00630086" owner="UIH_CT_MISC" vr="US" vm="1"/>
 <el tag="00630098" owner="UIH_CT_MISC" vr="FL" vm="1"/>
 <el tag="00670007" owner="Blood" vr="LO" vm="1"/>
-<el tag="0067000d" owner="Blood" vr="SH" vm="1"/>
+<el tag="0067000D" owner="Blood" vr="SH" vm="1"/>
 <el tag="11290001" owner="Eigen Artemis" keyword="PatientID" vr="IS" vm="1">Patient ID</el>
 <el tag="11290002" owner="Eigen Artemis" keyword="ProcedureID" vr="LO" vm="1">Procedure ID</el>
 <el tag="11290003" owner="Eigen Artemis" keyword="ThreeDPointFile" vr="LT" vm="1">3D Point File</el>
