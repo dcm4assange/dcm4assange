@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ This file is generated from element dictionary template files included in
+  ~ David Clunie's Dicom3tools Software (https://www.dclunie.com/dicom3tools.html)
+-->
+
 <remoteResourcesBundle xmlns="http://maven.apache.org/remote-resources/1.1.0"
                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                        xsi:schemaLocation="http://maven.apache.org/remote-resources/1.1.0
