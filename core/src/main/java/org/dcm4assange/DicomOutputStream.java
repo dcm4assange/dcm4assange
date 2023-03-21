@@ -42,6 +42,7 @@ public class DicomOutputStream extends OutputStream  {
     private boolean includeGroupLength;
     private boolean undefSequenceLength;
     private boolean undefItemLength;
+    private boolean withoutBulkData;
     private byte[] b12 = new byte[12];
     private byte[] buffer;
 
@@ -92,6 +93,15 @@ public class DicomOutputStream extends OutputStream  {
 
     public DicomOutputStream withUndefItemLength(boolean undefItemLength) {
         this.undefItemLength = undefItemLength;
+        return this;
+    }
+
+    public boolean withoutBulkData() {
+        return withoutBulkData;
+    }
+
+    public DicomOutputStream withoutBulkData(boolean withoutBulkData) {
+        this.withoutBulkData = withoutBulkData;
         return this;
     }
 
@@ -251,12 +261,24 @@ public class DicomOutputStream extends OutputStream  {
     }
 
     void write(int tag, VR vr, String bulkDataURI) throws IOException {
-        if (encoding == DicomEncoding.SERIALIZE) {
-            byte[] b = bulkDataURI.getBytes(StandardCharsets.UTF_8);
-            int hlen = fillHeader(tag, vr, b.length, b12);
-            b12[4] |= BULKDATA_VR_BIT; // set first bit of VR code to mark serialized Bulkdata URI
-            write(b12, 0, hlen);
-            write(b, 0, b.length);
+        if (withoutBulkData) {
+            encoding.byteOrder.tagToBytes(tag, b12, 0);
+            if (encoding.explicitVR) {
+                byte[] b = bulkDataURI.getBytes(StandardCharsets.UTF_8);
+                int padding = b.length & 1;
+                b12[4] = (byte) ((vr.code >>> 8) | BULKDATA_VR_BIT);
+                b12[5] = (byte) vr.code;
+                encoding.byteOrder.shortToBytes(b.length + padding, b12, 6);
+                write(b12, 0, 8);
+                write(b, 0, b.length);
+                if (padding != 0) write(' ');
+            } else {
+                b12[4] = 0;
+                b12[5] = 0;
+                b12[6] = 0;
+                b12[7] = 0;
+                write(b12, 0, 8);
+            }
         } else {
             URI uri = URI.create(bulkDataURI);
             Path path = Paths.get(uri.getPath());

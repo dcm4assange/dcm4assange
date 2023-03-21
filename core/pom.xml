@@ -32,6 +32,7 @@
       <groupId>org.dcm4assange</groupId>
       <artifactId>dcm4assange-standard</artifactId>
       <version>${project.version}</version>
+      <optional>true</optional>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>

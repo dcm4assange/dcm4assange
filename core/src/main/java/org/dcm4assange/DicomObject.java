@@ -289,7 +289,8 @@ public class DicomObject implements Serializable {
     }
 
     public void setBulkDataURI(int tag, VR vr, String bulkdataURI) {
-        add(tag, vr, Objects.requireNonNull(bulkdataURI));
+        add(DicomInputStream.BULKDATA_HEADER_BIT | vr.toHeader() | (tag & 0xffffffffL),
+                Objects.requireNonNull(bulkdataURI));
     }
 
     public void setInt(int tag, VR vr, int... vals) {
@@ -483,7 +484,7 @@ public class DicomObject implements Serializable {
             long header = headers[index];
             if (!TagUtils.isGroupLength(header2tag(header))) {
                 VR vr = VR.fromHeader(header);
-                int l = (vr.evr8 || !dos.encoding().explicitVR ? 8 : 12)
+                int l = headerLength(dos, header, vr)
                         + valueLength(dos, header, vr, index, DicomObject::calculateLength)
                         + (dos.undefSequenceLength() && vr == VR.SQ ? 8 : 0);
                 length += l;
@@ -491,6 +492,12 @@ public class DicomObject implements Serializable {
         }
         this.length = length;
         return length;
+    }
+
+    private static int headerLength(DicomOutputStream dos, long header, VR vr) {
+        return vr.evr8 || !dos.encoding().explicitVR
+                || dos.withoutBulkData() && (header & DicomInputStream.BULKDATA_HEADER_BIT) != 0
+                ? 8 : 12;
     }
 
     int calculateLengthWithGroupLength(DicomOutputStream dos) {
@@ -503,7 +510,7 @@ public class DicomObject implements Serializable {
             int tag = header2tag(header);
             if (!TagUtils.isGroupLength(tag)) {
                 VR vr = VR.fromHeader(header);
-                int l = (vr.evr8 || !dos.encoding().explicitVR ? 8 : 12)
+                int l = headerLength(dos, header, vr)
                         + valueLength(dos, header, vr, index, DicomObject::calculateLengthWithGroupLength)
                         + (dos.undefSequenceLength() && vr == VR.SQ ? 8 : 0);
                 length += l;
@@ -523,7 +530,9 @@ public class DicomObject implements Serializable {
                             ToIntBiFunction<DicomObject, DicomOutputStream> calc) {
         Object value = values[index];
         if (value instanceof String bulkDataURI) {
-            if (dos.encoding() == DicomEncoding.SERIALIZE) {
+            if (dos.withoutBulkData()) {
+                if (!dos.encoding().explicitVR)
+                    return 0;
                 final int strlen = bulkDataURI.length();
                 int utflen = bulkDataURI.length();
                 for (int i = 0; i < strlen; i++) {
@@ -531,24 +540,37 @@ public class DicomObject implements Serializable {
                     if (c >= 0x80 || c == 0)
                         utflen += (c >= 0x800) ? 2 : 1;
                 }
-                return utflen;
+                return (utflen + 1) & ~1;
             }
-        } else {
-            if (value instanceof Sequence seq) {
-                int size = seq.size();
-                int length = (dos.undefItemLength() ? 16 : 8) * size;
-                for (int i = 0; i < size; i++) {
-                    DicomObject item = seq.getItem(i);
-                    length += calc.applyAsInt(item, dos);
+            if ((header & DicomInputStream.EVR12_HEADER_BITS) != 0)
+                return dicomInput.header2valueLength(header);
+            int i = bulkDataURI.lastIndexOf("length=");
+            if (i >= 0) {
+                i += 7;
+                int j = bulkDataURI.indexOf(',', i);
+                try {
+                    return Integer.parseUnsignedInt(j < 0
+                            ? bulkDataURI.substring(i)
+                            : bulkDataURI.substring(i, j));
+                } catch (NumberFormatException e) {
                 }
-                return length;
             }
-            if (value instanceof String[] ss) {
-                values[index] = value = vr.type.toBytes(ss, DicomObject.this);
+            return -1;
+        }
+        if (value instanceof Sequence seq) {
+            int size = seq.size();
+            int length = (dos.undefItemLength() ? 16 : 8) * size;
+            for (int i = 0; i < size; i++) {
+                DicomObject item = seq.getItem(i);
+                length += calc.applyAsInt(item, dos);
             }
-            if (value instanceof byte[] b) {
-                return (b.length + 1) & ~1;
-            }
+            return length;
+        }
+        if (value instanceof String[] ss) {
+            values[index] = value = vr.type.toBytes(ss, DicomObject.this);
+        }
+        if (value instanceof byte[] b) {
+            return (b.length + 1) & ~1;
         }
         return header2valueLength(header);
     }
@@ -611,13 +633,13 @@ public class DicomObject implements Serializable {
         @Serial
         private void readObject(ObjectInputStream ois) throws IOException, ClassNotFoundException {
             ois.defaultReadObject();
-            dcmobj = new DicomInputStream(ois).withEncoding(DicomEncoding.SERIALIZE).readDataSet();
+            dcmobj = new DicomInputStream(ois).withEncoding(DicomEncoding.EVR_LE).readDataSet();
         }
 
         @Serial
         private void writeObject(ObjectOutputStream oos) throws IOException {
             oos.defaultWriteObject();
-            new DicomOutputStream(oos).withEncoding(DicomEncoding.SERIALIZE).writeDataSet(dcmobj);
+            new DicomOutputStream(oos).withEncoding(DicomEncoding.EVR_LE).withoutBulkData(true).writeDataSet(dcmobj);
         }
 
         @Serial

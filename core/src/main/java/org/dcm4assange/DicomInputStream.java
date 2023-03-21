@@ -18,7 +18,10 @@ import java.util.function.Predicate;
 public class DicomInputStream extends InputStream {
 
     public static final long POSITION_HEADER_MASK = 0x007fffffffffffffL;
-    private static final long BULKDATA_HEADER_BIT = 0x2000000000000000L;
+    static final long BULKDATA_HEADER_BIT = 0x2000000000000000L;
+    static final long IVR_HEADER_BIT = 0x4000000000000000L;
+    static final long EVR8_HEADER_BIT = 0x8000000000000000L;
+    static final long EVR12_HEADER_BITS = 0xc000000000000000L;
 
     @FunctionalInterface
     public interface PreambleHandler {
@@ -293,7 +296,8 @@ public class DicomInputStream extends InputStream {
         if ((header & BULKDATA_HEADER_BIT) != 0) { // test for mark for serialized Bulkdata URI
             byte[] b = new byte[vallen];
             read(b);
-            dcmObj.add(header, new String(b, StandardCharsets.UTF_8));
+            dcmObj.add(header,
+                    new String(b, 0, b[vallen - 1] <= ' ' ? vallen - 1 : vallen, StandardCharsets.UTF_8));
             return true;
         }
         long unsignedValueLength = vallen & 0xffffffffL;
@@ -447,21 +451,19 @@ public class DicomInputStream extends InputStream {
             case Tag.Item:
             case Tag.ItemDelimitationItem:
             case Tag.SequenceDelimitationItem:
-                return pos0 | 0x4000000000000000L;
+                return IVR_HEADER_BIT | pos0;
         }
         if (!input.encoding.explicitVR) {
-            return pos0 | 0x4000000000000000L | lookupVR(tag, dcmObj).toHeader();
+            return IVR_HEADER_BIT | lookupVR(tag, dcmObj).toHeader() | pos0;
         }
         int vrcode = cache.vrcode(pos0 + 4);
-        long bulkdata = 0;
-        if (vrcode < 0 && encoding() == DicomEncoding.SERIALIZE) { // negative vrcode marks serialized Bulkdata URI
-            vrcode &= 0x7fff; // clear mark and restore VR code
-            bulkdata = BULKDATA_HEADER_BIT; // set Bit 61 of header to mark serialized Bulkdata URI
+        if (vrcode < 0) { // negative vrcode marks serialized Bulkdata URI
+            VR vr = vrOf(vrcode, tag, dcmObj);
+            return EVR8_HEADER_BIT | BULKDATA_HEADER_BIT | vr.toHeader() | pos0;
         }
-        VR vr = VR.of(vrcode);
-        if (vr == null) vr = lookupVR(tag, dcmObj); // replace invalid vrcode
+        VR vr = vrOf(vrcode, tag, dcmObj);
         if (vr.evr8) {
-            return pos0 | 0x8000000000000000L | bulkdata | vr.toHeader();
+            return EVR8_HEADER_BIT | vr.toHeader() | pos0;
         }
         if (pos0 + 12 > cache.limit()) {
             throw new EOFException();
@@ -471,7 +473,12 @@ public class DicomInputStream extends InputStream {
             vr = lookupVR(tag, dcmObj);
         if (vr == VR.UN && input.intAt(pos0+ 8) == -1)
             vr = VR.SQ;
-        return pos0 | 0xc000000000000000L | bulkdata | vr.toHeader();
+        return EVR12_HEADER_BITS | vr.toHeader() | pos0;
+    }
+
+    private static VR vrOf(int vrcode, int tag, DicomObject dcmObj) {
+        VR vr = VR.of(vrcode);
+        return vr != null ? vr : lookupVR(tag, dcmObj); // replace invalid vrcode
     }
 
     private static VR lookupVR(int tag, DicomObject dcmObj) {

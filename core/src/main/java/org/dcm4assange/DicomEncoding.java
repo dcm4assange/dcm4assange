@@ -8,8 +8,7 @@ public enum DicomEncoding {
     IVR_LE(false, ByteOrder.LITTLE_ENDIAN, false, UID.ImplicitVRLittleEndian),
     EVR_LE(true, ByteOrder.LITTLE_ENDIAN, false, UID.ExplicitVRLittleEndian),
     EVR_BE(true, ByteOrder.BIG_ENDIAN, false, UID.ExplicitVRBigEndian),
-    DEFL_EVR_LE(true, ByteOrder.LITTLE_ENDIAN, true, UID.DeflatedExplicitVRLittleEndian),
-    SERIALIZE(true, ByteOrder.LITTLE_ENDIAN, false, null);
+    DEFL_EVR_LE(true, ByteOrder.LITTLE_ENDIAN, true, UID.DeflatedExplicitVRLittleEndian);
 
     public final boolean explicitVR;
     public final ByteOrder byteOrder;
