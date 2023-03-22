@@ -26,8 +26,6 @@ import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
-import java.util.Arrays;
-import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -183,20 +181,46 @@ public class DicomOutputStreamTest {
     }
 
     @Test
-    public void writeWithoutBulkData() throws IOException {
-        byte[] WF_SEQ_IVR_LE = {
+    public void writeBulkDataIVRExclude() throws IOException {
+        byte[] expected = {
+                0, 84, 0, 1, 8, 0, 0, 0,
+                -2, -1, 0, -32, 0, 0, 0, 0
+        };
+        writeBulkData(expected, DicomEncoding.IVR_LE, DicomOutputStream.IncludeBulkData.EXCLUDE_ATTRIBUTE);
+    }
+
+    @Test
+    public void writeBulkDataIVRNullify() throws IOException {
+        byte[] expected = {
                 0, 84, 0, 1, 16, 0, 0, 0,
                 -2, -1, 0, -32, 8, 0, 0, 0,
                 0, 84, 16, 16, 0, 0, 0, 0
         };
+        writeBulkData(expected, DicomEncoding.IVR_LE, DicomOutputStream.IncludeBulkData.NULLIFY_VALUE);
+    }
+
+    @Test
+    public void writeBulkDataURI() throws IOException {
+        byte[] expected = {
+                0, 84, 0, 1, 'S', 'Q', 0, 0, 38, 0, 0, 0,
+                -2, -1, 0, -32, 30, 0, 0, 0,
+                0, 84, 16, 16, 'O' | -128, 'B', 22, 0,
+                'h', 't', 't', 'p', 's', ':', '/', '/', 'h', 'o', 's', 't', '/', 'b', 'u', 'l', 'k', 'd', 'a', 't', 'a', ' '
+        };
+        writeBulkData(expected, DicomEncoding.EVR_LE, DicomOutputStream.IncludeBulkData.BULK_DATA_URI);
+    }
+
+    private static void writeBulkData(
+            byte[] expected, DicomEncoding encoding, DicomOutputStream.IncludeBulkData includeBulkData)
+            throws IOException {
         DicomObject dataset = createWaveformSequence("https://host/bulkdata");
         ByteArrayOutputStream bout = new ByteArrayOutputStream();
         try (DicomOutputStream dos = new DicomOutputStream(bout)
-                .withEncoding(DicomEncoding.IVR_LE)
-                .withoutBulkData(true)) {
+                .withEncoding(encoding)
+                .withIncludeBulkData(includeBulkData)) {
             dos.writeDataSet(dataset);
         }
-        assertArrayEquals(WF_SEQ_IVR_LE, bout.toByteArray());
+        assertArrayEquals(expected, bout.toByteArray());
     }
 
     private static DicomObject createWaveformSequence(String waveformDataURI) {

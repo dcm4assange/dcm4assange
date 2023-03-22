@@ -42,9 +42,13 @@ public class DicomOutputStream extends OutputStream  {
     private boolean includeGroupLength;
     private boolean undefSequenceLength;
     private boolean undefItemLength;
-    private boolean withoutBulkData;
+    private IncludeBulkData includeBulkData = IncludeBulkData.YES;
     private byte[] b12 = new byte[12];
     private byte[] buffer;
+
+    public enum IncludeBulkData {
+        YES, EXCLUDE_ATTRIBUTE, NULLIFY_VALUE, BULK_DATA_URI
+    }
 
     public DicomOutputStream(OutputStream out) {
         this.out = Objects.requireNonNull(out);
@@ -55,7 +59,9 @@ public class DicomOutputStream extends OutputStream  {
     }
 
     public DicomOutputStream withEncoding(DicomEncoding encoding) {
-        this.encoding = Objects.requireNonNull(encoding);
+        if (!Objects.requireNonNull(encoding).explicitVR && includeBulkData == IncludeBulkData.BULK_DATA_URI)
+            throw new IllegalStateException("BULK_DATA_URI not supported with IVR_LE encoding");
+        this.encoding = encoding;
         if (encoding.deflated) {
             out = new DeflaterOutputStream(out, new Deflater(Deflater.DEFAULT_COMPRESSION, true));
         }
@@ -96,12 +102,14 @@ public class DicomOutputStream extends OutputStream  {
         return this;
     }
 
-    public boolean withoutBulkData() {
-        return withoutBulkData;
+    public IncludeBulkData includeBulkData() {
+        return includeBulkData;
     }
 
-    public DicomOutputStream withoutBulkData(boolean withoutBulkData) {
-        this.withoutBulkData = withoutBulkData;
+    public DicomOutputStream withIncludeBulkData(IncludeBulkData includeBulkData) {
+        if (Objects.requireNonNull(includeBulkData) == IncludeBulkData.BULK_DATA_URI && !encoding.explicitVR)
+            throw new IllegalStateException("BULK_DATA_URI not supported with IVR_LE encoding");
+        this.includeBulkData = includeBulkData;
         return this;
     }
 
@@ -261,37 +269,37 @@ public class DicomOutputStream extends OutputStream  {
     }
 
     void write(int tag, VR vr, String bulkDataURI) throws IOException {
-        if (withoutBulkData) {
-            encoding.byteOrder.tagToBytes(tag, b12, 0);
-            if (encoding.explicitVR) {
-                byte[] b = bulkDataURI.getBytes(StandardCharsets.UTF_8);
-                int padding = b.length & 1;
-                b12[4] = (byte) ((vr.code >>> 8) | BULKDATA_VR_BIT);
-                b12[5] = (byte) vr.code;
-                encoding.byteOrder.shortToBytes(b.length + padding, b12, 6);
-                write(b12, 0, 8);
-                write(b, 0, b.length);
-                if (padding != 0) write(' ');
-            } else {
-                b12[4] = 0;
-                b12[5] = 0;
-                b12[6] = 0;
-                b12[7] = 0;
-                write(b12, 0, 8);
-            }
-        } else {
-            URI uri = URI.create(bulkDataURI);
-            Path path = Paths.get(uri.getPath());
-            long offsetAndLength = offsetAndLength(uri.getFragment());
-            int offset = (int) (offsetAndLength >>> 32);
-            int length = (int) offsetAndLength;
-            writeHeader(tag, vr, length);
-            try (InputStream in = Files.newInputStream(path)) {
-                byte[] buffer = buffer();
-                skip(in, offset, buffer);
-                copy(in, length, buffer);
-            }
+        switch (includeBulkData) {
+            case YES -> writeBulkData(tag, vr, bulkDataURI);
+            case NULLIFY_VALUE -> writeHeader(tag, vr, 0);
+            case BULK_DATA_URI -> writeBulkDataURI(tag, vr, bulkDataURI);
         }
+    }
+
+    private void writeBulkData(int tag, VR vr, String bulkDataURI) throws IOException {
+        URI uri = URI.create(bulkDataURI);
+        Path path = Paths.get(uri.getPath());
+        long offsetAndLength = offsetAndLength(uri.getFragment());
+        int offset = (int) (offsetAndLength >>> 32);
+        int length = (int) offsetAndLength;
+        writeHeader(tag, vr, length);
+        try (InputStream in = Files.newInputStream(path)) {
+            byte[] buffer = buffer();
+            skip(in, offset, buffer);
+            copy(in, length, buffer);
+        }
+    }
+
+    private void writeBulkDataURI(int tag, VR vr, String bulkDataURI) throws IOException {
+        encoding.byteOrder.tagToBytes(tag, b12, 0);
+        byte[] b = bulkDataURI.getBytes(StandardCharsets.UTF_8);
+        int padding = b.length & 1;
+        b12[4] = (byte) ((vr.code >>> 8) | BULKDATA_VR_BIT);
+        b12[5] = (byte) vr.code;
+        encoding.byteOrder.shortToBytes(b.length + padding, b12, 6);
+        write(b12, 0, 8);
+        write(b, 0, b.length);
+        if (padding != 0) write(' ');
     }
 
     private static long offsetAndLength(String fragment) {
