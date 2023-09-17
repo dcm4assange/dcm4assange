@@ -1,5 +1,5 @@
 cd "`dirname "$0"`"
-DICOM3TOOLS=dicom3tools_1.00.snapshot.20220618093127
+DICOM3TOOLS=dicom3tools_1.00.snapshot.20230917093524
 curl https://www.dclunie.com/dicom3tools/workinprogress/${DICOM3TOOLS}.tar.bz2 | \
 tar xj --strip-components=4 \
 ${DICOM3TOOLS}/libsrc/standard/elmdict/acuson.tpl \
