@@ -74,6 +74,10 @@ public class DcmBenchMark implements Callable<Integer> {
             description = "Read Pixel Data from file.")
     boolean pixelData;
 
+    @CommandLine.Option(names = "-b", paramLabel = "<bytes>",
+            description = "Length of allocated byte arrays.")
+    int blockSize = 8192;
+
     public static void main(String[] args) {
         new CommandLine(new DcmBenchMark()).execute(args);
     }
@@ -86,7 +90,7 @@ public class DcmBenchMark implements Callable<Integer> {
         for (int i = 1; i <= measurements; i++) {
             long start = System.nanoTime();
             for (int j = 0; j < samples; j++) {
-                try (DicomInputStream dis = new DicomInputStream(file)) {
+                try (DicomInputStream dis = new DicomInputStream(file, blockSize)) {
                     list.add((pixelData ? dis : dis.stopBefore(Tag.PixelData)).readDataSet());
                 }
             }

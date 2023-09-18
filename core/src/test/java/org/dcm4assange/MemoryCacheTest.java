@@ -24,7 +24,7 @@ public class MemoryCacheTest {
 
     @Test
     public void fillFrom() throws IOException {
-        MemoryCache memoryCache = new MemoryCache();
+        MemoryCache memoryCache = new MemoryCache(MemoryCache.DEFAULT_BLOCK_SIZE);
         InputStream in = createInputStream(1000, 255);
         assertEquals(400, memoryCache.fillFrom(in, 400));
         assertEquals(800, memoryCache.fillFrom(in, 800));

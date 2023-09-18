@@ -12,11 +12,22 @@ import java.util.zip.InflaterInputStream;
  * @since Mar 2021
  */
 class MemoryCache {
+    static final int DEFAULT_BLOCK_SIZE = 8192;
     private static final int MAX_BUFFER_SIZE = 2048;
+    private final int blockSize;
+    private final int blockSizeBits;
+    private final int blockMask;
     private final ArrayList<byte[]> blocks = new ArrayList<>();
     private long limit;
     private boolean eof;
     private final LinkedList<Segment> skippedBytes = new LinkedList<>();
+
+    public MemoryCache(int minBlockSize) {
+        int z = Integer.numberOfLeadingZeros(minBlockSize - 1);
+        this.blockMask = -1 >>> z;
+        this.blockSize = blockMask + 1;
+        this.blockSizeBits = 32 - z;
+    }
 
     long limit() {
         return limit;
@@ -31,7 +42,7 @@ class MemoryCache {
             return Math.min(this.limit, length);
         }
         while (this.limit < length) {
-            byte[] buf = new byte[blocks.isEmpty() ? 0x100 : 0x80 << blocks.size()];
+            byte[] buf = new byte[blockSize];
             int read = in.readNBytes(buf, 0, buf.length);
             blocks.add(buf);
             this.limit += read;
@@ -64,7 +75,7 @@ class MemoryCache {
         }
         int index = blockIndex(pos1);
         byte[] b = blocks.get(index);
-        int off = blockOffset(b, pos1);
+        int off = blockOffset(pos1);
         while (blocks.size() > index + 1) {
             blocks.remove(index + 1);
         }
@@ -79,7 +90,7 @@ class MemoryCache {
     private void writeTo(OutputStream out, long pos, long len) throws IOException {
         while (len > 0) {
             byte[] b = blocks.get(blockIndex(pos));
-            int off = blockOffset(b, pos);
+            int off = blockOffset(pos);
             int write = (int) Math.min(b.length - off, len);
             out.write(b, off, write);
             pos += write;
@@ -90,9 +101,9 @@ class MemoryCache {
     private long arraycopy(long srcPos, long destPos, int len) {
         while (len > 0) {
             byte[] src = blocks.get(blockIndex(srcPos));
-            int srcOff = blockOffset(src, srcPos);
+            int srcOff = blockOffset(srcPos);
             byte[] dest = blocks.get(blockIndex(destPos));
-            int destOff = blockOffset(dest, destPos);
+            int destOff = blockOffset(destPos);
             int copy = Math.min(Math.min(src.length - srcOff, dest.length - destOff), len);
             System.arraycopy(src, srcOff, dest, destOff, copy);
             srcPos += copy;
@@ -141,13 +152,13 @@ class MemoryCache {
     byte byteAt(long pos) {
         pos -= skippedBytes(pos);
         byte[] b = blocks.get(blockIndex(pos));
-        return b[blockOffset(b, pos)];
+        return b[blockOffset(pos)];
     }
 
     short shortAt(long pos, ByteOrder byteOrder) {
         pos -= skippedBytes(pos);
         byte[] b = blocks.get(blockIndex(pos));
-        int offset = blockOffset(b, pos);
+        int offset = blockOffset(pos);
         return (offset + 1 < b.length)
                 ? byteOrder.bytesToShort(b, offset)
                 : byteOrder.bytesToShort(byteAt(pos), byteAt(pos + 1));
@@ -160,7 +171,7 @@ class MemoryCache {
     int intAt(long pos, ByteOrder byteOrder) {
         pos -= skippedBytes(pos);
         byte[] b = blocks.get(blockIndex(pos));
-        int offset = blockOffset(b, pos);
+        int offset = blockOffset(pos);
         return (offset + 3 < b.length)
                 ? byteOrder.bytesToInt(b, offset)
                 : byteOrder.bytesToInt(byteAt(pos), byteAt(pos + 1), byteAt(pos + 2), byteAt(pos + 3));
@@ -169,7 +180,7 @@ class MemoryCache {
     int tagAt(long pos, ByteOrder byteOrder) {
         pos -= skippedBytes(pos);
         byte[] b = blocks.get(blockIndex(pos));
-        int offset = blockOffset(b, pos);
+        int offset = blockOffset(pos);
         return (offset + 3 < b.length)
                 ? byteOrder.bytesToTag(b, offset)
                 : byteOrder.bytesToTag(byteAt(pos), byteAt(pos + 1), byteAt(pos + 2), byteAt(pos + 3));
@@ -178,7 +189,7 @@ class MemoryCache {
     long longAt(long pos, ByteOrder byteOrder) {
         pos -= skippedBytes(pos);
         byte[] b = blocks.get(blockIndex(pos));
-        int offset = blockOffset(b, pos);
+        int offset = blockOffset(pos);
         return (offset + 7 < b.length)
                 ? byteOrder.bytesToLong(b, offset)
                 : byteOrder.bytesToLong(byteAt(pos), byteAt(pos + 1), byteAt(pos + 2), byteAt(pos + 3),
@@ -187,7 +198,7 @@ class MemoryCache {
     String stringAt(long pos, int length, SpecificCharacterSet cs) {
         pos -= skippedBytes(pos);
         byte[] b = blocks.get(blockIndex(pos));
-        int offset = blockOffset(b, pos);
+        int offset = blockOffset(pos);
         return (offset + length <= b.length)
                 ? cs.decode(b, offset, length)
                 : cs.decode(bytesAt0(pos, length), 0, length);
@@ -207,7 +218,7 @@ class MemoryCache {
     void copyBytesTo(long pos, byte[] dest, int destPos, int length) {
         int i = blockIndex(pos);
         byte[] src = blocks.get(i);
-        int srcPos = blockOffset(src, pos);
+        int srcPos = blockOffset(pos);
         int copy =  Math.min(length, src.length - srcPos);
         System.arraycopy(src, srcPos, dest, destPos, copy);
         int remaining = length;
@@ -225,7 +236,7 @@ class MemoryCache {
         }
         int i = blockIndex(pos);
         byte[] src = blocks.get(i);
-        int srcPos = blockOffset(src, pos);
+        int srcPos = blockOffset(pos);
         int rlen = Math.min(length, src.length - srcPos);
         out.write(src, srcPos, rlen);
         int remaining = length;
@@ -260,7 +271,7 @@ class MemoryCache {
         PushbackInputStream pushbackInputStream = new PushbackInputStream(in, size);
         long pos1 = pos - skippedBytes(pos);
         byte[] b = blocks.get(blockIndex(pos1));
-        int offset = blockOffset(b, pos1);
+        int offset = blockOffset(pos1);
         pushbackInputStream.unread(b, offset, size);
         InflaterInputStream inflaterInputStream = new InflaterInputStream(pushbackInputStream,
                 new Inflater(b[offset] != 120 || b[offset+1] != -100));
@@ -270,15 +281,12 @@ class MemoryCache {
         return inflaterInputStream;
     }
 
-    private static int blockIndex(long pos) {
-        int i = 8;
-        while ((pos >>> i) != 0)
-            i++;
-        return i - 8;
+    private int blockIndex(long pos) {
+        return (int) (pos >>> blockSizeBits);
     }
 
-    private static int blockOffset(byte[] block, long pos) {
-        return (int) (pos & (block.length - 1));
+    private int blockOffset(long pos) {
+        return (int) pos & blockMask;
     }
 
     DicomInput dicomInput(DicomEncoding encoding) {

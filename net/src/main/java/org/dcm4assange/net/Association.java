@@ -661,7 +661,7 @@ public class Association implements Runnable {
                     throw AAbort.userInitiated();
                 if (pc.result != AAssociate.AC.Result.ACCEPTANCE)
                     throw AAbort.userInitiated();
-                DicomObject commandSet = new DicomInputStream(this).readCommandSet();
+                DicomObject commandSet = new DicomInputStream(this, pdvRemaining).readCommandSet();
                 int commandField = commandSet.getInt(Tag.CommandField).orElseThrow(() -> AAbort.userInitiated());
                 mch = FIRST_DATA;
                 switch (commandField) {

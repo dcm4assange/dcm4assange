@@ -60,13 +60,21 @@ public class DicomInputStream extends InputStream {
     private DicomObject fmi;
 
     public DicomInputStream(Path path) throws IOException {
-        this(Files.newInputStream(path));
+        this(path, MemoryCache.DEFAULT_BLOCK_SIZE);
+    }
+
+    public DicomInputStream(Path path, int minBlockSize) throws IOException {
+        this(Files.newInputStream(path), minBlockSize);
         this.path = path;
     }
 
     public DicomInputStream(InputStream in) {
+        this(in, MemoryCache.DEFAULT_BLOCK_SIZE);
+    }
+
+    public DicomInputStream(InputStream in, int minBlockSize) {
         this.in = Objects.requireNonNull(in);
-        this.cache = new MemoryCache();
+        this.cache = new MemoryCache(minBlockSize);
     }
 
     DicomInputStream(DicomInput input) {
